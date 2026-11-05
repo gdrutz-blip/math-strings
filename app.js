@@ -90,7 +90,7 @@
       if (/\s/.test(c)) {
         m = rest.match(/^\s+([xX×*\/÷:])\s+/);
         if (m) { out += op(m[1]); i += m[0].length; continue; }
-        i++; continue;
+        out += ' '; i++; continue;
       }
       if ('+=×*÷<>≤≥'.includes(c)) { out += op(c); i++; continue; }
       if ('-−–'.includes(c)) {
@@ -676,7 +676,7 @@ Rules:
     const exprPart = P.quick && main
       ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
-    const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${esc(a.t)}</span>`).join('');
+    const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
     const strokes = d.strokes.map((st, i) => `<path data-s="${i}" d="${strokePath(st.pts)}" stroke="${st.c}" stroke-width="${st.w || 5}"/>`).join('');
     const maxY = d.strokes.reduce((m, st) => Math.max(m, ...st.pts.map(p => p[1])), 0);
     return `<div class="board ${main ? 'main' : 'thumb'}" data-idx="${idx}" style="${mode === 'thumb' && maxY ? `min-height:${maxY + 12}px` : ''}">
@@ -696,7 +696,10 @@ Rules:
     </div>`;
   }
   function modelOut(m) {
-    if (m.type === 'text') return m.input ? `<div class="words">${esc(m.input)}</div>` : `<div class="words empty placeholder">Type the student's words above</div>`;
+    if (m.type === 'text') {
+      const lines = String(m.input || '').split(';').map(l => l.trim()).filter(Boolean);
+      return lines.length ? `<div class="words">${lines.map(l => `<div class="wline">${exprHTML(l)}</div>`).join('')}</div>` : `<div class="words empty placeholder">Type the student's words or equations above</div>`;
+    }
     let r;
     try { r = TOOL[m.type].render(m.input || '', m.labels || {}, m); } catch (e) { r = { error: 'Could not draw that yet' }; }
     if (r.empty) return `<div class="placeholder">Type above to draw</div>`;
@@ -758,6 +761,9 @@ Rules:
     stage.innerHTML = `<div class="stage-inner" style="zoom:${z}">${boardHTML(S.active, 'main')}</div>`;
     const board = $('.board.main', stage);
     board.style.minHeight = Math.max(300, (stage.clientHeight - 60) / z) + 'px';
+    const head = $('.prob-head', board);
+    stage.onscroll = () => head.classList.toggle('stuck', stage.scrollTop > 4);
+    stage.onscroll();
     setupInk();
   }
 
@@ -816,6 +822,7 @@ Rules:
     if (type === 'numberline') { const m = q.match(/^\s*(-?\d*\.?\d+(?:\/\d+)?)/); if (m) input = m[1] + ' '; }
     if ((type === 'area' || type === 'array') && /[x×*]/.test(q)) input = q.replace(/×|\*/g, 'x');
     if (type === 'clock' && /\d\/\d/.test(q)) input = q;
+    if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
     d.models.push({ type, input, labels: {} });
     saveSession(); renderStage(); refreshRailCard(S.active);
     const inp = $$('.board.main [data-min]').pop();

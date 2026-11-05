@@ -17,6 +17,19 @@
     if (Number.isInteger(v)) return String(v);
     return String(parseFloat(v.toFixed(4)));
   }
+  // 0.75 -> "3/4", 1.25 -> "1 1/4" (denominators up to 100)
+  function toFrac(v) {
+    v = round(v);
+    if (Number.isInteger(v)) return String(v);
+    for (let d = 2; d <= 100; d++) {
+      const n = Math.round(v * d);
+      if (Math.abs(n / d - v) < 1e-9) {
+        const sign = n < 0 ? '-' : '', an = Math.abs(n), w = Math.floor(an / d), r = an % d;
+        return sign + (w ? w + ' ' : '') + r + '/' + d;
+      }
+    }
+    return fmt(v);
+  }
   const signed = (d, lbl) => (d < 0 ? '−' : '+') + (lbl || fmt(Math.abs(d)));
   const minus = s => String(s).replace(/^-/, '−');
 
@@ -77,14 +90,16 @@
   function numberline(input, labels) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
-    const toks = s.match(/[>@~]\s*-?\s*\d*\.?\d+(?:\s*\/\s*\d+)?|[+-]?\s*\d*\.?\d+(?:\s*\/\s*\d+)?/g);
+    const toks = s.match(/[>@~]\s*-?\s*\d*\.?\d+(?:\s*\/\s*\d+)?|[+-]?\s*\d*\.?\d+(?:\s*\/\s*\d+)?(?:\s*x\s*\d+)?/g);
     if (!toks) return { error: 'Start with a number, e.g. 38 +10 -1' };
+    const fracMode = /\d\/\d/.test(s);
+    const ptLabel = v => fracMode ? toFrac(v) : fmt(v);
     const pts = new Map();
     const addPt = (v, label, start) => {
       const k = round(v);
       const p = pts.get(k) || { v: k, label, start: false };
       if (start) p.start = true;
-      if (label && (!p.label || label.includes('/'))) p.label = label;
+      if (label && !p.label) p.label = label;
       pts.set(k, p);
     };
     const arcs = [];
@@ -92,18 +107,22 @@
     toks.forEach((raw, i) => {
       const t = raw.replace(/\s+/g, '');
       const op = /^[>@~+-]/.test(t) ? t[0] : '';
-      if (i === 0) { const pv = parseVal(t); if (pv) { cur = pv.v; addPt(pv.v, pv.label, true); } return; }
+      if (i === 0) { const pv = parseVal(t); if (pv) { cur = pv.v; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label, true); } return; }
       if (op === '+' || op === '-') {
-        const pv = parseVal(t.slice(1)); if (!pv || cur == null) return;
+        const [amt, times] = t.slice(1).split('x');
+        const pv = parseVal(amt); if (!pv || cur == null) return;
+        const reps = Math.min(Math.max(parseInt(times || '1', 10) || 1, 1), 40);
         const d = op === '+' ? pv.v : -pv.v;
-        const from = cur; cur = round(cur + d);
-        addPt(cur, pv.frac ? null : fmt(cur));
-        arcs.push({ from, to: cur, label: signed(d, pv.label), kind: d >= 0 ? 'fwd' : 'back' });
+        for (let k = 0; k < reps; k++) {
+          const from = cur; cur = round(cur + d);
+          addPt(cur, ptLabel(cur));
+          arcs.push({ from, to: cur, label: signed(d, pv.label), kind: d >= 0 ? 'fwd' : 'back' });
+        }
       } else {
         const pv = parseVal(op ? t.slice(1) : t); if (!pv) return;
-        if (op === '@' || !op) { addPt(pv.v, pv.label); cur = pv.v; }
-        else if (op === '>') { const from = cur; if (from == null) return; addPt(pv.v, pv.label); cur = pv.v; const d = round(pv.v - from); arcs.push({ from, to: pv.v, label: signed(d), kind: d >= 0 ? 'fwd' : 'back' }); }
-        else if (op === '~') { const from = cur; if (from == null) return; addPt(pv.v, pv.label); cur = pv.v; arcs.push({ from, to: pv.v, label: fmt(Math.abs(pv.v - from)), kind: 'gap' }); }
+        if (op === '@' || !op) { addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; }
+        else if (op === '>') { const from = cur; if (from == null) return; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; const d = round(pv.v - from); arcs.push({ from, to: pv.v, label: signed(Math.abs(d) < 1e-12 ? 0 : d, fracMode ? toFrac(Math.abs(d)) : null), kind: d >= 0 ? 'fwd' : 'back' }); }
+        else if (op === '~') { const from = cur; if (from == null) return; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; arcs.push({ from, to: pv.v, label: ptLabel(Math.abs(pv.v - from)), kind: 'gap' }); }
       }
     });
     if (!pts.size) return { error: 'Start with a number, e.g. 38 +10 -1' };
@@ -194,81 +213,142 @@
     return { svg: svg(y0 + rh * 2 + 16, body) };
   }
 
+  const C_ = C;
+  // "30+8 x 7", "40-2 x 20", or "40x20 - 2x20" -> [[terms of left factor], [terms of right factor]]
+  // Each term: {v, label, neg}. The first term of a side is always positive.
   function parseFactors(input) {
-    const s = norm(input).replace(/\*/g, 'x').replace(/[()]/g, ' ');
+    let s = norm(input).replace(/\*/g, 'x').replace(/[()]/g, ' ').trim();
+    // "40x20 - 2x20" / "40x20 + 40x3": rewrite to a single product when one factor is shared
+    const two = s.match(/^([\d.\/]+)\s*x\s*([\d.\/]+)\s*([+-])\s*([\d.\/]+)\s*x\s*([\d.\/]+)$/i);
+    if (two) {
+      const [, a, b, op, c, d] = two;
+      if (b === d) s = `${a}${op}${c} x ${b}`;
+      else if (a === c) s = `${a} x ${b}${op}${d}`;
+      else if (b === c) s = `${a}${op}${d} x ${b}`;
+      else if (a === d) s = `${a} x ${b}${op}${c}`;
+      else return null;
+    }
     const sides = s.split(/\s*x\s*/i).map(t => t.trim()).filter(Boolean);
     if (sides.length !== 2) return null;
-    const parts = sides.map(side => side.split('+').map(t => parseVal(t.trim())));
-    if (parts.some(p => p.some(v => !v || v.v <= 0))) return null;
+    const parts = sides.map(side => {
+      const terms = []; const re = /([+-]?)\s*([\d.]+(?:\/[\d.]+)?)/g; let m;
+      const leftover = side.replace(re, '').trim();
+      if (leftover) return null;
+      while ((m = re.exec(side))) { const pv = parseVal(m[2]); if (!pv || pv.v <= 0) return null; terms.push({ v: pv.v, label: pv.label, neg: m[1] === '-' }); }
+      if (!terms.length || terms[0].neg) return null;
+      const pos = terms.filter(t => !t.neg).reduce((a, t) => a + t.v, 0), neg = terms.filter(t => t.neg).reduce((a, t) => a + t.v, 0);
+      if (neg >= pos) return null;
+      return terms;
+    });
+    if (parts.some(p => !p)) return null;
     return parts;
   }
+  // Lay out the terms of one side: positive parts side by side, subtracted parts carved from the far end.
+  function layoutSide(terms, scale, minPos, minNeg) {
+    const pos = terms.filter(t => !t.neg), neg = terms.filter(t => t.neg);
+    const sizes = pos.map(t => Math.max(t.v * scale, minPos));
+    const out = []; let x = 0;
+    pos.forEach((t, i) => { out.push({ t, a: x, b: x + sizes[i] }); x += sizes[i]; });
+    let end = x;
+    const negOut = neg.map(t => { const w = Math.max(t.v * scale, minNeg); const r = { t, a: end - w, b: end }; end -= w; return r; });
+    return { pos: out, neg: negOut, total: x };
+  }
 
-  /* ---------- Area model ----------  30+8 x 7    or   20+3 x 10+4 */
+  /* ---------- Area model ----------  30+8 x 7   ·   20+3 x 10+4   ·   40-2 x 20 */
   function area(input, labels, model) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
     const f = parseFactors(s);
-    if (!f) return { error: 'Type it like 30+8 x 7 (split with +)' };
-    const [rowsP, colsP] = [f[1], f[0]]; // left factor runs across the top
-    const sumC = colsP.reduce((a, b) => a + b.v, 0), sumR = rowsP.reduce((a, b) => a + b.v, 0);
-    let k = Math.min(720 / sumC, 300 / sumR);
-    const ws = colsP.map(p => Math.max(p.v * k, 74)), hs = rowsP.map(p => Math.max(p.v * k, 58));
-    const tw = ws.reduce((a, b) => a + b, 0), th = hs.reduce((a, b) => a + b, 0);
-    const sc = Math.min(1, 760 / tw, 320 / th);
-    const W2 = ws.map(w => w * sc), H2 = hs.map(h => h * sc);
-    const x0 = (W - W2.reduce((a, b) => a + b, 0)) / 2 + 30, y0 = 44;
+    if (!f) return { error: 'Type it like 30+8 x 7, or 40-2 x 20 to take a strip away' };
+    const [colsT, rowsT] = f; // left factor runs across the top
+    const posSum = ts => ts.filter(t => !t.neg).reduce((a, t) => a + t.v, 0);
+    const k0 = Math.min(720 / posSum(colsT), 300 / posSum(rowsT));
+    let C = layoutSide(colsT, k0, 74, 40), R = layoutSide(rowsT, k0, 58, 34);
+    const sc = Math.min(1, 720 / C.total, 300 / R.total);
+    if (sc < 1) { C = layoutSide(colsT, k0 * sc, 74 * sc, 34), R = layoutSide(rowsT, k0 * sc, 58 * sc, 30); }
+    const hasNegC = C.neg.length > 0, hasNegR = R.neg.length > 0;
+    const x0 = (W - C.total) / 2 + 20 - (hasNegR ? 30 : 0), y0 = 44;
     const hidden = new Set((model && model.hidden) || []);
-    let body = '', x = x0;
-    colsP.forEach((c, i) => { body += text(x + W2[i] / 2, y0 - 14, c.label, { size: 24, weight: 700, fill: C.fwd }); x += W2[i]; });
-    let y = y0;
-    rowsP.forEach((r, j) => {
-      body += text(x0 - 14, y + H2[j] / 2 + 8, r.label, { size: 24, weight: 700, fill: C.fwd, anchor: 'end' });
-      let xx = x0;
-      colsP.forEach((c, i) => {
-        const key = i + '_' + j, fill = C.fills[(i + j * colsP.length) % C.fills.length];
-        body += `<rect class="cell-toggle" data-cell="${key}" x="${xx}" y="${y}" width="${W2[i]}" height="${H2[j]}" fill="${fill}" fill-opacity=".22" stroke="${C.ink}" stroke-width="2.5"/>`;
-        const fs = Math.max(15, Math.min(30, Math.min(W2[i], H2[j]) / 2.6));
-        const prod = parseVal(r.label) && parseVal(c.label) ? fmt(r.v * c.v) : '';
-        const l = editable('c' + key, labels, hidden.has(key) ? '?' : prod);
-        body += text(xx + W2[i] / 2, y + H2[j] / 2 + fs / 3, l.text, { size: fs, weight: 700, edit: 'c' + key, custom: l.custom });
-        xx += W2[i];
-      });
-      y += H2[j];
+    const num = v => fmt(v);
+    let body = '';
+    C.pos.forEach(c => (body += text(x0 + (c.a + c.b) / 2, y0 - 14, c.t.label, { size: 24, weight: 700, fill: C_.fwd })));
+    R.pos.forEach(r => (body += text(x0 - 14, y0 + (r.a + r.b) / 2 + 8, r.t.label, { size: 24, weight: 700, fill: C_.fwd, anchor: 'end' })));
+    R.pos.forEach((r, j) => C.pos.forEach((c, i) => {
+      const key = i + '_' + j, fill = C_.fills[(i + j * C.pos.length) % C_.fills.length];
+      const w = c.b - c.a, hh = r.b - r.a;
+      body += `<rect class="cell-toggle" data-cell="${key}" x="${x0 + c.a}" y="${y0 + r.a}" width="${w}" height="${hh}" fill="${fill}" fill-opacity=".22" stroke="${C_.ink}" stroke-width="2.5"/>`;
+      // keep the product clear of any strip being taken away
+      let cx = c.a + w / 2, cy = r.a + hh / 2, avW = w, avH = hh;
+      const cut = C.neg.length ? Math.min(...C.neg.map(n => n.a)) : Infinity, cutR = R.neg.length ? Math.min(...R.neg.map(n => n.a)) : Infinity;
+      if (c.b > cut) { avW = Math.max(30, cut - c.a); cx = c.a + avW / 2; }
+      if (r.b > cutR) { avH = Math.max(30, cutR - r.a); cy = r.a + avH / 2; }
+      const fs = Math.max(15, Math.min(30, Math.min(avW, avH) / 2.6));
+      const l = editable('c' + key, labels, hidden.has(key) ? '?' : num(c.t.v * r.t.v));
+      body += text(x0 + cx, y0 + cy + fs / 3, l.text, { size: fs, weight: 700, edit: 'c' + key, custom: l.custom });
+    }));
+    const H = R.total, Wd = C.total;
+    const strip = (x, y, w, hh, key, val) => {
+      body += `<rect class="cell-toggle" data-cell="${key}" x="${x}" y="${y}" width="${w}" height="${hh}" fill="url(#hatch)" fill-opacity=".85" stroke="${C_.back}" stroke-width="3" stroke-dasharray="7 4"/>`;
+      const fs = Math.max(14, Math.min(26, Math.min(w, hh) / 2.2));
+      const l = editable('c' + key, labels, hidden.has(key) ? '?' : '−' + num(val));
+      body += `<text x="${x + w / 2}" y="${y + hh / 2 + fs / 3}" text-anchor="middle" font-size="${fs}" font-weight="700" fill="${C_.back}" paint-order="stroke" stroke="#fff" stroke-width="5" class="editable${l.custom ? ' custom' : ''}" data-edit="c${key}">${esc(l.text)}</text>`;
+    };
+    C.neg.forEach((n, i) => {
+      R.pos.forEach((r, j) => strip(x0 + n.a, y0 + r.a, n.b - n.a, r.b - r.a, `n${i}_${j}`, n.t.v * r.t.v));
+      body += text(x0 + (n.a + n.b) / 2, y0 + H + 30, '−' + n.t.label, { size: 24, weight: 700, fill: C_.back });
+      body += `<line x1="${x0 + n.a}" y1="${y0 + H + 6}" x2="${x0 + n.b}" y2="${y0 + H + 6}" stroke="${C_.back}" stroke-width="3"/>`;
     });
-    return { svg: svg(y + 20, body) };
+    R.neg.forEach((n, j) => {
+      C.pos.forEach((c, i) => strip(x0 + c.a, y0 + n.a, c.b - c.a, n.b - n.a, `m${i}_${j}`, n.t.v * c.t.v));
+      body += text(x0 + Wd + 14, y0 + (n.a + n.b) / 2 + 8, '−' + n.t.label, { size: 24, weight: 700, fill: C_.back, anchor: 'start' });
+      body += `<line x1="${x0 + Wd + 6}" y1="${y0 + n.a}" x2="${x0 + Wd + 6}" y2="${y0 + n.b}" stroke="${C_.back}" stroke-width="3"/>`;
+    });
+    return { svg: svg(y0 + H + (hasNegC ? 48 : 20), body) };
   }
 
-  /* ---------- Array (dots) ----------  6 x 8   or   6 x 5+3 */
+  /* ---------- Array (dots) ----------  6 x 8  ·  6 x 5+3  ·  10-1 x 12 */
   function array(input) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
     const f = parseFactors(s);
-    if (!f) return { error: 'Type it like 6 x 8 or 6 x 5+3' };
-    const rowsP = f[0].map(p => p.v), colsP = f[1].map(p => p.v);
-    const R = rowsP.reduce((a, b) => a + b, 0), Cc = colsP.reduce((a, b) => a + b, 0);
-    if ([...rowsP, ...colsP].some(v => !Number.isInteger(v)) || R > 40 || Cc > 60) return { error: 'Dots need whole numbers (up to 40 × 60). Try the Area model.' };
+    if (!f) return { error: 'Type it like 6 x 8, 6 x 5+3, or 10-1 x 12' };
+    let [rowsT, colsT] = f;
+    const pos = ts => ts.filter(t => !t.neg), neg = ts => ts.filter(t => t.neg);
+    const sum = ts => ts.reduce((a, t) => a + t.v, 0);
+    if ([...rowsT, ...colsT].some(t => !Number.isInteger(t.v))) return { error: 'Dots need whole numbers. Try the Area model.' };
+    let flipped = false;
+    // a tall, skinny array reads better turned on its side
+    if (sum(pos(rowsT)) > 14 && sum(pos(rowsT)) > sum(pos(colsT)) * 1.3) { [rowsT, colsT] = [colsT, rowsT]; flipped = true; }
+    const R = sum(pos(rowsT)), Cc = sum(pos(colsT));
+    if (R > 40 || Cc > 80) return { error: 'Too many dots to see (keep it within 40 × 80). Try the Area model.' };
     const gapU = 0.9;
-    const sp = Math.min(34, 820 / (Cc + gapU * (colsP.length - 1)), 330 / (R + gapU * (rowsP.length - 1)));
-    const r = sp * 0.32;
-    const tw = sp * (Cc + gapU * (colsP.length - 1)), x0 = (W - tw) / 2 + sp / 2 + 20, y0 = 50;
-    let body = '';
-    const colX = [], rowY = [];
-    colsP.forEach((n, gi) => { const base = colX.length ? colX[colX.length - 1] + sp * (1 + gapU) : x0; for (let i = 0; i < n; i++) colX.push(base + i * sp); });
-    rowsP.forEach((n, gi) => { const base = rowY.length ? rowY[rowY.length - 1] + sp * (1 + gapU) : y0; for (let i = 0; i < n; i++) rowY.push(base + i * sp); });
-    let ci = 0;
-    colsP.forEach((n, gi) => { const a = colX[ci], b = colX[ci + n - 1]; body += text((a + b) / 2, y0 - sp / 2 - 12, String(n), { size: 22, weight: 700, fill: C.fwd }); ci += n; });
-    let ri = 0;
-    rowsP.forEach((n, gi) => { const a = rowY[ri], b = rowY[ri + n - 1]; body += text(x0 - sp / 2 - 14, (a + b) / 2 + 8, String(n), { size: 22, weight: 700, fill: C.fwd, anchor: 'end' }); ri += n; });
-    let rIdx = 0;
-    rowsP.forEach((rn, rg) => {
-      for (let i = 0; i < rn; i++, rIdx++) {
-        let cIdx = 0;
-        colsP.forEach((cn, cg) => {
-          for (let j = 0; j < cn; j++, cIdx++) body += `<circle cx="${colX[cIdx]}" cy="${rowY[rIdx]}" r="${r}" fill="${C.fills[(cg + rg * colsP.length) % C.fills.length]}"/>`;
-        });
-      }
-    });
-    return { svg: svg(rowY[rowY.length - 1] + sp + 10, body) };
+    const sp = Math.min(34, 820 / (Cc + gapU * (pos(colsT).length - 1)), 330 / (R + gapU * (pos(rowsT).length - 1)));
+    const r = Math.max(1.6, sp * 0.32);
+    const tw = sp * (Cc + gapU * (pos(colsT).length - 1)), x0 = (W - tw) / 2 + sp / 2, y0 = 50;
+    const place = (terms, base) => { const out = []; terms.forEach((t, gi) => { const start = out.length ? out[out.length - 1].p + sp * (1 + gapU) : base; for (let i = 0; i < t.v; i++) out.push({ p: start + i * sp, g: gi }); }); return out; };
+    const colX = place(pos(colsT), x0), rowY = place(pos(rowsT), y0);
+    const negCols = sum(neg(colsT)), negRows = sum(neg(rowsT));
+    let body = '', ci = 0, ri = 0;
+    pos(colsT).forEach(t => { const a = colX[ci].p, b = colX[ci + t.v - 1].p; body += text((a + b) / 2, y0 - sp / 2 - 12, t.label, { size: 22, weight: 700, fill: C_.fwd }); ci += t.v; });
+    pos(rowsT).forEach(t => { const a = rowY[ri].p, b = rowY[ri + t.v - 1].p; body += text(x0 - sp / 2 - 14, (a + b) / 2 + 8, t.label, { size: 22, weight: 700, fill: C_.fwd, anchor: 'end' }); ri += t.v; });
+    rowY.forEach((ry, i) => colX.forEach((cx, j) => {
+      const gone = j >= colX.length - negCols || i >= rowY.length - negRows;
+      body += gone
+        ? `<circle cx="${cx.p}" cy="${ry.p}" r="${r}" fill="#fff" stroke="${C_.back}" stroke-width="${Math.max(1.2, r * 0.35)}"/>`
+        : `<circle cx="${cx.p}" cy="${ry.p}" r="${r}" fill="${C_.fills[(cx.g + ry.g * 2) % C_.fills.length]}"/>`;
+    }));
+    const lastY = rowY[rowY.length - 1].p, lastX = colX[colX.length - 1].p;
+    if (negCols) {
+      const a = colX[colX.length - negCols].p - sp / 2, b = lastX + sp / 2;
+      body += `<rect x="${a}" y="${y0 - sp / 2}" width="${b - a}" height="${lastY - y0 + sp}" fill="none" stroke="${C_.back}" stroke-width="3" stroke-dasharray="7 4" rx="6"/>`;
+      body += text((a + b) / 2, lastY + sp / 2 + 28, '−' + neg(colsT).map(t => t.label).join(' − '), { size: 22, weight: 700, fill: C_.back });
+    }
+    if (negRows) {
+      const a = rowY[rowY.length - negRows].p - sp / 2, b = lastY + sp / 2;
+      body += `<rect x="${x0 - sp / 2}" y="${a}" width="${lastX - x0 + sp}" height="${b - a}" fill="none" stroke="${C_.back}" stroke-width="3" stroke-dasharray="7 4" rx="6"/>`;
+      body += text(lastX + sp / 2 + 12, (a + b) / 2 + 8, '−' + neg(rowsT).map(t => t.label).join(' − '), { size: 22, weight: 700, fill: C_.back, anchor: 'start' });
+    }
+    return { svg: svg(lastY + sp / 2 + (negCols ? 44 : 14), body) };
   }
 
   /* ---------- Double number line ----------  miles:hours, 0:0, 60:1, 30:0.5, 150:2.5 */
@@ -299,13 +379,14 @@
 
   /* ---------- Clock (fractions of an hour) ----------  1/4 + 1/3    3/4 - 1/6    5/12 */
   function clock(input, labels) {
-    const s = norm(input).replace(/\s+/g, '');
+    const s = norm(input).trim();
     if (!s) return { empty: true };
     const terms = [];
-    const re = /([+-]?)(\d+(?:\/\d+)?)/g; let m;
+    const re = /([+-]?)\s*(?:(\d+)\s+(?=\d+\s*\/))?(\d+(?:\s*\/\s*\d+)?)/g; let m;
     while ((m = re.exec(s))) {
-      const pv = parseVal(m[2]); if (!pv) continue;
-      terms.push({ sign: m[1] === '-' ? -1 : 1, v: pv.v, label: pv.label });
+      const pv = parseVal(m[3]); if (!pv) continue;
+      const whole = m[2] ? +m[2] : 0;
+      terms.push({ sign: m[1] === '-' ? -1 : 1, v: whole + pv.v, label: (whole ? whole + ' ' : '') + pv.label });
     }
     if (!terms.length) return { error: 'Type fractions like 1/4 + 1/3' };
     const sectors = []; let cur = 0;
@@ -336,7 +417,10 @@
           const [x1, y1] = pt(cx, a, R - 2), [x2, y2] = pt(cx, b, R - 2);
           body += `<path d="M${cx} ${cy} L${x1} ${y1} A${R - 2} ${R - 2} 0 ${b - a > 30 ? 1 : 0} 1 ${x2} ${y2} Z" fill="${fill}" fill-opacity="${op}" stroke="${C.ink}" stroke-width="1.5"/>`;
         }
-        if (b - a >= 4) { const [lx, ly] = pt(cx, (a + b) / 2, R * 0.5); body += `<text x="${lx}" y="${ly + 7}" text-anchor="middle" font-size="${b - a >= 8 ? 20 : 15}" font-weight="700" fill="${C.ink}" paint-order="stroke" stroke="#fff" stroke-width="4">${fmt(b - a)}</text>`; }
+        // label the part that is still showing (subtractions take minutes off the end)
+        let la = a, lb = b;
+        if (sct.kind === 'add') sectors.forEach(o => { if (o.kind === 'sub') { const oa = Math.max(o.a, k * 60) - k * 60, ob = Math.min(o.b, (k + 1) * 60) - k * 60; if (oa < lb && ob >= lb - 0.0001 && oa > la) lb = oa; } });
+        if (lb - la >= 4) { const [lx, ly] = pt(cx, (la + lb) / 2, R * 0.5); body += `<text x="${lx}" y="${ly + 7}" text-anchor="middle" font-size="${b - a >= 8 ? 20 : 15}" font-weight="700" fill="${C.ink}" paint-order="stroke" stroke="#fff" stroke-width="4">${fmt(b - a)}</text>`; }
       });
       for (let t = 0; t < 60; t++) {
         const big = t % 5 === 0;
@@ -420,14 +504,14 @@
   }
 
   const TOOLS = [
-    { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  76 >80 >100 (jump to)  ·  @100 (mark)  ·  ~100 (show gap)' },
+    { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  76 >80 >100 (jump to)  ·  0 +20x3 (3 jumps of 20)  ·  @100 (mark)  ·  ~100 (show gap)' },
     { id: 'ratio', name: 'Ratio table', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  optional names first: bags:apples, 1:7' },
-    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  20+3 x 10+4  ·  click a box to hide/show its product' },
-    { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split the columns)' },
+    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40-2 x 20 (or 40x20 - 2x20)  ·  click a box to hide/show its product' },
+    { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
     { id: 'doubleline', name: 'Double number line', short: 'Double line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  5/12  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
-    { id: 'text', name: 'Words', key: '8', icon: '✎', render: null, help: 'Write a student’s words, e.g. “jump to 48, then back 1”' },
+    { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
 
   window.MSModels = { TOOLS, esc, norm, parseVal, fmt };

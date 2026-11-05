@@ -174,12 +174,14 @@ details.more[open] summary { margin-bottom: 12px; }
 .rail-card .rnum { position: absolute; top: 6px; right: 8px; font-size: 12px; color: var(--faint); font-weight: 700; z-index: 2; }
 .rail-more { text-align: center; color: var(--faint); font-size: 14px; padding: 6px; }
 
-.stage { overflow-y: auto; overflow-x: hidden; position: relative; padding: 18px 26px 40px; }
+.stage { overflow-y: auto; overflow-x: hidden; position: relative; padding: 0 26px 40px; }
 .stage-inner { width: 100%; }
 
 /* the board is laid out at 1000px and zoomed to fit */
 .board { width: 1000px; position: relative; }
 .prob-head { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 18px; min-height: 90px; }
+.board.main .prob-head { position: sticky; top: 0; z-index: 4; background: #fff; padding: 14px 0 10px; border-bottom: 1px solid transparent; }
+.board.main .prob-head.stuck { border-bottom-color: var(--line); box-shadow: 0 8px 12px -10px rgba(20, 30, 50, .25); }
 .expr { font-size: 64px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; line-height: 1.1; display: inline-flex; align-items: center; }
 .expr .op { color: var(--soft); font-weight: 400; padding: 0 .22em; }
 .frac { display: inline-flex; flex-direction: column; align-items: center; font-size: .62em; line-height: 1; vertical-align: middle; }
@@ -221,7 +223,9 @@ input.quick-input:focus { outline: none; border-bottom-color: var(--accent); }
 .model-svg .editable { cursor: text; }
 .model-svg .editable:hover { text-decoration: underline; text-decoration-style: dotted; }
 .model-svg .cell-toggle { cursor: pointer; }
-.words { font-size: 38px; font-weight: 700; line-height: 1.25; color: var(--ink); padding: 6px 4px; text-align: center; min-height: 40px; }
+.words { font-size: 38px; font-weight: 700; line-height: 1.3; color: var(--ink); padding: 6px 4px; text-align: center; min-height: 40px; display: grid; gap: 8px; }
+.words .wline .op { color: var(--soft); font-weight: 400; padding: 0 .2em; }
+.ans .op { color: inherit; font-weight: 400; padding: 0 .12em; }
 .words.empty { color: var(--faint); font-size: 18px; font-weight: 400; }
 .label-edit { position: fixed; z-index: 60; font-size: 20px; font-weight: 700; padding: 6px 10px; border: 2px solid var(--accent); border-radius: 8px; box-shadow: var(--shadow); width: 260px; }
 
@@ -242,7 +246,7 @@ input.quick-input:focus { outline: none; border-bottom-color: var(--accent); }
 
 .overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }
 .overview .rail-card { padding: 10px 14px 14px; }
-.over-title { font-size: 26px; font-weight: 700; margin: 0 0 14px; color: var(--soft); }
+.over-title { font-size: 26px; font-weight: 700; margin: 18px 0 14px; color: var(--soft); }
 
 .end-note { margin: 30px auto; text-align: center; color: var(--soft); font-size: 18px; }
 

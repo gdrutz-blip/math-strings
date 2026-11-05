@@ -66,12 +66,17 @@ If you edit a string in the app, your edited copy wins on that computer. The lib
 | Number line | `38 +10 -1` | start at 38, jump +10, back 1 |
 | | `76 >80 >100` | jump *to* 80, then to 100 |
 | | `89 ~100` | the gap (distance) from 89 to 100 |
+| | `0 +20x3` | three jumps of 20 |
+| | `0 +1/4x3 ~2` | fraction jumps (points labeled as fractions) |
 | | `@100` | mark a point |
 | Ratio table | `bags:apples, 1:7, 10:70, 5:35` | table with ×/÷ arrows |
 | Area model | `30+8 x 7` | split rectangle with partial products |
+| | `40-2 x 20` or `40x20 - 2x20` | 40 × 20 with a 2 × 20 strip taken away |
 | Array | `6 x 5+3` | dot array split into 5 and 3 |
+| | `10-1 x 12` or `40x20 - 2x20` | dots with a row/column crossed out |
 | Double number line | `miles:hours, 0:0, 60:1, 150:2.5` | two aligned lines |
 | Clock | `3/4 + 1/3` | shaded minutes of an hour |
+| Words & equations | `38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40` | student words or equations; `;` starts a new line |
 | Bar model | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` | tape diagrams |
 
 Click any label on a drawing to replace it with the student's words.
