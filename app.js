@@ -354,7 +354,7 @@
 
 Rules:
 - "id" must be unique and stay the same if you revise a string later (that's how the app knows to update it).
-- "tool" is the model I'll start with: numberline, ratio, area, array, doubleline, clock, bar, or text.
+- "tool" is the model I'll start with: numberline, slide, givetake, halve, ratio, area, array, doubleline, clock, bar, or text.
 - Write problems plainly: 38 + 9, 100 - 76, 3/4 + 1/3 (fractions), 1 1/2 (mixed numbers), 2^3 (exponents), 6 x 8 or 6 × 8.
 - "a" (answer) and "notes" are for me only; students never see them.
 - Mark skippable problems with "optional": true.`;
@@ -370,7 +370,7 @@ Rules:
         <kbd>T</kbd><span>Start / pause the timer</span>
         <kbd>R</kbd><span>Random name picker</span>
         <kbd>A</kbd><span>Add a student answer</span>
-        <kbd>1</kbd>–<kbd>8</kbd><span>Add a model (number line, ratio table, area, array, double number line, clock, bar, words)</span>
+        <kbd>1</kbd>–<kbd>0</kbd><span>Add a model: 1 number line, 2 ratio, 3 area, 4 array, 5 double line, 6 clock, 7 bar, 8 words, 9 slide, 0 give &amp; take</span>
         <kbd>P</kbd> / <kbd>E</kbd><span>Pen / eraser</span>
         <kbd>O</kbd><span>Overview of the whole string (for the wrap-up)</span>
         <kbd>Esc</kbd><span>Stop typing or drawing</span>
@@ -681,7 +681,7 @@ Rules:
     const maxY = d.strokes.reduce((m, st) => Math.max(m, ...st.pts.map(p => p[1])), 0);
     return `<div class="board ${main ? 'main' : 'thumb'}" data-idx="${idx}" style="${mode === 'thumb' && maxY ? `min-height:${maxY + 12}px` : ''}">
       <div class="prob-head">${exprPart}<span class="eq-mark${d.answers.length ? '' : ' wait'}">=</span><span class="answers">${answers}</span>${main ? `<span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>` : ''}</div>
-      ${main ? `<div class="add-row"><span class="lbl">Model:</span>${TOOLS.map(t => `<button class="tool-btn${t.id === P.s.tool ? ' default' : ''}" data-tool="${t.id}" title="${t.name} (${t.key})"><span class="ico">${t.icon}</span>${t.short || t.name}</button>`).join('')}</div>` : ''}
+      ${main ? `<div class="add-row"><span class="lbl">Model:</span>${TOOLS.map(t => `<button class="tool-btn${t.id === P.s.tool ? ' default' : ''}" data-tool="${t.id}" title="${t.name}${t.key ? ` (${t.key})` : ''}"><span class="ico">${t.icon}</span>${t.short || t.name}</button>`).join('')}</div>` : ''}
       <div class="models">${d.models.map((m, i) => modelHTML(m, i, main)).join('')}</div>
       <svg class="ink" id="${main ? 'ink' : ''}">${strokes}</svg>
     </div>`;
@@ -822,6 +822,10 @@ Rules:
     if (type === 'numberline') { const m = q.match(/^\s*(-?\d*\.?\d+(?:\/\d+)?)/); if (m) input = m[1] + ' '; }
     if ((type === 'area' || type === 'array') && /[x×*]/.test(q)) input = q.replace(/×|\*/g, 'x');
     if (type === 'clock' && /\d\/\d/.test(q)) input = q;
+    const qx = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-').trim();
+    if (type === 'slide' && /^\S+\s*-\s*\S+$/.test(qx)) input = qx + ' = ';
+    if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
+    if (type === 'halve' && /^\S+\s*x\s*\S+$/i.test(qx)) input = qx + ' = ';
     if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
     d.models.push({ type, input, labels: {} });
     saveSession(); renderStage(); refreshRailCard(S.active);

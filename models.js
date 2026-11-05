@@ -503,16 +503,174 @@
     return { svg: svg(y - 20, body) };
   }
 
+  /* ---------- shared: chains like "62 - 49 = 63 - 50" or "62 - 49 > +1" ---------- */
+  function parseChain(input, opRe, shorthand) {
+    const s = norm(input).replace(/\*/g, 'x').trim();
+    if (!s) return { empty: true };
+    const parts = s.split(/\s*(?:=|>|→)\s*/);
+    const pairs = [];
+    const re = new RegExp('^(-?[\\d.]+(?:/[\\d.]+)?)\\s*' + opRe + '\\s*(-?[\\d.]+(?:/[\\d.]+)?)$', 'i');
+    parts.forEach(p => {
+      p = p.trim(); if (!p) return;
+      const m = p.match(re);
+      if (m) { const a = parseVal(m[1]), b = parseVal(m[2]); if (a && b) pairs.push([a, b]); return; }
+      const sh = p.match(/^([+-])\s*([\d.]+(?:\/[\d.]+)?)$/);
+      if (sh && pairs.length && shorthand) { const n = parseVal(sh[2]); if (n) pairs.push(shorthand(pairs[pairs.length - 1], (sh[1] === '-' ? -1 : 1) * n.v)); }
+    });
+    return { pairs };
+  }
+  const mk = v => ({ v: round(v), label: fmt(v) });
+
+  /* ---------- Slide (constant difference) ----------  62 - 49 = 63 - 50   ·   62 - 49 > +1 */
+  function slide(input, labels) {
+    const r = parseChain(input, '-', (p, n) => [mk(p[0].v + n), mk(p[1].v + n)]);
+    if (r.empty) return { empty: true };
+    const P = r.pairs.slice(0, 4);
+    if (!P.length) return { error: 'Type it like 62 - 49 = 63 - 50, or 62 - 49 > +1' };
+    const vals = P.flat().map(p => p.v);
+    let lo = Math.min(...vals), hi = Math.max(...vals);
+    const span = Math.max(hi - lo, 1), pad = span * 0.08;
+    lo -= pad; hi += pad;
+    const longest = Math.max(...P.map(([a, b]) => (a.label + b.label).length + 3));
+    const xl = Math.max(170, 46 + longest * 14), xr = W - 40;
+    const X = v => xl + ((v - lo) / (hi - lo)) * (xr - xl);
+    const gapY = 160, top = 64;
+    let body = '';
+    P.forEach(([a, b], i) => {
+      const y = top + i * gapY;
+      body += text(20, y + 8, `${minus(a.label)} − ${minus(b.label)}`, { anchor: 'start', size: 24, weight: 700, fill: C.soft });
+      body += `<line x1="${xl - 20}" y1="${y}" x2="${xr + 20}" y2="${y}" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
+      const x1 = X(Math.min(a.v, b.v)), x2 = X(Math.max(a.v, b.v));
+      body += `<rect x="${x1}" y="${y - 7}" width="${x2 - x1}" height="14" fill="${C.gap}" opacity=".18"/>`;
+      body += `<path d="M${x1} ${y - 18} L${x1} ${y - 26} L${x2} ${y - 26} L${x2} ${y - 18}" fill="none" stroke="${C.gap}" stroke-width="3"/>`;
+      const l = editable('d' + i, labels, fmt(Math.abs(a.v - b.v)));
+      body += text((x1 + x2) / 2, y - 34, l.text, { size: 24, weight: 700, fill: C.gap, edit: 'd' + i, custom: l.custom });
+      [a, b].forEach(p => {
+        const x = X(p.v);
+        body += `<line x1="${x}" y1="${y - 11}" x2="${x}" y2="${y + 11}" stroke="${C.ink}" stroke-width="3"/>`;
+        body += text(x, y + 36, minus(p.label), { size: 22, weight: 700 });
+      });
+      if (i > 0) {
+        const [pa, pb] = P[i - 1], py = top + (i - 1) * gapY;
+        [[pa, a, 'sa'], [pb, b, 'sb']].forEach(([from, to, k]) => {
+          const fx = X(from.v), tx = X(to.v), d = round(to.v - from.v);
+          body += `<path d="M${fx} ${py + 46} L${tx} ${y - 52}" fill="none" stroke="${C.back}" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ah-back)"/>`;
+          const lb = editable(k + i, labels, signed(d));
+          body += text((fx + tx) / 2 + 12, (py + y) / 2 + 2, lb.text, { anchor: 'start', size: 20, weight: 700, fill: C.back, edit: k + i, custom: lb.custom });
+        });
+      }
+    });
+    return { svg: svg(top + (P.length - 1) * gapY + 56, body) };
+  }
+
+  /* ---------- Give & take ----------  49 + 26 = 50 + 25   ·   49 + 26 > +1 */
+  function givetake(input, labels) {
+    const r = parseChain(input, '\\+', (p, n) => [mk(p[0].v + n), mk(p[1].v - n)]);
+    if (r.empty) return { empty: true };
+    const P = r.pairs.slice(0, 4);
+    if (!P.length) return { error: 'Type it like 49 + 26 = 50 + 25, or 49 + 26 > +1' };
+    if (P.some(([a, b]) => a.v < 0 || b.v < 0)) return { error: 'Give & take needs positive numbers' };
+    const maxT = Math.max(...P.map(([a, b]) => a.v + b.v)) || 1;
+    const x0 = 190, k = (W - x0 - 110) / maxT, barH = 54, gap = 76, top = 20;
+    let body = '';
+    P.forEach(([a, b], i) => {
+      const y = top + i * (barH + gap);
+      const wa = a.v * k, wb = b.v * k;
+      body += text(20, y + barH / 2 + 8, `${a.label} + ${b.label}`, { anchor: 'start', size: 24, weight: 700, fill: C.soft });
+      body += `<rect x="${x0}" y="${y}" width="${wa}" height="${barH}" fill="${C.fills[0]}" fill-opacity=".4" stroke="${C.ink}" stroke-width="2.5"/>`;
+      body += `<rect x="${x0 + wa}" y="${y}" width="${wb}" height="${barH}" fill="${C.fills[1]}" fill-opacity=".4" stroke="${C.ink}" stroke-width="2.5"/>`;
+      if (wa > 34) body += text(x0 + wa / 2, y + barH / 2 + 9, a.label, { size: 26, weight: 700 });
+      if (wb > 34) body += text(x0 + wa + wb / 2, y + barH / 2 + 9, b.label, { size: 26, weight: 700 });
+      body += text(x0 + wa + wb + 14, y + barH / 2 + 8, '= ' + fmt(a.v + b.v), { anchor: 'start', size: 24, weight: 700, fill: C.gap });
+    });
+    for (let i = 1; i < P.length; i++) {
+      const [pa] = P[i - 1], [a] = P[i];
+      const n = round(a.v - pa.v); if (!n) continue;
+      const yPrev = top + (i - 1) * (barH + gap), y = top + i * (barH + gap);
+      let sx = x0 + Math.min(pa.v, a.v) * k, sw = Math.abs(n) * k;
+      if (sw < 12) { sx -= (12 - sw) / 2; sw = 12; }
+      body += `<rect x="${sx}" y="${yPrev}" width="${sw}" height="${barH}" fill="url(#hatch)" stroke="${C.back}" stroke-width="3"/>`;
+      body += `<rect x="${sx}" y="${y}" width="${sw}" height="${barH}" fill="${C.back}" fill-opacity=".55" stroke="${C.back}" stroke-width="3"/>`;
+      const mx = sx + sw / 2;
+      body += `<path d="M${mx} ${yPrev + barH + 4} C ${mx + 40} ${yPrev + barH + 30}, ${mx + 40} ${y - 30}, ${mx + 2} ${y - 6}" fill="none" stroke="${C.back}" stroke-width="2.5" marker-end="url(#ah-back)"/>`;
+      const giver = n > 0 ? P[i - 1][1].label : P[i - 1][0].label, getter = n > 0 ? P[i - 1][0].label : P[i - 1][1].label;
+      const l = editable('g' + i, labels, `${fmt(Math.abs(n))} moves from ${giver} to ${getter}`);
+      const fits = mx + 50 + l.text.length * 11.5 < W - 6;
+      body += text(fits ? mx + 50 : mx - 14, (yPrev + barH + y) / 2 + 8, l.text, { anchor: fits ? 'start' : 'end', size: 21, weight: 700, fill: C.back, edit: 'g' + i, custom: l.custom });
+    }
+    return { svg: svg(top + P.length * (barH + gap) - gap + 16, body) };
+  }
+
+  /* ---------- Doubling & halving ----------  16 x 25 = 8 x 50 = 4 x 100 */
+  function halve(input, labels) {
+    const r = parseChain(input, 'x', null);
+    if (r.empty) return { empty: true };
+    const P = r.pairs.slice(0, 4);
+    if (!P.length) return { error: 'Type it like 16 x 25 = 8 x 50 = 4 x 100' };
+    if (P.some(([a, b]) => a.v <= 0 || b.v <= 0)) return { error: 'Use positive numbers' };
+    // the factor that grows from the first to the second step runs across
+    let wi = P.length > 1 ? (P[1][0].v > P[0][0].v ? 0 : 1) : (P[0][0].v >= P[0][1].v ? 0 : 1);
+    const rows = P.map(p => ({ w: p[wi], h: p[1 - wi] }));
+    const maxW = Math.max(...rows.map(r => r.w.v)), sumH = rows.reduce((s, r) => s + r.h.v, 0);
+    const gap = 80, top = 40, x0 = 120;
+    const k = Math.min((W - x0 - 60) / maxW, Math.max(60, 560 - gap * rows.length) / sumH);
+    let y = top, body = '';
+    rows.forEach((r, i) => {
+      const w = Math.max(30, r.w.v * k), h = Math.max(20, r.h.v * k);
+      r.px = { y, w, h };
+      body += text(x0 + w / 2, y - 10, r.w.label, { size: 22, weight: 700, fill: C.fwd });
+      body += text(x0 - 12, y + h / 2 + 8, r.h.label, { size: 22, weight: 700, fill: C.fwd, anchor: 'end' });
+      y += h + gap;
+    });
+    rows.forEach((r, i) => {
+      const { y: ry, w, h } = r.px;
+      const next = rows[i + 1], prev = rows[i - 1];
+      // how this rectangle is cut (going down) and how it was rebuilt (coming from above)
+      const cut = next ? next.w.v / r.w.v : 1, built = prev ? r.w.v / prev.w.v : 1;
+      const nCut = Math.round(cut >= 1 ? cut : 1 / cut), nBuilt = Math.round(built >= 1 ? built : 1 / built);
+      const okCut = next && nCut >= 2 && Math.abs((cut >= 1 ? cut : 1 / cut) - nCut) < 1e-9 && nCut <= 12;
+      const okBuilt = prev && nBuilt >= 2 && Math.abs((built >= 1 ? built : 1 / built) - nBuilt) < 1e-9 && nBuilt <= 12;
+      body += `<rect x="${x0}" y="${ry}" width="${w}" height="${h}" fill="${C.fills[0]}" fill-opacity=".28" stroke="${C.ink}" stroke-width="2.5"/>`;
+      if (okBuilt) {
+        // pieces now side by side (or stacked) — tint the moved ones
+        for (let j = 1; j < nBuilt; j++) {
+          if (built >= 1) body += `<rect x="${x0 + (w * j) / nBuilt}" y="${ry}" width="${w / nBuilt}" height="${h}" fill="${C.fills[1]}" fill-opacity=".45" stroke="${C.back}" stroke-width="2" stroke-dasharray="6 4"/>`;
+          else body += `<rect x="${x0}" y="${ry + (h * j) / nBuilt}" width="${w}" height="${h / nBuilt}" fill="${C.fills[1]}" fill-opacity=".45" stroke="${C.back}" stroke-width="2" stroke-dasharray="6 4"/>`;
+        }
+      }
+      if (okCut) {
+        for (let j = 1; j < nCut; j++) {
+          if (cut >= 1) body += `<line x1="${x0 - 6}" y1="${ry + (h * j) / nCut}" x2="${x0 + w + 6}" y2="${ry + (h * j) / nCut}" stroke="${C.back}" stroke-width="3" stroke-dasharray="8 5"/>`;
+          else body += `<line x1="${x0 + (w * j) / nCut}" y1="${ry - 6}" x2="${x0 + (w * j) / nCut}" y2="${ry + h + 6}" stroke="${C.back}" stroke-width="3" stroke-dasharray="8 5"/>`;
+        }
+      }
+      if (next) {
+        const f = cut >= 1 ? cut : 1 / cut, fl = fmt(f);
+        const grow = cut >= 1 ? r.w.label : r.h.label, shrink = cut >= 1 ? r.h.label : r.w.label;
+        const def = f === 2 ? `halve ${shrink}, double ${grow}` : `÷${fl} ${shrink}, ×${fl} ${grow}`;
+        const l = editable('h' + i, labels, def);
+        const ly = ry + h + 28;
+        body += `<path d="M${x0 + 20} ${ry + h + 10} L${x0 + 20} ${ry + h + gap - 14}" stroke="${C.back}" stroke-width="2.5" marker-end="url(#ah-back)"/>`;
+        body += text(x0 + 36, ly + 2, l.text, { anchor: 'start', size: 20, weight: 700, fill: C.back, edit: 'h' + i, custom: l.custom });
+      }
+    });
+    return { svg: svg(y - gap + 18, body) };
+  }
+
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  76 >80 >100 (jump to)  ·  0 +20x3 (3 jumps of 20)  ·  @100 (mark)  ·  ~100 (show gap)' },
-    { id: 'ratio', name: 'Ratio table', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  optional names first: bags:apples, 1:7' },
+    { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  or 62 - 49 > +1  ·  add more: = 73 - 60' },
+    { id: 'givetake', name: 'Give & take', key: '0', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  or 49 + 26 > +1' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  optional names first: bags:apples, 1:7' },
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40-2 x 20 (or 40x20 - 2x20)  ·  click a box to hide/show its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
+    { id: 'halve', name: 'Doubling & halving', short: 'Halving', key: '', icon: '◫', render: halve, help: '16 x 25 = 8 x 50 = 4 x 100  ·  also ×3 ÷3: 12 x 15 = 4 x 45' },
     { id: 'doubleline', name: 'Double number line', short: 'Double line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
-    { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  5/12  (minutes of an hour)' },
-    { id: 'bar', name: 'Bar model', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
+    { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
+    { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
+
 
   window.MSModels = { TOOLS, esc, norm, parseVal, fmt };
 })();

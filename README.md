@@ -49,14 +49,14 @@ If you edit a string in the app, your edited copy wins on that computer. The lib
 ```
 
 - `id` is unique and stays the same when a string is revised.
-- `tool` is one of: `numberline`, `ratio`, `area`, `array`, `doubleline`, `clock`, `bar`, `text`.
+- `tool` is one of: `numberline`, `slide`, `givetake`, `halve`, `ratio`, `area`, `array`, `doubleline`, `clock`, `bar`, `text`.
 - Problems are written plainly: `38 + 9`, `100 - 76`, `3/4 + 1/3`, `1 1/2 x 4`, `2^3 × 2^4`.
 - `a` (answer), `notes`, `strategy`, `keywords`, `connection`, `watchFor`, `wrapUp` are for the teacher only.
   Students never see them.
 
 ## Keyboard (while presenting)
 
-`→` next · `←` back · `T` timer · `R` random name · `A` add answer · `1`–`8` add a model ·
+`→` next · `←` back · `T` timer · `R` random name · `A` add answer · `1`–`0` add a model ·
 `P` pen · `E` eraser · `O` whole-string overview · `Esc` stop typing/drawing · `?` help
 
 ## Model input cheat sheet
@@ -69,6 +69,9 @@ If you edit a string in the app, your edited copy wins on that computer. The lib
 | | `0 +20x3` | three jumps of 20 |
 | | `0 +1/4x3 ~2` | fraction jumps (points labeled as fractions) |
 | | `@100` | mark a point |
+| Slide (same difference) | `62 - 49 = 63 - 50` or `62 - 49 > +1` | both numbers sliding together, same gap marked |
+| Give & take | `49 + 26 = 50 + 25` or `49 + 26 > +1` | bars showing the amount moving from one number to the other |
+| Doubling & halving | `16 x 25 = 8 x 50 = 4 x 100` | rectangle cut and rearranged at each step |
 | Ratio table | `bags:apples, 1:7, 10:70, 5:35` | table with ×/÷ arrows |
 | Area model | `30+8 x 7` | split rectangle with partial products |
 | | `40-2 x 20` or `40x20 - 2x20` | 40 × 20 with a 2 × 20 strip taken away |
