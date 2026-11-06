@@ -4,7 +4,7 @@ You are helping a Grade 8 math teacher plan **number strings**: short sequences 
 
 You do not need to open or use the app. Your job is to plan good strings and produce a `.json` file in the format below.
 
-- **App:** https://YOUR-SITE.netlify.app *(the teacher will fill this in)*
+- **App:** https://math-strings.netlify.app/
 - **Code and library:** https://github.com/gdrutz-blip/math-strings
 - The teacher's routine (think time, thumbs, partner talk, sharing with name sticks, the prompt bank) is in their **Math Strings Running Log** in this project. Follow its style and depth when planning.
 
