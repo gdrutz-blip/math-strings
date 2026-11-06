@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "w02-d1-times-five-as-half-of-ten",
+      "title": "Times 5 as Half of Times 10",
+      "label": "Day 1",
+      "group": "Week 2 · Multiplication",
+      "tool": "ratio",
+      "strategy": "Multiply by 10 first (easy), then halve to multiply by 5.",
+      "keywords": "times ten, half, five is half of ten",
+      "connection": "Week 1 used a friendly number and fixed the answer afterwards. Here the friendly multiplier is 10, and halving fixes it.",
+      "watchFor": [
+        "Halving the wrong number first (18 x 5 as 9 x 5 = 45): ask \"Is 18 x 5 about half of 18 x 10, or half of 18?\"",
+        "Counting by fives or picturing the column method: ask \"What would you do for 64 x 5?\"",
+        "Stuck halving 170 or 340: ask \"What is half of 100? Half of 70?\" Then add the halves."
+      ],
+      "wrapUp": "Ask \"Why does halving 18 x 10 give 18 x 5?\" Land: 5 is half of 10, so 5 groups is half of 10 groups.",
+      "problems": [
+        {
+          "q": "8 x 10",
+          "a": "80",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this answer.\""
+        },
+        {
+          "q": "8 x 5",
+          "a": "40",
+          "notes": "Look for: half of 80. Ask: \"Can 8 x 10 help you with 8 x 5?\" Word choice: \"half of ten groups is five groups\". Model: ratio 1:8, 10:80, 5:40"
+        },
+        {
+          "q": "18 x 10",
+          "a": "180",
+          "notes": "Look for: a quick answer. Ask: \"Hold on to this one too.\"",
+          "optional": true
+        },
+        {
+          "q": "18 x 5",
+          "a": "90",
+          "notes": "Look for: half of 180. Ask: \"What is the same as 8 x 5?\" Model: ratio 1:18, 10:180, 5:90"
+        },
+        {
+          "q": "24 x 5",
+          "a": "120",
+          "notes": "Look for: half of 240. Ask: \"Predict how someone will do this.\" Model: ratio 1:24, 10:240, 5:120"
+        },
+        {
+          "q": "36 x 5",
+          "a": "180",
+          "notes": "Look for: half of 360. Ask: \"Where does the 180 come from?\" Model: ratio 1:36, 10:360, 5:180"
+        },
+        {
+          "q": "17 x 5",
+          "a": "85",
+          "notes": "Look for: half of 170. Ask: \"What did you do with the 170?\" Word choice: \"half of 170 is 85\". Model: ratio 1:17, 10:170, 5:85"
+        },
+        {
+          "q": "64 x 5",
+          "a": "320",
+          "notes": "Look for: half of 640. Ask: \"Would this work with bigger numbers?\" Model: ratio 1:64, 10:640, 5:320"
+        }
+      ]
+    },
+    {
+      "id": "w02-d2-double-and-halve",
+      "title": "Double and Halve",
+      "label": "Day 2",
+      "group": "Week 2 · Multiplication",
+      "tool": "halve",
+      "strategy": "Halve one factor and double the other: the product stays the same and one factor becomes friendly.",
+      "keywords": "double, halve, same product, friendly number",
+      "connection": "Day 1 used x10 and halved the answer. Day 2 halves one factor and doubles the other, so the answer never changes (like Week 1, Day 2, Give and Take).",
+      "watchFor": [
+        "Halved both numbers (16 x 25 as 8 x 12.5): ask \"Did the product stay the same? What did you do to the 25?\"",
+        "Doubled both numbers: ask \"Is 32 x 50 the same size as 16 x 25?\"",
+        "A move with no reason (\"I just halved it\"): ask \"Why does the answer stay the same?\" Show 4 x 25 as 4 groups of 25, regrouped as 2 groups of 50."
+      ],
+      "wrapUp": "Ask \"What did you look for in the numbers?\" Land: look for a factor you can halve that turns the other factor into a friendly number (25 to 50 to 100).",
+      "problems": [
+        {
+          "q": "4 x 25",
+          "a": "100",
+          "notes": "Look for: a known fact (four quarters). Ask: \"Hold on to this answer.\""
+        },
+        {
+          "q": "8 x 25",
+          "a": "200",
+          "notes": "Look for: double 100, or 4 x 50. Ask: \"What do you notice about 8 x 25 and 4 x 50?\" Model: halve 8 x 25 = 4 x 50 = 2 x 100"
+        },
+        {
+          "q": "16 x 25",
+          "a": "400",
+          "notes": "Look for: 8 x 50, then 4 x 100. Ask: \"How many times did you halve? Why stop there?\" Model: halve 16 x 25 = 8 x 50 = 4 x 100"
+        },
+        {
+          "q": "12 x 25",
+          "a": "300",
+          "notes": "Look for: 6 x 50 = 3 x 100, or 3 x 4 x 25. Ask: \"What did you do first?\" Model: halve 12 x 25 = 6 x 50 = 3 x 100",
+          "optional": true
+        },
+        {
+          "q": "14 x 25",
+          "a": "350",
+          "notes": "Look for: 7 x 50, or 10 x 25 + 4 x 25. Ask: \"Both work. Which was quicker, and why?\" Model: halve 14 x 25 = 7 x 50",
+          "optional": true
+        },
+        {
+          "q": "18 x 50",
+          "a": "900",
+          "notes": "Look for: 9 x 100. Ask: \"Which number did you halve? What did the 50 become?\" Model: halve 18 x 50 = 9 x 100"
+        },
+        {
+          "q": "15 x 12",
+          "a": "180",
+          "notes": "Look for: 30 x 6 = 180, or 15 x 10 + 15 x 2. Ask: \"Which number would you double here, and why?\" Model: halve 15 x 12 = 30 x 6"
+        }
+      ]
+    },
+    {
+      "id": "w02-d3-over-and-back",
+      "title": "Over and Back",
+      "label": "Day 3",
+      "group": "Week 2 · Multiplication",
+      "tool": "array",
+      "strategy": "Multiply by a friendly number just over, then take back the extra groups.",
+      "keywords": "over, take back, groups, one less group",
+      "connection": "Week 1, Day 1 went over a ten and took back the extra. Here we go over to a friendly multiplier and take back whole groups.",
+      "watchFor": [
+        "Took back 1, not 1 group (9 x 7 as 70 - 1 = 69): ask \"How many sevens are we taking back?\"",
+        "Used the wrong direction (9 x 7 as 70 + 7): ask \"Is 9 x 7 more or less than 10 x 7?\"",
+        "Counting by nines: accept the answer, then ask \"What would you do for 99 x 5?\""
+      ],
+      "wrapUp": "Ask \"What do you take back each time?\" Land: one less than a friendly number means one less group, so take back one copy of the other number.",
+      "problems": [
+        {
+          "q": "10 x 7",
+          "a": "70",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+        },
+        {
+          "q": "9 x 7",
+          "a": "63",
+          "notes": "Look for: 70 - 7. Ask: \"Can 10 x 7 help you with 9 x 7?\" Word choice: \"one less group\". Model: array 10-1 x 7"
+        },
+        {
+          "q": "9 x 8",
+          "a": "72",
+          "notes": "Look for: 80 - 8. Ask: \"What is the same as 9 x 7?\" Model: array 10-1 x 8"
+        },
+        {
+          "q": "11 x 7",
+          "a": "77",
+          "notes": "Look for: 70 + 7. Ask: \"Over or under 10 groups? What do you add?\" Model: array 10+1 x 7",
+          "optional": true
+        },
+        {
+          "q": "19 x 8",
+          "a": "152",
+          "notes": "Look for: 20 x 8 = 160, then - 8. Ask: \"What are you taking back?\" Model: area 20-1 x 8"
+        },
+        {
+          "q": "29 x 6",
+          "a": "174",
+          "notes": "Look for: 30 x 6 = 180, then - 6. Ask: \"Predict what someone will do.\" Model: area 30-1 x 6"
+        },
+        {
+          "q": "49 x 4",
+          "a": "196",
+          "notes": "Look for: 50 x 4 = 200, then - 4. Ask: \"What is the same about the last three?\" Model: area 50-1 x 4",
+          "optional": true
+        },
+        {
+          "q": "99 x 5",
+          "a": "495",
+          "notes": "Look for: 100 x 5 = 500, then - 5. Ask: \"Would this work with bigger numbers?\" Model: area 100-1 x 5"
+        }
+      ]
+    },
+    {
+      "id": "w02-d4-dividing-by-five",
+      "title": "Dividing by 5",
+      "label": "Day 4",
+      "group": "Week 2 · Multiplication",
+      "tool": "ratio",
+      "strategy": "Double the dividend, then divide by 10: dividing by 5 gives the same answer as dividing double by double.",
+      "keywords": "double, divide by ten, same answer, how many fives",
+      "connection": "Day 1 halved to multiply by 5. Day 4 does the opposite: double, then divide by 10. Both use 10 as the friendly number.",
+      "watchFor": [
+        "Halved instead of doubled (80 / 5 as 40 / 10 = 4): ask \"Is 80 / 5 less than 80 / 10?\"",
+        "Divided by 10 and stopped (80 / 5 = 8): ask \"How many fives fit in 80? Is it as many as tens?\"",
+        "Divided by 10 first, then doubled (135 / 10 = 13.5, then 27): accept it, name it as another way, and check the 13.5 jump."
+      ],
+      "wrapUp": "Ask \"Why does doubling both numbers keep the answer the same?\" Land: 80 / 5 and 160 / 10 ask the same question, how many fives fit, so the answer stays the same.",
+      "problems": [
+        {
+          "q": "80 / 10",
+          "a": "8",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+        },
+        {
+          "q": "80 / 5",
+          "a": "16",
+          "notes": "Look for: double 8, or 160 / 10. Ask: \"Why is it more than 80 / 10?\" Word choice: \"twice as many fives as tens\". Model: ratio 80:5, 160:10, 16:1"
+        },
+        {
+          "q": "35 / 5",
+          "a": "7",
+          "notes": "Look for: 70 / 10. Ask: \"What did you do to 35?\" Model: ratio 35:5, 70:10, 7:1"
+        },
+        {
+          "q": "75 / 5",
+          "a": "15",
+          "notes": "Look for: 150 / 10. Ask: \"Predict how someone will do this.\" Model: ratio 75:5, 150:10, 15:1"
+        },
+        {
+          "q": "135 / 5",
+          "a": "27",
+          "notes": "Look for: 270 / 10. Ask: \"How did you double 135?\" Word choice: \"double the hundred, double the thirty-five\". Model: ratio 135:5, 270:10, 27:1"
+        },
+        {
+          "q": "240 / 5",
+          "a": "48",
+          "notes": "Look for: 480 / 10. Ask: \"Is this the same move as Day 1 turned around?\" Model: ratio 240:5, 480:10, 48:1",
+          "optional": true
+        },
+        {
+          "q": "420 / 5",
+          "a": "84",
+          "notes": "Look for: 840 / 10. Ask: \"Would this work with bigger numbers?\" Model: ratio 420:5, 840:10, 84:1"
+        }
+      ]
+    },
+    {
+      "id": "w02-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy",
+      "label": "Day 5",
+      "group": "Week 2 · Multiplication",
+      "tool": "text",
+      "strategy": "Choose between half of x10, double and halve, over and back, and double then divide by 10, based on the numbers.",
+      "keywords": "choose, friendly number, halve, double, over and back",
+      "connection": "Combines Days 1 to 4. The question is no longer how, but which.",
+      "watchFor": [
+        "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
+        "Mixing up directions (halving to divide by 5, doubling to multiply by 5): ask \"Does the answer get bigger or smaller?\"",
+        "Cannot say why they chose: ask \"What did you notice about the numbers first?\""
+      ],
+      "wrapUp": "Ask \"What do you look at in the numbers to choose?\" Land: look for 5, 25, 50 (halve or double), a number just under a friendly number (over and back), or a division by 5 (double).",
+      "problems": [
+        {
+          "q": "26 x 5",
+          "a": "130",
+          "notes": "Look for: half of 260. Ask: \"Which strategy did you choose?\" Model: text 26 x 10 = 260 ; half is 130"
+        },
+        {
+          "q": "48 x 25",
+          "a": "1200",
+          "notes": "Look for: 12 x 100, or 24 x 50 = 12 x 100. Ask: \"What made 25 easy to work with?\" Model: text 48 x 25 = 24 x 50 ; = 12 x 100"
+        },
+        {
+          "q": "9 x 14",
+          "a": "126",
+          "notes": "Look for: 140 - 14. Ask: \"What are you taking back?\" Model: text 10 x 14 = 140 ; 140 - 14 = 126"
+        },
+        {
+          "q": "195 / 5",
+          "a": "39",
+          "notes": "Look for: 390 / 10. Ask: \"Which Day 4 move did you use?\" Model: text 195 / 5 = 390 / 10 ; = 39"
+        },
+        {
+          "q": "29 x 8",
+          "a": "232",
+          "notes": "Look for: 240 - 8. Ask: \"What made this one easy to adjust?\" Model: text 30 x 8 = 240 ; 240 - 8 = 232",
+          "optional": true
+        },
+        {
+          "q": "98 x 5",
+          "a": "490",
+          "notes": "Look for: 500 - 10, or half of 980. Ask: \"Two good ways. Which feels quicker, and why?\" Model: text 100 x 5 = 500 ; 500 - 10 = 490"
+        },
+        {
+          "q": "16 x 35",
+          "a": "560",
+          "notes": "Look for: 8 x 70, or 4 x 140, or 16 x 30 + 16 x 5. Ask: \"Which number did you halve?\" Model: halve 16 x 35 = 8 x 70 = 4 x 140"
+        }
+      ]
+    }
+  ]
+}
