@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "w1-d1-adding-near-a-ten",
+      "title": "Adding Near a Ten",
+      "group": "Week 1 · Additive Reasoning",
+      "label": "Day 1",
+      "tool": "numberline",
+      "strategy": "Add a friendly number, then take back the extra.",
+      "keywords": "jump, friendly number, back 1, take back.",
+      "connection": "First string of the routine. Sets up the open number line and jumps.",
+      "watchFor": [
+        "Forgot to take back (48 on problem 3, 58 on problem 4): ask \"Is 38 + 9 more or less than 38 + 10?\"",
+        "Went the wrong way (49 on problem 3): ask the same question and use the line.",
+        "Counting up by ones from 38: accept the answer, then ask \"Is there a faster jump?\""
+      ],
+      "problems": [
+        {
+          "q": "38 + 10",
+          "a": "48",
+          "optional": false,
+          "notes": "Look for: one jump of 10. Ask: \"Where did you start and where did you land?\""
+        },
+        {
+          "q": "38 + 20",
+          "a": "58",
+          "optional": true,
+          "notes": "Look for: one jump of 20, or two jumps of 10. Ask: \"How is this like the last one?\""
+        },
+        {
+          "q": "38 + 9",
+          "a": "47",
+          "optional": false,
+          "notes": "Look for: 38 + 10, then back 1. Ask: \"Can 38 + 10 help you with 38 + 9?\" Word choice: \"jump to 48, then back 1\"."
+        },
+        {
+          "q": "38 + 19",
+          "a": "57",
+          "optional": false,
+          "notes": "Look for: 38 + 20, then back 1. Ask: \"What is the same about 38 + 9 and 38 + 19?\""
+        },
+        {
+          "q": "38 + 29",
+          "a": "67",
+          "optional": true,
+          "notes": "Look for: 38 + 30, then back 1. Ask: \"Predict what someone will do.\""
+        },
+        {
+          "q": "38 + 49",
+          "a": "87",
+          "optional": false,
+          "notes": "Look for: 38 + 50, then back 1. Ask: \"Before I show it, how might someone solve this?\""
+        },
+        {
+          "q": "38 + 98",
+          "a": "136",
+          "optional": false,
+          "notes": "Look for: 38 + 100, then back 2. Ask: \"How is this like problems 3 to 6? What changed?\" Word choice: go over the ten (or hundred), then take back the extra."
+        }
+      ]
+    },
+    {
+      "id": "w1-d2-give-and-take",
+      "title": "Give and Take",
+      "group": "Week 1 · Additive Reasoning",
+      "label": "Day 2",
+      "tool": "numberline",
+      "strategy": "Move an amount from one number to the other so the total stays the same and one number becomes friendly.",
+      "keywords": "give, take, move, same total, balance.",
+      "connection": "Day 1 changed one number and fixed the answer afterwards. Day 2 changes both numbers so the answer never changes.",
+      "watchFor": [
+        "Both numbers moved the same way (50 + 27 for 49 + 26): ask \"Did the total stay the same?\"",
+        "Right amount, only one number changed (50 + 26 = 76): ask \"Where did the 1 come from?\"",
+        "\"Add one, take one\" with no reason: ask \"Why does the total stay the same?\" Show two jumps, one growing by 1 and one shrinking by 1.",
+        "Students who prefer Day 1's method: accept it, then ask for a second way."
+      ],
+      "problems": [
+        {
+          "q": "50 + 25",
+          "a": "75",
+          "optional": false,
+          "notes": "Look for: a quick answer. Ask: \"Hold on to this answer.\""
+        },
+        {
+          "q": "49 + 26",
+          "a": "75",
+          "optional": false,
+          "notes": "Look for: \"same answer as problem 1\", or moving 1 from 26 to 49. Ask: \"What do you notice about the answer? Why?\" Word choice: \"give 1 to 49, take 1 from 26\"."
+        },
+        {
+          "q": "48 + 27",
+          "a": "75",
+          "optional": false,
+          "notes": "Look for: moving 2. Ask: \"How many does 48 need? Where do they come from?\""
+        },
+        {
+          "q": "39 + 36",
+          "a": "75",
+          "optional": false,
+          "notes": "Look for: 40 + 35. Ask: \"Which number did you make friendly, and why?\""
+        },
+        {
+          "q": "59 + 36",
+          "a": "95",
+          "optional": false,
+          "notes": "Look for: 60 + 35. Ask: \"What changed from problem 4? What happened to the total?\""
+        },
+        {
+          "q": "68 + 37",
+          "a": "105",
+          "optional": false,
+          "notes": "Look for: 70 + 35. Ask: \"How much did you move this time?\""
+        },
+        {
+          "q": "198 + 47",
+          "a": "245",
+          "optional": false,
+          "notes": "Look for: 200 + 45, or Day 1's way (198 + 50, then back 3). Ask: \"Both work. Which is easier here, and why?\""
+        }
+      ]
+    },
+    {
+      "id": "w1-d3-subtraction-as-distance",
+      "title": "Subtraction as Distance",
+      "group": "Week 1 · Additive Reasoning",
+      "label": "Day 3",
+      "tool": "numberline",
+      "strategy": "Subtraction finds the distance between two numbers. Start at the smaller number and add up to the larger.",
+      "keywords": "distance, difference, gap, how far, add up.",
+      "connection": "The jumps from Days 1 and 2 now go from the smaller number up to the larger.",
+      "watchFor": [
+        "Borrowing in their heads (21 or 12 for 100 − 89): ask \"Where are 89 and 100 on the line?\"",
+        "10 on problem 3: the 1 from 89 to 90 was left out. Ask \"Did you start at 89 or at 90?\"",
+        "24 on problem 7 (copying the pattern): ask \"Are 1002 and 1000 the same number?\"",
+        "Taking away instead of adding up: accept it, then ask \"Which way was the shorter jump?\""
+      ],
+      "problems": [
+        {
+          "q": "100 - 90",
+          "a": "10",
+          "optional": false,
+          "notes": "Look for: a known fact. Ask: \"How far is 90 from 100?\""
+        },
+        {
+          "q": "100 - 98",
+          "a": "2",
+          "optional": false,
+          "notes": "Look for: \"98 to 100 is 2\" instead of taking away 98. Ask: \"Is it easier to take away 98 or to see how far 98 is from 100?\""
+        },
+        {
+          "q": "100 - 89",
+          "a": "11",
+          "optional": false,
+          "notes": "Look for: 89 to 90 (1), then 90 to 100 (10). Ask: \"Where did you stop on the way?\""
+        },
+        {
+          "q": "100 - 76",
+          "a": "24",
+          "optional": false,
+          "notes": "Look for: 76 to 80 (4), then 80 to 100 (20), or one jump from 76 to 100. Ask: \"Which stops did you choose, and why?\""
+        },
+        {
+          "q": "300 - 276",
+          "a": "24",
+          "optional": false,
+          "notes": "Look for: the same gap as problem 4. Ask: \"What do you notice about the answer? Why is it the same?\" Word choice: \"same gap\", \"same distance\"."
+        },
+        {
+          "q": "1000 - 976",
+          "a": "24",
+          "optional": false,
+          "notes": "Look for: the same gap again. Ask: \"Predict 5000 − 4976 before I show it.\""
+        },
+        {
+          "q": "1002 - 976",
+          "a": "26",
+          "optional": false,
+          "notes": "Look for: the gap from problem 6, plus 2. Ask: \"What changed from problem 6? What happened to the answer?\" Word choice: \"the top number moved up 2, so the gap grew by 2\"."
+        }
+      ]
+    },
+    {
+      "id": "w1-d4-constant-difference",
+      "title": "Constant Difference",
+      "group": "Week 1 · Additive Reasoning",
+      "label": "Day 4",
+      "tool": "numberline",
+      "strategy": "Sliding both numbers the same amount in the same direction keeps the difference the same. Slide both to make the subtraction friendlier.",
+      "keywords": "slide, shift, same difference, constant difference.",
+      "connection": "Day 2 kept the total by moving the numbers in opposite directions. Day 4 keeps the difference by moving both the same way. Day 3, problems 5 and 6 are the first hint.",
+      "watchFor": [
+        "Slid only one number (62 − 50 = 12 for 62 − 49): ask \"Did the gap stay the same?\" Show both ends moving on the line.",
+        "Slid in opposite directions (63 − 48): that is Day 2's move. Ask \"Did the difference stay the same?\"",
+        "\"Add 1 to both\" with no reason: ask \"What happens to the distance between two points if both slide the same way?\"",
+        "Slid one number, then fixed the answer (62 − 50 = 12, then add 1): this works. Name it as another way."
+      ],
+      "problems": [
+        {
+          "q": "12 - 8",
+          "a": "4",
+          "optional": false,
+          "notes": "Look for: a known fact."
+        },
+        {
+          "q": "62 - 58",
+          "a": "4",
+          "optional": false,
+          "notes": "Look for: the gap is still 4. Ask: \"Is this harder than 12 − 8? Why not?\""
+        },
+        {
+          "q": "62 - 49",
+          "a": "13",
+          "optional": false,
+          "notes": "Look for: 49 to 50 (1), then 50 to 62 (12), or sliding both up 1 to 63 − 50. Ask: \"What did you do to make 49 friendlier?\""
+        },
+        {
+          "q": "63 - 50",
+          "a": "13",
+          "optional": false,
+          "notes": "Look for: the same answer as problem 3. Ask: \"What changed from problem 3? What happened to the answer? Why?\" Word choice: \"I slid both numbers up 1, so the difference stayed the same\"."
+        },
+        {
+          "q": "162 - 149",
+          "a": "13",
+          "optional": false,
+          "notes": "Look for: sliding both up 1 to 163 − 150. Ask: \"Predict before I show it.\""
+        },
+        {
+          "q": "362 - 349",
+          "a": "13",
+          "optional": false,
+          "notes": "Look for: the same slide. Ask: \"Does the answer depend on how big the numbers are, or how far apart they are?\""
+        },
+        {
+          "q": "71 - 38",
+          "a": "33",
+          "optional": false,
+          "notes": "Look for: sliding both up 2 to 73 − 40, or adding up 38 to 40 to 71 (2 + 31). Ask: \"Can you slide and add up? Which was quicker?\""
+        }
+      ]
+    },
+    {
+      "id": "w1-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy",
+      "group": "Week 1 · Additive Reasoning",
+      "label": "Day 5",
+      "tool": "numberline",
+      "strategy": "Choose between adding up (distance) and sliding both numbers (same difference), based on the numbers.",
+      "keywords": "add up, slide, friendly number, efficient, choose.",
+      "connection": "Combines Days 3 and 4. The question is no longer how, but which.",
+      "watchFor": [
+        "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
+        "Mixing up the slide with Day 2's opposite move: ask \"Did the difference stay the same?\"",
+        "Cannot say why they chose: ask \"What did you notice about the numbers first?\""
+      ],
+      "problems": [
+        {
+          "q": "100 - 97",
+          "a": "3",
+          "optional": false,
+          "notes": "Look for: adding up. Ask: \"Which strategy did you choose?\""
+        },
+        {
+          "q": "52 - 48",
+          "a": "4",
+          "optional": false,
+          "notes": "Look for: adding up from 48, or sliding to 54 − 50."
+        },
+        {
+          "q": "70 - 38",
+          "a": "32",
+          "optional": false,
+          "notes": "Look for: 38 to 40 to 70 (2 + 30), or sliding to 72 − 40. Ask: \"Which did you choose?\""
+        },
+        {
+          "q": "84 - 39",
+          "a": "45",
+          "optional": false,
+          "notes": "Look for: sliding to 85 − 40, or adding up 39 to 40 to 84 (1 + 44)."
+        },
+        {
+          "q": "603 - 297",
+          "a": "306",
+          "optional": false,
+          "notes": "Look for: sliding both up 3 to 606 − 300. Ask: \"What made this one easy to slide?\""
+        },
+        {
+          "q": "1000 - 385",
+          "a": "615",
+          "optional": false,
+          "notes": "Look for: adding up 385 to 400 to 1000 (15 + 600), or sliding up 15 to 1015 − 400. Ask: \"Why might adding up feel easier here?\""
+        },
+        {
+          "q": "2400 - 1998",
+          "a": "402",
+          "optional": false,
+          "notes": "Look for: sliding both up 2 to 2402 − 2000. Ask: \"Which strategy fits this one? How can you tell from the numbers?\""
+        }
+      ],
+      "wrapUp": "Ask \"What do you look at in the numbers to choose?\" Land: if one number is close to a friendly number, add up or slide, and pick whichever you can do fastest."
+    }
+  ]
+}
