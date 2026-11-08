@@ -112,7 +112,7 @@ Keep `q` to the bare problem. No words like "Solve:".
 
 ## 4. The modeling tools and their inputs
 
-In `notes`, suggest how to model the expected strategy using `Model: <tool> <input>`. The teacher can type that input straight into the tool. Only suggest inputs that follow these patterns.
+In `notes`, suggest how to model the expected strategy using `Model: <tool> <input>`. The teacher can type that input straight into the tool. The tools also accept looser typing (`38 to 48 to 47`, `start 38, jump 10, back 1`, `62 - 49 up 1`, `1 to 7, 10 to 70`, `×`, `½`), but in plans use the forms below, which are the clearest.
 
 | `tool` id | Best for | Input the teacher types | What it draws |
 |---|---|---|---|

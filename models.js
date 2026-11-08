@@ -10,7 +10,14 @@
   };
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const norm = s => String(s || '').replace(/[−–—]/g, '-').replace(/[×✕]/g, 'x').replace(/÷/g, '/');
+  const UNI = { '½': '1/2', '⅓': '1/3', '⅔': '2/3', '¼': '1/4', '¾': '3/4', '⅕': '1/5', '⅖': '2/5', '⅗': '3/5', '⅘': '4/5', '⅙': '1/6', '⅚': '5/6', '⅛': '1/8', '⅜': '3/8', '⅝': '5/8', '⅞': '7/8', '⅐': '1/7', '⅑': '1/9', '⅒': '1/10' };
+  // Accept the many ways people type math: unicode fractions, ×, ·, −, →, ->, "times", "by"
+  const norm = s => String(s || '')
+    .replace(/[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞⅐⅑⅒]/g, c => ' ' + UNI[c])
+    .replace(/(\d)\s+(?=\d+\/\d)/g, '$1 ')
+    .replace(/→|⟶|⇒|->|=>/g, '>')
+    .replace(/[−–—]/g, '-').replace(/[×✕·•∙]/g, 'x').replace(/÷/g, '/')
+    .replace(/\btimes\b/gi, 'x').replace(/(\d|\))\s+by\s+(?=[\d(])/gi, '$1 x ');
   const round = v => Math.round(v * 1e9) / 1e9;
   function fmt(v) {
     v = round(v);
@@ -35,7 +42,7 @@
 
   // "3/4" -> {v:.75,label:'3/4'}; "2.5" -> {v:2.5,label:'2.5'}
   function parseVal(t) {
-    t = String(t).replace(/\s+/g, '');
+    t = String(t).replace(/\s+/g, '').replace(/^\$|%$/g, '');
     let m = t.match(/^(-?)(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
     if (m) { const v = (+m[2] / +m[3]) * (m[1] ? -1 : 1); return isFinite(v) ? { v, label: (m[1] ? '-' : '') + m[2] + '/' + m[3], frac: true } : null; }
     m = t.match(/^-?\d*\.?\d+$/);
@@ -88,8 +95,22 @@
      @100           mark a point (no jump)
      ~100           show the gap (distance) to 100            */
   function numberline(input, labels) {
-    const s = norm(input).trim();
+    let s = norm(input).trim();
     if (!s) return { empty: true };
+    // "38 + 9 = 38 + 10 - 1" or "38 +10 -1 = 47": use the last part that has jumps, ignore a bare answer
+    if (s.includes('=')) {
+      const parts = s.split('=').map(p => p.trim()).filter(p => p && !/^-?[\d.\/\s]+$/.test(p) || /\s[+-]/.test(p));
+      const withJumps = parts.filter(p => /[+\->~@]\s*\d|\d\s+\d|[a-z]/i.test(p.replace(/^-/, '')));
+      s = (withJumps.length ? withJumps[withJumps.length - 1] : parts[parts.length - 1] || s.split('=')[0]).trim();
+    }
+    // words: "start at 38, jump 10, back 1", "38 to 48", "89 gap 100", "mark 100"
+    s = s.replace(/\b(start(ing)?( at)?|begin( at)?|from|then|and|land(ed|s)?( on| at)?|so)\b/gi, ' ')
+      .replace(/\b(gap|distance|how far)( to)?\s*(?=-?[\d.])/gi, ' ~')
+      .replace(/\b(jump(ed)?|went|go|up|down|back)?\s*to\s*(?=-?[\d.])/gi, ' >')
+      .replace(/\b(back|minus|subtract(ed)?|take( away| back)?|took( away| back)?|down|less)\s*(?=[\d.])/gi, ' -')
+      .replace(/\b(jump(ed)?|add(ed)?|plus|up|forward|over)\s*(?=[\d.])/gi, ' +')
+      .replace(/\b(mark|at|point)\s*(?=-?[\d.])/gi, ' @')
+      .replace(/[a-z]+/gi, w => (w.toLowerCase() === 'x' ? 'x' : ' '));
     const toks = s.match(/[>@~]\s*-?\s*\d*\.?\d+(?:\s*\/\s*\d+)?|[+-]?\s*\d*\.?\d+(?:\s*\/\s*\d+)?(?:\s*x\s*\d+)?/g);
     if (!toks) return { error: 'Start with a number, e.g. 38 +10 -1' };
     const fracMode = /\d\/\d/.test(s);
@@ -120,8 +141,8 @@
         }
       } else {
         const pv = parseVal(op ? t.slice(1) : t); if (!pv) return;
-        if (op === '@' || !op) { addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; }
-        else if (op === '>') { const from = cur; if (from == null) return; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; const d = round(pv.v - from); arcs.push({ from, to: pv.v, label: signed(Math.abs(d) < 1e-12 ? 0 : d, fracMode ? toFrac(Math.abs(d)) : null), kind: d >= 0 ? 'fwd' : 'back' }); }
+        if (op === '@') { addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; }
+        else if (op === '>' || !op) { const from = cur; if (from == null) return; if (round(pv.v) === round(from)) return; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; const d = round(pv.v - from); arcs.push({ from, to: pv.v, label: signed(Math.abs(d) < 1e-12 ? 0 : d, fracMode ? toFrac(Math.abs(d)) : null), kind: d >= 0 ? 'fwd' : 'back' }); }
         else if (op === '~') { const from = cur; if (from == null) return; addPt(pv.v, fracMode ? ptLabel(pv.v) : pv.label); cur = pv.v; arcs.push({ from, to: pv.v, label: ptLabel(Math.abs(pv.v - from)), kind: 'gap' }); }
       }
     });
@@ -172,10 +193,15 @@
   }
 
   /* ---------- Ratio table ----------  1:7, 10:70, 5:35   (first pair can be names: bags:apples) */
+  // "1:7, 10:70" · "1:7 10:70" · "1 to 7, 10 to 70" · "1|7" · "bags:apples, ..."
+  function pairsOf(s) {
+    s = s.replace(/\s+to\s+/gi, ':').replace(/\s*=\s*/g, ':');
+    return [...s.matchAll(/([^\s,;:|]+)\s*[:|]\s*([^\s,;:|]+)/g)].map(m => [m[1], m[2]]);
+  }
   function ratio(input, labels) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
-    const pairs = s.split(/[,;\n]+/).map(p => p.trim()).filter(Boolean).map(p => p.split(/\s*[:|]\s*/));
+    const pairs = pairsOf(s);
     let head = null;
     if (pairs.length && pairs[0].length === 2 && !parseVal(pairs[0][0]) && pairs[0][0] !== '?' && !parseVal(pairs[0][1]) && pairs[0][1] !== '?') head = pairs.shift();
     const cols = pairs.filter(p => p.length === 2);
@@ -217,17 +243,39 @@
   // "30+8 x 7", "40-2 x 20", or "40x20 - 2x20" -> [[terms of left factor], [terms of right factor]]
   // Each term: {v, label, neg}. The first term of a side is always positive.
   function parseFactors(input) {
-    let s = norm(input).replace(/\*/g, 'x').replace(/[()]/g, ' ').trim();
-    // "40x20 - 2x20" / "40x20 + 40x3": rewrite to a single product when one factor is shared
-    const two = s.match(/^([\d.\/]+)\s*x\s*([\d.\/]+)\s*([+-])\s*([\d.\/]+)\s*x\s*([\d.\/]+)$/i);
-    if (two) {
-      const [, a, b, op, c, d] = two;
-      if (b === d) s = `${a}${op}${c} x ${b}`;
-      else if (a === c) s = `${a} x ${b}${op}${d}`;
-      else if (b === c) s = `${a}${op}${d} x ${b}`;
-      else if (a === d) s = `${a} x ${b}${op}${c}`;
-      else return null;
-    }
+    const all = norm(input).replace(/\*/g, 'x').replace(/\)\s*\(/g, ') x (').trim();
+    // "38 x 20 = 40 x 20 - 2 x 20": try each side, most detailed first
+    const parts = all.split('=').map(p => p.trim()).filter(Boolean);
+    let best = null;
+    parts.forEach(p => {
+      const r = parseFactorsOne(p);
+      if (r && (!best || r[0].length + r[1].length >= best[0].length + best[1].length)) best = r;
+    });
+    return best;
+  }
+  // "30x20 + 8x20 + 30x3 + 8x3" -> "30+8 x 20+3"; "30x7 + 8x7" -> "30+8 x 7"
+  function groupProducts(s) {
+    const re = /([+-]?)\s*([\d.\/]+)\s*x\s*([\d.\/]+)/g;
+    if (s.replace(re, '').trim()) return null;
+    const prods = [...s.matchAll(re)].map(m => ({ neg: m[1] === '-', a: m[2], b: m[3] }));
+    if (prods.length < 2 || prods[0].neg) return null;
+    const join = xs => xs.map((x, i) => (i ? (x.neg ? '-' : '+') : '') + x.v).join('');
+    if (prods.every(p => p.b === prods[0].b)) return `${join(prods.map(p => ({ v: p.a, neg: p.neg })))} x ${prods[0].b}`;
+    if (prods.every(p => p.a === prods[0].a)) return `${prods[0].a} x ${join(prods.map(p => ({ v: p.b, neg: p.neg })))}`;
+    if (prods.every(p => p.b === prods[0].a) || prods.every(p => p.a === prods[0].b)) return null;
+    // mixed shared factor: 40x20 - 20x2
+    const swap = prods.map(p => ({ ...p }));
+    for (let i = 1; i < swap.length; i++) if (swap[i].a === swap[0].b && swap[i].b !== swap[0].b) [swap[i].a, swap[i].b] = [swap[i].b, swap[i].a];
+    if (swap.every(p => p.b === swap[0].b)) return `${join(swap.map(p => ({ v: p.a, neg: p.neg })))} x ${swap[0].b}`;
+    // full grid of partial products, all added
+    if (prods.some(p => p.neg)) return null;
+    const A = [...new Set(prods.map(p => p.a))], B = [...new Set(prods.map(p => p.b))];
+    if (A.length * B.length !== prods.length || !A.every(a => B.every(b => prods.some(p => p.a === a && p.b === b)))) return null;
+    return `${A.join('+')} x ${B.join('+')}`;
+  }
+  function parseFactorsOne(input) {
+    let s = input.replace(/[()]/g, ' ').trim();
+    if ((s.match(/x/gi) || []).length >= 2) { const g = groupProducts(s); if (!g) return null; s = g; }
     const sides = s.split(/\s*x\s*/i).map(t => t.trim()).filter(Boolean);
     if (sides.length !== 2) return null;
     const parts = sides.map(side => {
@@ -355,7 +403,7 @@
   function doubleline(input, labels) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
-    const pairs = s.split(/[,;\n]+/).map(p => p.trim()).filter(Boolean).map(p => p.split(/\s*[:|]\s*/));
+    const pairs = pairsOf(s);
     let head = null;
     if (pairs.length && pairs[0].length === 2 && !parseVal(pairs[0][0]) && !parseVal(pairs[0][1]) && pairs[0][0] !== '?') head = pairs.shift();
     const cols = pairs.filter(p => p.length === 2 && parseVal(p[0]));
@@ -451,10 +499,11 @@
       let name = '';
       const nm = line.match(/^([A-Za-z][^:]*):\s*(.*)$/);
       if (nm) { name = nm[1].trim(); line = nm[2]; }
-      let m = line.match(/^(\d+)\s*\/\s*(\d+)\s*of\s*(.+)$/i);
+      let m = line.match(/^(\d+)\s*\/\s*(\d+)\s*(?:of|x)\s*(.+)$/i);
       if (m) { const tot = parseVal(m[3]); return { name, kind: 'frac', a: +m[1], b: +m[2], total: tot ? tot.v : null, totalLabel: m[3].trim() }; }
       let total = null, totalLabel = null;
       m = line.match(/^(.+?)\s*=\s*(.+)$/);
+      if (m && /\+/.test(m[1]) && !/\+/.test(m[2])) m = [m[0], m[2], m[1]]; // "10 + 14 = 24"
       if (m) { const pv = parseVal(m[1]); total = pv ? pv.v : null; totalLabel = m[1].trim(); line = m[2]; }
       const segs = line.split('+').map(t => t.trim()).filter(Boolean).map(t => { const pv = parseVal(t); return { label: t, v: pv ? pv.v : null }; });
       return { name, kind: 'segs', segs, total, totalLabel };
@@ -505,9 +554,12 @@
 
   /* ---------- shared: chains like "62 - 49 = 63 - 50" or "62 - 49 > +1" ---------- */
   function parseChain(input, opRe, shorthand) {
-    const s = norm(input).replace(/\*/g, 'x').trim();
+    let s = norm(input).replace(/\*/g, 'x').trim();
     if (!s) return { empty: true };
-    const parts = s.split(/\s*(?:=|>|→)\s*/);
+    s = s.replace(/\b(slide|slid|both|each|by|numbers?)\b/gi, ' ')
+      .replace(/\b(up|give|gave|move|moved|add|added|plus)\s*(?=[\d.])/gi, ' > +')
+      .replace(/\b(down|take|took|minus)\s*(?=[\d.])/gi, ' > -');
+    const parts = s.split(/\s*(?:=|>|,|;|\bto\b|\bthen\b)\s*/i);
     const pairs = [];
     const re = new RegExp('^(-?[\\d.]+(?:/[\\d.]+)?)\\s*' + opRe + '\\s*(-?[\\d.]+(?:/[\\d.]+)?)$', 'i');
     parts.forEach(p => {
@@ -658,11 +710,11 @@
   }
 
   const TOOLS = [
-    { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  76 >80 >100 (jump to)  ·  0 +20x3 (3 jumps of 20)  ·  @100 (mark)  ·  ~100 (show gap)' },
-    { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  or 62 - 49 > +1  ·  add more: = 73 - 60' },
-    { id: 'givetake', name: 'Give & take', key: '0', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  or 49 + 26 > +1' },
-    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  optional names first: bags:apples, 1:7' },
-    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40-2 x 20 (or 40x20 - 2x20)  ·  click a box to hide/show its product' },
+    { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
+    { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
+    { id: 'givetake', name: 'Give & take', key: '0', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  49 + 26 give 1' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  1 to 7, 10 to 70  ·  names first: bags:apples, 1:7' },
+    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  30x20 + 8x20 + 30x3 + 8x3  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
     { id: 'halve', name: 'Doubling & halving', short: 'Halving', key: '', icon: '◫', render: halve, help: '16 x 25 = 8 x 50 = 4 x 100  ·  also ×3 ÷3: 12 x 15 = 4 x 45' },
     { id: 'doubleline', name: 'Double number line', short: 'Double line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
