@@ -4,7 +4,7 @@ You are helping a Grade 8 math teacher plan **number strings**: short sequences 
 
 You do not need to open or use the app. Your job is to plan good strings and produce a `.json` file in the format below.
 
-- **App:** https://math-strings.netlify.app/
+- **App:** https://gdrutz-blip.github.io/math-strings/
 - **Code and library:** https://github.com/gdrutz-blip/math-strings
 - The teacher's routine (think time, thumbs, partner talk, sharing with name sticks, the prompt bank) is in their **Math Strings Running Log** in this project. Follow its style and depth when planning.
 
@@ -166,7 +166,7 @@ The teacher's running log lists what comes next: decimal addition and subtractio
 **Permanently, on every computer:**
 1. Go to https://github.com/gdrutz-blip/math-strings and open the **`strings`** folder.
 2. Click **Add file** → **Upload files**, drag in the `.json` file, and click **Commit changes**.
-3. In about a minute the site updates. Every computer that opens the app gets the new strings.
+3. In a minute or two the site updates. Every computer that opens the app gets the new strings.
 
 To **revise** a week, upload the new file with the **same name**. GitHub replaces the old one.
 

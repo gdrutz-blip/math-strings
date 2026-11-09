@@ -5,7 +5,7 @@ record student answers (even wrong ones), and model their thinking with an open 
 ratio table, area model, array, double number line, clock, bar model, or the student's own words.
 Earlier problems stay visible, shrunk down in the column on the left.
 
-No build step: it's plain HTML, CSS and JavaScript. Netlify serves this folder as is.
+Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and JavaScript; GitHub Pages publishes it on every push (`.github/workflows/pages.yml`), after `build.js` combines the `strings/` files.
 
 ## Files
 
@@ -14,16 +14,16 @@ No build step: it's plain HTML, CSS and JavaScript. Netlify serves this folder a
 | `index.html`, `styles.css`, `app.js` | The app |
 | `models.js` | The drawing tools (number line, clock, …) |
 | `strings/` | **Your string library**, one `.json` file per week. Every computer that opens the site gets these. |
-| `build.js` | Netlify runs this to combine the `strings/` files into `strings.json` (generated; don't edit) |
+| `build.js` | The publish step runs this to combine the `strings/` files into `strings.json` (generated; don't edit) |
 | `PLANNING-GUIDE.md` | Instructions for a Claude planning chat: the file format and model inputs |
-| `netlify.toml` | Tells Netlify to run `build.js` and publish this folder |
+| `netlify.toml` | Old Netlify setup (no longer used) |
 
 ## Adding strings
 
 1. **Quick way:** in the app click **Import** and drop in a `.json` file (from Claude or from **Export** on
    another computer), or paste a plain list.
 2. **Permanent way:** on GitHub, open the `strings` folder → **Add file** → **Upload files**, and drop in the
-   week's `.json` file. Netlify republishes in about a minute and every computer picks it up.
+   week's `.json` file. The site republishes in a minute or two and every computer picks it up.
    Uploading a file with the same name replaces it.
 
 If you edit a string in the app, your edited copy wins on that computer. The library card shows
