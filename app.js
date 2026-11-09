@@ -372,7 +372,7 @@ Rules:
         <kbd>A</kbd><span>Add a student answer</span>
         <kbd>1</kbd>–<kbd>0</kbd><span>Add a model: 1 number line, 2 ratio, 3 area, 4 array, 5 double line, 6 clock, 7 bar, 8 words, 9 slide, 0 give &amp; take</span>
         <kbd>P</kbd> / <kbd>E</kbd><span>Pen / eraser</span>
-        <kbd>O</kbd><span>Overview of the whole string (for the wrap-up)</span>
+        <kbd>O</kbd><span>Overview of the whole string (for the wrap-up). At the end, Next becomes Wrap-up, then Finish takes you back to the library.</span>
         <kbd>Esc</kbd><span>Stop typing or drawing</span>
       </div>
       <div><b>Adding strings with Claude.</b> Copy the instructions below into your planning chat. Claude will make a <code>.json</code> file you can bring in with <b>Import</b>.</div>
@@ -668,7 +668,7 @@ Rules:
     saveSession();
   }
   function goPrev() { if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
-  function goNext() { if (P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) return; P.overview = false; revealNext(); renderAll(); }
+  function goNext() { if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { P = null; window.onresize = null; go(''); return; } P.overview = false; revealNext(); renderAll(); }
   function skipNext() { const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
 
   function boardHTML(pos, mode) {
@@ -722,8 +722,9 @@ Rules:
     const S = P.sess;
     const atEnd = S.active >= S.shown.length - 1 && S.cursor >= S.problems.length;
     const nb = $('#next-btn');
-    nb.textContent = P.quick && atEnd ? 'New problem ▶' : atEnd ? (P.overview ? 'Done' : 'Wrap-up ▶') : 'Next ▶';
-    nb.disabled = atEnd && P.overview && !P.quick;
+    nb.textContent = P.quick && atEnd ? 'New problem ▶' : atEnd ? (P.overview ? 'Finish ✓' : 'Wrap-up ▶') : 'Next ▶';
+    nb.title = atEnd && P.overview && !P.quick ? 'Back to the library (this run is kept; ↺ starts it fresh)' : 'Next (→)';
+    nb.disabled = false;
     $('[data-a=prev]').disabled = S.active <= 0 && !P.overview;
     const nextOpt = S.active >= S.shown.length - 1 && S.cursor < S.problems.length && S.problems[S.cursor].optional;
     const sb = $('#skip-btn'); sb.classList.toggle('hidden', !nextOpt); sb.textContent = `Skip #${S.cursor + 1} (optional)`;
