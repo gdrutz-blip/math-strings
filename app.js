@@ -819,13 +819,14 @@ Rules:
     if (P.overview) return;
     const S = P.sess, idx = S.shown[S.active], d = pdata(idx), q = S.problems[idx].q || '';
     let input = '';
-    if (type === 'numberline') { const m = q.match(/^\s*(-?\d*\.?\d+(?:\/\d+)?)/); if (m) input = m[1] + ' '; }
+    // number line starts blank: students start from different numbers
     if ((type === 'area' || type === 'array') && /[x×*]/.test(q)) input = q.replace(/×|\*/g, 'x');
     if (type === 'clock' && /\d\/\d/.test(q)) input = q;
     const qx = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-').trim();
     if (type === 'slide' && /^\S+\s*-\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'halve' && /^\S+\s*x\s*\S+$/i.test(qx)) input = qx + ' = ';
+    if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-');
     if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
     d.models.push({ type, input, labels: {} });
     saveSession(); renderStage(); refreshRailCard(S.active);

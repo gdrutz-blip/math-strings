@@ -709,6 +709,149 @@
     return { svg: svg(y - gap + 18, body) };
   }
 
+  /* ---------- Standard algorithm (column method) ----------
+     38 + 9   ·   2.5 + 1.9   ·   100 - 76   ·   38 x 7   ·   24 x 13   ·   38 + 9 = 48 (show a student's answer) */
+  function column(input, labels, model) {
+    let s = norm(input).replace(/\*/g, 'x').trim();
+    if (!s) return { empty: true };
+    let typed = null;
+    const eq = s.split('=').map(t => t.trim());
+    if (eq.length > 1) { s = eq[0]; if (/^-?[\d.]+$/.test(eq[eq.length - 1])) typed = eq[eq.length - 1]; }
+    s = s.replace(/\s+/g, '');
+    let op, parts;
+    if (/x/i.test(s)) { op = 'x'; parts = s.split(/x/i); }
+    else if (/\d\+/.test(s)) { op = '+'; parts = s.split('+'); }
+    else if (/\d-/.test(s)) { op = '-'; parts = s.split(/(?<=\d)-/); }
+    else return { error: 'Type a problem like 38 + 9, 100 - 76, or 38 x 7' };
+    if (parts.some(p => !/^\d*\.?\d+$/.test(p))) return { error: 'Use whole numbers or decimals, like 38 + 9 or 2.5 + 1.9' };
+    if ((op === '-' || op === 'x') && parts.length !== 2) return { error: op === '-' ? 'Subtract one number from another, like 100 - 76' : 'Multiply two numbers, like 38 x 7' };
+    if (parts.length > 5) return { error: 'Up to 5 numbers at a time' };
+    const decOf = p => (p.split('.')[1] || '').length;
+    const hidden = new Set((model && model.hidden) || []);
+    const cw = 46, fs = 42, small = 22, dw = 14;
+    const ink = C.ink, carryC = C.back, soft = '#9aa3b2';
+
+    // shared drawing: rows of digit strings right-aligned on a grid (with an optional decimal point)
+    let body = '';
+    const draw = (rows, d, extra) => {
+      // rows: [{ digits: [{ch, gray, cross}], prefix, y, dot }]; column k counts from the right
+      const width = Math.max(...rows.map(r => r.digits.length));
+      const xRight = W / 2 + ((width * cw + (d ? dw : 0)) / 2) + 30;
+      const colX = k => xRight - k * cw - (d && k >= d ? dw : 0) - cw / 2;
+      rows.forEach(r => {
+        const n = r.digits.length;
+        r.digits.forEach((g, i) => {
+          const k = n - 1 - i, x = colX(k);
+          body += `<text x="${x}" y="${r.y}" text-anchor="middle" font-size="${fs}" font-weight="700" fill="${g.gray ? soft : r.color || ink}"${r.cls ? ` class="${r.cls}" data-cell="ans"` : ''}>${esc(g.ch)}</text>`;
+          if (g.cross) body += `<line x1="${x - 14}" y1="${r.y + 2}" x2="${x + 14}" y2="${r.y - 30}" stroke="${carryC}" stroke-width="3"/>`;
+          if (g.above != null) body += `<text x="${x}" y="${r.y - 40}" text-anchor="middle" font-size="${small + 4}" font-weight="700" fill="${carryC}">${esc(g.above)}</text>`;
+        });
+        if (r.dot && d) body += `<text x="${xRight - d * cw - dw / 2}" y="${r.y}" text-anchor="middle" font-size="${fs}" font-weight="700" fill="${r.color || ink}">.</text>`;
+        if (r.prefix) body += `<text x="${colX(width - 1) - cw - 6}" y="${r.y}" text-anchor="middle" font-size="${fs}" font-weight="400" fill="${C.soft}">${esc(r.prefix)}</text>`;
+      });
+      (extra || []).forEach(e => {
+        if (e.line) body += `<line x1="${colX(width - 1) - cw * 1.6}" y1="${e.line}" x2="${xRight + 6}" y2="${e.line}" stroke="${ink}" stroke-width="3"/>`;
+        if (e.carry) e.carry.forEach(([k, v]) => (body += `<text x="${colX(k)}" y="${e.y}" text-anchor="middle" font-size="${small}" font-weight="700" fill="${carryC}">${esc(v)}</text>`));
+      });
+    };
+    const digitsOf = (str, len, d, padTo) => {
+      // str is the scaled integer as text; show leading zeros only to reach one digit before the point
+      let t = str.padStart(d + 1, '0');
+      const own = padTo;
+      return t.split('').map((ch, i) => ({ ch, gray: i >= t.length - d + own }));
+    };
+    const answerRow = (str, d, y, correct) => {
+      const shown = typed != null ? typed.replace('.', '') : str;
+      const td = typed != null ? decOf(typed) : d;
+      if (hidden.has('ans')) return { digits: [{ ch: '?' }], y, cls: 'cell-toggle', color: C.fwd };
+      let t = (typed != null ? shown.replace(/^0+(?=\d)/, '') : shown);
+      t = t.padStart(td + 1, '0');
+      // re-scale a typed answer to the grid's decimals
+      if (td < d) t = t + '0'.repeat(d - td);
+      return { digits: t.split('').map((ch, i) => ({ ch, gray: typed != null && td < d && i >= t.length - (d - td) })), y, dot: true, cls: 'cell-toggle', color: C.fwd };
+    };
+
+    if (op === '+' || op === '-') {
+      const d = Math.max(...parts.map(decOf));
+      const nums = parts.map(p => BigInt(Math.round(parseFloat(p) * 10 ** d)));
+      if (op === '-' && nums[0] < nums[1]) return { error: 'Put the larger number first, like 100 - 76' };
+      const strs = nums.map(n => n.toString());
+      const res = op === '+' ? nums.reduce((a, b) => a + b, 0n) : nums[0] - nums[1];
+      const L = Math.max(...strs.map(x => Math.max(x.length, d + 1)), res.toString().length);
+      const y0 = 70, rowH = 62;
+      const rows = strs.map((str, i) => ({ digits: digitsOf(str, L, d, decOf(parts[i])), y: y0 + i * rowH, dot: true, prefix: i === strs.length - 1 ? (op === '+' ? '+' : '−') : '' }));
+      const extra = [];
+      if (op === '+') {
+        // carries above the top row
+        const cols = strs.map(x => x.split('').reverse().map(Number));
+        let carry = 0; const marks = [];
+        for (let k = 0; k < L; k++) {
+          const sum = cols.reduce((a, c) => a + (c[k] || 0), 0) + carry;
+          carry = Math.floor(sum / 10);
+          if (carry && k + 1 < L + 1) marks.push([k + 1, String(carry)]);
+        }
+        extra.push({ y: y0 - 42, carry: marks.filter(([k]) => k < Math.max(L, res.toString().length)) });
+      } else {
+        // regrouping: cross out digits and write the new values above
+        const top = strs[0].padStart(L, '0').split('').reverse().map(Number), bot = strs[1].split('').reverse().map(Number);
+        const t = top.slice(), changed = new Set();
+        for (let k = 0; k < L; k++) {
+          if (t[k] < (bot[k] || 0)) {
+            let j = k + 1; while (j < L && t[j] === 0) j++;
+            if (j >= L) break;
+            t[j] -= 1; changed.add(j);
+            for (let m = j - 1; m > k; m--) { t[m] = 9; changed.add(m); }
+            t[k] += 10; changed.add(k);
+          }
+        }
+        const r0 = rows[0], n0 = r0.digits.length;
+        r0.digits.forEach((g, i) => { const k = n0 - 1 - i; if (changed.has(k)) { g.cross = true; g.above = String(t[k]); } });
+      }
+      const lineY = y0 + (strs.length - 1) * rowH + 22;
+      extra.push({ line: lineY });
+      rows.push(answerRow(res.toString(), d, lineY + 56));
+      draw(rows, d, extra);
+      return { svg: svg(lineY + 80, body) };
+    }
+
+    // multiplication: partial products under the line, then their sum
+    const [a, b] = parts;
+    const da = decOf(a), db = decOf(b), dTot = da + db;
+    const A = BigInt(a.replace('.', '')), B = BigInt(b.replace('.', ''));
+    const bDigits = B.toString().split('').reverse().map(Number);
+    if (A.toString().length + B.toString().length > 12) return { error: 'Those numbers are too long to show neatly' };
+    const y0 = 70, rowH = 58;
+    const rows = [
+      { digits: a.split('').map(ch => ({ ch })), y: y0 },
+      { digits: b.split('').map(ch => ({ ch })), y: y0 + rowH, prefix: '×' },
+    ];
+    const extra = [];
+    if (bDigits.length === 1 && !dTot) {
+      let carry = 0; const marks = []; const ad = A.toString().split('').reverse().map(Number);
+      ad.forEach((dg, k) => { const p = dg * bDigits[0] + carry; carry = Math.floor(p / 10); if (carry && k + 1 < ad.length) marks.push([k + 1, String(carry)]); });
+      extra.push({ y: y0 - 42, carry: marks });
+    }
+    let y = y0 + rowH + 22; extra.push({ line: y });
+    const prod = A * B;
+    if (bDigits.length > 1) {
+      bDigits.forEach((dg, r) => {
+        const pp = (A * BigInt(dg)).toString();
+        y += 56;
+        rows.push({ digits: [...pp.split('').map(ch => ({ ch })), ...Array(r).fill(0).map(() => ({ ch: '0', gray: true }))], y, prefix: r === bDigits.length - 1 ? '+' : '' });
+      });
+      y += 22; extra.push({ line: y });
+    }
+    // answer: whole-number product with the decimal point put back
+    let ansStr = prod.toString();
+    if (dTot) { ansStr = ansStr.padStart(dTot + 1, '0'); ansStr = ansStr.slice(0, -dTot) + '.' + ansStr.slice(-dTot); }
+    if (typed != null) ansStr = typed;
+    rows.push(hidden.has('ans')
+      ? { digits: [{ ch: '?' }], y: y + 56, cls: 'cell-toggle', color: C.fwd }
+      : { digits: ansStr.split('').map(ch => ({ ch })), y: y + 56, cls: 'cell-toggle', color: C.fwd });
+    draw(rows, 0, extra);
+    return { svg: svg(y + 80, body) };
+  }
+
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
     { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
@@ -717,9 +860,10 @@
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  30x20 + 8x20 + 30x3 + 8x3  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
     { id: 'halve', name: 'Doubling & halving', short: 'Halving', key: '', icon: '◫', render: halve, help: '16 x 25 = 8 x 50 = 4 x 100  ·  also ×3 ÷3: 12 x 15 = 4 x 45' },
-    { id: 'doubleline', name: 'Double number line', short: 'Double line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
+    { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
+    { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
 

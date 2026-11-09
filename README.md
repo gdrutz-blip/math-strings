@@ -52,7 +52,7 @@ If you edit a string in the app, your edited copy wins on that computer. The lib
 ```
 
 - `id` is unique and stays the same when a string is revised.
-- `tool` is one of: `numberline`, `slide`, `givetake`, `halve`, `ratio`, `area`, `array`, `doubleline`, `clock`, `bar`, `text`.
+- `tool` is one of: `numberline`, `slide`, `givetake`, `halve`, `column`, `ratio`, `area`, `array`, `doubleline`, `clock`, `bar`, `text`.
 - Problems are written plainly: `38 + 9`, `100 - 76`, `3/4 + 1/3`, `1 1/2 x 4`, `2^3 × 2^4`.
 - `a` (answer), `notes`, `strategy`, `keywords`, `connection`, `watchFor`, `wrapUp` are for the teacher only.
   Students never see them.
@@ -82,6 +82,7 @@ If you edit a string in the app, your edited copy wins on that computer. The lib
 | | `10-1 x 12` or `40x20 - 2x20` | dots with a row/column crossed out |
 | Double number line | `miles:hours, 0:0, 60:1, 150:2.5` | two aligned lines |
 | Clock | `3/4 + 1/3` | shaded minutes of an hour |
+| Standard algorithm | `38 + 9` · `100 - 76` · `2.5 + 1.9` · `24 x 13` | column method with carries / regrouping / partial products |
 | Words & equations | `38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40` | student words or equations; `;` starts a new line |
 | Bar model | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` | tape diagrams |
 
