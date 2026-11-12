@@ -2,6 +2,276 @@
   "version": 1,
   "strings": [
     {
+      "id": "g4-w01-d1-make-the-next-ten",
+      "title": "Make the Next Ten",
+      "label": "Day 1",
+      "group": "Grade 4 · Week 1 · Addition with Regrouping",
+      "tool": "numberline",
+      "strategy": "Add up to the next ten first, then add what is left.",
+      "keywords": "next ten, friendly number, break apart, jump",
+      "connection": "First string of the week. Sets up the open number line and the idea that 10 ones make a ten.",
+      "watchFor": [
+        "Counting on by ones (28, 29, 30, 31...): accept it, then ask \"Is there a jump that gets you to a ten?\"",
+        "Breaking the number the wrong way (28 + 5 as 28 + 3 + 2 = 33, but stopping at 31): ask \"How much of the 5 have you used?\"",
+        "Not knowing the partners of 10: keep a quick reference (8 and 2, 7 and 3...) and celebrate students who use them."
+      ],
+      "wrapUp": "Ask \"How did the first problems help with the later ones?\" Land: get to the next ten, then add the rest.",
+      "problems": [
+        {
+          "q": "8 + 2",
+          "a": "10",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+        },
+        {
+          "q": "28 + 2",
+          "a": "30",
+          "notes": "Look for: \"8 and 2 make a ten.\" Ask: \"How does 8 + 2 help?\" Model: numberline 28 +2"
+        },
+        {
+          "q": "28 + 5",
+          "a": "33",
+          "notes": "Look for: 28 + 2 = 30, then 3 more. Ask: \"Where did the 5 go?\" Word choice: \"I broke 5 into 2 and 3.\" Model: numberline 28 +2 +3"
+        },
+        {
+          "q": "48 + 6",
+          "a": "54",
+          "notes": "Look for: 48 + 2 = 50, then 4 more. Ask: \"How did you know to use 2?\" Model: numberline 48 +2 +4"
+        },
+        {
+          "q": "67 + 8",
+          "a": "75",
+          "notes": "Look for: 67 + 3 = 70, then 5 more. Ask: \"What is the next ten after 67?\" Model: numberline 67 +3 +5"
+        },
+        {
+          "q": "67 + 18",
+          "a": "85",
+          "notes": "Look for: 67 + 3 = 70, then 15 more; or 67 + 10 + 8. Ask: \"Can the last problem help?\" Model: numberline 67 +3 +15",
+          "optional": true
+        },
+        {
+          "q": "167 + 8",
+          "a": "175",
+          "notes": "Look for: the same moves as 67 + 8. Ask: \"Predict before I show it. What changed?\" Model: numberline 167 +3 +5"
+        }
+      ]
+    },
+    {
+      "id": "g4-w01-d2-split-by-place-value",
+      "title": "Split by Place Value",
+      "label": "Day 2",
+      "group": "Grade 4 · Week 1 · Addition with Regrouping",
+      "tool": "text",
+      "strategy": "Add tens with tens and ones with ones, then put them together. When the ones make more than 10, that makes another ten.",
+      "keywords": "tens, ones, hundreds, place value, partial sums, make a new ten",
+      "connection": "Day 1 made a ten on the number line. Today the ones combine into a new ten when we add by place value.",
+      "watchFor": [
+        "Saying \"3 + 4\" for 30 + 40: ask \"Is it 3 + 4 or 30 + 40? How do you know?\" and write the real values.",
+        "Writing 713 for 70 + 13: ask \"How many tens are in 13? Where do they go?\"",
+        "Forgetting the ones: ask \"Did you add every part?\""
+      ],
+      "wrapUp": "Ask \"What happened when the ones added up to more than 10?\" Land: 10 ones make a new ten, and it joins the other tens.",
+      "problems": [
+        {
+          "q": "30 + 40",
+          "a": "70",
+          "notes": "Look for: 3 tens + 4 tens = 7 tens. Ask: \"How many tens?\""
+        },
+        {
+          "q": "6 + 7",
+          "a": "13",
+          "notes": "Look for: a known fact, or 6 + 4 + 3. Ask: \"How many tens and ones is 13?\""
+        },
+        {
+          "q": "36 + 47",
+          "a": "83",
+          "notes": "Look for: 70 + 13 = 83. Ask: \"How did the last two problems help?\" Word choice: \"13 ones is 1 ten and 3 ones.\" Model: text 36 + 47 = 30 + 40 + 6 + 7 ; = 70 + 13 ; = 83"
+        },
+        {
+          "q": "28 + 56",
+          "a": "84",
+          "notes": "Look for: 70 + 14. Ask: \"Where does the extra ten come from?\" Model: text 28 + 56 = 20 + 50 + 8 + 6 ; = 70 + 14 ; = 84"
+        },
+        {
+          "q": "45 + 38",
+          "a": "83",
+          "notes": "Look for: 70 + 13, or 45 + 30 + 8 on the number line. Ask: \"Did anyone do it another way?\" Model: numberline 45 +30 +8",
+          "optional": true
+        },
+        {
+          "q": "125 + 37",
+          "a": "162",
+          "notes": "Look for: 100 + 50 + 12. Ask: \"What happens to the hundreds?\" Model: text 125 + 37 = 100 + 20 + 30 + 5 + 7 ; = 100 + 50 + 12 ; = 162"
+        },
+        {
+          "q": "356 + 127",
+          "a": "483",
+          "notes": "Look for: 400 + 70 + 13. Ask: \"Which part makes a new ten?\" Model: text 356 + 127 = 300 + 100 + 50 + 20 + 6 + 7 ; = 400 + 70 + 13 ; = 483"
+        }
+      ]
+    },
+    {
+      "id": "g4-w01-d3-over-the-hundred",
+      "title": "Over the Hundred",
+      "label": "Day 3",
+      "group": "Grade 4 · Week 1 · Addition with Regrouping",
+      "tool": "numberline",
+      "strategy": "Get to the next hundred (or ten), then add what is left. Tens can regroup into a new hundred, just like ones regroup into a ten.",
+      "keywords": "next hundred, friendly number, regroup, 10 tens",
+      "connection": "Day 1 got to the next ten. Today we get to the next hundred.",
+      "watchFor": [
+        "Writing 1003 for 95 + 8: ask \"Is it more or less than 200? Where is it on the line?\"",
+        "Losing track of the hundreds (186 + 25 = 111): ask \"About how big should the answer be?\"",
+        "Breaking the number awkwardly: accept it, then ask \"Which jump would get you to a hundred?\""
+      ],
+      "wrapUp": "Ask \"How is getting to the next hundred like getting to the next ten?\" Land: 10 tens make a hundred, just like 10 ones make a ten.",
+      "problems": [
+        {
+          "q": "90 + 10",
+          "a": "100",
+          "notes": "Look for: 9 tens + 1 ten = 10 tens. Ask: \"How many tens make 100?\""
+        },
+        {
+          "q": "95 + 8",
+          "a": "103",
+          "notes": "Look for: 95 + 5 = 100, then 3 more. Ask: \"Where did you stop?\" Model: numberline 95 +5 +3"
+        },
+        {
+          "q": "195 + 8",
+          "a": "203",
+          "notes": "Look for: the same as 95 + 8, plus 100. Ask: \"What is the same? What changed?\" Model: numberline 195 +5 +3"
+        },
+        {
+          "q": "186 + 25",
+          "a": "211",
+          "notes": "Look for: 186 + 14 = 200, then 11 more; or 186 + 20 + 5. Ask: \"How did you know to use 14?\" Model: numberline 186 +14 +11"
+        },
+        {
+          "q": "275 + 30",
+          "a": "305",
+          "notes": "Look for: 275 + 25 = 300, then 5 more. Ask: \"How many tens did it take to cross 300?\" Model: numberline 275 +25 +5"
+        },
+        {
+          "q": "275 + 38",
+          "a": "313",
+          "notes": "Look for: 275 + 25 = 300, then 13 more. Ask: \"Can the last problem help?\" Model: numberline 275 +25 +13"
+        },
+        {
+          "q": "368 + 45",
+          "a": "413",
+          "notes": "Look for: 368 + 32 = 400, then 13; or 368 + 40 + 5. Ask: \"Which stops did you choose, and why?\" Model: numberline 368 +32 +13",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "g4-w01-d4-add-a-friendly-number",
+      "title": "Add a Friendly Number, Then Take Back",
+      "label": "Day 4",
+      "group": "Grade 4 · Week 1 · Addition with Regrouping",
+      "tool": "numberline",
+      "strategy": "When a number is close to a friendly number (a ten or a hundred), add the friendly number, then take back the extra.",
+      "keywords": "friendly number, close to, too much, take back",
+      "connection": "Days 1–3 added up to a friendly number. Today we jump past it and come back.",
+      "watchFor": [
+        "Forgetting to take back (46 + 9 = 56): ask \"Is 46 + 9 more or less than 46 + 10?\"",
+        "Going the wrong way (46 + 9 = 57): ask the same question and show both on the line.",
+        "Taking back the wrong amount (135 + 98 = 232): ask \"How far is 98 from 100?\""
+      ],
+      "wrapUp": "Ask \"When is this a good strategy?\" Land: when one number is close to a ten or a hundred.",
+      "problems": [
+        {
+          "q": "46 + 10",
+          "a": "56",
+          "notes": "Look for: one jump of 10. Ask: \"Where did you start and land?\" Model: numberline 46 +10"
+        },
+        {
+          "q": "46 + 9",
+          "a": "55",
+          "notes": "Look for: 46 + 10, then back 1. Ask: \"Can 46 + 10 help?\" Word choice: \"too much by 1, take it back.\" Model: numberline 46 +10 -1"
+        },
+        {
+          "q": "46 + 19",
+          "a": "65",
+          "notes": "Look for: 46 + 20, back 1. Ask: \"What is the same about 46 + 9 and 46 + 19?\" Model: numberline 46 +20 -1"
+        },
+        {
+          "q": "46 + 29",
+          "a": "75",
+          "notes": "Look for: 46 + 30, back 1. Ask: \"Predict how someone will do it.\" Model: numberline 46 +30 -1",
+          "optional": true
+        },
+        {
+          "q": "135 + 99",
+          "a": "234",
+          "notes": "Look for: 135 + 100, back 1. Ask: \"Why 100?\" Model: numberline 135 +100 -1"
+        },
+        {
+          "q": "135 + 98",
+          "a": "233",
+          "notes": "Look for: 135 + 100, back 2. Ask: \"What changed from the last one?\" Model: numberline 135 +100 -2"
+        },
+        {
+          "q": "247 + 198",
+          "a": "445",
+          "notes": "Look for: 247 + 200, back 2; or 245 + 200 (give and take). Ask: \"Which friendly number did you use?\" Model: numberline 247 +200 -2"
+        }
+      ]
+    },
+    {
+      "id": "g4-w01-d5-where-does-the-new-ten-go",
+      "title": "Where Does the New Ten Go?",
+      "label": "Day 5",
+      "group": "Grade 4 · Week 1 · Addition with Regrouping",
+      "tool": "column",
+      "strategy": "Connect mental strategies to the standard algorithm: the carried 1 is a new ten (or hundred) made from 10 ones (or 10 tens).",
+      "keywords": "regroup, carry, new ten, new hundred, place value, algorithm",
+      "connection": "Days 1–4 made new tens and hundreds in our heads. Today we see them in the standard algorithm.",
+      "watchFor": [
+        "Writing 512 for 27 + 35 (not regrouping): ask \"Is it about 60 or about 500?\" and show the 12 ones becoming 1 ten and 2 ones.",
+        "Carrying without knowing why: ask \"What does that little 1 stand for: one, ten, or hundred?\"",
+        "Preferring a mental strategy: great. Ask them to show where their new ten is in the algorithm."
+      ],
+      "wrapUp": "Ask \"In the algorithm, what is the carried 1 really worth?\" Land: it is a new ten (or hundred) made from 10 ones (or 10 tens), the same thing we did on the number line.",
+      "problems": [
+        {
+          "q": "7 + 5",
+          "a": "12",
+          "notes": "Look for: 7 + 3 + 2, or a known fact. Ask: \"How many tens and ones is 12?\""
+        },
+        {
+          "q": "27 + 5",
+          "a": "32",
+          "notes": "Look for: 27 + 3 + 2. Ask: \"Where did the new ten come from?\" Model: numberline 27 +3 +2"
+        },
+        {
+          "q": "27 + 35",
+          "a": "62",
+          "notes": "Look for: 50 + 12, or the algorithm. Ask: \"In the algorithm, where is the 12?\" Model: column 27 + 35 Model: text 7 + 5 = 12 ones = 1 ten and 2 ones"
+        },
+        {
+          "q": "127 + 35",
+          "a": "162",
+          "notes": "Look for: the same as 27 + 35, plus 100. Ask: \"What is the same in the algorithm?\" Model: column 127 + 35"
+        },
+        {
+          "q": "168 + 57",
+          "a": "225",
+          "notes": "Look for: two regroups (ones and tens). Ask: \"How many new tens? How many new hundreds?\" Model: column 168 + 57 Model: numberline 168 +32 +25"
+        },
+        {
+          "q": "268 + 157",
+          "a": "425",
+          "notes": "Look for: the same regroups as 168 + 57, plus 100. Ask: \"Predict the answer from the last problem.\" Model: column 268 + 157"
+        },
+        {
+          "q": "399 + 226",
+          "a": "625",
+          "notes": "Look for: 400 + 226 - 1 (Day 4!), or the algorithm with three regroups. Ask: \"Which way was easier here, and why?\" Model: numberline 399 +1 +225, and column 399 + 226",
+          "optional": true
+        }
+      ]
+    },
+    {
       "id": "w1-d1-adding-near-a-ten",
       "title": "Adding Near a Ten",
       "group": "Week 1 · Additive Reasoning",
