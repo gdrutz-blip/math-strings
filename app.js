@@ -139,9 +139,11 @@
             <button class="btn" data-act="export">⤒ Export</button>
             <button class="btn" data-act="classes">🎲 Classes</button>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
+            <button class="btn" data-act="start" title="A quick guide for first-time users">👋 New here?</button>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
         </div>
+        ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><button class="btn primary" data-act="start">Show me how</button><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
         <div class="searchbar"><input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}"></div>
         <div id="groups">
           ${groups.length ? groups.map(G => `
@@ -163,6 +165,8 @@
       if (act === 'classes') pickerOverlay(true);
       if (act === 'settings') settingsModal();
       if (act === 'help') helpModal();
+      if (act === 'start') { store.set('welcomed', true); startModal(); libraryView(); }
+      if (act === 'dismiss') { store.set('welcomed', true); libraryView(); }
       if (act === 'present') go('present/' + encodeURIComponent(id));
       if (act === 'edit') go('edit/' + encodeURIComponent(id));
       if (act === 'dup') { const s = findString(id); const c = normalizeString(JSON.parse(JSON.stringify(clean(s)))); c.id = slug(s.title) + '-' + uid(); c.title = s.title + ' (copy)'; c._edited = true; library.splice(library.indexOf(s) + 1, 0, c); saveLibrary(); libraryView(); toast('Duplicated'); }
@@ -360,6 +364,35 @@ Rules:
 - Write problems plainly: 38 + 9, 100 - 76, 3/4 + 1/3 (fractions), 1 1/2 (mixed numbers), 2^3 (exponents), 6 x 8 or 6 × 8.
 - "a" (answer) and "notes" are for me only; students never see them.
 - Mark skippable problems with "optional": true.`;
+
+  function startModal() {
+    modal('Getting started', `
+      <p style="margin:0">A <b>number string</b> is a short set of related problems, shown one at a time, that nudges students toward a mental-math strategy. This site is your board: it shows the problems, keeps the whole string visible, and draws students' thinking cleanly. <b>Students only see the problems and what you model.</b> Answers and notes stay off the screen.</p>
+      <div><b>Before class (5 min)</b>
+        <ol class="steps">
+          <li><b>Pick a string</b> in the library.</li>
+          <li>Click <b>Edit</b> to read each problem's <i>Look for / Ask / Model</i> notes. Print that page to keep beside you.</li>
+          <li>Click <b>▶ Present</b>, try a few student answers, then press <b>↺</b> in the top bar to start fresh.</li>
+        </ol></div>
+      <div><b>In class</b>
+        <ol class="steps">
+          <li>Press <kbd>→</kbd> to show a problem. The think timer starts.</li>
+          <li>Press <kbd>A</kbd> and type what a student says, even if it's wrong. Don't confirm yet.</li>
+          <li>Pick a tool at the bottom (e.g. <b>Number line</b>), type their thinking, and press <kbd>Enter</kbd>. It shrinks into the grid so you can add another way.</li>
+          <li>Click an answer to <b>circle</b> it, or click again to <b>cross it out</b>.</li>
+          <li>After the last problem, <b>Wrap-up</b> shows the whole string. Ask "What did you notice?"</li>
+        </ol></div>
+      <div><b>Typing the number line</b>: type it how you'd say it:
+        <div class="keys" style="margin-top:6px">
+          <code>38 +10 -1</code><span>start at 38, jump 10, back 1</span>
+          <code>38 to 48 to 47</code><span>the same, as "jump to"</span>
+          <code>89 gap 100</code><span>a bracket showing the distance</span>
+          <code>2x5</code><span>count by 2s from 0</span>
+        </div>
+        <p class="hint">Click any label on a drawing to use the student's own words. Every tool shows grey example hints.</p></div>
+      <div><b>Tips:</b> click a model to show it full-screen · <b>⚙</b> in the tool bar hides tools you don't use · <b>🎲 Pick</b> chooses a random student (names stay on your computer) · <kbd>L</kbd> hides the problem list · <kbd>?</kbd> lists all the keys.</div>
+      <p class="hint" style="margin:0">Everything is saved in this browser only. There are no accounts and nothing is uploaded.</p>`, [{ label: 'Got it', primary: true, run: () => {} }], { wide: true });
+  }
 
   function helpModal() {
     modal('How it works', `

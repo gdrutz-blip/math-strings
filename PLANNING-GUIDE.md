@@ -47,7 +47,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
       "id": "w02-d1-decimals-near-a-whole",
       "title": "Decimals Near a Whole",
       "label": "Day 1",
-      "group": "Week 2 · Decimals",
+      "group": "Grade 8 · Week 3 · Decimals",
       "tool": "numberline",
       "strategy": "Add a friendly number, then take back the extra.",
       "keywords": "friendly number, take back, tenths",
@@ -74,7 +74,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `id` | yes | Unique and permanent. Format: `wNN-dN-short-title` (e.g. `w02-d3-decimal-subtraction`). **Never change an id when revising a string.** Keeping the same id is how the app knows to replace the old version instead of adding a duplicate. |
 | `title` | yes | Short strategy name, e.g. "Constant Difference". |
 | `label` | yes | Usually `Day 1`, `Day 2`, … |
-| `group` | yes | Groups strings in the library. Format: `Week N · Topic` (e.g. `Week 2 · Decimals`). Use the exact same text for every string in that week. |
+| `group` | yes | Groups strings in the library. Format: `Grade N · Week N · Topic` (e.g. `Grade 8 · Week 3 · Decimals`). Use the exact same text for every string in that week. |
 | `tool` | yes | The model the teacher will most likely use. It gets highlighted on screen. One of the ids in section 4. |
 | `strategy` | yes | One sentence: the big idea the string is building. |
 | `keywords` | no | Class vocabulary for the strategy. |

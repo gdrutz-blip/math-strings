@@ -104,6 +104,11 @@
       s = (withJumps.length ? withJumps[withJumps.length - 1] : parts[parts.length - 1] || s.split('=')[0]).trim();
     }
     // words: "start at 38, jump 10, back 1", "38 to 48", "89 gap 100", "mark 100"
+    // "5 jumps of 2" -> "+2x5"; "count by 2s to 10" -> "+2x5"
+    s = s.replace(/(\d+)\s*jumps?\s*of\s*(\d[\d.\/]*)/gi, '+$2x$1')
+      .replace(/count(ing)?\s*by\s*(\d[\d.\/]*)'?s?\s*(?:to|up to)\s*(\d+)/gi, (m, _, by, to) => `+${by}x${Math.max(1, Math.round(+to / parseVal(by).v))}`);
+    // no starting number ("2x5", "+2 +2 +2"): start at 0
+    if (/^\s*\+?\s*\d[\d.\/]*\s*x\s*\d+/i.test(s) || /^\s*\+/.test(s)) s = '0 ' + (s.trim()[0] === '+' ? '' : '+') + s.trim();
     s = s.replace(/\b(start(ing)?( at)?|begin( at)?|from|then|and|land(ed|s)?( on| at)?|so)\b/gi, ' ')
       .replace(/\b(gap|distance|how far)( to)?\s*(?=-?[\d.])/gi, ' ~')
       .replace(/\b(jump(ed)?|went|go|up|down|back)?\s*to\s*(?=-?[\d.])/gi, ' >')
