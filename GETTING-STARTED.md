@@ -1,6 +1,6 @@
 # Math Strings: Getting Started
 
-**https://gdrutz-blip.github.io/math-strings/**
+**https://gdrutz-blip.github.io/math-strings/**  ·  This guide is also on the site: **https://gdrutz-blip.github.io/math-strings/#/start**
 
 A number string is a short set of related problems, shown one at a time. Each one nudges students toward a mental-math strategy. This website is your board: it shows the problems, keeps the whole string visible, and draws students' thinking cleanly so you don't have to draw it on the whiteboard.
 

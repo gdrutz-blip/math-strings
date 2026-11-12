@@ -306,3 +306,29 @@ kbd { font-family: var(--font); font-size: 12px; border: 1px solid var(--line-st
 .welcome-btns { display: flex; gap: 8px; }
 ol.steps { margin: 6px 0 0; padding-left: 22px; display: grid; gap: 4px; }
 .keys code { font-size: 14px; background: #f1f3f7; padding: 1px 6px; border-radius: 5px; }
+
+/* getting started page */
+.guide { max-width: 860px; margin: 0 auto; padding: 22px 20px 60px; }
+.guide h1 { font-size: 32px; margin: 10px 0 8px; letter-spacing: -.01em; }
+.guide .lead { font-size: 18px; color: var(--ink); margin: 0 0 18px; }
+.guide h2 { font-size: 20px; margin: 0 0 10px; }
+.guide h2 span { color: var(--faint); font-weight: 400; font-size: 16px; }
+.guide p { margin: 8px 0; }
+.guide .steps { margin: 0; padding-left: 22px; display: grid; gap: 6px; font-size: 16.5px; }
+.gtable { width: 100%; border-collapse: collapse; font-size: 16px; }
+.gtable th { text-align: left; color: var(--soft); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding: 6px 8px; border-bottom: 2px solid var(--line); }
+.gtable td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.gtable td:first-child { font-weight: 700; white-space: nowrap; width: 1%; }
+.guide code, .keys code { font-size: 15px; background: #f1f3f7; padding: 2px 7px; border-radius: 6px; white-space: nowrap; }
+a.btn { text-decoration: none; color: inherit; }
+a.btn.primary { color: #fff; }
+.guide-card { display: flex; align-items: center; gap: 14px; margin-top: 30px; padding: 16px 18px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; color: var(--ink); }
+.guide-card:hover { border-color: var(--accent); }
+.gc-ico { font-size: 30px; }
+.gc-go { margin-left: auto; color: var(--accent); font-weight: 700; white-space: nowrap; }
+@media (max-width: 600px) { .guide-card { flex-wrap: wrap; } .gc-go { margin-left: 0; } }
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .guide .panel { box-shadow: none; break-inside: avoid; }
+}

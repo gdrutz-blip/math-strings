@@ -111,6 +111,7 @@
     document.onkeydown = null;
     if (view === 'present' && id) return presenter(decodeURIComponent(id));
     if (view === 'quick') return presenter('__quick');
+    if (view === 'start') return startPage();
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
     libraryView();
   }
@@ -139,11 +140,11 @@
             <button class="btn" data-act="export">⤒ Export</button>
             <button class="btn" data-act="classes">🎲 Classes</button>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
-            <button class="btn" data-act="start" title="A quick guide for first-time users">👋 New here?</button>
+            <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
         </div>
-        ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><button class="btn primary" data-act="start">Show me how</button><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
+        ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><a class="btn primary" href="#/start" data-act="seen">Show me how</a><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
         <div class="searchbar"><input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}"></div>
         <div id="groups">
           ${groups.length ? groups.map(G => `
@@ -151,6 +152,7 @@
             <div class="cards">${G.items.map(cardHTML).join('')}</div>`).join('')
             : `<div class="empty">${library.length ? 'No strings match your search.' : 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.'}</div>`}
         </div>
+        <a class="guide-card" href="#/start"><span class="gc-ico">📘</span><span><b>New to number strings or this site?</b><br>Read the 5-minute getting started guide: what to do before class, the routine in class, and how to type models.</span><span class="gc-go">Open guide →</span></a>
         <div class="lib-foot">Your edits are saved in this browser. Use <b>Export</b> to take them to another computer.</div>
       </div>`;
     const search = $('#search');
@@ -165,7 +167,7 @@
       if (act === 'classes') pickerOverlay(true);
       if (act === 'settings') settingsModal();
       if (act === 'help') helpModal();
-      if (act === 'start') { store.set('welcomed', true); startModal(); libraryView(); }
+      if (act === 'seen') store.set('welcomed', true);
       if (act === 'dismiss') { store.set('welcomed', true); libraryView(); }
       if (act === 'present') go('present/' + encodeURIComponent(id));
       if (act === 'edit') go('edit/' + encodeURIComponent(id));
@@ -365,33 +367,79 @@ Rules:
 - "a" (answer) and "notes" are for me only; students never see them.
 - Mark skippable problems with "optional": true.`;
 
-  function startModal() {
-    modal('Getting started', `
-      <p style="margin:0">A <b>number string</b> is a short set of related problems, shown one at a time, that nudges students toward a mental-math strategy. This site is your board: it shows the problems, keeps the whole string visible, and draws students' thinking cleanly. <b>Students only see the problems and what you model.</b> Answers and notes stay off the screen.</p>
-      <div><b>Before class (5 min)</b>
+  function startPage() {
+    store.set('welcomed', true);
+    document.title = 'Getting started · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    app.innerHTML = `
+    <div class="guide">
+      <div class="ed-head no-print">
+        <a class="btn ghost" href="#/">← Library</a>
+        <span style="flex:1"></span>
+        <button class="btn" onclick="window.print()">🖨 Print</button>
+        <a class="btn primary" href="#/">Try a string →</a>
+      </div>
+      <h1>Getting started with Math Strings</h1>
+      <p class="lead">A <b>number string</b> is a short set of related problems, shown one at a time, that nudges students toward a mental-math strategy. This site is your board: it shows the problems, keeps the whole string visible, and draws students' thinking cleanly, so you aren't drawing on the whiteboard. <b>Students only see the problems and what you model.</b> Answers and teacher notes stay off the screen.</p>
+
+      <section class="panel"><h2>1 · Before class <span>(5 minutes)</span></h2>
         <ol class="steps">
-          <li><b>Pick a string</b> in the library.</li>
-          <li>Click <b>Edit</b> to read each problem's <i>Look for / Ask / Model</i> notes. Print that page to keep beside you.</li>
-          <li>Click <b>▶ Present</b>, try a few student answers, then press <b>↺</b> in the top bar to start fresh.</li>
-        </ol></div>
-      <div><b>In class</b>
-        <ol class="steps">
-          <li>Press <kbd>→</kbd> to show a problem. The think timer starts.</li>
-          <li>Press <kbd>A</kbd> and type what a student says, even if it's wrong. Don't confirm yet.</li>
-          <li>Pick a tool at the bottom (e.g. <b>Number line</b>), type their thinking, and press <kbd>Enter</kbd>. It shrinks into the grid so you can add another way.</li>
-          <li>Click an answer to <b>circle</b> it, or click again to <b>cross it out</b>.</li>
-          <li>After the last problem, <b>Wrap-up</b> shows the whole string. Ask "What did you notice?"</li>
-        </ol></div>
-      <div><b>Typing the number line</b>: type it how you'd say it:
-        <div class="keys" style="margin-top:6px">
-          <code>38 +10 -1</code><span>start at 38, jump 10, back 1</span>
-          <code>38 to 48 to 47</code><span>the same, as "jump to"</span>
-          <code>89 gap 100</code><span>a bracket showing the distance</span>
-          <code>2x5</code><span>count by 2s from 0</span>
+          <li><b>Pick a string</b> from the library. They're grouped by grade and week.</li>
+          <li><b>Read the notes.</b> Click <b>Edit</b> on a string to see each problem's <i>Look for</i>, <i>Ask</i> and <i>Model</i> notes. Print that page and keep it beside you.</li>
+          <li><b>Rehearse once.</b> Click <b>▶ Present</b>, try a few student answers and models, then press <b>↺</b> in the top bar to start fresh.</li>
+          <li><b>Trim the tools</b> (optional). In Present, click <b>⚙</b> at the end of the tool bar and untick tools you won't use.</li>
+        </ol>
+      </section>
+
+      <section class="panel"><h2>2 · The routine in class</h2>
+        <table class="gtable">
+          <tr><th>Step</th><th>What you do</th></tr>
+          <tr><td>Show a problem</td><td>Press <kbd>→</kbd> (or click <b>Next</b>). The think timer starts.</td></tr>
+          <tr><td>Collect answers</td><td>Press <kbd>A</kbd>, type what a student says, even a wrong answer, then press <kbd>Enter</kbd>. Don't confirm yet.</td></tr>
+          <tr><td>Model a strategy</td><td>Pick a tool at the bottom (e.g. <b>Number line</b>), type the student's thinking, and press <kbd>Enter</kbd>. It shrinks into the grid so you can add another student's way.</td></tr>
+          <tr><td>Check the answer</td><td>Click an answer to <b>circle</b> it; click again to <b>cross it out</b>.</td></tr>
+          <tr><td>Next problem</td><td>Press <kbd>→</kbd>. Earlier problems stay listed on the left so students can use them.</td></tr>
+          <tr><td>Wrap up</td><td>After the last problem, click <b>Wrap-up</b> to see the whole string, ask <i>"What did you notice?"</i>, then <b>Finish</b>.</td></tr>
+        </table>
+      </section>
+
+      <section class="panel"><h2>3 · Typing models</h2>
+        <p>Type it the way you'd say it. The drawing appears as you type.</p>
+        <table class="gtable">
+          <tr><th>Type this</th><th>Number line draws…</th></tr>
+          <tr><td><code>38 +10 -1</code></td><td>start at 38, jump +10, back 1</td></tr>
+          <tr><td><code>38 to 48 to 47</code></td><td>the same thing, as "jump to"</td></tr>
+          <tr><td><code>76 +4 +20</code></td><td>adding up to a friendly number</td></tr>
+          <tr><td><code>89 gap 100</code></td><td>a bracket showing the distance (11)</td></tr>
+          <tr><td><code>5 jumps of 2</code></td><td>count by 2s from 0</td></tr>
+        </table>
+        <p>Click any label on a drawing (like <b>+10</b>) to replace it with the student's own words. Every other tool (ratio table, area model, array, integer tiles, standard algorithm, and more) shows grey example hints under the typing box.</p>
+      </section>
+
+      <section class="panel"><h2>4 · Handy tips</h2>
+        <ul class="steps">
+          <li><b>Click a model</b> to show it full-screen. Hover over it to ✎ change or ✕ remove it.</li>
+          <li><b>🎲 Pick</b> chooses a random student. Add your class list the first time; names stay only on your computer.</li>
+          <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
+          <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
+          <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
+          <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded.</li>
+        </ul>
+      </section>
+
+      <section class="panel"><h2>Keyboard</h2>
+        <div class="keys">
+          <kbd>→</kbd><span>next problem</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
+          <kbd>1</kbd><span>number line (other number keys add other tools)</span><kbd>Enter</kbd><span>finish the model you're typing</span>
+          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span>
+          <kbd>P</kbd><span>pen</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
-        <p class="hint">Click any label on a drawing to use the student's own words. Every tool shows grey example hints.</p></div>
-      <div><b>Tips:</b> click a model to show it full-screen · <b>⚙</b> in the tool bar hides tools you don't use · <b>🎲 Pick</b> chooses a random student (names stay on your computer) · <kbd>L</kbd> hides the problem list · <kbd>?</kbd> lists all the keys.</div>
-      <p class="hint" style="margin:0">Everything is saved in this browser only. There are no accounts and nothing is uploaded.</p>`, [{ label: 'Got it', primary: true, run: () => {} }], { wide: true });
+      </section>
+
+      <p class="hint">Need a different string? Ask the teacher who shared this site with you. New strings can be added to the library for everyone.</p>
+      <div class="no-print" style="text-align:center;margin:26px 0"><a class="btn primary" href="#/">Go to the library and try a string →</a></div>
+    </div>`;
+    window.scrollTo(0, 0);
   }
 
   function helpModal() {
