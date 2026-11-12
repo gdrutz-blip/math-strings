@@ -320,11 +320,13 @@
         <label class="field">Partner talk (seconds, 0 = none)<input type="number" id="st-talk" min="0" max="600" value="${settings.talk}"></label>
       </div>
       <label><input type="checkbox" id="st-auto"${settings.autoTimer ? ' checked' : ''}> Start the think timer when a new problem appears</label>
-      <label><input type="checkbox" id="st-chime"${settings.chime ? ' checked' : ''}> Soft chime when time is up</label>`,
+      <label><input type="checkbox" id="st-chime"${settings.chime ? ' checked' : ''}> Soft chime when time is up</label>
+      <div><button class="btn small" type="button" id="st-tools">Choose which modeling tools show…</button></div>`,
       [{ label: 'Save', primary: true, run: () => {
         settings.think = Math.max(0, +$('#st-think').value || 0); settings.talk = Math.max(0, +$('#st-talk').value || 0);
         settings.autoTimer = $('#st-auto').checked; settings.chime = $('#st-chime').checked; saveSettings(); timer.reset(); toast('Settings saved');
       } }]);
+    $('#st-tools').onclick = () => toolsModal();
     return m;
   }
 
@@ -363,7 +365,7 @@ Rules:
     modal('How it works', `
       <div><b>Presenting.</b> Click <b>▶ Present</b> on a string. Problems appear one at a time and earlier ones shrink into the column on the left so the whole string stays visible.</div>
       <div><b>Recording answers.</b> Click <b>＋ answer</b> (or press <kbd>A</kbd>) and type what a student says, even if it is wrong. Click an answer to circle it, click again to cross it out.</div>
-      <div><b>Modeling.</b> Pick a tool under the problem and type into its box. The drawing updates as you type. Click any label on a drawing to replace it with the student's words. Press <kbd>P</kbd> for the pen to draw on top of anything.</div>
+      <div><b>Modeling.</b> Pick a tool at the bottom and type in the box there. The drawing appears big while you type; press <kbd>Enter</kbd> and it shrinks into the grid so every student's model fits on one screen. Click a model to spotlight it; ✎ changes it. Click any label on a drawing to use the student's words. ⚙ chooses which tools show. Press <kbd>P</kbd> for the pen.</div>
       <div class="keys">
         <kbd>→</kbd><span>Next problem (also Page Down, so a presentation clicker works)</span>
         <kbd>←</kbd><span>Back</span>
@@ -372,6 +374,7 @@ Rules:
         <kbd>A</kbd><span>Add a student answer</span>
         <kbd>1</kbd>–<kbd>0</kbd><span>Add a model: 1 number line, 2 ratio, 3 area, 4 array, 5 double line, 6 clock, 7 bar, 8 words, 9 slide, 0 give &amp; take</span>
         <kbd>P</kbd> / <kbd>E</kbd><span>Pen / eraser</span>
+        <kbd>L</kbd><span>Show / hide the list of problems on the left</span>
         <kbd>O</kbd><span>Overview of the whole string (for the wrap-up). At the end, Next becomes Wrap-up, then Finish takes you back to the library.</span>
         <kbd>Esc</kbd><span>Stop typing or drawing</span>
       </div>
@@ -614,7 +617,7 @@ Rules:
     const s = quick ? { id, title: 'Quick board', label: '', tool: 'numberline', problems: [] } : findString(id);
     if (!s) return go('');
     document.title = (s.label ? s.label + ' · ' : '') + s.title;
-    P = { s, quick, sess: loadSession(id, s), pen: null, penColor: '#1d2433', overview: false };
+    P = { s, quick, sess: loadSession(id, s), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
     if (quick && !P.sess.problems.length) { P.sess.problems.push({ q: '' }); }
     const firstRun = !P.sess.shown.length;
     if (firstRun) revealNext(true);
@@ -623,6 +626,7 @@ Rules:
       <div class="pres">
         <div class="topbar">
           <button class="icon-btn" data-a="home" title="Back to library">⌂</button>
+          <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
           <div class="title">${s.label ? esc(s.label) + ' · ' : ''}<b>${esc(s.title)}</b></div>
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
@@ -653,8 +657,7 @@ Rules:
     $('#stage').addEventListener('click', stageClick);
     $('#stage').addEventListener('input', stageInput);
     $('#stage').addEventListener('keydown', stageKey);
-    $('#stage').addEventListener('focusout', stageBlur);
-    $('#rail').onclick = e => { const c = e.target.closest('[data-pos]'); if (c) { P.sess.active = +c.dataset.pos; P.overview = false; saveSession(); renderAll(); } };
+    $('#rail').onclick = e => { const c = e.target.closest('[data-pos]'); if (c) { finishActive(true); P.sess.active = +c.dataset.pos; P.overview = false; P.spot = null; saveSession(); renderAll(); } };
     document.onkeydown = presKeys;
     if (firstRun && !quick) timer.autoStart(); else timer.reset();
   }
@@ -667,44 +670,48 @@ Rules:
     else { P.overview = true; }
     saveSession();
   }
-  function goPrev() { if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
-  function goNext() { if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { P = null; window.onresize = null; go(''); return; } P.overview = false; revealNext(); renderAll(); }
-  function skipNext() { const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
+  function goPrev() { finishActive(true); P.spot = null; if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
+  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { P = null; window.onresize = null; go(''); return; } P.overview = false; revealNext(); renderAll(); }
+  function skipNext() { finishActive(true); const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
 
-  function boardHTML(pos, mode) {
-    const S = P.sess, idx = S.shown[pos], prob = S.problems[idx], d = pdata(idx), main = mode === 'main';
-    const exprPart = P.quick && main
-      ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
-      : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
-    const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
-    const strokes = d.strokes.map((st, i) => `<path data-s="${i}" d="${strokePath(st.pts)}" stroke="${st.c}" stroke-width="${st.w || 5}"/>`).join('');
-    const maxY = d.strokes.reduce((m, st) => Math.max(m, ...st.pts.map(p => p[1])), 0);
-    return `<div class="board ${main ? 'main' : 'thumb'}" data-idx="${idx}" style="${mode === 'thumb' && maxY ? `min-height:${maxY + 12}px` : ''}">
-      <div class="prob-head">${exprPart}<span class="eq-mark${d.answers.length ? '' : ' wait'}">=</span><span class="answers">${answers}</span>${main ? `<span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>` : ''}</div>
-      ${main ? `<div class="add-row"><span class="lbl">Model:</span>${TOOLS.map(t => `<button class="tool-btn${t.id === P.s.tool ? ' default' : ''}" data-tool="${t.id}" title="${t.name}${t.key ? ` (${t.key})` : ''}"><span class="ico">${t.icon}</span>${t.short || t.name}</button>`).join('')}</div>` : ''}
-      <div class="models">${d.models.map((m, i) => modelHTML(m, i, main)).join('')}</div>
-      <svg class="ink" id="${main ? 'ink' : ''}">${strokes}</svg>
-    </div>`;
+  /* ---- tools shown in the bar (teacher can hide the ones they don't use) ---- */
+  const visibleTools = () => TOOLS.filter(t => !Array.isArray(settings.tools) || settings.tools.includes(t.id) || (P && t.id === P.s.tool));
+  function toolsModal(after) {
+    const on = id => !Array.isArray(settings.tools) || settings.tools.includes(id);
+    modal('Choose your tools', `
+      <p class="hint" style="margin:0">Only the tools you tick show up under the problem. A string's starting tool always shows.</p>
+      <div class="tool-pick">${TOOLS.map(t => `<label><input type="checkbox" value="${t.id}"${on(t.id) ? ' checked' : ''}> <span class="ico">${t.icon}</span> ${esc(t.name)}</label>`).join('')}</div>
+      <div style="display:flex;gap:8px"><button class="btn small" id="tp-all">Tick all</button><button class="btn small" id="tp-none">Untick all</button></div>`,
+      [{ label: 'Save', primary: true, run: () => {
+        const ids = $$('.tool-pick input:checked').map(i => i.value);
+        settings.tools = ids.length === TOOLS.length ? null : ids; saveSettings(); if (after) after(); toast('Tools updated');
+      } }]);
+    $('#tp-all').onclick = () => $$('.tool-pick input').forEach(i => (i.checked = true));
+    $('#tp-none').onclick = () => $$('.tool-pick input').forEach(i => (i.checked = false));
   }
-  function modelHTML(m, i, main) {
-    const t = TOOL[m.type];
-    const empty = !String(m.input || '').trim();
-    return `<div class="model${empty ? ' is-empty' : ''}" data-m="${i}">
-      <div class="model-head"><span class="mname">${t.icon} ${t.name}</span><input data-min="${i}" value="${esc(m.input || '')}" placeholder="${esc(t.help.split('  ·  ')[0])}" autocomplete="off" spellcheck="false"><button class="icon-btn" data-a="rmmodel" title="Remove this model">✕</button></div>
-      ${main ? `<div class="model-help">${esc(t.help)}</div>` : ''}
-      <div class="model-out">${modelOut(m)}</div>
-    </div>`;
-  }
-  function modelOut(m) {
+
+  /* ---- drawing one model ---- */
+  function modelSVG(m) {
     if (m.type === 'text') {
       const lines = String(m.input || '').split(';').map(l => l.trim()).filter(Boolean);
-      return lines.length ? `<div class="words">${lines.map(l => `<div class="wline">${exprHTML(l)}</div>`).join('')}</div>` : `<div class="words empty placeholder">Type the student's words or equations above</div>`;
+      if (!lines.length) return { html: `<div class="placeholder">Type the student's words or equations below</div>` };
+      const hgt = lines.length * 58 + 22;
+      return { ok: true, w: 940, h: hgt, html: `<svg class="model-svg" viewBox="0 0 940 ${hgt}" xmlns="http://www.w3.org/2000/svg"><foreignObject x="0" y="0" width="940" height="${hgt}"><div xmlns="http://www.w3.org/1999/xhtml" class="words">${lines.map(l => `<div class="wline">${exprHTML(l)}</div>`).join('')}</div></foreignObject></svg>` };
     }
     let r;
     try { r = TOOL[m.type].render(m.input || '', m.labels || {}, m); } catch (e) { r = { error: 'Could not draw that yet' }; }
-    if (r.empty) return `<div class="placeholder">Type above to draw</div>`;
-    if (r.error) return `<div class="err">${esc(r.error)}</div>`;
-    return r.svg;
+    if (r.empty) return { html: `<div class="placeholder">Type below to draw</div>` };
+    if (r.error) return { html: `<div class="err">${esc(r.error)}</div>` };
+    const vb = r.svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+    return { ok: true, w: vb ? +vb[1] : 940, h: vb ? +vb[2] : 200, html: r.svg };
+  }
+  function tileHTML(m, i, kind) {
+    const r = modelSVG(m), t = TOOL[m.type];
+    return `<div class="tile ${kind}${r.ok ? '' : ' msg'}" data-m="${i}" data-w="${r.w || 940}" data-h="${r.h || 120}" style="--mw:${r.w || 940};--mh:${r.h || 120}">
+      <div class="tile-body">${r.html}</div>
+      ${kind === 'active' ? `<span class="tile-tag now">${t.icon} Now modeling: ${esc(t.name)}</span>` : ''}
+      ${kind === 'grid' ? `<span class="tile-tag">${t.icon}</span><span class="tile-btns"><button data-a="editm" title="Change this model">✎</button><button data-a="rmmodel" title="Remove this model">✕</button></span>` : ''}
+    </div>`;
   }
   function strokePath(pts) {
     if (!pts.length) return '';
@@ -712,6 +719,24 @@ Rules:
     let d = `M${pts[0][0]} ${pts[0][1]}`;
     for (let i = 1; i < pts.length - 1; i++) { const mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2; d += ` Q${pts[i][0]} ${pts[i][1]} ${mx.toFixed(1)} ${my.toFixed(1)}`; }
     const l = pts[pts.length - 1]; return d + ` L${l[0]} ${l[1]}`;
+  }
+  const cur = () => pdata(P.sess.shown[P.sess.active]);
+
+  function headHTML(idx, d) {
+    const prob = P.sess.problems[idx];
+    const exprPart = P.quick
+      ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
+      : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
+    const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
+    return `${exprPart}<span class="eq-mark">=</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
+  }
+  function barHTML(d) {
+    const am = P.activeM != null ? d.models[P.activeM] : null;
+    const tools = visibleTools();
+    const t = am && TOOL[am.type];
+    return `<div class="bar-tools">${tools.map(x => `<button class="tool-btn${x.id === P.s.tool ? ' default' : ''}${am && am.type === x.id ? ' on' : ''}" data-tool="${x.id}" title="${esc(x.name)}${x.key ? ` (${x.key})` : ''}"><span class="ico">${x.icon}</span>${esc(x.short || x.name)}</button>`).join('')}<button class="tool-btn gear" data-a="choosetools" title="Choose which tools show here">⚙</button></div>
+      ${am ? `<div class="typer"><span class="typer-name">${t.icon} ${esc(t.short || t.name)}</span><input id="typer" value="${esc(am.input || '')}" placeholder="${esc(t.help.split('  ·  ')[0])}" autocomplete="off" spellcheck="false"><button class="btn primary" data-a="donem" title="Finish (Enter)">Done ✓</button><button class="icon-btn" data-a="rmactive" title="Remove this model">🗑</button></div>
+      <div class="typer-help">${esc(t.help)}  ·  Enter when done</div>` : ''}`;
   }
 
   function renderAll() {
@@ -729,95 +754,97 @@ Rules:
     const nextOpt = S.active >= S.shown.length - 1 && S.cursor < S.problems.length && S.problems[S.cursor].optional;
     const sb = $('#skip-btn'); sb.classList.toggle('hidden', !nextOpt); sb.textContent = `Skip #${S.cursor + 1} (optional)`;
     $('#ov-btn').classList.toggle('on', P.overview);
+    $('#rail-btn').classList.toggle('on', settings.rail !== false);
     $('#pen-btn').classList.toggle('on', !!P.pen);
     $('#pen-tools').classList.toggle('hidden', !P.pen);
     $('#erase-btn').classList.toggle('on', P.pen === 'erase');
     $$('.swatch').forEach(b => b.classList.toggle('sel', P.pen === 'draw' && b.dataset.color === P.penColor));
   }
+  // The left column: a slim, readable list of the string so far
   function renderRail() {
     const rail = $('#rail'), S = P.sess;
-    const w = rail.clientWidth - 20 - 18;
-    const z = Math.max(0.12, w / 1000);
-    rail.innerHTML = S.shown.map((idx, pos) => `<div class="rail-card${pos === S.active && !P.overview ? ' active' : ''}" data-pos="${pos}"><span class="rnum">${idx + 1}</span><div style="zoom:${z}">${boardHTML(pos, 'thumb')}</div></div>`).join('')
-      + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
-    const act = $('.rail-card.active', rail); if (act) act.scrollIntoView({ block: 'nearest' });
+    $('.pres-body').classList.toggle('no-rail', settings.rail === false);
+    rail.innerHTML = S.shown.map((idx, pos) => {
+      const d = pdata(idx);
+      const circled = d.answers.find(a => a.mark === 'circled');
+      const show = circled ? [circled] : d.answers.filter(a => a.mark !== 'crossed');
+      return `<div class="rail-item${pos === S.active && !P.overview ? ' active' : ''}" data-pos="${pos}">
+        <span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">=</span><span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
+        ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
+      </div>`;
+    }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
   }
-  function refreshRailCard(pos) {
-    const card = $(`.rail-card[data-pos="${pos}"]`); if (!card) return;
-    const holder = card.lastElementChild; holder.innerHTML = boardHTML(pos, 'thumb');
-  }
+  const refreshRailCard = () => renderRail();
+
   function renderStage() {
     const stage = $('#stage'), S = P.sess;
-    const w = stage.clientWidth - 52;
-    if (P.overview) {
-      const cols = Math.max(1, Math.min(3, Math.floor(w / 380)));
-      const cw = (w - (cols - 1) * 16) / cols - 30;
-      stage.innerHTML = `<div class="over-title">${esc(P.s.title)}: the whole string</div><div class="overview" style="grid-template-columns:repeat(${cols},1fr)">${S.shown.map((idx, pos) => `<div class="rail-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span><div style="zoom:${cw / 1000}">${boardHTML(pos, 'thumb')}</div></div>`).join('')}</div>
-        <p class="end-note">What did you notice?</p>`;
-      stage.onclick = e => { const c = e.target.closest('[data-pos]'); if (c) { S.active = +c.dataset.pos; P.overview = false; saveSession(); renderAll(); } };
-      return;
-    }
-    stage.onclick = null;
-    const z = Math.min(1.7, Math.max(0.5, w / 1000));
-    stage.innerHTML = `<div class="stage-inner" style="zoom:${z}">${boardHTML(S.active, 'main')}</div>`;
-    const board = $('.board.main', stage);
-    board.style.minHeight = Math.max(300, (stage.clientHeight - 60) / z) + 'px';
-    const head = $('.prob-head', board);
-    stage.onscroll = () => head.classList.toggle('stuck', stage.scrollTop > 4);
-    stage.onscroll();
+    if (P.overview) { stage.className = 'stage over-mode'; stage.innerHTML = overviewHTML(); return; }
+    const idx = S.shown[S.active], d = pdata(idx);
+    if (P.activeM != null && !d.models[P.activeM]) P.activeM = null;
+    if (P.spot != null && !d.models[P.spot]) P.spot = null;
+    const fin = d.models.map((m, i) => [m, i]).filter(([, i]) => i !== P.activeM);
+    const strokes = (d.strokes || []).filter(st => st.n).map((st, i) => `<path data-s="${i}" d="${strokePath(st.pts)}" stroke="${st.c}" stroke-width="${st.w || 5}"/>`).join('');
+    stage.className = 'stage';
+    stage.innerHTML = `
+      <div class="head${d.models.length ? ' compact' : ''}" id="head">${headHTML(idx, d)}</div>
+      <div class="area" id="area">
+        <div class="grid${fin.length ? '' : ' hidden'}" id="grid">${fin.map(([m, i]) => tileHTML(m, i, 'grid')).join('')}</div>
+        ${P.activeM != null ? tileHTML(d.models[P.activeM], P.activeM, 'active') : ''}
+        ${!d.models.length ? `<div class="area-hint">Pick a tool below to model a student's thinking</div>` : ''}
+        ${P.spot != null ? `<div class="spot" data-spot="1">${tileHTML(d.models[P.spot], P.spot, 'spotlit')}<span class="spot-close">Click anywhere to close · Esc</span></div>` : ''}
+        <svg class="ink" id="ink" viewBox="0 0 1000 1000" preserveAspectRatio="none">${strokes}</svg>
+      </div>
+      <div class="bar" id="bar">${barHTML(d)}</div>`;
+    layoutArea();
     setupInk();
+    const ty = $('#typer');
+    if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
+  }
+  // Fit the finished models into a grid; the one being typed sits big underneath
+  function layoutArea() {
+    const area = $('#area'); if (!area) return;
+    const W = area.clientWidth, H = area.clientHeight, GAP = 10;
+    const grid = $('#grid'), act = $('.tile.active', area);
+    const tiles = $$('.tile', grid);
+    let gridH = H;
+    if (act) {
+      const aw = +act.dataset.w, ah = +act.dataset.h;
+      const want = Math.min(H, (ah / aw) * W + 40);
+      const actH = tiles.length ? Math.max(Math.min(want, H * 0.6), H * 0.42) : H;
+      act.style.height = actH + 'px';
+      gridH = H - actH - GAP;
+    }
+    if (!tiles.length) return;
+    const dims = tiles.map(t => [+t.dataset.w, +t.dataset.h]);
+    let best = null;
+    for (let c = 1; c <= Math.min(3, tiles.length); c++) {
+      const r = Math.ceil(tiles.length / c);
+      const tw = (W - (c - 1) * GAP) / c, th = (gridH - (r - 1) * GAP) / r;
+      const sc = Math.min(...dims.map(([w, h]) => Math.min((tw - 16) / w, (th - 16) / h)));
+      if (!best || sc > best.sc + 0.02) best = { c, r, th, sc };
+    }
+    grid.style.height = gridH + 'px';
+    grid.style.gridTemplateColumns = `repeat(${best.c}, minmax(0, 1fr))`;
+    grid.style.gridTemplateRows = `repeat(${best.r}, minmax(0, 1fr))`;
   }
 
-  /* ---- stage interactions ---- */
-  function stageClick(e) {
-    if (P.overview || P.pen) return;
-    const S = P.sess, idx = S.shown[S.active], d = pdata(idx);
-    const tb = e.target.closest('[data-tool]');
-    if (tb) return addModel(tb.dataset.tool);
-    const a = e.target.closest('[data-a]');
-    if (a && a.dataset.a === 'addans') return openAnswerInput();
-    if (a && a.dataset.a === 'rmmodel') { const i = +a.closest('[data-m]').dataset.m; d.models.splice(i, 1); saveSession(); renderStage(); refreshRailCard(S.active); return; }
-    const ans = e.target.closest('[data-ans]');
-    if (ans) {
-      const it = d.answers[+ans.dataset.ans];
-      it.mark = !it.mark ? 'circled' : it.mark === 'circled' ? 'crossed' : '';
-      if (it.mark === '' && e.altKey) d.answers.splice(+ans.dataset.ans, 1);
-      saveSession(); renderStage(); refreshRailCard(S.active); return;
-    }
-    const cell = e.target.closest('.cell-toggle');
-    if (cell) {
-      const m = d.models[+cell.closest('[data-m]').dataset.m];
-      m.hidden = m.hidden || []; const k = cell.dataset.cell;
-      m.hidden = m.hidden.includes(k) ? m.hidden.filter(x => x !== k) : [...m.hidden, k];
-      if (m.labels) delete m.labels['c' + k];
-      redrawModel(+cell.closest('[data-m]').dataset.m); return;
-    }
-    const ed = e.target.closest('[data-edit]');
-    if (ed) return editLabel(ed);
+  function overviewHTML() {
+    const S = P.sess;
+    return `<div class="over-title">${esc(P.s.title)}: the whole string</div>
+      <div class="overview">${S.shown.map((idx, pos) => {
+        const d = pdata(idx), ms = d.models.filter(m => String(m.input || '').trim());
+        return `<div class="ov-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span>
+          <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
+          ${ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
+        </div>`;
+      }).join('')}</div>
+      <p class="end-note">What did you notice?</p>`;
   }
-  function stageInput(e) {
-    const t = e.target, S = P.sess;
-    if (t.dataset.min != null) {
-      const i = +t.dataset.min, m = pdata(S.shown[S.active]).models[i];
-      m.input = t.value; m.labels = {}; m.hidden = [];
-      redrawModel(i);
-    }
-    if (t.id === 'quick-q') { S.problems[S.shown[S.active]].q = t.value; saveSession(); refreshRailCard(S.active); }
-  }
-  function stageBlur(e) { if (e.target.dataset && e.target.dataset.min != null && P) refreshRailCard(P.sess.active); }
-  function stageKey(e) {
-    if (e.key === 'Escape') { e.target.blur(); e.stopPropagation(); }
-    if (e.key === 'Enter' && (e.target.dataset.min != null || e.target.id === 'quick-q')) e.target.blur();
-  }
-  function redrawModel(i) {
-    const S = P.sess, m = pdata(S.shown[S.active]).models[i];
-    const box = $(`.board.main [data-m="${i}"]`);
-    if (box) { $('.model-out', box).innerHTML = modelOut(m); box.classList.toggle('is-empty', !String(m.input || '').trim()); }
-    saveSession();
-    clearTimeout(redrawModel.t); redrawModel.t = setTimeout(() => refreshRailCard(S.active), 200);
-  }
+
+  /* ---- working with models ---- */
   function addModel(type) {
     if (P.overview) return;
+    finishActive(true);
     const S = P.sess, idx = S.shown[S.active], d = pdata(idx), q = S.problems[idx].q || '';
     let input = '';
     // number line starts blank: students start from different numbers
@@ -827,12 +854,98 @@ Rules:
     if (type === 'slide' && /^\S+\s*-\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'halve' && /^\S+\s*x\s*\S+$/i.test(qx)) input = qx + ' = ';
-    if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-');
+    if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = qx;
+    if (type === 'tiles' && /^-?\d+\s*[+\-x]\s*\(?-?\d+\)?$/.test(qx)) input = qx;
     if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
     d.models.push({ type, input, labels: {} });
-    saveSession(); renderStage(); refreshRailCard(S.active);
-    const inp = $$('.board.main [data-min]').pop();
-    if (inp) { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); inp.scrollIntoView({ block: 'nearest' }); }
+    P.activeM = d.models.length - 1; P.spot = null; P.focusTyper = true;
+    saveSession(); renderStage(); renderRail();
+  }
+  // Done typing: the model shrinks into the grid (an empty one is dropped)
+  function finishActive(quiet) {
+    if (!P || P.activeM == null) return;
+    const d = cur(), m = d.models[P.activeM];
+    if (m && !String(m.input || '').trim()) d.models.splice(P.activeM, 1);
+    P.activeM = null;
+    saveSession();
+    if (!quiet) { renderStage(); renderRail(); }
+  }
+  function editModel(i) {
+    const d = cur(), target = d.models[i];
+    finishActive(true);
+    P.activeM = d.models.indexOf(target); P.spot = null; P.focusTyper = true;
+    renderStage();
+  }
+  function redrawModel(i) {
+    saveSession();
+    if (i === P.activeM && P.spot == null) {
+      const act = $('.tile.active');
+      if (act) {
+        const r = modelSVG(cur().models[i]);
+        $('.tile-body', act).innerHTML = r.html;
+        act.dataset.w = r.w || 940; act.dataset.h = r.h || 120;
+        act.style.setProperty('--mw', r.w || 940); act.style.setProperty('--mh', r.h || 120);
+        act.classList.toggle('msg', !r.ok);
+        layoutArea();
+        return;
+      }
+    }
+    renderStage();
+  }
+
+  /* ---- stage interactions ---- */
+  function stageClick(e) {
+    if (P.overview) { const c = e.target.closest('[data-pos]'); if (c) { P.sess.active = +c.dataset.pos; P.overview = false; P.activeM = null; saveSession(); renderAll(); } return; }
+    if (P.pen) return;
+    const d = cur();
+    const tb = e.target.closest('[data-tool]');
+    if (tb) return addModel(tb.dataset.tool);
+    const a = e.target.closest('[data-a]');
+    if (a) {
+      const tileEl = a.closest('[data-m]'), i = tileEl ? +tileEl.dataset.m : null;
+      switch (a.dataset.a) {
+        case 'addans': return openAnswerInput();
+        case 'choosetools': return toolsModal(() => renderStage());
+        case 'donem': return finishActive();
+        case 'rmactive': { if (P.activeM != null) { d.models.splice(P.activeM, 1); P.activeM = null; saveSession(); renderStage(); renderRail(); } return; }
+        case 'editm': return editModel(i);
+        case 'rmmodel': { d.models.splice(i, 1); if (P.activeM != null && P.activeM > i) P.activeM--; saveSession(); renderStage(); renderRail(); return; }
+      }
+    }
+    const ans = e.target.closest('[data-ans]');
+    if (ans) {
+      const it = d.answers[+ans.dataset.ans];
+      it.mark = !it.mark ? 'circled' : it.mark === 'circled' ? 'crossed' : '';
+      if (it.mark === '' && e.altKey) d.answers.splice(+ans.dataset.ans, 1);
+      saveSession(); renderStage(); renderRail(); return;
+    }
+    const cell = e.target.closest('.cell-toggle');
+    if (cell) {
+      const mi = +cell.closest('[data-m]').dataset.m, m = d.models[mi];
+      m.hidden = m.hidden || []; const k = cell.dataset.cell;
+      m.hidden = m.hidden.includes(k) ? m.hidden.filter(x => x !== k) : [...m.hidden, k];
+      if (m.labels) delete m.labels['c' + k];
+      return redrawModel(mi);
+    }
+    const ed = e.target.closest('[data-edit]');
+    if (ed) return editLabel(ed);
+    if (e.target.closest('[data-spot]')) { P.spot = null; return renderStage(); }
+    const gt = e.target.closest('.tile.grid');
+    if (gt) { P.spot = +gt.dataset.m; return renderStage(); }
+  }
+  function stageInput(e) {
+    const t = e.target, S = P.sess;
+    if (t.id === 'typer' && P.activeM != null) {
+      const m = cur().models[P.activeM];
+      m.input = t.value; m.labels = {}; m.hidden = [];
+      redrawModel(P.activeM);
+    }
+    if (t.id === 'quick-q') { S.problems[S.shown[S.active]].q = t.value; saveSession(); renderRail(); }
+  }
+  function stageKey(e) {
+    if (e.target.id === 'typer' && (e.key === 'Enter' || e.key === 'Escape')) { e.preventDefault(); e.stopPropagation(); finishActive(); return; }
+    if (e.key === 'Escape') { e.target.blur(); e.stopPropagation(); }
+    if (e.key === 'Enter' && e.target.id === 'quick-q') e.target.blur();
   }
   function openAnswerInput() {
     if (P.overview || $('.ans-input')) { const ex = $('.ans-input'); if (ex) ex.focus(); return; }
@@ -841,14 +954,14 @@ Rules:
     const inp = $('input', slot); inp.focus();
     const commit = () => {
       const v = inp.value.trim();
-      if (v) { const S = P.sess; pdata(S.shown[S.active]).answers.push({ t: v.replace(/-/g, '−'), mark: '' }); saveSession(); }
-      renderStage(); refreshRailCard(P.sess.active);
+      if (v) { cur().answers.push({ t: v.replace(/-/g, '−'), mark: '' }); saveSession(); }
+      renderStage(); renderRail();
     };
     inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } if (e.key === 'Escape') { e.stopPropagation(); renderStage(); } };
     inp.onblur = () => setTimeout(() => { if (document.activeElement !== inp && inp.isConnected) commit(); }, 50);
   }
   function editLabel(el) {
-    const S = P.sess, mi = +el.closest('[data-m]').dataset.m, m = pdata(S.shown[S.active]).models[mi], key = el.dataset.edit;
+    const mi = +el.closest('[data-m]').dataset.m, m = cur().models[mi], key = el.dataset.edit;
     const r = el.getBoundingClientRect();
     const inp = h(`<input class="label-edit" value="${esc(el.textContent)}">`);
     inp.style.left = Math.max(8, Math.min(window.innerWidth - 280, r.left + r.width / 2 - 130)) + 'px';
@@ -864,44 +977,49 @@ Rules:
     inp.onblur = () => finish(true);
   }
 
-  /* ---- pen ---- */
+  /* ---- pen: strokes are stored relative to the drawing area (0–1000 both ways) ---- */
   function setupInk() {
     const ink = $('#ink'); if (!ink) return;
     ink.classList.toggle('drawing', P.pen === 'draw');
     ink.classList.toggle('erasing', P.pen === 'erase');
-    const board = ink.parentElement;
-    let cur = null, path = null;
-    const pt = e => { const r = board.getBoundingClientRect(), k = 1000 / r.width; return [+((e.clientX - r.left) * k).toFixed(1), +((e.clientY - r.top) * k).toFixed(1)]; };
-    const d = () => pdata(P.sess.shown[P.sess.active]);
-    const eraseAt = e => { const t = document.elementFromPoint(e.clientX, e.clientY); if (t && t.dataset && t.dataset.s != null && ink.contains(t)) { d().strokes.splice(+t.dataset.s, 1); saveSession(); renderStage(); refreshRailCard(P.sess.active); } };
+    let curS = null, path = null;
+    const pt = e => { const r = ink.getBoundingClientRect(); return [+(((e.clientX - r.left) / r.width) * 1000).toFixed(1), +(((e.clientY - r.top) / r.height) * 1000).toFixed(1)]; };
+    const eraseAt = e => {
+      const t = document.elementFromPoint(e.clientX, e.clientY);
+      if (t && t.dataset && t.dataset.s != null && ink.contains(t)) {
+        const live = cur().strokes.filter(st => st.n), victim = live[+t.dataset.s];
+        cur().strokes = cur().strokes.filter(st => st !== victim); saveSession(); renderStage();
+      }
+    };
     ink.onpointerdown = e => {
       if (!P.pen) return;
       e.preventDefault(); ink.setPointerCapture(e.pointerId);
       if (P.pen === 'erase') { ink._erasing = true; return eraseAt(e); }
-      cur = { c: P.penColor, w: 5, pts: [pt(e)] };
+      curS = { c: P.penColor, w: 5, n: 1, pts: [pt(e)] };
       path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('stroke', cur.c); path.setAttribute('stroke-width', cur.w); ink.appendChild(path);
-      path.setAttribute('d', strokePath(cur.pts));
+      path.setAttribute('stroke', curS.c); path.setAttribute('stroke-width', curS.w); ink.appendChild(path);
+      path.setAttribute('d', strokePath(curS.pts));
     };
     ink.onpointermove = e => {
       if (P.pen === 'erase' && ink._erasing) return eraseAt(e);
-      if (!cur) return;
-      const p = pt(e), l = cur.pts[cur.pts.length - 1];
+      if (!curS) return;
+      const p = pt(e), l = curS.pts[curS.pts.length - 1];
       if (Math.hypot(p[0] - l[0], p[1] - l[1]) < 2) return;
-      cur.pts.push(p); path.setAttribute('d', strokePath(cur.pts));
+      curS.pts.push(p); path.setAttribute('d', strokePath(curS.pts));
     };
     ink.onpointerup = ink.onpointercancel = () => {
       ink._erasing = false;
-      if (!cur) return;
-      d().strokes.push(cur); cur = null; path = null; saveSession(); refreshRailCard(P.sess.active);
+      if (!curS) return;
+      cur().strokes.push(curS); curS = null; path = null; saveSession();
     };
   }
   function setPen(mode) {
     P.pen = P.pen === mode ? null : mode;
+    if (P.pen) finishActive();
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     renderNav(); setupInk();
   }
-  function undoStroke() { const d = pdata(P.sess.shown[P.sess.active]); if (d.strokes.length) { d.strokes.pop(); saveSession(); renderStage(); refreshRailCard(P.sess.active); } }
+  function undoStroke() { const d = cur(); if (d.strokes.length) { d.strokes.pop(); saveSession(); renderStage(); } }
 
   function topbarClick(e) {
     const sw = e.target.closest('[data-color]');
@@ -919,9 +1037,10 @@ Rules:
       case 'pen': setPen('draw'); break;
       case 'erase': setPen('erase'); break;
       case 'undo': undoStroke(); break;
-      case 'clear': { const d = pdata(P.sess.shown[P.sess.active]); if (d.strokes.length && confirm('Clear the drawing on this problem?')) { d.strokes = []; saveSession(); renderStage(); refreshRailCard(P.sess.active); } break; }
-      case 'overview': P.overview = !P.overview; renderAll(); break;
-      case 'restart': if (confirm('Start this string over? Answers and models from this run will be cleared.')) { P.sess = newSession(P.s.id, P.s); if (P.quick) P.sess.problems.push({ q: '' }); revealNext(true); timer.reset(); saveSession(); renderAll(); } break;
+      case 'clear': { const d = cur(); if (d.strokes.length && confirm('Clear the drawing on this problem?')) { d.strokes = []; saveSession(); renderStage(); } break; }
+      case 'rail': settings.rail = settings.rail === false; saveSettings(); renderAll(); break;
+      case 'overview': finishActive(true); P.overview = !P.overview; renderAll(); break;
+      case 'restart': if (confirm('Start this string over? Answers and models from this run will be cleared.')) { P.sess = newSession(P.s.id, P.s); P.activeM = null; P.spot = null; if (P.quick) P.sess.problems.push({ q: '' }); revealNext(true); timer.reset(); saveSession(); renderAll(); } break;
     }
   }
   function presKeys(e) {
@@ -937,11 +1056,12 @@ Rules:
     else if (k === 'r' || k === 'R') pickerOverlay(false);
     else if (k === 'p' || k === 'P') setPen('draw');
     else if (k === 'e' || k === 'E') setPen('erase');
-    else if (k === 'o' || k === 'O') { P.overview = !P.overview; renderAll(); }
+    else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
+    else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
-    else if (k === 'Escape') { if (P.pen) setPen(P.pen); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if (k === 'Escape') { if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
-    else { const t = TOOLS.find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
+    else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }
 
   /* ================= start ================= */

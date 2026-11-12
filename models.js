@@ -852,6 +852,92 @@
     return { svg: svg(y + 80, body) };
   }
 
+  /* ---------- Integer tiles ----------  3 + -5  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  -3 x 2 */
+  function tiles(input, labels) {
+    let s = norm(input).replace(/\*/g, 'x').replace(/[()\s]/g, '');
+    if (!s) return { empty: true };
+    s = s.split('=')[0];
+    let a, op = null, b;
+    let m = s.match(/^([+-]?\d+)([+\-x])([+-]?\d+)$/i);
+    if (m) { a = +m[1]; op = m[2].toLowerCase(); b = +m[3]; }
+    else if ((m = s.match(/^[+-]?\d+$/))) a = +s;
+    else return { error: 'Type it like 3 + -5, -2 - 4, or 3 x -2' };
+    const POS = '#f5c84c', NEG = '#e5534b';
+    // each tile: { sign: 1|-1, added: bool, crossed: bool }
+    let pos = [], neg = [], caption = '', groups = null;
+    const make = (n, sign, added) => Array.from({ length: n }, () => ({ sign, added, crossed: false }));
+    const put = (v, added) => { if (v > 0) pos.push(...make(v, 1, added)); else if (v < 0) neg.push(...make(-v, -1, added)); };
+    if (op === null) { put(a); caption = a === 0 ? 'zero' : `${Math.abs(a)} ${a > 0 ? 'positive' : 'negative'} tile${Math.abs(a) === 1 ? '' : 's'}`; }
+    else if (op === '+') {
+      put(a); put(b);
+      const zp = Math.min(pos.length, neg.length);
+      caption = zp ? `${zp} zero pair${zp === 1 ? '' : 's'}` : 'no zero pairs';
+    } else if (op === '-') {
+      put(a);
+      const want = b > 0 ? pos : neg, other = b > 0 ? neg : pos, need = Math.abs(b);
+      const add = Math.max(0, need - want.length);
+      if (add) { want.push(...make(add, b > 0 ? 1 : -1, true)); other.push(...make(add, b > 0 ? -1 : 1, true)); }
+      for (let i = 0; i < need; i++) want[want.length - 1 - i].crossed = true;
+      caption = (add ? `added ${add} zero pair${add === 1 ? '' : 's'}, then ` : '') + `took away ${need} ${b > 0 ? 'positive' : 'negative'}${need === 1 ? '' : 's'}`;
+      if (!need) caption = 'took away nothing';
+    } else {
+      const ga = Math.abs(a), gb = Math.abs(b);
+      if (a >= 0) {
+        groups = { n: ga, size: gb, sign: b >= 0 ? 1 : -1 };
+        caption = `${ga} group${ga === 1 ? '' : 's'} of ${b}`;
+      } else {
+        // take away |a| groups of b, starting from zero pairs
+        const n = ga * gb, sgn = b >= 0 ? 1 : -1;
+        put(n * sgn, true); put(-n * sgn, true);
+        (sgn > 0 ? pos : neg).forEach(t => (t.crossed = true));
+        caption = `added ${n} zero pair${n === 1 ? '' : 's'}, then took away ${ga} group${ga === 1 ? '' : 's'} of ${b}`;
+      }
+    }
+    const total = groups ? groups.n * groups.size : pos.length + neg.length;
+    if (total > 48) return { error: 'Too many tiles to show (keep it to about 40). Try the number line.' };
+    const T = 42, G = 9;
+    const tile = (x, y, t) => {
+      const fill = t.sign > 0 ? POS : NEG;
+      let out = `<rect x="${x}" y="${y}" width="${T}" height="${T}" rx="7" fill="${fill}" stroke="${t.added ? C.ink : 'rgba(0,0,0,.25)'}" stroke-width="${t.added ? 2.5 : 1.5}"${t.added ? ' stroke-dasharray="5 4"' : ''}/>`;
+      out += `<text x="${x + T / 2}" y="${y + T / 2 + 9}" text-anchor="middle" font-size="28" font-weight="700" fill="${t.sign > 0 ? C.ink : '#fff'}">${t.sign > 0 ? '+' : '−'}</text>`;
+      if (t.crossed) out += `<path d="M${x + 4} ${y + 4} L${x + T - 4} ${y + T - 4} M${x + T - 4} ${y + 4} L${x + 4} ${y + T - 4}" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/>`;
+      return out;
+    };
+    let body = '', H;
+    if (groups) {
+      const perRow = Math.max(1, Math.min(groups.n, Math.floor((W - 40) / (groups.size * (T + G) + 34))));
+      const gw = groups.size * (T + G) - G + 20, gh = T + 20;
+      const rowsN = Math.ceil(groups.n / perRow);
+      const totalW = perRow * gw + (perRow - 1) * 14, x0 = (W - totalW) / 2;
+      for (let g = 0; g < groups.n; g++) {
+        const gx = x0 + (g % perRow) * (gw + 14), gy = 24 + Math.floor(g / perRow) * (gh + 16);
+        body += `<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" rx="12" fill="none" stroke="${C.fwd}" stroke-width="2.5" stroke-dasharray="7 5"/>`;
+        for (let i = 0; i < groups.size; i++) body += tile(gx + 10 + i * (T + G), gy + 10, { sign: groups.sign });
+      }
+      H = 24 + rowsN * (gh + 16);
+    } else {
+      // positives on top, negatives below; zero pairs line up in the first columns
+      const live = arr => arr.filter(t => !t.crossed);
+      const pairs = op === '+' ? Math.min(pos.length, neg.length) : 0;
+      const cols = Math.max(pos.length, neg.length, 1);
+      const width = cols * (T + G) - G;
+      const x0 = (W - width) / 2 + 20, y1 = 30, y2 = y1 + T + 18;
+      for (let i = 0; i < pairs; i++) {
+        const x = x0 + i * (T + G) - 4;
+        body += `<rect x="${x}" y="${y1 - 6}" width="${T + 8}" height="${2 * T + 30}" rx="12" fill="none" stroke="${C.gap}" stroke-width="3" stroke-dasharray="6 4"/>`;
+      }
+      pos.forEach((t, i) => (body += tile(x0 + i * (T + G), y1, t)));
+      neg.forEach((t, i) => (body += tile(x0 + i * (T + G), y2, t)));
+      if (pos.length) body += text(x0 - 18, y1 + T / 2 + 8, '+', { size: 26, weight: 700, fill: C.soft, anchor: 'end' });
+      if (neg.length) body += text(x0 - 18, y2 + T / 2 + 8, '−', { size: 26, weight: 700, fill: C.soft, anchor: 'end' });
+      H = (neg.length ? y2 : y1) + T + 14;
+      void live;
+    }
+    const l = editable('cap', labels, caption);
+    body += text(W / 2, H + 26, l.text, { size: 22, weight: 700, fill: C.soft, edit: 'cap', custom: l.custom });
+    return { svg: svg(H + 40, body) };
+  }
+
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
     { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
@@ -863,6 +949,7 @@
     { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
+    { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  -3 x 2  ·  click the caption to reword it' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];

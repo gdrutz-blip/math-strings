@@ -6,9 +6,6 @@ Ideas to build when they're needed. Add to this any time, either by asking Claud
 
 ## Up next (Grade 8)
 
-- [ ] **Integer tiles**: yellow (+) and red (−) tiles with zero pairs circled.
-      `3 + -5` · `-2 - 4` (add zero pairs so you can take away) · `3 x -2`.
-      Build when the integer strings are planned.
 - [ ] **Save a run / benchmark strings**: one click at the wrap-up keeps a named copy
       (e.g. "Day 3 · Period 2 · Nov 12"); reopen it later; compare September with January.
       For now: press `O` at the end and take a screenshot.
@@ -35,6 +32,10 @@ Start with 1–2 interested colleagues, ideally including a primary teacher.
 - [ ] Write original strings; don't copy published string books
 
 ## Done
+
+- [x] Fit-everything layout: the model being typed is big at the bottom and shrinks into a grid on Enter; click to spotlight; slim problem list (L to hide); typing box at the bottom (Nov 12)
+- [x] Choose which tools show (⚙ in the tool bar) (Nov 12)
+- [x] Integer tiles: zero pairs, taking away with added zero pairs, groups (Nov 12)
 
 - [x] Library, editor, presenter, timer, random name picker (Nov 5)
 - [x] Number line, ratio table, area, array, double number line, clock, bar, words & equations (Nov 5)
