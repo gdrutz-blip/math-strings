@@ -720,6 +720,7 @@ Rules:
             <button class="icon-btn" data-a="clear" title="Clear drawing on this problem">🗑</button>
           </span>
           <button class="btn ghost" data-a="overview" id="ov-btn" title="See the whole string (O)">▦ All</button>
+          <button class="btn ghost" data-a="print" title="Print or save as PDF what is on screen: this problem, a spotlighted model, or the whole string (in ▦ All)">🖨</button>
           <span class="sep"></span>
           <button class="btn ghost" data-a="restart" title="Start this string over">↺</button>
           <button class="btn" data-a="prev" title="Back (←)">◀</button>
@@ -776,8 +777,13 @@ Rules:
     if (m.type === 'text') {
       const lines = String(m.input || '').split(';').map(l => l.trim()).filter(Boolean);
       if (!lines.length) return { html: `<div class="placeholder">Type the student's words or equations below</div>` };
-      const hgt = lines.length * 58 + 22;
-      return { ok: true, w: 940, h: hgt, html: `<svg class="model-svg" viewBox="0 0 940 ${hgt}" xmlns="http://www.w3.org/2000/svg"><foreignObject x="0" y="0" width="940" height="${hgt}"><div xmlns="http://www.w3.org/1999/xhtml" class="words">${lines.map(l => `<div class="wline">${exprHTML(l)}</div>`).join('')}</div></foreignObject></svg>` };
+      // long sentences get smaller type and wrap onto more lines instead of being cut off
+      const longest = Math.max(...lines.map(l => l.length));
+      const fs = longest > 90 ? 26 : longest > 60 ? 30 : longest > 38 ? 34 : 40;
+      const perLine = Math.floor(900 / (fs * 0.56));
+      const rows = lines.reduce((n, l) => n + Math.max(1, Math.ceil(l.length / perLine)), 0);
+      const hgt = Math.ceil(rows * fs * 1.32 + (lines.length - 1) * 6 + 26);
+      return { ok: true, w: 940, h: hgt, html: `<svg class="model-svg" viewBox="0 0 940 ${hgt}" xmlns="http://www.w3.org/2000/svg"><foreignObject x="0" y="0" width="940" height="${hgt}"><div xmlns="http://www.w3.org/1999/xhtml" class="words" style="font-size:${fs}px">${lines.map(l => `<div class="wline">${exprHTML(l)}</div>`).join('')}</div></foreignObject></svg>` };
     }
     let r;
     try { r = TOOL[m.type].render(m.input || '', m.labels || {}, m); } catch (e) { r = { error: 'Could not draw that yet' }; }
@@ -936,6 +942,7 @@ Rules:
     if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'halve' && /^\S+\s*x\s*\S+$/i.test(qx)) input = qx + ' = ';
     if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = qx;
+    if ((type === 'split' || type === 'estimate') && /^\d+\s*[+\-]\s*\d+/.test(qx)) input = qx;
     if (type === 'tiles' && /^-?\d+\s*[+\-x]\s*\(?-?\d+\)?$/.test(qx)) input = qx;
     if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
     d.models.push({ type, input, labels: {} });
@@ -1100,6 +1107,17 @@ Rules:
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     renderNav(); setupInk();
   }
+  // Print (or Save as PDF) exactly what is on screen, with the string's name and date on top
+  function printView() {
+    finishActive(true); renderStage();
+    const S = P.sess, when = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    const what = P.overview ? 'Whole string' : `Problem ${S.shown[S.active] + 1}`;
+    const tag = document.createElement('div');
+    tag.className = 'print-title';
+    tag.textContent = `${P.s.label ? P.s.label + ' · ' : ''}${P.s.title} · ${what} · ${when}`;
+    $('#stage').prepend(tag);
+    setTimeout(() => { window.print(); tag.remove(); }, 50);
+  }
   function undoStroke() { const d = cur(); if (d.strokes.length) { d.strokes.pop(); saveSession(); renderStage(); } }
 
   function topbarClick(e) {
@@ -1120,6 +1138,7 @@ Rules:
       case 'undo': undoStroke(); break;
       case 'clear': { const d = cur(); if (d.strokes.length && confirm('Clear the drawing on this problem?')) { d.strokes = []; saveSession(); renderStage(); } break; }
       case 'rail': settings.rail = settings.rail === false; saveSettings(); renderAll(); break;
+      case 'print': printView(); break;
       case 'overview': finishActive(true); P.overview = !P.overview; renderAll(); break;
       case 'restart': if (confirm('Start this string over? Answers and models from this run will be cleared.')) { P.sess = newSession(P.s.id, P.s); P.activeM = null; P.spot = null; if (P.quick) P.sess.problems.push({ q: '' }); revealNext(true); timer.reset(); saveSession(); renderAll(); } break;
     }

@@ -127,6 +127,8 @@ In `notes`, suggest how to model the expected strategy using `Model: <tool> <inp
 | `clock` | Fractions with denominators that divide 60 (2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60) | `1/4 + 1/3` · `3/4 - 1/6` · `1 1/2 - 1/4` | Shaded clock faces, in minutes |
 | `bar` | Fraction of a quantity, part-whole, comparison | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` | Tape / bar diagrams |
 | `tiles` | Integer addition, subtraction, multiplication | `3 + -5` · `-2 - 4` · `3 - -2` · `3 x -2` · `-3 x 2` | Integer tiles (yellow +, red −) with zero pairs |
+| `split` | Adding by place value (tens first, then ones) | `36 + 47` · `368 + 457` | Each number broken into hundreds/tens/ones, added place by place |
+| `estimate` | Estimating with friendly numbers | `36 + 47` · `82 - 37` · `36 + 47 ≈ 35 + 45` | Small number lines showing the nearest friendly number, then the estimate |
 | `column` | A student who used the standard (column) algorithm | `38 + 9` · `100 - 76` · `2.5 + 1.9` · `38 x 7` · `24 x 13` | Stacked algorithm with carries, regrouping or partial products |
 | `text` | Recording a student's words or an equation chain | `38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40` (`;` = new line) | Large text and equations |
 

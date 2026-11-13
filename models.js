@@ -943,6 +943,102 @@
     return { svg: svg(H + 40, body) };
   }
 
+  /* ---------- Split by place value (tens first) ----------  36 + 47  ·  368 + 457  ·  25 + 36 + 14 */
+  function split(input, labels, model) {
+    let s = norm(input).trim();
+    if (!s) return { empty: true };
+    s = s.split('=')[0].replace(/\s+/g, '');
+    const nums = s.split('+');
+    if (nums.length < 2 || nums.length > 3 || nums.some(n => !/^\d{1,4}$/.test(n))) return { error: 'Type whole numbers to add, like 36 + 47 or 368 + 457' };
+    const vals = nums.map(Number);
+    const PLACES = [[1000, 'thousands', '#8a5cd6'], [100, 'hundreds', C.gap], [10, 'tens', C.fwd], [1, 'ones', C.back]];
+    const partsOf = v => PLACES.map(([p]) => Math.floor((v % (p * 10)) / p) * p);
+    const used = PLACES.filter(([p]) => vals.some(v => v >= p));
+    const hidden = new Set((model && model.hidden) || []);
+    let body = '';
+    // top: each number with branches down to its parts
+    const colW = (W - 40) / nums.length, yTop = 44, yParts = 128;
+    vals.forEach((v, i) => {
+      const cx = 20 + colW * (i + 0.5);
+      body += text(cx, yTop, String(v), { size: 40, weight: 700 });
+      if (i < vals.length - 1) body += text(20 + colW * (i + 1), yTop, '+', { size: 36, fill: C.soft });
+      const parts = partsOf(v).map((pv, k) => [pv, PLACES[k]]).filter(([pv, [p]]) => pv > 0 && used.some(u => u[0] === p));
+      const n = parts.length, spread = Math.min(colW - 40, n * 96);
+      parts.forEach(([pv, [, , col]], k) => {
+        const px = cx - spread / 2 + spread * (n === 1 ? 0.5 : k / (n - 1));
+        body += `<line x1="${cx}" y1="${yTop + 10}" x2="${px}" y2="${yParts - 30}" stroke="${C.soft}" stroke-width="2.5"/>`;
+        body += `<rect x="${px - 40}" y="${yParts - 30}" width="80" height="42" rx="9" fill="${col}" fill-opacity=".14" stroke="${col}" stroke-width="2.5"/>`;
+        body += text(px, yParts, String(pv), { size: 26, weight: 700, fill: col });
+      });
+    });
+    // below: add each place, biggest first, then put it together
+    let y = yParts + 62;
+    const sums = used.map(([p, name, col]) => {
+      const ps = vals.map(v => Math.floor((v % (p * 10)) / p) * p);
+      const sum = ps.reduce((a, b) => a + b, 0);
+      const key = 'p' + p, l = editable(key, labels, `${name}: ${ps.join(' + ')} = ${sum}`);
+      body += text(W / 2, y, l.text, { size: 28, weight: 700, fill: col, edit: key, custom: l.custom });
+      y += 44;
+      return sum;
+    });
+    const total = sums.reduce((a, b) => a + b, 0);
+    body += `<line x1="${W / 2 - 220}" y1="${y - 26}" x2="${W / 2 + 220}" y2="${y - 26}" stroke="${C.line}" stroke-width="2"/>`;
+    body += `<rect class="cell-toggle" data-cell="ans" x="${W / 2 - 260}" y="${y - 20}" width="520" height="50" fill="transparent"/>`;
+    body += text(W / 2, y + 16, sums.join(' + ') + ' = ' + (hidden.has('ans') ? '?' : total), { size: 32, weight: 700 });
+    return { svg: svg(y + 38, body) };
+  }
+
+  /* ---------- Estimate ----------  36 + 47  ·  368 + 457  ·  82 - 37  ·  36 + 47 ≈ 35 + 45 (students' own friendly numbers) */
+  function estimate(input, labels, model) {
+    let s = norm(input).replace(/≈|~|about/gi, '=').trim();
+    if (!s) return { empty: true };
+    const sides = s.split('=').map(t => t.replace(/\s+/g, '')).filter(Boolean);
+    const m = sides[0].match(/^(\d+(?:\.\d+)?)([+-])(\d+(?:\.\d+)?)$/);
+    if (!m) return { error: 'Type a problem like 36 + 47, 368 + 457, or 82 - 37' };
+    const op = m[2], a = +m[1], b = +m[3];
+    let ra, rb, step, lines0 = [null, null];
+    const mine = sides[1] && sides[1].match(/^(\d+(?:\.\d+)?)[+-](\d+(?:\.\d+)?)$/);
+    if (mine) { ra = +mine[1]; rb = +mine[2]; step = null; }
+    else {
+      // each number rounds by its own size: 47 -> 50, 198 -> 200, 1250 -> 1300
+      const stepOf = v => (v < 10 ? 5 : v < 100 ? 10 : 100);
+      step = null; ra = Math.round(a / stepOf(a)) * stepOf(a); rb = Math.round(b / stepOf(b)) * stepOf(b);
+      lines0 = [stepOf(a), stepOf(b)];
+    }
+    const est = op === '+' ? ra + rb : ra - rb;
+    const steps = lines0;
+    const hidden = new Set((model && model.hidden) || []);
+    let body = '';
+    // a small number line for each number, showing the friendly number it is close to
+    const lines = [[a, ra], [b, rb]];
+    const half = (W - 60) / 2;
+    lines.forEach(([v, r], i) => {
+      const x0 = 30 + i * (half + 20) + 40, x1 = x0 + half - 80, y = 100;
+      const own = steps[i];
+      const st = own || Math.max(10, Math.pow(10, Math.floor(Math.log10(Math.max(Math.abs(v - r), 1))) + 1));
+      let lo = Math.min(Math.floor(v / st) * st, r), hi = Math.max(lo + st, r, Math.ceil(v / st) * st);
+      if (hi === lo) hi = lo + st;
+      const X = t => x0 + ((t - lo) / (hi - lo)) * (x1 - x0);
+      body += `<line x1="${x0 - 14}" y1="${y}" x2="${x1 + 14}" y2="${y}" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
+      [lo, hi].forEach(t => { body += `<line x1="${X(t)}" y1="${y - 10}" x2="${X(t)}" y2="${y + 10}" stroke="${C.ink}" stroke-width="3"/>` + text(X(t), y + 36, fmt(t), { size: 22, weight: t === r ? 700 : 500, fill: t === r ? C.gap : C.ink }); });
+      if (own && (hi - lo) === own && r !== lo + own / 2) { const mid = lo + own / 2; body += `<line x1="${X(mid)}" y1="${y - 6}" x2="${X(mid)}" y2="${y + 6}" stroke="${C.soft}" stroke-width="2"/>` + text(X(mid), y + 32, fmt(mid), { size: 15, fill: C.soft }); }
+      if (r !== lo && r !== hi) body += `<line x1="${X(r)}" y1="${y - 10}" x2="${X(r)}" y2="${y + 10}" stroke="${C.gap}" stroke-width="3"/>` + text(X(r), y + 36, fmt(r), { size: 22, weight: 700, fill: C.gap });
+      body += `<circle cx="${X(v)}" cy="${y}" r="9" fill="${C.fwd}"/>` + text(X(v), y - 22, fmt(v), { size: 26, weight: 700, fill: C.fwd });
+      if (v !== r) {
+        const mx = (X(v) + X(r)) / 2;
+        body += `<path d="M${X(v)} ${y - 14} Q ${mx} ${y - 58} ${X(r)} ${y - 14}" fill="none" stroke="${C.gap}" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ah-fwd)"/>`;
+      }
+      const key = 'n' + i, l = editable(key, labels, `${fmt(v)} is close to ${fmt(r)}`);
+      body += text((x0 + x1) / 2, y + 74, l.text, { size: 21, weight: 600, fill: C.soft, edit: key, custom: l.custom });
+    });
+    const sign = op === '+' ? '+' : '−';
+    body += `<rect class="cell-toggle" data-cell="ans" x="${W / 2 - 300}" y="208" width="600" height="56" fill="transparent"/>`;
+    body += text(W / 2, 248, `${fmt(a)} ${sign} ${fmt(b)}  ≈  ${fmt(ra)} ${sign} ${fmt(rb)}  =  ${hidden.has('ans') ? '?' : fmt(est)}`, { size: 34, weight: 700 });
+    const l = editable('note', labels, 'about ' + fmt(est));
+    if (!hidden.has('ans')) body += text(W / 2, 288, l.text, { size: 22, weight: 600, fill: C.gap, edit: 'note', custom: l.custom });
+    return { svg: svg(306, body) };
+  }
+
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
     { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
@@ -955,6 +1051,8 @@
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
     { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  -3 x 2  ·  click the caption to reword it' },
+    { id: 'split', name: 'Split by place value', short: 'Split', key: '', icon: '⋔', render: split, help: '36 + 47  ·  368 + 457  ·  25 + 36 + 14  ·  tens first, then ones · click the total to hide it' },
+    { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];

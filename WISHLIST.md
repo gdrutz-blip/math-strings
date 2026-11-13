@@ -9,7 +9,6 @@ Ideas to build when they're needed. Add to this any time, either by asking Claud
 - [ ] **Save a run / benchmark strings**: one click at the wrap-up keeps a named copy
       (e.g. "Day 3 · Period 2 · Nov 12"); reopen it later; compare September with January.
       For now: press `O` at the end and take a screenshot.
-- [ ] **Download as picture/PDF**: one tidy image of the whole string, for portfolios or sharing.
 - [ ] **Model suggestions in the notes**: add the Day 1 rehearsal "Model:" lines to the Week 1 notes so they print with the plan.
 
 ## Maybe later
@@ -33,6 +32,7 @@ Start with 1–2 interested colleagues, ideally including a primary teacher.
 
 ## Done
 
+- [x] From the Grade 4 trial: Estimate and Split (tens first) tools; long Words text shrinks and wraps; 🖨 print / save as PDF of what's on screen (Nov 13)
 - [x] Fit-everything layout: the model being typed is big at the bottom and shrinks into a grid on Enter; click to spotlight; slim problem list (L to hide); typing box at the bottom (Nov 12)
 - [x] Choose which tools show (⚙ in the tool bar) (Nov 12)
 - [x] Integer tiles: zero pairs, taking away with added zero pairs, groups (Nov 12)

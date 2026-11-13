@@ -332,3 +332,20 @@ a.btn.primary { color: #fff; }
   body { background: #fff; }
   .guide .panel { box-shadow: none; break-inside: avoid; }
 }
+
+/* printing / save as PDF from the presenter */
+.print-title { display: none; }
+@media print {
+  @page { size: landscape; margin: 10mm; }
+  html, body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pres { height: auto; display: block; overflow: visible; }
+  .pres .topbar, .pres .rail, .pres .bar, .tile-btns, .tile-tag, .spot-close, .add-ans, #ans-slot, .area-hint, .toast { display: none !important; }
+  .pres-body { display: block; }
+  .stage { overflow: visible; height: auto; padding: 0; }
+  .stage:not(.over-mode) { height: 170mm; }
+  .print-title { display: block; font-size: 14px; color: #5b6475; margin: 0 0 6px; font-weight: 700; }
+  .tile { border-color: #d5dae3; box-shadow: none !important; }
+  .tile.active { border: 1px solid #d5dae3; }
+  .ov-card { break-inside: avoid; }
+  .spot { background: #fff; }
+}
