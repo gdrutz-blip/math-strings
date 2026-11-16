@@ -979,17 +979,20 @@
     // below: add each place, biggest first, then put it together
     let y = yParts + 62;
     const sums = used.map(([p, name, col]) => {
-      const ps = vals.map(v => Math.floor((v % (p * 10)) / p) * p);
+      // leave out zeros: "tens: 30 + 40 = 70", "hundreds: 300"; skip a place that is all zeros
+      const ps = vals.map(v => Math.floor((v % (p * 10)) / p) * p).filter(x => x > 0);
       const sum = ps.reduce((a, b) => a + b, 0);
-      const key = 'p' + p, l = editable(key, labels, `${name}: ${ps.join(' + ')} = ${sum}`);
+      if (!ps.length) return null;
+      const key = 'p' + p, l = editable(key, labels, ps.length === 1 ? `${name}: ${sum}` : `${name}: ${ps.join(' + ')} = ${sum}`);
       body += text(W / 2, y, l.text, { size: l.text.length > 48 ? 22 : 28, weight: 700, fill: col, edit: key, custom: l.custom });
       y += 44;
       return sum;
     });
-    const total = sums.reduce((a, b) => a + b, 0);
+    const kept = sums.filter(x => x != null);
+    const total = kept.reduce((a, b) => a + b, 0);
     body += `<line x1="${W / 2 - 220}" y1="${y - 26}" x2="${W / 2 + 220}" y2="${y - 26}" stroke="${C.line}" stroke-width="2"/>`;
     body += `<rect class="cell-toggle" data-cell="ans" x="${W / 2 - 260}" y="${y - 20}" width="520" height="50" fill="transparent"/>`;
-    body += text(W / 2, y + 16, sums.join(' + ') + ' = ' + (hidden.has('ans') ? '?' : total), { size: 32, weight: 700 });
+    body += text(W / 2, y + 16, kept.join(' + ') + ' = ' + (hidden.has('ans') ? '?' : total), { size: 32, weight: 700 });
     return { svg: svg(y + 38, body) };
   }
 
