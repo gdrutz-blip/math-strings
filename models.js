@@ -212,7 +212,8 @@
     const cols = pairs.filter(p => p.length === 2);
     if (!cols.length) return { error: 'Type pairs like 1:7, 10:70' };
     const hw = head ? 130 : 0;
-    const cw = Math.min(140, Math.max(72, (W - 40 - hw) / cols.length));
+    const cw = Math.min(140, Math.max(44, (W - 40 - hw) / cols.length));
+    const cfs = cw < 60 ? 18 : cw < 72 ? 22 : 26;
     const tw = hw + cw * cols.length, x0 = (W - tw) / 2, y0 = 92, rh = 60;
     let body = '';
     const rel = (a, b) => {
@@ -220,7 +221,6 @@
       if (!A || !B) return '';
       if (A.v !== 0 && B.v / A.v > 1 && Number.isInteger(round(B.v / A.v))) return '×' + fmt(B.v / A.v);
       if (B.v !== 0 && A.v / B.v > 1 && Number.isInteger(round(A.v / B.v))) return '÷' + fmt(A.v / B.v);
-      if (A.v !== 0 && B.v / A.v > 0 && Math.abs(round(B.v / A.v * 100) - B.v / A.v * 100) < 1e-6) return '×' + fmt(B.v / A.v);
       return signed(B.v - A.v);
     };
     for (let i = 1; i < cols.length; i++) {
@@ -228,7 +228,7 @@
       const l = editable('r' + i, labels, rel(cols[i - 1][0], cols[i][0]));
       if (!l.text) continue;
       body += `<path d="M${xa + 6} ${y0 - 6} Q ${mid} ${y0 - 58} ${xb - 6} ${y0 - 6}" fill="none" stroke="${C.fwd}" stroke-width="2.5" marker-end="url(#ah-fwd)"/>`;
-      body += text(mid, y0 - 38, l.text, { fill: C.fwd, size: 20, weight: 700, edit: 'r' + i, custom: l.custom });
+      body += text(mid, y0 - 38, l.text, { fill: C.fwd, size: cw < 60 ? 15 : 20, weight: 700, edit: 'r' + i, custom: l.custom });
     }
     body += `<rect x="${x0}" y="${y0}" width="${tw}" height="${rh * 2}" fill="#fff" stroke="${C.ink}" stroke-width="2.5" rx="4"/>`;
     body += `<line x1="${x0}" y1="${y0 + rh}" x2="${x0 + tw}" y2="${y0 + rh}" stroke="${C.ink}" stroke-width="2"/>`;
@@ -239,7 +239,7 @@
     cols.forEach((c, i) => {
       const x = x0 + hw + cw * i;
       if (i > 0 || head) body += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + rh * 2}" stroke="${C.ink}" stroke-width="2"/>`;
-      body += text(x + cw / 2, y0 + 40, minus(c[0]), { size: 26, weight: 600 }) + text(x + cw / 2, y0 + rh + 40, minus(c[1]), { size: 26, weight: 600 });
+      body += text(x + cw / 2, y0 + 38, minus(c[0]), { size: cfs, weight: 600 }) + text(x + cw / 2, y0 + rh + 38, minus(c[1]), { size: cfs, weight: 600 });
     });
     return { svg: svg(y0 + rh * 2 + 16, body) };
   }
@@ -449,8 +449,8 @@
       else { sectors.push({ a: Math.max(0, cur - mins), b: cur, i, kind: 'sub' }); cur = Math.max(0, cur - mins); }
     });
     const maxEnd = Math.max(60, ...sectors.map(x => x.b));
-    const n = Math.min(4, Math.ceil(round(maxEnd / 60)));
-    const R = n > 2 ? 108 : 128, gap = 40;
+    const n = Math.min(6, Math.ceil(round(maxEnd / 60)));
+    const R = n > 4 ? 66 : n > 2 ? 100 : 128, gap = n > 4 ? 18 : 40;
     const legendW = 230;
     const totalW = n * 2 * R + (n - 1) * gap;
     const startX = Math.max(20, (W - legendW - totalW) / 2);
@@ -473,14 +473,14 @@
         // label the part that is still showing (subtractions take minutes off the end)
         let la = a, lb = b;
         if (sct.kind === 'add') sectors.forEach(o => { if (o.kind === 'sub') { const oa = Math.max(o.a, k * 60) - k * 60, ob = Math.min(o.b, (k + 1) * 60) - k * 60; if (oa < lb && ob >= lb - 0.0001 && oa > la) lb = oa; } });
-        if (lb - la >= 4) { const [lx, ly] = pt(cx, (la + lb) / 2, R * 0.5); body += `<text x="${lx}" y="${ly + 7}" text-anchor="middle" font-size="${b - a >= 8 ? 20 : 15}" font-weight="700" fill="${C.ink}" paint-order="stroke" stroke="#fff" stroke-width="4">${fmt(b - a)}</text>`; }
+        if (lb - la >= 4) { const full = lb - la >= 59.999; const [lx, ly] = full ? [cx, cy + R * 0.32] : pt(cx, (la + lb) / 2, R * 0.5); body += `<text x="${lx}" y="${ly + 7}" text-anchor="middle" font-size="${b - a >= 8 ? 20 : 15}" font-weight="700" fill="${C.ink}" paint-order="stroke" stroke="#fff" stroke-width="4">${fmt(b - a)}</text>`; }
       });
       for (let t = 0; t < 60; t++) {
         const big = t % 5 === 0;
         const [x1, y1] = pt(cx, t, R - (big ? 14 : 7)), [x2, y2] = pt(cx, t, R - 2);
         body += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.ink}" stroke-width="${big ? 2.5 : 1}"/>`;
       }
-      for (let h = 1; h <= 12; h++) { const [x, y] = pt(cx, h * 5, R - 30); body += `<text x="${x}" y="${y + 6}" text-anchor="middle" font-size="16" fill="${C.soft}">${h}</text>`; }
+      for (let h = 1; h <= 12; h++) { if (R < 90 && h % 3) continue; const [x, y] = pt(cx, h * 5, R - (R < 90 ? 22 : 30)); body += `<text x="${x}" y="${y + 6}" text-anchor="middle" font-size="${R < 90 ? 13 : 16}" fill="${C.soft}">${h}</text>`; }
       body += `<circle cx="${cx}" cy="${cy}" r="4" fill="${C.ink}"/>`;
     }
     const lx = startX + totalW + 36;
@@ -489,7 +489,7 @@
       const fill = t.sign < 0 ? 'url(#hatch)' : C.fills[i % C.fills.length];
       body += `<rect x="${lx}" y="${y - 20}" width="26" height="26" rx="5" fill="${fill}" fill-opacity="${t.sign < 0 ? 1 : 0.7}" stroke="${C.ink}" stroke-width="1.5"/>`;
       const l = editable('t' + i, labels, `${t.sign < 0 ? '− ' : ''}${t.label} = ${fmt(t.v * 60)} min`);
-      body += text(lx + 38, y, l.text, { anchor: 'start', size: 21, weight: 600, edit: 't' + i, custom: l.custom });
+      body += text(lx + 38, y, l.text, { anchor: 'start', size: n > 3 ? 16 : 21, weight: 600, edit: 't' + i, custom: l.custom });
     });
     return { svg: svg(Math.max(cy + R + 24, 60 + terms.length * 40), body) };
   }
@@ -582,7 +582,7 @@
   function slide(input, labels) {
     const r = parseChain(input, '-', (p, n) => [mk(p[0].v + n), mk(p[1].v + n)]);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 4);
+    const P = r.pairs.slice(0, 6);
     if (!P.length) return { error: 'Type it like 62 - 49 = 63 - 50, or 62 - 49 > +1' };
     const vals = P.flat().map(p => p.v);
     let lo = Math.min(...vals), hi = Math.max(...vals);
@@ -624,7 +624,7 @@
   function givetake(input, labels) {
     const r = parseChain(input, '\\+', (p, n) => [mk(p[0].v + n), mk(p[1].v - n)]);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 4);
+    const P = r.pairs.slice(0, 6);
     if (!P.length) return { error: 'Type it like 49 + 26 = 50 + 25, or 49 + 26 > +1' };
     if (P.some(([a, b]) => a.v < 0 || b.v < 0)) return { error: 'Give & take needs positive numbers' };
     const maxT = Math.max(...P.map(([a, b]) => a.v + b.v)) || 1;
@@ -662,7 +662,7 @@
   function halve(input, labels) {
     const r = parseChain(input, 'x', null);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 4);
+    const P = r.pairs.slice(0, 6);
     if (!P.length) return { error: 'Type it like 16 x 25 = 8 x 50 = 4 x 100' };
     if (P.some(([a, b]) => a.v <= 0 || b.v <= 0)) return { error: 'Use positive numbers' };
     // the factor that grows from the first to the second step runs across
@@ -730,7 +730,7 @@
     else return { error: 'Type a problem like 38 + 9, 100 - 76, or 38 x 7' };
     if (parts.some(p => !/^\d*\.?\d+$/.test(p))) return { error: 'Use whole numbers or decimals, like 38 + 9 or 2.5 + 1.9' };
     if ((op === '-' || op === 'x') && parts.length !== 2) return { error: op === '-' ? 'Subtract one number from another, like 100 - 76' : 'Multiply two numbers, like 38 x 7' };
-    if (parts.length > 5) return { error: 'Up to 5 numbers at a time' };
+    if (parts.length > 8) return { error: 'Up to 8 numbers at a time' };
     const decOf = p => (p.split('.')[1] || '').length;
     const hidden = new Set((model && model.hidden) || []);
     const cw = 46, fs = 42, small = 22, dw = 14;
@@ -863,8 +863,10 @@
     if (!s) return { empty: true };
     s = s.split('=')[0];
     let a, op = null, b;
-    let m = s.match(/^([+-]?\d+)([+\-x])([+-]?\d+)$/i);
+    let m = s.match(/^([+-]?\d+)([+\-x])([+-]?\d+)$/i), addTerms = null;
+    if (!m && /^[+-]?\d+(?:\+[+-]?\d+){2,}$/.test(s)) addTerms = s.split(/(?<=\d)\+/).map(Number);
     if (m) { a = +m[1]; op = m[2].toLowerCase(); b = +m[3]; }
+    else if (addTerms) { op = 'sum'; a = addTerms[0]; }
     else if ((m = s.match(/^[+-]?\d+$/))) a = +s;
     else return { error: 'Type it like 3 + -5, -2 - 4, or 3 x -2' };
     const POS = '#f5c84c', NEG = '#e5534b';
@@ -872,7 +874,11 @@
     let pos = [], neg = [], caption = '', groups = null;
     const make = (n, sign, added) => Array.from({ length: n }, () => ({ sign, added, crossed: false }));
     const put = (v, added) => { if (v > 0) pos.push(...make(v, 1, added)); else if (v < 0) neg.push(...make(-v, -1, added)); };
-    if (op === null) { put(a); caption = a === 0 ? 'zero' : `${Math.abs(a)} ${a > 0 ? 'positive' : 'negative'} tile${Math.abs(a) === 1 ? '' : 's'}`; }
+    if (op === 'sum') {
+      addTerms.forEach(t => put(t));
+      const zp = Math.min(pos.length, neg.length);
+      caption = zp ? `${zp} zero pair${zp === 1 ? '' : 's'}` : 'no zero pairs';
+    } else if (op === null) { put(a); caption = a === 0 ? 'zero' : `${Math.abs(a)} ${a > 0 ? 'positive' : 'negative'} tile${Math.abs(a) === 1 ? '' : 's'}`; }
     else if (op === '+') {
       put(a); put(b);
       const zp = Math.min(pos.length, neg.length);
@@ -923,7 +929,7 @@
     } else {
       // positives on top, negatives below; zero pairs line up in the first columns
       const live = arr => arr.filter(t => !t.crossed);
-      const pairs = op === '+' ? Math.min(pos.length, neg.length) : 0;
+      const pairs = op === '+' || op === 'sum' ? Math.min(pos.length, neg.length) : 0;
       const cols = Math.max(pos.length, neg.length, 1);
       const width = cols * (T + G) - G;
       const x0 = (W - width) / 2 + 20, y1 = 30, y2 = y1 + T + 18;
@@ -1001,50 +1007,60 @@
     let s = norm(input).replace(/≈|~|about/gi, '=').trim();
     if (!s) return { empty: true };
     const sides = s.split('=').map(t => t.replace(/\s+/g, '')).filter(Boolean);
-    const m = sides[0].match(/^(\d+(?:\.\d+)?)([+-])(\d+(?:\.\d+)?)$/);
-    if (!m) return { error: 'Type a problem like 36 + 47, 368 + 457, or 82 - 37' };
-    const op = m[2], a = +m[1], b = +m[3];
-    let ra, rb, step, lines0 = [null, null];
-    const mine = sides[1] && sides[1].match(/^(\d+(?:\.\d+)?)[+-](\d+(?:\.\d+)?)$/);
-    if (mine) { ra = +mine[1]; rb = +mine[2]; step = null; }
-    else {
-      // each number rounds by its own size: 47 -> 50, 198 -> 200, 1250 -> 1300
-      const stepOf = v => (v < 10 ? 5 : v < 100 ? 10 : 100);
-      step = null; ra = Math.round(a / stepOf(a)) * stepOf(a); rb = Math.round(b / stepOf(b)) * stepOf(b);
-      lines0 = [stepOf(a), stepOf(b)];
-    }
-    const est = op === '+' ? ra + rb : ra - rb;
-    const steps = lines0;
+    // any number of terms joined by + or -: 36 + 47 + 22 - 18
+    const termsOf = str => {
+      if (!/^\d+(?:\.\d+)?(?:[+-]\d+(?:\.\d+)?)+$/.test(str)) return null;
+      const out = []; const re = /([+-]?)(\d+(?:\.\d+)?)/g; let m;
+      while ((m = re.exec(str))) out.push({ sign: m[1] === '-' ? -1 : 1, v: +m[2] });
+      return out;
+    };
+    const terms = termsOf(sides[0]);
+    if (!terms) return { error: 'Type a problem like 36 + 47, 368 + 457, 82 - 37, or 36 + 47 + 22' };
+    if (terms.length > 6) return { error: 'Up to 6 numbers at a time' };
+    const stepOf = v => (v < 10 ? 5 : v < 100 ? 10 : 100);
+    // each number rounds by its own size (47 -> 50, 198 -> 200), unless the student chose their own friendly numbers
+    const mine = sides[1] && termsOf(sides[1]);
+    const useMine = mine && mine.length === terms.length;
+    terms.forEach((t, i) => {
+      t.step = useMine ? null : stepOf(t.v);
+      t.r = useMine ? mine[i].v : Math.round(t.v / t.step) * t.step;
+    });
+    const est = terms.reduce((a, t) => a + t.sign * t.r, 0);
     const hidden = new Set((model && model.hidden) || []);
     let body = '';
     // a small number line for each number, showing the friendly number it is close to
-    const lines = [[a, ra], [b, rb]];
-    const half = (W - 60) / 2;
-    lines.forEach(([v, r], i) => {
-      const x0 = 30 + i * (half + 20) + 40, x1 = x0 + half - 80, y = 100;
-      const own = steps[i];
+    const n = terms.length, cols = n <= 2 ? n : 3, rowsN = Math.ceil(n / cols);
+    const cellW = (W - 40) / cols, rowH = 150;
+    terms.forEach((t, i) => {
+      const v = t.v, r = t.r, own = t.step;
+      const col = i % cols, row = Math.floor(i / cols);
+      const x0 = 20 + col * cellW + 40, x1 = x0 + cellW - 80, y = 92 + row * rowH;
       const st = own || Math.max(10, Math.pow(10, Math.floor(Math.log10(Math.max(Math.abs(v - r), 1))) + 1));
       let lo = Math.min(Math.floor(v / st) * st, r), hi = Math.max(lo + st, r, Math.ceil(v / st) * st);
       if (hi === lo) hi = lo + st;
-      const X = t => x0 + ((t - lo) / (hi - lo)) * (x1 - x0);
+      const X = q => x0 + ((q - lo) / (hi - lo)) * (x1 - x0);
+      const fs = cols === 3 ? 19 : 22;
       body += `<line x1="${x0 - 14}" y1="${y}" x2="${x1 + 14}" y2="${y}" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
-      [lo, hi].forEach(t => { body += `<line x1="${X(t)}" y1="${y - 10}" x2="${X(t)}" y2="${y + 10}" stroke="${C.ink}" stroke-width="3"/>` + text(X(t), y + 36, fmt(t), { size: 22, weight: t === r ? 700 : 500, fill: t === r ? C.gap : C.ink }); });
-      if (own && (hi - lo) === own && r !== lo + own / 2) { const mid = lo + own / 2; body += `<line x1="${X(mid)}" y1="${y - 6}" x2="${X(mid)}" y2="${y + 6}" stroke="${C.soft}" stroke-width="2"/>` + text(X(mid), y + 32, fmt(mid), { size: 15, fill: C.soft }); }
-      if (r !== lo && r !== hi) body += `<line x1="${X(r)}" y1="${y - 10}" x2="${X(r)}" y2="${y + 10}" stroke="${C.gap}" stroke-width="3"/>` + text(X(r), y + 36, fmt(r), { size: 22, weight: 700, fill: C.gap });
-      body += `<circle cx="${X(v)}" cy="${y}" r="9" fill="${C.fwd}"/>` + text(X(v), y - 22, fmt(v), { size: 26, weight: 700, fill: C.fwd });
+      [lo, hi].forEach(q => { body += `<line x1="${X(q)}" y1="${y - 10}" x2="${X(q)}" y2="${y + 10}" stroke="${C.ink}" stroke-width="3"/>` + text(X(q), y + 34, fmt(q), { size: fs, weight: q === r ? 700 : 500, fill: q === r ? C.gap : C.ink }); });
+      if (own && (hi - lo) === own && r !== lo + own / 2) { const mid = lo + own / 2; body += `<line x1="${X(mid)}" y1="${y - 6}" x2="${X(mid)}" y2="${y + 6}" stroke="${C.soft}" stroke-width="2"/>` + text(X(mid), y + 30, fmt(mid), { size: 14, fill: C.soft }); }
+      if (r !== lo && r !== hi) body += `<line x1="${X(r)}" y1="${y - 10}" x2="${X(r)}" y2="${y + 10}" stroke="${C.gap}" stroke-width="3"/>` + text(X(r), y + 34, fmt(r), { size: fs, weight: 700, fill: C.gap });
+      body += `<circle cx="${X(v)}" cy="${y}" r="9" fill="${C.fwd}"/>` + text(X(v), y - 22, (t.sign < 0 ? '−' : '') + fmt(v), { size: fs + 4, weight: 700, fill: C.fwd });
       if (v !== r) {
         const mx = (X(v) + X(r)) / 2;
-        body += `<path d="M${X(v)} ${y - 14} Q ${mx} ${y - 58} ${X(r)} ${y - 14}" fill="none" stroke="${C.gap}" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ah-fwd)"/>`;
+        body += `<path d="M${X(v)} ${y - 14} Q ${mx} ${y - 54} ${X(r)} ${y - 14}" fill="none" stroke="${C.gap}" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ah-fwd)"/>`;
       }
       const key = 'n' + i, l = editable(key, labels, `${fmt(v)} is close to ${fmt(r)}`);
-      body += text((x0 + x1) / 2, y + 74, l.text, { size: 21, weight: 600, fill: C.soft, edit: key, custom: l.custom });
+      body += text((x0 + x1) / 2, y + 68, l.text, { size: cols === 3 ? 17 : 21, weight: 600, fill: C.soft, edit: key, custom: l.custom });
     });
-    const sign = op === '+' ? '+' : '−';
-    body += `<rect class="cell-toggle" data-cell="ans" x="${W / 2 - 300}" y="208" width="600" height="56" fill="transparent"/>`;
-    body += text(W / 2, 248, `${fmt(a)} ${sign} ${fmt(b)}  ≈  ${fmt(ra)} ${sign} ${fmt(rb)}  =  ${hidden.has('ans') ? '?' : fmt(est)}`, { size: 34, weight: 700 });
+    const join = (arr, key) => arr.map((t, i) => (i ? (t.sign < 0 ? ' − ' : ' + ') : '') + fmt(t[key])).join('');
+    const yEq = 92 + (rowsN - 1) * rowH + 150;
+    const eqText = `${join(terms, 'v')}  ≈  ${join(terms, 'r')}  =  ${hidden.has('ans') ? '?' : fmt(est)}`;
+    const eqSize = eqText.length > 52 ? 26 : eqText.length > 40 ? 30 : 34;
+    body += `<rect class="cell-toggle" data-cell="ans" x="40" y="${yEq - 40}" width="${W - 80}" height="56" fill="transparent"/>`;
+    body += text(W / 2, yEq, eqText, { size: eqSize, weight: 700 });
     const l = editable('note', labels, 'about ' + fmt(est));
-    if (!hidden.has('ans')) body += text(W / 2, 288, l.text, { size: 22, weight: 600, fill: C.gap, edit: 'note', custom: l.custom });
-    return { svg: svg(306, body) };
+    if (!hidden.has('ans')) body += text(W / 2, yEq + 38, l.text, { size: 22, weight: 600, fill: C.gap, edit: 'note', custom: l.custom });
+    return { svg: svg(yEq + 58, body) };
   }
 
   const TOOLS = [
@@ -1058,9 +1074,9 @@
     { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
-    { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  -3 x 2  ·  click the caption to reword it' },
+    { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
     { id: 'split', name: 'Split by place value', short: 'Split', key: '', icon: '⋔', render: split, help: '36 + 47  ·  368 + 457  ·  25 + 36 + 14 + 48 (up to 6 numbers)  ·  click the total to hide it' },
-    { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
+    { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  36 + 47 + 22 (up to 6)  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
