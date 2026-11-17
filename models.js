@@ -139,7 +139,7 @@
       if (op === '+' || op === '-') {
         const [amt, times] = t.slice(1).split('x');
         const pv = parseVal(amt); if (!pv || cur == null) return;
-        const reps = Math.min(Math.max(parseInt(times || '1', 10) || 1, 1), 40);
+        const reps = Math.min(Math.max(parseInt(times || '1', 10) || 1, 1), 100);
         const d = op === '+' ? pv.v : -pv.v;
         for (let k = 0; k < reps; k++) {
           const from = cur; cur = round(cur + d);
@@ -172,6 +172,12 @@
       placed.push(a);
       a.i = i;
     });
+    // a long run of the same jump (count by 2s to 100): label the first one "+2 (×50)" and leave the rest unlabelled
+    for (let i = 0; i < arcs.length;) {
+      let j = i; while (j + 1 < arcs.length && arcs[j + 1].kind === arcs[i].kind && arcs[j + 1].label === arcs[i].label && arcs[i].kind !== 'gap') j++;
+      if (j - i + 1 > 10) { arcs[i].runLabel = `${arcs[i].label} (×${j - i + 1})`; for (let m = i + 1; m <= j; m++) arcs[m].quiet = true; }
+      i = j + 1;
+    }
     const maxH = Math.max(0, ...placed.map(a => a.h));
     const hasGap = arcs.some(a => a.kind === 'gap');
     const y0 = maxH + 46;
@@ -187,15 +193,20 @@
       }
       const col = C[a.kind], mid = (a.x1 + a.x2) / 2;
       body += `<path d="M${a.x1} ${y0 - 4} Q ${mid} ${y0 - 4 - 2 * a.h} ${a.x2} ${y0 - 4}" fill="none" stroke="${col}" stroke-width="3" marker-end="url(#ah-${a.kind})"/>`;
-      const l = editable('a' + i, labels, a.label);
+      if (a.quiet && !labels['a' + i]) return;
+      const l = editable('a' + i, labels, a.runLabel || a.label);
       const lw = Math.max(36, l.text.length * 11 + 14);
       body += `<rect x="${mid - lw / 2}" y="${y0 - 4 - a.h - 26}" width="${lw}" height="26" rx="6" fill="#fff" opacity=".9"/>`;
       body += text(mid, y0 - 4 - a.h - 6, l.text, { fill: col, size: 21, weight: 700, edit: 'a' + i, custom: l.custom });
     });
-    vals.forEach(v => {
-      const p = pts.get(v), x = X(v);
+    let lastX = -1e9;
+    const lastV = arcs.length ? round(arcs[arcs.length - 1].to) : null;
+    vals.forEach((v, n) => {
+      const p = pts.get(v), x = X(v), lab = minus(p.label || fmt(v));
       body += `<line x1="${x}" y1="${y0 - 11}" x2="${x}" y2="${y0 + 11}" stroke="${C.line}" stroke-width="3"/>`;
-      body += text(x, y0 + 36, minus(p.label || fmt(v)), { size: p.start ? 24 : 22, weight: p.start ? 700 : 500 });
+      const need = Math.max(30, lab.length * 12);
+      const must = p.start || v === lastV || n === vals.length - 1;
+      if (must || x - lastX >= need) { body += text(x, y0 + 36, lab, { size: p.start ? 24 : 22, weight: p.start ? 700 : 500 }); lastX = x; }
     });
     return { svg: svg(H, body) };
   }
@@ -723,7 +734,8 @@
   function slide(input, labels) {
     const r = parseChain(input, '-', (p, n) => [mk(p[0].v + n), mk(p[1].v + n)]);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 6);
+    if (r.pairs.length > 10) return { error: 'Up to 10 steps at a time' };
+    const P = r.pairs;
     if (!P.length) return { error: 'Type it like 62 - 49 = 63 - 50, or 62 - 49 > +1' };
     const vals = P.flat().map(p => p.v);
     let lo = Math.min(...vals), hi = Math.max(...vals);
@@ -765,7 +777,8 @@
   function givetake(input, labels) {
     const r = parseChain(input, '\\+', (p, n) => [mk(p[0].v + n), mk(p[1].v - n)]);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 6);
+    if (r.pairs.length > 10) return { error: 'Up to 10 steps at a time' };
+    const P = r.pairs;
     if (!P.length) return { error: 'Type it like 49 + 26 = 50 + 25, or 49 + 26 > +1' };
     if (P.some(([a, b]) => a.v < 0 || b.v < 0)) return { error: 'Give & take needs positive numbers' };
     const maxT = Math.max(...P.map(([a, b]) => a.v + b.v)) || 1;
@@ -803,7 +816,8 @@
   function halve(input, labels) {
     const r = parseChain(input, 'x', null);
     if (r.empty) return { empty: true };
-    const P = r.pairs.slice(0, 6);
+    if (r.pairs.length > 10) return { error: 'Up to 10 steps at a time' };
+    const P = r.pairs;
     if (!P.length) return { error: 'Type it like 16 x 25 = 8 x 50 = 4 x 100' };
     if (P.some(([a, b]) => a.v <= 0 || b.v <= 0)) return { error: 'Use positive numbers' };
     // the factor that grows from the first to the second step runs across
@@ -871,7 +885,7 @@
     else return { error: 'Type a problem like 38 + 9, 100 - 76, or 38 x 7' };
     if (parts.some(p => !/^\d*\.?\d+$/.test(p))) return { error: 'Use whole numbers or decimals, like 38 + 9 or 2.5 + 1.9' };
     if ((op === '-' || op === 'x') && parts.length !== 2) return { error: op === '-' ? 'Subtract one number from another, like 100 - 76' : 'Multiply two numbers, like 38 x 7' };
-    if (parts.length > 8) return { error: 'Up to 8 numbers at a time' };
+    if (parts.length > 12) return { error: 'Up to 12 numbers at a time' };
     const decOf = p => (p.split('.')[1] || '').length;
     const hidden = new Set((model && model.hidden) || []);
     const cw = 46, fs = 42, small = 22, dw = 14;
@@ -1046,12 +1060,14 @@
       }
     }
     const total = groups ? groups.n * groups.size : pos.length + neg.length;
-    if (total > 48) return { error: 'Too many tiles to show (keep it to about 40). Try the number line.' };
-    const T = 42, G = 9;
+    if (total > 100) return { error: 'Too many tiles to show (keep it under 100). Try the number line.' };
+    // tiles shrink when there are many, so a row still fits across
+    const across = groups ? groups.size : Math.max(pos.length, neg.length, 1);
+    const T = Math.max(16, Math.min(42, Math.floor((W - 80) / across) - 9)), G = T < 30 ? 5 : 9;
     const tile = (x, y, t) => {
       const fill = t.sign > 0 ? POS : NEG;
       let out = `<rect x="${x}" y="${y}" width="${T}" height="${T}" rx="7" fill="${fill}" stroke="${t.added ? C.ink : 'rgba(0,0,0,.25)'}" stroke-width="${t.added ? 2.5 : 1.5}"${t.added ? ' stroke-dasharray="5 4"' : ''}/>`;
-      out += `<text x="${x + T / 2}" y="${y + T / 2 + 9}" text-anchor="middle" font-size="28" font-weight="700" fill="${t.sign > 0 ? C.ink : '#fff'}">${t.sign > 0 ? '+' : '−'}</text>`;
+      out += `<text x="${x + T / 2}" y="${y + T / 2 + T * 0.22}" text-anchor="middle" font-size="${Math.round(T * 0.66)}" font-weight="700" fill="${t.sign > 0 ? C.ink : '#fff'}">${t.sign > 0 ? '+' : '−'}</text>`;
       if (t.crossed) out += `<path d="M${x + 4} ${y + 4} L${x + T - 4} ${y + T - 4} M${x + T - 4} ${y + 4} L${x + 4} ${y + T - 4}" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/>`;
       return out;
     };
@@ -1096,20 +1112,25 @@
     if (!s) return { empty: true };
     s = s.split('=')[0].replace(/\s+/g, '');
     const nums = s.split('+');
-    if (nums.length < 2 || nums.some(n => !/^\d{1,4}$/.test(n))) return { error: 'Type whole numbers to add, like 36 + 47 or 368 + 457' };
-    if (nums.length > 6) return { error: 'Up to 6 numbers at a time' };
-    const vals = nums.map(Number);
-    const PLACES = [[1000, 'thousands', '#8a5cd6'], [100, 'hundreds', C.gap], [10, 'tens', C.fwd], [1, 'ones', C.back]];
+    if (nums.length < 2 || nums.some(n => !/^(\d{1,6}(\.\d{1,3})?|\.\d{1,3})$/.test(n))) return { error: 'Type numbers to add, like 36 + 47, 368 + 457 or 2.7 + 0.5' };
+    if (nums.length > 8) return { error: 'Up to 8 numbers at a time' };
+    // work in whole units of the smallest place used, so decimals add exactly
+    const dec = Math.max(0, ...nums.map(n => (n.split('.')[1] || '').length)), k = Math.pow(10, dec);
+    const vals = nums.map(n => Math.round(Number(n) * k));
+    const PLACES = [[100000, 'hundred thousands', '#b4532a'], [10000, 'ten thousands', '#0f766e'], [1000, 'thousands', '#8a5cd6'], [100, 'hundreds', C.gap], [10, 'tens', C.fwd], [1, 'ones', C.back],
+      [0.1, 'tenths', '#b45309'], [0.01, 'hundredths', '#0369a1'], [0.001, 'thousandths', '#6d28d9']]
+      .map(([p, name, col]) => [Math.round(p * k), name, col]).filter(([p]) => p >= 1);
+    const show = x => fmt(x / k);
     const partsOf = v => PLACES.map(([p]) => Math.floor((v % (p * 10)) / p) * p);
-    const used = PLACES.filter(([p]) => vals.some(v => v >= p));
+    const used = PLACES.filter(([p]) => vals.some(v => Math.floor((v % (p * 10)) / p) > 0) || (p === k && vals.some(v => v >= p)));
     const hidden = new Set((model && model.hidden) || []);
     let body = '';
     // top: each number with branches down to its parts
     const colW = (W - 40) / nums.length, yTop = 44, yParts = 128;
-    const numSize = nums.length > 4 ? 32 : 40;
+    const numSize = nums.length > 6 ? 26 : nums.length > 4 ? 32 : 40;
     vals.forEach((v, i) => {
       const cx = 20 + colW * (i + 0.5);
-      body += text(cx, yTop, String(v), { size: numSize, weight: 700 });
+      body += text(cx, yTop, show(v), { size: numSize, weight: 700 });
       if (i < vals.length - 1) body += text(20 + colW * (i + 1), yTop, '+', { size: numSize - 4, fill: C.soft });
       const parts = partsOf(v).map((pv, k) => [pv, PLACES[k]]).filter(([pv, [p]]) => pv > 0 && used.some(u => u[0] === p));
       const n = parts.length;
@@ -1120,7 +1141,7 @@
         const px = cx - spread / 2 + spread * (n === 1 ? 0.5 : k / (n - 1));
         body += `<line x1="${cx}" y1="${yTop + 10}" x2="${px}" y2="${yParts - 30}" stroke="${C.soft}" stroke-width="2.5"/>`;
         body += `<rect x="${px - bw / 2}" y="${yParts - 30}" width="${bw}" height="42" rx="9" fill="${col}" fill-opacity=".14" stroke="${col}" stroke-width="2.5"/>`;
-        body += text(px, yParts, String(pv), { size: fsz, weight: 700, fill: col });
+        body += text(px, yParts, show(pv), { size: fsz, weight: 700, fill: col });
       });
     });
     // below: add each place, biggest first, then put it together
@@ -1130,7 +1151,7 @@
       const ps = vals.map(v => Math.floor((v % (p * 10)) / p) * p).filter(x => x > 0);
       const sum = ps.reduce((a, b) => a + b, 0);
       if (!ps.length) return null;
-      const key = 'p' + p, l = editable(key, labels, ps.length === 1 ? `${name}: ${sum}` : `${name}: ${ps.join(' + ')} = ${sum}`);
+      const key = 'p' + p, l = editable(key, labels, ps.length === 1 ? `${name}: ${show(sum)}` : `${name}: ${ps.map(show).join(' + ')} = ${show(sum)}`);
       body += text(W / 2, y, l.text, { size: l.text.length > 48 ? 22 : 28, weight: 700, fill: col, edit: key, custom: l.custom });
       y += 44;
       return sum;
@@ -1139,7 +1160,7 @@
     const total = kept.reduce((a, b) => a + b, 0);
     body += `<line x1="${W / 2 - 220}" y1="${y - 26}" x2="${W / 2 + 220}" y2="${y - 26}" stroke="${C.line}" stroke-width="2"/>`;
     body += `<rect class="cell-toggle" data-cell="ans" x="${W / 2 - 260}" y="${y - 20}" width="520" height="50" fill="transparent"/>`;
-    body += text(W / 2, y + 16, kept.join(' + ') + ' = ' + (hidden.has('ans') ? '?' : total), { size: 32, weight: 700 });
+    body += text(W / 2, y + 16, kept.map(show).join(' + ') + ' = ' + (hidden.has('ans') ? '?' : show(total)), { size: 32, weight: 700 });
     return { svg: svg(y + 38, body) };
   }
 
@@ -1157,7 +1178,7 @@
     };
     const terms = termsOf(sides[0]);
     if (!terms) return { error: 'Type a problem like 36 + 47, 368 + 457, 82 - 37, or 36 + 47 + 22' };
-    if (terms.length > 6) return { error: 'Up to 6 numbers at a time' };
+    if (terms.length > 8) return { error: 'Up to 8 numbers at a time' };
     const decimals = terms.some(t => !Number.isInteger(t.v));
     const stepOf = v => (decimals ? (v < 100 ? 0.5 : 10) : v < 10 ? 5 : v < 100 ? 10 : 100); // 3.99 -> 4, 2.45 -> 2.5
     // each number rounds by its own size (47 -> 50, 198 -> 200), unless the student chose their own friendly numbers
@@ -1218,8 +1239,8 @@
     { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
     { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
-    { id: 'split', name: 'Split by place value', short: 'Split', key: '', icon: '⋔', render: split, help: '36 + 47  ·  368 + 457  ·  25 + 36 + 14 + 48 (up to 6 numbers)  ·  click the total to hide it' },
-    { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  36 + 47 + 22 (up to 6)  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
+    { id: 'split', name: 'Split by place value', short: 'Split', key: '', icon: '⋔', render: split, help: '36 + 47  ·  368 + 457  ·  2.7 + 0.5  ·  25 + 36 + 14 + 48 (up to 8 numbers)  ·  click the total to hide it' },
+    { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  3.99 + 2.45  ·  36 + 47 + 22 (up to 8)  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
