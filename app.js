@@ -712,6 +712,7 @@ Rules:
           <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
           <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
+          <li><b>💡 Try</b> (or <kbd>Y</kbd>) lists likely student responses for the problem. Tap one to draw it: great for rehearsing at home, or as a backup in class.</li>
           <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can print it or compare it with a later run. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
           <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
         </ul>
@@ -721,7 +722,7 @@ Rules:
         <div class="keys">
           <kbd>→</kbd><span>next problem</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
           <kbd>1</kbd><span>number line (other number keys add other tools)</span><kbd>Enter</kbd><span>finish the model you're typing</span>
-          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span>
+          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span>
           <kbd>P</kbd><span>pen</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
       </section>
@@ -1022,6 +1023,7 @@ Rules:
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
           <button class="btn ghost" data-a="pick" title="Random name (R)">🎲 Pick</button>
+          ${s.problems && s.problems.some(p => p.responses) ? '<button class="btn ghost" data-a="try" id="try-btn" title="Likely student responses for this problem: tap one to draw it (Y)">💡 Try</button>' : ''}
           <button class="btn ghost" data-a="pen" id="pen-btn" title="Pen (P)">✏️ Pen</button>
           <span class="pen-tools hidden" id="pen-tools">
             ${['#1d2433', '#1f5fd1', '#d0461a', '#0d8a55'].map(c => `<button class="swatch" data-color="${c}" style="background:${c}"></button>`).join('')}
@@ -1213,6 +1215,7 @@ Rules:
       <div class="bar" id="bar">${barHTML(d)}</div>`;
     layoutArea();
     setupInk();
+    renderTry();
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
   }
@@ -1283,6 +1286,35 @@ Rules:
     d.models.push({ type, input, labels: {} });
     P.activeM = d.models.length - 1; P.spot = null; P.focusTyper = true;
     saveSession(); renderStage(); renderRail();
+  }
+  // "Try a response": the planned student responses for this problem; one tap draws that model.
+  function renderTry() {
+    const old = $('#try-pop'); if (old) old.remove();
+    const btn = $('#try-btn'); if (btn) btn.classList.toggle('on', !!P.tryOpen);
+    if (!P || !P.tryOpen || P.overview || P.quick) return;
+    const idx = P.sess.shown[P.sess.active], prob = (P.s.problems || [])[idx] || {}, rs = prob.responses || [];
+    const pop = h(`<div class="try-pop" id="try-pop" role="dialog" aria-label="Likely student responses">
+      <div class="try-head"><b>💡 Likely responses</b><span class="try-q">${exprHTML(prob.q || '')}</span><button class="icon-btn" data-y="close" title="Close (Y or Esc)">✕</button></div>
+      ${rs.length ? `<div class="try-list">${rs.map((r, i) => { const t = TOOL[r.tool]; return `<button class="try-item${r.kind === 'error' ? ' err' : ''}" data-y="${i}" title="Draw this with the ${esc(t ? t.name : r.tool)}">
+          <span class="try-say">${r.kind === 'error' ? '<span class="tag-err">mistake</span> ' : ''}“${esc(r.say || '')}”</span>
+          <span class="try-tool">${t ? t.icon + ' ' + esc(t.short || t.name) : esc(r.tool)} <code>${esc(r.type || '')}</code></span>
+          ${r.tip ? `<span class="try-tip">${esc(r.tip)}</span>` : ''}</button>`; }).join('')}</div>`
+        : '<p class="hint" style="margin:8px 0">No planned responses for this problem. Model what your students say.</p>'}
+      <div class="try-foot">Tap one to draw it. This panel shows on the projector, so close it before students look.</div>
+    </div>`);
+    pop.onclick = e => {
+      const b = e.target.closest('[data-y]'); if (!b) return;
+      if (b.dataset.y === 'close') { P.tryOpen = false; renderTry(); return; }
+      const r = rs[+b.dataset.y]; if (!r || !TOOL[r.tool]) return;
+      finishActive(true);
+      cur().models.push({ type: r.tool, input: r.type || '', labels: {} });
+      // a planned mistake that is just a number ("3", "2/6") also goes in as a student answer, ready to cross out
+      const said = String(r.say || '').trim().replace(/\.$/, '').replace(/-/g, '−');
+      if (r.kind === 'error' && /^−?[\d\s.,\/]+$/.test(said) && !cur().answers.some(a => a.t === said)) cur().answers.push({ t: said, mark: '' });
+      P.tryOpen = false; P.activeM = null; P.spot = null;
+      saveSession(); renderStage(); renderRail();
+    };
+    $('.pres').appendChild(pop);
   }
   // Done typing: the model shrinks into the grid (an empty one is dropped)
   function finishActive(quiet) {
@@ -1473,6 +1505,7 @@ Rules:
       case 'skipnext': skipNext(); break;
       case 'pick': pickerOverlay(false); break;
       case 'pen': setPen('draw'); break;
+      case 'try': P.tryOpen = !P.tryOpen; renderTry(); break;
       case 'erase': setPen('erase'); break;
       case 'undo': undoStroke(); break;
       case 'clear': { const d = cur(); if (d.strokes.length && confirm('Clear the drawing on this problem?')) { d.strokes = []; saveSession(); renderStage(); } break; }
@@ -1498,7 +1531,8 @@ Rules:
     else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
     else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
-    else if (k === 'Escape') { if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
+    else if (k === 'Escape') { if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }

@@ -63,7 +63,7 @@ bottom of the library brings it back.
 ## Keyboard (while presenting)
 
 `→` next · `←` back · `T` timer · `R` random name · `A` add answer · `1`–`0` add a model ·
-`P` pen · `E` eraser · `O` whole-string overview · `Esc` stop typing/drawing · `?` help
+`P` pen · `E` eraser · `Y` try a likely response · `O` whole-string overview · `Esc` stop typing/drawing · `?` help
 
 ## Model input cheat sheet
 
