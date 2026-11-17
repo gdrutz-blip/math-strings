@@ -34,7 +34,8 @@ Before **Dec 4**:
 6. [ ] **Curriculum codes as a field** (`curriculum: "B2.3"`), shown as badges on the PD page and in notes.
 7. [ ] **Share a string by link** (the string packed into the URL; no server).
 8. [ ] ~~**Grade 8 wording** in the README and guides~~ (done Nov 17); **Grade 8 units** on Grade 8 expectations (B2.7 integers × ÷, B2.3 powers of ten).
-9. [ ] **Topic banks** per grade (see below), each new unit showing up under its topic.
+9. [ ] ~~Topic banks~~ → replaced by step 10.
+10. [ ] **A big string bank** (like the books with 100+ strings, but **all original**; don't copy published strings): many single strings per grade and topic, grouped by strategy and building in difficulty, separate from the weekly PD units (group `Grade N · Bank · Topic`). Built in checked batches of ~15–25 (every answer and model checked, like the units). Add a **strategy filter** once a topic has 30+ strings. Start with Grade 8, then 4–7.
 
 ## Maybe later
 
