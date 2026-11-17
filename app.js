@@ -25,6 +25,9 @@
   const slug = s => String(s || 'string').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'string';
   const clean = s => { const o = {}; Object.keys(s).forEach(k => { if (k[0] !== '_') o[k] = s[k]; }); return o; };
   const same = (a, b) => JSON.stringify(clean(a)) === JSON.stringify(clean(b));
+  // A short fingerprint of a string, to notice when the website's copy changes after you edited yours
+  const sig = s => { const t = JSON.stringify(clean(s)); let h = 5381; for (let i = 0; i < t.length; i++) h = (Math.imul(h, 33) ^ t.charCodeAt(i)) >>> 0; return h.toString(36) + t.length.toString(36); };
+  const siteCopy = id => bundled.find(b => b.id === id);
 
   function normalizeString(s) {
     const o = Object.assign({ title: 'Untitled string', group: '', label: '', tool: 'numberline', strategy: '', problems: [] }, s);
@@ -225,6 +228,7 @@
             : `<div class="empty">${!library.length ? 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
         <a class="guide-card" href="#/start"><span class="gc-ico">📘</span><span><b>New to number strings or this site?</b><br>Read the 5-minute getting started guide: what to do before class, the routine in class, and how to type models.</span><span class="gc-go">Open guide →</span></a>
+        ${bundled.some(b => deleted.has(b.id)) ? `<div class="lib-foot"><button class="btn small ghost" data-act="unhide">↺ Show hidden strings (${bundled.filter(b => deleted.has(b.id)).length})</button></div>` : ''}
         <div class="lib-foot">Your edits, ★ favourites, 📌 To try list and ✓ progress are saved in this browser. Use <b>Export</b> to take them to another computer.</div>
       </div>`;
     const search = $('#search');
@@ -254,17 +258,24 @@
       if (act === 'present') go('present/' + encodeURIComponent(id));
       if (act === 'edit') go('edit/' + encodeURIComponent(id));
       if (act === 'dup') { const s = findString(id); const c = normalizeString(JSON.parse(JSON.stringify(clean(s)))); c.id = slug(s.title) + '-' + uid(); c.title = s.title + ' (copy)'; c._edited = true; library.splice(library.indexOf(s) + 1, 0, c); saveLibrary(); libraryView(); toast('Duplicated'); }
-      if (act === 'del') { const s = findString(id); if (confirm(`Delete “${s.title}”?`)) { library = library.filter(x => x !== s); deleted.add(id); saveLibrary(); libraryView(); } }
+      if (act === 'del') {
+        const s = findString(id), fromSite = !!siteCopy(id);
+        if (confirm(fromSite ? `Hide “${s.title}” from your library?\n\nIt comes from the website, so you can bring it back any time with “Show hidden strings” at the bottom of the library.` : `Delete “${s.title}”? This can't be undone.`)) { library = library.filter(x => x !== s); deleted.add(id); saveLibrary(); libraryView(); toast(fromSite ? 'Hidden' : 'Deleted'); }
+      }
+      if (act === 'unhide') { const back = bundled.filter(b => deleted.has(b.id)); back.forEach(b => { deleted.delete(b.id); library.push(normalizeString(JSON.parse(JSON.stringify(b)))); }); saveLibrary(); libraryView(); toast(`Brought back ${back.length} string${back.length === 1 ? '' : 's'}`); }
+      if (act === 'keepmine') { const s = findString(id), b2 = siteCopy(id); if (s && b2) { s._siteSig = sig(b2); saveLibrary(); libraryView(); toast('Keeping your version'); } }
       if (act === 'revert') { const b2 = bundled.find(x => x.id === id); if (b2 && confirm('Replace your edits with the version on the website?')) { library[library.findIndex(x => x.id === id)] = normalizeString(JSON.parse(JSON.stringify(b2))); saveLibrary(); libraryView(); toast('Restored the website version'); } }
     };
   }
   function cardHTML(s) {
     const site = bundled.find(b => b.id === s.id);
     const edited = s._edited && site && !same(s, site);
+    const newer = edited && s._siteSig && s._siteSig !== sig(site);
     const t = T_(s.id), done = t.done || [];
     return `<div class="card${done.length ? ' is-done' : ''}">
       <div class="card-top">${s.label ? `<span class="card-label">${esc(s.label)}</span>` : ''}<h3>${esc(s.title)}</h3>
         <span class="marks"><button class="mark${t.todo ? ' on todo' : ''}" data-act="todo" data-id="${esc(s.id)}" title="${t.todo ? 'On your To try list (click to remove)' : 'Add to your To try list'}" aria-pressed="${!!t.todo}">📌</button><button class="mark${t.fav ? ' on fav' : ''}" data-act="fav" data-id="${esc(s.id)}" title="${t.fav ? 'Favourite (click to remove)' : 'Add to Favourites'}" aria-pressed="${!!t.fav}">${t.fav ? '★' : '☆'}</button><button class="mark donemark${done.length ? ' on' : ''}" data-act="done" data-id="${esc(s.id)}" title="${done.length ? 'Done (click to clear)' : 'Mark as done'}" aria-pressed="${!!done.length}">✓</button></span></div>
+      ${newer ? `<div class="site-newer"><span>🔄 <b>Updated on the website</b> since you edited your copy.</span><span class="sn-btns"><button class="btn small primary" data-act="revert" data-id="${esc(s.id)}">Use website version</button><button class="btn small ghost" data-act="keepmine" data-id="${esc(s.id)}">Keep mine</button></span></div>` : ''}
       ${done.length ? `<div class="done-line">✓ Done ${esc(shortDate(done[done.length - 1]))}${done.length > 1 ? ` · ${done.length} times` : ''}</div>` : ''}
       ${s.strategy ? `<p class="strategy">${esc(s.strategy)}</p>` : ''}
       <div class="chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}" title="${p.optional ? 'Optional' : ''}">${esc(p.q.replace(/-/g, '−'))}</span>`).join('')}</div>
@@ -273,9 +284,9 @@
         <button class="btn" data-act="edit" data-id="${esc(s.id)}">Edit</button>
         ${s.problems.some(p => p.responses) ? `<button class="btn ghost" data-act="practice" data-id="${esc(s.id)}" title="Printable card of likely student responses and what to type">📝 Practice</button>` : ''}
         <span class="spacer"></span>
-        ${edited ? `<button class="btn small ghost" data-act="revert" data-id="${esc(s.id)}" title="Your copy differs from the website. Click to restore the website version.">↺ site version</button>` : ''}
+        ${edited && !newer ? `<button class="icon-btn" data-act="revert" data-id="${esc(s.id)}" title="You've edited this string. Click to go back to the website version.">↺</button>` : ''}
         <button class="icon-btn" data-act="dup" data-id="${esc(s.id)}" title="Duplicate">⧉</button>
-        <button class="icon-btn" data-act="del" data-id="${esc(s.id)}" title="Delete">🗑</button>
+        <button class="icon-btn" data-act="del" data-id="${esc(s.id)}" title="${site ? 'Hide from my library (you can bring it back)' : 'Delete'}">🗑</button>
       </div>
     </div>`;
   }
@@ -286,7 +297,7 @@
     if (!s) return go('');
     document.title = 'Edit · ' + s.title;
     let saveT;
-    const save = () => { s._edited = true; clearTimeout(saveT); saveT = setTimeout(() => { saveLibrary(); const el = $('#saved'); if (el) { el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 1200); } }, 300); };
+    const save = () => { if (!s._edited) { const b = siteCopy(s.id); if (b) s._siteSig = sig(b); } s._edited = true; clearTimeout(saveT); saveT = setTimeout(() => { saveLibrary(); const el = $('#saved'); if (el) { el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 1200); } }, 300); };
     const groups = [...new Set(library.map(x => x.group).filter(Boolean))];
     const render = () => {
       app.innerHTML = `
@@ -704,7 +715,7 @@ Rules:
       try { arr = parseImport(text); } catch (e) { msg(esc(e.message)); return false; }
       let added = 0, updated = 0;
       arr.forEach(s => {
-        s._edited = true; deleted.delete(s.id);
+        s._edited = true; deleted.delete(s.id); { const b0 = siteCopy(s.id); if (b0) s._siteSig = sig(b0); }
         const i = library.findIndex(x => x.id === s.id);
         if (i >= 0) { library[i] = s; updated++; } else { library.push(s); added++; }
       });
@@ -947,15 +958,26 @@ Rules:
 
   /* ---- tools shown in the bar (teacher can hide the ones they don't use) ---- */
   const visibleTools = () => TOOLS.filter(t => !Array.isArray(settings.tools) || settings.tools.includes(t.id) || (P && t.id === P.s.tool));
+  // The tools a string plans to use: its starting tool, then the tools in its practice responses and "Model:" notes (most used first).
+  function suggestedTools(s) {
+    const count = {};
+    const add = id => { if (TOOL[id]) count[id] = (count[id] || 0) + 1; };
+    (s.problems || []).forEach(p => {
+      (p.responses || []).forEach(r => add(r.tool));
+      String(p.notes || '').split(/Model:/).slice(1).forEach(seg => { const m = seg.match(/^\s*(\w+)/); if (m) add(m[1]); });
+    });
+    return [s.tool, ...Object.keys(count).filter(id => id !== s.tool).sort((a, b) => count[b] - count[a])].filter(id => TOOL[id]);
+  }
   function toolsModal(after) {
     const on = id => !Array.isArray(settings.tools) || settings.tools.includes(id);
     modal('Choose your tools', `
       <p class="hint" style="margin:0">Only the tools you tick show up under the problem. A string's starting tool always shows.</p>
+      <label class="tool-sug"><input type="checkbox" id="tp-sug"${settings.suggestFirst === false ? '' : ' checked'}> Show each string's <b>suggested tools</b> first (the rest go under <b>More tools</b>)</label>
       <div class="tool-pick">${TOOLS.map(t => `<label><input type="checkbox" value="${t.id}"${on(t.id) ? ' checked' : ''}> <span class="ico">${t.icon}</span> ${esc(t.name)}</label>`).join('')}</div>
       <div style="display:flex;gap:8px"><button class="btn small" id="tp-all">Tick all</button><button class="btn small" id="tp-none">Untick all</button></div>`,
       [{ label: 'Save', primary: true, run: () => {
         const ids = $$('.tool-pick input:checked').map(i => i.value);
-        settings.tools = ids.length === TOOLS.length ? null : ids; saveSettings(); if (after) after(); toast('Tools updated');
+        settings.tools = ids.length === TOOLS.length ? null : ids; settings.suggestFirst = $('#tp-sug').checked; saveSettings(); if (after) after(); toast('Tools updated');
       } }]);
     $('#tp-all').onclick = () => $$('.tool-pick input').forEach(i => (i.checked = true));
     $('#tp-none').onclick = () => $$('.tool-pick input').forEach(i => (i.checked = false));
@@ -1008,9 +1030,17 @@ Rules:
   }
   function barHTML(d) {
     const am = P.activeM != null ? d.models[P.activeM] : null;
-    const tools = visibleTools();
+    const all = visibleTools();
     const t = am && TOOL[am.type];
-    return `<div class="bar-tools">${tools.map(x => `<button class="tool-btn${x.id === P.s.tool ? ' default' : ''}${am && am.type === x.id ? ' on' : ''}" data-tool="${x.id}" title="${esc(x.name)}${x.key ? ` (${x.key})` : ''}"><span class="ico">${x.icon}</span>${esc(x.short || x.name)}</button>`).join('')}<button class="tool-btn gear" data-a="choosetools" title="Choose which tools show here">⚙</button></div>
+    // Show the string's suggested tools first and tuck the rest under "More" (only when the string suggests a few).
+    const sug = P.quick || settings.suggestFirst === false ? [] : suggestedTools(P.s).map(id => TOOL[id]).filter(x => all.includes(x));
+    let main = all, more = [];
+    if (sug.length >= 3) { main = sug; if (t && !main.includes(t)) main = [...main, t]; more = all.filter(x => !main.includes(x)); }
+    const btn = x => `<button class="tool-btn${x.id === P.s.tool ? ' default' : ''}${am && am.type === x.id ? ' on' : ''}" data-tool="${x.id}" title="${esc(x.name)}${x.key ? ` (${x.key})` : ''}"><span class="ico">${x.icon}</span>${esc(x.short || x.name)}</button>`;
+    const moreHTML = !more.length ? '' : P.moreTools
+      ? `<span class="more-sep" title="Other tools"></span>${more.map(btn).join('')}<button class="tool-btn more" data-a="moretools" title="Show only this string's suggested tools">Fewer ▴</button>`
+      : `<button class="tool-btn more" data-a="moretools" title="Show all the other tools: ${esc(more.map(x => x.short || x.name).join(', '))}">More tools ▾</button>`;
+    return `<div class="bar-tools">${main.map(btn).join('')}${moreHTML}<button class="tool-btn gear" data-a="choosetools" title="Choose which tools show here">⚙</button></div>
       ${am ? `<div class="typer"><span class="typer-name">${t.icon} ${esc(t.short || t.name)}</span><input id="typer" value="${esc(am.input || '')}" placeholder="${esc(t.help.split('  ·  ')[0])}" autocomplete="off" spellcheck="false"><button class="btn primary" data-a="donem" title="Finish (Enter)">Done ✓</button><button class="icon-btn" data-a="rmactive" title="Remove this model">🗑</button></div>
       <div class="typer-help">${esc(t.help)}  ·  Enter when done</div>` : ''}`;
   }
@@ -1183,6 +1213,7 @@ Rules:
       switch (a.dataset.a) {
         case 'addans': return openAnswerInput();
         case 'choosetools': return toolsModal(() => renderStage());
+        case 'moretools': P.moreTools = !P.moreTools; return renderStage();
         case 'donem': return finishActive();
         case 'rmactive': { if (P.activeM != null) { d.models.splice(P.activeM, 1); P.activeM = null; saveSession(); renderStage(); renderRail(); } return; }
         case 'editm': return editModel(i);

@@ -1,9 +1,10 @@
 # Math Strings
 
-An easy number-strings board for Grade 8 math. Show one problem at a time, run a think timer,
+An easy number-strings board for Grades 4–8 math. Show one problem at a time, run a think timer,
 record student answers (even wrong ones), and model their thinking with an open number line,
-ratio table, area model, array, double number line, clock, bar model, or the student's own words.
-Earlier problems stay visible, shrunk down in the column on the left.
+ratio table, area model, array, double number line, clock, bar model, integer tiles, or the student's own words.
+Earlier problems stay visible, shrunk down in the column on the left. Teachers pick their grade and a topic,
+and the app keeps track of which strings they've done (✓), their favourites (★) and strings to try (📌).
 
 Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and JavaScript; GitHub Pages publishes it on every push (`.github/workflows/pages.yml`), after `build.js` combines the `strings/` files.
 
@@ -27,7 +28,9 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
    Uploading a file with the same name replaces it.
 
 If you edit a string in the app, your edited copy wins on that computer. The library card shows
-"↺ site version" if you want the website's copy back.
+↺ if you want the website's copy back, and a notice if the website's copy is revised after you edited yours
+(**Use website version** or **Keep mine**). 🗑 on a website string only hides it; **Show hidden strings** at the
+bottom of the library brings it back.
 
 ## Format (for Claude)
 
