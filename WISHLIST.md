@@ -4,7 +4,18 @@ Ideas to build when they're needed. Add to this any time, either by asking Claud
 
 **Rule of thumb:** build a tool when there are strings that need it.
 
-## Up next (Grade 8)
+## 🎯 Current priority: school PD, Grades 4–8
+
+Three 30-minute small-group sessions (School Improvement Plan, math fluency): **Dec 4, 2026** (launch: learn strings, choose an instructional focus, plan), **Feb 1, 2027** (review evidence, refine), **Apr 1, 2027** (examine growth, next steps). About 8 weeks of classroom use between sessions. Framed by the Ontario monograph *Making Space for Students to Think Mathematically*.
+
+Before **Dec 4**:
+- [ ] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Grade 4 has 1 unit; Grade 8 has 2 units without practice responses yet.)*
+- [ ] Add practice `responses` to Grade 4 Days 3–5 and to the Grade 8 strings
+- [ ] Test the site on the school network/laptops (ask IT to allow gdrutz-blip.github.io if blocked)
+- [ ] **Save a run / benchmark strings** (see below): teachers will re-run their first string in March and compare. PDFs via 🖨 work today as a fallback.
+- [ ] Short feedback form and an evidence tracker (outside the app)
+
+
 
 - [ ] **Save a run / benchmark strings**: one click at the wrap-up keeps a named copy
       (e.g. "Day 3 · Period 2 · Nov 12"); reopen it later; compare September with January.
