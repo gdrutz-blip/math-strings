@@ -698,7 +698,7 @@ Rules:
   function runCardsHTML(r) {
     return r.problems.map(p => `<div class="ov-card run-card"><span class="rnum">${p.n}</span>
       <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
-      ${p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
+      ${p.snap ? snapHTML(p.snap) : p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
     </div>`).join('');
   }
   function runsPage(stringId) {
@@ -1115,7 +1115,8 @@ Rules:
     const problems = S.shown.map(idx => {
       const d = S.data[idx] || { answers: [], models: [] };
       return { n: idx + 1, q: S.problems[idx].q, answers: d.answers.map(a => ({ t: a.t, mark: a.mark || '' })),
-        models: d.models.filter(m => String(m.input || '').trim()).map(m => ({ type: m.type, input: m.input, labels: m.labels || {}, hidden: m.hidden || [] })) };
+        models: d.models.filter(m => String(m.input || '').trim()).map(m => ({ type: m.type, input: m.input, labels: m.labels || {}, hidden: m.hidden || [] })),
+        ...(d.snap && (d.strokes || []).some(st => st.n) ? { snap: d.snap } : {}) };
     });
     if (!problems.some(p => p.answers.length || p.models.length)) { if (!quiet) toast('Nothing to save yet. Add an answer or a model first.'); return null; }
     const runs = getRuns();
@@ -1337,6 +1338,7 @@ Rules:
       <div class="bar" id="bar">${barHTML(d)}</div>`;
     layoutArea();
     setupInk();
+    if ((d.strokes && d.strokes.length) || d.snap) snapInk();
     renderTry();
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
@@ -1376,7 +1378,7 @@ Rules:
         const d = pdata(idx), ms = d.models.filter(m => String(m.input || '').trim());
         return `<div class="ov-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span>
           <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
-          ${ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
+          ${d.snap && (d.strokes || []).some(st => st.n) ? snapHTML(d.snap) : ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
         </div>`;
       }).join('')}</div>
       <p class="end-note">What did you notice?</p>
@@ -1592,9 +1594,29 @@ Rules:
     ink.onpointerup = ink.onpointercancel = () => {
       ink._erasing = false;
       if (!curS) return;
-      cur().strokes.push(curS); curS = null; path = null; saveSession();
+      cur().strokes.push(curS); curS = null; path = null; saveSession(); snapInk();
     };
   }
+  // A picture of this problem as it looks now (models where they sit, with the pen drawing on top), kept with the run
+  function snapInk() {
+    const area = $('#area'); if (!P || P.overview || !area) return;
+    const d = cur(), live = (d.strokes || []).filter(st => st.n);
+    if (!live.length) { if (d.snap) { delete d.snap; saveSession(); } return; }
+    const A = area.getBoundingClientRect(); if (!A.width || !A.height) return;
+    let inner = '';
+    area.querySelectorAll('.tile').forEach(t => {
+      if (t.closest('.spot')) return;
+      const sv = t.querySelector('svg.model-svg'); if (!sv) return;
+      const r = sv.getBoundingClientRect(), c = sv.cloneNode(true);
+      [['x', r.left - A.left], ['y', r.top - A.top], ['width', r.width], ['height', r.height]].forEach(([k, v]) => c.setAttribute(k, v.toFixed(1)));
+      c.querySelectorAll('[data-edit],[data-cell]').forEach(el => { el.removeAttribute('data-edit'); el.removeAttribute('data-cell'); });
+      inner += c.outerHTML;
+    });
+    inner += `<svg x="0" y="0" width="${A.width.toFixed(1)}" height="${A.height.toFixed(1)}" viewBox="0 0 1000 1000" preserveAspectRatio="none">${live.map(st => `<path d="${strokePath(st.pts)}" stroke="${st.c}" stroke-width="${st.w || 5}" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`).join('')}</svg>`;
+    d.snap = { w: Math.round(A.width), h: Math.round(A.height), svg: inner };
+    saveSession();
+  }
+  const snapHTML = snap => `<div class="snap-wrap"><svg class="snap" viewBox="0 0 ${snap.w} ${snap.h}" xmlns="http://www.w3.org/2000/svg">${snap.svg}</svg><span class="snap-tag">✏️ with pen drawing</span></div>`;
   function setPen(mode) {
     P.pen = P.pen === mode ? null : mode;
     if (P.pen) finishActive();
