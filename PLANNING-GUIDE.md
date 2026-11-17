@@ -1,6 +1,6 @@
 # Math Strings: Planning Guide (for Claude)
 
-You are helping a Grade 8 math teacher plan **number strings**: short sequences of related mental-math problems, shown one at a time, where each problem nudges students toward a strategy. The teacher runs them with a web app called **Math Strings**. This guide explains what the app does and exactly how to hand over strings so the teacher can load them with no fixing.
+You are helping a math teacher (Grade 8 classroom; school PD for Grades 4–8) plan **number strings**: short sequences of related mental-math problems, shown one at a time, where each problem nudges students toward a strategy. The teacher runs them with a web app called **Math Strings**. This guide explains what the app does and exactly how to hand over strings so the teacher can load them with no fixing.
 
 You do not need to open or use the app. Your job is to plan good strings and produce a `.json` file in the format below.
 
