@@ -149,6 +149,39 @@
     return t ? t.id : 'other';
   }
 
+  // Ontario Mathematics (2020), Strand B Number: wording of the expectations our strings cite, by grade
+  const EXPECT = {
+    4: { 'B1.1': 'read, represent, compose, and decompose whole numbers up to and including 10 000, using appropriate tools and strategies, and describe various ways they are used in everyday life',
+      'B2.1': 'use the properties of operations, and the relationships between addition, subtraction, multiplication, and division, to solve problems involving whole numbers, including those requiring more than one operation, and check calculations',
+      'B2.2': 'recall and demonstrate multiplication facts for 1 × 1 to 10 × 10, and related division facts',
+      'B2.3': 'use mental math strategies to multiply whole numbers by 10, 100, and 1000, divide whole numbers by 10, and add and subtract decimal tenths, and explain the strategies used',
+      'B2.4': 'represent and solve problems involving the addition and subtraction of whole numbers that add up to no more than 10 000 and of decimal tenths, using appropriate tools and strategies, including algorithms',
+      'B2.5': 'represent and solve problems involving the multiplication of two- or three-digit whole numbers by one-digit whole numbers and by 10, 100, and 1000, using appropriate tools, including arrays' },
+    5: { 'B1.5': 'read, represent, compare, and order decimal numbers up to hundredths, in various contexts',
+      'B2.1': 'use the properties of operations, and the relationships between operations, to solve problems involving whole numbers and decimal numbers, including those requiring more than one operation, and check calculations',
+      'B2.2': 'recall and demonstrate multiplication facts from 0 × 0 to 12 × 12, and related division facts',
+      'B2.3': 'use mental math strategies to multiply whole numbers by 0.1 and 0.01 and estimate sums and differences of decimal numbers up to hundredths, and explain the strategies used',
+      'B2.4': 'represent and solve problems involving the addition and subtraction of whole numbers that add up to no more than 100 000, and of decimal numbers up to hundredths, using appropriate tools, strategies, and algorithms',
+      'B2.6': 'represent and solve problems involving the multiplication of two-digit whole numbers by two-digit whole numbers using the area model and using algorithms, and make connections between the two methods' },
+    6: { 'B1.3': 'compare and order integers, decimal numbers, and fractions, separately and in combination, in various contexts',
+      'B1.6': 'describe relationships and show equivalences among fractions and decimal numbers up to thousandths, using appropriate tools and drawings, in various contexts',
+      'B2.3': 'use mental math strategies to calculate percents of whole numbers, including 1%, 5%, 10%, 15%, 25%, and 50%, and explain the strategies used',
+      'B2.5': 'add and subtract fractions with like and unlike denominators, using appropriate tools, in various contexts',
+      'B2.12': 'solve problems involving ratios, including percents and rates, using appropriate tools and strategies' },
+    7: { 'B1.3': 'read, represent, compare, and order rational numbers, including positive and negative fractions and decimal numbers to thousandths, in various contexts',
+      'B1.7': 'convert between fractions, decimal numbers, and percents, in various contexts',
+      'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving whole numbers, decimal numbers, fractions, ratios, rates, and percents, including those requiring multiple steps or multiple operations',
+      'B2.3': 'use mental math strategies to increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, and 100%, and explain the strategies used',
+      'B2.4': 'use objects, diagrams, and equations to represent, describe, and solve situations involving addition and subtraction of integers',
+      'B2.9': 'multiply and divide decimal numbers by decimal numbers, in various contexts' },
+    8: { 'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving rational numbers, ratios, rates, and percents, including those requiring multiple steps or multiple operations' },
+  };
+  const currOf = s => (Array.isArray(s.curriculum) ? s.curriculum : String(s.curriculum || '').split(/[,;\s]+/)).map(c => c.trim().toUpperCase()).filter(c => /^[A-E]\d+\.\d+$/.test(c));
+  const codeSort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
+  const expectText = (grade, code) => (EXPECT[grade] || {})[code] || '';
+  const currBadges = (grade, codes) => codes.length ? `<span class="curr">${codes.map(c => `<span class="cbadge" title="${esc(grade ? `Grade ${grade} ${c}: ${expectText(grade, c) || 'Ontario Mathematics, Number strand'}` : c)}">${esc(c)}</span>`).join('')}</span>` : '';
+  const unitCodes = list => [...new Set(list.flatMap(currOf))].sort(codeSort);
+
   // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...], fav: true, todo: true } }
   const track = store.get('track', {});
   const T_ = id => track[id] || {};
@@ -201,7 +234,7 @@
       { id: 'new', name: '○ Not tried yet', test: s => !isDone(s.id), empty: 'You have tried every string here. 🎉' },
     ];
     const lf = LISTS.find(l => l.id === listFilter);
-    const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
+    const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...currOf(s), ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
@@ -236,7 +269,7 @@
         </div>
         <div id="groups">
           ${groups.length ? groups.map(G => { const pr = unitProgress(G.name); return `
-            <div class="group-title"><span>${esc(G.name)}</span>${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
+            <div class="group-title"><span>${esc(G.name)}</span>${currBadges(gradeOf(G.items[0]), unitCodes(library.filter(x => (x.group || 'Other strings') === G.name)))}${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
             <div class="cards">${G.items.map(cardHTML).join('')}</div>`; }).join('')
             : `<div class="empty">${!library.length ? 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
@@ -331,6 +364,10 @@
             <label class="field">Group<input data-f="group" value="${esc(s.group)}" list="groups" placeholder="e.g. Week 2 · Decimals"><datalist id="groups">${groups.map(g => `<option value="${esc(g)}">`).join('')}</datalist></label>
             <label class="field">Strategy (for you; not shown to students)<input data-f="strategy" value="${esc(s.strategy)}"></label>
           </div>
+          <div class="grid2" style="margin-top:12px">
+            <label class="field">Ontario curriculum codes (e.g. B2.3, B2.4)<input data-f="curriculum" value="${esc(currOf(s).join(', '))}" placeholder="B2.3, B2.4"></label>
+            <div class="field curr-help">${currOf(s).map(c => `<span><b>${esc(c)}</b> ${esc(expectText(gradeOf(s), c))}</span>`).join('') || '<span class="hint">Number strand codes from the Ontario Mathematics curriculum (2020).</span>'}</div>
+          </div>
         </div>
         <div class="panel">
           <h3>Problems</h3>
@@ -373,7 +410,7 @@
     app.oninput = app.onchange = e => {
       const t = e.target;
       if (t.dataset.f) {
-        s[t.dataset.f] = t.dataset.f === 'watchFor' ? t.value.split('\n').map(x => x.trim()).filter(Boolean) : t.value;
+        s[t.dataset.f] = t.dataset.f === 'watchFor' ? t.value.split('\n').map(x => x.trim()).filter(Boolean) : t.dataset.f === 'curriculum' ? currOf({ curriculum: t.value }) : t.value;
         if (t.dataset.f === 'title') document.title = 'Edit · ' + s.title;
         save();
       } else if (t.dataset.p) {
@@ -494,6 +531,7 @@ Rules:
       </div>
       <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)} <span class="pt-sub">Practice card</span></h1>
       ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
+      ${currOf(s).length ? `<p class="pt-curr">Ontario curriculum, Grade ${esc(gradeOf(s) || '')}: ${currOf(s).map(c => `<b>${esc(c)}</b>${expectText(gradeOf(s), c) ? ` ${esc(expectText(gradeOf(s), c))}` : ''}`).join(' · ')}</p>` : ''}
       <div class="pt-how"><b>How to practise in pairs:</b> one person presents the string; the other plays the class and reads a "student says" line. The presenter records the answer (<kbd>A</kbd>), picks the tool, types what's in the last column, and presses <kbd>Enter</kbd>. Swap after a few problems. Press <b>↺</b> in the top bar to start the string fresh.</div>
       ${s.problems.map((p, i) => `
         <section class="panel pt-prob">
@@ -543,9 +581,10 @@ Rules:
         ${!grade ? '<p class="hint">Choose your grade to see its focus units.</p>'
           : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
           : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.</p>
-             ${units.map(u => `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
+             ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
+               ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
                <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
-                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`).join('')}`}
+                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
       </section>
 
       <section class="panel"><h2>2 · In your classroom</h2>

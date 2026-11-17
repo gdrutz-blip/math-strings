@@ -10,6 +10,9 @@
       "strategy": "Add up to the next ten first, then add what is left.",
       "keywords": "next ten, friendly number, break apart, jump",
       "connection": "First string of the week. Sets up the open number line and the idea that 10 ones make a ten.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Counting on by ones (28, 29, 30, 31...): accept it, then ask \"Is there a jump that gets you to a ten?\"",
         "Breaking the number the wrong way (28 + 5 as 28 + 3 + 2 = 33, but stopping at 31): ask \"How much of the 5 have you used?\"",
@@ -177,6 +180,10 @@
       "strategy": "Add tens with tens and ones with ones, then put them together. When the ones make more than 10, that makes another ten.",
       "keywords": "tens, ones, hundreds, place value, partial sums, make a new ten",
       "connection": "Day 1 made a ten on the number line. Today the ones combine into a new ten when we add by place value.",
+      "curriculum": [
+        "B1.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Saying \"3 + 4\" for 30 + 40: ask \"Is it 3 + 4 or 30 + 40? How do you know?\" and write the real values.",
         "Writing 713 for 70 + 13: ask \"How many tens are in 13? Where do they go?\"",
@@ -344,6 +351,9 @@
       "strategy": "Get to the next hundred (or ten), then add what is left. Tens can regroup into a new hundred, just like ones regroup into a ten.",
       "keywords": "next hundred, friendly number, regroup, 10 tens",
       "connection": "Day 1 got to the next ten. Today we get to the next hundred.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Writing 1003 for 95 + 8: ask \"Is it more or less than 200? Where is it on the line?\"",
         "Losing track of the hundreds (186 + 25 = 111): ask \"About how big should the answer be?\"",
@@ -398,6 +408,10 @@
       "strategy": "When a number is close to a friendly number (a ten or a hundred), add the friendly number, then take back the extra.",
       "keywords": "friendly number, close to, too much, take back",
       "connection": "Days 1–3 added up to a friendly number. Today we jump past it and come back.",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Forgetting to take back (46 + 9 = 56): ask \"Is 46 + 9 more or less than 46 + 10?\"",
         "Going the wrong way (46 + 9 = 57): ask the same question and show both on the line.",
@@ -452,6 +466,9 @@
       "strategy": "Connect mental strategies to the standard algorithm: the carried 1 is a new ten (or hundred) made from 10 ones (or 10 tens).",
       "keywords": "regroup, carry, new ten, new hundred, place value, algorithm",
       "connection": "Days 1–4 made new tens and hundreds in our heads. Today we see them in the standard algorithm.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Writing 512 for 27 + 35 (not regrouping): ask \"Is it about 60 or about 500?\" and show the 12 ones becoming 1 ten and 2 ones.",
         "Carrying without knowing why: ask \"What does that little 1 stand for: one, ten, or hundred?\"",
@@ -505,7 +522,11 @@
       "tool": "ratio",
       "strategy": "Multiplying by 10 makes each digit worth 10 times as much (ones become tens); multiplying by 100 makes them worth 100 times as much.",
       "keywords": "times 10, times 100, place value, ones become tens, groups of ten",
-      "connection": "Uses multiplication facts to 10 × 10. Sets up splitting by place value on Day 2. Curriculum: B2.2 (facts), B2.3 (multiply by 10, 100 and 1000).",
+      "connection": "Uses multiplication facts to 10 × 10. Sets up splitting by place value on Day 2.",
+      "curriculum": [
+        "B2.2",
+        "B2.3"
+      ],
       "watchFor": [
         "\"Just add a zero\" without knowing why: accept it, then ask \"Why does a zero appear? What happened to the 6?\"",
         "Adding instead of multiplying (6 × 10 = 16): ask \"Is that 6 groups of 10?\"",
@@ -682,7 +703,11 @@
       "tool": "area",
       "strategy": "Split the larger number into tens and ones, multiply each part, then add the parts.",
       "keywords": "split, tens and ones, partial products, area model, add the parts",
-      "connection": "Day 1 multiplied tens. Today: tens and ones together. Like Week 1's split by place value, but multiplying. Curriculum: B2.1 (distributive property), B2.5 (2- or 3-digit × 1-digit).",
+      "connection": "Day 1 multiplied tens. Today: tens and ones together. Like Week 1's split by place value, but multiplying.",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
       "watchFor": [
         "Writing the parts side by side (23 × 4 = 812): ask \"Is 812 about 20 groups of 4?\"",
         "Multiplying only the tens (23 × 4 = 83): ask \"Did the 3 get multiplied by 4 too?\"",
@@ -854,7 +879,12 @@
       "tool": "area",
       "strategy": "When a number is close to a ten, multiply the ten, then take away the extra group.",
       "keywords": "friendly number, one group too many, take away a group, close to a ten",
-      "connection": "Like Week 1 Day 4 (add a friendly number, then take back the extra), but with groups. Curriculum: B2.1, B2.3, B2.5.",
+      "connection": "Like Week 1 Day 4 (add a friendly number, then take back the extra), but with groups.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.5"
+      ],
       "watchFor": [
         "Taking away 1 instead of one group (39 × 4 = 159): ask \"How many fours did you add too many?\"",
         "Adding the extra group instead of taking it away: ask \"Did you make too many groups or too few?\"",
@@ -1018,7 +1048,12 @@
       "tool": "ratio",
       "strategy": "Times 4 is double, then double again; times 8 is double three times.",
       "keywords": "double, times 2, times 4, times 8, ratio table",
-      "connection": "Builds on doubles facts. A ratio table keeps track of each double. Curriculum: B2.1, B2.2, B2.5.",
+      "connection": "Builds on doubles facts. A ratio table keeps track of each double.",
+      "curriculum": [
+        "B2.1",
+        "B2.2",
+        "B2.5"
+      ],
       "watchFor": [
         "Doubling only once for × 4 (4 × 12 = 24): ask \"Is 4 groups the same as 2 groups?\"",
         "Doubling one more or one fewer time than needed for × 8: point to the ratio table and ask \"How many groups now?\"",
@@ -1189,7 +1224,12 @@
       "tool": "text",
       "strategy": "Look at the numbers first, then choose: times 10, split tens and ones, over and back, or double and double again.",
       "keywords": "choose, friendly numbers, split, over and back, double",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.3, B2.5.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.5"
+      ],
       "watchFor": [
         "Using the same strategy every time: ask \"What do you notice about these numbers?\"",
         "Forgetting to take away a whole group: ask \"How many groups too many?\"",
@@ -1357,7 +1397,12 @@
       "tool": "numberline",
       "strategy": "Add up to the next whole number first, then add what is left.",
       "keywords": "next whole, tenths, hundredths, make a one, break apart",
-      "connection": "Like \"make the next ten\" with whole numbers, but now 10 tenths or 100 hundredths make a one. Curriculum: B1.5, B2.3, B2.4.",
+      "connection": "Like \"make the next ten\" with whole numbers, but now 10 tenths or 100 hundredths make a one.",
+      "curriculum": [
+        "B1.5",
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Adding digits as if they were whole numbers (2.7 + 0.5 = 2.12): ask \"Is 2.12 more or less than 3?\" and \"How many tenths make a one?\"",
         "Lining up the last digits instead of place value (3.75 + 0.4 = 3.79): ask \"Is 0.4 four tenths or four hundredths?\"",
@@ -1553,7 +1598,11 @@
       "tool": "numberline",
       "strategy": "When a decimal is close to a whole number, add the whole number, then take back the extra.",
       "keywords": "friendly number, close to, take back, adjust, compensate",
-      "connection": "Day 1 got to the next whole. Today we round a number up to a whole and fix it at the end. Curriculum: B2.3, B2.4.",
+      "connection": "Day 1 got to the next whole. Today we round a number up to a whole and fix it at the end.",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Adjusting the wrong way (3.99 + 2.45 = 6.46): ask \"Did you add too much or too little? So do you take back or add on?\"",
         "Taking back the wrong amount (taking back 0.1 instead of 0.01): ask \"How far is 3.99 from 4?\"",
@@ -1736,7 +1785,11 @@
       "tool": "numberline",
       "strategy": "Find the difference by adding up from the smaller number to the larger one, through friendly numbers.",
       "keywords": "difference, distance, add up, how far, friendly number",
-      "connection": "Uses Day 1's make-the-next-whole jumps to find how far apart two numbers are. Curriculum: B2.3, B2.4.",
+      "connection": "Uses Day 1's make-the-next-whole jumps to find how far apart two numbers are.",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Subtracting the smaller digit from the larger in each place (5 − 2.75 = 3.75 or 3.35): ask \"Is the gap from 2.75 to 5 more or less than 3?\"",
         "Forgetting a jump when adding up: ask \"Show me each jump. Add up the jumps.\"",
@@ -1922,7 +1975,12 @@
       "tool": "slide",
       "strategy": "Slide both numbers by the same amount so the one you subtract becomes a whole number; the difference stays the same.",
       "keywords": "same difference, slide, shift both, friendly number",
-      "connection": "Day 3 found the distance on a number line. Today we slide that distance to an easier place. Curriculum: B2.1, B2.3, B2.4.",
+      "connection": "Day 3 found the distance on a number line. Today we slide that distance to an easier place.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Sliding only one number (4.03 − 1.98 → 4.03 − 2): ask \"If you move only one number, does the gap stay the same?\"",
         "Sliding in opposite directions: ask \"Which way did each number move?\"",
@@ -2099,7 +2157,11 @@
       "tool": "estimate",
       "strategy": "Estimate first with friendly numbers, then choose a strategy that fits the numbers and check the answer against the estimate.",
       "keywords": "estimate, about, friendly number, reasonable, choose a strategy",
-      "connection": "Brings together Days 1 to 4. The estimate is a check: is the exact answer reasonable? Curriculum: B2.3 (estimate sums and differences of decimals), B2.4.",
+      "connection": "Brings together Days 1 to 4. The estimate is a check: is the exact answer reasonable?",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Skipping the estimate: before anyone solves, ask \"About how much? More or less than ...?\"",
         "Estimating with the wrong place value (4.5 as 45): ask \"Is 4.5 closer to 4 or to 40?\"",
@@ -2324,7 +2386,11 @@
       "tool": "area",
       "strategy": "Split one factor into friendly parts (like 10 and 2), multiply each part, then add the products.",
       "keywords": "split, partial products, distributive property, ten and some more",
-      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact. Curriculum: B2.1 (distributive property), B2.2 (facts to 12 × 12).",
+      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact.",
+      "curriculum": [
+        "B2.1",
+        "B2.2"
+      ],
       "watchFor": [
         "Splitting both factors and multiplying only matching parts (12 × 7 as 10 × 7 + 2 = 72): ask \"Did every part of 12 get multiplied by 7?\"",
         "Adding instead of multiplying a part (12 × 7 = 70 + 2 + 7): draw the area model and ask \"What is the area of the small piece?\"",
@@ -2508,7 +2574,11 @@
       "tool": "area",
       "strategy": "Split both factors by place value, find the four partial products, and add them.",
       "keywords": "area model, partial products, tens and ones, place value",
-      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts. Curriculum: B2.1, B2.6 (area model and algorithms).",
+      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Multiplying only tens by tens and ones by ones (14 × 15 = 100 + 20 = 120): ask \"How many boxes are in the area model? Did you fill them all?\"",
         "Place-value slips in a partial product (10 × 20 = 20): ask \"Is that ten twenties?\"",
@@ -2697,7 +2767,11 @@
       "tool": "area",
       "strategy": "When a factor is close to a friendly number, multiply by the friendly number, then take away the extra group.",
       "keywords": "friendly number, over, take back, one group too many",
-      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many. Curriculum: B2.1, B2.6.",
+      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Taking back 1 instead of one group (19 × 15 = 300 − 1 = 299): ask \"How many 15s did you add too many? How much is that?\"",
         "Taking back from the wrong factor (19 × 15 = 300 − 19): draw the area model and ask \"What is the size of the strip you're taking away?\"",
@@ -2871,7 +2945,11 @@
       "tool": "halve",
       "strategy": "Halve one factor and double the other; the product stays the same, and the new problem can be easier.",
       "keywords": "double, halve, same area, rearrange, friendly factor",
-      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product. Curriculum: B2.1 (properties of operations), B2.6.",
+      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Doubling (or halving) both factors (16 × 15 → 32 × 30): cut the rectangle and ask \"Did the area stay the same?\"",
         "Halving an odd number and getting stuck: ask \"Which factor is easier to halve?\"",
@@ -3027,7 +3105,12 @@
       "tool": "text",
       "strategy": "Look at the numbers first, then choose: split a factor, go over and back, or double and halve.",
       "keywords": "choose, efficient, friendly numbers, split, over and back, double and halve",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.2, B2.6.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.1",
+        "B2.2",
+        "B2.6"
+      ],
       "watchFor": [
         "Using the same strategy for every problem: ask \"What do you notice about these numbers before you start?\"",
         "Forgetting to adjust after going over: ask \"How many groups too many?\"",
@@ -3198,7 +3281,11 @@
       "tool": "doubleline",
       "strategy": "50% is half, and 25% is half of a half, so find them by halving.",
       "keywords": "percent, per hundred, half, quarter, halve, benchmark",
-      "connection": "Connects percents to fractions students already know: 50% = 1/2 and 25% = 1/4. Curriculum: B1.6 (fractions, decimals, percents), B2.3 (mental math: 25%, 50%).",
+      "connection": "Connects percents to fractions students already know: 50% = 1/2 and 25% = 1/4.",
+      "curriculum": [
+        "B1.6",
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by the percent (25% of 80 = 80 ÷ 25 = 3.2): ask \"Should 25% of 80 be more or less than half of 80?\"",
         "Subtracting the percent (25% of 80 = 55): ask \"Is 25% a part of the 80 or an amount to take away?\"",
@@ -3386,7 +3473,11 @@
       "tool": "ratio",
       "strategy": "10% is one tenth (divide by 10) and 1% is one hundredth (divide by 100).",
       "keywords": "percent, tenth, hundredth, divide by 10, divide by 100, place value",
-      "connection": "Day 1 halved. Today we divide by 10 and 100 and see the digits shift. Curriculum: B1.6, B2.3 (mental math: 1%, 10%).",
+      "connection": "Day 1 halved. Today we divide by 10 and 100 and see the digits shift.",
+      "curriculum": [
+        "B1.6",
+        "B2.3"
+      ],
       "watchFor": [
         "Mixing up 10% and 1% (10% of 350 = 3.5): ask \"Is 10% a tenth or a hundredth?\"",
         "Dropping a zero that isn't there (10% of 64 = 6): ask \"What is 64 ÷ 10? What happens to the 4?\"",
@@ -3561,7 +3652,10 @@
       "tool": "doubleline",
       "strategy": "5% is half of 10%, and 15% is 10% + 5%.",
       "keywords": "percent, half of 10%, build up, combine, tip",
-      "connection": "Combines Day 1 (halving) and Day 2 (10%). Useful for tips and taxes. Curriculum: B2.3 (mental math: 5%, 15%).",
+      "connection": "Combines Day 1 (halving) and Day 2 (10%). Useful for tips and taxes.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by 5 for 5% (5% of 60 = 12): ask \"Is 5% more or less than 10%?\"",
         "Adding the percent to the number (15% of 80 = 95): ask \"Is 15% a part of 80 or extra?\"",
@@ -3726,7 +3820,11 @@
       "tool": "doubleline",
       "strategy": "Use a benchmark percent you know (10% or 25%) and multiply or combine it to get the percent you need.",
       "keywords": "benchmark, build up, multiply, 20%, 30%, 75%, 90%",
-      "connection": "Days 1 to 3 found single benchmarks. Today we scale them: 30% is 3 × 10%, 75% is 3 × 25%. Curriculum: B2.3, B2.12.",
+      "connection": "Days 1 to 3 found single benchmarks. Today we scale them: 30% is 3 × 10%, 75% is 3 × 25%.",
+      "curriculum": [
+        "B2.3",
+        "B2.12"
+      ],
       "watchFor": [
         "Dividing by the percent (20% of 70 = 70 ÷ 20 = 3.5): ask \"Should 20% be more or less than 10%?\"",
         "Not seeing 90% as 100% − 10%: ask \"Is 90% close to a percent you know?\"",
@@ -3891,7 +3989,11 @@
       "tool": "doubleline",
       "strategy": "Look at the percent and the number, then choose: halve, divide by 10 or 100, or build from benchmarks.",
       "keywords": "benchmark, choose, combine, 1%, 5%, 10%, 25%, 50%",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.3, B2.12.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.3",
+        "B2.12"
+      ],
       "watchFor": [
         "Using only one benchmark for everything: ask \"Is there a quicker benchmark for this one?\"",
         "Not checking reasonableness: ask \"Is the answer more or less than half? Should it be?\"",
@@ -4059,7 +4161,10 @@
       "tool": "clock",
       "strategy": "Think of fractions as parts of an hour: change each fraction to minutes, add the minutes, then change back.",
       "keywords": "fraction of an hour, minutes, common unit, unlike denominators",
-      "connection": "Students know 1/2 hour = 30 min and 1/4 hour = 15 min. Minutes are a common unit, so unlike denominators can be added. Curriculum: B2.5 (unlike denominators).",
+      "connection": "Students know 1/2 hour = 30 min and 1/4 hour = 15 min. Minutes are a common unit, so unlike denominators can be added.",
+      "curriculum": [
+        "B2.5"
+      ],
       "watchFor": [
         "Adding numerators and denominators (1/2 + 1/4 = 2/6): ask \"Is 2/6 more or less than 1/2? Can the sum be smaller than one of the parts?\"",
         "Mixing up minutes and the fraction (35 minutes = 35/100): ask \"How many minutes in a whole hour?\"",
@@ -4243,7 +4348,10 @@
       "tool": "clock",
       "strategy": "Sixths are 10 minutes and twelfths are 5 minutes; use minutes (or twelfths) as the common unit.",
       "keywords": "sixths, twelfths, fifths, minutes, common denominator, equivalent fractions",
-      "connection": "Day 1 used halves, quarters and thirds. Today: smaller parts. Notice that twelfths are 5-minute chunks, so they work like a common denominator. Curriculum: B2.5.",
+      "connection": "Day 1 used halves, quarters and thirds. Today: smaller parts. Notice that twelfths are 5-minute chunks, so they work like a common denominator.",
+      "curriculum": [
+        "B2.5"
+      ],
       "watchFor": [
         "Adding numerators and denominators (1/6 + 1/3 = 2/9): ask \"Is 2/9 more or less than 1/3?\"",
         "Not simplifying (30/60, 6/12) and thinking it's a different number: ask \"Is 30 minutes the same as half an hour?\"",
@@ -4424,7 +4532,10 @@
       "tool": "clock",
       "strategy": "Change both fractions to minutes, find the difference, then change back to a fraction of an hour.",
       "keywords": "difference, take away, how much more, minutes, common unit",
-      "connection": "Days 1 and 2 added. The same common unit works for subtraction. Curriculum: B2.5.",
+      "connection": "Days 1 and 2 added. The same common unit works for subtraction.",
+      "curriculum": [
+        "B2.5"
+      ],
       "watchFor": [
         "Subtracting numerators and denominators (3/4 − 1/3 = 2/1): ask \"Can the answer be bigger than 3/4?\"",
         "Subtracting in the wrong order with minutes (20 − 45): ask \"Which is more time, 3/4 or 1/3 of an hour?\"",
@@ -4601,7 +4712,10 @@
       "tool": "clock",
       "strategy": "Work with whole hours and minutes: add or subtract the wholes and the parts, and regroup an hour as 60 minutes when needed.",
       "keywords": "mixed number, whole and part, regroup, hours and minutes, make a whole",
-      "connection": "Days 1 to 3 stayed within an hour or just past. Today we use several hours and regroup. Like decimals in Grade 5: make the next whole. Curriculum: B2.5.",
+      "connection": "Days 1 to 3 stayed within an hour or just past. Today we use several hours and regroup. Like decimals in Grade 5: make the next whole.",
+      "curriculum": [
+        "B2.5"
+      ],
       "watchFor": [
         "Subtracting the smaller fraction from the larger (1 1/2 − 3/4 = 1 1/4): ask \"Can you take 3/4 from 1/2? What could you do?\"",
         "Forgetting to regroup past the hour (1 1/2 + 3/4 = 1 5/4): accept, then ask \"How many whole hours is 5/4?\"",
@@ -4789,7 +4903,11 @@
       "tool": "numberline",
       "strategy": "Compare each fraction to 0, 1/2 or 1 to estimate first, then find the exact answer and check it against the estimate.",
       "keywords": "benchmark, about, more than half, close to 1, estimate, reasonable",
-      "connection": "Uses benchmarks to check answers, including eighths and fifths, which don't fit the clock as neatly. Curriculum: B1.3 (compare fractions), B2.5.",
+      "connection": "Uses benchmarks to check answers, including eighths and fifths, which don't fit the clock as neatly.",
+      "curriculum": [
+        "B1.3",
+        "B2.5"
+      ],
       "watchFor": [
         "Adding numerators and denominators (1/2 + 3/8 = 4/10): ask \"Is 4/10 more or less than 1/2? Does that make sense?\"",
         "Not estimating first: ask \"Is it more or less than 1? How do you know?\"",
@@ -4976,7 +5094,11 @@
       "tool": "tiles",
       "strategy": "A positive and a negative of the same size make zero; cancel zero pairs and see what is left.",
       "keywords": "integer, positive, negative, zero pair, opposite, cancel",
-      "connection": "First integer string. Builds the zero-pair idea used all week. Curriculum: B1.2 (integers), B2.4 (add and subtract integers).",
+      "connection": "First integer string. Builds the zero-pair idea used all week.",
+      "curriculum": [
+        "B1.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Ignoring the signs (3 + −5 = 8): build it with tiles and ask \"Which tiles cancel?\"",
         "Getting the size right but the sign wrong (3 + −5 = 2): ask \"Are there more positives or negatives left?\"",
@@ -5167,7 +5289,11 @@
       "tool": "numberline",
       "strategy": "Adding a positive moves right; adding a negative moves left. Jump to 0 first when you cross it.",
       "keywords": "move right, move left, jump to zero, opposite, number line",
-      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\". Curriculum: B1.2, B2.4.",
+      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\".",
+      "curriculum": [
+        "B1.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Moving right for a negative (−3 + −4 = 1): ask \"Which way does adding a negative move?\"",
         "Counting the tick you start on: count jumps, not ticks.",
@@ -5346,7 +5472,10 @@
       "tool": "numberline",
       "strategy": "a − b is how far it is from b to a: count the distance, and the answer is negative if you move left.",
       "keywords": "difference, distance, how far, direction, from b to a",
-      "connection": "Like Grade 5's subtraction as distance, now across 0. Curriculum: B2.4.",
+      "connection": "Like Grade 5's subtraction as distance, now across 0.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Subtracting sizes only (5 − −2 = 3): ask \"How far is it from −2 to 5 on the line?\"",
         "Getting the direction wrong (−1 − 4 = 5): ask \"From 4 to −1, are you going up or down?\"",
@@ -5531,7 +5660,11 @@
       "tool": "tiles",
       "strategy": "Subtracting a number gives the same result as adding its opposite: a − b = a + (−b).",
       "keywords": "opposite, add the opposite, zero pairs, take away, equivalent",
-      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding. Curriculum: B2.1, B2.4.",
+      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding.",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Changing both signs (4 − −3 → −4 + 3): ask \"Which number are we taking away?\"",
         "Thinking two negatives always make a positive (−3 + −5 = 8): ask \"Are we subtracting here, or adding?\"",
@@ -5703,7 +5836,10 @@
       "tool": "numberline",
       "strategy": "Choose zero pairs, moves on the number line, distance, or add the opposite, depending on the numbers.",
       "keywords": "temperature, rise, drop, difference, choose, reasonable",
-      "connection": "Brings together Days 1 to 4, with temperature as a context. Curriculum: B2.4.",
+      "connection": "Brings together Days 1 to 4, with temperature as a context.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Mixing up \"difference\" with \"sum\": ask \"Are we combining, or finding how far apart?\"",
         "Sign errors in the last step: ask \"Should the answer be above or below 0? Why?\"",
@@ -5894,7 +6030,10 @@
       "tool": "bar",
       "strategy": "To increase or decrease by 10%, find 10% (divide by 10), then add it on or take it away.",
       "keywords": "increase, decrease, percent change, original amount, 10%, 110%, 90%",
-      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number. Curriculum: B2.3 (increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, 100%).",
+      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Adding the percent as a number (60 + 10% of 60 = 70): ask \"Is 10% of 60 the same as 10?\"",
         "Finding the 10% but forgetting to add or subtract it (60 + 10% of 60 = 6): ask \"Is the answer the change, or the new amount?\"",
@@ -6058,7 +6197,10 @@
       "tool": "bar",
       "strategy": "Find 50% (half) or 25% (quarter) of the original, then add it on or take it away.",
       "keywords": "increase, decrease, half, quarter, 150%, 125%, 75%",
-      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6. Curriculum: B2.3.",
+      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Adding the percent as a number (40 + 50% of 40 = 90): ask \"What is 50% of 40?\"",
         "Thinking 25% less means divide by 25: ask \"What fraction of the original is 25%?\"",
@@ -6230,7 +6372,10 @@
       "tool": "ratio",
       "strategy": "Use 10% to find 5% (half) and 1% (a tenth), then add or take away the change.",
       "keywords": "5%, 1%, small change, tax, discount, original",
-      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it. Curriculum: B2.3.",
+      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by 5 for 5% (5% of 300 = 60): ask \"Should 5% be more or less than 10%?\"",
         "Adding the percent as a number (300 + 5% of 300 = 305): ask \"What is 5% of 300?\"",
@@ -6394,7 +6539,11 @@
       "tool": "doubleline",
       "strategy": "A 100% increase doubles the original; percents over 100% mean more than the whole.",
       "keywords": "100% increase, double, 200%, 150%, 125%, more than the whole",
-      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more. Curriculum: B2.3 (increase by 100%), B1.7.",
+      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more.",
+      "curriculum": [
+        "B2.3",
+        "B1.7"
+      ],
       "watchFor": [
         "Thinking 100% more means the same number: ask \"What is 100% of 36? Add that on.\"",
         "Thinking a 200% increase and 200% of are the same: ask \"Is 36 + 200% of 36 the same as 200% of 36?\"",
@@ -6559,7 +6708,12 @@
       "tool": "ratio",
       "strategy": "A percent change can be done in one step: increase by 10% is × 1.1, decrease by 25% is × 0.75.",
       "keywords": "multiplier, 110%, 1.1, 90%, 0.9, one step, decimal",
-      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9). Curriculum: B1.7 (convert between fractions, decimals and percents), B2.3, B2.9.",
+      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9).",
+      "curriculum": [
+        "B1.7",
+        "B2.3",
+        "B2.9"
+      ],
       "watchFor": [
         "Misplacing the decimal (1.1 × 50 = 5.5): ask \"Should the answer be more or less than 50? By how much?\"",
         "Thinking × 1.1 adds 0.1 (1.1 × 50 = 50.1): ask \"What is 0.1 × 50?\"",
@@ -6742,6 +6896,9 @@
       "strategy": "Add a friendly number, then take back the extra.",
       "keywords": "jump, friendly number, back 1, take back.",
       "connection": "First string of the routine. Sets up the open number line and jumps.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Forgot to take back (48 on problem 3, 58 on problem 4): ask \"Is 38 + 9 more or less than 38 + 10?\"",
         "Went the wrong way (49 on problem 3): ask the same question and use the line.",
@@ -6801,6 +6958,9 @@
       "strategy": "Move an amount from one number to the other so the total stays the same and one number becomes friendly.",
       "keywords": "give, take, move, same total, balance.",
       "connection": "Day 1 changed one number and fixed the answer afterwards. Day 2 changes both numbers so the answer never changes.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Both numbers moved the same way (50 + 27 for 49 + 26): ask \"Did the total stay the same?\"",
         "Right amount, only one number changed (50 + 26 = 76): ask \"Where did the 1 come from?\"",
@@ -6861,6 +7021,9 @@
       "strategy": "Subtraction finds the distance between two numbers. Start at the smaller number and add up to the larger.",
       "keywords": "distance, difference, gap, how far, add up.",
       "connection": "The jumps from Days 1 and 2 now go from the smaller number up to the larger.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Borrowing in their heads (21 or 12 for 100 − 89): ask \"Where are 89 and 100 on the line?\"",
         "10 on problem 3: the 1 from 89 to 90 was left out. Ask \"Did you start at 89 or at 90?\"",
@@ -6921,6 +7084,9 @@
       "strategy": "Sliding both numbers the same amount in the same direction keeps the difference the same. Slide both to make the subtraction friendlier.",
       "keywords": "slide, shift, same difference, constant difference.",
       "connection": "Day 2 kept the total by moving the numbers in opposite directions. Day 4 keeps the difference by moving both the same way. Day 3, problems 5 and 6 are the first hint.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Slid only one number (62 − 50 = 12 for 62 − 49): ask \"Did the gap stay the same?\" Show both ends moving on the line.",
         "Slid in opposite directions (63 − 48): that is Day 2's move. Ask \"Did the difference stay the same?\"",
@@ -6981,6 +7147,9 @@
       "strategy": "Choose between adding up (distance) and sliding both numbers (same difference), based on the numbers.",
       "keywords": "add up, slide, friendly number, efficient, choose.",
       "connection": "Combines Days 3 and 4. The question is no longer how, but which.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
         "Mixing up the slide with Day 2's opposite move: ask \"Did the difference stay the same?\"",
@@ -7041,6 +7210,9 @@
       "strategy": "Multiply by 10 first (easy), then halve to multiply by 5.",
       "keywords": "times ten, half, five is half of ten",
       "connection": "Week 1 used a friendly number and fixed the answer afterwards. Here the friendly multiplier is 10, and halving fixes it.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halving the wrong number first (18 x 5 as 9 x 5 = 45): ask \"Is 18 x 5 about half of 18 x 10, or half of 18?\"",
         "Counting by fives or picturing the column method: ask \"What would you do for 64 x 5?\"",
@@ -7100,6 +7272,9 @@
       "strategy": "Halve one factor and double the other: the product stays the same and one factor becomes friendly.",
       "keywords": "double, halve, same product, friendly number",
       "connection": "Day 1 used x10 and halved the answer. Day 2 halves one factor and doubles the other, so the answer never changes (like Week 1, Day 2, Give and Take).",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halved both numbers (16 x 25 as 8 x 12.5): ask \"Did the product stay the same? What did you do to the 25?\"",
         "Doubled both numbers: ask \"Is 32 x 50 the same size as 16 x 25?\"",
@@ -7155,6 +7330,9 @@
       "strategy": "Multiply by a friendly number just over, then take back the extra groups.",
       "keywords": "over, take back, groups, one less group",
       "connection": "Week 1, Day 1 went over a ten and took back the extra. Here we go over to a friendly multiplier and take back whole groups.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Took back 1, not 1 group (9 x 7 as 70 - 1 = 69): ask \"How many sevens are we taking back?\"",
         "Used the wrong direction (9 x 7 as 70 + 7): ask \"Is 9 x 7 more or less than 10 x 7?\"",
@@ -7215,6 +7393,9 @@
       "strategy": "Double the dividend, then divide by 10: dividing by 5 gives the same answer as dividing double by double.",
       "keywords": "double, divide by ten, same answer, how many fives",
       "connection": "Day 1 halved to multiply by 5. Day 4 does the opposite: double, then divide by 10. Both use 10 as the friendly number.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halved instead of doubled (80 / 5 as 40 / 10 = 4): ask \"Is 80 / 5 less than 80 / 10?\"",
         "Divided by 10 and stopped (80 / 5 = 8): ask \"How many fives fit in 80? Is it as many as tens?\"",
@@ -7269,6 +7450,9 @@
       "strategy": "Choose between half of x10, double and halve, over and back, and double then divide by 10, based on the numbers.",
       "keywords": "choose, friendly number, halve, double, over and back",
       "connection": "Combines Days 1 to 4. The question is no longer how, but which.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
         "Mixing up directions (halving to divide by 5, doubling to multiply by 5): ask \"Does the answer get bigger or smaller?\"",

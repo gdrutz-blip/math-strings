@@ -9,7 +9,11 @@
       "tool": "tiles",
       "strategy": "A positive and a negative of the same size make zero; cancel zero pairs and see what is left.",
       "keywords": "integer, positive, negative, zero pair, opposite, cancel",
-      "connection": "First integer string. Builds the zero-pair idea used all week. Curriculum: B1.2 (integers), B2.4 (add and subtract integers).",
+      "connection": "First integer string. Builds the zero-pair idea used all week.",
+      "curriculum": [
+        "B1.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Ignoring the signs (3 + −5 = 8): build it with tiles and ask \"Which tiles cancel?\"",
         "Getting the size right but the sign wrong (3 + −5 = 2): ask \"Are there more positives or negatives left?\"",
@@ -200,7 +204,11 @@
       "tool": "numberline",
       "strategy": "Adding a positive moves right; adding a negative moves left. Jump to 0 first when you cross it.",
       "keywords": "move right, move left, jump to zero, opposite, number line",
-      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\". Curriculum: B1.2, B2.4.",
+      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\".",
+      "curriculum": [
+        "B1.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Moving right for a negative (−3 + −4 = 1): ask \"Which way does adding a negative move?\"",
         "Counting the tick you start on: count jumps, not ticks.",
@@ -379,7 +387,10 @@
       "tool": "numberline",
       "strategy": "a − b is how far it is from b to a: count the distance, and the answer is negative if you move left.",
       "keywords": "difference, distance, how far, direction, from b to a",
-      "connection": "Like Grade 5's subtraction as distance, now across 0. Curriculum: B2.4.",
+      "connection": "Like Grade 5's subtraction as distance, now across 0.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Subtracting sizes only (5 − −2 = 3): ask \"How far is it from −2 to 5 on the line?\"",
         "Getting the direction wrong (−1 − 4 = 5): ask \"From 4 to −1, are you going up or down?\"",
@@ -564,7 +575,11 @@
       "tool": "tiles",
       "strategy": "Subtracting a number gives the same result as adding its opposite: a − b = a + (−b).",
       "keywords": "opposite, add the opposite, zero pairs, take away, equivalent",
-      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding. Curriculum: B2.1, B2.4.",
+      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding.",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Changing both signs (4 − −3 → −4 + 3): ask \"Which number are we taking away?\"",
         "Thinking two negatives always make a positive (−3 + −5 = 8): ask \"Are we subtracting here, or adding?\"",
@@ -736,7 +751,10 @@
       "tool": "numberline",
       "strategy": "Choose zero pairs, moves on the number line, distance, or add the opposite, depending on the numbers.",
       "keywords": "temperature, rise, drop, difference, choose, reasonable",
-      "connection": "Brings together Days 1 to 4, with temperature as a context. Curriculum: B2.4.",
+      "connection": "Brings together Days 1 to 4, with temperature as a context.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Mixing up \"difference\" with \"sum\": ask \"Are we combining, or finding how far apart?\"",
         "Sign errors in the last step: ask \"Should the answer be above or below 0? Why?\"",

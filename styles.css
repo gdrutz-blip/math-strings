@@ -476,3 +476,13 @@ a.btn.small { text-decoration: none; }
 .tag-err { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #fff; background: var(--back); padding: 1px 6px; border-radius: 6px; vertical-align: 2px; }
 .try-foot { font-size: 12.5px; color: var(--faint); margin-top: 8px; }
 #try-btn.on { background: var(--accent-soft); color: var(--accent); }
+
+/* ---- curriculum badges ---- */
+.curr { display: inline-flex; gap: 4px; flex-wrap: wrap; vertical-align: middle; }
+.cbadge { font-size: 11.5px; font-weight: 800; letter-spacing: .02em; text-transform: none; color: #6a3fb5; background: #f1eafc; border: 1px solid #ddcdf6; border-radius: 6px; padding: 1px 6px; cursor: help; }
+.pd-curr { margin: 0 0 8px; font-size: 14px; }
+.pd-curr summary { cursor: pointer; color: var(--soft); font-weight: 700; }
+.pd-curr ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--soft); }
+.pt-curr { font-size: 13.5px; color: var(--soft); margin: -4px 0 12px; }
+.curr-help { font-size: 13px; color: var(--soft); display: grid; gap: 3px; align-content: start; }
+.grid2:has(.curr-help) { align-items: start; }

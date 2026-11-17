@@ -82,6 +82,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `tool` | yes | The model the teacher will most likely use. It gets highlighted on screen. One of the ids in section 4. |
 | `strategy` | yes | One sentence: the big idea the string is building. |
 | `topic` | no | Where the string appears in the library's topic filter: `add`, `mult`, `dec`, `frac`, `pct` or `int` (addition & subtraction, multiplication & division, decimals, fractions, percents, integers). If left out, the app works it out from the unit name in `group`, so it is only needed when the unit name doesn't say. |
+| `curriculum` | recommended | Ontario Mathematics (2020) Number strand codes the string addresses, e.g. `["B2.3", "B2.4"]`. Check the code against **that grade's** expectations (the same code means different things in different grades). Shown as badges on the PD page and practice cards. |
 | `keywords` | no | Class vocabulary for the strategy. |
 | `connection` | no | How it builds on earlier strings. |
 | `watchFor` | no | A list of likely mistakes or misconceptions, each with the question to ask. |

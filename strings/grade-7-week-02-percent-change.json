@@ -9,7 +9,10 @@
       "tool": "bar",
       "strategy": "To increase or decrease by 10%, find 10% (divide by 10), then add it on or take it away.",
       "keywords": "increase, decrease, percent change, original amount, 10%, 110%, 90%",
-      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number. Curriculum: B2.3 (increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, 100%).",
+      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Adding the percent as a number (60 + 10% of 60 = 70): ask \"Is 10% of 60 the same as 10?\"",
         "Finding the 10% but forgetting to add or subtract it (60 + 10% of 60 = 6): ask \"Is the answer the change, or the new amount?\"",
@@ -173,7 +176,10 @@
       "tool": "bar",
       "strategy": "Find 50% (half) or 25% (quarter) of the original, then add it on or take it away.",
       "keywords": "increase, decrease, half, quarter, 150%, 125%, 75%",
-      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6. Curriculum: B2.3.",
+      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Adding the percent as a number (40 + 50% of 40 = 90): ask \"What is 50% of 40?\"",
         "Thinking 25% less means divide by 25: ask \"What fraction of the original is 25%?\"",
@@ -345,7 +351,10 @@
       "tool": "ratio",
       "strategy": "Use 10% to find 5% (half) and 1% (a tenth), then add or take away the change.",
       "keywords": "5%, 1%, small change, tax, discount, original",
-      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it. Curriculum: B2.3.",
+      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by 5 for 5% (5% of 300 = 60): ask \"Should 5% be more or less than 10%?\"",
         "Adding the percent as a number (300 + 5% of 300 = 305): ask \"What is 5% of 300?\"",
@@ -509,7 +518,11 @@
       "tool": "doubleline",
       "strategy": "A 100% increase doubles the original; percents over 100% mean more than the whole.",
       "keywords": "100% increase, double, 200%, 150%, 125%, more than the whole",
-      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more. Curriculum: B2.3 (increase by 100%), B1.7.",
+      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more.",
+      "curriculum": [
+        "B2.3",
+        "B1.7"
+      ],
       "watchFor": [
         "Thinking 100% more means the same number: ask \"What is 100% of 36? Add that on.\"",
         "Thinking a 200% increase and 200% of are the same: ask \"Is 36 + 200% of 36 the same as 200% of 36?\"",
@@ -674,7 +687,12 @@
       "tool": "ratio",
       "strategy": "A percent change can be done in one step: increase by 10% is × 1.1, decrease by 25% is × 0.75.",
       "keywords": "multiplier, 110%, 1.1, 90%, 0.9, one step, decimal",
-      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9). Curriculum: B1.7 (convert between fractions, decimals and percents), B2.3, B2.9.",
+      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9).",
+      "curriculum": [
+        "B1.7",
+        "B2.3",
+        "B2.9"
+      ],
       "watchFor": [
         "Misplacing the decimal (1.1 × 50 = 5.5): ask \"Should the answer be more or less than 50? By how much?\"",
         "Thinking × 1.1 adds 0.1 (1.1 × 50 = 50.1): ask \"What is 0.1 × 50?\"",

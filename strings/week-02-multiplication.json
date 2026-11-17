@@ -10,6 +10,9 @@
       "strategy": "Multiply by 10 first (easy), then halve to multiply by 5.",
       "keywords": "times ten, half, five is half of ten",
       "connection": "Week 1 used a friendly number and fixed the answer afterwards. Here the friendly multiplier is 10, and halving fixes it.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halving the wrong number first (18 x 5 as 9 x 5 = 45): ask \"Is 18 x 5 about half of 18 x 10, or half of 18?\"",
         "Counting by fives or picturing the column method: ask \"What would you do for 64 x 5?\"",
@@ -69,6 +72,9 @@
       "strategy": "Halve one factor and double the other: the product stays the same and one factor becomes friendly.",
       "keywords": "double, halve, same product, friendly number",
       "connection": "Day 1 used x10 and halved the answer. Day 2 halves one factor and doubles the other, so the answer never changes (like Week 1, Day 2, Give and Take).",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halved both numbers (16 x 25 as 8 x 12.5): ask \"Did the product stay the same? What did you do to the 25?\"",
         "Doubled both numbers: ask \"Is 32 x 50 the same size as 16 x 25?\"",
@@ -124,6 +130,9 @@
       "strategy": "Multiply by a friendly number just over, then take back the extra groups.",
       "keywords": "over, take back, groups, one less group",
       "connection": "Week 1, Day 1 went over a ten and took back the extra. Here we go over to a friendly multiplier and take back whole groups.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Took back 1, not 1 group (9 x 7 as 70 - 1 = 69): ask \"How many sevens are we taking back?\"",
         "Used the wrong direction (9 x 7 as 70 + 7): ask \"Is 9 x 7 more or less than 10 x 7?\"",
@@ -184,6 +193,9 @@
       "strategy": "Double the dividend, then divide by 10: dividing by 5 gives the same answer as dividing double by double.",
       "keywords": "double, divide by ten, same answer, how many fives",
       "connection": "Day 1 halved to multiply by 5. Day 4 does the opposite: double, then divide by 10. Both use 10 as the friendly number.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Halved instead of doubled (80 / 5 as 40 / 10 = 4): ask \"Is 80 / 5 less than 80 / 10?\"",
         "Divided by 10 and stopped (80 / 5 = 8): ask \"How many fives fit in 80? Is it as many as tens?\"",
@@ -238,6 +250,9 @@
       "strategy": "Choose between half of x10, double and halve, over and back, and double then divide by 10, based on the numbers.",
       "keywords": "choose, friendly number, halve, double, over and back",
       "connection": "Combines Days 1 to 4. The question is no longer how, but which.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
         "Mixing up directions (halving to divide by 5, doubling to multiply by 5): ask \"Does the answer get bigger or smaller?\"",

@@ -10,6 +10,9 @@
       "strategy": "Add a friendly number, then take back the extra.",
       "keywords": "jump, friendly number, back 1, take back.",
       "connection": "First string of the routine. Sets up the open number line and jumps.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Forgot to take back (48 on problem 3, 58 on problem 4): ask \"Is 38 + 9 more or less than 38 + 10?\"",
         "Went the wrong way (49 on problem 3): ask the same question and use the line.",
@@ -69,6 +72,9 @@
       "strategy": "Move an amount from one number to the other so the total stays the same and one number becomes friendly.",
       "keywords": "give, take, move, same total, balance.",
       "connection": "Day 1 changed one number and fixed the answer afterwards. Day 2 changes both numbers so the answer never changes.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Both numbers moved the same way (50 + 27 for 49 + 26): ask \"Did the total stay the same?\"",
         "Right amount, only one number changed (50 + 26 = 76): ask \"Where did the 1 come from?\"",
@@ -129,6 +135,9 @@
       "strategy": "Subtraction finds the distance between two numbers. Start at the smaller number and add up to the larger.",
       "keywords": "distance, difference, gap, how far, add up.",
       "connection": "The jumps from Days 1 and 2 now go from the smaller number up to the larger.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Borrowing in their heads (21 or 12 for 100 − 89): ask \"Where are 89 and 100 on the line?\"",
         "10 on problem 3: the 1 from 89 to 90 was left out. Ask \"Did you start at 89 or at 90?\"",
@@ -189,6 +198,9 @@
       "strategy": "Sliding both numbers the same amount in the same direction keeps the difference the same. Slide both to make the subtraction friendlier.",
       "keywords": "slide, shift, same difference, constant difference.",
       "connection": "Day 2 kept the total by moving the numbers in opposite directions. Day 4 keeps the difference by moving both the same way. Day 3, problems 5 and 6 are the first hint.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "Slid only one number (62 − 50 = 12 for 62 − 49): ask \"Did the gap stay the same?\" Show both ends moving on the line.",
         "Slid in opposite directions (63 − 48): that is Day 2's move. Ask \"Did the difference stay the same?\"",
@@ -249,6 +261,9 @@
       "strategy": "Choose between adding up (distance) and sliding both numbers (same difference), based on the numbers.",
       "keywords": "add up, slide, friendly number, efficient, choose.",
       "connection": "Combines Days 3 and 4. The question is no longer how, but which.",
+      "curriculum": [
+        "B2.1"
+      ],
       "watchFor": [
         "The same strategy for every problem: ask \"Could you do it another way? Would it be quicker?\"",
         "Mixing up the slide with Day 2's opposite move: ask \"Did the difference stay the same?\"",

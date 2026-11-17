@@ -9,7 +9,11 @@
       "tool": "doubleline",
       "strategy": "50% is half, and 25% is half of a half, so find them by halving.",
       "keywords": "percent, per hundred, half, quarter, halve, benchmark",
-      "connection": "Connects percents to fractions students already know: 50% = 1/2 and 25% = 1/4. Curriculum: B1.6 (fractions, decimals, percents), B2.3 (mental math: 25%, 50%).",
+      "connection": "Connects percents to fractions students already know: 50% = 1/2 and 25% = 1/4.",
+      "curriculum": [
+        "B1.6",
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by the percent (25% of 80 = 80 ÷ 25 = 3.2): ask \"Should 25% of 80 be more or less than half of 80?\"",
         "Subtracting the percent (25% of 80 = 55): ask \"Is 25% a part of the 80 or an amount to take away?\"",
@@ -197,7 +201,11 @@
       "tool": "ratio",
       "strategy": "10% is one tenth (divide by 10) and 1% is one hundredth (divide by 100).",
       "keywords": "percent, tenth, hundredth, divide by 10, divide by 100, place value",
-      "connection": "Day 1 halved. Today we divide by 10 and 100 and see the digits shift. Curriculum: B1.6, B2.3 (mental math: 1%, 10%).",
+      "connection": "Day 1 halved. Today we divide by 10 and 100 and see the digits shift.",
+      "curriculum": [
+        "B1.6",
+        "B2.3"
+      ],
       "watchFor": [
         "Mixing up 10% and 1% (10% of 350 = 3.5): ask \"Is 10% a tenth or a hundredth?\"",
         "Dropping a zero that isn't there (10% of 64 = 6): ask \"What is 64 ÷ 10? What happens to the 4?\"",
@@ -372,7 +380,10 @@
       "tool": "doubleline",
       "strategy": "5% is half of 10%, and 15% is 10% + 5%.",
       "keywords": "percent, half of 10%, build up, combine, tip",
-      "connection": "Combines Day 1 (halving) and Day 2 (10%). Useful for tips and taxes. Curriculum: B2.3 (mental math: 5%, 15%).",
+      "connection": "Combines Day 1 (halving) and Day 2 (10%). Useful for tips and taxes.",
+      "curriculum": [
+        "B2.3"
+      ],
       "watchFor": [
         "Dividing by 5 for 5% (5% of 60 = 12): ask \"Is 5% more or less than 10%?\"",
         "Adding the percent to the number (15% of 80 = 95): ask \"Is 15% a part of 80 or extra?\"",
@@ -537,7 +548,11 @@
       "tool": "doubleline",
       "strategy": "Use a benchmark percent you know (10% or 25%) and multiply or combine it to get the percent you need.",
       "keywords": "benchmark, build up, multiply, 20%, 30%, 75%, 90%",
-      "connection": "Days 1 to 3 found single benchmarks. Today we scale them: 30% is 3 × 10%, 75% is 3 × 25%. Curriculum: B2.3, B2.12.",
+      "connection": "Days 1 to 3 found single benchmarks. Today we scale them: 30% is 3 × 10%, 75% is 3 × 25%.",
+      "curriculum": [
+        "B2.3",
+        "B2.12"
+      ],
       "watchFor": [
         "Dividing by the percent (20% of 70 = 70 ÷ 20 = 3.5): ask \"Should 20% be more or less than 10%?\"",
         "Not seeing 90% as 100% − 10%: ask \"Is 90% close to a percent you know?\"",
@@ -702,7 +717,11 @@
       "tool": "doubleline",
       "strategy": "Look at the percent and the number, then choose: halve, divide by 10 or 100, or build from benchmarks.",
       "keywords": "benchmark, choose, combine, 1%, 5%, 10%, 25%, 50%",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.3, B2.12.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.3",
+        "B2.12"
+      ],
       "watchFor": [
         "Using only one benchmark for everything: ask \"Is there a quicker benchmark for this one?\"",
         "Not checking reasonableness: ask \"Is the answer more or less than half? Should it be?\"",

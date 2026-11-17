@@ -10,6 +10,9 @@
       "strategy": "Add up to the next ten first, then add what is left.",
       "keywords": "next ten, friendly number, break apart, jump",
       "connection": "First string of the week. Sets up the open number line and the idea that 10 ones make a ten.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Counting on by ones (28, 29, 30, 31...): accept it, then ask \"Is there a jump that gets you to a ten?\"",
         "Breaking the number the wrong way (28 + 5 as 28 + 3 + 2 = 33, but stopping at 31): ask \"How much of the 5 have you used?\"",
@@ -177,6 +180,10 @@
       "strategy": "Add tens with tens and ones with ones, then put them together. When the ones make more than 10, that makes another ten.",
       "keywords": "tens, ones, hundreds, place value, partial sums, make a new ten",
       "connection": "Day 1 made a ten on the number line. Today the ones combine into a new ten when we add by place value.",
+      "curriculum": [
+        "B1.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Saying \"3 + 4\" for 30 + 40: ask \"Is it 3 + 4 or 30 + 40? How do you know?\" and write the real values.",
         "Writing 713 for 70 + 13: ask \"How many tens are in 13? Where do they go?\"",
@@ -344,6 +351,9 @@
       "strategy": "Get to the next hundred (or ten), then add what is left. Tens can regroup into a new hundred, just like ones regroup into a ten.",
       "keywords": "next hundred, friendly number, regroup, 10 tens",
       "connection": "Day 1 got to the next ten. Today we get to the next hundred.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Writing 1003 for 95 + 8: ask \"Is it more or less than 200? Where is it on the line?\"",
         "Losing track of the hundreds (186 + 25 = 111): ask \"About how big should the answer be?\"",
@@ -398,6 +408,10 @@
       "strategy": "When a number is close to a friendly number (a ten or a hundred), add the friendly number, then take back the extra.",
       "keywords": "friendly number, close to, too much, take back",
       "connection": "Days 1–3 added up to a friendly number. Today we jump past it and come back.",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
       "watchFor": [
         "Forgetting to take back (46 + 9 = 56): ask \"Is 46 + 9 more or less than 46 + 10?\"",
         "Going the wrong way (46 + 9 = 57): ask the same question and show both on the line.",
@@ -452,6 +466,9 @@
       "strategy": "Connect mental strategies to the standard algorithm: the carried 1 is a new ten (or hundred) made from 10 ones (or 10 tens).",
       "keywords": "regroup, carry, new ten, new hundred, place value, algorithm",
       "connection": "Days 1–4 made new tens and hundreds in our heads. Today we see them in the standard algorithm.",
+      "curriculum": [
+        "B2.4"
+      ],
       "watchFor": [
         "Writing 512 for 27 + 35 (not regrouping): ask \"Is it about 60 or about 500?\" and show the 12 ones becoming 1 ten and 2 ones.",
         "Carrying without knowing why: ask \"What does that little 1 stand for: one, ten, or hundred?\"",
