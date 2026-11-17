@@ -59,7 +59,11 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
       "wrapUp": "Ask \"How is this like Week 1 Day 1?\" Land: go to the friendly number, then take back the extra.",
       "problems": [
         { "q": "2.5 + 1.5", "a": "4", "notes": "Look for: a quick known fact. Ask: \"Hold on to this answer.\"" },
-        { "q": "2.5 + 1.9", "a": "4.4", "notes": "Look for: 2.5 + 2, then back 0.1. Ask: \"Can the last problem help?\" Model: numberline 2.5 +2 -0.1" },
+        { "q": "2.5 + 1.9", "a": "4.4", "notes": "Look for: 2.5 + 2, then back 0.1. Ask: \"Can the last problem help?\"",
+          "responses": [
+            { "say": "2.5 + 2 is 4.5, then back 0.1.", "tool": "numberline", "type": "2.5 +2 -0.1" },
+            { "say": "3.14", "tool": "numberline", "type": "2.5 +2 -0.1", "kind": "error", "tip": "Ask: is 1.9 closer to 1 or 2?" }
+          ] },
         { "q": "2.8 + 1.9", "a": "4.7", "optional": true, "notes": "Look for: 2.8 + 2, then back 0.1. Model: numberline 2.8 +2 -0.1" }
       ]
     }
@@ -91,6 +95,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `a` | yes | The correct answer (teacher only). **Double-check every answer.** |
 | `optional` | no | `true` for problems to skip if short on time. The app shows a "Skip" button for these. |
 | `notes` | no | Teacher-only prompts. Use this order: `Look for: … Ask: "…" Word choice: … Model: <tool> <input>` |
+| `responses` | recommended | Likely student responses for the **printable practice card**: a list of `{ "say": "what the student says", "tool": "numberline", "type": "28 +2 +3", "kind": "error" (only for a common mistake), "tip": "short teacher tip" }`. Give 2–4 per problem: the target strategy, another likely strategy, and one common mistake. `type` must be valid input for `tool` (section 4). |
 
 ### How to write problems (`q`)
 

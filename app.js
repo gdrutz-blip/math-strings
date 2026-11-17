@@ -30,7 +30,7 @@
     const o = Object.assign({ title: 'Untitled string', group: '', label: '', tool: 'numberline', strategy: '', problems: [] }, s);
     if (!o.id) o.id = slug((o.label ? o.label + '-' : '') + o.title) + '-' + uid();
     if (!TOOL[o.tool]) o.tool = 'numberline';
-    o.problems = (o.problems || []).map(p => typeof p === 'string' ? splitProblem(p) : ({ q: String(p.q || ''), a: p.a == null ? '' : String(p.a), optional: !!p.optional, notes: p.notes || '' }));
+    o.problems = (o.problems || []).map(p => typeof p === 'string' ? splitProblem(p) : ({ q: String(p.q || ''), a: p.a == null ? '' : String(p.a), optional: !!p.optional, notes: p.notes || '', ...(Array.isArray(p.responses) && p.responses.length ? { responses: p.responses } : {}) }));
     return o;
   }
   function splitProblem(line) {
@@ -112,6 +112,8 @@
     if (view === 'present' && id) return presenter(decodeURIComponent(id));
     if (view === 'quick') return presenter('__quick');
     if (view === 'start') return startPage();
+    if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
+    if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
     libraryView();
   }
@@ -120,10 +122,14 @@
 
   /* ================= library ================= */
   let searchText = '';
+  let gradeFilter = store.get('grade', 'all');
+  const gradeOf = s => ((s.group || '').match(/^\s*Grade\s*(\w+)/i) || [])[1] || null;
   function libraryView() {
     document.title = 'Math Strings';
     const q = searchText.toLowerCase();
-    const list = library.filter(s => !q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q));
+    const grades = [...new Set(library.map(gradeOf).filter(Boolean))].sort((a, b) => (parseInt(a) || 0) - (parseInt(b) || 0) || String(a).localeCompare(b));
+    if (gradeFilter !== 'all' && !grades.includes(gradeFilter)) gradeFilter = 'all';
+    const list = library.filter(s => (gradeFilter === 'all' || gradeOf(s) === gradeFilter) && (!q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     app.innerHTML = `
@@ -145,7 +151,10 @@
           </div>
         </div>
         ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><a class="btn primary" href="#/start" data-act="seen">Show me how</a><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
-        <div class="searchbar"><input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}"></div>
+        <div class="searchbar">
+          ${grades.length > 1 ? `<div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}</div>` : ''}
+          <input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}">
+        </div>
         <div id="groups">
           ${groups.length ? groups.map(G => `
             <div class="group-title">${esc(G.name)}</div>
@@ -169,6 +178,8 @@
       if (act === 'help') helpModal();
       if (act === 'seen') store.set('welcomed', true);
       if (act === 'dismiss') { store.set('welcomed', true); libraryView(); }
+      if (act === 'grade') { gradeFilter = b.dataset.g; store.set('grade', gradeFilter); history.replaceState(null, '', gradeFilter === 'all' ? '#/' : '#/grade/' + encodeURIComponent(gradeFilter)); libraryView(); }
+      if (act === 'practice') go('practice/' + encodeURIComponent(id));
       if (act === 'present') go('present/' + encodeURIComponent(id));
       if (act === 'edit') go('edit/' + encodeURIComponent(id));
       if (act === 'dup') { const s = findString(id); const c = normalizeString(JSON.parse(JSON.stringify(clean(s)))); c.id = slug(s.title) + '-' + uid(); c.title = s.title + ' (copy)'; c._edited = true; library.splice(library.indexOf(s) + 1, 0, c); saveLibrary(); libraryView(); toast('Duplicated'); }
@@ -186,6 +197,7 @@
       <div class="card-actions">
         <button class="btn primary" data-act="present" data-id="${esc(s.id)}">▶ Present</button>
         <button class="btn" data-act="edit" data-id="${esc(s.id)}">Edit</button>
+        ${s.problems.some(p => p.responses) ? `<button class="btn ghost" data-act="practice" data-id="${esc(s.id)}" title="Printable card of likely student responses and what to type">📝 Practice</button>` : ''}
         <span class="spacer"></span>
         ${edited ? `<button class="btn small ghost" data-act="revert" data-id="${esc(s.id)}" title="Your copy differs from the website. Click to restore the website version.">↺ site version</button>` : ''}
         <button class="icon-btn" data-act="dup" data-id="${esc(s.id)}" title="Duplicate">⧉</button>
@@ -366,6 +378,35 @@ Rules:
 - Write problems plainly: 38 + 9, 100 - 76, 3/4 + 1/3 (fractions), 1 1/2 (mixed numbers), 2^3 (exponents), 6 x 8 or 6 × 8.
 - "a" (answer) and "notes" are for me only; students never see them.
 - Mark skippable problems with "optional": true.`;
+
+  // A printable practice card: likely student responses for each problem, and exactly what to type
+  function practicePage(id) {
+    const s = findString(id);
+    if (!s) return go('');
+    document.title = 'Practice · ' + s.title;
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    const toolCell = t => { const x = TOOL[t]; return x ? `<span class="pt-tool">${x.icon} ${esc(x.short || x.name)}</span>` : esc(t || ''); };
+    app.innerHTML = `
+    <div class="guide practice">
+      <div class="ed-head no-print">
+        <a class="btn ghost" href="#/">← Library</a>
+        <span style="flex:1"></span>
+        <button class="btn" onclick="window.print()">🖨 Print</button>
+        <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
+      </div>
+      <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)} <span class="pt-sub">Practice card</span></h1>
+      ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
+      <div class="pt-how"><b>How to practise in pairs:</b> one person presents the string; the other plays the class and reads a "student says" line. The presenter records the answer (<kbd>A</kbd>), picks the tool, types what's in the last column, and presses <kbd>Enter</kbd>. Swap after a few problems. Press <b>↺</b> in the top bar to start the string fresh.</div>
+      ${s.problems.map((p, i) => `
+        <section class="panel pt-prob">
+          <div class="pt-head"><span class="pt-num">${i + 1}</span><span class="expr pt-q">${exprHTML(p.q)}</span><span class="pt-a">= ${esc(p.a)}</span>${p.optional ? '<span class="pt-opt">optional</span>' : ''}</div>
+          ${p.notes ? `<p class="pt-notes">${esc(p.notes.replace(/\s*Model:.*$/s, ''))}</p>` : ''}
+          ${p.responses ? `<table class="gtable pt-table"><tr><th>Student says</th><th>Tool</th><th>Type this</th></tr>${p.responses.map(r => `<tr class="${r.kind === 'error' ? 'pt-err' : ''}"><td>${r.kind === 'error' ? '<span class="pt-flag">mistake</span> ' : ''}“${esc(r.say)}”</td><td>${toolCell(r.tool)}</td><td>${r.type ? `<code>${esc(r.type)}</code>` : ''}${r.tip ? `<div class="pt-tip">${esc(r.tip)}</div>` : ''}</td></tr>`).join('')}</table>` : '<p class="hint">No practice responses for this problem yet.</p>'}
+        </section>`).join('')}
+      ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
+    </div>`;
+    window.scrollTo(0, 0);
+  }
 
   function startPage() {
     store.set('welcomed', true);

@@ -20,38 +20,151 @@
         {
           "q": "8 + 2",
           "a": "10",
-          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\"",
+          "responses": [
+            {
+              "say": "I just know 8 and 2 make 10.",
+              "tool": "numberline",
+              "type": "8 +2"
+            },
+            {
+              "say": "I counted on: 9, 10.",
+              "tool": "numberline",
+              "type": "8 +1 +1"
+            }
+          ]
         },
         {
           "q": "28 + 2",
           "a": "30",
-          "notes": "Look for: \"8 and 2 make a ten.\" Ask: \"How does 8 + 2 help?\" Model: numberline 28 +2"
+          "notes": "Look for: \"8 and 2 make a ten.\" Ask: \"How does 8 + 2 help?\" Model: numberline 28 +2",
+          "responses": [
+            {
+              "say": "8 and 2 make a ten, so 20 and 10 is 30.",
+              "tool": "numberline",
+              "type": "28 +2",
+              "tip": "Click +2 and type “8 + 2 makes a ten”"
+            },
+            {
+              "say": "I counted 29, 30.",
+              "tool": "numberline",
+              "type": "28 +1 +1"
+            }
+          ]
         },
         {
           "q": "28 + 5",
           "a": "33",
-          "notes": "Look for: 28 + 2 = 30, then 3 more. Ask: \"Where did the 5 go?\" Word choice: \"I broke 5 into 2 and 3.\" Model: numberline 28 +2 +3"
+          "notes": "Look for: 28 + 2 = 30, then 3 more. Ask: \"Where did the 5 go?\" Word choice: \"I broke 5 into 2 and 3.\" Model: numberline 28 +2 +3",
+          "responses": [
+            {
+              "say": "28 plus 2 is 30, then 3 more is 33.",
+              "tool": "numberline",
+              "type": "28 +2 +3",
+              "tip": "The target strategy. Ask: where did the 5 go?"
+            },
+            {
+              "say": "I counted on 5: 29, 30, 31, 32, 33.",
+              "tool": "numberline",
+              "type": "28 +1x5",
+              "tip": "Then ask: is there a jump that gets you to a ten?"
+            },
+            {
+              "say": "I did 20 + 5 = 25, then 8 more.",
+              "tool": "split",
+              "type": "28 + 5"
+            },
+            {
+              "say": "31.",
+              "tool": "numberline",
+              "type": "28 +2 +1",
+              "kind": "error",
+              "tip": "Used only part of the 5. Ask: how much of the 5 have you used?"
+            }
+          ]
         },
         {
           "q": "48 + 6",
           "a": "54",
-          "notes": "Look for: 48 + 2 = 50, then 4 more. Ask: \"How did you know to use 2?\" Model: numberline 48 +2 +4"
+          "notes": "Look for: 48 + 2 = 50, then 4 more. Ask: \"How did you know to use 2?\" Model: numberline 48 +2 +4",
+          "responses": [
+            {
+              "say": "48 + 2 is 50, then 4 more is 54.",
+              "tool": "numberline",
+              "type": "48 +2 +4"
+            },
+            {
+              "say": "I did 48 + 6 like the last one: to the next ten first.",
+              "tool": "text",
+              "type": "48 + 6 = 48 + 2 + 4 ; = 50 + 4 ; = 54"
+            },
+            {
+              "say": "414 (wrote 4 tens and 14).",
+              "tool": "split",
+              "type": "48 + 6",
+              "kind": "error",
+              "tip": "Ask: how many tens are in 14?"
+            }
+          ]
         },
         {
           "q": "67 + 8",
           "a": "75",
-          "notes": "Look for: 67 + 3 = 70, then 5 more. Ask: \"What is the next ten after 67?\" Model: numberline 67 +3 +5"
+          "notes": "Look for: 67 + 3 = 70, then 5 more. Ask: \"What is the next ten after 67?\" Model: numberline 67 +3 +5",
+          "responses": [
+            {
+              "say": "67 + 3 is 70, then 5 more is 75.",
+              "tool": "numberline",
+              "type": "67 +3 +5"
+            },
+            {
+              "say": "I did 67 + 10 = 77, then took away 2.",
+              "tool": "numberline",
+              "type": "67 +10 -2",
+              "tip": "A Day 4 strategy. Accept it and name it."
+            }
+          ]
         },
         {
           "q": "67 + 18",
           "a": "85",
           "notes": "Look for: 67 + 3 = 70, then 15 more; or 67 + 10 + 8. Ask: \"Can the last problem help?\" Model: numberline 67 +3 +15",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "67 + 3 = 70, and I still had 15 left, so 85.",
+              "tool": "numberline",
+              "type": "67 +3 +15"
+            },
+            {
+              "say": "67 + 10 = 77, then 77 + 8 = 85.",
+              "tool": "numberline",
+              "type": "67 +10 +3 +5"
+            },
+            {
+              "say": "Last one was 75, plus 10 more.",
+              "tool": "numberline",
+              "type": "75 +10"
+            }
+          ]
         },
         {
           "q": "167 + 8",
           "a": "175",
-          "notes": "Look for: the same moves as 67 + 8. Ask: \"Predict before I show it. What changed?\" Model: numberline 167 +3 +5"
+          "notes": "Look for: the same moves as 67 + 8. Ask: \"Predict before I show it. What changed?\" Model: numberline 167 +3 +5",
+          "responses": [
+            {
+              "say": "Same as 67 + 8, just in the hundreds: 175.",
+              "tool": "numberline",
+              "type": "167 +3 +5",
+              "tip": "Ask: what changed? what stayed the same?"
+            },
+            {
+              "say": "I did 160 + 15.",
+              "tool": "split",
+              "type": "167 + 8"
+            }
+          ]
         }
       ]
     },
@@ -74,38 +187,151 @@
         {
           "q": "30 + 40",
           "a": "70",
-          "notes": "Look for: 3 tens + 4 tens = 7 tens. Ask: \"How many tens?\""
+          "notes": "Look for: 3 tens + 4 tens = 7 tens. Ask: \"How many tens?\"",
+          "responses": [
+            {
+              "say": "3 tens and 4 tens is 7 tens.",
+              "tool": "text",
+              "type": "30 + 40 = 3 tens + 4 tens ; = 7 tens ; = 70"
+            },
+            {
+              "say": "3 + 4 = 7, then put a zero.",
+              "tool": "text",
+              "type": "3 tens + 4 tens = 7 tens",
+              "tip": "Ask: 3 what? 4 what? Why the zero?"
+            }
+          ]
         },
         {
           "q": "6 + 7",
           "a": "13",
-          "notes": "Look for: a known fact, or 6 + 4 + 3. Ask: \"How many tens and ones is 13?\""
+          "notes": "Look for: a known fact, or 6 + 4 + 3. Ask: \"How many tens and ones is 13?\"",
+          "responses": [
+            {
+              "say": "I know 6 + 7 = 13.",
+              "tool": "split",
+              "type": "6 + 7"
+            },
+            {
+              "say": "6 + 4 = 10, then 3 more.",
+              "tool": "numberline",
+              "type": "6 +4 +3"
+            }
+          ]
         },
         {
           "q": "36 + 47",
           "a": "83",
-          "notes": "Look for: 70 + 13 = 83. Ask: \"How did the last two problems help?\" Word choice: \"13 ones is 1 ten and 3 ones.\" Model: text 36 + 47 = 30 + 40 + 6 + 7 ; = 70 + 13 ; = 83"
+          "notes": "Look for: 70 + 13 = 83. Ask: \"How did the last two problems help?\" Word choice: \"13 ones is 1 ten and 3 ones.\" Model: text 36 + 47 = 30 + 40 + 6 + 7 ; = 70 + 13 ; = 83",
+          "responses": [
+            {
+              "say": "30 + 40 = 70, 6 + 7 = 13, then 70 + 13 = 83.",
+              "tool": "split",
+              "type": "36 + 47",
+              "tip": "The target strategy"
+            },
+            {
+              "say": "I said it like the last two problems.",
+              "tool": "text",
+              "type": "36 + 47 = 30 + 40 + 6 + 7 ; = 70 + 13 ; = 83"
+            },
+            {
+              "say": "36 + 40 = 76, then 7 more.",
+              "tool": "numberline",
+              "type": "36 +40 +4 +3"
+            },
+            {
+              "say": "713 (wrote 70 and 13 side by side).",
+              "tool": "split",
+              "type": "36 + 47",
+              "kind": "error",
+              "tip": "Ask: how many tens are in 13? Where do they go?"
+            }
+          ]
         },
         {
           "q": "28 + 56",
           "a": "84",
-          "notes": "Look for: 70 + 14. Ask: \"Where does the extra ten come from?\" Model: text 28 + 56 = 20 + 50 + 8 + 6 ; = 70 + 14 ; = 84"
+          "notes": "Look for: 70 + 14. Ask: \"Where does the extra ten come from?\" Model: text 28 + 56 = 20 + 50 + 8 + 6 ; = 70 + 14 ; = 84",
+          "responses": [
+            {
+              "say": "20 + 50 = 70, 8 + 6 = 14, so 84.",
+              "tool": "split",
+              "type": "28 + 56"
+            },
+            {
+              "say": "28 + 2 = 30, then 54 more.",
+              "tool": "numberline",
+              "type": "28 +2 +54",
+              "tip": "Day 1's strategy. Ask: which was easier?"
+            },
+            {
+              "say": "74 (forgot the extra ten).",
+              "tool": "split",
+              "type": "28 + 56",
+              "kind": "error",
+              "tip": "Ask: where does the extra ten from 14 go?"
+            }
+          ]
         },
         {
           "q": "45 + 38",
           "a": "83",
           "notes": "Look for: 70 + 13, or 45 + 30 + 8 on the number line. Ask: \"Did anyone do it another way?\" Model: numberline 45 +30 +8",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "40 + 30 = 70, 5 + 8 = 13, so 83.",
+              "tool": "split",
+              "type": "45 + 38"
+            },
+            {
+              "say": "45 + 30 = 75, then 8 more.",
+              "tool": "numberline",
+              "type": "45 +30 +5 +3"
+            }
+          ]
         },
         {
           "q": "125 + 37",
           "a": "162",
-          "notes": "Look for: 100 + 50 + 12. Ask: \"What happens to the hundreds?\" Model: text 125 + 37 = 100 + 20 + 30 + 5 + 7 ; = 100 + 50 + 12 ; = 162"
+          "notes": "Look for: 100 + 50 + 12. Ask: \"What happens to the hundreds?\" Model: text 125 + 37 = 100 + 20 + 30 + 5 + 7 ; = 100 + 50 + 12 ; = 162",
+          "responses": [
+            {
+              "say": "100, then 20 + 30 = 50, then 5 + 7 = 12: 162.",
+              "tool": "split",
+              "type": "125 + 37"
+            },
+            {
+              "say": "125 + 30 = 155, + 7 = 162.",
+              "tool": "numberline",
+              "type": "125 +30 +5 +2"
+            }
+          ]
         },
         {
           "q": "356 + 127",
           "a": "483",
-          "notes": "Look for: 400 + 70 + 13. Ask: \"Which part makes a new ten?\" Model: text 356 + 127 = 300 + 100 + 50 + 20 + 6 + 7 ; = 400 + 70 + 13 ; = 483"
+          "notes": "Look for: 400 + 70 + 13. Ask: \"Which part makes a new ten?\" Model: text 356 + 127 = 300 + 100 + 50 + 20 + 6 + 7 ; = 400 + 70 + 13 ; = 483",
+          "responses": [
+            {
+              "say": "300 + 100, 50 + 20, 6 + 7: 400 + 70 + 13 = 483.",
+              "tool": "split",
+              "type": "356 + 127"
+            },
+            {
+              "say": "I did ones first: 13, then 70, then 400.",
+              "tool": "text",
+              "type": "6 + 7 = 13 ; 50 + 20 = 70 ; 300 + 100 = 400 ; 400 + 70 + 13 = 483"
+            },
+            {
+              "say": "473 (lost the new ten).",
+              "tool": "split",
+              "type": "356 + 127",
+              "kind": "error",
+              "tip": "Ask: which part makes a new ten?"
+            }
+          ]
         }
       ]
     },
