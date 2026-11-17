@@ -498,6 +498,1847 @@
       ]
     },
     {
+      "id": "g5-w01-d1-make-the-next-whole",
+      "title": "Make the Next Whole",
+      "label": "Day 1",
+      "group": "Grade 5 · Week 1 · Decimals to Hundredths",
+      "tool": "numberline",
+      "strategy": "Add up to the next whole number first, then add what is left.",
+      "keywords": "next whole, tenths, hundredths, make a one, break apart",
+      "connection": "Like \"make the next ten\" with whole numbers, but now 10 tenths or 100 hundredths make a one. Curriculum: B1.5, B2.3, B2.4.",
+      "watchFor": [
+        "Adding digits as if they were whole numbers (2.7 + 0.5 = 2.12): ask \"Is 2.12 more or less than 3?\" and \"How many tenths make a one?\"",
+        "Lining up the last digits instead of place value (3.75 + 0.4 = 3.79): ask \"Is 0.4 four tenths or four hundredths?\"",
+        "Not knowing decimal partners of 1 (0.7 and 0.3, 0.75 and 0.25): keep the first problems on the board and point back to them."
+      ],
+      "wrapUp": "Ask \"How is this like making the next ten?\" Land: get to the next whole, then add the rest. Ten tenths (or 100 hundredths) make one whole.",
+      "problems": [
+        {
+          "q": "0.7 + 0.3",
+          "a": "1",
+          "notes": "Look for: 7 tenths and 3 tenths make 10 tenths. Ask: \"How many tenths make one whole?\" Model: numberline 0.7 +0.3",
+          "responses": [
+            {
+              "say": "7 tenths and 3 tenths is 10 tenths, that's 1.",
+              "tool": "numberline",
+              "type": "0.7 +0.3"
+            },
+            {
+              "say": "Like 7 + 3 = 10, so it's 1.0.",
+              "tool": "text",
+              "type": "7 + 3 = 10 ; 0.7 + 0.3 = 1.0",
+              "tip": "Ask: why is it 1.0 and not 10?"
+            },
+            {
+              "say": "0.10",
+              "tool": "numberline",
+              "type": "0.7 +0.3",
+              "tip": "Ask: is 0.10 more or less than 0.7? How many tenths make a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.7 + 0.3",
+          "a": "3",
+          "notes": "Look for: \"0.7 and 0.3 make a whole.\" Ask: \"How does the first problem help?\" Model: numberline 2.7 +0.3",
+          "responses": [
+            {
+              "say": "0.7 and 0.3 make 1, so 2 and 1 is 3.",
+              "tool": "numberline",
+              "type": "2.7 +0.3"
+            },
+            {
+              "say": "2.7 is 27 tenths, plus 3 tenths is 30 tenths.",
+              "tool": "text",
+              "type": "27 tenths + 3 tenths = 30 tenths ; = 3"
+            },
+            {
+              "say": "2.10",
+              "tool": "numberline",
+              "type": "2.7 +0.3",
+              "tip": "Ask: is the answer more or less than 2.7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.7 + 0.5",
+          "a": "3.2",
+          "notes": "Look for: 2.7 + 0.3 = 3, then 0.2 more. Ask: \"Where did the 0.5 go?\" Word choice: \"I broke 0.5 into 0.3 and 0.2.\" Model: numberline 2.7 +0.3 +0.2",
+          "responses": [
+            {
+              "say": "2.7 plus 0.3 is 3, then 0.2 more is 3.2.",
+              "tool": "numberline",
+              "type": "2.7 +0.3 +0.2",
+              "tip": "The target strategy. Ask: where did the 0.5 go?"
+            },
+            {
+              "say": "I counted by tenths: 2.8, 2.9, 3, 3.1, 3.2.",
+              "tool": "numberline",
+              "type": "2.7 +0.1x5",
+              "tip": "Then ask: is there a jump that gets you to a whole?"
+            },
+            {
+              "say": "2.12",
+              "tool": "text",
+              "type": "7 + 5 = 12 ; 2.7 + 0.5 = 2.12 ?",
+              "tip": "Added tenths like whole numbers. Ask: is 2.12 more or less than 2.7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.75 + 0.25",
+          "a": "1",
+          "notes": "Look for: 75 + 25 = 100 hundredths. Ask: \"How is this like 75¢ + 25¢?\" Model: numberline 0.75 +0.25",
+          "responses": [
+            {
+              "say": "75 hundredths and 25 hundredths is 100 hundredths, that's 1.",
+              "tool": "numberline",
+              "type": "0.75 +0.25"
+            },
+            {
+              "say": "Three quarters and a quarter make a dollar.",
+              "tool": "text",
+              "type": "$0.75 + $0.25 = $1.00",
+              "tip": "Money is a great bridge. Name it."
+            },
+            {
+              "say": "0.100",
+              "tool": "numberline",
+              "type": "0.75 +0.25",
+              "tip": "Ask: how many hundredths make a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.75 + 0.4",
+          "a": "4.15",
+          "notes": "Look for: 3.75 + 0.25 = 4, then 0.15 more. Ask: \"What do you need to get from 3.75 to 4?\" Model: numberline 3.75 +0.25 +0.15",
+          "responses": [
+            {
+              "say": "3.75 + 0.25 is 4, then 0.15 more is 4.15.",
+              "tool": "numberline",
+              "type": "3.75 +0.25 +0.15",
+              "tip": "The target strategy. Ask: how did you split 0.4?"
+            },
+            {
+              "say": "3.75 + 0.4 is like 3.7 + 0.4 = 4.1, plus the 0.05.",
+              "tool": "numberline",
+              "type": "3.75 +0.4",
+              "tip": "Accept and connect to tenths."
+            },
+            {
+              "say": "3.79",
+              "tool": "column",
+              "type": "3.75 + 0.04",
+              "tip": "Added 4 hundredths, not 4 tenths. Ask: is 0.4 closer to 0 or to a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.86 + 0.3",
+          "a": "5.16",
+          "notes": "Look for: 4.86 + 0.14 = 5, then 0.16 more. Ask: \"What is the next whole after 4.86?\" Model: numberline 4.86 +0.14 +0.16",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4.86 + 0.14 is 5, then 0.16 more is 5.16.",
+              "tool": "numberline",
+              "type": "4.86 +0.14 +0.16"
+            },
+            {
+              "say": "4.8 + 0.3 is 5.1, and the 6 hundredths stay: 5.16.",
+              "tool": "numberline",
+              "type": "4.86 +0.3",
+              "tip": "Adding the tenths only. Good place-value thinking."
+            },
+            {
+              "say": "4.89",
+              "tool": "column",
+              "type": "4.86 + 0.03",
+              "tip": "Added 3 hundredths. Ask: is 0.3 three tenths or three hundredths?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.95 + 1.2",
+          "a": "8.15",
+          "notes": "Look for: 6.95 + 0.05 = 7, then 1.15 more. Ask: \"Can the last problems help?\" Model: numberline 6.95 +0.05 +1.15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6.95 + 0.05 is 7, then 1.15 more is 8.15.",
+              "tool": "numberline",
+              "type": "6.95 +0.05 +1.15"
+            },
+            {
+              "say": "6.95 + 1 is 7.95, then + 0.2 is 8.15.",
+              "tool": "numberline",
+              "type": "6.95 +1 +0.05 +0.15",
+              "tip": "Two good jumps. Ask: where did you cross a whole?"
+            },
+            {
+              "say": "7.97",
+              "tool": "column",
+              "type": "6.95 + 1.02",
+              "tip": "Lined up the last digits. Ask: about how big should the answer be?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w01-d2-add-a-friendly-number",
+      "title": "Add a Friendly Number, Then Adjust",
+      "label": "Day 2",
+      "group": "Grade 5 · Week 1 · Decimals to Hundredths",
+      "tool": "numberline",
+      "strategy": "When a decimal is close to a whole number, add the whole number, then take back the extra.",
+      "keywords": "friendly number, close to, take back, adjust, compensate",
+      "connection": "Day 1 got to the next whole. Today we round a number up to a whole and fix it at the end. Curriculum: B2.3, B2.4.",
+      "watchFor": [
+        "Adjusting the wrong way (3.99 + 2.45 = 6.46): ask \"Did you add too much or too little? So do you take back or add on?\"",
+        "Taking back the wrong amount (taking back 0.1 instead of 0.01): ask \"How far is 3.99 from 4?\"",
+        "Rounding both numbers and forgetting to fix both: ask \"How much extra did you add in all?\""
+      ],
+      "wrapUp": "Ask \"When is this strategy a good choice?\" Land: when a number is close to a whole, use the whole and adjust. Adding too much means take some back.",
+      "problems": [
+        {
+          "q": "4 + 2.45",
+          "a": "6.45",
+          "notes": "Look for: a quick known fact. Ask: \"Hold on to this answer.\" Model: numberline 2.45 +4",
+          "responses": [
+            {
+              "say": "4 + 2 is 6, then the 0.45 stays: 6.45.",
+              "tool": "numberline",
+              "type": "2.45 +4"
+            },
+            {
+              "say": "I counted up 4 ones from 2.45.",
+              "tool": "numberline",
+              "type": "2.45 +1x4"
+            }
+          ]
+        },
+        {
+          "q": "3.99 + 2.45",
+          "a": "6.44",
+          "notes": "Look for: 4 + 2.45 = 6.45, then back 0.01. Ask: \"How is 3.99 different from 4?\" Word choice: \"I added 0.01 too much, so I took it back.\" Model: numberline 2.45 +4 -0.01",
+          "responses": [
+            {
+              "say": "4 + 2.45 is 6.45, but I added 0.01 too much, so 6.44.",
+              "tool": "numberline",
+              "type": "2.45 +4 -0.01",
+              "tip": "The target strategy. Ask: why take back and not add on?"
+            },
+            {
+              "say": "I gave 0.01 from 2.45 to 3.99: 4 + 2.44.",
+              "tool": "givetake",
+              "type": "3.99 + 2.45 = 4 + 2.44",
+              "tip": "Give and take. Name it and compare."
+            },
+            {
+              "say": "6.46",
+              "tool": "numberline",
+              "type": "2.45 +4 +0.01",
+              "tip": "Adjusted the wrong way. Ask: did you add too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 + 1.36",
+          "a": "7.36",
+          "notes": "Look for: a quick fact. Ask: \"What's the friendly number here?\" Model: numberline 1.36 +6",
+          "responses": [
+            {
+              "say": "6 + 1 is 7, so 7.36.",
+              "tool": "numberline",
+              "type": "1.36 +6"
+            },
+            {
+              "say": "1.36 + 6 is 7.36.",
+              "tool": "text",
+              "type": "1.36 + 6 = 7.36"
+            }
+          ]
+        },
+        {
+          "q": "5.9 + 1.36",
+          "a": "7.26",
+          "notes": "Look for: 6 + 1.36 = 7.36, then back 0.1. Ask: \"How far is 5.9 from 6?\" Model: numberline 1.36 +6 -0.1",
+          "responses": [
+            {
+              "say": "6 + 1.36 is 7.36, take back 0.1 is 7.26.",
+              "tool": "numberline",
+              "type": "1.36 +6 -0.1"
+            },
+            {
+              "say": "I gave 0.1 from 1.36: 6 + 1.26.",
+              "tool": "givetake",
+              "type": "5.9 + 1.36 = 6 + 1.26"
+            },
+            {
+              "say": "7.35",
+              "tool": "numberline",
+              "type": "1.36 +6 -0.01",
+              "tip": "Took back a hundredth. Ask: is 5.9 one tenth or one hundredth away from 6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.98 + 3.47",
+          "a": "6.45",
+          "notes": "Look for: 3 + 3.47 = 6.47, then back 0.02. Ask: \"Which number is close to a whole?\" Model: numberline 3.47 +3 -0.02",
+          "responses": [
+            {
+              "say": "3 + 3.47 is 6.47, back 0.02 is 6.45.",
+              "tool": "numberline",
+              "type": "3.47 +3 -0.02"
+            },
+            {
+              "say": "Give 0.02 to 2.98: 3 + 3.45.",
+              "tool": "givetake",
+              "type": "2.98 + 3.47 = 3 + 3.45"
+            },
+            {
+              "say": "I split it: 5 + 1.45 = 6.45.",
+              "tool": "text",
+              "type": "2 + 3 = 5 ; 0.98 + 0.47 = 1.45 ; 5 + 1.45 = 6.45",
+              "tip": "Works, but ask: which way was quicker?"
+            },
+            {
+              "say": "6.49",
+              "tool": "numberline",
+              "type": "3.47 +3 +0.02",
+              "tip": "Adjusted the wrong way. Ask: did 3 add too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.99 + 4.99",
+          "a": "9.98",
+          "notes": "Look for: 5 + 5 = 10, then back 0.02 (0.01 for each). Ask: \"How much extra did you add in all?\" Model: numberline 0 +5 +5 -0.02",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5 + 5 is 10, I added 0.01 too much twice, so 9.98.",
+              "tool": "numberline",
+              "type": "0 +5 +5 -0.02"
+            },
+            {
+              "say": "Double 5 is 10, minus double 0.01.",
+              "tool": "text",
+              "type": "4.99 + 4.99 = 10 - 0.02 ; = 9.98"
+            },
+            {
+              "say": "9.99",
+              "tool": "numberline",
+              "type": "0 +5 +5 -0.01",
+              "tip": "Took back only one extra. Ask: how many numbers did you round?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.95 + 3.8",
+          "a": "5.75",
+          "notes": "Look for: 2 + 3.8 = 5.8, then back 0.05. Ask: \"How far is 1.95 from 2?\" Model: numberline 3.8 +2 -0.05",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2 + 3.8 is 5.8, back 0.05 is 5.75.",
+              "tool": "numberline",
+              "type": "3.8 +2 -0.05"
+            },
+            {
+              "say": "3.8 + 0.2 = 4, then 1.75 more.",
+              "tool": "numberline",
+              "type": "3.8 +0.2 +1.75",
+              "tip": "Day 1's strategy. Ask: which is quicker for you?"
+            },
+            {
+              "say": "5.85",
+              "tool": "numberline",
+              "type": "3.8 +2 +0.05",
+              "tip": "Adjusted the wrong way. Ask: did adding 2 add too much or too little?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w01-d3-subtraction-as-distance",
+      "title": "Subtraction as Distance",
+      "label": "Day 3",
+      "group": "Grade 5 · Week 1 · Decimals to Hundredths",
+      "tool": "numberline",
+      "strategy": "Find the difference by adding up from the smaller number to the larger one, through friendly numbers.",
+      "keywords": "difference, distance, add up, how far, friendly number",
+      "connection": "Uses Day 1's make-the-next-whole jumps to find how far apart two numbers are. Curriculum: B2.3, B2.4.",
+      "watchFor": [
+        "Subtracting the smaller digit from the larger in each place (5 − 2.75 = 3.75 or 3.35): ask \"Is the gap from 2.75 to 5 more or less than 3?\"",
+        "Forgetting a jump when adding up: ask \"Show me each jump. Add up the jumps.\"",
+        "Answering with the end point instead of the distance: ask \"Where did you land, and how far did you go?\""
+      ],
+      "wrapUp": "Ask \"When is adding up easier than taking away?\" Land: subtraction can be the distance between two numbers; jump through friendly numbers and add up the jumps.",
+      "problems": [
+        {
+          "q": "3 - 2.75",
+          "a": "0.25",
+          "notes": "Look for: \"0.25 gets from 2.75 to 3.\" Ask: \"How far apart are they?\" Model: numberline 2.75 ~3",
+          "responses": [
+            {
+              "say": "2.75 and 0.25 make 3, so it's 0.25.",
+              "tool": "numberline",
+              "type": "2.75 ~3"
+            },
+            {
+              "say": "Like $3 minus $2.75, you get a quarter back.",
+              "tool": "text",
+              "type": "$3.00 - $2.75 = $0.25"
+            }
+          ]
+        },
+        {
+          "q": "5 - 2.75",
+          "a": "2.25",
+          "notes": "Look for: 2.75 to 3 is 0.25, then 3 to 5 is 2. Ask: \"Can the last problem help?\" Word choice: \"The distance from 2.75 to 5 is 2.25.\" Model: numberline 2.75 >3 >5",
+          "responses": [
+            {
+              "say": "2.75 to 3 is 0.25, then 3 to 5 is 2. 2.25.",
+              "tool": "numberline",
+              "type": "2.75 >3 >5",
+              "tip": "The target strategy. Ask: add up the jumps."
+            },
+            {
+              "say": "5 − 3 is 2, but I took away 0.25 too much, so 2.25.",
+              "tool": "numberline",
+              "type": "5 -3 +0.25",
+              "tip": "Friendly number from Day 2. Name it."
+            },
+            {
+              "say": "3.75",
+              "tool": "column",
+              "type": "5 - 2.75",
+              "tip": "Subtracted digits the wrong way. Ask: is the gap more or less than 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5.1 - 2.75",
+          "a": "2.35",
+          "notes": "Look for: 2.75 to 3 is 0.25, to 5 is 2, to 5.1 is 0.1. Ask: \"What changed from the last problem?\" Model: numberline 2.75 >3 >5 >5.1",
+          "responses": [
+            {
+              "say": "0.25 + 2 + 0.1 is 2.35.",
+              "tool": "numberline",
+              "type": "2.75 >3 >5 >5.1"
+            },
+            {
+              "say": "Last one was 2.25, and 5.1 is 0.1 more, so 2.35.",
+              "tool": "text",
+              "type": "5 - 2.75 = 2.25 ; 5.1 - 2.75 = 2.25 + 0.1 = 2.35",
+              "tip": "Using the last problem. Celebrate it."
+            },
+            {
+              "say": "2.26",
+              "tool": "numberline",
+              "type": "2.75 >3 >5 >5.01",
+              "tip": "Treated 0.1 as 0.01. Ask: how far is it from 5 to 5.1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 - 1.6",
+          "a": "2.4",
+          "notes": "Look for: 1.6 to 2 is 0.4, then 2 to 4 is 2. Ask: \"What friendly number is close to 1.6?\" Model: numberline 1.6 >2 >4",
+          "responses": [
+            {
+              "say": "1.6 to 2 is 0.4, then 2 more to 4. 2.4.",
+              "tool": "numberline",
+              "type": "1.6 >2 >4"
+            },
+            {
+              "say": "4 − 2 is 2, add back 0.4.",
+              "tool": "numberline",
+              "type": "4 -2 +0.4"
+            },
+            {
+              "say": "3.6",
+              "tool": "column",
+              "type": "4 - 1.6",
+              "tip": "Ask: is 1.6 more or less than 2? So is the answer more or less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.02 - 3.8",
+          "a": "2.22",
+          "notes": "Look for: 3.8 to 4 is 0.2, 4 to 6 is 2, 6 to 6.02 is 0.02. Ask: \"Where are your friendly stops?\" Model: numberline 3.8 >4 >6 >6.02",
+          "responses": [
+            {
+              "say": "0.2 + 2 + 0.02 is 2.22.",
+              "tool": "numberline",
+              "type": "3.8 >4 >6 >6.02",
+              "tip": "The target strategy. Ask: add up the jumps."
+            },
+            {
+              "say": "6.02 − 4 is 2.02, then add back 0.2.",
+              "tool": "numberline",
+              "type": "6.02 -4 +0.2"
+            },
+            {
+              "say": "3.82",
+              "tool": "column",
+              "type": "6.02 - 3.8",
+              "tip": "Subtracted digits the wrong way. Ask: about how big is the gap?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - 7.45",
+          "a": "2.55",
+          "notes": "Look for: 7.45 to 7.5 to 8 to 10. Ask: \"How can you get to a whole number quickly?\" Model: numberline 7.45 >8 >10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7.45 to 8 is 0.55, then 2 more to 10. 2.55.",
+              "tool": "numberline",
+              "type": "7.45 >8 >10"
+            },
+            {
+              "say": "7.45 to 7.5 is 0.05, to 8 is 0.5, then 2.",
+              "tool": "numberline",
+              "type": "7.45 >7.5 >8 >10",
+              "tip": "Smaller steps work. Ask: can you combine them?"
+            },
+            {
+              "say": "3.45",
+              "tool": "column",
+              "type": "10 - 7.45",
+              "tip": "Ask: is 7.45 closer to 7 or 8? So about how big is the gap?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.3 - 6.85",
+          "a": "0.45",
+          "notes": "Look for: the numbers are close, so adding up is quick. Ask: \"Why is adding up a good choice here?\" Model: numberline 6.85 >7 >7.3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6.85 to 7 is 0.15, then 0.3 more is 0.45.",
+              "tool": "numberline",
+              "type": "6.85 >7 >7.3"
+            },
+            {
+              "say": "7.3 − 7 is 0.3, then add back 0.15.",
+              "tool": "numberline",
+              "type": "7.3 -7 +0.15"
+            },
+            {
+              "say": "1.55",
+              "tool": "column",
+              "type": "7.3 - 6.85",
+              "tip": "Ask: are 7.3 and 6.85 more than one whole apart?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w01-d4-constant-difference",
+      "title": "Constant Difference",
+      "label": "Day 4",
+      "group": "Grade 5 · Week 1 · Decimals to Hundredths",
+      "tool": "slide",
+      "strategy": "Slide both numbers by the same amount so the one you subtract becomes a whole number; the difference stays the same.",
+      "keywords": "same difference, slide, shift both, friendly number",
+      "connection": "Day 3 found the distance on a number line. Today we slide that distance to an easier place. Curriculum: B2.1, B2.3, B2.4.",
+      "watchFor": [
+        "Sliding only one number (4.03 − 1.98 → 4.03 − 2): ask \"If you move only one number, does the gap stay the same?\"",
+        "Sliding in opposite directions: ask \"Which way did each number move?\"",
+        "Subtracting the smaller digit from the larger (4.03 − 1.98 = 3.95): ask \"About how far is 1.98 from 4?\""
+      ],
+      "wrapUp": "Ask \"Why does the answer not change when both numbers move?\" Land: the gap stays the same, so slide both numbers until the second one is friendly.",
+      "problems": [
+        {
+          "q": "4 - 2",
+          "a": "2",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this. How far apart are 4 and 2?\" Model: numberline 2 ~4",
+          "responses": [
+            {
+              "say": "4 take away 2 is 2.",
+              "tool": "numberline",
+              "type": "4 -2"
+            },
+            {
+              "say": "From 2 to 4 is 2.",
+              "tool": "numberline",
+              "type": "2 ~4"
+            }
+          ]
+        },
+        {
+          "q": "4.05 - 2",
+          "a": "2.05",
+          "notes": "Look for: subtract the 2 ones; the 0.05 stays. Ask: \"What changed from the first problem?\" Model: numberline 4.05 -2",
+          "responses": [
+            {
+              "say": "4.05 minus 2 is 2.05.",
+              "tool": "numberline",
+              "type": "4.05 -2"
+            },
+            {
+              "say": "4 − 2 is 2, plus the 0.05.",
+              "tool": "text",
+              "type": "4.05 - 2 = 4 - 2 + 0.05 ; = 2.05"
+            }
+          ]
+        },
+        {
+          "q": "4.03 - 1.98",
+          "a": "2.05",
+          "notes": "Look for: slide both up 0.02 to get 4.05 − 2. Ask: \"Can the last problem help? How?\" Word choice: \"I moved both numbers up 0.02, so the gap stayed the same.\" Model: slide 4.03 - 1.98 > +0.02",
+          "responses": [
+            {
+              "say": "Add 0.02 to both: 4.05 − 2 is 2.05.",
+              "tool": "slide",
+              "type": "4.03 - 1.98 > +0.02",
+              "tip": "The target strategy. Ask: why add to both?"
+            },
+            {
+              "say": "1.98 to 2 is 0.02, then 2 to 4.03 is 2.03. 2.05.",
+              "tool": "numberline",
+              "type": "1.98 >2 >4.03",
+              "tip": "Day 3's adding up. Compare the two."
+            },
+            {
+              "say": "3.95",
+              "tool": "column",
+              "type": "4.03 - 1.98",
+              "tip": "Subtracted the smaller digit from the larger. Ask: about how far is 1.98 from 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.2 - 2.9",
+          "a": "3.3",
+          "notes": "Look for: slide both up 0.1 to get 6.3 − 3. Ask: \"What would make 2.9 friendly?\" Model: slide 6.2 - 2.9 > +0.1",
+          "responses": [
+            {
+              "say": "Add 0.1 to both: 6.3 − 3 is 3.3.",
+              "tool": "slide",
+              "type": "6.2 - 2.9 > +0.1"
+            },
+            {
+              "say": "2.9 to 3 is 0.1, then to 6.2 is 3.2. 3.3.",
+              "tool": "numberline",
+              "type": "2.9 >3 >6.2"
+            },
+            {
+              "say": "3.1",
+              "tool": "slide",
+              "type": "6.2 - 2.9 = 6.2 - 3",
+              "tip": "Moved only one number. Ask: did the gap stay the same?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8.14 - 3.97",
+          "a": "4.17",
+          "notes": "Look for: slide both up 0.03 to get 8.17 − 4. Ask: \"How much do you slide?\" Model: slide 8.14 - 3.97 > +0.03",
+          "responses": [
+            {
+              "say": "Add 0.03 to both: 8.17 − 4 is 4.17.",
+              "tool": "slide",
+              "type": "8.14 - 3.97 > +0.03"
+            },
+            {
+              "say": "8.14 − 4 is 4.14, then add back 0.03.",
+              "tool": "numberline",
+              "type": "8.14 -4 +0.03",
+              "tip": "Day 2's adjust. Ask: why add back?"
+            },
+            {
+              "say": "4.11",
+              "tool": "numberline",
+              "type": "8.14 -4 -0.03",
+              "tip": "Adjusted the wrong way. Ask: did taking 4 take away too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5.25 - 1.99",
+          "a": "3.26",
+          "notes": "Look for: slide both up 0.01 to get 5.26 − 2. Ask: \"Which number do you want to make friendly?\" Model: slide 5.25 - 1.99 > +0.01",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 0.01 to both: 5.26 − 2 is 3.26.",
+              "tool": "slide",
+              "type": "5.25 - 1.99 > +0.01"
+            },
+            {
+              "say": "1.99 to 2 is 0.01, then 3.25 more: 3.26.",
+              "tool": "numberline",
+              "type": "1.99 >2 >5.25"
+            },
+            {
+              "say": "3.24",
+              "tool": "numberline",
+              "type": "5.25 -2 -0.01",
+              "tip": "Adjusted the wrong way. Ask: did taking 2 take away too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9.5 - 4.75",
+          "a": "4.75",
+          "notes": "Look for: slide both up 0.25 to get 9.75 − 5. Ask: \"Is there more than one way to slide?\" Model: slide 9.5 - 4.75 > +0.25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 0.25 to both: 9.75 − 5 is 4.75.",
+              "tool": "slide",
+              "type": "9.5 - 4.75 > +0.25"
+            },
+            {
+              "say": "Slide down 0.75: 8.75 − 4 is 4.75.",
+              "tool": "slide",
+              "type": "9.5 - 4.75 > -0.75",
+              "tip": "Sliding down works too. Ask: which slide is easier?"
+            },
+            {
+              "say": "It's half of 9.5.",
+              "tool": "text",
+              "type": "4.75 + 4.75 = 9.5 ; so 9.5 - 4.75 = 4.75",
+              "tip": "A great noticing. Ask: how do you know?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w01-d5-estimate-then-choose",
+      "title": "Estimate, Then Choose",
+      "label": "Day 5",
+      "group": "Grade 5 · Week 1 · Decimals to Hundredths",
+      "tool": "estimate",
+      "strategy": "Estimate first with friendly numbers, then choose a strategy that fits the numbers and check the answer against the estimate.",
+      "keywords": "estimate, about, friendly number, reasonable, choose a strategy",
+      "connection": "Brings together Days 1 to 4. The estimate is a check: is the exact answer reasonable? Curriculum: B2.3 (estimate sums and differences of decimals), B2.4.",
+      "watchFor": [
+        "Skipping the estimate: before anyone solves, ask \"About how much? More or less than ...?\"",
+        "Estimating with the wrong place value (4.5 as 45): ask \"Is 4.5 closer to 4 or to 40?\"",
+        "Using one strategy for everything: ask \"Which strategy fits these numbers? Why?\""
+      ],
+      "wrapUp": "Ask \"How did your estimate help you check your answer?\" and \"Which strategy did you choose for each, and why?\" Land: look at the numbers first, then choose.",
+      "problems": [
+        {
+          "q": "2.98 + 4.5",
+          "a": "7.48",
+          "notes": "First ask: \"About how much?\" (about 7.5). Look for: 3 + 4.5 = 7.5, back 0.02. Model: estimate 2.98 + 4.5 ≈ 3 + 4.5",
+          "responses": [
+            {
+              "say": "About 3 + 4.5, so about 7.5.",
+              "tool": "estimate",
+              "type": "2.98 + 4.5 ≈ 3 + 4.5",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "3 + 4.5 is 7.5, take back 0.02: 7.48.",
+              "tool": "numberline",
+              "type": "4.5 +3 -0.02"
+            },
+            {
+              "say": "2.98 + 0.02 = 3, then 4.48 more.",
+              "tool": "numberline",
+              "type": "2.98 +0.02 +4.48"
+            },
+            {
+              "say": "3.43",
+              "tool": "column",
+              "type": "2.98 + 0.45",
+              "tip": "Ask: is 3.43 close to your estimate?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 - 3.97",
+          "a": "2.03",
+          "notes": "First ask: \"About how much?\" (about 2). Look for: adding up from 3.97, or sliding to 6.03 − 4. Model: estimate 6 - 3.97 ≈ 6 - 4",
+          "responses": [
+            {
+              "say": "About 6 − 4, so about 2.",
+              "tool": "estimate",
+              "type": "6 - 3.97 ≈ 6 - 4",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "3.97 to 4 is 0.03, then 2 more. 2.03.",
+              "tool": "numberline",
+              "type": "3.97 >4 >6"
+            },
+            {
+              "say": "Slide up 0.03: 6.03 − 4 = 2.03.",
+              "tool": "slide",
+              "type": "6 - 3.97 > +0.03"
+            },
+            {
+              "say": "3.97",
+              "tool": "column",
+              "type": "6 - 3.97",
+              "tip": "Ask: is 3.97 close to your estimate of 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.75 + 2.6",
+          "a": "6.35",
+          "notes": "First ask: \"About how much?\" (about 6.5). Look for: 3.75 + 0.25 = 4, then 2.35 more. Model: estimate 3.75 + 2.6 ≈ 4 + 2.5",
+          "responses": [
+            {
+              "say": "About 4 + 2.5, so about 6.5.",
+              "tool": "estimate",
+              "type": "3.75 + 2.6 ≈ 4 + 2.5",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "3.75 + 0.25 is 4, then 2.35 more is 6.35.",
+              "tool": "numberline",
+              "type": "3.75 +0.25 +2.35"
+            },
+            {
+              "say": "3 + 2 is 5, 0.75 + 0.6 is 1.35, so 6.35.",
+              "tool": "text",
+              "type": "3 + 2 = 5 ; 0.75 + 0.6 = 1.35 ; 5 + 1.35 = 6.35"
+            },
+            {
+              "say": "5.81",
+              "tool": "column",
+              "type": "3.75 + 2.06",
+              "tip": "Lined up the last digits. Ask: is 5.81 close to your estimate?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.02 - 4.99",
+          "a": "2.03",
+          "notes": "First ask: \"About how much?\" (about 2). Look for: slide up 0.01 to get 7.03 − 5. Model: estimate 7.02 - 4.99 ≈ 7 - 5",
+          "responses": [
+            {
+              "say": "About 7 − 5, so about 2.",
+              "tool": "estimate",
+              "type": "7.02 - 4.99 ≈ 7 - 5",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "Slide up 0.01: 7.03 − 5 = 2.03.",
+              "tool": "slide",
+              "type": "7.02 - 4.99 > +0.01"
+            },
+            {
+              "say": "4.99 to 5 is 0.01, then 2.02 more. 2.03.",
+              "tool": "numberline",
+              "type": "4.99 >5 >7.02"
+            },
+            {
+              "say": "2.02",
+              "tool": "slide",
+              "type": "7.02 - 4.99 = 7.02 - 5",
+              "tip": "Moved only one number. Ask: did the gap stay the same?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.5 - 9.75",
+          "a": "2.75",
+          "notes": "First ask: \"About how much?\" (about 3). Look for: adding up 9.75 → 10 → 12.5. Model: estimate 12.5 - 9.75 ≈ 12.5 - 10",
+          "responses": [
+            {
+              "say": "About 12.5 − 10, so about 2.5 or 3.",
+              "tool": "estimate",
+              "type": "12.5 - 9.75 ≈ 12.5 - 10",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "9.75 to 10 is 0.25, then 2.5 more. 2.75.",
+              "tool": "numberline",
+              "type": "9.75 >10 >12.5"
+            },
+            {
+              "say": "Slide up 0.25: 12.75 − 10 = 2.75.",
+              "tool": "slide",
+              "type": "12.5 - 9.75 > +0.25"
+            },
+            {
+              "say": "3.25",
+              "tool": "column",
+              "type": "12.5 - 9.75",
+              "tip": "Ask: is 9.75 more or less than 10? So is the gap more or less than 2.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.99 + 1.99 + 1.99",
+          "a": "5.97",
+          "notes": "First ask: \"About how much?\" (about 6). Look for: 2 + 2 + 2 = 6, back 0.03. Model: estimate 1.99 + 1.99 + 1.99 ≈ 2 + 2 + 2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "About 2 + 2 + 2, so about 6.",
+              "tool": "estimate",
+              "type": "1.99 + 1.99 + 1.99 ≈ 2 + 2 + 2",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "6, but 0.01 too much three times, so 5.97.",
+              "tool": "numberline",
+              "type": "0 +2x3 -0.03"
+            },
+            {
+              "say": "5.99",
+              "tool": "numberline",
+              "type": "0 +2x3 -0.01",
+              "tip": "Took back only one extra. Ask: how many numbers did you round?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8.4 - 0.65",
+          "a": "7.75",
+          "notes": "First ask: \"About how much?\" (about 7.75 or 8). Look for: 8.4 − 0.4 = 8, then − 0.25. Model: estimate 8.4 - 0.65 ≈ 8.5 - 0.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "About 8.5 − 0.5, so about 8.",
+              "tool": "estimate",
+              "type": "8.4 - 0.65 ≈ 8.5 - 0.5",
+              "tip": "Estimate first."
+            },
+            {
+              "say": "8.4 − 0.4 is 8, then − 0.25 is 7.75.",
+              "tool": "numberline",
+              "type": "8.4 -0.4 -0.25"
+            },
+            {
+              "say": "0.65 to 1 is 0.35, then to 8.4 is 7.4: 7.75.",
+              "tool": "numberline",
+              "type": "0.65 >1 >8.4"
+            },
+            {
+              "say": "8.25",
+              "tool": "column",
+              "type": "8.4 - 0.65",
+              "tip": "Took 4 from 6 in the tenths. Ask: is 8.25 more than 8.4 − 0.5?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d1-split-a-factor",
+      "title": "Split a Factor",
+      "label": "Day 1",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "Split one factor into friendly parts (like 10 and 2), multiply each part, then add the products.",
+      "keywords": "split, partial products, distributive property, ten and some more",
+      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact. Curriculum: B2.1 (distributive property), B2.2 (facts to 12 × 12).",
+      "watchFor": [
+        "Splitting both factors and multiplying only matching parts (12 × 7 as 10 × 7 + 2 = 72): ask \"Did every part of 12 get multiplied by 7?\"",
+        "Adding instead of multiplying a part (12 × 7 = 70 + 2 + 7): draw the area model and ask \"What is the area of the small piece?\"",
+        "Skip counting from 0 every time: accept it, then ask \"Is there a fact you already know that's close?\""
+      ],
+      "wrapUp": "Ask \"How did 10 × and 2 × help you with 12 ×?\" Land: split a factor into friendly parts, multiply each part, and add. The area model shows every piece.",
+      "problems": [
+        {
+          "q": "10 x 7",
+          "a": "70",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: array 7 x 10",
+          "responses": [
+            {
+              "say": "Ten sevens is 70.",
+              "tool": "array",
+              "type": "7 x 10"
+            },
+            {
+              "say": "7 tens is 70.",
+              "tool": "ratio",
+              "type": "1:7, 10:70"
+            }
+          ]
+        },
+        {
+          "q": "2 x 7",
+          "a": "14",
+          "notes": "Look for: a double. Ask: \"Hold on to this one too.\" Model: array 7 x 2",
+          "responses": [
+            {
+              "say": "Double 7 is 14.",
+              "tool": "array",
+              "type": "7 x 2"
+            },
+            {
+              "say": "7 + 7 = 14.",
+              "tool": "text",
+              "type": "2 x 7 = 7 + 7 = 14"
+            }
+          ]
+        },
+        {
+          "q": "12 x 7",
+          "a": "84",
+          "notes": "Look for: 10 × 7 + 2 × 7 = 70 + 14. Ask: \"How did the first two help?\" Word choice: \"I split 12 into 10 and 2.\" Model: area 10+2 x 7",
+          "responses": [
+            {
+              "say": "10 sevens is 70 and 2 sevens is 14, so 84.",
+              "tool": "area",
+              "type": "10+2 x 7",
+              "tip": "The target strategy. Ask: where are the 70 and the 14?"
+            },
+            {
+              "say": "I see it in the dots: a 10 part and a 2 part.",
+              "tool": "array",
+              "type": "7 x 10+2"
+            },
+            {
+              "say": "11 × 7 is 77, plus 7 more is 84.",
+              "tool": "text",
+              "type": "11 x 7 = 77 ; 12 x 7 = 77 + 7 = 84",
+              "tip": "Using a known fact. Accept it."
+            },
+            {
+              "say": "72",
+              "tool": "text",
+              "type": "12 x 7 = 10 x 7 + 2 = 72 ?",
+              "tip": "Only multiplied the 10. Ask: did every part of 12 get multiplied by 7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 8",
+          "a": "96",
+          "notes": "Look for: 10 × 8 + 2 × 8 = 80 + 16. Ask: \"Can you split it the same way?\" Model: area 10+2 x 8",
+          "responses": [
+            {
+              "say": "80 and 16 is 96.",
+              "tool": "area",
+              "type": "10+2 x 8"
+            },
+            {
+              "say": "Double 12 three times: 24, 48, 96.",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48, 8:96",
+              "tip": "Doubling. Name it: × 8 is double, double, double."
+            },
+            {
+              "say": "90",
+              "tool": "text",
+              "type": "12 x 8 = 10 x 8 + 10 = 90 ?",
+              "tip": "Ask: what is 2 × 8? Where is that piece in the area model?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "11 x 9",
+          "a": "99",
+          "notes": "Look for: 10 × 9 + 1 × 9 = 90 + 9. Ask: \"What friendly split works here?\" Model: area 10+1 x 9",
+          "responses": [
+            {
+              "say": "10 nines and 1 more nine: 99.",
+              "tool": "area",
+              "type": "10+1 x 9"
+            },
+            {
+              "say": "11 × 10 is 110, take away 11 is 99.",
+              "tool": "area",
+              "type": "11 x 10-1",
+              "tip": "Over and back. We'll do more on Day 3."
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "11 x 9 = 10 x 10 = 100 ?",
+              "tip": "Ask: is 11 × 9 the same as 10 × 10? Draw both.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 12",
+          "a": "144",
+          "notes": "Look for: 10 × 12 + 2 × 12 = 120 + 24. Ask: \"Which factor did you split?\" Model: area 10+2 x 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 twelves is 120, 2 twelves is 24: 144.",
+              "tool": "area",
+              "type": "10+2 x 12"
+            },
+            {
+              "say": "Split both: 100 + 20 + 20 + 4.",
+              "tool": "area",
+              "type": "10+2 x 10+2",
+              "tip": "Four parts. Ask: why are there four pieces?"
+            },
+            {
+              "say": "104",
+              "tool": "text",
+              "type": "12 x 12 = 10 x 10 + 2 x 2 = 104 ?",
+              "tip": "Missed two pieces. Draw the area model and ask: what is in the other two boxes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 15",
+          "a": "180",
+          "notes": "Look for: 10 × 15 + 2 × 15 = 150 + 30. Ask: \"Does splitting still work with bigger numbers?\" Model: area 10+2 x 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "150 + 30 = 180.",
+              "tool": "area",
+              "type": "10+2 x 15"
+            },
+            {
+              "say": "12 × 10 is 120, 12 × 5 is 60: 180.",
+              "tool": "area",
+              "type": "12 x 10+5",
+              "tip": "Split the other factor. Both work."
+            },
+            {
+              "say": "6 × 30 = 180, I halved and doubled.",
+              "tool": "halve",
+              "type": "12 x 15 = 6 x 30",
+              "tip": "A Day 4 strategy. Accept and name it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d2-area-model",
+      "title": "Area Model with Two Splits",
+      "label": "Day 2",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "Split both factors by place value, find the four partial products, and add them.",
+      "keywords": "area model, partial products, tens and ones, place value",
+      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts. Curriculum: B2.1, B2.6 (area model and algorithms).",
+      "watchFor": [
+        "Multiplying only tens by tens and ones by ones (14 × 15 = 100 + 20 = 120): ask \"How many boxes are in the area model? Did you fill them all?\"",
+        "Place-value slips in a partial product (10 × 20 = 20): ask \"Is that ten twenties?\"",
+        "Losing track of the partial products: write each one inside its box, then add."
+      ],
+      "wrapUp": "Ask \"How does the area model show every partial product?\" Land: split both factors by place value; there is a product for every box, and the boxes add to the answer.",
+      "problems": [
+        {
+          "q": "10 x 15",
+          "a": "150",
+          "notes": "Look for: a quick ten fact. Ask: \"Hold on to this.\" Model: area 10 x 10+5",
+          "responses": [
+            {
+              "say": "Ten 15s is 150.",
+              "tool": "area",
+              "type": "10 x 10+5"
+            },
+            {
+              "say": "15 with a zero: 150.",
+              "tool": "ratio",
+              "type": "1:15, 10:150",
+              "tip": "Ask: why does × 10 make the digits shift?"
+            }
+          ]
+        },
+        {
+          "q": "4 x 15",
+          "a": "60",
+          "notes": "Look for: 4 × 10 + 4 × 5, or double 15 twice. Ask: \"What do you know about 15s?\" Model: area 4 x 10+5",
+          "responses": [
+            {
+              "say": "40 + 20 = 60.",
+              "tool": "area",
+              "type": "4 x 10+5"
+            },
+            {
+              "say": "Double 15 is 30, double again is 60.",
+              "tool": "ratio",
+              "type": "1:15, 2:30, 4:60"
+            }
+          ]
+        },
+        {
+          "q": "14 x 15",
+          "a": "210",
+          "notes": "Look for: 150 + 60. Ask: \"How do the last two help?\" Word choice: \"14 fifteens is 10 fifteens and 4 fifteens.\" Model: area 10+4 x 10+5",
+          "responses": [
+            {
+              "say": "10 × 15 is 150 and 4 × 15 is 60, so 210.",
+              "tool": "area",
+              "type": "10+4 x 15",
+              "tip": "Uses the helper problems. Ask: where are they?"
+            },
+            {
+              "say": "Four boxes: 100, 50, 40 and 20 make 210.",
+              "tool": "area",
+              "type": "10+4 x 10+5",
+              "tip": "The target model. Ask: what's in each box?"
+            },
+            {
+              "say": "7 × 30 = 210.",
+              "tool": "halve",
+              "type": "14 x 15 = 7 x 30"
+            },
+            {
+              "say": "120",
+              "tool": "text",
+              "type": "14 x 15 = 10 x 10 + 4 x 5 = 120 ?",
+              "tip": "Missed two boxes. Ask: how many boxes are in the area model?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "13 x 21",
+          "a": "273",
+          "notes": "Look for: 200 + 10 + 60 + 3. Ask: \"What are the four boxes?\" Model: area 10+3 x 20+1",
+          "responses": [
+            {
+              "say": "200, 10, 60 and 3: 273.",
+              "tool": "area",
+              "type": "10+3 x 20+1"
+            },
+            {
+              "say": "13 × 20 is 260, plus one more 13 is 273.",
+              "tool": "area",
+              "type": "13 x 20+1",
+              "tip": "Split only one factor. Good choice here."
+            },
+            {
+              "say": "263",
+              "tool": "text",
+              "type": "13 x 21 = 13 x 20 + 3 = 263 ?",
+              "tip": "Ask: how many 13s are you adding? 20 or 21?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24 x 12",
+          "a": "288",
+          "notes": "Look for: 200 + 40 + 40 + 8. Ask: \"Is there a way with fewer boxes?\" Model: area 20+4 x 10+2",
+          "responses": [
+            {
+              "say": "200 + 40 + 40 + 8 = 288.",
+              "tool": "area",
+              "type": "20+4 x 10+2"
+            },
+            {
+              "say": "24 × 10 is 240, 24 × 2 is 48: 288.",
+              "tool": "area",
+              "type": "24 x 10+2"
+            },
+            {
+              "say": "The algorithm: 48 and 240.",
+              "tool": "column",
+              "type": "24 x 12",
+              "tip": "Connect: the algorithm's rows are partial products too."
+            },
+            {
+              "say": "248",
+              "tool": "text",
+              "type": "24 x 12 = 20 x 10 + 4 x 2 + 40 = 248 ?",
+              "tip": "Missed a box. Ask: show me all four boxes.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "32 x 23",
+          "a": "736",
+          "notes": "Look for: 600 + 90 + 40 + 6. Ask: \"Which box is the biggest? About how big is the answer?\" Model: area 30+2 x 20+3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "600, 90, 40 and 6: 736.",
+              "tool": "area",
+              "type": "30+2 x 20+3"
+            },
+            {
+              "say": "The algorithm: 96 and 640.",
+              "tool": "column",
+              "type": "32 x 23",
+              "tip": "Ask: where is 96 in the area model? (the 3 row: 90 + 6)"
+            },
+            {
+              "say": "606",
+              "tool": "text",
+              "type": "32 x 23 = 30 x 20 + 2 x 3 = 606 ?",
+              "tip": "Missed two boxes. Ask: did every part of 32 get multiplied by every part of 23?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25 x 14",
+          "a": "350",
+          "notes": "Look for: 200 + 80 + 50 + 20, or 25 × 4 = 100 thinking. Ask: \"Which way is quickest?\" Model: area 20+5 x 10+4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "200 + 80 + 50 + 20 = 350.",
+              "tool": "area",
+              "type": "20+5 x 10+4"
+            },
+            {
+              "say": "25 × 10 is 250, 25 × 4 is 100: 350.",
+              "tool": "area",
+              "type": "25 x 10+4",
+              "tip": "Uses 4 quarters make a dollar. Name it."
+            },
+            {
+              "say": "Halve 14, double 25: 7 × 50 = 350.",
+              "tool": "halve",
+              "type": "25 x 14 = 50 x 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d3-over-and-back",
+      "title": "Over and Back",
+      "label": "Day 3",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "When a factor is close to a friendly number, multiply by the friendly number, then take away the extra group.",
+      "keywords": "friendly number, over, take back, one group too many",
+      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many. Curriculum: B2.1, B2.6.",
+      "watchFor": [
+        "Taking back 1 instead of one group (19 × 15 = 300 − 1 = 299): ask \"How many 15s did you add too many? How much is that?\"",
+        "Taking back from the wrong factor (19 × 15 = 300 − 19): draw the area model and ask \"What is the size of the strip you're taking away?\"",
+        "Adding the extra group instead of subtracting: ask \"Did you make too many groups or too few?\""
+      ],
+      "wrapUp": "Ask \"Why do we take away 15 and not 1?\" Land: 20 × 15 is one group of 15 too many, so take away a whole group.",
+      "problems": [
+        {
+          "q": "20 x 15",
+          "a": "300",
+          "notes": "Look for: 2 × 15 = 30, so 20 × 15 = 300. Ask: \"Hold on to this.\" Model: area 20 x 10+5",
+          "responses": [
+            {
+              "say": "2 × 15 is 30, times 10 is 300.",
+              "tool": "ratio",
+              "type": "1:15, 2:30, 20:300"
+            },
+            {
+              "say": "20 × 10 is 200, 20 × 5 is 100: 300.",
+              "tool": "area",
+              "type": "20 x 10+5"
+            }
+          ]
+        },
+        {
+          "q": "19 x 15",
+          "a": "285",
+          "notes": "Look for: 300 − 15. Ask: \"How is 19 × 15 different from 20 × 15?\" Word choice: \"19 fifteens is one fifteen less than 20 fifteens.\" Model: area 20-1 x 15",
+          "responses": [
+            {
+              "say": "20 × 15 is 300, take away one 15 is 285.",
+              "tool": "area",
+              "type": "20-1 x 15",
+              "tip": "The target strategy. Ask: what's in the strip we took away?"
+            },
+            {
+              "say": "10 × 15 is 150 and 9 × 15 is 135: 285.",
+              "tool": "area",
+              "type": "10+9 x 15",
+              "tip": "Splitting works too. Ask: which is quicker?"
+            },
+            {
+              "say": "299",
+              "tool": "text",
+              "type": "19 x 15 = 20 x 15 - 1 = 299 ?",
+              "tip": "Took away 1, not one group. Ask: how many 15s too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20 x 24",
+          "a": "480",
+          "notes": "Look for: 2 × 24 = 48, then × 10. Ask: \"Hold on to this.\" Model: ratio 1:24, 2:48, 20:480",
+          "responses": [
+            {
+              "say": "Double 24 is 48, times 10 is 480.",
+              "tool": "ratio",
+              "type": "1:24, 2:48, 20:480"
+            },
+            {
+              "say": "20 × 20 is 400 and 20 × 4 is 80.",
+              "tool": "area",
+              "type": "20 x 20+4"
+            }
+          ]
+        },
+        {
+          "q": "19 x 24",
+          "a": "456",
+          "notes": "Look for: 480 − 24. Ask: \"How much do you take away this time?\" Model: area 20-1 x 24",
+          "responses": [
+            {
+              "say": "480 − 24 = 456.",
+              "tool": "area",
+              "type": "20-1 x 24"
+            },
+            {
+              "say": "I took 20 then 4: 480 − 20 − 4.",
+              "tool": "numberline",
+              "type": "480 -20 -4",
+              "tip": "Shows the subtraction. Good."
+            },
+            {
+              "say": "461",
+              "tool": "text",
+              "type": "19 x 24 = 480 - 19 = 461 ?",
+              "tip": "Took away a 19. Ask: what is the size of the strip, 19 or 24?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "29 x 12",
+          "a": "348",
+          "notes": "Look for: 30 × 12 = 360, then − 12. Ask: \"What's the friendly number?\" Model: area 30-1 x 12",
+          "responses": [
+            {
+              "say": "30 × 12 is 360, take away 12: 348.",
+              "tool": "area",
+              "type": "30-1 x 12"
+            },
+            {
+              "say": "29 × 10 is 290 and 29 × 2 is 58: 348.",
+              "tool": "area",
+              "type": "29 x 10+2"
+            },
+            {
+              "say": "372",
+              "tool": "text",
+              "type": "29 x 12 = 360 + 12 = 372 ?",
+              "tip": "Added instead of taking away. Ask: is 29 more or less than 30?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "31 x 15",
+          "a": "465",
+          "notes": "Look for: 30 × 15 = 450, then + 15. Ask: \"Over or under this time?\" Model: area 30+1 x 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 × 15 is 450, plus one more 15 is 465.",
+              "tool": "area",
+              "type": "30+1 x 15",
+              "tip": "Under, then add a group. Ask: why add?"
+            },
+            {
+              "say": "435",
+              "tool": "text",
+              "type": "31 x 15 = 450 - 15 = 435 ?",
+              "tip": "Took away when 31 is more than 30. Ask: too many groups or too few?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "18 x 25",
+          "a": "450",
+          "notes": "Look for: 20 × 25 = 500, then − 2 × 25 = 50. Ask: \"How many groups too many?\" Model: area 20-2 x 25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20 × 25 is 500, take away two 25s: 450.",
+              "tool": "area",
+              "type": "20-2 x 25"
+            },
+            {
+              "say": "Halve 18, double 25: 9 × 50 = 450.",
+              "tool": "halve",
+              "type": "18 x 25 = 9 x 50",
+              "tip": "Tomorrow's strategy. Name it."
+            },
+            {
+              "say": "498",
+              "tool": "text",
+              "type": "18 x 25 = 500 - 2 = 498 ?",
+              "tip": "Ask: 2 what? How big is each group?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d4-double-and-halve",
+      "title": "Double and Halve",
+      "label": "Day 4",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "halve",
+      "strategy": "Halve one factor and double the other; the product stays the same, and the new problem can be easier.",
+      "keywords": "double, halve, same area, rearrange, friendly factor",
+      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product. Curriculum: B2.1 (properties of operations), B2.6.",
+      "watchFor": [
+        "Doubling (or halving) both factors (16 × 15 → 32 × 30): cut the rectangle and ask \"Did the area stay the same?\"",
+        "Halving an odd number and getting stuck: ask \"Which factor is easier to halve?\"",
+        "Not seeing when to use it: ask \"Which factor would you like to turn into 10, 50 or 100?\""
+      ],
+      "wrapUp": "Ask \"Why does the product stay the same?\" Land: cut the rectangle in half and put the halves together; the area doesn't change. Halve the even factor, double the other, and look for 10s and 100s.",
+      "problems": [
+        {
+          "q": "8 x 30",
+          "a": "240",
+          "notes": "Look for: 8 × 3 = 24, then × 10. Ask: \"Hold on to this.\" Model: area 8 x 30",
+          "responses": [
+            {
+              "say": "8 × 3 is 24, so 8 × 30 is 240.",
+              "tool": "area",
+              "type": "8 x 30"
+            },
+            {
+              "say": "8 × 10 is 80, three times is 240.",
+              "tool": "ratio",
+              "type": "1:8, 10:80, 30:240"
+            }
+          ]
+        },
+        {
+          "q": "16 x 15",
+          "a": "240",
+          "notes": "Look for: halve 16, double 15 → 8 × 30. Ask: \"Why is it the same answer as the last one?\" Word choice: \"I halved 16 and doubled 15.\" Model: halve 16 x 15 = 8 x 30",
+          "responses": [
+            {
+              "say": "Halve 16 and double 15: 8 × 30 = 240.",
+              "tool": "halve",
+              "type": "16 x 15 = 8 x 30",
+              "tip": "The target strategy. Ask: why is the area the same?"
+            },
+            {
+              "say": "10 × 15 is 150, 6 × 15 is 90: 240.",
+              "tool": "area",
+              "type": "10+6 x 15"
+            },
+            {
+              "say": "960",
+              "tool": "text",
+              "type": "16 x 15 = 32 x 30 = 960 ?",
+              "tip": "Doubled both. Ask: is 32 × 30 the same area? Draw both rectangles.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "14 x 25",
+          "a": "350",
+          "notes": "Look for: 7 × 50. Ask: \"Which factor would you like to double?\" Model: halve 14 x 25 = 7 x 50",
+          "responses": [
+            {
+              "say": "7 × 50 is 350.",
+              "tool": "halve",
+              "type": "14 x 25 = 7 x 50"
+            },
+            {
+              "say": "10 × 25 is 250, 4 × 25 is 100: 350.",
+              "tool": "area",
+              "type": "10+4 x 25"
+            }
+          ]
+        },
+        {
+          "q": "18 x 5",
+          "a": "90",
+          "notes": "Look for: 9 × 10. Ask: \"What happens when you double 5?\" Model: halve 18 x 5 = 9 x 10",
+          "responses": [
+            {
+              "say": "Halve 18, double 5: 9 × 10 = 90.",
+              "tool": "halve",
+              "type": "18 x 5 = 9 x 10"
+            },
+            {
+              "say": "10 fives and 8 fives: 50 + 40.",
+              "tool": "area",
+              "type": "10+8 x 5"
+            }
+          ]
+        },
+        {
+          "q": "12 x 35",
+          "a": "420",
+          "notes": "Look for: 6 × 70. Ask: \"Halve which one?\" Model: halve 12 x 35 = 6 x 70",
+          "responses": [
+            {
+              "say": "6 × 70 is 420.",
+              "tool": "halve",
+              "type": "12 x 35 = 6 x 70"
+            },
+            {
+              "say": "12 × 30 is 360, 12 × 5 is 60: 420.",
+              "tool": "area",
+              "type": "12 x 30+5"
+            },
+            {
+              "say": "210",
+              "tool": "halve",
+              "type": "12 x 35 = 6 x 35",
+              "tip": "Halved only one. Ask: what did you do to the other factor?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24 x 25",
+          "a": "600",
+          "notes": "Look for: 12 × 50, then 6 × 100. Ask: \"Can you do it again?\" Model: halve 24 x 25 = 12 x 50 = 6 x 100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 × 50, then 6 × 100: 600.",
+              "tool": "halve",
+              "type": "24 x 25 = 12 x 50 = 6 x 100",
+              "tip": "Twice. Ask: why stop at 6 × 100?"
+            },
+            {
+              "say": "4 quarters is 100, and 24 is 6 fours.",
+              "tool": "ratio",
+              "type": "4:100, 24:600"
+            }
+          ]
+        },
+        {
+          "q": "15 x 18",
+          "a": "270",
+          "notes": "Look for: double 15, halve 18 → 30 × 9. Ask: \"Which factor do you halve this time?\" Model: halve 15 x 18 = 30 x 9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double 15, halve 18: 30 × 9 = 270.",
+              "tool": "halve",
+              "type": "15 x 18 = 30 x 9"
+            },
+            {
+              "say": "15 × 20 is 300, take away two 15s: 270.",
+              "tool": "area",
+              "type": "15 x 20-2",
+              "tip": "Over and back. Good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy",
+      "label": "Day 5",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "text",
+      "strategy": "Look at the numbers first, then choose: split a factor, go over and back, or double and halve.",
+      "keywords": "choose, efficient, friendly numbers, split, over and back, double and halve",
+      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.2, B2.6.",
+      "watchFor": [
+        "Using the same strategy for every problem: ask \"What do you notice about these numbers before you start?\"",
+        "Forgetting to adjust after going over: ask \"How many groups too many?\"",
+        "Not checking reasonableness: ask \"About how big should the answer be?\""
+      ],
+      "wrapUp": "Ask \"Which strategy did you choose for each problem, and what about the numbers made you choose it?\" Land: numbers near a ten → over and back; an even factor and a 5 or 25 → double and halve; otherwise split by place value.",
+      "problems": [
+        {
+          "q": "25 x 16",
+          "a": "400",
+          "notes": "Look for: double and halve to 100 × 4. Ask: \"What do you notice about 25?\" Model: halve 25 x 16 = 50 x 8 = 100 x 4",
+          "responses": [
+            {
+              "say": "50 × 8, then 100 × 4: 400.",
+              "tool": "halve",
+              "type": "25 x 16 = 50 x 8 = 100 x 4"
+            },
+            {
+              "say": "4 quarters in a dollar, 16 is 4 fours: 400.",
+              "tool": "ratio",
+              "type": "4:100, 16:400"
+            },
+            {
+              "say": "25 × 10 is 250, 25 × 6 is 150: 400.",
+              "tool": "area",
+              "type": "25 x 10+6"
+            }
+          ]
+        },
+        {
+          "q": "11 x 23",
+          "a": "253",
+          "notes": "Look for: 230 + 23. Ask: \"What's friendly about 11?\" Model: area 10+1 x 23",
+          "responses": [
+            {
+              "say": "10 × 23 is 230, plus one 23: 253.",
+              "tool": "area",
+              "type": "10+1 x 23"
+            },
+            {
+              "say": "11 × 20 is 220, 11 × 3 is 33: 253.",
+              "tool": "area",
+              "type": "11 x 20+3"
+            },
+            {
+              "say": "233",
+              "tool": "text",
+              "type": "11 x 23 = 230 + 3 = 233 ?",
+              "tip": "Ask: how many 23s? Show the extra strip.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "19 x 12",
+          "a": "228",
+          "notes": "Look for: 20 × 12 − 12. Ask: \"Which number is close to a friendly number?\" Model: area 20-1 x 12",
+          "responses": [
+            {
+              "say": "240 − 12 = 228.",
+              "tool": "area",
+              "type": "20-1 x 12"
+            },
+            {
+              "say": "19 × 10 is 190, 19 × 2 is 38: 228.",
+              "tool": "area",
+              "type": "19 x 10+2"
+            },
+            {
+              "say": "239",
+              "tool": "text",
+              "type": "19 x 12 = 240 - 1 = 239 ?",
+              "tip": "Ask: one what? How big is the group?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "14 x 35",
+          "a": "490",
+          "notes": "Look for: 7 × 70. Ask: \"Is there an even factor to halve?\" Model: halve 14 x 35 = 7 x 70",
+          "responses": [
+            {
+              "say": "Halve 14, double 35: 7 × 70 = 490.",
+              "tool": "halve",
+              "type": "14 x 35 = 7 x 70"
+            },
+            {
+              "say": "10 × 35 is 350, 4 × 35 is 140: 490.",
+              "tool": "area",
+              "type": "10+4 x 35"
+            }
+          ]
+        },
+        {
+          "q": "21 x 13",
+          "a": "273",
+          "notes": "Look for: 20 × 13 + 13. Ask: \"Have we seen these numbers before?\" (13 × 21 on Day 2). Model: area 20+1 x 13",
+          "responses": [
+            {
+              "say": "260 + 13 = 273.",
+              "tool": "area",
+              "type": "20+1 x 13"
+            },
+            {
+              "say": "It's the same as 13 × 21 from Tuesday.",
+              "tool": "text",
+              "type": "21 x 13 = 13 x 21 = 273",
+              "tip": "Commutative property. Name it."
+            }
+          ]
+        },
+        {
+          "q": "49 x 12",
+          "a": "588",
+          "notes": "Look for: 50 × 12 − 12. Ask: \"What's the friendly number?\" Model: area 50-1 x 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "600 − 12 = 588.",
+              "tool": "area",
+              "type": "50-1 x 12"
+            },
+            {
+              "say": "49 × 10 is 490, 49 × 2 is 98: 588.",
+              "tool": "area",
+              "type": "49 x 10+2"
+            },
+            {
+              "say": "599",
+              "tool": "text",
+              "type": "49 x 12 = 600 - 1 = 599 ?",
+              "tip": "Ask: how many 12s too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 x 25",
+          "a": "900",
+          "notes": "Look for: 18 × 50, 9 × 100. Ask: \"How many times can you halve 36?\" Model: halve 36 x 25 = 18 x 50 = 9 x 100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "18 × 50, then 9 × 100: 900.",
+              "tool": "halve",
+              "type": "36 x 25 = 18 x 50 = 9 x 100"
+            },
+            {
+              "say": "36 is 9 fours, and 4 × 25 is 100.",
+              "tool": "ratio",
+              "type": "4:100, 36:900"
+            },
+            {
+              "say": "30 × 25 is 750, 6 × 25 is 150: 900.",
+              "tool": "area",
+              "type": "30+6 x 25"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "w1-d1-adding-near-a-ten",
       "title": "Adding Near a Ten",
       "group": "Grade 8 · Week 1 · Additive Reasoning",
