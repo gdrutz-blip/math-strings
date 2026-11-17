@@ -24,6 +24,18 @@ Before **Dec 4**:
       For now: press `O` at the end and take a screenshot.
 - [ ] **Model suggestions in the notes**: add the Day 1 rehearsal "Model:" lines to the Week 1 notes so they print with the plan.
 
+## 🛠 Build plan (agreed Nov 17), one step at a time
+
+1. [x] **Browse by grade and topic, and keep track**: ask the teacher's grade on the first visit; topic filter (Addition & Subtraction, Multiplication & Division, Decimals, Fractions, Percents, Integers); ✓ done (automatic on Finish), ★ favourites, 📌 to try, with lists and unit progress. Saved in the browser; Export/Import carry it. (Nov 17)
+2. [ ] **Suggested tools first** in the presenter: the string's tool and the tools in its responses, the rest under "More".
+3. [ ] **Don't lose site revisions**: tell a teacher when the site's copy of a string they edited has changed; 🗑 on a site string hides it instead of deleting.
+4. [ ] **Save a run** (before Feb 1): keep a dated copy of a run (answers, models, drawings) to reopen and compare December with March. Feeds ✓ done.
+5. [ ] **Try a response** buttons in the presenter (teacher-only), using each problem's practice responses.
+6. [ ] **Curriculum codes as a field** (`curriculum: "B2.3"`), shown as badges on the PD page and in notes.
+7. [ ] **Share a string by link** (the string packed into the URL; no server).
+8. [ ] **Grade 8 wording** in the README and guides; **Grade 8 units** on Grade 8 expectations (B2.7 integers × ÷, B2.3 powers of ten).
+9. [ ] **Topic banks** per grade (see below), each new unit showing up under its topic.
+
 ## Maybe later
 
 - [ ] **Topic banks per grade**: several possible focus units for each grade (4–8), each tied to Ontario Number expectations, so teachers can pick a different focus after the first 8 weeks. Do after the PD units are written.
