@@ -14,14 +14,11 @@ Before **Dec 4**:
 - [ ] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Approved plan, Nov 17: G4 Wk 2 Multiplying by One Digit ✅ · G5 Decimals to Hundredths ✅, Two-Digit Multiplication ✅ · G6 Percents of Whole Numbers ✅, Adding and Subtracting Fractions ✅ · G7 Integers ✅, Percent Increase and Decrease ✅. Grades 4–7 now have 2 units each with practice responses; Grade 8 has 2 units without practice responses yet.)*
 - [ ] Add practice `responses` to Grade 4 Days 3–5 and to the Grade 8 strings
 - [ ] Test the site on the school network/laptops (ask IT to allow gdrutz-blip.github.io if blocked)
-- [ ] **Save a run / benchmark strings** (see below): teachers will re-run their first string in March and compare. PDFs via 🖨 work today as a fallback.
+- [x] **Save a run / benchmark strings**: done (🗂 My runs, with Compare). (Nov 17)
 - [ ] Short feedback form and an evidence tracker (outside the app)
 
 
 
-- [ ] **Save a run / benchmark strings**: one click at the wrap-up keeps a named copy
-      (e.g. "Day 3 · Period 2 · Nov 12"); reopen it later; compare September with January.
-      For now: press `O` at the end and take a screenshot.
 - [ ] **Model suggestions in the notes**: add the Day 1 rehearsal "Model:" lines to the Week 1 notes so they print with the plan.
 
 ## 🛠 Build plan (agreed Nov 17), one step at a time
@@ -29,7 +26,7 @@ Before **Dec 4**:
 1. [x] **Browse by grade and topic, and keep track**: ask the teacher's grade on the first visit; topic filter (Addition & Subtraction, Multiplication & Division, Decimals, Fractions, Percents, Integers); ✓ done (automatic on Finish), ★ favourites, 📌 to try, with lists and unit progress. Saved in the browser; Export/Import carry it. (Nov 17)
 2. [x] **Suggested tools first** in the presenter: the string's tool and the tools in its responses, the rest under "More tools". Strings that suggest fewer than 3 tools still show them all; ⚙ can turn it off. (Nov 17)
 3. [x] **Don't lose site revisions**: tell a teacher when the site's copy of a string they edited has changed; 🗑 on a site string hides it instead of deleting ("Show hidden strings" brings it back). (Nov 17)
-4. [ ] **Save a run** (before Feb 1): keep a dated copy of a run (answers, models, drawings) to reopen and compare December with March. Feeds ✓ done.
+4. [x] **Save a run**: Finish saves a dated copy (answers and models; class and a note at the wrap-up; 💾 Save run any time). 🗂 My runs lists them; open, print/PDF, compare two runs of a string side by side; Export/Import carry them. Finish also clears the session so the next class starts fresh. Pen drawings aren't saved yet. (Nov 17)
 5. [ ] **Try a response** buttons in the presenter (teacher-only), using each problem's practice responses.
 6. [ ] **Curriculum codes as a field** (`curriculum: "B2.3"`), shown as badges on the PD page and in notes.
 7. [ ] **Share a string by link** (the string packed into the URL; no server).

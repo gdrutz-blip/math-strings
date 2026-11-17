@@ -111,13 +111,15 @@
   function route() {
     stopTimerUI();
     const hash = location.hash.replace(/^#\/?/, '');
-    const [view, id] = hash.split('/');
+    const [view, id, id2] = hash.split('/');
     document.onkeydown = null;
     if (view === 'present' && id) return presenter(decodeURIComponent(id));
     if (view === 'quick') return presenter('__quick');
     if (view === 'start') return startPage();
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
+    if (view === 'runs') return runsPage(id ? decodeURIComponent(id) : null);
+    if (view === 'run' && id) return runPage(decodeURIComponent(id), id2 ? decodeURIComponent(id2) : null);
     if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
     libraryView();
@@ -170,6 +172,16 @@
       setTrack(id, { done, fav: mine.fav || !!t.fav, todo: (mine.todo || !!t.todo) && !done.length });
     });
   }
+  // Saved runs: a dated copy of a string as it was run in class (answers and models), kept in this browser.
+  const getRuns = () => store.get('runs', []);
+  const setRuns = runs => store.set('runs', runs);
+  const runsOf = id => getRuns().filter(r => r.id === id);
+  function mergeRuns(other) {
+    if (!Array.isArray(other)) return 0;
+    const runs = getRuns(); let n = 0;
+    other.forEach(r => { if (r && r.rid && Array.isArray(r.problems) && !runs.some(x => x.rid === r.rid)) { runs.push(r); n++; } });
+    runs.sort((a, b) => (b.at || 0) - (a.at || 0)); setRuns(runs); return n;
+  }
   let topicFilter = store.get('topic', 'all');
   let listFilter = 'all';
   function libraryView() {
@@ -206,6 +218,7 @@
             <button class="btn" data-act="import">⤓ Import</button>
             <button class="btn" data-act="export">⤒ Export</button>
             <button class="btn" data-act="classes">🎲 Classes</button>
+            <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
             <a class="btn" href="#/pd" title="Our school's number strings professional learning: sessions, focus units, practice cards">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
@@ -276,7 +289,7 @@
       <div class="card-top">${s.label ? `<span class="card-label">${esc(s.label)}</span>` : ''}<h3>${esc(s.title)}</h3>
         <span class="marks"><button class="mark${t.todo ? ' on todo' : ''}" data-act="todo" data-id="${esc(s.id)}" title="${t.todo ? 'On your To try list (click to remove)' : 'Add to your To try list'}" aria-pressed="${!!t.todo}">📌</button><button class="mark${t.fav ? ' on fav' : ''}" data-act="fav" data-id="${esc(s.id)}" title="${t.fav ? 'Favourite (click to remove)' : 'Add to Favourites'}" aria-pressed="${!!t.fav}">${t.fav ? '★' : '☆'}</button><button class="mark donemark${done.length ? ' on' : ''}" data-act="done" data-id="${esc(s.id)}" title="${done.length ? 'Done (click to clear)' : 'Mark as done'}" aria-pressed="${!!done.length}">✓</button></span></div>
       ${newer ? `<div class="site-newer"><span>🔄 <b>Updated on the website</b> since you edited your copy.</span><span class="sn-btns"><button class="btn small primary" data-act="revert" data-id="${esc(s.id)}">Use website version</button><button class="btn small ghost" data-act="keepmine" data-id="${esc(s.id)}">Keep mine</button></span></div>` : ''}
-      ${done.length ? `<div class="done-line">✓ Done ${esc(shortDate(done[done.length - 1]))}${done.length > 1 ? ` · ${done.length} times` : ''}</div>` : ''}
+      ${done.length ? `<div class="done-line">✓ Done ${esc(shortDate(done[done.length - 1]))}${done.length > 1 ? ` · ${done.length} times` : ''}${(n => n ? ` · <a href="#/runs/${encodeURIComponent(s.id)}">${n} saved run${n === 1 ? '' : 's'}</a>` : '')(runsOf(s.id).length)}</div>` : ''}
       ${s.strategy ? `<p class="strategy">${esc(s.strategy)}</p>` : ''}
       <div class="chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}" title="${p.optional ? 'Optional' : ''}">${esc(p.q.replace(/-/g, '−'))}</span>`).join('')}</div>
       <div class="card-actions">
@@ -545,22 +558,101 @@ Rules:
 
       <section class="panel"><h2>3 · Collecting evidence (no extra assessments)</h2>
         <ul class="steps">
-          <li><b>Save a string as a PDF:</b> at the end, open <b>▦ All</b>, click <b>🖨</b>, and choose <b>Save as PDF</b>. It's dated and shows every student strategy you modeled. Save one or two a month.</li>
+          <li><b>Your runs are saved for you:</b> press <b>Finish</b> at the end of a string and it's kept in <b>🗂 My runs</b>, dated, with every answer and model. At the wrap-up, add the class and a quick note. Print one or two a month (or save as PDF).</li>
           <li><b>Notes on student talk:</b> a few quick observations, like who explained, who connected strategies, who changed their mind.</li>
           <li><b>Exit ticket, now and then:</b> one problem from the string with "show your thinking."</li>
-          <li><b>Benchmark:</b> before April 1, re-run the first string you used in December and save it again to compare.</li>
+          <li><b>Benchmark:</b> before April 1, re-run the first string you used in December. In <b>🗂 My runs</b>, open the March run and choose <b>Compare with</b> your December run to see them side by side.</li>
         </ul>
       </section>
 
       <section class="panel"><h2>Bring to each session</h2>
         <ul class="steps">
           <li>A laptop or Chromebook.</li>
-          <li><b>Feb 1:</b> one saved string (PDF) where students surprised you, and one question.</li>
-          <li><b>Apr 1:</b> your December and March benchmark strings.</li>
+          <li><b>Feb 1:</b> one saved run (from 🗂 My runs, printed or as a PDF) where students surprised you, and one question.</li>
+          <li><b>Apr 1:</b> your December and March runs of your benchmark string, side by side (Compare in 🗂 My runs).</li>
         </ul>
       </section>
       <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
+    window.scrollTo(0, 0);
+  }
+
+  /* ================= saved runs ================= */
+  const longDate = r => new Date(r.at || Date.now()).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+  const runName = r => `${r.label ? r.label + ' · ' : ''}${r.title}`;
+  function runCardsHTML(r) {
+    return r.problems.map(p => `<div class="ov-card run-card"><span class="rnum">${p.n}</span>
+      <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
+      ${p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
+    </div>`).join('');
+  }
+  function runsPage(stringId) {
+    document.title = 'My runs · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    const all = getRuns(), runs = stringId ? all.filter(r => r.id === stringId) : all;
+    const sFor = stringId && (findString(stringId) || all.find(r => r.id === stringId));
+    app.innerHTML = `
+    <div class="guide runs-page">
+      <div class="ed-head no-print"><a class="btn ghost" href="#/">← Library</a><span style="flex:1"></span>${stringId ? '<a class="btn ghost" href="#/runs">All runs</a>' : ''}</div>
+      <h1>🗂 My runs</h1>
+      <p class="lead">Every time you press <b>Finish</b> at the end of a string, a dated copy is saved here with every student answer and model. Open one to print it, save it as a PDF, or compare it with another run of the same string (December vs. March).</p>
+      ${stringId && sFor ? `<p><b>Showing runs of ${esc(runName(sFor))}.</b></p>` : ''}
+      ${runs.length ? `<div class="run-list">${runs.map(r => { const n = all.filter(x => x.id === r.id).length; return `
+        <div class="run-row">
+          <a class="run-main" href="#/run/${encodeURIComponent(r.rid)}"><span class="run-date">${esc(longDate(r))}</span><span class="run-title">${esc(runName(r))}</span>
+            <span class="run-meta">${r.cls ? `<b>${esc(r.cls)}</b> · ` : ''}${esc((r.group || '').replace(/\s*·\s*Week\s*\d+\s*·\s*/, ' · '))}${r.note ? ` · “${esc(r.note.length > 70 ? r.note.slice(0, 70) + '…' : r.note)}”` : ''}</span></a>
+          <span class="run-acts">${n > 1 ? `<a class="btn small ghost" href="#/runs/${encodeURIComponent(r.id)}" title="Every run of this string">${n} runs</a>` : ''}<a class="btn small" href="#/run/${encodeURIComponent(r.rid)}">Open</a></span>
+        </div>`; }).join('')}</div>`
+        : `<div class="empty">No saved runs ${stringId ? 'of this string ' : ''}yet. Present a string and press <b>Finish</b> at the end, or click <b>💾 Save run</b> at the wrap-up.</div>`}
+      <p class="hint">Runs are saved in this browser on this computer. <b>Export</b> (on the library page) includes them, so you can keep a copy or move them to another computer.</p>
+    </div>`;
+    window.scrollTo(0, 0);
+  }
+  function runPage(rid, rid2) {
+    const all = getRuns(), r = all.find(x => x.rid === rid);
+    if (!r) return go('runs');
+    const other = rid2 && all.find(x => x.rid === rid2);
+    const sameString = all.filter(x => x.id === r.id && x.rid !== r.rid);
+    document.title = runName(r) + ' · ' + longDate(r);
+    // in a comparison, the earlier run goes on the left
+    const [A, B] = other ? [r, other].sort((a, b) => (a.at || 0) - (b.at || 0)) : [r, null];
+    const n = Math.max(...[A, B].filter(Boolean).map(x => Math.max(0, ...x.problems.map(p => p.n))));
+    const byN = (x, k) => x.problems.find(p => p.n === k);
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    app.innerHTML = `
+    <div class="guide run-page${B ? ' comparing' : ''}">
+      <div class="ed-head no-print">
+        <a class="btn ghost" href="#/runs">← My runs</a><span style="flex:1"></span>
+        <button class="btn" data-r="print">🖨 Print / save PDF</button>
+        ${findString(r.id) ? `<a class="btn" href="#/present/${encodeURIComponent(r.id)}">▶ Present again</a>` : ''}
+        ${B ? '' : '<button class="icon-btn" data-r="del" title="Delete this run">🗑</button>'}
+      </div>
+      <h1>${esc(runName(r))}</h1>
+      <p class="run-sub">${esc(r.group || '')}</p>
+      ${B ? '' : `<div class="run-fields no-print">
+        <label class="field">Date<input value="${esc(longDate(r))}" disabled></label>
+        <label class="field">Class<input id="rf-cls" value="${esc(r.cls || '')}" placeholder="e.g. 6B"></label>
+        <label class="field grow">What did you notice?<input id="rf-note" value="${esc(r.note || '')}" placeholder="A quick note for yourself"></label>
+      </div>
+      <p class="print-only"><b>${esc(longDate(r))}</b>${r.cls ? ` · ${esc(r.cls)}` : ''}${r.note ? `<br>${esc(r.note)}` : ''}</p>`}
+      ${sameString.length ? `<div class="compare-bar no-print"><label>Compare with another run of this string:
+        <select id="rf-compare"><option value="">Choose a run…</option>${sameString.map(x => `<option value="${esc(x.rid)}"${other && other.rid === x.rid ? ' selected' : ''}>${esc(longDate(x))}${x.cls ? ' · ' + esc(x.cls) : ''}</option>`).join('')}</select></label>
+        ${B ? `<a class="btn small ghost" href="#/run/${encodeURIComponent(r.rid)}">Stop comparing</a>` : ''}</div>` : ''}
+      ${B ? `<div class="cmp-grid">
+          ${[A, B].map(x => `<div class="cmp-head"><b>${esc(longDate(x))}</b>${x.cls ? ` · ${esc(x.cls)}` : ''}${x.note ? `<div class="cmp-note">“${esc(x.note)}”</div>` : ''}</div>`).join('')}
+          ${Array.from({ length: n }, (_, i) => i + 1).filter(k => byN(A, k) || byN(B, k)).map(k => [A, B].map(x => byN(x, k) ? runCardsHTML({ problems: [byN(x, k)] }) : '<div class="ov-card run-card cmp-missing">not reached</div>').join('')).join('')}
+        </div>`
+        : `<div class="overview run-over">${runCardsHTML(r)}</div>`}
+      ${!B && r.of && r.problems.length < r.of ? `<p class="hint">${r.problems.length} of ${r.of} problems were reached in this run.</p>` : ''}
+    </div>`;
+    const upd = (k, v) => { const runs = getRuns(), x = runs.find(y => y.rid === rid); if (x) { x[k] = v; setRuns(runs); } };
+    if ($('#rf-cls')) { $('#rf-cls').oninput = e => upd('cls', e.target.value); $('#rf-note').oninput = e => upd('note', e.target.value); }
+    if ($('#rf-compare')) $('#rf-compare').onchange = e => go(e.target.value ? `run/${encodeURIComponent(rid)}/${encodeURIComponent(e.target.value)}` : `run/${encodeURIComponent(rid)}`);
+    app.onclick = e => {
+      const b = e.target.closest('[data-r]'); if (!b) return;
+      if (b.dataset.r === 'print') window.print();
+      if (b.dataset.r === 'del' && confirm('Delete this saved run? This can\'t be undone.')) { setRuns(getRuns().filter(x => x.rid !== rid)); go('runs'); toast('Run deleted'); }
+    };
     window.scrollTo(0, 0);
   }
 
@@ -620,7 +712,7 @@ Rules:
           <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
           <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
-          <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
+          <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can print it or compare it with a later run. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
           <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
         </ul>
       </section>
@@ -663,7 +755,7 @@ Rules:
   }
 
   function exportAll() {
-    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean), track }, null, 2));
+    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean), track, runs: getRuns() }, null, 2));
     toast(`Exported ${library.length} strings`);
   }
 
@@ -715,15 +807,16 @@ Rules:
       try { arr = parseImport(text); } catch (e) { msg(esc(e.message)); return false; }
       let added = 0, updated = 0;
       arr.forEach(s => {
-        s._edited = true; deleted.delete(s.id); { const b0 = siteCopy(s.id); if (b0) s._siteSig = sig(b0); }
+        deleted.delete(s.id);
+        { const b0 = siteCopy(s.id); if (b0 && same(s, b0)) s._edited = false; else { s._edited = true; if (b0) s._siteSig = sig(b0); } } // unchanged website strings keep getting updates
         const i = library.findIndex(x => x.id === s.id);
         if (i >= 0) { library[i] = s; updated++; } else { library.push(s); added++; }
       });
       let tracked = 0;
-      try { const raw = JSON.parse(text.trim().replace(/^```(json)?|```$/g, '')); if (raw && raw.track && typeof raw.track === 'object') { mergeTrack(raw.track); tracked = Object.keys(raw.track).length; } } catch (e) { /* plain text */ }
+      try { const raw = JSON.parse(text.trim().replace(/^```(json)?|```$/g, '')); if (raw && raw.track && typeof raw.track === 'object') { mergeTrack(raw.track); tracked = Object.keys(raw.track).length; } if (raw && raw.runs) tracked += mergeRuns(raw.runs); } catch (e) { /* plain text */ }
       saveLibrary(); libraryView();
       m.close();
-      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}${tracked ? ', plus your ✓ ★ 📌' : ''}`);
+      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}${tracked ? ', plus your progress and saved runs' : ''}`);
       return true;
     }
     const readFile = f => f.text().then(doImport);
@@ -892,6 +985,23 @@ Rules:
   let sessT;
   const saveSession = () => { clearTimeout(sessT); sessT = setTimeout(() => { if (P) { P.sess.at = Date.now(); store.set('session', P.sess); } }, 250); };
   const pdata = idx => (P.sess.data[idx] = P.sess.data[idx] || { answers: [], models: [], strokes: [] });
+  // Keep a dated copy of this run (answers and models; pen drawings aren't kept). Saving again updates the same run.
+  function saveRun(quiet) {
+    if (!P || P.quick) return null;
+    const S = P.sess;
+    const problems = S.shown.map(idx => {
+      const d = S.data[idx] || { answers: [], models: [] };
+      return { n: idx + 1, q: S.problems[idx].q, answers: d.answers.map(a => ({ t: a.t, mark: a.mark || '' })),
+        models: d.models.filter(m => String(m.input || '').trim()).map(m => ({ type: m.type, input: m.input, labels: m.labels || {}, hidden: m.hidden || [] })) };
+    });
+    if (!problems.some(p => p.answers.length || p.models.length)) { if (!quiet) toast('Nothing to save yet. Add an answer or a model first.'); return null; }
+    const runs = getRuns();
+    let r = S.runId && runs.find(x => x.rid === S.runId);
+    if (!r) { r = { rid: Date.now().toString(36) + uid(), id: P.s.id, at: Date.now(), date: today() }; runs.unshift(r); S.runId = r.rid; saveSession(); }
+    Object.assign(r, { title: P.s.title, label: P.s.label || '', group: P.s.group || '', cls: S.cls || '', note: S.note || '', of: S.problems.length, problems, updated: Date.now() });
+    setRuns(runs);
+    return r;
+  }
 
   function presenter(id) {
     const quick = id === '__quick';
@@ -953,7 +1063,7 @@ Rules:
     saveSession();
   }
   function goPrev() { finishActive(true); P.spot = null; if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
-  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { markDone(P.s.id); P = null; window.onresize = null; go(''); toast('✓ Nice! Marked as done'); return; } P.overview = false; revealNext(); renderAll(); }
+  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { markDone(P.s.id); const saved = saveRun(true); clearTimeout(sessT); store.set('session', null); P = null; window.onresize = null; go(''); toast(saved ? '✓ Done. This run is saved in 🗂 My runs' : '✓ Nice! Marked as done'); return; } P.overview = false; revealNext(); renderAll(); }
   function skipNext() { finishActive(true); const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
 
   /* ---- tools shown in the bar (teacher can hide the ones they don't use) ---- */
@@ -1144,7 +1254,13 @@ Rules:
           ${ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
         </div>`;
       }).join('')}</div>
-      <p class="end-note">What did you notice?</p>`;
+      <p class="end-note">What did you notice?</p>
+      ${P.quick ? '' : `<div class="run-box">
+        <label class="field">Class<input id="run-cls" value="${esc(S.cls || '')}" placeholder="e.g. 6B or Period 2" autocomplete="off"></label>
+        <label class="field grow">Your note (optional)<input id="run-note" value="${esc(S.note || '')}" placeholder="What did you notice? e.g. Many used the clock; two added the tops and bottoms" autocomplete="off"></label>
+        <button class="btn" data-a="saverun" title="Save a copy now (Finish also saves it)">💾 Save run</button>
+        <div class="hint run-hint">${S.runId ? '✓ Saved. Changes are saved again when you press Finish.' : '<b>Finish</b> saves this run automatically. Find it later in 🗂 My runs (on the library page).'}</div>
+      </div>`}`;
   }
 
   /* ---- working with models ---- */
@@ -1214,6 +1330,7 @@ Rules:
         case 'addans': return openAnswerInput();
         case 'choosetools': return toolsModal(() => renderStage());
         case 'moretools': P.moreTools = !P.moreTools; return renderStage();
+        case 'saverun': { const r = saveRun(false); if (r) { toast('💾 Saved in My runs'); renderStage(); } return; }
         case 'donem': return finishActive();
         case 'rmactive': { if (P.activeM != null) { d.models.splice(P.activeM, 1); P.activeM = null; saveSession(); renderStage(); renderRail(); } return; }
         case 'editm': return editModel(i);
@@ -1249,6 +1366,8 @@ Rules:
       redrawModel(P.activeM);
     }
     if (t.id === 'quick-q') { S.problems[S.shown[S.active]].q = t.value; saveSession(); renderRail(); }
+    if (t.id === 'run-cls') { S.cls = t.value; saveSession(); }
+    if (t.id === 'run-note') { S.note = t.value; saveSession(); }
   }
   function stageKey(e) {
     if (e.target.id === 'typer' && (e.key === 'Enter' || e.key === 'Escape')) { e.preventDefault(); e.stopPropagation(); finishActive(); return; }
