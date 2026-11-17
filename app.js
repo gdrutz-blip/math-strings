@@ -70,7 +70,8 @@
     a.download = name; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
-  const today = () => new Date().toISOString().slice(0, 10);
+  const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  const shortDate = ymd => { const [y, m, d] = String(ymd).split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }); };
 
   // Pretty math: 3/4 -> stacked fraction, 2^3 -> superscript, - -> −, * -> ×
   function exprHTML(q) {
@@ -125,14 +126,70 @@
   let searchText = '';
   let gradeFilter = store.get('grade', 'all');
   const gradeOf = s => ((s.group || '').match(/^\s*Grade\s*(\w+)/i) || [])[1] || null;
+
+  // Topics: from a string's "topic" field, or worked out from its unit name ("Grade 6 · Week 2 · Adding and Subtracting Fractions").
+  const TOPICS = [
+    { id: 'add', name: 'Addition & Subtraction', icon: '+ −', re: /add|subtract/i },
+    { id: 'mult', name: 'Multiplication & Division', icon: '× ÷', re: /multipl|divi|times/i },
+    { id: 'dec', name: 'Decimals', icon: '0.5', re: /decimal/i },
+    { id: 'frac', name: 'Fractions', icon: '½', re: /fraction/i },
+    { id: 'pct', name: 'Percents', icon: '%', re: /percent/i },
+    { id: 'int', name: 'Integers', icon: '±', re: /integer/i },
+  ];
+  const TOPIC_CHECK = ['int', 'frac', 'dec', 'pct', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
+  function topicOf(s) {
+    if (s.topic) { const k = String(s.topic).toLowerCase(); const t = TOPICS.find(t => t.id === k || t.name.toLowerCase() === k) || TOPIC_CHECK.find(t => t.re.test(k)); if (t) return t.id; }
+    const unit = (s.group || '').replace(/^\s*Grade\s*\w+\s*·\s*/i, '').replace(/^Week\s*\d+\s*·\s*/i, '');
+    const t = unit && TOPIC_CHECK.find(t => t.re.test(unit));
+    return t ? t.id : 'other';
+  }
+
+  // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...], fav: true, todo: true } }
+  const track = store.get('track', {});
+  const T_ = id => track[id] || {};
+  const isDone = id => !!(T_(id).done || []).length;
+  function setTrack(id, patch) {
+    const t = Object.assign({}, track[id], patch);
+    Object.keys(t).forEach(k => { if (!t[k] || (Array.isArray(t[k]) && !t[k].length)) delete t[k]; });
+    if (Object.keys(t).length) track[id] = t; else delete track[id];
+    store.set('track', track);
+  }
+  function markDone(id) {
+    const d = (T_(id).done || []).slice();
+    if (d[d.length - 1] !== today()) d.push(today());
+    setTrack(id, { done: d, todo: false });
+  }
+  function mergeTrack(other) {
+    Object.entries(other || {}).forEach(([id, t]) => {
+      if (!t || typeof t !== 'object') return;
+      const mine = T_(id);
+      const done = [...new Set([...(mine.done || []), ...(Array.isArray(t.done) ? t.done : [])])].sort();
+      setTrack(id, { done, fav: mine.fav || !!t.fav, todo: (mine.todo || !!t.todo) && !done.length });
+    });
+  }
+  let topicFilter = store.get('topic', 'all');
+  let listFilter = 'all';
   function libraryView() {
     document.title = 'Math Strings';
     const q = searchText.toLowerCase();
     const grades = [...new Set(library.map(gradeOf).filter(Boolean))].sort((a, b) => (parseInt(a) || 0) - (parseInt(b) || 0) || String(a).localeCompare(b));
     if (gradeFilter !== 'all' && !grades.includes(gradeFilter)) gradeFilter = 'all';
-    const list = library.filter(s => (gradeFilter === 'all' || gradeOf(s) === gradeFilter) && (!q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
+    const askGrade = store.get('grade', null) === null && grades.length > 1;
+    const inGrade = library.filter(s => gradeFilter === 'all' || gradeOf(s) === gradeFilter);
+    const topicsHere = [...TOPICS, { id: 'other', name: 'Other', icon: '…' }].filter(t => inGrade.some(s => topicOf(s) === t.id));
+    if (topicFilter !== 'all' && !topicsHere.some(t => t.id === topicFilter)) topicFilter = 'all';
+    const inTopic = inGrade.filter(s => topicFilter === 'all' || topicOf(s) === topicFilter);
+    const LISTS = [
+      { id: 'fav', name: '★ Favourites', test: s => T_(s.id).fav, empty: 'No favourites here yet. Tap ☆ on any string to add it.' },
+      { id: 'todo', name: '📌 To try', test: s => T_(s.id).todo, empty: 'Nothing on your To try list here yet. Tap 📌 on a string you want to try later.' },
+      { id: 'done', name: '✓ Done', test: s => isDone(s.id), empty: 'No strings done here yet. A string is marked done when you press Finish at the end (or tap ✓ on its card).' },
+      { id: 'new', name: '○ Not tried yet', test: s => !isDone(s.id), empty: 'You have tried every string here. 🎉' },
+    ];
+    const lf = LISTS.find(l => l.id === listFilter);
+    const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
+    const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
       <div class="lib">
         <div class="lib-head">
@@ -153,18 +210,22 @@
           </div>
         </div>
         ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><a class="btn primary" href="#/start" data-act="seen">Show me how</a><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
-        <div class="searchbar">
-          ${grades.length > 1 ? `<div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}<a class="gchip pdchip" href="#/pd${gradeFilter !== 'all' ? '/' + encodeURIComponent(gradeFilter) : ''}">🎓 PD</a></div>` : ''}
-          <input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}">
+        ${askGrade ? `<div class="askgrade"><div><b>Which grade do you teach?</b> We'll show your grade's strings first. You can switch grades any time.</div>
+          <div class="grade-chips">${grades.map(g => `<button class="gchip big" data-act="grade" data-g="${esc(g)}">Grade ${esc(g)}</button>`).join('')}<button class="gchip" data-act="grade" data-g="all">Show all grades</button></div></div>` : ''}
+        <div class="filters">
+          ${grades.length > 1 ? `<div class="frow"><span class="flabel">Grade</span><div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}<a class="gchip pdchip" href="#/pd${gradeFilter !== 'all' ? '/' + encodeURIComponent(gradeFilter) : ''}">🎓 PD</a></div></div>` : ''}
+          ${topicsHere.length > 1 ? `<div class="frow"><span class="flabel">Topic</span><div class="grade-chips" role="group" aria-label="Show topic">${[{ id: 'all', name: 'All topics' }, ...topicsHere].map(t => `<button class="gchip tchip${t.id === topicFilter ? ' on' : ''}" data-act="topic" data-t="${t.id}">${t.icon ? `<span class="ticon">${esc(t.icon)}</span>` : ''}${esc(t.name)}</button>`).join('')}</div></div>` : ''}
+          <div class="frow"><span class="flabel">Show</span><div class="grade-chips" role="group" aria-label="Show list">${[{ id: 'all', name: 'Everything' }, ...LISTS].map(l => { const n = l.test ? inTopic.filter(l.test).length : inTopic.length; return `<button class="gchip lchip${l.id === listFilter ? ' on' : ''}" data-act="list" data-l="${l.id}">${esc(l.name)} <span class="cnt">${n}</span></button>`; }).join('')}</div>
+            <input id="search" placeholder="Search, e.g. “percent” or “38 +”" value="${esc(searchText)}"></div>
         </div>
         <div id="groups">
-          ${groups.length ? groups.map(G => `
-            <div class="group-title">${esc(G.name)}</div>
-            <div class="cards">${G.items.map(cardHTML).join('')}</div>`).join('')
-            : `<div class="empty">${library.length ? 'No strings match your search.' : 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.'}</div>`}
+          ${groups.length ? groups.map(G => { const pr = unitProgress(G.name); return `
+            <div class="group-title"><span>${esc(G.name)}</span>${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
+            <div class="cards">${G.items.map(cardHTML).join('')}</div>`; }).join('')
+            : `<div class="empty">${!library.length ? 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
         <a class="guide-card" href="#/start"><span class="gc-ico">📘</span><span><b>New to number strings or this site?</b><br>Read the 5-minute getting started guide: what to do before class, the routine in class, and how to type models.</span><span class="gc-go">Open guide →</span></a>
-        <div class="lib-foot">Your edits are saved in this browser. Use <b>Export</b> to take them to another computer.</div>
+        <div class="lib-foot">Your edits, ★ favourites, 📌 To try list and ✓ progress are saved in this browser. Use <b>Export</b> to take them to another computer.</div>
       </div>`;
     const search = $('#search');
     search.oninput = () => { searchText = search.value; const pos = search.selectionStart; libraryView(); const s2 = $('#search'); s2.focus(); s2.setSelectionRange(pos, pos); };
@@ -181,6 +242,14 @@
       if (act === 'seen') store.set('welcomed', true);
       if (act === 'dismiss') { store.set('welcomed', true); libraryView(); }
       if (act === 'grade') { gradeFilter = b.dataset.g; store.set('grade', gradeFilter); history.replaceState(null, '', gradeFilter === 'all' ? '#/' : '#/grade/' + encodeURIComponent(gradeFilter)); libraryView(); }
+      if (act === 'topic') { topicFilter = b.dataset.t; store.set('topic', topicFilter); libraryView(); }
+      if (act === 'list') { listFilter = b.dataset.l; libraryView(); }
+      if (act === 'fav') { const on = !T_(id).fav; setTrack(id, { fav: on }); libraryView(); toast(on ? '★ Added to Favourites' : 'Removed from Favourites'); }
+      if (act === 'todo') { const on = !T_(id).todo; setTrack(id, { todo: on }); libraryView(); toast(on ? '📌 Added to your To try list' : 'Removed from To try'); }
+      if (act === 'done') {
+        if (isDone(id)) { if (confirm('Clear the ✓ done record for this string?')) { setTrack(id, { done: [] }); libraryView(); } }
+        else { markDone(id); libraryView(); toast('✓ Marked as done'); }
+      }
       if (act === 'practice') go('practice/' + encodeURIComponent(id));
       if (act === 'present') go('present/' + encodeURIComponent(id));
       if (act === 'edit') go('edit/' + encodeURIComponent(id));
@@ -192,8 +261,11 @@
   function cardHTML(s) {
     const site = bundled.find(b => b.id === s.id);
     const edited = s._edited && site && !same(s, site);
-    return `<div class="card">
-      <div class="card-top">${s.label ? `<span class="card-label">${esc(s.label)}</span>` : ''}<h3>${esc(s.title)}</h3></div>
+    const t = T_(s.id), done = t.done || [];
+    return `<div class="card${done.length ? ' is-done' : ''}">
+      <div class="card-top">${s.label ? `<span class="card-label">${esc(s.label)}</span>` : ''}<h3>${esc(s.title)}</h3>
+        <span class="marks"><button class="mark${t.todo ? ' on todo' : ''}" data-act="todo" data-id="${esc(s.id)}" title="${t.todo ? 'On your To try list (click to remove)' : 'Add to your To try list'}" aria-pressed="${!!t.todo}">📌</button><button class="mark${t.fav ? ' on fav' : ''}" data-act="fav" data-id="${esc(s.id)}" title="${t.fav ? 'Favourite (click to remove)' : 'Add to Favourites'}" aria-pressed="${!!t.fav}">${t.fav ? '★' : '☆'}</button><button class="mark donemark${done.length ? ' on' : ''}" data-act="done" data-id="${esc(s.id)}" title="${done.length ? 'Done (click to clear)' : 'Mark as done'}" aria-pressed="${!!done.length}">✓</button></span></div>
+      ${done.length ? `<div class="done-line">✓ Done ${esc(shortDate(done[done.length - 1]))}${done.length > 1 ? ` · ${done.length} times` : ''}</div>` : ''}
       ${s.strategy ? `<p class="strategy">${esc(s.strategy)}</p>` : ''}
       <div class="chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}" title="${p.optional ? 'Optional' : ''}">${esc(p.q.replace(/-/g, '−'))}</span>`).join('')}</div>
       <div class="card-actions">
@@ -448,7 +520,7 @@ Rules:
           : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
           : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.</p>
              ${units.map(u => `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
-               <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}</span>
+               <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
                  <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`).join('')}`}
       </section>
 
@@ -498,7 +570,7 @@ Rules:
 
       <section class="panel"><h2>1 · Before class <span>(5 minutes)</span></h2>
         <ol class="steps">
-          <li><b>Pick a string</b> from the library. They're grouped by grade and week.</li>
+          <li><b>Pick a string</b> from the library. Choose your <b>grade</b> and a <b>topic</b> (like Fractions or Percents); strings are grouped into week-long units.</li>
           <li><b>Read the notes.</b> Click <b>Edit</b> on a string to see each problem's <i>Look for</i>, <i>Ask</i> and <i>Model</i> notes. Print that page and keep it beside you.</li>
           <li><b>Rehearse once.</b> Click <b>▶ Present</b>, try a few student answers and models, then press <b>↺</b> in the top bar to start fresh.</li>
           <li><b>Trim the tools</b> (optional). In Present, click <b>⚙</b> at the end of the tool bar and untick tools you won't use.</li>
@@ -537,7 +609,8 @@ Rules:
           <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
           <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
-          <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded.</li>
+          <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
+          <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
         </ul>
       </section>
 
@@ -579,7 +652,7 @@ Rules:
   }
 
   function exportAll() {
-    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean) }, null, 2));
+    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean), track }, null, 2));
     toast(`Exported ${library.length} strings`);
   }
 
@@ -635,9 +708,11 @@ Rules:
         const i = library.findIndex(x => x.id === s.id);
         if (i >= 0) { library[i] = s; updated++; } else { library.push(s); added++; }
       });
+      let tracked = 0;
+      try { const raw = JSON.parse(text.trim().replace(/^```(json)?|```$/g, '')); if (raw && raw.track && typeof raw.track === 'object') { mergeTrack(raw.track); tracked = Object.keys(raw.track).length; } } catch (e) { /* plain text */ }
       saveLibrary(); libraryView();
       m.close();
-      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}`);
+      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}${tracked ? ', plus your ✓ ★ 📌' : ''}`);
       return true;
     }
     const readFile = f => f.text().then(doImport);
@@ -867,7 +942,7 @@ Rules:
     saveSession();
   }
   function goPrev() { finishActive(true); P.spot = null; if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
-  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { P = null; window.onresize = null; go(''); return; } P.overview = false; revealNext(); renderAll(); }
+  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { markDone(P.s.id); P = null; window.onresize = null; go(''); toast('✓ Nice! Marked as done'); return; } P.overview = false; revealNext(); renderAll(); }
   function skipNext() { finishActive(true); const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
 
   /* ---- tools shown in the bar (teacher can hide the ones they don't use) ---- */

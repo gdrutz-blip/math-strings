@@ -81,6 +81,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `group` | yes | Groups strings in the library. Format: `Grade N · Week N · Topic` (e.g. `Grade 8 · Week 3 · Decimals`). Use the exact same text for every string in that week. |
 | `tool` | yes | The model the teacher will most likely use. It gets highlighted on screen. One of the ids in section 4. |
 | `strategy` | yes | One sentence: the big idea the string is building. |
+| `topic` | no | Where the string appears in the library's topic filter: `add`, `mult`, `dec`, `frac`, `pct` or `int` (addition & subtraction, multiplication & division, decimals, fractions, percents, integers). If left out, the app works it out from the unit name in `group`, so it is only needed when the unit name doesn't say. |
 | `keywords` | no | Class vocabulary for the strategy. |
 | `connection` | no | How it builds on earlier strings. |
 | `watchFor` | no | A list of likely mistakes or misconceptions, each with the question to ask. |
