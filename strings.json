@@ -2339,6 +2339,1784 @@
       ]
     },
     {
+      "id": "g6-w01-d1-half-and-quarter",
+      "title": "50% and 25%: Halve It",
+      "label": "Day 1",
+      "group": "Grade 6 · Week 1 · Percents of Whole Numbers",
+      "tool": "doubleline",
+      "strategy": "50% is half, and 25% is half of a half, so find them by halving.",
+      "keywords": "percent, per hundred, half, quarter, halve, benchmark",
+      "connection": "Connects percents to fractions students already know: 50% = 1/2 and 25% = 1/4. Curriculum: B1.6 (fractions, decimals, percents), B2.3 (mental math: 25%, 50%).",
+      "watchFor": [
+        "Dividing by the percent (25% of 80 = 80 ÷ 25 = 3.2): ask \"Should 25% of 80 be more or less than half of 80?\"",
+        "Subtracting the percent (25% of 80 = 55): ask \"Is 25% a part of the 80 or an amount to take away?\"",
+        "Thinking 75% needs a new start: ask \"How many 25%s make 75%?\""
+      ],
+      "wrapUp": "Ask \"How did 50% help with 25%?\" Land: 100% is the whole, 50% is half, 25% is half of that. Halving is a fast way to find these percents.",
+      "problems": [
+        {
+          "q": "50% of 80",
+          "a": "40",
+          "notes": "Look for: half of 80. Ask: \"What does 50% mean?\" Word choice: \"50 out of every 100, so half.\" Model: doubleline percent:amount, 0:0, 50:40, 100:80",
+          "responses": [
+            {
+              "say": "50% is half, and half of 80 is 40.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:40, 100:80",
+              "tip": "The target model. Ask: where is 100%?"
+            },
+            {
+              "say": "1/2 of 80 is 40.",
+              "tool": "bar",
+              "type": "1/2 of 80"
+            },
+            {
+              "say": "1.6",
+              "tool": "text",
+              "type": "80 / 50 = 1.6 ?",
+              "tip": "Divided by the percent. Ask: should 50% of 80 be bigger or smaller than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25% of 80",
+          "a": "20",
+          "notes": "Look for: half of 40. Ask: \"How does 50% help?\" Model: doubleline percent:amount, 0:0, 25:20, 50:40, 100:80",
+          "responses": [
+            {
+              "say": "Half of 80 is 40, half of 40 is 20.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:20, 50:40, 100:80",
+              "tip": "The target strategy. Ask: why halve twice?"
+            },
+            {
+              "say": "25% is a quarter, 80 ÷ 4 = 20.",
+              "tool": "bar",
+              "type": "1/4 of 80"
+            },
+            {
+              "say": "Like 4 quarters in a dollar: 80 split into 4.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:80, 50:40, 25:20"
+            },
+            {
+              "say": "3.2",
+              "tool": "text",
+              "type": "80 / 25 = 3.2 ?",
+              "tip": "Divided by the percent. Ask: is 25% of 80 more or less than half of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "50% of 36",
+          "a": "18",
+          "notes": "Look for: half of 36. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 50:18, 100:36",
+          "responses": [
+            {
+              "say": "Half of 36 is 18.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:18, 100:36"
+            },
+            {
+              "say": "Half of 30 is 15, half of 6 is 3: 18.",
+              "tool": "text",
+              "type": "36 = 30 + 6 ; 15 + 3 = 18"
+            }
+          ]
+        },
+        {
+          "q": "25% of 36",
+          "a": "9",
+          "notes": "Look for: half of 18. Ask: \"How did the last one help?\" Model: doubleline percent:amount, 0:0, 25:9, 50:18, 100:36",
+          "responses": [
+            {
+              "say": "Half of 18 is 9.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:9, 50:18, 100:36"
+            },
+            {
+              "say": "36 ÷ 4 = 9.",
+              "tool": "bar",
+              "type": "1/4 of 36"
+            },
+            {
+              "say": "11",
+              "tool": "text",
+              "type": "36 - 25 = 11 ?",
+              "tip": "Subtracted. Ask: is 25% an amount to take away, or a part of 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25% of 140",
+          "a": "35",
+          "notes": "Look for: half of 140 is 70, half of 70 is 35. Ask: \"Halve, then halve again?\" Model: doubleline percent:amount, 0:0, 25:35, 50:70, 100:140",
+          "responses": [
+            {
+              "say": "70, then 35.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:35, 50:70, 100:140"
+            },
+            {
+              "say": "25% of 100 is 25 and 25% of 40 is 10: 35.",
+              "tool": "text",
+              "type": "25% of 100 = 25 ; 25% of 40 = 10 ; 25 + 10 = 35",
+              "tip": "Split the whole. Good thinking."
+            },
+            {
+              "say": "115",
+              "tool": "text",
+              "type": "140 - 25 = 115 ?",
+              "tip": "Subtracted. Ask: should 25% of 140 be more or less than half of 140?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75% of 36",
+          "a": "27",
+          "notes": "Look for: 3 × 9, or 36 − 9. Ask: \"How many 25%s make 75%?\" Model: doubleline percent:amount, 0:0, 25:9, 50:18, 75:27, 100:36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25% is 9, so 75% is 3 × 9 = 27.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:9, 50:18, 75:27, 100:36"
+            },
+            {
+              "say": "100% − 25%: 36 − 9 = 27.",
+              "tool": "bar",
+              "type": "36 = 9 + 27",
+              "tip": "Take away a quarter. Name it."
+            },
+            {
+              "say": "3/4 of 36 is 27.",
+              "tool": "bar",
+              "type": "3/4 of 36"
+            }
+          ]
+        },
+        {
+          "q": "25% of 90",
+          "a": "22.5",
+          "notes": "Look for: half of 45. Ask: \"What is half of 45?\" Model: doubleline percent:amount, 0:0, 25:22.5, 50:45, 100:90",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Half is 45, half of 45 is 22.5.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:22.5, 50:45, 100:90"
+            },
+            {
+              "say": "90 ÷ 4: 80 ÷ 4 is 20, 10 ÷ 4 is 2.5.",
+              "tool": "text",
+              "type": "80 / 4 = 20 ; 10 / 4 = 2.5 ; 20 + 2.5 = 22.5"
+            },
+            {
+              "say": "22 remainder 2",
+              "tool": "text",
+              "type": "90 / 4 = 22 R2 ?",
+              "tip": "Ask: can we share the 2 that's left? What's half of 1?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w01-d2-ten-percent-and-one-percent",
+      "title": "10% and 1%",
+      "label": "Day 2",
+      "group": "Grade 6 · Week 1 · Percents of Whole Numbers",
+      "tool": "ratio",
+      "strategy": "10% is one tenth (divide by 10) and 1% is one hundredth (divide by 100).",
+      "keywords": "percent, tenth, hundredth, divide by 10, divide by 100, place value",
+      "connection": "Day 1 halved. Today we divide by 10 and 100 and see the digits shift. Curriculum: B1.6, B2.3 (mental math: 1%, 10%).",
+      "watchFor": [
+        "Mixing up 10% and 1% (10% of 350 = 3.5): ask \"Is 10% a tenth or a hundredth?\"",
+        "Dropping a zero that isn't there (10% of 64 = 6): ask \"What is 64 ÷ 10? What happens to the 4?\"",
+        "Thinking 1% is always 1: ask \"Is 1% of 400 the same as 1% of 4?\""
+      ],
+      "wrapUp": "Ask \"How are 10% and 1% related?\" Land: 10% is one tenth (÷ 10), and 1% is a tenth of that (÷ 100). Then build other percents from them.",
+      "problems": [
+        {
+          "q": "10% of 400",
+          "a": "40",
+          "notes": "Look for: 400 ÷ 10. Ask: \"What does 10% mean?\" Model: ratio percent:amount, 100:400, 10:40",
+          "responses": [
+            {
+              "say": "10% is a tenth: 400 ÷ 10 = 40.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:400, 10:40"
+            },
+            {
+              "say": "10 parts of 40 make 400.",
+              "tool": "bar",
+              "type": "1/10 of 400"
+            }
+          ]
+        },
+        {
+          "q": "1% of 400",
+          "a": "4",
+          "notes": "Look for: 40 ÷ 10, or 400 ÷ 100. Ask: \"How does 10% help?\" Model: ratio percent:amount, 100:400, 10:40, 1:4",
+          "responses": [
+            {
+              "say": "10% is 40, so 1% is 4.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:400, 10:40, 1:4",
+              "tip": "The target strategy. Ask: why ÷ 10 again?"
+            },
+            {
+              "say": "400 ÷ 100 = 4.",
+              "tool": "text",
+              "type": "1% = 1/100 ; 400 / 100 = 4"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "1% of 400 = 1 ?",
+              "tip": "Ask: is 1% of 400 the same as 1% of 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10% of 350",
+          "a": "35",
+          "notes": "Look for: 350 ÷ 10. Ask: \"What happens to the digits?\" Model: ratio percent:amount, 100:350, 10:35",
+          "responses": [
+            {
+              "say": "350 ÷ 10 is 35.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:350, 10:35"
+            },
+            {
+              "say": "10% of 300 is 30, 10% of 50 is 5: 35.",
+              "tool": "text",
+              "type": "30 + 5 = 35"
+            },
+            {
+              "say": "3.5",
+              "tool": "text",
+              "type": "350 / 100 = 3.5 ?",
+              "tip": "Found 1%. Ask: is 10% a tenth or a hundredth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1% of 350",
+          "a": "3.5",
+          "notes": "Look for: 35 ÷ 10. Ask: \"Can you divide 35 by 10?\" Model: ratio percent:amount, 100:350, 10:35, 1:3.5",
+          "responses": [
+            {
+              "say": "10% is 35, a tenth of that is 3.5.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:350, 10:35, 1:3.5"
+            },
+            {
+              "say": "350 ÷ 100 = 3.5.",
+              "tool": "text",
+              "type": "350 / 100 = 3.5"
+            },
+            {
+              "say": "35",
+              "tool": "ratio",
+              "type": "percent:amount, 100:350, 10:35",
+              "tip": "Stopped at 10%. Ask: is 1% more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10% of 64",
+          "a": "6.4",
+          "notes": "Look for: 64 ÷ 10 = 6.4. Ask: \"What happens to the 4?\" Model: ratio percent:amount, 100:64, 10:6.4",
+          "responses": [
+            {
+              "say": "64 ÷ 10 is 6.4.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:64, 10:6.4"
+            },
+            {
+              "say": "10% of 60 is 6, 10% of 4 is 0.4.",
+              "tool": "text",
+              "type": "6 + 0.4 = 6.4"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "64 -> 6 ?",
+              "tip": "Dropped the 4. Ask: what is 4 ÷ 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2% of 350",
+          "a": "7",
+          "notes": "Look for: 1% is 3.5, double it. Ask: \"Which percent from today helps?\" Model: ratio percent:amount, 100:350, 1:3.5, 2:7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1% is 3.5, so 2% is 7.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:350, 1:3.5, 2:7"
+            },
+            {
+              "say": "10% is 35, 2% is a fifth of that: 7.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:35, 2:7"
+            }
+          ]
+        },
+        {
+          "q": "11% of 400",
+          "a": "44",
+          "notes": "Look for: 10% + 1% = 40 + 4. Ask: \"Can you build 11% from today's percents?\" Model: ratio percent:amount, 100:400, 10:40, 1:4, 11:44",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10% is 40 and 1% is 4: 44.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:400, 10:40, 1:4, 11:44"
+            },
+            {
+              "say": "40 + 4 = 44.",
+              "tool": "text",
+              "type": "11% = 10% + 1% ; 40 + 4 = 44"
+            },
+            {
+              "say": "411",
+              "tool": "text",
+              "type": "11% of 400 = 400 + 11 ?",
+              "tip": "Ask: should 11% of 400 be more or less than 400?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w01-d3-five-and-fifteen",
+      "title": "5% and 15%",
+      "label": "Day 3",
+      "group": "Grade 6 · Week 1 · Percents of Whole Numbers",
+      "tool": "doubleline",
+      "strategy": "5% is half of 10%, and 15% is 10% + 5%.",
+      "keywords": "percent, half of 10%, build up, combine, tip",
+      "connection": "Combines Day 1 (halving) and Day 2 (10%). Useful for tips and taxes. Curriculum: B2.3 (mental math: 5%, 15%).",
+      "watchFor": [
+        "Dividing by 5 for 5% (5% of 60 = 12): ask \"Is 5% more or less than 10%?\"",
+        "Adding the percent to the number (15% of 80 = 95): ask \"Is 15% a part of 80 or extra?\"",
+        "Losing track when building 15%: write each part on the double number line."
+      ],
+      "wrapUp": "Ask \"How did 10% help with 5% and 15%?\" Land: find 10%, halve it for 5%, then add them for 15%.",
+      "problems": [
+        {
+          "q": "10% of 60",
+          "a": "6",
+          "notes": "Look for: 60 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:6, 100:60",
+          "responses": [
+            {
+              "say": "A tenth of 60 is 6.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:6, 100:60"
+            },
+            {
+              "say": "60 ÷ 10 = 6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:60, 10:6"
+            }
+          ]
+        },
+        {
+          "q": "5% of 60",
+          "a": "3",
+          "notes": "Look for: half of 10%. Ask: \"How does 10% help?\" Word choice: \"5% is half of 10%.\" Model: doubleline percent:amount, 0:0, 5:3, 10:6, 100:60",
+          "responses": [
+            {
+              "say": "10% is 6, so 5% is half of that: 3.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:3, 10:6, 100:60",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "1% is 0.6, times 5 is 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:60, 1:0.6, 5:3"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "60 / 5 = 12 ?",
+              "tip": "Divided by 5. Ask: is 5% more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15% of 60",
+          "a": "9",
+          "notes": "Look for: 6 + 3. Ask: \"Can you build 15% from the last two?\" Model: doubleline percent:amount, 0:0, 5:3, 10:6, 15:9, 100:60",
+          "responses": [
+            {
+              "say": "10% is 6, 5% is 3, so 15% is 9.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:3, 10:6, 15:9, 100:60"
+            },
+            {
+              "say": "3 fives: 3 + 3 + 3 = 9.",
+              "tool": "ratio",
+              "type": "percent:amount, 5:3, 15:9"
+            },
+            {
+              "say": "75",
+              "tool": "text",
+              "type": "60 + 15 = 75 ?",
+              "tip": "Added the percent. Ask: should 15% of 60 be more or less than 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15% of 80",
+          "a": "12",
+          "notes": "Look for: 10% = 8, 5% = 4, 15% = 12. Ask: \"Same steps?\" Model: doubleline percent:amount, 0:0, 5:4, 10:8, 15:12, 100:80",
+          "responses": [
+            {
+              "say": "8 + 4 = 12.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:4, 10:8, 15:12, 100:80"
+            },
+            {
+              "say": "10% is 8, and 15% is one and a half times that.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:8, 5:4, 15:12"
+            },
+            {
+              "say": "95",
+              "tool": "text",
+              "type": "80 + 15 = 95 ?",
+              "tip": "Ask: is 15% a part of 80 or extra?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5% of 240",
+          "a": "12",
+          "notes": "Look for: 10% = 24, half is 12. Ask: \"What's 10% first?\" Model: doubleline percent:amount, 0:0, 5:12, 10:24, 100:240",
+          "responses": [
+            {
+              "say": "10% is 24, half is 12.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:12, 10:24, 100:240"
+            },
+            {
+              "say": "48",
+              "tool": "text",
+              "type": "240 / 5 = 48 ?",
+              "tip": "Divided by 5. That's 20%. Ask: is 5% more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15% of 240",
+          "a": "36",
+          "notes": "Look for: 24 + 12. Ask: \"How did the last one help?\" Model: doubleline percent:amount, 0:0, 5:12, 10:24, 15:36, 100:240",
+          "optional": true,
+          "responses": [
+            {
+              "say": "24 + 12 = 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:12, 10:24, 15:36, 100:240"
+            },
+            {
+              "say": "3 × 12 = 36.",
+              "tool": "ratio",
+              "type": "percent:amount, 5:12, 15:36"
+            }
+          ]
+        },
+        {
+          "q": "15% of 30",
+          "a": "4.5",
+          "notes": "Look for: 3 + 1.5. Ask: \"What would a 15% tip on $30 be?\" Model: doubleline percent:amount, 0:0, 5:1.5, 10:3, 15:4.5, 100:30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10% is $3, 5% is $1.50, so $4.50.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:1.5, 10:3, 15:4.5, 100:30"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "15% of 30 = 15 x 3 = 45 ?",
+              "tip": "Ask: should a 15% tip be more or less than the meal?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w01-d4-build-from-ten-percent",
+      "title": "Build from 10% and 25%",
+      "label": "Day 4",
+      "group": "Grade 6 · Week 1 · Percents of Whole Numbers",
+      "tool": "doubleline",
+      "strategy": "Use a benchmark percent you know (10% or 25%) and multiply or combine it to get the percent you need.",
+      "keywords": "benchmark, build up, multiply, 20%, 30%, 75%, 90%",
+      "connection": "Days 1 to 3 found single benchmarks. Today we scale them: 30% is 3 × 10%, 75% is 3 × 25%. Curriculum: B2.3, B2.12.",
+      "watchFor": [
+        "Dividing by the percent (20% of 70 = 70 ÷ 20 = 3.5): ask \"Should 20% be more or less than 10%?\"",
+        "Not seeing 90% as 100% − 10%: ask \"Is 90% close to a percent you know?\"",
+        "Losing the whole: keep 100% labeled on the double number line."
+      ],
+      "wrapUp": "Ask \"Which benchmark did you start from for each one?\" Land: start from 10% or 25%, then multiply, add, or subtract from 100%.",
+      "problems": [
+        {
+          "q": "10% of 70",
+          "a": "7",
+          "notes": "Look for: 70 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:7, 100:70",
+          "responses": [
+            {
+              "say": "A tenth of 70 is 7.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:7, 100:70"
+            }
+          ]
+        },
+        {
+          "q": "20% of 70",
+          "a": "14",
+          "notes": "Look for: 2 × 7. Ask: \"How many 10%s in 20%?\" Model: doubleline percent:amount, 0:0, 10:7, 20:14, 100:70",
+          "responses": [
+            {
+              "say": "10% is 7, so 20% is 14.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:7, 20:14, 100:70",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "20% is a fifth: 70 ÷ 5 = 14.",
+              "tool": "bar",
+              "type": "1/5 of 70",
+              "tip": "A fraction connection. Name it."
+            },
+            {
+              "say": "3.5",
+              "tool": "text",
+              "type": "70 / 20 = 3.5 ?",
+              "tip": "Divided by the percent. Ask: should 20% be more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "30% of 70",
+          "a": "21",
+          "notes": "Look for: 3 × 7. Ask: \"Can you keep going?\" Model: doubleline percent:amount, 0:0, 10:7, 20:14, 30:21, 100:70",
+          "responses": [
+            {
+              "say": "3 × 7 = 21.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:7, 20:14, 30:21, 100:70"
+            },
+            {
+              "say": "20% + 10%: 14 + 7 = 21.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:7, 20:14, 30:21"
+            },
+            {
+              "say": "40",
+              "tool": "text",
+              "type": "70 - 30 = 40 ?",
+              "tip": "Subtracted the percent. Ask: is 30% a part of 70?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25% of 120",
+          "a": "30",
+          "notes": "Look for: half of half of 120. Ask: \"Which benchmark is this?\" Model: doubleline percent:amount, 0:0, 25:30, 50:60, 100:120",
+          "responses": [
+            {
+              "say": "Half is 60, half again is 30.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:30, 50:60, 100:120"
+            },
+            {
+              "say": "120 ÷ 4 = 30.",
+              "tool": "bar",
+              "type": "1/4 of 120"
+            }
+          ]
+        },
+        {
+          "q": "75% of 120",
+          "a": "90",
+          "notes": "Look for: 3 × 30, or 120 − 30. Ask: \"How did the last problem help?\" Model: doubleline percent:amount, 0:0, 25:30, 50:60, 75:90, 100:120",
+          "responses": [
+            {
+              "say": "3 × 30 = 90.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:30, 50:60, 75:90, 100:120"
+            },
+            {
+              "say": "All of it minus 25%: 120 − 30 = 90.",
+              "tool": "bar",
+              "type": "120 = 90 + 30"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "120 - 75 = 45 ?",
+              "tip": "Subtracted the percent. Ask: is 75% more or less than half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "40% of 45",
+          "a": "18",
+          "notes": "Look for: 10% = 4.5, × 4 = 18; or 20% = 9, × 2. Ask: \"Which benchmark is easiest here?\" Model: doubleline percent:amount, 0:0, 10:4.5, 20:9, 40:18, 100:45",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10% is 4.5, 20% is 9, 40% is 18.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:4.5, 20:9, 40:18, 100:45"
+            },
+            {
+              "say": "50% is 22.5, minus 10% (4.5): 18.",
+              "tool": "text",
+              "type": "50% - 10% = 40% ; 22.5 - 4.5 = 18",
+              "tip": "Building down. Nice."
+            }
+          ]
+        },
+        {
+          "q": "90% of 70",
+          "a": "63",
+          "notes": "Look for: 100% − 10% = 70 − 7. Ask: \"Is 90% close to a percent you know?\" Model: doubleline percent:amount, 0:0, 10:7, 90:63, 100:70",
+          "optional": true,
+          "responses": [
+            {
+              "say": "70 − 7 = 63.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:7, 90:63, 100:70"
+            },
+            {
+              "say": "9 × 7 = 63.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:7, 90:63"
+            },
+            {
+              "say": "-20",
+              "tool": "text",
+              "type": "70 - 90 = -20 ?",
+              "tip": "Ask: what does 90% of something mean? Is it most of it?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w01-d5-choosing-a-strategy",
+      "title": "Choosing a Percent Strategy",
+      "label": "Day 5",
+      "group": "Grade 6 · Week 1 · Percents of Whole Numbers",
+      "tool": "doubleline",
+      "strategy": "Look at the percent and the number, then choose: halve, divide by 10 or 100, or build from benchmarks.",
+      "keywords": "benchmark, choose, combine, 1%, 5%, 10%, 25%, 50%",
+      "connection": "Brings together Days 1 to 4. Curriculum: B2.3, B2.12.",
+      "watchFor": [
+        "Using only one benchmark for everything: ask \"Is there a quicker benchmark for this one?\"",
+        "Not checking reasonableness: ask \"Is the answer more or less than half? Should it be?\"",
+        "Missing that a% of b = b% of a (60% of 25 = 25% of 60): ask \"What if we switch the numbers?\""
+      ],
+      "wrapUp": "Ask \"Which benchmark did you use for each, and why?\" Land: find a benchmark (50%, 25%, 10%, 5%, 1%) and build from it. Check that the answer makes sense.",
+      "problems": [
+        {
+          "q": "35% of 80",
+          "a": "28",
+          "notes": "Look for: 25% + 10% = 20 + 8, or 3 × 10% + 5%. Ask: \"Which benchmarks make 35%?\" Model: doubleline percent:amount, 0:0, 10:8, 25:20, 35:28, 100:80",
+          "responses": [
+            {
+              "say": "25% is 20 and 10% is 8: 28.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:8, 25:20, 35:28, 100:80"
+            },
+            {
+              "say": "30% is 24, 5% is 4: 28.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:8, 30:24, 5:4, 35:28"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "80 - 35 = 45 ?",
+              "tip": "Ask: should 35% of 80 be more or less than half of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12% of 200",
+          "a": "24",
+          "notes": "Look for: 10% + 2 × 1% = 20 + 4. Ask: \"Can 1% help?\" Model: ratio percent:amount, 100:200, 10:20, 1:2, 12:24",
+          "responses": [
+            {
+              "say": "10% is 20, 1% is 2, so 2% is 4: 24.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:200, 10:20, 1:2, 12:24"
+            },
+            {
+              "say": "1% is 2, times 12 is 24.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:200, 1:2, 12:24"
+            }
+          ]
+        },
+        {
+          "q": "45% of 60",
+          "a": "27",
+          "notes": "Look for: 50% − 5% = 30 − 3. Ask: \"Is 45% close to a benchmark?\" Model: doubleline percent:amount, 0:0, 5:3, 45:27, 50:30, 100:60",
+          "responses": [
+            {
+              "say": "50% is 30, 5% is 3, so 30 − 3 = 27.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 5:3, 45:27, 50:30, 100:60",
+              "tip": "Building down from 50%."
+            },
+            {
+              "say": "40% is 24, 5% is 3: 27.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:6, 40:24, 5:3, 45:27"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "60 - 45 = 15 ?",
+              "tip": "Ask: should 45% of 60 be close to half of 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60% of 25",
+          "a": "15",
+          "notes": "Look for: 10% = 2.5, × 6; or 25% of 60 = 15. Ask: \"What if you switch the numbers?\" Model: doubleline percent:amount, 0:0, 10:2.5, 20:5, 60:15, 100:25",
+          "responses": [
+            {
+              "say": "10% is 2.5, 6 of them is 15.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:2.5, 20:5, 60:15, 100:25"
+            },
+            {
+              "say": "It's the same as 25% of 60, a quarter of 60: 15.",
+              "tool": "bar",
+              "type": "1/4 of 60",
+              "tip": "Great noticing. Ask: why does switching work?"
+            },
+            {
+              "say": "3/5 of 25 is 15.",
+              "tool": "bar",
+              "type": "3/5 of 25"
+            }
+          ]
+        },
+        {
+          "q": "26% of 50",
+          "a": "13",
+          "notes": "Look for: 25% + 1% = 12.5 + 0.5. Ask: \"Which benchmark is close to 26%?\" Model: ratio percent:amount, 100:50, 25:12.5, 1:0.5, 26:13",
+          "responses": [
+            {
+              "say": "25% is 12.5 and 1% is 0.5: 13.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:50, 25:12.5, 1:0.5, 26:13"
+            },
+            {
+              "say": "50 is half of 100, so 26% of 50 is half of 26.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:50, 1:0.5, 26:13",
+              "tip": "Great connection to \"per hundred\"."
+            },
+            {
+              "say": "24",
+              "tool": "text",
+              "type": "50 - 26 = 24 ?",
+              "tip": "Ask: should 26% of 50 be more or less than half of 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "99% of 300",
+          "a": "297",
+          "notes": "Look for: 100% − 1% = 300 − 3. Ask: \"Is 99% close to a percent you know?\" Model: ratio percent:amount, 100:300, 1:3, 99:297",
+          "optional": true,
+          "responses": [
+            {
+              "say": "All of it minus 1%: 300 − 3 = 297.",
+              "tool": "bar",
+              "type": "300 = 297 + 3"
+            },
+            {
+              "say": "1% is 3, times 99 is 297.",
+              "tool": "ratio",
+              "type": "percent:amount, 1:3, 99:297"
+            }
+          ]
+        },
+        {
+          "q": "75% of 48",
+          "a": "36",
+          "notes": "Look for: 3 × 12, or 48 − 12. Ask: \"Which benchmark do you start from?\" Model: doubleline percent:amount, 0:0, 25:12, 75:36, 100:48",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25% is 12, so 75% is 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:12, 50:24, 75:36, 100:48"
+            },
+            {
+              "say": "48 − 12 = 36.",
+              "tool": "bar",
+              "type": "48 = 36 + 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d1-fractions-on-the-clock",
+      "title": "Halves, Quarters and Thirds on the Clock",
+      "label": "Day 1",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Think of fractions as parts of an hour: change each fraction to minutes, add the minutes, then change back.",
+      "keywords": "fraction of an hour, minutes, common unit, unlike denominators",
+      "connection": "Students know 1/2 hour = 30 min and 1/4 hour = 15 min. Minutes are a common unit, so unlike denominators can be added. Curriculum: B2.5 (unlike denominators).",
+      "watchFor": [
+        "Adding numerators and denominators (1/2 + 1/4 = 2/6): ask \"Is 2/6 more or less than 1/2? Can the sum be smaller than one of the parts?\"",
+        "Mixing up minutes and the fraction (35 minutes = 35/100): ask \"How many minutes in a whole hour?\"",
+        "Answers over 1 written as improper only: accept, then ask \"How many whole hours is that?\""
+      ],
+      "wrapUp": "Ask \"Why did minutes make these easy?\" Land: minutes are a common unit (sixtieths). To add unlike fractions, change them to the same unit first.",
+      "problems": [
+        {
+          "q": "1/2 + 1/4",
+          "a": "3/4",
+          "notes": "Look for: 30 + 15 = 45 minutes, 3/4 of an hour. Ask: \"How many minutes is each?\" Model: clock 1/2 + 1/4",
+          "responses": [
+            {
+              "say": "30 minutes and 15 minutes is 45 minutes, that's 3/4.",
+              "tool": "clock",
+              "type": "1/2 + 1/4",
+              "tip": "The target model."
+            },
+            {
+              "say": "1/2 is 2/4, plus 1/4 is 3/4.",
+              "tool": "numberline",
+              "type": "0 +1/2 +1/4"
+            },
+            {
+              "say": "2/6",
+              "tool": "text",
+              "type": "1/2 + 1/4 = 2/6 ?",
+              "tip": "Added tops and bottoms. Ask: is 2/6 more or less than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/4 + 1/3",
+          "a": "7/12",
+          "notes": "Look for: 15 + 20 = 35 minutes. Ask: \"What fraction of an hour is 35 minutes?\" Word choice: \"35 out of 60 minutes, that's 7/12.\" Model: clock 1/4 + 1/3",
+          "responses": [
+            {
+              "say": "15 + 20 is 35 minutes. 35/60 = 7/12.",
+              "tool": "clock",
+              "type": "1/4 + 1/3",
+              "tip": "Ask: how do you know 35 minutes is 7/12?"
+            },
+            {
+              "say": "3/12 + 4/12 = 7/12.",
+              "tool": "text",
+              "type": "1/4 = 3/12 ; 1/3 = 4/12 ; 3/12 + 4/12 = 7/12",
+              "tip": "Twelfths: 5-minute chunks. Connect."
+            },
+            {
+              "say": "2/7",
+              "tool": "text",
+              "type": "1/4 + 1/3 = 2/7 ?",
+              "tip": "Ask: is 2/7 more or less than 1/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 1/3",
+          "a": "5/6",
+          "notes": "Look for: 30 + 20 = 50 minutes. Ask: \"How far from a whole hour?\" Model: clock 1/2 + 1/3",
+          "responses": [
+            {
+              "say": "50 minutes, that's 5/6 of an hour.",
+              "tool": "clock",
+              "type": "1/2 + 1/3"
+            },
+            {
+              "say": "3/6 + 2/6 = 5/6.",
+              "tool": "text",
+              "type": "1/2 = 3/6 ; 1/3 = 2/6 ; 3/6 + 2/6 = 5/6"
+            },
+            {
+              "say": "2/5",
+              "tool": "text",
+              "type": "1/2 + 1/3 = 2/5 ?",
+              "tip": "Ask: is 2/5 more or less than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 + 1/4",
+          "a": "11/12",
+          "notes": "Look for: 40 + 15 = 55 minutes. Ask: \"Is it more or less than an hour?\" Model: clock 2/3 + 1/4",
+          "responses": [
+            {
+              "say": "40 + 15 is 55 minutes: 11/12.",
+              "tool": "clock",
+              "type": "2/3 + 1/4"
+            },
+            {
+              "say": "8/12 + 3/12 = 11/12.",
+              "tool": "text",
+              "type": "8/12 + 3/12 = 11/12"
+            },
+            {
+              "say": "3/7",
+              "tool": "text",
+              "type": "2/3 + 1/4 = 3/7 ?",
+              "tip": "Ask: is 3/7 more or less than 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 + 1/2",
+          "a": "1 1/4",
+          "notes": "Look for: 45 + 30 = 75 minutes, 1 hour and 15 minutes. Ask: \"What happens when we pass the hour?\" Model: clock 3/4 + 1/2",
+          "responses": [
+            {
+              "say": "75 minutes is 1 hour 15 minutes: 1 1/4.",
+              "tool": "clock",
+              "type": "3/4 + 1/2"
+            },
+            {
+              "say": "3/4 + 1/4 makes 1, then 1/4 more.",
+              "tool": "numberline",
+              "type": "3/4 +1/4 +1/4",
+              "tip": "Make the next whole, like with decimals."
+            },
+            {
+              "say": "4/6",
+              "tool": "text",
+              "type": "3/4 + 1/2 = 4/6 ?",
+              "tip": "Ask: 3/4 is already most of an hour. Can adding 1/2 give less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 + 1/2",
+          "a": "1 1/6",
+          "notes": "Look for: 40 + 30 = 70 minutes. Ask: \"How much past the hour?\" Model: clock 2/3 + 1/2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "70 minutes is 1 hour 10 minutes: 1 1/6.",
+              "tool": "clock",
+              "type": "2/3 + 1/2"
+            },
+            {
+              "say": "2/3 + 1/3 = 1, then 1/6 more.",
+              "tool": "numberline",
+              "type": "2/3 +1/3 +1/6"
+            },
+            {
+              "say": "7/6",
+              "tool": "clock",
+              "type": "2/3 + 1/2",
+              "tip": "Correct! Ask: how many whole hours in 7/6?"
+            }
+          ]
+        },
+        {
+          "q": "3/4 + 2/3",
+          "a": "1 5/12",
+          "notes": "Look for: 45 + 40 = 85 minutes. Ask: \"How many minutes past the hour?\" Model: clock 3/4 + 2/3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "85 minutes is 1 hour 25 minutes: 1 5/12.",
+              "tool": "clock",
+              "type": "3/4 + 2/3"
+            },
+            {
+              "say": "9/12 + 8/12 = 17/12 = 1 5/12.",
+              "tool": "text",
+              "type": "9/12 + 8/12 = 17/12 ; = 1 5/12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d2-sixths-and-twelfths",
+      "title": "Sixths and Twelfths",
+      "label": "Day 2",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Sixths are 10 minutes and twelfths are 5 minutes; use minutes (or twelfths) as the common unit.",
+      "keywords": "sixths, twelfths, fifths, minutes, common denominator, equivalent fractions",
+      "connection": "Day 1 used halves, quarters and thirds. Today: smaller parts. Notice that twelfths are 5-minute chunks, so they work like a common denominator. Curriculum: B2.5.",
+      "watchFor": [
+        "Adding numerators and denominators (1/6 + 1/3 = 2/9): ask \"Is 2/9 more or less than 1/3?\"",
+        "Not simplifying (30/60, 6/12) and thinking it's a different number: ask \"Is 30 minutes the same as half an hour?\"",
+        "Wrong minutes for a sixth (1/6 = 6 minutes): ask \"How many sixths in an hour? So how many minutes each?\""
+      ],
+      "wrapUp": "Ask \"How are minutes like a common denominator?\" Land: change each fraction to the same unit (minutes, sixtieths, or twelfths), add, then simplify.",
+      "problems": [
+        {
+          "q": "1/6 + 1/3",
+          "a": "1/2",
+          "notes": "Look for: 10 + 20 = 30 minutes. Ask: \"How many minutes is a sixth?\" Model: clock 1/6 + 1/3",
+          "responses": [
+            {
+              "say": "10 + 20 is 30 minutes, half an hour.",
+              "tool": "clock",
+              "type": "1/6 + 1/3"
+            },
+            {
+              "say": "1/6 + 2/6 = 3/6 = 1/2.",
+              "tool": "text",
+              "type": "1/6 + 2/6 = 3/6 ; = 1/2"
+            },
+            {
+              "say": "2/9",
+              "tool": "text",
+              "type": "1/6 + 1/3 = 2/9 ?",
+              "tip": "Ask: is 2/9 more or less than 1/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/6 + 1/4",
+          "a": "5/12",
+          "notes": "Look for: 10 + 15 = 25 minutes. Ask: \"What fraction is 25 minutes?\" Model: clock 1/6 + 1/4",
+          "responses": [
+            {
+              "say": "25 minutes is 5 five-minute chunks: 5/12.",
+              "tool": "clock",
+              "type": "1/6 + 1/4"
+            },
+            {
+              "say": "2/12 + 3/12 = 5/12.",
+              "tool": "text",
+              "type": "1/6 = 2/12 ; 1/4 = 3/12 ; 2/12 + 3/12 = 5/12"
+            },
+            {
+              "say": "2/10",
+              "tool": "text",
+              "type": "1/6 + 1/4 = 2/10 ?",
+              "tip": "Ask: is 2/10 more or less than 1/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 + 1/12",
+          "a": "11/12",
+          "notes": "Look for: 50 + 5 = 55 minutes. Ask: \"How many minutes is a twelfth?\" Model: clock 5/6 + 1/12",
+          "responses": [
+            {
+              "say": "50 + 5 = 55 minutes: 11/12.",
+              "tool": "clock",
+              "type": "5/6 + 1/12"
+            },
+            {
+              "say": "10/12 + 1/12 = 11/12.",
+              "tool": "text",
+              "type": "5/6 = 10/12 ; 10/12 + 1/12 = 11/12"
+            },
+            {
+              "say": "6/18",
+              "tool": "text",
+              "type": "5/6 + 1/12 = 6/18 ?",
+              "tip": "Ask: is 6/18 more or less than 5/6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/12 + 1/3",
+          "a": "3/4",
+          "notes": "Look for: 25 + 20 = 45 minutes. Ask: \"Where have we seen 45 minutes?\" Model: clock 5/12 + 1/3",
+          "responses": [
+            {
+              "say": "25 + 20 is 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "5/12 + 1/3"
+            },
+            {
+              "say": "5/12 + 4/12 = 9/12 = 3/4.",
+              "tool": "text",
+              "type": "5/12 + 4/12 = 9/12 ; = 3/4"
+            },
+            {
+              "say": "9/12",
+              "tool": "text",
+              "type": "5/12 + 4/12 = 9/12",
+              "tip": "Correct! Ask: is there a simpler name for 9/12?"
+            }
+          ]
+        },
+        {
+          "q": "5/6 + 1/4",
+          "a": "1 1/12",
+          "notes": "Look for: 50 + 15 = 65 minutes. Ask: \"How far past the hour?\" Model: clock 5/6 + 1/4",
+          "responses": [
+            {
+              "say": "65 minutes is 1 hour 5 minutes: 1 1/12.",
+              "tool": "clock",
+              "type": "5/6 + 1/4"
+            },
+            {
+              "say": "10/12 + 3/12 = 13/12 = 1 1/12.",
+              "tool": "text",
+              "type": "10/12 + 3/12 = 13/12 ; = 1 1/12"
+            },
+            {
+              "say": "6/10",
+              "tool": "text",
+              "type": "5/6 + 1/4 = 6/10 ?",
+              "tip": "Ask: 5/6 is almost an hour. Can adding 1/4 give less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/12 + 5/6",
+          "a": "1 5/12",
+          "notes": "Look for: 35 + 50 = 85 minutes. Ask: \"How many minutes past the hour?\" Model: clock 7/12 + 5/6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "85 minutes: 1 hour 25 minutes, 1 5/12.",
+              "tool": "clock",
+              "type": "7/12 + 5/6"
+            },
+            {
+              "say": "7/12 + 10/12 = 17/12 = 1 5/12.",
+              "tool": "text",
+              "type": "7/12 + 10/12 = 17/12 ; = 1 5/12"
+            }
+          ]
+        },
+        {
+          "q": "1/5 + 1/6",
+          "a": "11/30",
+          "notes": "Look for: 12 + 10 = 22 minutes. Ask: \"What fraction of 60 is 22?\" Model: clock 1/5 + 1/6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 + 10 is 22 minutes: 22/60 = 11/30.",
+              "tool": "clock",
+              "type": "1/5 + 1/6"
+            },
+            {
+              "say": "6/30 + 5/30 = 11/30.",
+              "tool": "text",
+              "type": "1/5 = 6/30 ; 1/6 = 5/30 ; 6/30 + 5/30 = 11/30",
+              "tip": "Thirtieths are 2-minute chunks."
+            },
+            {
+              "say": "2/11",
+              "tool": "text",
+              "type": "1/5 + 1/6 = 2/11 ?",
+              "tip": "Ask: is 2/11 more or less than 1/5?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d3-subtracting-on-the-clock",
+      "title": "Subtracting on the Clock",
+      "label": "Day 3",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Change both fractions to minutes, find the difference, then change back to a fraction of an hour.",
+      "keywords": "difference, take away, how much more, minutes, common unit",
+      "connection": "Days 1 and 2 added. The same common unit works for subtraction. Curriculum: B2.5.",
+      "watchFor": [
+        "Subtracting numerators and denominators (3/4 − 1/3 = 2/1): ask \"Can the answer be bigger than 3/4?\"",
+        "Subtracting in the wrong order with minutes (20 − 45): ask \"Which is more time, 3/4 or 1/3 of an hour?\"",
+        "Not seeing the same difference (3/4 − 1/3 and 2/3 − 1/4 are both 25 minutes): ask \"Why are these the same?\""
+      ],
+      "wrapUp": "Ask \"How is subtracting fractions like adding them?\" Land: same unit first (minutes or twelfths), then subtract. The clock shows how much time is left.",
+      "problems": [
+        {
+          "q": "1 - 1/4",
+          "a": "3/4",
+          "notes": "Look for: 60 − 15 = 45 minutes. Ask: \"Hold on to this.\" Model: clock 1 - 1/4",
+          "responses": [
+            {
+              "say": "An hour minus 15 minutes is 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "1 - 1/4"
+            },
+            {
+              "say": "4/4 − 1/4 = 3/4.",
+              "tool": "numberline",
+              "type": "1 -1/4"
+            }
+          ]
+        },
+        {
+          "q": "3/4 - 1/2",
+          "a": "1/4",
+          "notes": "Look for: 45 − 30 = 15 minutes. Ask: \"How much more is 3/4 than 1/2?\" Model: clock 3/4 - 1/2",
+          "responses": [
+            {
+              "say": "45 − 30 is 15 minutes: 1/4.",
+              "tool": "clock",
+              "type": "3/4 - 1/2"
+            },
+            {
+              "say": "From 1/2 to 3/4 is 1/4.",
+              "tool": "numberline",
+              "type": "1/2 ~3/4",
+              "tip": "Subtraction as distance."
+            },
+            {
+              "say": "2/2",
+              "tool": "text",
+              "type": "3/4 - 1/2 = 2/2 ?",
+              "tip": "Subtracted tops and bottoms. Ask: can 3/4 − 1/2 be a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 - 1/3",
+          "a": "5/12",
+          "notes": "Look for: 45 − 20 = 25 minutes. Ask: \"How many minutes is each?\" Model: clock 3/4 - 1/3",
+          "responses": [
+            {
+              "say": "45 − 20 = 25 minutes: 5/12.",
+              "tool": "clock",
+              "type": "3/4 - 1/3"
+            },
+            {
+              "say": "9/12 − 4/12 = 5/12.",
+              "tool": "text",
+              "type": "3/4 = 9/12 ; 1/3 = 4/12 ; 9/12 - 4/12 = 5/12"
+            },
+            {
+              "say": "2/1",
+              "tool": "text",
+              "type": "3/4 - 1/3 = 2/1 ?",
+              "tip": "Ask: can the answer be bigger than 3/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 - 1/4",
+          "a": "5/12",
+          "notes": "Look for: 40 − 15 = 25 minutes. Ask: \"Why is it the same as the last one?\" Model: clock 2/3 - 1/4",
+          "responses": [
+            {
+              "say": "40 − 15 = 25 minutes: 5/12 again!",
+              "tool": "clock",
+              "type": "2/3 - 1/4",
+              "tip": "Ask: why the same answer? (both fractions moved 5 minutes)"
+            },
+            {
+              "say": "8/12 − 3/12 = 5/12.",
+              "tool": "text",
+              "type": "8/12 - 3/12 = 5/12"
+            },
+            {
+              "say": "1/1",
+              "tool": "text",
+              "type": "2/3 - 1/4 = 1/1 ?",
+              "tip": "Ask: can the answer be more than 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 - 1/4",
+          "a": "7/12",
+          "notes": "Look for: 50 − 15 = 35 minutes. Ask: \"Which fraction is more time?\" Model: clock 5/6 - 1/4",
+          "responses": [
+            {
+              "say": "50 − 15 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "5/6 - 1/4"
+            },
+            {
+              "say": "10/12 − 3/12 = 7/12.",
+              "tool": "text",
+              "type": "10/12 - 3/12 = 7/12"
+            },
+            {
+              "say": "4/2",
+              "tool": "text",
+              "type": "5/6 - 1/4 = 4/2 ?",
+              "tip": "Ask: is 4/2 more or less than 5/6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 - 5/12",
+          "a": "7/12",
+          "notes": "Look for: 60 − 25 = 35 minutes. Ask: \"How much is left in the hour?\" Model: clock 1 - 5/12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "60 − 25 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "1 - 5/12"
+            },
+            {
+              "say": "12/12 − 5/12 = 7/12.",
+              "tool": "numberline",
+              "type": "5/12 ~1"
+            }
+          ]
+        },
+        {
+          "q": "1/2 - 1/5",
+          "a": "3/10",
+          "notes": "Look for: 30 − 12 = 18 minutes. Ask: \"What fraction of an hour is 18 minutes?\" Model: clock 1/2 - 1/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 − 12 = 18 minutes: 18/60 = 3/10.",
+              "tool": "clock",
+              "type": "1/2 - 1/5"
+            },
+            {
+              "say": "5/10 − 2/10 = 3/10.",
+              "tool": "text",
+              "type": "1/2 = 5/10 ; 1/5 = 2/10 ; 5/10 - 2/10 = 3/10",
+              "tip": "Tenths are 6-minute chunks."
+            },
+            {
+              "say": "0/3",
+              "tool": "text",
+              "type": "1/2 - 1/5 = 0/3 ?",
+              "tip": "Ask: is half an hour the same as a fifth of an hour?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d4-mixed-numbers",
+      "title": "Mixed Numbers",
+      "label": "Day 4",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Work with whole hours and minutes: add or subtract the wholes and the parts, and regroup an hour as 60 minutes when needed.",
+      "keywords": "mixed number, whole and part, regroup, hours and minutes, make a whole",
+      "connection": "Days 1 to 3 stayed within an hour or just past. Today we use several hours and regroup. Like decimals in Grade 5: make the next whole. Curriculum: B2.5.",
+      "watchFor": [
+        "Subtracting the smaller fraction from the larger (1 1/2 − 3/4 = 1 1/4): ask \"Can you take 3/4 from 1/2? What could you do?\"",
+        "Forgetting to regroup past the hour (1 1/2 + 3/4 = 1 5/4): accept, then ask \"How many whole hours is 5/4?\"",
+        "Losing the whole numbers: ask \"Where are the whole hours?\""
+      ],
+      "wrapUp": "Ask \"When did you need to regroup an hour?\" Land: add or subtract wholes and parts; jump to the next whole (or back to the last one) to regroup.",
+      "problems": [
+        {
+          "q": "1 1/2 + 1/2",
+          "a": "2",
+          "notes": "Look for: two halves make a whole. Ask: \"Hold on to this.\" Model: numberline 1 1/2 +1/2",
+          "responses": [
+            {
+              "say": "1/2 and 1/2 make 1, so 2.",
+              "tool": "numberline",
+              "type": "1 1/2 +1/2"
+            },
+            {
+              "say": "90 + 30 = 120 minutes, 2 hours.",
+              "tool": "clock",
+              "type": "1 1/2 + 1/2"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 + 3/4",
+          "a": "2 1/4",
+          "notes": "Look for: 1 1/2 + 1/2 = 2, then 1/4 more. Ask: \"How did the last one help?\" Model: numberline 1 1/2 +1/2 +1/4",
+          "responses": [
+            {
+              "say": "1 1/2 + 1/2 is 2, then 1/4 more: 2 1/4.",
+              "tool": "numberline",
+              "type": "1 1/2 +1/2 +1/4",
+              "tip": "Make the next whole. The target strategy."
+            },
+            {
+              "say": "90 + 45 = 135 minutes: 2 hours 15 minutes.",
+              "tool": "clock",
+              "type": "1 1/2 + 3/4"
+            },
+            {
+              "say": "1 5/4",
+              "tool": "text",
+              "type": "1 + 2/4 + 3/4 = 1 5/4",
+              "tip": "Correct but not regrouped. Ask: how many wholes in 5/4?"
+            },
+            {
+              "say": "1 4/6",
+              "tool": "text",
+              "type": "1 1/2 + 3/4 = 1 4/6 ?",
+              "tip": "Added tops and bottoms. Ask: is the answer more or less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/3 + 1 1/2",
+          "a": "3 5/6",
+          "notes": "Look for: 2 + 1 = 3, and 1/3 + 1/2 = 5/6 (20 + 30 minutes). Ask: \"Wholes first, then parts?\" Model: numberline 2 1/3 +1 +1/2",
+          "responses": [
+            {
+              "say": "3 hours, and 20 + 30 = 50 minutes: 3 5/6.",
+              "tool": "clock",
+              "type": "2 1/3 + 1 1/2"
+            },
+            {
+              "say": "2 1/3 + 1 = 3 1/3, then + 1/2 = 3 5/6.",
+              "tool": "numberline",
+              "type": "2 1/3 +1 +1/2"
+            },
+            {
+              "say": "3 2/5",
+              "tool": "text",
+              "type": "2 1/3 + 1 1/2 = 3 2/5 ?",
+              "tip": "Ask: is 2/5 more or less than 1/2? So is 3 2/5 too small?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 - 3/4",
+          "a": "3/4",
+          "notes": "Look for: 1 1/2 − 1/2 = 1, then − 1/4. Ask: \"Can you take 3/4 from 1/2?\" Model: numberline 1 1/2 -1/2 -1/4",
+          "responses": [
+            {
+              "say": "Back 1/2 to 1, then back 1/4 more: 3/4.",
+              "tool": "numberline",
+              "type": "1 1/2 -1/2 -1/4",
+              "tip": "Back to the last whole. The target strategy."
+            },
+            {
+              "say": "90 − 45 = 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "1 1/2 - 3/4"
+            },
+            {
+              "say": "From 3/4 to 1 1/2 is 1/4 + 1/2 = 3/4.",
+              "tool": "numberline",
+              "type": "3/4 >1 >1 1/2",
+              "tip": "Adding up. Nice."
+            },
+            {
+              "say": "1 1/4",
+              "tool": "text",
+              "type": "1 1/2 - 3/4 = 1 1/4 ?",
+              "tip": "Subtracted the smaller fraction from the larger. Ask: can you take 3/4 from 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/4 - 1/3",
+          "a": "1 11/12",
+          "notes": "Look for: 2 1/4 − 1/4 = 2, then − 1/12 (5 minutes). Ask: \"How many minutes is each?\" Model: clock 2 1/4 - 1/3",
+          "responses": [
+            {
+              "say": "135 − 20 = 115 minutes: 1 hour 55 minutes, 1 11/12.",
+              "tool": "clock",
+              "type": "2 1/4 - 1/3"
+            },
+            {
+              "say": "Back 1/4 to 2, then back 1/12 more.",
+              "tool": "numberline",
+              "type": "2 1/4 -1/4 -1/12"
+            },
+            {
+              "say": "2 1/12",
+              "tool": "text",
+              "type": "2 1/4 - 1/3 = 2 1/12 ?",
+              "tip": "Ask: is 1/3 more or less than 1/4? So should the answer be less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - 1 2/3",
+          "a": "1 1/3",
+          "notes": "Look for: from 1 2/3 to 2 is 1/3, then 1 more. Ask: \"How far is it from 1 2/3 to 3?\" Model: numberline 1 2/3 >2 >3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1/3 gets to 2, then 1 more: 1 1/3.",
+              "tool": "numberline",
+              "type": "1 2/3 >2 >3"
+            },
+            {
+              "say": "180 − 100 = 80 minutes: 1 hour 20 minutes.",
+              "tool": "clock",
+              "type": "3 - 1 2/3"
+            },
+            {
+              "say": "2 2/3",
+              "tool": "text",
+              "type": "3 - 1 2/3 = 2 2/3 ?",
+              "tip": "Ask: is 1 2/3 closer to 1 or 2? So is the gap more or less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/6 - 3/4",
+          "a": "1 5/12",
+          "notes": "Look for: 130 − 45 = 85 minutes. Ask: \"Do you need to regroup?\" Model: clock 2 1/6 - 3/4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "130 − 45 = 85 minutes: 1 hour 25 minutes, 1 5/12.",
+              "tool": "clock",
+              "type": "2 1/6 - 3/4"
+            },
+            {
+              "say": "Back 1/6 to 2, then back 7/12.",
+              "tool": "numberline",
+              "type": "2 1/6 -1/6 -7/12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d5-benchmark-fractions",
+      "title": "Estimate with Benchmarks",
+      "label": "Day 5",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "numberline",
+      "strategy": "Compare each fraction to 0, 1/2 or 1 to estimate first, then find the exact answer and check it against the estimate.",
+      "keywords": "benchmark, about, more than half, close to 1, estimate, reasonable",
+      "connection": "Uses benchmarks to check answers, including eighths and fifths, which don't fit the clock as neatly. Curriculum: B1.3 (compare fractions), B2.5.",
+      "watchFor": [
+        "Adding numerators and denominators (1/2 + 3/8 = 4/10): ask \"Is 4/10 more or less than 1/2? Does that make sense?\"",
+        "Not estimating first: ask \"Is it more or less than 1? How do you know?\"",
+        "Thinking a bigger denominator means a bigger fraction: ask \"Which is bigger, 1/8 or 1/2?\""
+      ],
+      "wrapUp": "Ask \"How did 1/2 and 1 help you check?\" Land: estimate with benchmarks first. If the exact answer is far from the estimate, look again.",
+      "problems": [
+        {
+          "q": "1/2 + 1/2",
+          "a": "1",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline 0 +1/2 +1/2",
+          "responses": [
+            {
+              "say": "Two halves make a whole.",
+              "tool": "numberline",
+              "type": "0 +1/2 +1/2"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 3/8",
+          "a": "7/8",
+          "notes": "First ask: \"More or less than 1?\" (less: 3/8 is less than 1/2). Look for: 4/8 + 3/8 = 7/8. Model: numberline 0 +1/2 +3/8",
+          "responses": [
+            {
+              "say": "Less than 1, because 3/8 is less than 1/2. 4/8 + 3/8 = 7/8.",
+              "tool": "numberline",
+              "type": "0 +1/2 +3/8"
+            },
+            {
+              "say": "It's 1/8 less than 1/2 + 1/2.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 -1/8",
+              "tip": "Using the first problem. Great."
+            },
+            {
+              "say": "4/10",
+              "tool": "text",
+              "type": "1/2 + 3/8 = 4/10 ?",
+              "tip": "Ask: is 4/10 more or less than 1/2? Can the sum be less than one of the parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/8 + 1/2",
+          "a": "1 1/8",
+          "notes": "First ask: \"More or less than 1?\" (more: 5/8 is more than 1/2). Look for: 1/8 more than 1. Model: numberline 1/2 +1/2 +1/8",
+          "responses": [
+            {
+              "say": "More than 1, by 1/8: 1 1/8.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 +1/8"
+            },
+            {
+              "say": "5/8 + 3/8 = 1, then 1/8 more.",
+              "tool": "numberline",
+              "type": "5/8 +3/8 +1/8",
+              "tip": "Make the next whole."
+            },
+            {
+              "say": "6/10",
+              "tool": "text",
+              "type": "5/8 + 1/2 = 6/10 ?",
+              "tip": "Ask: is 6/10 more or less than 5/8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 1/2",
+          "a": "1 1/10",
+          "notes": "First ask: \"More or less than 1?\" (more: 3/5 is more than 1/2). Look for: 6/10 + 5/10 = 11/10. Model: numberline 1/2 +1/2 +1/10",
+          "responses": [
+            {
+              "say": "3/5 is 1/10 more than 1/2, so 1 and 1/10.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 +1/10"
+            },
+            {
+              "say": "6/10 + 5/10 = 11/10 = 1 1/10.",
+              "tool": "text",
+              "type": "6/10 + 5/10 = 11/10 ; = 1 1/10"
+            },
+            {
+              "say": "36 + 30 = 66 minutes: 1 1/10 hours.",
+              "tool": "clock",
+              "type": "3/5 + 1/2",
+              "tip": "Fifths fit the clock (12 minutes)."
+            },
+            {
+              "say": "4/7",
+              "tool": "text",
+              "type": "3/5 + 1/2 = 4/7 ?",
+              "tip": "Ask: is 4/7 more or less than 3/5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/8 + 3/4",
+          "a": "1 5/8",
+          "notes": "First ask: \"About how much?\" (about 1 + 3/4). Look for: 7/8 + 1/8 = 1, then 5/8 more. Model: numberline 7/8 +1/8 +5/8",
+          "responses": [
+            {
+              "say": "7/8 + 1/8 is 1, then 5/8 more: 1 5/8.",
+              "tool": "numberline",
+              "type": "7/8 +1/8 +5/8",
+              "tip": "Make the next whole."
+            },
+            {
+              "say": "7/8 + 6/8 = 13/8 = 1 5/8.",
+              "tool": "text",
+              "type": "3/4 = 6/8 ; 7/8 + 6/8 = 13/8 ; = 1 5/8"
+            },
+            {
+              "say": "10/12",
+              "tool": "text",
+              "type": "7/8 + 3/4 = 10/12 ?",
+              "tip": "Ask: both are close to 1. Can the sum be less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4/5 - 1/2",
+          "a": "3/10",
+          "notes": "First ask: \"About how much?\" (a bit more than 1/4). Look for: 8/10 − 5/10 = 3/10. Model: numberline 1/2 ~4/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From 1/2 to 4/5 is 3/10.",
+              "tool": "numberline",
+              "type": "1/2 ~4/5",
+              "tip": "Subtraction as distance."
+            },
+            {
+              "say": "48 − 30 = 18 minutes: 3/10.",
+              "tool": "clock",
+              "type": "4/5 - 1/2"
+            },
+            {
+              "say": "3/3",
+              "tool": "text",
+              "type": "4/5 - 1/2 = 3/3 ?",
+              "tip": "Ask: can 4/5 − 1/2 be a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "11/12 + 7/8",
+          "a": "1 19/24",
+          "notes": "First ask: \"About how much?\" (almost 2). Look for: 1 + 1 = 2, then back 1/12 and 1/8. Model: numberline 0 +1 +1 -1/12 -1/8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Almost 2: 2 − 1/12 − 1/8 = 1 19/24.",
+              "tool": "numberline",
+              "type": "0 +1 +1 -1/12 -1/8",
+              "tip": "Estimate, then adjust."
+            },
+            {
+              "say": "22/24 + 21/24 = 43/24 = 1 19/24.",
+              "tool": "text",
+              "type": "22/24 + 21/24 = 43/24 ; = 1 19/24"
+            },
+            {
+              "say": "18/20",
+              "tool": "text",
+              "type": "11/12 + 7/8 = 18/20 ?",
+              "tip": "Ask: both are almost 1. Can the sum be less than 1?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "w1-d1-adding-near-a-ten",
       "title": "Adding Near a Ten",
       "group": "Grade 8 · Week 1 · Additive Reasoning",

@@ -1,0 +1,922 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-w02-d1-fractions-on-the-clock",
+      "title": "Halves, Quarters and Thirds on the Clock",
+      "label": "Day 1",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Think of fractions as parts of an hour: change each fraction to minutes, add the minutes, then change back.",
+      "keywords": "fraction of an hour, minutes, common unit, unlike denominators",
+      "connection": "Students know 1/2 hour = 30 min and 1/4 hour = 15 min. Minutes are a common unit, so unlike denominators can be added. Curriculum: B2.5 (unlike denominators).",
+      "watchFor": [
+        "Adding numerators and denominators (1/2 + 1/4 = 2/6): ask \"Is 2/6 more or less than 1/2? Can the sum be smaller than one of the parts?\"",
+        "Mixing up minutes and the fraction (35 minutes = 35/100): ask \"How many minutes in a whole hour?\"",
+        "Answers over 1 written as improper only: accept, then ask \"How many whole hours is that?\""
+      ],
+      "wrapUp": "Ask \"Why did minutes make these easy?\" Land: minutes are a common unit (sixtieths). To add unlike fractions, change them to the same unit first.",
+      "problems": [
+        {
+          "q": "1/2 + 1/4",
+          "a": "3/4",
+          "notes": "Look for: 30 + 15 = 45 minutes, 3/4 of an hour. Ask: \"How many minutes is each?\" Model: clock 1/2 + 1/4",
+          "responses": [
+            {
+              "say": "30 minutes and 15 minutes is 45 minutes, that's 3/4.",
+              "tool": "clock",
+              "type": "1/2 + 1/4",
+              "tip": "The target model."
+            },
+            {
+              "say": "1/2 is 2/4, plus 1/4 is 3/4.",
+              "tool": "numberline",
+              "type": "0 +1/2 +1/4"
+            },
+            {
+              "say": "2/6",
+              "tool": "text",
+              "type": "1/2 + 1/4 = 2/6 ?",
+              "tip": "Added tops and bottoms. Ask: is 2/6 more or less than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/4 + 1/3",
+          "a": "7/12",
+          "notes": "Look for: 15 + 20 = 35 minutes. Ask: \"What fraction of an hour is 35 minutes?\" Word choice: \"35 out of 60 minutes, that's 7/12.\" Model: clock 1/4 + 1/3",
+          "responses": [
+            {
+              "say": "15 + 20 is 35 minutes. 35/60 = 7/12.",
+              "tool": "clock",
+              "type": "1/4 + 1/3",
+              "tip": "Ask: how do you know 35 minutes is 7/12?"
+            },
+            {
+              "say": "3/12 + 4/12 = 7/12.",
+              "tool": "text",
+              "type": "1/4 = 3/12 ; 1/3 = 4/12 ; 3/12 + 4/12 = 7/12",
+              "tip": "Twelfths: 5-minute chunks. Connect."
+            },
+            {
+              "say": "2/7",
+              "tool": "text",
+              "type": "1/4 + 1/3 = 2/7 ?",
+              "tip": "Ask: is 2/7 more or less than 1/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 1/3",
+          "a": "5/6",
+          "notes": "Look for: 30 + 20 = 50 minutes. Ask: \"How far from a whole hour?\" Model: clock 1/2 + 1/3",
+          "responses": [
+            {
+              "say": "50 minutes, that's 5/6 of an hour.",
+              "tool": "clock",
+              "type": "1/2 + 1/3"
+            },
+            {
+              "say": "3/6 + 2/6 = 5/6.",
+              "tool": "text",
+              "type": "1/2 = 3/6 ; 1/3 = 2/6 ; 3/6 + 2/6 = 5/6"
+            },
+            {
+              "say": "2/5",
+              "tool": "text",
+              "type": "1/2 + 1/3 = 2/5 ?",
+              "tip": "Ask: is 2/5 more or less than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 + 1/4",
+          "a": "11/12",
+          "notes": "Look for: 40 + 15 = 55 minutes. Ask: \"Is it more or less than an hour?\" Model: clock 2/3 + 1/4",
+          "responses": [
+            {
+              "say": "40 + 15 is 55 minutes: 11/12.",
+              "tool": "clock",
+              "type": "2/3 + 1/4"
+            },
+            {
+              "say": "8/12 + 3/12 = 11/12.",
+              "tool": "text",
+              "type": "8/12 + 3/12 = 11/12"
+            },
+            {
+              "say": "3/7",
+              "tool": "text",
+              "type": "2/3 + 1/4 = 3/7 ?",
+              "tip": "Ask: is 3/7 more or less than 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 + 1/2",
+          "a": "1 1/4",
+          "notes": "Look for: 45 + 30 = 75 minutes, 1 hour and 15 minutes. Ask: \"What happens when we pass the hour?\" Model: clock 3/4 + 1/2",
+          "responses": [
+            {
+              "say": "75 minutes is 1 hour 15 minutes: 1 1/4.",
+              "tool": "clock",
+              "type": "3/4 + 1/2"
+            },
+            {
+              "say": "3/4 + 1/4 makes 1, then 1/4 more.",
+              "tool": "numberline",
+              "type": "3/4 +1/4 +1/4",
+              "tip": "Make the next whole, like with decimals."
+            },
+            {
+              "say": "4/6",
+              "tool": "text",
+              "type": "3/4 + 1/2 = 4/6 ?",
+              "tip": "Ask: 3/4 is already most of an hour. Can adding 1/2 give less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 + 1/2",
+          "a": "1 1/6",
+          "notes": "Look for: 40 + 30 = 70 minutes. Ask: \"How much past the hour?\" Model: clock 2/3 + 1/2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "70 minutes is 1 hour 10 minutes: 1 1/6.",
+              "tool": "clock",
+              "type": "2/3 + 1/2"
+            },
+            {
+              "say": "2/3 + 1/3 = 1, then 1/6 more.",
+              "tool": "numberline",
+              "type": "2/3 +1/3 +1/6"
+            },
+            {
+              "say": "7/6",
+              "tool": "clock",
+              "type": "2/3 + 1/2",
+              "tip": "Correct! Ask: how many whole hours in 7/6?"
+            }
+          ]
+        },
+        {
+          "q": "3/4 + 2/3",
+          "a": "1 5/12",
+          "notes": "Look for: 45 + 40 = 85 minutes. Ask: \"How many minutes past the hour?\" Model: clock 3/4 + 2/3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "85 minutes is 1 hour 25 minutes: 1 5/12.",
+              "tool": "clock",
+              "type": "3/4 + 2/3"
+            },
+            {
+              "say": "9/12 + 8/12 = 17/12 = 1 5/12.",
+              "tool": "text",
+              "type": "9/12 + 8/12 = 17/12 ; = 1 5/12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d2-sixths-and-twelfths",
+      "title": "Sixths and Twelfths",
+      "label": "Day 2",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Sixths are 10 minutes and twelfths are 5 minutes; use minutes (or twelfths) as the common unit.",
+      "keywords": "sixths, twelfths, fifths, minutes, common denominator, equivalent fractions",
+      "connection": "Day 1 used halves, quarters and thirds. Today: smaller parts. Notice that twelfths are 5-minute chunks, so they work like a common denominator. Curriculum: B2.5.",
+      "watchFor": [
+        "Adding numerators and denominators (1/6 + 1/3 = 2/9): ask \"Is 2/9 more or less than 1/3?\"",
+        "Not simplifying (30/60, 6/12) and thinking it's a different number: ask \"Is 30 minutes the same as half an hour?\"",
+        "Wrong minutes for a sixth (1/6 = 6 minutes): ask \"How many sixths in an hour? So how many minutes each?\""
+      ],
+      "wrapUp": "Ask \"How are minutes like a common denominator?\" Land: change each fraction to the same unit (minutes, sixtieths, or twelfths), add, then simplify.",
+      "problems": [
+        {
+          "q": "1/6 + 1/3",
+          "a": "1/2",
+          "notes": "Look for: 10 + 20 = 30 minutes. Ask: \"How many minutes is a sixth?\" Model: clock 1/6 + 1/3",
+          "responses": [
+            {
+              "say": "10 + 20 is 30 minutes, half an hour.",
+              "tool": "clock",
+              "type": "1/6 + 1/3"
+            },
+            {
+              "say": "1/6 + 2/6 = 3/6 = 1/2.",
+              "tool": "text",
+              "type": "1/6 + 2/6 = 3/6 ; = 1/2"
+            },
+            {
+              "say": "2/9",
+              "tool": "text",
+              "type": "1/6 + 1/3 = 2/9 ?",
+              "tip": "Ask: is 2/9 more or less than 1/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/6 + 1/4",
+          "a": "5/12",
+          "notes": "Look for: 10 + 15 = 25 minutes. Ask: \"What fraction is 25 minutes?\" Model: clock 1/6 + 1/4",
+          "responses": [
+            {
+              "say": "25 minutes is 5 five-minute chunks: 5/12.",
+              "tool": "clock",
+              "type": "1/6 + 1/4"
+            },
+            {
+              "say": "2/12 + 3/12 = 5/12.",
+              "tool": "text",
+              "type": "1/6 = 2/12 ; 1/4 = 3/12 ; 2/12 + 3/12 = 5/12"
+            },
+            {
+              "say": "2/10",
+              "tool": "text",
+              "type": "1/6 + 1/4 = 2/10 ?",
+              "tip": "Ask: is 2/10 more or less than 1/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 + 1/12",
+          "a": "11/12",
+          "notes": "Look for: 50 + 5 = 55 minutes. Ask: \"How many minutes is a twelfth?\" Model: clock 5/6 + 1/12",
+          "responses": [
+            {
+              "say": "50 + 5 = 55 minutes: 11/12.",
+              "tool": "clock",
+              "type": "5/6 + 1/12"
+            },
+            {
+              "say": "10/12 + 1/12 = 11/12.",
+              "tool": "text",
+              "type": "5/6 = 10/12 ; 10/12 + 1/12 = 11/12"
+            },
+            {
+              "say": "6/18",
+              "tool": "text",
+              "type": "5/6 + 1/12 = 6/18 ?",
+              "tip": "Ask: is 6/18 more or less than 5/6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/12 + 1/3",
+          "a": "3/4",
+          "notes": "Look for: 25 + 20 = 45 minutes. Ask: \"Where have we seen 45 minutes?\" Model: clock 5/12 + 1/3",
+          "responses": [
+            {
+              "say": "25 + 20 is 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "5/12 + 1/3"
+            },
+            {
+              "say": "5/12 + 4/12 = 9/12 = 3/4.",
+              "tool": "text",
+              "type": "5/12 + 4/12 = 9/12 ; = 3/4"
+            },
+            {
+              "say": "9/12",
+              "tool": "text",
+              "type": "5/12 + 4/12 = 9/12",
+              "tip": "Correct! Ask: is there a simpler name for 9/12?"
+            }
+          ]
+        },
+        {
+          "q": "5/6 + 1/4",
+          "a": "1 1/12",
+          "notes": "Look for: 50 + 15 = 65 minutes. Ask: \"How far past the hour?\" Model: clock 5/6 + 1/4",
+          "responses": [
+            {
+              "say": "65 minutes is 1 hour 5 minutes: 1 1/12.",
+              "tool": "clock",
+              "type": "5/6 + 1/4"
+            },
+            {
+              "say": "10/12 + 3/12 = 13/12 = 1 1/12.",
+              "tool": "text",
+              "type": "10/12 + 3/12 = 13/12 ; = 1 1/12"
+            },
+            {
+              "say": "6/10",
+              "tool": "text",
+              "type": "5/6 + 1/4 = 6/10 ?",
+              "tip": "Ask: 5/6 is almost an hour. Can adding 1/4 give less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/12 + 5/6",
+          "a": "1 5/12",
+          "notes": "Look for: 35 + 50 = 85 minutes. Ask: \"How many minutes past the hour?\" Model: clock 7/12 + 5/6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "85 minutes: 1 hour 25 minutes, 1 5/12.",
+              "tool": "clock",
+              "type": "7/12 + 5/6"
+            },
+            {
+              "say": "7/12 + 10/12 = 17/12 = 1 5/12.",
+              "tool": "text",
+              "type": "7/12 + 10/12 = 17/12 ; = 1 5/12"
+            }
+          ]
+        },
+        {
+          "q": "1/5 + 1/6",
+          "a": "11/30",
+          "notes": "Look for: 12 + 10 = 22 minutes. Ask: \"What fraction of 60 is 22?\" Model: clock 1/5 + 1/6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 + 10 is 22 minutes: 22/60 = 11/30.",
+              "tool": "clock",
+              "type": "1/5 + 1/6"
+            },
+            {
+              "say": "6/30 + 5/30 = 11/30.",
+              "tool": "text",
+              "type": "1/5 = 6/30 ; 1/6 = 5/30 ; 6/30 + 5/30 = 11/30",
+              "tip": "Thirtieths are 2-minute chunks."
+            },
+            {
+              "say": "2/11",
+              "tool": "text",
+              "type": "1/5 + 1/6 = 2/11 ?",
+              "tip": "Ask: is 2/11 more or less than 1/5?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d3-subtracting-on-the-clock",
+      "title": "Subtracting on the Clock",
+      "label": "Day 3",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Change both fractions to minutes, find the difference, then change back to a fraction of an hour.",
+      "keywords": "difference, take away, how much more, minutes, common unit",
+      "connection": "Days 1 and 2 added. The same common unit works for subtraction. Curriculum: B2.5.",
+      "watchFor": [
+        "Subtracting numerators and denominators (3/4 − 1/3 = 2/1): ask \"Can the answer be bigger than 3/4?\"",
+        "Subtracting in the wrong order with minutes (20 − 45): ask \"Which is more time, 3/4 or 1/3 of an hour?\"",
+        "Not seeing the same difference (3/4 − 1/3 and 2/3 − 1/4 are both 25 minutes): ask \"Why are these the same?\""
+      ],
+      "wrapUp": "Ask \"How is subtracting fractions like adding them?\" Land: same unit first (minutes or twelfths), then subtract. The clock shows how much time is left.",
+      "problems": [
+        {
+          "q": "1 - 1/4",
+          "a": "3/4",
+          "notes": "Look for: 60 − 15 = 45 minutes. Ask: \"Hold on to this.\" Model: clock 1 - 1/4",
+          "responses": [
+            {
+              "say": "An hour minus 15 minutes is 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "1 - 1/4"
+            },
+            {
+              "say": "4/4 − 1/4 = 3/4.",
+              "tool": "numberline",
+              "type": "1 -1/4"
+            }
+          ]
+        },
+        {
+          "q": "3/4 - 1/2",
+          "a": "1/4",
+          "notes": "Look for: 45 − 30 = 15 minutes. Ask: \"How much more is 3/4 than 1/2?\" Model: clock 3/4 - 1/2",
+          "responses": [
+            {
+              "say": "45 − 30 is 15 minutes: 1/4.",
+              "tool": "clock",
+              "type": "3/4 - 1/2"
+            },
+            {
+              "say": "From 1/2 to 3/4 is 1/4.",
+              "tool": "numberline",
+              "type": "1/2 ~3/4",
+              "tip": "Subtraction as distance."
+            },
+            {
+              "say": "2/2",
+              "tool": "text",
+              "type": "3/4 - 1/2 = 2/2 ?",
+              "tip": "Subtracted tops and bottoms. Ask: can 3/4 − 1/2 be a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 - 1/3",
+          "a": "5/12",
+          "notes": "Look for: 45 − 20 = 25 minutes. Ask: \"How many minutes is each?\" Model: clock 3/4 - 1/3",
+          "responses": [
+            {
+              "say": "45 − 20 = 25 minutes: 5/12.",
+              "tool": "clock",
+              "type": "3/4 - 1/3"
+            },
+            {
+              "say": "9/12 − 4/12 = 5/12.",
+              "tool": "text",
+              "type": "3/4 = 9/12 ; 1/3 = 4/12 ; 9/12 - 4/12 = 5/12"
+            },
+            {
+              "say": "2/1",
+              "tool": "text",
+              "type": "3/4 - 1/3 = 2/1 ?",
+              "tip": "Ask: can the answer be bigger than 3/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 - 1/4",
+          "a": "5/12",
+          "notes": "Look for: 40 − 15 = 25 minutes. Ask: \"Why is it the same as the last one?\" Model: clock 2/3 - 1/4",
+          "responses": [
+            {
+              "say": "40 − 15 = 25 minutes: 5/12 again!",
+              "tool": "clock",
+              "type": "2/3 - 1/4",
+              "tip": "Ask: why the same answer? (both fractions moved 5 minutes)"
+            },
+            {
+              "say": "8/12 − 3/12 = 5/12.",
+              "tool": "text",
+              "type": "8/12 - 3/12 = 5/12"
+            },
+            {
+              "say": "1/1",
+              "tool": "text",
+              "type": "2/3 - 1/4 = 1/1 ?",
+              "tip": "Ask: can the answer be more than 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 - 1/4",
+          "a": "7/12",
+          "notes": "Look for: 50 − 15 = 35 minutes. Ask: \"Which fraction is more time?\" Model: clock 5/6 - 1/4",
+          "responses": [
+            {
+              "say": "50 − 15 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "5/6 - 1/4"
+            },
+            {
+              "say": "10/12 − 3/12 = 7/12.",
+              "tool": "text",
+              "type": "10/12 - 3/12 = 7/12"
+            },
+            {
+              "say": "4/2",
+              "tool": "text",
+              "type": "5/6 - 1/4 = 4/2 ?",
+              "tip": "Ask: is 4/2 more or less than 5/6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 - 5/12",
+          "a": "7/12",
+          "notes": "Look for: 60 − 25 = 35 minutes. Ask: \"How much is left in the hour?\" Model: clock 1 - 5/12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "60 − 25 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "1 - 5/12"
+            },
+            {
+              "say": "12/12 − 5/12 = 7/12.",
+              "tool": "numberline",
+              "type": "5/12 ~1"
+            }
+          ]
+        },
+        {
+          "q": "1/2 - 1/5",
+          "a": "3/10",
+          "notes": "Look for: 30 − 12 = 18 minutes. Ask: \"What fraction of an hour is 18 minutes?\" Model: clock 1/2 - 1/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 − 12 = 18 minutes: 18/60 = 3/10.",
+              "tool": "clock",
+              "type": "1/2 - 1/5"
+            },
+            {
+              "say": "5/10 − 2/10 = 3/10.",
+              "tool": "text",
+              "type": "1/2 = 5/10 ; 1/5 = 2/10 ; 5/10 - 2/10 = 3/10",
+              "tip": "Tenths are 6-minute chunks."
+            },
+            {
+              "say": "0/3",
+              "tool": "text",
+              "type": "1/2 - 1/5 = 0/3 ?",
+              "tip": "Ask: is half an hour the same as a fifth of an hour?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d4-mixed-numbers",
+      "title": "Mixed Numbers",
+      "label": "Day 4",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "clock",
+      "strategy": "Work with whole hours and minutes: add or subtract the wholes and the parts, and regroup an hour as 60 minutes when needed.",
+      "keywords": "mixed number, whole and part, regroup, hours and minutes, make a whole",
+      "connection": "Days 1 to 3 stayed within an hour or just past. Today we use several hours and regroup. Like decimals in Grade 5: make the next whole. Curriculum: B2.5.",
+      "watchFor": [
+        "Subtracting the smaller fraction from the larger (1 1/2 − 3/4 = 1 1/4): ask \"Can you take 3/4 from 1/2? What could you do?\"",
+        "Forgetting to regroup past the hour (1 1/2 + 3/4 = 1 5/4): accept, then ask \"How many whole hours is 5/4?\"",
+        "Losing the whole numbers: ask \"Where are the whole hours?\""
+      ],
+      "wrapUp": "Ask \"When did you need to regroup an hour?\" Land: add or subtract wholes and parts; jump to the next whole (or back to the last one) to regroup.",
+      "problems": [
+        {
+          "q": "1 1/2 + 1/2",
+          "a": "2",
+          "notes": "Look for: two halves make a whole. Ask: \"Hold on to this.\" Model: numberline 1 1/2 +1/2",
+          "responses": [
+            {
+              "say": "1/2 and 1/2 make 1, so 2.",
+              "tool": "numberline",
+              "type": "1 1/2 +1/2"
+            },
+            {
+              "say": "90 + 30 = 120 minutes, 2 hours.",
+              "tool": "clock",
+              "type": "1 1/2 + 1/2"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 + 3/4",
+          "a": "2 1/4",
+          "notes": "Look for: 1 1/2 + 1/2 = 2, then 1/4 more. Ask: \"How did the last one help?\" Model: numberline 1 1/2 +1/2 +1/4",
+          "responses": [
+            {
+              "say": "1 1/2 + 1/2 is 2, then 1/4 more: 2 1/4.",
+              "tool": "numberline",
+              "type": "1 1/2 +1/2 +1/4",
+              "tip": "Make the next whole. The target strategy."
+            },
+            {
+              "say": "90 + 45 = 135 minutes: 2 hours 15 minutes.",
+              "tool": "clock",
+              "type": "1 1/2 + 3/4"
+            },
+            {
+              "say": "1 5/4",
+              "tool": "text",
+              "type": "1 + 2/4 + 3/4 = 1 5/4",
+              "tip": "Correct but not regrouped. Ask: how many wholes in 5/4?"
+            },
+            {
+              "say": "1 4/6",
+              "tool": "text",
+              "type": "1 1/2 + 3/4 = 1 4/6 ?",
+              "tip": "Added tops and bottoms. Ask: is the answer more or less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/3 + 1 1/2",
+          "a": "3 5/6",
+          "notes": "Look for: 2 + 1 = 3, and 1/3 + 1/2 = 5/6 (20 + 30 minutes). Ask: \"Wholes first, then parts?\" Model: numberline 2 1/3 +1 +1/2",
+          "responses": [
+            {
+              "say": "3 hours, and 20 + 30 = 50 minutes: 3 5/6.",
+              "tool": "clock",
+              "type": "2 1/3 + 1 1/2"
+            },
+            {
+              "say": "2 1/3 + 1 = 3 1/3, then + 1/2 = 3 5/6.",
+              "tool": "numberline",
+              "type": "2 1/3 +1 +1/2"
+            },
+            {
+              "say": "3 2/5",
+              "tool": "text",
+              "type": "2 1/3 + 1 1/2 = 3 2/5 ?",
+              "tip": "Ask: is 2/5 more or less than 1/2? So is 3 2/5 too small?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 - 3/4",
+          "a": "3/4",
+          "notes": "Look for: 1 1/2 − 1/2 = 1, then − 1/4. Ask: \"Can you take 3/4 from 1/2?\" Model: numberline 1 1/2 -1/2 -1/4",
+          "responses": [
+            {
+              "say": "Back 1/2 to 1, then back 1/4 more: 3/4.",
+              "tool": "numberline",
+              "type": "1 1/2 -1/2 -1/4",
+              "tip": "Back to the last whole. The target strategy."
+            },
+            {
+              "say": "90 − 45 = 45 minutes: 3/4.",
+              "tool": "clock",
+              "type": "1 1/2 - 3/4"
+            },
+            {
+              "say": "From 3/4 to 1 1/2 is 1/4 + 1/2 = 3/4.",
+              "tool": "numberline",
+              "type": "3/4 >1 >1 1/2",
+              "tip": "Adding up. Nice."
+            },
+            {
+              "say": "1 1/4",
+              "tool": "text",
+              "type": "1 1/2 - 3/4 = 1 1/4 ?",
+              "tip": "Subtracted the smaller fraction from the larger. Ask: can you take 3/4 from 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/4 - 1/3",
+          "a": "1 11/12",
+          "notes": "Look for: 2 1/4 − 1/4 = 2, then − 1/12 (5 minutes). Ask: \"How many minutes is each?\" Model: clock 2 1/4 - 1/3",
+          "responses": [
+            {
+              "say": "135 − 20 = 115 minutes: 1 hour 55 minutes, 1 11/12.",
+              "tool": "clock",
+              "type": "2 1/4 - 1/3"
+            },
+            {
+              "say": "Back 1/4 to 2, then back 1/12 more.",
+              "tool": "numberline",
+              "type": "2 1/4 -1/4 -1/12"
+            },
+            {
+              "say": "2 1/12",
+              "tool": "text",
+              "type": "2 1/4 - 1/3 = 2 1/12 ?",
+              "tip": "Ask: is 1/3 more or less than 1/4? So should the answer be less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - 1 2/3",
+          "a": "1 1/3",
+          "notes": "Look for: from 1 2/3 to 2 is 1/3, then 1 more. Ask: \"How far is it from 1 2/3 to 3?\" Model: numberline 1 2/3 >2 >3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1/3 gets to 2, then 1 more: 1 1/3.",
+              "tool": "numberline",
+              "type": "1 2/3 >2 >3"
+            },
+            {
+              "say": "180 − 100 = 80 minutes: 1 hour 20 minutes.",
+              "tool": "clock",
+              "type": "3 - 1 2/3"
+            },
+            {
+              "say": "2 2/3",
+              "tool": "text",
+              "type": "3 - 1 2/3 = 2 2/3 ?",
+              "tip": "Ask: is 1 2/3 closer to 1 or 2? So is the gap more or less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/6 - 3/4",
+          "a": "1 5/12",
+          "notes": "Look for: 130 − 45 = 85 minutes. Ask: \"Do you need to regroup?\" Model: clock 2 1/6 - 3/4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "130 − 45 = 85 minutes: 1 hour 25 minutes, 1 5/12.",
+              "tool": "clock",
+              "type": "2 1/6 - 3/4"
+            },
+            {
+              "say": "Back 1/6 to 2, then back 7/12.",
+              "tool": "numberline",
+              "type": "2 1/6 -1/6 -7/12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-w02-d5-benchmark-fractions",
+      "title": "Estimate with Benchmarks",
+      "label": "Day 5",
+      "group": "Grade 6 · Week 2 · Adding and Subtracting Fractions",
+      "tool": "numberline",
+      "strategy": "Compare each fraction to 0, 1/2 or 1 to estimate first, then find the exact answer and check it against the estimate.",
+      "keywords": "benchmark, about, more than half, close to 1, estimate, reasonable",
+      "connection": "Uses benchmarks to check answers, including eighths and fifths, which don't fit the clock as neatly. Curriculum: B1.3 (compare fractions), B2.5.",
+      "watchFor": [
+        "Adding numerators and denominators (1/2 + 3/8 = 4/10): ask \"Is 4/10 more or less than 1/2? Does that make sense?\"",
+        "Not estimating first: ask \"Is it more or less than 1? How do you know?\"",
+        "Thinking a bigger denominator means a bigger fraction: ask \"Which is bigger, 1/8 or 1/2?\""
+      ],
+      "wrapUp": "Ask \"How did 1/2 and 1 help you check?\" Land: estimate with benchmarks first. If the exact answer is far from the estimate, look again.",
+      "problems": [
+        {
+          "q": "1/2 + 1/2",
+          "a": "1",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline 0 +1/2 +1/2",
+          "responses": [
+            {
+              "say": "Two halves make a whole.",
+              "tool": "numberline",
+              "type": "0 +1/2 +1/2"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 3/8",
+          "a": "7/8",
+          "notes": "First ask: \"More or less than 1?\" (less: 3/8 is less than 1/2). Look for: 4/8 + 3/8 = 7/8. Model: numberline 0 +1/2 +3/8",
+          "responses": [
+            {
+              "say": "Less than 1, because 3/8 is less than 1/2. 4/8 + 3/8 = 7/8.",
+              "tool": "numberline",
+              "type": "0 +1/2 +3/8"
+            },
+            {
+              "say": "It's 1/8 less than 1/2 + 1/2.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 -1/8",
+              "tip": "Using the first problem. Great."
+            },
+            {
+              "say": "4/10",
+              "tool": "text",
+              "type": "1/2 + 3/8 = 4/10 ?",
+              "tip": "Ask: is 4/10 more or less than 1/2? Can the sum be less than one of the parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/8 + 1/2",
+          "a": "1 1/8",
+          "notes": "First ask: \"More or less than 1?\" (more: 5/8 is more than 1/2). Look for: 1/8 more than 1. Model: numberline 1/2 +1/2 +1/8",
+          "responses": [
+            {
+              "say": "More than 1, by 1/8: 1 1/8.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 +1/8"
+            },
+            {
+              "say": "5/8 + 3/8 = 1, then 1/8 more.",
+              "tool": "numberline",
+              "type": "5/8 +3/8 +1/8",
+              "tip": "Make the next whole."
+            },
+            {
+              "say": "6/10",
+              "tool": "text",
+              "type": "5/8 + 1/2 = 6/10 ?",
+              "tip": "Ask: is 6/10 more or less than 5/8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 1/2",
+          "a": "1 1/10",
+          "notes": "First ask: \"More or less than 1?\" (more: 3/5 is more than 1/2). Look for: 6/10 + 5/10 = 11/10. Model: numberline 1/2 +1/2 +1/10",
+          "responses": [
+            {
+              "say": "3/5 is 1/10 more than 1/2, so 1 and 1/10.",
+              "tool": "numberline",
+              "type": "1/2 +1/2 +1/10"
+            },
+            {
+              "say": "6/10 + 5/10 = 11/10 = 1 1/10.",
+              "tool": "text",
+              "type": "6/10 + 5/10 = 11/10 ; = 1 1/10"
+            },
+            {
+              "say": "36 + 30 = 66 minutes: 1 1/10 hours.",
+              "tool": "clock",
+              "type": "3/5 + 1/2",
+              "tip": "Fifths fit the clock (12 minutes)."
+            },
+            {
+              "say": "4/7",
+              "tool": "text",
+              "type": "3/5 + 1/2 = 4/7 ?",
+              "tip": "Ask: is 4/7 more or less than 3/5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/8 + 3/4",
+          "a": "1 5/8",
+          "notes": "First ask: \"About how much?\" (about 1 + 3/4). Look for: 7/8 + 1/8 = 1, then 5/8 more. Model: numberline 7/8 +1/8 +5/8",
+          "responses": [
+            {
+              "say": "7/8 + 1/8 is 1, then 5/8 more: 1 5/8.",
+              "tool": "numberline",
+              "type": "7/8 +1/8 +5/8",
+              "tip": "Make the next whole."
+            },
+            {
+              "say": "7/8 + 6/8 = 13/8 = 1 5/8.",
+              "tool": "text",
+              "type": "3/4 = 6/8 ; 7/8 + 6/8 = 13/8 ; = 1 5/8"
+            },
+            {
+              "say": "10/12",
+              "tool": "text",
+              "type": "7/8 + 3/4 = 10/12 ?",
+              "tip": "Ask: both are close to 1. Can the sum be less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4/5 - 1/2",
+          "a": "3/10",
+          "notes": "First ask: \"About how much?\" (a bit more than 1/4). Look for: 8/10 − 5/10 = 3/10. Model: numberline 1/2 ~4/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From 1/2 to 4/5 is 3/10.",
+              "tool": "numberline",
+              "type": "1/2 ~4/5",
+              "tip": "Subtraction as distance."
+            },
+            {
+              "say": "48 − 30 = 18 minutes: 3/10.",
+              "tool": "clock",
+              "type": "4/5 - 1/2"
+            },
+            {
+              "say": "3/3",
+              "tool": "text",
+              "type": "4/5 - 1/2 = 3/3 ?",
+              "tip": "Ask: can 4/5 − 1/2 be a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "11/12 + 7/8",
+          "a": "1 19/24",
+          "notes": "First ask: \"About how much?\" (almost 2). Look for: 1 + 1 = 2, then back 1/12 and 1/8. Model: numberline 0 +1 +1 -1/12 -1/8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Almost 2: 2 − 1/12 − 1/8 = 1 19/24.",
+              "tool": "numberline",
+              "type": "0 +1 +1 -1/12 -1/8",
+              "tip": "Estimate, then adjust."
+            },
+            {
+              "say": "22/24 + 21/24 = 43/24 = 1 19/24.",
+              "tool": "text",
+              "type": "22/24 + 21/24 = 43/24 ; = 1 19/24"
+            },
+            {
+              "say": "18/20",
+              "tool": "text",
+              "type": "11/12 + 7/8 = 18/20 ?",
+              "tip": "Ask: both are almost 1. Can the sum be less than 1?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
