@@ -1,0 +1,879 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-w02-d1-split-a-factor",
+      "title": "Split a Factor",
+      "label": "Day 1",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "Split one factor into friendly parts (like 10 and 2), multiply each part, then add the products.",
+      "keywords": "split, partial products, distributive property, ten and some more",
+      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact. Curriculum: B2.1 (distributive property), B2.2 (facts to 12 × 12).",
+      "watchFor": [
+        "Splitting both factors and multiplying only matching parts (12 × 7 as 10 × 7 + 2 = 72): ask \"Did every part of 12 get multiplied by 7?\"",
+        "Adding instead of multiplying a part (12 × 7 = 70 + 2 + 7): draw the area model and ask \"What is the area of the small piece?\"",
+        "Skip counting from 0 every time: accept it, then ask \"Is there a fact you already know that's close?\""
+      ],
+      "wrapUp": "Ask \"How did 10 × and 2 × help you with 12 ×?\" Land: split a factor into friendly parts, multiply each part, and add. The area model shows every piece.",
+      "problems": [
+        {
+          "q": "10 x 7",
+          "a": "70",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: array 7 x 10",
+          "responses": [
+            {
+              "say": "Ten sevens is 70.",
+              "tool": "array",
+              "type": "7 x 10"
+            },
+            {
+              "say": "7 tens is 70.",
+              "tool": "ratio",
+              "type": "1:7, 10:70"
+            }
+          ]
+        },
+        {
+          "q": "2 x 7",
+          "a": "14",
+          "notes": "Look for: a double. Ask: \"Hold on to this one too.\" Model: array 7 x 2",
+          "responses": [
+            {
+              "say": "Double 7 is 14.",
+              "tool": "array",
+              "type": "7 x 2"
+            },
+            {
+              "say": "7 + 7 = 14.",
+              "tool": "text",
+              "type": "2 x 7 = 7 + 7 = 14"
+            }
+          ]
+        },
+        {
+          "q": "12 x 7",
+          "a": "84",
+          "notes": "Look for: 10 × 7 + 2 × 7 = 70 + 14. Ask: \"How did the first two help?\" Word choice: \"I split 12 into 10 and 2.\" Model: area 10+2 x 7",
+          "responses": [
+            {
+              "say": "10 sevens is 70 and 2 sevens is 14, so 84.",
+              "tool": "area",
+              "type": "10+2 x 7",
+              "tip": "The target strategy. Ask: where are the 70 and the 14?"
+            },
+            {
+              "say": "I see it in the dots: a 10 part and a 2 part.",
+              "tool": "array",
+              "type": "7 x 10+2"
+            },
+            {
+              "say": "11 × 7 is 77, plus 7 more is 84.",
+              "tool": "text",
+              "type": "11 x 7 = 77 ; 12 x 7 = 77 + 7 = 84",
+              "tip": "Using a known fact. Accept it."
+            },
+            {
+              "say": "72",
+              "tool": "text",
+              "type": "12 x 7 = 10 x 7 + 2 = 72 ?",
+              "tip": "Only multiplied the 10. Ask: did every part of 12 get multiplied by 7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 8",
+          "a": "96",
+          "notes": "Look for: 10 × 8 + 2 × 8 = 80 + 16. Ask: \"Can you split it the same way?\" Model: area 10+2 x 8",
+          "responses": [
+            {
+              "say": "80 and 16 is 96.",
+              "tool": "area",
+              "type": "10+2 x 8"
+            },
+            {
+              "say": "Double 12 three times: 24, 48, 96.",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48, 8:96",
+              "tip": "Doubling. Name it: × 8 is double, double, double."
+            },
+            {
+              "say": "90",
+              "tool": "text",
+              "type": "12 x 8 = 10 x 8 + 10 = 90 ?",
+              "tip": "Ask: what is 2 × 8? Where is that piece in the area model?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "11 x 9",
+          "a": "99",
+          "notes": "Look for: 10 × 9 + 1 × 9 = 90 + 9. Ask: \"What friendly split works here?\" Model: area 10+1 x 9",
+          "responses": [
+            {
+              "say": "10 nines and 1 more nine: 99.",
+              "tool": "area",
+              "type": "10+1 x 9"
+            },
+            {
+              "say": "11 × 10 is 110, take away 11 is 99.",
+              "tool": "area",
+              "type": "11 x 10-1",
+              "tip": "Over and back. We'll do more on Day 3."
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "11 x 9 = 10 x 10 = 100 ?",
+              "tip": "Ask: is 11 × 9 the same as 10 × 10? Draw both.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 12",
+          "a": "144",
+          "notes": "Look for: 10 × 12 + 2 × 12 = 120 + 24. Ask: \"Which factor did you split?\" Model: area 10+2 x 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 twelves is 120, 2 twelves is 24: 144.",
+              "tool": "area",
+              "type": "10+2 x 12"
+            },
+            {
+              "say": "Split both: 100 + 20 + 20 + 4.",
+              "tool": "area",
+              "type": "10+2 x 10+2",
+              "tip": "Four parts. Ask: why are there four pieces?"
+            },
+            {
+              "say": "104",
+              "tool": "text",
+              "type": "12 x 12 = 10 x 10 + 2 x 2 = 104 ?",
+              "tip": "Missed two pieces. Draw the area model and ask: what is in the other two boxes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 15",
+          "a": "180",
+          "notes": "Look for: 10 × 15 + 2 × 15 = 150 + 30. Ask: \"Does splitting still work with bigger numbers?\" Model: area 10+2 x 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "150 + 30 = 180.",
+              "tool": "area",
+              "type": "10+2 x 15"
+            },
+            {
+              "say": "12 × 10 is 120, 12 × 5 is 60: 180.",
+              "tool": "area",
+              "type": "12 x 10+5",
+              "tip": "Split the other factor. Both work."
+            },
+            {
+              "say": "6 × 30 = 180, I halved and doubled.",
+              "tool": "halve",
+              "type": "12 x 15 = 6 x 30",
+              "tip": "A Day 4 strategy. Accept and name it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d2-area-model",
+      "title": "Area Model with Two Splits",
+      "label": "Day 2",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "Split both factors by place value, find the four partial products, and add them.",
+      "keywords": "area model, partial products, tens and ones, place value",
+      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts. Curriculum: B2.1, B2.6 (area model and algorithms).",
+      "watchFor": [
+        "Multiplying only tens by tens and ones by ones (14 × 15 = 100 + 20 = 120): ask \"How many boxes are in the area model? Did you fill them all?\"",
+        "Place-value slips in a partial product (10 × 20 = 20): ask \"Is that ten twenties?\"",
+        "Losing track of the partial products: write each one inside its box, then add."
+      ],
+      "wrapUp": "Ask \"How does the area model show every partial product?\" Land: split both factors by place value; there is a product for every box, and the boxes add to the answer.",
+      "problems": [
+        {
+          "q": "10 x 15",
+          "a": "150",
+          "notes": "Look for: a quick ten fact. Ask: \"Hold on to this.\" Model: area 10 x 10+5",
+          "responses": [
+            {
+              "say": "Ten 15s is 150.",
+              "tool": "area",
+              "type": "10 x 10+5"
+            },
+            {
+              "say": "15 with a zero: 150.",
+              "tool": "ratio",
+              "type": "1:15, 10:150",
+              "tip": "Ask: why does × 10 make the digits shift?"
+            }
+          ]
+        },
+        {
+          "q": "4 x 15",
+          "a": "60",
+          "notes": "Look for: 4 × 10 + 4 × 5, or double 15 twice. Ask: \"What do you know about 15s?\" Model: area 4 x 10+5",
+          "responses": [
+            {
+              "say": "40 + 20 = 60.",
+              "tool": "area",
+              "type": "4 x 10+5"
+            },
+            {
+              "say": "Double 15 is 30, double again is 60.",
+              "tool": "ratio",
+              "type": "1:15, 2:30, 4:60"
+            }
+          ]
+        },
+        {
+          "q": "14 x 15",
+          "a": "210",
+          "notes": "Look for: 150 + 60. Ask: \"How do the last two help?\" Word choice: \"14 fifteens is 10 fifteens and 4 fifteens.\" Model: area 10+4 x 10+5",
+          "responses": [
+            {
+              "say": "10 × 15 is 150 and 4 × 15 is 60, so 210.",
+              "tool": "area",
+              "type": "10+4 x 15",
+              "tip": "Uses the helper problems. Ask: where are they?"
+            },
+            {
+              "say": "Four boxes: 100, 50, 40 and 20 make 210.",
+              "tool": "area",
+              "type": "10+4 x 10+5",
+              "tip": "The target model. Ask: what's in each box?"
+            },
+            {
+              "say": "7 × 30 = 210.",
+              "tool": "halve",
+              "type": "14 x 15 = 7 x 30"
+            },
+            {
+              "say": "120",
+              "tool": "text",
+              "type": "14 x 15 = 10 x 10 + 4 x 5 = 120 ?",
+              "tip": "Missed two boxes. Ask: how many boxes are in the area model?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "13 x 21",
+          "a": "273",
+          "notes": "Look for: 200 + 10 + 60 + 3. Ask: \"What are the four boxes?\" Model: area 10+3 x 20+1",
+          "responses": [
+            {
+              "say": "200, 10, 60 and 3: 273.",
+              "tool": "area",
+              "type": "10+3 x 20+1"
+            },
+            {
+              "say": "13 × 20 is 260, plus one more 13 is 273.",
+              "tool": "area",
+              "type": "13 x 20+1",
+              "tip": "Split only one factor. Good choice here."
+            },
+            {
+              "say": "263",
+              "tool": "text",
+              "type": "13 x 21 = 13 x 20 + 3 = 263 ?",
+              "tip": "Ask: how many 13s are you adding? 20 or 21?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24 x 12",
+          "a": "288",
+          "notes": "Look for: 200 + 40 + 40 + 8. Ask: \"Is there a way with fewer boxes?\" Model: area 20+4 x 10+2",
+          "responses": [
+            {
+              "say": "200 + 40 + 40 + 8 = 288.",
+              "tool": "area",
+              "type": "20+4 x 10+2"
+            },
+            {
+              "say": "24 × 10 is 240, 24 × 2 is 48: 288.",
+              "tool": "area",
+              "type": "24 x 10+2"
+            },
+            {
+              "say": "The algorithm: 48 and 240.",
+              "tool": "column",
+              "type": "24 x 12",
+              "tip": "Connect: the algorithm's rows are partial products too."
+            },
+            {
+              "say": "248",
+              "tool": "text",
+              "type": "24 x 12 = 20 x 10 + 4 x 2 + 40 = 248 ?",
+              "tip": "Missed a box. Ask: show me all four boxes.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "32 x 23",
+          "a": "736",
+          "notes": "Look for: 600 + 90 + 40 + 6. Ask: \"Which box is the biggest? About how big is the answer?\" Model: area 30+2 x 20+3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "600, 90, 40 and 6: 736.",
+              "tool": "area",
+              "type": "30+2 x 20+3"
+            },
+            {
+              "say": "The algorithm: 96 and 640.",
+              "tool": "column",
+              "type": "32 x 23",
+              "tip": "Ask: where is 96 in the area model? (the 3 row: 90 + 6)"
+            },
+            {
+              "say": "606",
+              "tool": "text",
+              "type": "32 x 23 = 30 x 20 + 2 x 3 = 606 ?",
+              "tip": "Missed two boxes. Ask: did every part of 32 get multiplied by every part of 23?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25 x 14",
+          "a": "350",
+          "notes": "Look for: 200 + 80 + 50 + 20, or 25 × 4 = 100 thinking. Ask: \"Which way is quickest?\" Model: area 20+5 x 10+4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "200 + 80 + 50 + 20 = 350.",
+              "tool": "area",
+              "type": "20+5 x 10+4"
+            },
+            {
+              "say": "25 × 10 is 250, 25 × 4 is 100: 350.",
+              "tool": "area",
+              "type": "25 x 10+4",
+              "tip": "Uses 4 quarters make a dollar. Name it."
+            },
+            {
+              "say": "Halve 14, double 25: 7 × 50 = 350.",
+              "tool": "halve",
+              "type": "25 x 14 = 50 x 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d3-over-and-back",
+      "title": "Over and Back",
+      "label": "Day 3",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "area",
+      "strategy": "When a factor is close to a friendly number, multiply by the friendly number, then take away the extra group.",
+      "keywords": "friendly number, over, take back, one group too many",
+      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many. Curriculum: B2.1, B2.6.",
+      "watchFor": [
+        "Taking back 1 instead of one group (19 × 15 = 300 − 1 = 299): ask \"How many 15s did you add too many? How much is that?\"",
+        "Taking back from the wrong factor (19 × 15 = 300 − 19): draw the area model and ask \"What is the size of the strip you're taking away?\"",
+        "Adding the extra group instead of subtracting: ask \"Did you make too many groups or too few?\""
+      ],
+      "wrapUp": "Ask \"Why do we take away 15 and not 1?\" Land: 20 × 15 is one group of 15 too many, so take away a whole group.",
+      "problems": [
+        {
+          "q": "20 x 15",
+          "a": "300",
+          "notes": "Look for: 2 × 15 = 30, so 20 × 15 = 300. Ask: \"Hold on to this.\" Model: area 20 x 10+5",
+          "responses": [
+            {
+              "say": "2 × 15 is 30, times 10 is 300.",
+              "tool": "ratio",
+              "type": "1:15, 2:30, 20:300"
+            },
+            {
+              "say": "20 × 10 is 200, 20 × 5 is 100: 300.",
+              "tool": "area",
+              "type": "20 x 10+5"
+            }
+          ]
+        },
+        {
+          "q": "19 x 15",
+          "a": "285",
+          "notes": "Look for: 300 − 15. Ask: \"How is 19 × 15 different from 20 × 15?\" Word choice: \"19 fifteens is one fifteen less than 20 fifteens.\" Model: area 20-1 x 15",
+          "responses": [
+            {
+              "say": "20 × 15 is 300, take away one 15 is 285.",
+              "tool": "area",
+              "type": "20-1 x 15",
+              "tip": "The target strategy. Ask: what's in the strip we took away?"
+            },
+            {
+              "say": "10 × 15 is 150 and 9 × 15 is 135: 285.",
+              "tool": "area",
+              "type": "10+9 x 15",
+              "tip": "Splitting works too. Ask: which is quicker?"
+            },
+            {
+              "say": "299",
+              "tool": "text",
+              "type": "19 x 15 = 20 x 15 - 1 = 299 ?",
+              "tip": "Took away 1, not one group. Ask: how many 15s too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20 x 24",
+          "a": "480",
+          "notes": "Look for: 2 × 24 = 48, then × 10. Ask: \"Hold on to this.\" Model: ratio 1:24, 2:48, 20:480",
+          "responses": [
+            {
+              "say": "Double 24 is 48, times 10 is 480.",
+              "tool": "ratio",
+              "type": "1:24, 2:48, 20:480"
+            },
+            {
+              "say": "20 × 20 is 400 and 20 × 4 is 80.",
+              "tool": "area",
+              "type": "20 x 20+4"
+            }
+          ]
+        },
+        {
+          "q": "19 x 24",
+          "a": "456",
+          "notes": "Look for: 480 − 24. Ask: \"How much do you take away this time?\" Model: area 20-1 x 24",
+          "responses": [
+            {
+              "say": "480 − 24 = 456.",
+              "tool": "area",
+              "type": "20-1 x 24"
+            },
+            {
+              "say": "I took 20 then 4: 480 − 20 − 4.",
+              "tool": "numberline",
+              "type": "480 -20 -4",
+              "tip": "Shows the subtraction. Good."
+            },
+            {
+              "say": "461",
+              "tool": "text",
+              "type": "19 x 24 = 480 - 19 = 461 ?",
+              "tip": "Took away a 19. Ask: what is the size of the strip, 19 or 24?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "29 x 12",
+          "a": "348",
+          "notes": "Look for: 30 × 12 = 360, then − 12. Ask: \"What's the friendly number?\" Model: area 30-1 x 12",
+          "responses": [
+            {
+              "say": "30 × 12 is 360, take away 12: 348.",
+              "tool": "area",
+              "type": "30-1 x 12"
+            },
+            {
+              "say": "29 × 10 is 290 and 29 × 2 is 58: 348.",
+              "tool": "area",
+              "type": "29 x 10+2"
+            },
+            {
+              "say": "372",
+              "tool": "text",
+              "type": "29 x 12 = 360 + 12 = 372 ?",
+              "tip": "Added instead of taking away. Ask: is 29 more or less than 30?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "31 x 15",
+          "a": "465",
+          "notes": "Look for: 30 × 15 = 450, then + 15. Ask: \"Over or under this time?\" Model: area 30+1 x 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 × 15 is 450, plus one more 15 is 465.",
+              "tool": "area",
+              "type": "30+1 x 15",
+              "tip": "Under, then add a group. Ask: why add?"
+            },
+            {
+              "say": "435",
+              "tool": "text",
+              "type": "31 x 15 = 450 - 15 = 435 ?",
+              "tip": "Took away when 31 is more than 30. Ask: too many groups or too few?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "18 x 25",
+          "a": "450",
+          "notes": "Look for: 20 × 25 = 500, then − 2 × 25 = 50. Ask: \"How many groups too many?\" Model: area 20-2 x 25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20 × 25 is 500, take away two 25s: 450.",
+              "tool": "area",
+              "type": "20-2 x 25"
+            },
+            {
+              "say": "Halve 18, double 25: 9 × 50 = 450.",
+              "tool": "halve",
+              "type": "18 x 25 = 9 x 50",
+              "tip": "Tomorrow's strategy. Name it."
+            },
+            {
+              "say": "498",
+              "tool": "text",
+              "type": "18 x 25 = 500 - 2 = 498 ?",
+              "tip": "Ask: 2 what? How big is each group?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d4-double-and-halve",
+      "title": "Double and Halve",
+      "label": "Day 4",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "halve",
+      "strategy": "Halve one factor and double the other; the product stays the same, and the new problem can be easier.",
+      "keywords": "double, halve, same area, rearrange, friendly factor",
+      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product. Curriculum: B2.1 (properties of operations), B2.6.",
+      "watchFor": [
+        "Doubling (or halving) both factors (16 × 15 → 32 × 30): cut the rectangle and ask \"Did the area stay the same?\"",
+        "Halving an odd number and getting stuck: ask \"Which factor is easier to halve?\"",
+        "Not seeing when to use it: ask \"Which factor would you like to turn into 10, 50 or 100?\""
+      ],
+      "wrapUp": "Ask \"Why does the product stay the same?\" Land: cut the rectangle in half and put the halves together; the area doesn't change. Halve the even factor, double the other, and look for 10s and 100s.",
+      "problems": [
+        {
+          "q": "8 x 30",
+          "a": "240",
+          "notes": "Look for: 8 × 3 = 24, then × 10. Ask: \"Hold on to this.\" Model: area 8 x 30",
+          "responses": [
+            {
+              "say": "8 × 3 is 24, so 8 × 30 is 240.",
+              "tool": "area",
+              "type": "8 x 30"
+            },
+            {
+              "say": "8 × 10 is 80, three times is 240.",
+              "tool": "ratio",
+              "type": "1:8, 10:80, 30:240"
+            }
+          ]
+        },
+        {
+          "q": "16 x 15",
+          "a": "240",
+          "notes": "Look for: halve 16, double 15 → 8 × 30. Ask: \"Why is it the same answer as the last one?\" Word choice: \"I halved 16 and doubled 15.\" Model: halve 16 x 15 = 8 x 30",
+          "responses": [
+            {
+              "say": "Halve 16 and double 15: 8 × 30 = 240.",
+              "tool": "halve",
+              "type": "16 x 15 = 8 x 30",
+              "tip": "The target strategy. Ask: why is the area the same?"
+            },
+            {
+              "say": "10 × 15 is 150, 6 × 15 is 90: 240.",
+              "tool": "area",
+              "type": "10+6 x 15"
+            },
+            {
+              "say": "960",
+              "tool": "text",
+              "type": "16 x 15 = 32 x 30 = 960 ?",
+              "tip": "Doubled both. Ask: is 32 × 30 the same area? Draw both rectangles.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "14 x 25",
+          "a": "350",
+          "notes": "Look for: 7 × 50. Ask: \"Which factor would you like to double?\" Model: halve 14 x 25 = 7 x 50",
+          "responses": [
+            {
+              "say": "7 × 50 is 350.",
+              "tool": "halve",
+              "type": "14 x 25 = 7 x 50"
+            },
+            {
+              "say": "10 × 25 is 250, 4 × 25 is 100: 350.",
+              "tool": "area",
+              "type": "10+4 x 25"
+            }
+          ]
+        },
+        {
+          "q": "18 x 5",
+          "a": "90",
+          "notes": "Look for: 9 × 10. Ask: \"What happens when you double 5?\" Model: halve 18 x 5 = 9 x 10",
+          "responses": [
+            {
+              "say": "Halve 18, double 5: 9 × 10 = 90.",
+              "tool": "halve",
+              "type": "18 x 5 = 9 x 10"
+            },
+            {
+              "say": "10 fives and 8 fives: 50 + 40.",
+              "tool": "area",
+              "type": "10+8 x 5"
+            }
+          ]
+        },
+        {
+          "q": "12 x 35",
+          "a": "420",
+          "notes": "Look for: 6 × 70. Ask: \"Halve which one?\" Model: halve 12 x 35 = 6 x 70",
+          "responses": [
+            {
+              "say": "6 × 70 is 420.",
+              "tool": "halve",
+              "type": "12 x 35 = 6 x 70"
+            },
+            {
+              "say": "12 × 30 is 360, 12 × 5 is 60: 420.",
+              "tool": "area",
+              "type": "12 x 30+5"
+            },
+            {
+              "say": "210",
+              "tool": "halve",
+              "type": "12 x 35 = 6 x 35",
+              "tip": "Halved only one. Ask: what did you do to the other factor?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24 x 25",
+          "a": "600",
+          "notes": "Look for: 12 × 50, then 6 × 100. Ask: \"Can you do it again?\" Model: halve 24 x 25 = 12 x 50 = 6 x 100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 × 50, then 6 × 100: 600.",
+              "tool": "halve",
+              "type": "24 x 25 = 12 x 50 = 6 x 100",
+              "tip": "Twice. Ask: why stop at 6 × 100?"
+            },
+            {
+              "say": "4 quarters is 100, and 24 is 6 fours.",
+              "tool": "ratio",
+              "type": "4:100, 24:600"
+            }
+          ]
+        },
+        {
+          "q": "15 x 18",
+          "a": "270",
+          "notes": "Look for: double 15, halve 18 → 30 × 9. Ask: \"Which factor do you halve this time?\" Model: halve 15 x 18 = 30 x 9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double 15, halve 18: 30 × 9 = 270.",
+              "tool": "halve",
+              "type": "15 x 18 = 30 x 9"
+            },
+            {
+              "say": "15 × 20 is 300, take away two 15s: 270.",
+              "tool": "area",
+              "type": "15 x 20-2",
+              "tip": "Over and back. Good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-w02-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy",
+      "label": "Day 5",
+      "group": "Grade 5 · Week 2 · Two-Digit Multiplication",
+      "tool": "text",
+      "strategy": "Look at the numbers first, then choose: split a factor, go over and back, or double and halve.",
+      "keywords": "choose, efficient, friendly numbers, split, over and back, double and halve",
+      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.2, B2.6.",
+      "watchFor": [
+        "Using the same strategy for every problem: ask \"What do you notice about these numbers before you start?\"",
+        "Forgetting to adjust after going over: ask \"How many groups too many?\"",
+        "Not checking reasonableness: ask \"About how big should the answer be?\""
+      ],
+      "wrapUp": "Ask \"Which strategy did you choose for each problem, and what about the numbers made you choose it?\" Land: numbers near a ten → over and back; an even factor and a 5 or 25 → double and halve; otherwise split by place value.",
+      "problems": [
+        {
+          "q": "25 x 16",
+          "a": "400",
+          "notes": "Look for: double and halve to 100 × 4. Ask: \"What do you notice about 25?\" Model: halve 25 x 16 = 50 x 8 = 100 x 4",
+          "responses": [
+            {
+              "say": "50 × 8, then 100 × 4: 400.",
+              "tool": "halve",
+              "type": "25 x 16 = 50 x 8 = 100 x 4"
+            },
+            {
+              "say": "4 quarters in a dollar, 16 is 4 fours: 400.",
+              "tool": "ratio",
+              "type": "4:100, 16:400"
+            },
+            {
+              "say": "25 × 10 is 250, 25 × 6 is 150: 400.",
+              "tool": "area",
+              "type": "25 x 10+6"
+            }
+          ]
+        },
+        {
+          "q": "11 x 23",
+          "a": "253",
+          "notes": "Look for: 230 + 23. Ask: \"What's friendly about 11?\" Model: area 10+1 x 23",
+          "responses": [
+            {
+              "say": "10 × 23 is 230, plus one 23: 253.",
+              "tool": "area",
+              "type": "10+1 x 23"
+            },
+            {
+              "say": "11 × 20 is 220, 11 × 3 is 33: 253.",
+              "tool": "area",
+              "type": "11 x 20+3"
+            },
+            {
+              "say": "233",
+              "tool": "text",
+              "type": "11 x 23 = 230 + 3 = 233 ?",
+              "tip": "Ask: how many 23s? Show the extra strip.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "19 x 12",
+          "a": "228",
+          "notes": "Look for: 20 × 12 − 12. Ask: \"Which number is close to a friendly number?\" Model: area 20-1 x 12",
+          "responses": [
+            {
+              "say": "240 − 12 = 228.",
+              "tool": "area",
+              "type": "20-1 x 12"
+            },
+            {
+              "say": "19 × 10 is 190, 19 × 2 is 38: 228.",
+              "tool": "area",
+              "type": "19 x 10+2"
+            },
+            {
+              "say": "239",
+              "tool": "text",
+              "type": "19 x 12 = 240 - 1 = 239 ?",
+              "tip": "Ask: one what? How big is the group?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "14 x 35",
+          "a": "490",
+          "notes": "Look for: 7 × 70. Ask: \"Is there an even factor to halve?\" Model: halve 14 x 35 = 7 x 70",
+          "responses": [
+            {
+              "say": "Halve 14, double 35: 7 × 70 = 490.",
+              "tool": "halve",
+              "type": "14 x 35 = 7 x 70"
+            },
+            {
+              "say": "10 × 35 is 350, 4 × 35 is 140: 490.",
+              "tool": "area",
+              "type": "10+4 x 35"
+            }
+          ]
+        },
+        {
+          "q": "21 x 13",
+          "a": "273",
+          "notes": "Look for: 20 × 13 + 13. Ask: \"Have we seen these numbers before?\" (13 × 21 on Day 2). Model: area 20+1 x 13",
+          "responses": [
+            {
+              "say": "260 + 13 = 273.",
+              "tool": "area",
+              "type": "20+1 x 13"
+            },
+            {
+              "say": "It's the same as 13 × 21 from Tuesday.",
+              "tool": "text",
+              "type": "21 x 13 = 13 x 21 = 273",
+              "tip": "Commutative property. Name it."
+            }
+          ]
+        },
+        {
+          "q": "49 x 12",
+          "a": "588",
+          "notes": "Look for: 50 × 12 − 12. Ask: \"What's the friendly number?\" Model: area 50-1 x 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "600 − 12 = 588.",
+              "tool": "area",
+              "type": "50-1 x 12"
+            },
+            {
+              "say": "49 × 10 is 490, 49 × 2 is 98: 588.",
+              "tool": "area",
+              "type": "49 x 10+2"
+            },
+            {
+              "say": "599",
+              "tool": "text",
+              "type": "49 x 12 = 600 - 1 = 599 ?",
+              "tip": "Ask: how many 12s too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 x 25",
+          "a": "900",
+          "notes": "Look for: 18 × 50, 9 × 100. Ask: \"How many times can you halve 36?\" Model: halve 36 x 25 = 18 x 50 = 9 x 100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "18 × 50, then 9 × 100: 900.",
+              "tool": "halve",
+              "type": "36 x 25 = 18 x 50 = 9 x 100"
+            },
+            {
+              "say": "36 is 9 fours, and 4 × 25 is 100.",
+              "tool": "ratio",
+              "type": "4:100, 36:900"
+            },
+            {
+              "say": "30 × 25 is 750, 6 × 25 is 150: 900.",
+              "tool": "area",
+              "type": "30+6 x 25"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -164,6 +164,8 @@ Do not reuse these ids. Build on them where it makes sense.
 
 (Week 1's older ids use `w1-` rather than `w01-`. Keep them as they are.)
 
+Focus units for the Grades 4–7 PD are also in the library, one file per unit in `strings/`. Their ids start with the grade: `g4-w01-…`, `g4-w02-…`, `g5-w01-…`, `g5-w02-…`, `g6-w01-…`, `g6-w02-…`, `g7-w01-…`, `g7-w02-…`. For a new unit, use the next week number for that grade (e.g. `g5-w03-d1-…`, file `grade-5-week-03-topic.json`, group `Grade 5 · Week 3 · Topic`).
+
 The teacher's running log lists what comes next: decimal addition and subtraction strings, then multiplicative strings (× 10, × 5 as half of × 10, doubling and halving).
 
 ---

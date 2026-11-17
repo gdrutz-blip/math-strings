@@ -1,0 +1,857 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-w02-d1-times-ten-and-hundred",
+      "title": "Times 10 and 100",
+      "label": "Day 1",
+      "group": "Grade 4 · Week 2 · Multiplying by One Digit",
+      "tool": "ratio",
+      "strategy": "Multiplying by 10 makes each digit worth 10 times as much (ones become tens); multiplying by 100 makes them worth 100 times as much.",
+      "keywords": "times 10, times 100, place value, ones become tens, groups of ten",
+      "connection": "Uses multiplication facts to 10 × 10. Sets up splitting by place value on Day 2. Curriculum: B2.2 (facts), B2.3 (multiply by 10, 100 and 1000).",
+      "watchFor": [
+        "\"Just add a zero\" without knowing why: accept it, then ask \"Why does a zero appear? What happened to the 6?\"",
+        "Adding instead of multiplying (6 × 10 = 16): ask \"Is that 6 groups of 10?\"",
+        "Too many or too few zeros (24 × 100 = 240): ask \"Is that 24 hundreds?\""
+      ],
+      "wrapUp": "Ask \"What happens to a number when you multiply it by 10? By 100?\" Land: each digit moves to a place worth 10 (or 100) times as much, so 6 ones become 6 tens.",
+      "problems": [
+        {
+          "q": "6 x 10",
+          "a": "60",
+          "notes": "Look for: 6 tens. Ask: \"How many tens is that?\" Word choice: \"6 groups of 10 is 6 tens, 60.\" Model: ratio 1:6, 10:60",
+          "responses": [
+            {
+              "say": "6 tens is 60.",
+              "tool": "ratio",
+              "type": "1:6, 10:60",
+              "tip": "The target model. Ask: what happened to the 6?"
+            },
+            {
+              "say": "I counted by 10s six times.",
+              "tool": "numberline",
+              "type": "0 +10x6"
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "6 + 10 = 16 ?",
+              "tip": "Added. Ask: is that 6 groups of 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 100",
+          "a": "600",
+          "notes": "Look for: 6 hundreds. Ask: \"How is this like the last one?\" Model: ratio 1:6, 10:60, 100:600",
+          "responses": [
+            {
+              "say": "6 hundreds is 600.",
+              "tool": "ratio",
+              "type": "1:6, 10:60, 100:600"
+            },
+            {
+              "say": "60 times 10 is 600.",
+              "tool": "ratio",
+              "type": "10:60, 100:600"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "6 x 100 = 60 ?",
+              "tip": "Ask: is 60 the same as 6 hundreds?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 x 10",
+          "a": "600",
+          "notes": "Look for: 6 tens times 10 is 6 hundreds. Ask: \"Why is it the same as the last one?\" Model: text 60 x 10 = 6 x 10 x 10 ; = 6 x 100 = 600",
+          "responses": [
+            {
+              "say": "60 is 6 tens. Ten of those is 6 hundreds.",
+              "tool": "text",
+              "type": "60 x 10 = 6 x 10 x 10 ; = 6 x 100 = 600"
+            },
+            {
+              "say": "10 groups of 60: 60, 120, 180 ... 600.",
+              "tool": "numberline",
+              "type": "0 +60x10"
+            }
+          ]
+        },
+        {
+          "q": "24 x 10",
+          "a": "240",
+          "notes": "Look for: 24 tens, 240. Ask: \"What happens to the 2 and the 4?\" Model: ratio 1:24, 10:240",
+          "responses": [
+            {
+              "say": "2 tens become 2 hundreds, 4 ones become 4 tens: 240.",
+              "tool": "ratio",
+              "type": "1:24, 10:240"
+            },
+            {
+              "say": "20 × 10 is 200 and 4 × 10 is 40.",
+              "tool": "area",
+              "type": "20+4 x 10"
+            },
+            {
+              "say": "2410",
+              "tool": "text",
+              "type": "24 x 10 = 2410 ?",
+              "tip": "Ask: is 2410 close to 24 tens?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24 x 100",
+          "a": "2400",
+          "notes": "Look for: 24 hundreds. Ask: \"How can the last one help?\" Model: ratio 1:24, 10:240, 100:2400",
+          "responses": [
+            {
+              "say": "24 hundreds is 2400.",
+              "tool": "ratio",
+              "type": "1:24, 10:240, 100:2400"
+            },
+            {
+              "say": "240 times 10 is 2400.",
+              "tool": "text",
+              "type": "24 x 100 = 24 x 10 x 10 ; = 240 x 10 = 2400"
+            },
+            {
+              "say": "240",
+              "tool": "text",
+              "type": "24 x 100 = 240 ?",
+              "tip": "Ask: is that 24 hundreds or 24 tens?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 x 1000",
+          "a": "7000",
+          "notes": "Look for: 7 thousands. Ask: \"What's the pattern?\" Model: ratio 1:7, 10:70, 100:700, 1000:7000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 thousands is 7000.",
+              "tool": "ratio",
+              "type": "1:7, 10:70, 100:700, 1000:7000"
+            },
+            {
+              "say": "700",
+              "tool": "text",
+              "type": "7 x 1000 = 700 ?",
+              "tip": "Ask: how many zeros does 1000 have? Is that 7 thousands?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x 40",
+          "a": "120",
+          "notes": "Look for: 3 × 4 = 12, so 3 × 40 is 12 tens. Ask: \"Which fact helps?\" Model: ratio 1:3, 4:12, 40:120",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 4 is 12, so 3 × 4 tens is 12 tens: 120.",
+              "tool": "ratio",
+              "type": "1:3, 4:12, 40:120"
+            },
+            {
+              "say": "40 + 40 + 40 = 120.",
+              "tool": "numberline",
+              "type": "0 +40x3"
+            },
+            {
+              "say": "43",
+              "tool": "text",
+              "type": "3 x 40 = 40 + 3 = 43 ?",
+              "tip": "Added. Ask: is that 3 groups of 40?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-w02-d2-split-tens-and-ones",
+      "title": "Split the Tens and Ones",
+      "label": "Day 2",
+      "group": "Grade 4 · Week 2 · Multiplying by One Digit",
+      "tool": "area",
+      "strategy": "Split the larger number into tens and ones, multiply each part, then add the parts.",
+      "keywords": "split, tens and ones, partial products, area model, add the parts",
+      "connection": "Day 1 multiplied tens. Today: tens and ones together. Like Week 1's split by place value, but multiplying. Curriculum: B2.1 (distributive property), B2.5 (2- or 3-digit × 1-digit).",
+      "watchFor": [
+        "Writing the parts side by side (23 × 4 = 812): ask \"Is 812 about 20 groups of 4?\"",
+        "Multiplying only the tens (23 × 4 = 83): ask \"Did the 3 get multiplied by 4 too?\"",
+        "Losing track of the parts: write each product in its box on the area model."
+      ],
+      "wrapUp": "Ask \"How did splitting the number help?\" Land: split into tens and ones, multiply each part, then add. The area model shows both parts.",
+      "problems": [
+        {
+          "q": "20 x 4",
+          "a": "80",
+          "notes": "Look for: 2 × 4 = 8, so 8 tens. Ask: \"Hold on to this.\" Model: area 20 x 4",
+          "responses": [
+            {
+              "say": "2 × 4 is 8, so 20 × 4 is 8 tens: 80.",
+              "tool": "ratio",
+              "type": "1:4, 2:8, 20:80"
+            },
+            {
+              "say": "20 + 20 + 20 + 20 = 80.",
+              "tool": "numberline",
+              "type": "0 +20x4"
+            }
+          ]
+        },
+        {
+          "q": "3 x 4",
+          "a": "12",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this one too.\" Model: array 4 x 3",
+          "responses": [
+            {
+              "say": "3 fours is 12.",
+              "tool": "array",
+              "type": "4 x 3"
+            }
+          ]
+        },
+        {
+          "q": "23 x 4",
+          "a": "92",
+          "notes": "Look for: 80 + 12. Ask: \"How do the first two help?\" Word choice: \"I split 23 into 20 and 3.\" Model: area 20+3 x 4",
+          "responses": [
+            {
+              "say": "20 × 4 is 80 and 3 × 4 is 12. 80 + 12 = 92.",
+              "tool": "area",
+              "type": "20+3 x 4",
+              "tip": "The target model. Ask: where are the 80 and the 12?"
+            },
+            {
+              "say": "I see it in the dots: 20 columns and 3 more.",
+              "tool": "array",
+              "type": "4 x 20+3"
+            },
+            {
+              "say": "23 + 23 + 23 + 23 = 92.",
+              "tool": "split",
+              "type": "23 + 23 + 23 + 23",
+              "tip": "Repeated addition. Ask: is there a quicker way?"
+            },
+            {
+              "say": "812",
+              "tool": "text",
+              "type": "8 tens and 12 ones written as 812 ?",
+              "tip": "Wrote the parts side by side. Ask: is 812 close to 20 groups of 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 x 3",
+          "a": "108",
+          "notes": "Look for: 90 + 18. Ask: \"How will you split 36?\" Model: area 30+6 x 3",
+          "responses": [
+            {
+              "say": "30 × 3 is 90, 6 × 3 is 18: 108.",
+              "tool": "area",
+              "type": "30+6 x 3"
+            },
+            {
+              "say": "36 + 36 + 36 = 108.",
+              "tool": "split",
+              "type": "36 + 36 + 36"
+            },
+            {
+              "say": "96",
+              "tool": "text",
+              "type": "36 x 3 = 30 x 3 + 6 = 96 ?",
+              "tip": "Only multiplied the tens. Ask: did the 6 get multiplied by 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "47 x 5",
+          "a": "235",
+          "notes": "Look for: 200 + 35. Ask: \"What are the two parts?\" Model: area 40+7 x 5",
+          "responses": [
+            {
+              "say": "40 × 5 is 200, 7 × 5 is 35: 235.",
+              "tool": "area",
+              "type": "40+7 x 5"
+            },
+            {
+              "say": "Half of 47 × 10: half of 470 is 235.",
+              "tool": "text",
+              "type": "47 x 10 = 470 ; half of 470 = 235",
+              "tip": "A Day 4-style idea. Name it."
+            },
+            {
+              "say": "2035",
+              "tool": "text",
+              "type": "200 and 35 written as 2035 ?",
+              "tip": "Wrote the parts side by side. Ask: is the answer closer to 200 or 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "125 x 4",
+          "a": "500",
+          "notes": "Look for: 400 + 80 + 20. Ask: \"Can you split a 3-digit number the same way?\" Model: area 100+20+5 x 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "400 + 80 + 20 = 500.",
+              "tool": "area",
+              "type": "100+20+5 x 4"
+            },
+            {
+              "say": "4 × 25 is 100, so 4 × 125 is 400 + 100.",
+              "tool": "area",
+              "type": "100+25 x 4",
+              "tip": "Friendly split. Name it."
+            }
+          ]
+        },
+        {
+          "q": "68 x 6",
+          "a": "408",
+          "notes": "Look for: 360 + 48. Ask: \"Which facts do you need?\" Model: area 60+8 x 6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "60 × 6 is 360, 8 × 6 is 48: 408.",
+              "tool": "area",
+              "type": "60+8 x 6"
+            },
+            {
+              "say": "70 × 6 is 420, take away 2 sixes: 408.",
+              "tool": "area",
+              "type": "70-2 x 6",
+              "tip": "Tomorrow's strategy. Name it."
+            },
+            {
+              "say": "36048",
+              "tool": "text",
+              "type": "360 and 48 written as 36048 ?",
+              "tip": "Ask: should the answer be about 60 sixes, or a lot more?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-w02-d3-over-and-back",
+      "title": "Over and Back",
+      "label": "Day 3",
+      "group": "Grade 4 · Week 2 · Multiplying by One Digit",
+      "tool": "area",
+      "strategy": "When a number is close to a ten, multiply the ten, then take away the extra group.",
+      "keywords": "friendly number, one group too many, take away a group, close to a ten",
+      "connection": "Like Week 1 Day 4 (add a friendly number, then take back the extra), but with groups. Curriculum: B2.1, B2.3, B2.5.",
+      "watchFor": [
+        "Taking away 1 instead of one group (39 × 4 = 159): ask \"How many fours did you add too many?\"",
+        "Adding the extra group instead of taking it away: ask \"Did you make too many groups or too few?\"",
+        "Not seeing the friendly number: ask \"Is 39 close to a ten?\""
+      ],
+      "wrapUp": "Ask \"Why do we take away 4 and not 1?\" Land: 40 × 4 is one group of 4 too many, so take away a whole group.",
+      "problems": [
+        {
+          "q": "40 x 4",
+          "a": "160",
+          "notes": "Look for: 4 × 4 = 16, so 16 tens. Ask: \"Hold on to this.\" Model: area 40 x 4",
+          "responses": [
+            {
+              "say": "4 × 4 is 16, so 40 × 4 is 160.",
+              "tool": "ratio",
+              "type": "1:4, 4:16, 40:160"
+            },
+            {
+              "say": "Double 40 is 80, double again is 160.",
+              "tool": "ratio",
+              "type": "1:40, 2:80, 4:160"
+            }
+          ]
+        },
+        {
+          "q": "39 x 4",
+          "a": "156",
+          "notes": "Look for: 160 − 4. Ask: \"How is 39 × 4 different from 40 × 4?\" Word choice: \"39 fours is one four less than 40 fours.\" Model: area 40-1 x 4",
+          "responses": [
+            {
+              "say": "40 × 4 is 160, take away one 4: 156.",
+              "tool": "area",
+              "type": "40-1 x 4",
+              "tip": "The target strategy. Ask: what's in the strip we took away?"
+            },
+            {
+              "say": "The dots: 40 columns of 4, cross one out.",
+              "tool": "array",
+              "type": "4 x 40-1"
+            },
+            {
+              "say": "30 × 4 is 120, 9 × 4 is 36: 156.",
+              "tool": "area",
+              "type": "30+9 x 4",
+              "tip": "Splitting works too. Ask: which is quicker?"
+            },
+            {
+              "say": "159",
+              "tool": "text",
+              "type": "39 x 4 = 160 - 1 = 159 ?",
+              "tip": "Took away 1, not one group. Ask: how many fours too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "30 x 6",
+          "a": "180",
+          "notes": "Look for: 3 × 6 = 18, so 18 tens. Ask: \"Hold on to this.\" Model: area 30 x 6",
+          "responses": [
+            {
+              "say": "3 × 6 is 18, so 180.",
+              "tool": "ratio",
+              "type": "1:6, 3:18, 30:180"
+            }
+          ]
+        },
+        {
+          "q": "29 x 6",
+          "a": "174",
+          "notes": "Look for: 180 − 6. Ask: \"How much do you take away this time?\" Model: area 30-1 x 6",
+          "responses": [
+            {
+              "say": "180 − 6 = 174.",
+              "tool": "area",
+              "type": "30-1 x 6"
+            },
+            {
+              "say": "20 × 6 is 120, 9 × 6 is 54: 174.",
+              "tool": "area",
+              "type": "20+9 x 6"
+            },
+            {
+              "say": "179",
+              "tool": "text",
+              "type": "29 x 6 = 180 - 1 = 179 ?",
+              "tip": "Ask: 1 what? How big is each group?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "49 x 3",
+          "a": "147",
+          "notes": "Look for: 150 − 3. Ask: \"What's the friendly number?\" Model: area 50-1 x 3",
+          "responses": [
+            {
+              "say": "50 × 3 is 150, take away 3: 147.",
+              "tool": "area",
+              "type": "50-1 x 3"
+            },
+            {
+              "say": "40 × 3 is 120, 9 × 3 is 27: 147.",
+              "tool": "area",
+              "type": "40+9 x 3"
+            },
+            {
+              "say": "153",
+              "tool": "text",
+              "type": "49 x 3 = 150 + 3 = 153 ?",
+              "tip": "Added instead of taking away. Ask: is 49 more or less than 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "98 x 5",
+          "a": "490",
+          "notes": "Look for: 500 − 10. Ask: \"How many fives too many?\" Model: area 100-2 x 5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "100 × 5 is 500, take away 2 fives: 490.",
+              "tool": "area",
+              "type": "100-2 x 5"
+            },
+            {
+              "say": "498",
+              "tool": "text",
+              "type": "98 x 5 = 500 - 2 = 498 ?",
+              "tip": "Ask: 2 what? How big is each group?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "199 x 2",
+          "a": "398",
+          "notes": "Look for: 400 − 2. Ask: \"Does it work with bigger numbers?\" Model: area 200-1 x 2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "200 × 2 is 400, take away 2: 398.",
+              "tool": "area",
+              "type": "200-1 x 2"
+            },
+            {
+              "say": "Double 199: double 200 is 400, minus 2.",
+              "tool": "text",
+              "type": "199 + 199 = 200 + 200 - 2 = 398"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-w02-d4-double-double-again",
+      "title": "Double, Double Again",
+      "label": "Day 4",
+      "group": "Grade 4 · Week 2 · Multiplying by One Digit",
+      "tool": "ratio",
+      "strategy": "Times 4 is double, then double again; times 8 is double three times.",
+      "keywords": "double, times 2, times 4, times 8, ratio table",
+      "connection": "Builds on doubles facts. A ratio table keeps track of each double. Curriculum: B2.1, B2.2, B2.5.",
+      "watchFor": [
+        "Doubling only once for × 4 (4 × 12 = 24): ask \"Is 4 groups the same as 2 groups?\"",
+        "Doubling one more or one fewer time than needed for × 8: point to the ratio table and ask \"How many groups now?\"",
+        "Mistakes in doubling numbers like 35 (70) or 45 (90): ask \"Double the tens, double the ones, then add.\""
+      ],
+      "wrapUp": "Ask \"How can doubling help with × 4 and × 8?\" Land: 4 is 2 doubled and 8 is 4 doubled, so double, double (and double again).",
+      "problems": [
+        {
+          "q": "2 x 12",
+          "a": "24",
+          "notes": "Look for: double 12. Ask: \"Hold on to this.\" Model: ratio 1:12, 2:24",
+          "responses": [
+            {
+              "say": "Double 12 is 24.",
+              "tool": "ratio",
+              "type": "1:12, 2:24"
+            },
+            {
+              "say": "12 + 12 = 24.",
+              "tool": "numberline",
+              "type": "0 +12x2"
+            }
+          ]
+        },
+        {
+          "q": "4 x 12",
+          "a": "48",
+          "notes": "Look for: double 24. Ask: \"How does the last one help?\" Word choice: \"4 is double 2, so I doubled 24.\" Model: ratio 1:12, 2:24, 4:48",
+          "responses": [
+            {
+              "say": "Double 24 is 48.",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48",
+              "tip": "The target strategy. Ask: why double again?"
+            },
+            {
+              "say": "4 × 10 is 40, 4 × 2 is 8: 48.",
+              "tool": "area",
+              "type": "10+2 x 4",
+              "tip": "Yesterday's split. Compare."
+            },
+            {
+              "say": "24",
+              "tool": "ratio",
+              "type": "1:12, 2:24",
+              "tip": "Doubled once. Ask: is 4 groups the same as 2 groups?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 12",
+          "a": "96",
+          "notes": "Look for: double 48. Ask: \"Can you keep doubling?\" Model: ratio 1:12, 2:24, 4:48, 8:96",
+          "responses": [
+            {
+              "say": "Double 48 is 96.",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48, 8:96"
+            },
+            {
+              "say": "8 × 10 is 80, 8 × 2 is 16: 96.",
+              "tool": "area",
+              "type": "10+2 x 8"
+            },
+            {
+              "say": "192",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48, 8:96, 16:192",
+              "tip": "Doubled too many times. Ask: how many groups is that?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 35",
+          "a": "140",
+          "notes": "Look for: 70, then 140. Ask: \"What's double 35?\" Model: ratio 1:35, 2:70, 4:140",
+          "responses": [
+            {
+              "say": "Double 35 is 70, double 70 is 140.",
+              "tool": "ratio",
+              "type": "1:35, 2:70, 4:140"
+            },
+            {
+              "say": "4 × 30 is 120, 4 × 5 is 20: 140.",
+              "tool": "area",
+              "type": "30+5 x 4"
+            },
+            {
+              "say": "70",
+              "tool": "ratio",
+              "type": "1:35, 2:70",
+              "tip": "Doubled once. Ask: how many groups of 35 is 70?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 25",
+          "a": "200",
+          "notes": "Look for: 50, 100, 200. Ask: \"How many doubles for 8?\" Model: ratio 1:25, 2:50, 4:100, 8:200",
+          "responses": [
+            {
+              "say": "50, 100, 200.",
+              "tool": "ratio",
+              "type": "1:25, 2:50, 4:100, 8:200"
+            },
+            {
+              "say": "4 quarters is a dollar, so 8 quarters is 2 dollars: 200.",
+              "tool": "text",
+              "type": "4 x 25 = 100 ; 8 x 25 = 200",
+              "tip": "Money connection. Name it."
+            }
+          ]
+        },
+        {
+          "q": "8 x 45",
+          "a": "360",
+          "notes": "Look for: 90, 180, 360. Ask: \"Double 45?\" Model: ratio 1:45, 2:90, 4:180, 8:360",
+          "optional": true,
+          "responses": [
+            {
+              "say": "90, 180, 360.",
+              "tool": "ratio",
+              "type": "1:45, 2:90, 4:180, 8:360"
+            },
+            {
+              "say": "8 × 40 is 320, 8 × 5 is 40: 360.",
+              "tool": "area",
+              "type": "40+5 x 8"
+            },
+            {
+              "say": "320",
+              "tool": "text",
+              "type": "8 x 45 = 8 x 40 = 320 ?",
+              "tip": "Ask: did the 5 get multiplied too?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 125",
+          "a": "500",
+          "notes": "Look for: 250, 500. Ask: \"Can you double 125?\" Model: ratio 1:125, 2:250, 4:500",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double 125 is 250, double 250 is 500.",
+              "tool": "ratio",
+              "type": "1:125, 2:250, 4:500"
+            },
+            {
+              "say": "400 + 80 + 20 = 500.",
+              "tool": "area",
+              "type": "100+20+5 x 4",
+              "tip": "Tuesday's split. Compare."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-w02-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy",
+      "label": "Day 5",
+      "group": "Grade 4 · Week 2 · Multiplying by One Digit",
+      "tool": "text",
+      "strategy": "Look at the numbers first, then choose: times 10, split tens and ones, over and back, or double and double again.",
+      "keywords": "choose, friendly numbers, split, over and back, double",
+      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.3, B2.5.",
+      "watchFor": [
+        "Using the same strategy every time: ask \"What do you notice about these numbers?\"",
+        "Forgetting to take away a whole group: ask \"How many groups too many?\"",
+        "Not checking the size: ask \"About how big should the answer be?\""
+      ],
+      "wrapUp": "Ask \"Which strategy did you choose for each, and what made you choose it?\" Land: close to a ten → over and back; × 4 or × 8 → double; otherwise split tens and ones.",
+      "problems": [
+        {
+          "q": "5 x 18",
+          "a": "90",
+          "notes": "Look for: half of 10 × 18. Ask: \"How is × 5 related to × 10?\" Model: ratio 10:180, 5:90",
+          "responses": [
+            {
+              "say": "10 × 18 is 180, half is 90.",
+              "tool": "ratio",
+              "type": "10:180, 5:90",
+              "tip": "Five is half of ten. Name it."
+            },
+            {
+              "say": "5 × 10 is 50, 5 × 8 is 40: 90.",
+              "tool": "area",
+              "type": "10+8 x 5"
+            },
+            {
+              "say": "540",
+              "tool": "text",
+              "type": "50 and 40 written as 540 ?",
+              "tip": "Ask: is the answer closer to 50 or 500?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 x 25",
+          "a": "225",
+          "notes": "Look for: 10 × 25 − 25. Ask: \"Is 9 close to a friendly number?\" Model: area 10-1 x 25",
+          "responses": [
+            {
+              "say": "10 × 25 is 250, take away one 25: 225.",
+              "tool": "area",
+              "type": "10-1 x 25"
+            },
+            {
+              "say": "8 × 25 is 200, plus one more 25.",
+              "tool": "ratio",
+              "type": "1:25, 8:200, 9:225"
+            },
+            {
+              "say": "249",
+              "tool": "text",
+              "type": "9 x 25 = 250 - 1 = 249 ?",
+              "tip": "Ask: how many 25s too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 26",
+          "a": "104",
+          "notes": "Look for: double, double (52, 104), or 4 × 25 + 4. Ask: \"Which strategy fits?\" Model: ratio 1:26, 2:52, 4:104",
+          "responses": [
+            {
+              "say": "Double 26 is 52, double 52 is 104.",
+              "tool": "ratio",
+              "type": "1:26, 2:52, 4:104"
+            },
+            {
+              "say": "4 × 25 is 100, plus 4 × 1: 104.",
+              "tool": "area",
+              "type": "25+1 x 4"
+            },
+            {
+              "say": "4 × 20 is 80, 4 × 6 is 24: 104.",
+              "tool": "area",
+              "type": "20+6 x 4"
+            }
+          ]
+        },
+        {
+          "q": "7 x 32",
+          "a": "224",
+          "notes": "Look for: 210 + 14. Ask: \"How will you split 32?\" Model: area 30+2 x 7",
+          "responses": [
+            {
+              "say": "30 × 7 is 210, 2 × 7 is 14: 224.",
+              "tool": "area",
+              "type": "30+2 x 7"
+            },
+            {
+              "say": "21014",
+              "tool": "text",
+              "type": "210 and 14 written as 21014 ?",
+              "tip": "Ask: is the answer about 30 sevens?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 99",
+          "a": "594",
+          "notes": "Look for: 600 − 6. Ask: \"What's friendly about 99?\" Model: area 100-1 x 6",
+          "responses": [
+            {
+              "say": "6 × 100 is 600, take away 6: 594.",
+              "tool": "area",
+              "type": "100-1 x 6"
+            },
+            {
+              "say": "6 × 90 is 540, 6 × 9 is 54: 594.",
+              "tool": "area",
+              "type": "90+9 x 6"
+            },
+            {
+              "say": "599",
+              "tool": "text",
+              "type": "6 x 99 = 600 - 1 = 599 ?",
+              "tip": "Ask: how many sixes too many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x 250",
+          "a": "750",
+          "notes": "Look for: 250 + 250 + 250, or 3 × 25 tens. Ask: \"What do you know about 250?\" Model: numberline 0 +250x3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250, 500, 750.",
+              "tool": "numberline",
+              "type": "0 +250x3"
+            },
+            {
+              "say": "3 × 200 is 600, 3 × 50 is 150: 750.",
+              "tool": "area",
+              "type": "200+50 x 3"
+            }
+          ]
+        },
+        {
+          "q": "8 x 15",
+          "a": "120",
+          "notes": "Look for: 30, 60, 120. Ask: \"× 8: what can you do?\" Model: ratio 1:15, 2:30, 4:60, 8:120",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double, double, double: 30, 60, 120.",
+              "tool": "ratio",
+              "type": "1:15, 2:30, 4:60, 8:120"
+            },
+            {
+              "say": "8 × 10 is 80, 8 × 5 is 40: 120.",
+              "tool": "area",
+              "type": "10+5 x 8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

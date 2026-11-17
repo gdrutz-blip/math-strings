@@ -116,6 +116,8 @@
       .replace(/\b(jump(ed)?|add(ed)?|plus|up|forward|over)\s*(?=[\d.])/gi, ' +')
       .replace(/\b(mark|at|point)\s*(?=-?[\d.])/gi, ' @')
       .replace(/[a-z]+/gi, w => (w.toLowerCase() === 'x' ? 'x' : ' '));
+    // mixed numbers ("1 1/2 -3/4", "+1 1/2") become improper fractions so they stay one number
+    s = s.replace(/(^|[\s>@~+-])(\d+)\s+(\d+)\s*\/\s*(\d+)/g, (m, pre, w, n, d) => `${pre}${+w * +d + +n}/${d}`);
     const toks = s.match(/[>@~]\s*-?\s*\d*\.?\d+(?:\s*\/\s*\d+)?|[+-]?\s*\d*\.?\d+(?:\s*\/\s*\d+)?(?:\s*x\s*\d+)?/g);
     if (!toks) return { error: 'Start with a number, e.g. 38 +10 -1' };
     const fracMode = /\d\/\d/.test(s);
@@ -142,7 +144,7 @@
         for (let k = 0; k < reps; k++) {
           const from = cur; cur = round(cur + d);
           addPt(cur, ptLabel(cur));
-          arcs.push({ from, to: cur, label: signed(d, pv.label), kind: d >= 0 ? 'fwd' : 'back' });
+          arcs.push({ from, to: cur, label: signed(d, fracMode ? toFrac(pv.v) : pv.label), kind: d >= 0 ? 'fwd' : 'back' });
         }
       } else {
         const pv = parseVal(op ? t.slice(1) : t); if (!pv) return;
