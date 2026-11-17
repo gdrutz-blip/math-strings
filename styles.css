@@ -373,3 +373,22 @@ a.btn.primary { color: #fff; }
 .pt-flag { font-size: 11px; font-weight: 700; color: #fff; background: var(--back); border-radius: 8px; padding: 1px 6px; vertical-align: 2px; }
 .pt-tip { font-size: 13px; color: var(--soft); margin-top: 3px; }
 @media print { .pt-prob { break-inside: avoid; } .pt-how { background: #eef3fc; } }
+
+/* PD hub */
+a.gchip { text-decoration: none; color: inherit; display: inline-block; }
+a.gchip.on { color: #fff; }
+.pdchip { margin-left: 6px; border-style: dashed; }
+.pd-eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); font-weight: 700; margin-top: 6px; }
+.pd-sessions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 6px 0 16px; }
+.pd-sessions > div { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 2px; }
+.pd-sessions span { color: var(--soft); font-size: 14.5px; }
+.pd-sessions .pd-date { color: var(--accent); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+@media (max-width: 680px) { .pd-sessions { grid-template-columns: minmax(0, 1fr); } }
+.pd .panel { display: grid; gap: 10px; }
+.pd-unit { border-top: 1px solid var(--line); padding-top: 10px; display: grid; gap: 8px; }
+.pd-unit h3 { margin: 0; font-size: 18px; }
+.pd-days { display: grid; gap: 6px; }
+.pd-day { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pd-dt { font-weight: 700; flex: 1; min-width: 160px; }
+.pd-acts { display: flex; gap: 6px; flex-wrap: wrap; }
+a.btn.small { text-decoration: none; }

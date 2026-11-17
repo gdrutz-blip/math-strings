@@ -112,6 +112,7 @@
     if (view === 'present' && id) return presenter(decodeURIComponent(id));
     if (view === 'quick') return presenter('__quick');
     if (view === 'start') return startPage();
+    if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
     if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
@@ -146,13 +147,14 @@
             <button class="btn" data-act="export">⤒ Export</button>
             <button class="btn" data-act="classes">🎲 Classes</button>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
+            <a class="btn" href="#/pd" title="Our school's number strings professional learning: sessions, focus units, practice cards">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
         </div>
         ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><a class="btn primary" href="#/start" data-act="seen">Show me how</a><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
         <div class="searchbar">
-          ${grades.length > 1 ? `<div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}</div>` : ''}
+          ${grades.length > 1 ? `<div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}<a class="gchip pdchip" href="#/pd${gradeFilter !== 'all' ? '/' + encodeURIComponent(gradeFilter) : ''}">🎓 PD</a></div>` : ''}
           <input id="search" placeholder="Search strings, e.g. “subtraction” or “38 +”" value="${esc(searchText)}">
         </div>
         <div id="groups">
@@ -404,6 +406,77 @@ Rules:
           ${p.responses ? `<table class="gtable pt-table"><tr><th>Student says</th><th>Tool</th><th>Type this</th></tr>${p.responses.map(r => `<tr class="${r.kind === 'error' ? 'pt-err' : ''}"><td>${r.kind === 'error' ? '<span class="pt-flag">mistake</span> ' : ''}“${esc(r.say)}”</td><td>${toolCell(r.tool)}</td><td>${r.type ? `<code>${esc(r.type)}</code>` : ''}${r.tip ? `<div class="pt-tip">${esc(r.tip)}</div>` : ''}</td></tr>`).join('')}</table>` : '<p class="hint">No practice responses for this problem yet.</p>'}
         </section>`).join('')}
       ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
+    </div>`;
+    window.scrollTo(0, 0);
+  }
+
+  // School PD hub: the sessions, this grade's focus units with practice cards, and how to collect evidence
+  const PD = {
+    title: 'Number strings PD · Grades 4–8',
+    sessions: [
+      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Learn about math strings, choose an instructional focus, and plan implementation.' },
+      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Review student learning evidence, reflect on implementation, and refine.' },
+      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Examine student growth, identify effective practices, and set next steps.' },
+    ],
+    grades: ['4', '5', '6', '7', '8'],
+  };
+  function pdPage(grade) {
+    document.title = 'PD · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    if (grade && !PD.grades.includes(grade)) grade = null;
+    if (grade) store.set('pdGrade', grade);
+    const mine = grade ? library.filter(s => gradeOf(s) === grade) : [];
+    const units = [];
+    mine.forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
+    const unitName = g => g.replace(/^Grade\s*\w+\s*·\s*/i, '');
+    app.innerHTML = `
+    <div class="guide pd">
+      <div class="ed-head no-print">
+        <a class="btn ghost" href="#/">← Library</a>
+        <span style="flex:1"></span>
+        <a class="btn" href="#/start">📘 Getting started</a>
+      </div>
+      <div class="pd-eyebrow">School Improvement Plan · Mathematics</div>
+      <h1>${esc(PD.title)}</h1>
+      <p class="lead">Three short, collaborative sessions on using number strings to build fluency, with student reasoning, multiple strategies, purposeful questions, and evidence of growth over time.</p>
+
+      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span></div>`).join('')}</div>
+
+      <section class="panel"><h2>1 · Your grade and focus</h2>
+        <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
+        ${!grade ? '<p class="hint">Choose your grade to see its focus units.</p>'
+          : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
+          : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.</p>
+             ${units.map(u => `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
+               <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}</span>
+                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`).join('')}`}
+      </section>
+
+      <section class="panel"><h2>2 · In your classroom</h2>
+        <ul class="steps">
+          <li><b>Before:</b> read the string's notes (or its practice card) and rehearse once. Press <b>↺</b> to start fresh.</li>
+          <li><b>During:</b> give think time, record <i>every</i> answer (<kbd>A</kbd>), and model at least two strategies per problem. Ask "Can the last problem help?" and "What's the same?"</li>
+          <li><b>After:</b> press <kbd>O</kbd> for the whole string and ask "What did you notice?"</li>
+        </ul>
+      </section>
+
+      <section class="panel"><h2>3 · Collecting evidence (no extra assessments)</h2>
+        <ul class="steps">
+          <li><b>Save a string as a PDF:</b> at the end, open <b>▦ All</b>, click <b>🖨</b>, and choose <b>Save as PDF</b>. It's dated and shows every student strategy you modeled. Save one or two a month.</li>
+          <li><b>Notes on student talk:</b> a few quick observations, like who explained, who connected strategies, who changed their mind.</li>
+          <li><b>Exit ticket, now and then:</b> one problem from the string with "show your thinking."</li>
+          <li><b>Benchmark:</b> before April 1, re-run the first string you used in December and save it again to compare.</li>
+        </ul>
+      </section>
+
+      <section class="panel"><h2>Bring to each session</h2>
+        <ul class="steps">
+          <li>A laptop or Chromebook.</li>
+          <li><b>Feb 1:</b> one saved string (PDF) where students surprised you, and one question.</li>
+          <li><b>Apr 1:</b> your December and March benchmark strings.</li>
+        </ul>
+      </section>
+      <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
     window.scrollTo(0, 0);
   }

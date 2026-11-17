@@ -8,6 +8,8 @@ Ideas to build when they're needed. Add to this any time, either by asking Claud
 
 Three 30-minute small-group sessions (School Improvement Plan, math fluency): **Dec 4, 2026** (launch: learn strings, choose an instructional focus, plan), **Feb 1, 2027** (review evidence, refine), **Apr 1, 2027** (examine growth, next steps). About 8 weeks of classroom use between sessions. Framed by the Ontario monograph *Making Space for Students to Think Mathematically*.
 
+The app has a **🎓 PD page** (`#/pd`, `#/pd/4`…) for teachers: session dates, their grade's focus units with Present / Practice card / Notes, classroom routine, and how to collect evidence. It lists whatever `Grade N · …` strings are in the library, so new units appear there automatically. Dates live in the `PD` constant in app.js.
+
 Before **Dec 4**:
 - [ ] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Grade 4 has 1 unit; Grade 8 has 2 units without practice responses yet.)*
 - [ ] Add practice `responses` to Grade 4 Days 3–5 and to the Grade 8 strings
