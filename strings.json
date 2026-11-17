@@ -4117,6 +4117,1771 @@
       ]
     },
     {
+      "id": "g7-w01-d1-zero-pairs",
+      "title": "Zero Pairs",
+      "label": "Day 1",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "tiles",
+      "strategy": "A positive and a negative of the same size make zero; cancel zero pairs and see what is left.",
+      "keywords": "integer, positive, negative, zero pair, opposite, cancel",
+      "connection": "First integer string. Builds the zero-pair idea used all week. Curriculum: B1.2 (integers), B2.4 (add and subtract integers).",
+      "watchFor": [
+        "Ignoring the signs (3 + −5 = 8): build it with tiles and ask \"Which tiles cancel?\"",
+        "Getting the size right but the sign wrong (3 + −5 = 2): ask \"Are there more positives or negatives left?\"",
+        "Thinking a negative plus a positive is always negative: compare −4 + 7 and −6 + 2."
+      ],
+      "wrapUp": "Ask \"How do you know if the answer is positive or negative?\" Land: cancel the zero pairs; whatever is left over (and its sign) is the answer.",
+      "problems": [
+        {
+          "q": "3 + -3",
+          "a": "0",
+          "notes": "Look for: they cancel. Ask: \"What happens when a positive meets its opposite?\" Word choice: \"3 and −3 are a zero pair.\" Model: tiles 3 + -3",
+          "responses": [
+            {
+              "say": "3 positives and 3 negatives cancel. Zero.",
+              "tool": "tiles",
+              "type": "3 + -3"
+            },
+            {
+              "say": "Up 3 and back 3 lands at 0.",
+              "tool": "numberline",
+              "type": "0 +3 -3"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "3 + 3 = 6 ?",
+              "tip": "Ignored the sign. Ask: what does −3 mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 + -3",
+          "a": "2",
+          "notes": "Look for: 3 zero pairs, 2 positives left. Ask: \"How many zero pairs?\" Model: tiles 5 + -3",
+          "responses": [
+            {
+              "say": "3 zero pairs, 2 positives left.",
+              "tool": "tiles",
+              "type": "5 + -3",
+              "tip": "The target model."
+            },
+            {
+              "say": "Start at 5 and go back 3.",
+              "tool": "numberline",
+              "type": "5 -3"
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "5 + 3 = 8 ?",
+              "tip": "Ignored the sign. Ask: which tiles cancel?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 + -5",
+          "a": "-2",
+          "notes": "Look for: 3 zero pairs, 2 negatives left. Ask: \"What's left over? Positive or negative?\" Model: tiles 3 + -5",
+          "responses": [
+            {
+              "say": "3 zero pairs, and 2 negatives left: −2.",
+              "tool": "tiles",
+              "type": "3 + -5"
+            },
+            {
+              "say": "From 3, back 3 to 0, then back 2 more.",
+              "tool": "numberline",
+              "type": "3 -3 -2",
+              "tip": "Through zero. Name it."
+            },
+            {
+              "say": "2",
+              "tool": "tiles",
+              "type": "3 + -5",
+              "tip": "Right size, wrong sign. Ask: are there more positives or negatives left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 + 7",
+          "a": "3",
+          "notes": "Look for: 4 zero pairs, 3 positives left. Ask: \"Does it matter which comes first?\" Model: tiles -4 + 7",
+          "responses": [
+            {
+              "say": "4 zero pairs, 3 positives left: 3.",
+              "tool": "tiles",
+              "type": "-4 + 7"
+            },
+            {
+              "say": "From −4 up 4 to 0, then 3 more.",
+              "tool": "numberline",
+              "type": "-4 +4 +3"
+            },
+            {
+              "say": "-3",
+              "tool": "tiles",
+              "type": "-4 + 7",
+              "tip": "Ask: which are there more of, positives or negatives?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-6 + 2",
+          "a": "-4",
+          "notes": "Look for: 2 zero pairs, 4 negatives left. Ask: \"How is this different from the last one?\" Model: tiles -6 + 2",
+          "responses": [
+            {
+              "say": "2 zero pairs, 4 negatives left: −4.",
+              "tool": "tiles",
+              "type": "-6 + 2"
+            },
+            {
+              "say": "From −6, up 2 to −4.",
+              "tool": "numberline",
+              "type": "-6 +2"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-6 + 2 = -8 ?",
+              "tip": "Moved the wrong way. Ask: does adding 2 make the number bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 + -12",
+          "a": "-4",
+          "notes": "Look for: 8 zero pairs, 4 negatives left. Ask: \"Can you tell the sign before you count?\" Model: tiles 8 + -12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 zero pairs, 4 negatives left.",
+              "tool": "tiles",
+              "type": "8 + -12"
+            },
+            {
+              "say": "From 8, back 8 to 0, then 4 more.",
+              "tool": "numberline",
+              "type": "8 -8 -4"
+            },
+            {
+              "say": "4",
+              "tool": "tiles",
+              "type": "8 + -12",
+              "tip": "Right size, wrong sign. Ask: which is bigger, 8 or 12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-15 + 9",
+          "a": "-6",
+          "notes": "Look for: 9 zero pairs, 6 negatives left. Ask: \"Do you need the tiles, or can you picture them?\" Model: numberline -15 +9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "9 zero pairs, 6 negatives left.",
+              "tool": "tiles",
+              "type": "-15 + 9"
+            },
+            {
+              "say": "From −15, up 9 to −6.",
+              "tool": "numberline",
+              "type": "-15 +9",
+              "tip": "Big numbers: the number line is quicker."
+            },
+            {
+              "say": "-24",
+              "tool": "text",
+              "type": "-15 + 9 = -24 ?",
+              "tip": "Ask: does adding 9 move you up or down?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d2-adding-on-the-number-line",
+      "title": "Adding Integers on the Number Line",
+      "label": "Day 2",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "Adding a positive moves right; adding a negative moves left. Jump to 0 first when you cross it.",
+      "keywords": "move right, move left, jump to zero, opposite, number line",
+      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\". Curriculum: B1.2, B2.4.",
+      "watchFor": [
+        "Moving right for a negative (−3 + −4 = 1): ask \"Which way does adding a negative move?\"",
+        "Counting the tick you start on: count jumps, not ticks.",
+        "Not using 0 as a stop: ask \"How far is it to 0? How much is left?\""
+      ],
+      "wrapUp": "Ask \"What does adding a negative do?\" Land: adding a negative moves left, just like subtracting a positive. When you cross 0, jump to 0 first.",
+      "problems": [
+        {
+          "q": "6 + -2",
+          "a": "4",
+          "notes": "Look for: move left 2. Ask: \"Which way do you move?\" Model: numberline 6 -2",
+          "responses": [
+            {
+              "say": "Start at 6, move left 2: 4.",
+              "tool": "numberline",
+              "type": "6 -2"
+            },
+            {
+              "say": "2 zero pairs, 4 positives left.",
+              "tool": "tiles",
+              "type": "6 + -2"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2",
+          "a": "4",
+          "notes": "Look for: the same answer. Ask: \"Why do these match?\" Word choice: \"Adding −2 does the same as subtracting 2.\" Model: numberline 6 -2",
+          "responses": [
+            {
+              "say": "Same as the last one: 4.",
+              "tool": "numberline",
+              "type": "6 -2",
+              "tip": "Ask: why are 6 + −2 and 6 − 2 the same?"
+            },
+            {
+              "say": "6 − 2 is 4.",
+              "tool": "text",
+              "type": "6 - 2 = 4 ; 6 + -2 = 4"
+            }
+          ]
+        },
+        {
+          "q": "-3 + -4",
+          "a": "-7",
+          "notes": "Look for: start at −3, move left 4. Ask: \"Which way does adding a negative go?\" Model: numberline -3 -4",
+          "responses": [
+            {
+              "say": "From −3, left 4: −7.",
+              "tool": "numberline",
+              "type": "-3 -4"
+            },
+            {
+              "say": "3 negatives and 4 negatives: 7 negatives.",
+              "tool": "tiles",
+              "type": "-3 + -4",
+              "tip": "No zero pairs here. Ask: why?"
+            },
+            {
+              "say": "1",
+              "tool": "numberline",
+              "type": "-3 +4",
+              "tip": "Moved right. Ask: which way does adding a negative move?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-5 + 8",
+          "a": "3",
+          "notes": "Look for: from −5 up 5 to 0, then 3 more. Ask: \"How far is it to 0?\" Model: numberline -5 +5 +3",
+          "responses": [
+            {
+              "say": "Up 5 to 0, then 3 more: 3.",
+              "tool": "numberline",
+              "type": "-5 +5 +3",
+              "tip": "Jump to 0. The target strategy."
+            },
+            {
+              "say": "5 zero pairs, 3 positives left.",
+              "tool": "tiles",
+              "type": "-5 + 8"
+            },
+            {
+              "say": "-13",
+              "tool": "text",
+              "type": "-5 + 8 = -13 ?",
+              "tip": "Ask: does adding 8 move you up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 + -15",
+          "a": "-3",
+          "notes": "Look for: back 12 to 0, then 3 more. Ask: \"How much of the −15 gets you to 0?\" Model: numberline 12 -12 -3",
+          "responses": [
+            {
+              "say": "Back 12 to 0, then 3 more: −3.",
+              "tool": "numberline",
+              "type": "12 -12 -3"
+            },
+            {
+              "say": "15 is 3 more than 12, so 3 negatives are left.",
+              "tool": "text",
+              "type": "15 - 12 = 3 ; more negatives, so -3",
+              "tip": "Compare sizes, then decide the sign."
+            },
+            {
+              "say": "3",
+              "tool": "numberline",
+              "type": "12 -12 -3",
+              "tip": "Right size, wrong sign. Ask: where did you land, left or right of 0?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-18 + 25",
+          "a": "7",
+          "notes": "Look for: up 18 to 0, then 7 more. Ask: \"Will it be positive or negative? How do you know?\" Model: numberline -18 +18 +7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Up 18 to 0, then 7 more: 7.",
+              "tool": "numberline",
+              "type": "-18 +18 +7"
+            },
+            {
+              "say": "25 − 18 = 7, and there's more positive.",
+              "tool": "text",
+              "type": "25 - 18 = 7 ; more positive, so 7"
+            },
+            {
+              "say": "-7",
+              "tool": "numberline",
+              "type": "-18 +18 +7",
+              "tip": "Ask: are there more positives or negatives?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-27 + -13",
+          "a": "-40",
+          "notes": "Look for: left 13 from −27. Ask: \"Is there any zero to cross?\" Model: numberline -27 -3 -10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From −27, left 3 to −30, then 10 more: −40.",
+              "tool": "numberline",
+              "type": "-27 -3 -10",
+              "tip": "Make a friendly number, like adding near a ten."
+            },
+            {
+              "say": "27 + 13 = 40, all negative.",
+              "tool": "text",
+              "type": "27 + 13 = 40 ; both negative, so -40"
+            },
+            {
+              "say": "-14",
+              "tool": "text",
+              "type": "-27 + -13 = -14 ?",
+              "tip": "Ask: both are negative. Can any cancel?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d3-subtraction-as-distance",
+      "title": "Subtraction as Distance",
+      "label": "Day 3",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "a − b is how far it is from b to a: count the distance, and the answer is negative if you move left.",
+      "keywords": "difference, distance, how far, direction, from b to a",
+      "connection": "Like Grade 5's subtraction as distance, now across 0. Curriculum: B2.4.",
+      "watchFor": [
+        "Subtracting sizes only (5 − −2 = 3): ask \"How far is it from −2 to 5 on the line?\"",
+        "Getting the direction wrong (−1 − 4 = 5): ask \"From 4 to −1, are you going up or down?\"",
+        "Not splitting at 0: ask \"How far to 0, then how far from 0?\""
+      ],
+      "wrapUp": "Ask \"How did the number line help with subtracting negatives?\" Land: a − b is the distance from b to a. Moving up gives a positive answer, moving down a negative one.",
+      "problems": [
+        {
+          "q": "5 - 2",
+          "a": "3",
+          "notes": "Look for: from 2 to 5 is 3. Ask: \"How far apart are 2 and 5?\" Model: numberline 2 ~5",
+          "responses": [
+            {
+              "say": "From 2 to 5 is 3.",
+              "tool": "numberline",
+              "type": "2 ~5"
+            },
+            {
+              "say": "5 take away 2 is 3.",
+              "tool": "numberline",
+              "type": "5 -2"
+            }
+          ]
+        },
+        {
+          "q": "5 - -2",
+          "a": "7",
+          "notes": "Look for: from −2 to 5 is 2 + 5 = 7. Ask: \"How far apart are −2 and 5?\" Word choice: \"The distance from −2 to 5 is 7.\" Model: numberline -2 >0 >5",
+          "responses": [
+            {
+              "say": "From −2 to 0 is 2, then 0 to 5 is 5. 7.",
+              "tool": "numberline",
+              "type": "-2 >0 >5",
+              "tip": "The target strategy. Ask: why go through 0?"
+            },
+            {
+              "say": "Add 2 zero pairs, then take away 2 negatives: 7 left.",
+              "tool": "tiles",
+              "type": "5 - -2",
+              "tip": "Connects to Day 1."
+            },
+            {
+              "say": "3",
+              "tool": "numberline",
+              "type": "-2 >0 >5",
+              "tip": "Subtracted sizes. Ask: how far is it from −2 to 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - -4",
+          "a": "7",
+          "notes": "Look for: from −4 to 3 is 4 + 3 = 7. Ask: \"Same idea?\" Model: numberline -4 >0 >3",
+          "responses": [
+            {
+              "say": "−4 to 0 is 4, 0 to 3 is 3: 7.",
+              "tool": "numberline",
+              "type": "-4 >0 >3"
+            },
+            {
+              "say": "Taking away a negative is like adding: 3 + 4.",
+              "tool": "text",
+              "type": "3 - -4 = 3 + 4 = 7",
+              "tip": "Tomorrow's idea. Name it."
+            },
+            {
+              "say": "-1",
+              "tool": "text",
+              "type": "3 - -4 = -1 ?",
+              "tip": "Ask: how far apart are −4 and 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 - -6",
+          "a": "4",
+          "notes": "Look for: from −6 to −2 is 4. Ask: \"Which is bigger, −2 or −6?\" Model: numberline -6 ~-2",
+          "responses": [
+            {
+              "say": "From −6 up to −2 is 4.",
+              "tool": "numberline",
+              "type": "-6 ~-2"
+            },
+            {
+              "say": "Take away 6 negatives from 2 negatives: add 4 zero pairs first.",
+              "tool": "tiles",
+              "type": "-2 - -6"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-2 - -6 = -8 ?",
+              "tip": "Ask: are −2 and −6 really 8 apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-1 - 4",
+          "a": "-5",
+          "notes": "Look for: from 4 down to −1 is 5, going down, so −5. Ask: \"From 4 to −1, which direction?\" Model: numberline 4 >0 >-1",
+          "responses": [
+            {
+              "say": "From 4 down to −1 is 5 steps down: −5.",
+              "tool": "numberline",
+              "type": "4 >0 >-1",
+              "tip": "Direction matters. Ask: up or down?"
+            },
+            {
+              "say": "Start at −1 and go back 4.",
+              "tool": "numberline",
+              "type": "-1 -4"
+            },
+            {
+              "say": "5",
+              "tool": "numberline",
+              "type": "4 >0 >-1",
+              "tip": "Right distance, wrong direction. Ask: from 4 to −1, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - -15",
+          "a": "25",
+          "notes": "Look for: from −15 to 10 is 15 + 10. Ask: \"How far to 0, then how far from 0?\" Model: numberline -15 >0 >10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15 to get to 0, then 10 more: 25.",
+              "tool": "numberline",
+              "type": "-15 >0 >10"
+            },
+            {
+              "say": "Subtracting −15 is adding 15.",
+              "tool": "text",
+              "type": "10 - -15 = 10 + 15 = 25"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "10 - -15 = -5 ?",
+              "tip": "Ask: how far apart are −15 and 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-8 - 3",
+          "a": "-11",
+          "notes": "Look for: start at −8 and go down 3. Ask: \"Where does subtracting 3 take you?\" Model: numberline -8 -3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From −8, down 3: −11.",
+              "tool": "numberline",
+              "type": "-8 -3"
+            },
+            {
+              "say": "From 3 down to −8 is 11 steps down: −11.",
+              "tool": "numberline",
+              "type": "3 >0 >-8"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "-8 - 3 = -5 ?",
+              "tip": "Ask: does subtracting 3 make −8 bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d4-add-the-opposite",
+      "title": "Subtracting Is Adding the Opposite",
+      "label": "Day 4",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "tiles",
+      "strategy": "Subtracting a number gives the same result as adding its opposite: a − b = a + (−b).",
+      "keywords": "opposite, add the opposite, zero pairs, take away, equivalent",
+      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding. Curriculum: B2.1, B2.4.",
+      "watchFor": [
+        "Changing both signs (4 − −3 → −4 + 3): ask \"Which number are we taking away?\"",
+        "Thinking two negatives always make a positive (−3 + −5 = 8): ask \"Are we subtracting here, or adding?\"",
+        "Not enough tiles to take away: ask \"What can you add that doesn't change the value?\" (zero pairs)"
+      ],
+      "wrapUp": "Ask \"Why does taking away a negative give the same result as adding a positive?\" Land: adding zero pairs lets us take away anything. a − b = a + (opposite of b).",
+      "problems": [
+        {
+          "q": "7 - 3",
+          "a": "4",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: tiles 7 - 3",
+          "responses": [
+            {
+              "say": "Take 3 positives away from 7: 4.",
+              "tool": "tiles",
+              "type": "7 - 3"
+            }
+          ]
+        },
+        {
+          "q": "7 + -3",
+          "a": "4",
+          "notes": "Look for: 3 zero pairs, 4 left. Ask: \"Why is it the same as 7 − 3?\" Model: tiles 7 + -3",
+          "responses": [
+            {
+              "say": "3 zero pairs, 4 positives left: 4.",
+              "tool": "tiles",
+              "type": "7 + -3"
+            },
+            {
+              "say": "Same as 7 − 3.",
+              "tool": "text",
+              "type": "7 - 3 = 7 + -3 = 4",
+              "tip": "Ask: what's the same, and what's different?"
+            }
+          ]
+        },
+        {
+          "q": "2 - 5",
+          "a": "-3",
+          "notes": "Look for: add 3 zero pairs, then take away 5 positives. Ask: \"There are only 2. How can we take away 5?\" Model: tiles 2 - 5",
+          "responses": [
+            {
+              "say": "Add 3 zero pairs, take away 5 positives: 3 negatives left.",
+              "tool": "tiles",
+              "type": "2 - 5",
+              "tip": "The target model. Ask: why add zero pairs?"
+            },
+            {
+              "say": "From 2, down 2 to 0, then 3 more.",
+              "tool": "numberline",
+              "type": "2 -2 -3"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "2 - 5 = 5 - 2 = 3 ?",
+              "tip": "Switched the order. Ask: is 2 − 5 the same as 5 − 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 + -5",
+          "a": "-3",
+          "notes": "Look for: the same as 2 − 5. Ask: \"Why do these match?\" Word choice: \"Subtracting 5 is the same as adding −5.\" Model: tiles 2 + -5",
+          "responses": [
+            {
+              "say": "2 zero pairs, 3 negatives left: −3.",
+              "tool": "tiles",
+              "type": "2 + -5"
+            },
+            {
+              "say": "Same as the last one.",
+              "tool": "text",
+              "type": "2 - 5 = 2 + -5 = -3"
+            }
+          ]
+        },
+        {
+          "q": "4 - -3",
+          "a": "7",
+          "notes": "Look for: add 3 zero pairs, take away 3 negatives: 7 positives. Ask: \"Which is the same: 4 + 3 or 4 + −3?\" Model: tiles 4 - -3",
+          "responses": [
+            {
+              "say": "Add 3 zero pairs, take away the 3 negatives: 7 positives.",
+              "tool": "tiles",
+              "type": "4 - -3",
+              "tip": "Ask: what's left after taking the negatives away?"
+            },
+            {
+              "say": "Subtracting −3 is adding 3: 4 + 3 = 7.",
+              "tool": "text",
+              "type": "4 - -3 = 4 + 3 = 7",
+              "tip": "Add the opposite. Name it."
+            },
+            {
+              "say": "From −3 up to 4 is 7.",
+              "tool": "numberline",
+              "type": "-3 >0 >4",
+              "tip": "Yesterday's distance. Connect."
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "4 - -3 = 4 - 3 = 1 ?",
+              "tip": "Ignored the negative. Ask: are we taking away 3 or −3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-3 - -5",
+          "a": "2",
+          "notes": "Look for: add 2 zero pairs, take away 5 negatives: 2 positives. Or −3 + 5. Ask: \"What's the opposite of −5?\" Model: tiles -3 - -5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 2 zero pairs, take away 5 negatives: 2.",
+              "tool": "tiles",
+              "type": "-3 - -5"
+            },
+            {
+              "say": "Add the opposite: −3 + 5 = 2.",
+              "tool": "numberline",
+              "type": "-3 +5"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-3 - -5 = -3 - 5 = -8 ?",
+              "tip": "Ask: are we taking away −5 or 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-6 - 4",
+          "a": "-10",
+          "notes": "Look for: −6 + −4. Ask: \"Add the opposite: what's the opposite of 4?\" Model: tiles -6 - 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 4 zero pairs, take away 4 positives: 10 negatives.",
+              "tool": "tiles",
+              "type": "-6 - 4"
+            },
+            {
+              "say": "−6 + −4 = −10.",
+              "tool": "numberline",
+              "type": "-6 -4"
+            },
+            {
+              "say": "-2",
+              "tool": "text",
+              "type": "-6 - 4 = -2 ?",
+              "tip": "Ask: does subtracting 4 make −6 bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d5-choosing-a-strategy",
+      "title": "Choosing an Integer Strategy",
+      "label": "Day 5",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "Choose zero pairs, moves on the number line, distance, or add the opposite, depending on the numbers.",
+      "keywords": "temperature, rise, drop, difference, choose, reasonable",
+      "connection": "Brings together Days 1 to 4, with temperature as a context. Curriculum: B2.4.",
+      "watchFor": [
+        "Mixing up \"difference\" with \"sum\": ask \"Are we combining, or finding how far apart?\"",
+        "Sign errors in the last step: ask \"Should the answer be above or below 0? Why?\"",
+        "Using tiles for large numbers: ask \"Is there a quicker model?\""
+      ],
+      "wrapUp": "Ask \"Which strategy did you use for each, and why?\" Land: decide the sign and the size. Zero pairs, jumps to 0, distance, and adding the opposite all work; pick the one that fits.",
+      "problems": [
+        {
+          "q": "-8 + 15",
+          "a": "7",
+          "notes": "Context: \"It was −8°C at 6 a.m. and rose 15 degrees.\" Look for: up 8 to 0, then 7. Model: numberline -8 +8 +7",
+          "responses": [
+            {
+              "say": "Up 8 to 0, then 7 more: 7°.",
+              "tool": "numberline",
+              "type": "-8 +8 +7"
+            },
+            {
+              "say": "8 zero pairs, 7 positives left.",
+              "tool": "tiles",
+              "type": "-8 + 15"
+            },
+            {
+              "say": "-23",
+              "tool": "text",
+              "type": "-8 + 15 = -23 ?",
+              "tip": "Ask: did the temperature go up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 - 15",
+          "a": "-8",
+          "notes": "Context: \"It was 7°C and dropped 15 degrees.\" Look for: back 7 to 0, then 8 more. Ask: \"How is this related to the last one?\" Model: numberline 7 -7 -8",
+          "responses": [
+            {
+              "say": "Down 7 to 0, then 8 more: −8°.",
+              "tool": "numberline",
+              "type": "7 -7 -8"
+            },
+            {
+              "say": "It undoes the last problem.",
+              "tool": "text",
+              "type": "-8 + 15 = 7 ; so 7 - 15 = -8",
+              "tip": "Inverse operations. Name it."
+            },
+            {
+              "say": "8",
+              "tool": "numberline",
+              "type": "7 -7 -8",
+              "tip": "Ask: are we above or below 0 now?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 - -9",
+          "a": "13",
+          "notes": "Context: \"How much warmer is 4°C than −9°C?\" Look for: distance from −9 to 4. Model: numberline -9 >0 >4",
+          "responses": [
+            {
+              "say": "9 up to 0, then 4 more: 13 degrees.",
+              "tool": "numberline",
+              "type": "-9 >0 >4",
+              "tip": "Distance. The context helps."
+            },
+            {
+              "say": "Add the opposite: 4 + 9 = 13.",
+              "tool": "text",
+              "type": "4 - -9 = 4 + 9 = 13"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "4 - -9 = -5 ?",
+              "tip": "Ask: how far apart are 4 and −9 on a thermometer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 + -6",
+          "a": "-18",
+          "notes": "Context: \"It was −12°C and dropped 6 more degrees.\" Look for: left 6 from −12. Model: numberline -12 -6",
+          "responses": [
+            {
+              "say": "From −12 down 6: −18°.",
+              "tool": "numberline",
+              "type": "-12 -6"
+            },
+            {
+              "say": "12 negatives and 6 negatives: 18 negatives.",
+              "tool": "text",
+              "type": "12 + 6 = 18 ; all negative, so -18"
+            },
+            {
+              "say": "-6",
+              "tool": "text",
+              "type": "-12 + -6 = -6 ?",
+              "tip": "Ask: did it get colder or warmer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25 + -40",
+          "a": "-15",
+          "notes": "Look for: back 25 to 0, then 15 more. Ask: \"Positive or negative? How do you know before you calculate?\" Model: numberline 25 -25 -15",
+          "responses": [
+            {
+              "say": "Back 25 to 0, then 15 more: −15.",
+              "tool": "numberline",
+              "type": "25 -25 -15"
+            },
+            {
+              "say": "40 − 25 = 15, more negatives, so −15.",
+              "tool": "text",
+              "type": "40 - 25 = 15 ; more negative, so -15"
+            },
+            {
+              "say": "15",
+              "tool": "numberline",
+              "type": "25 -25 -15",
+              "tip": "Ask: which is bigger, the 25 or the 40? So which sign wins?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-7 - -7",
+          "a": "0",
+          "notes": "Look for: anything minus itself is 0. Ask: \"Do you need to calculate?\" Model: tiles -7 - -7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Take away all 7 negatives: nothing left.",
+              "tool": "tiles",
+              "type": "-7 - -7"
+            },
+            {
+              "say": "Add the opposite: −7 + 7 = 0.",
+              "tool": "numberline",
+              "type": "-7 +7"
+            },
+            {
+              "say": "-14",
+              "tool": "text",
+              "type": "-7 - -7 = -14 ?",
+              "tip": "Ask: what is any number minus itself?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-35 + 60 - 20",
+          "a": "5",
+          "notes": "Context: \"−35°C at night, up 60 by afternoon, then down 20.\" Look for: up to 0, to 25, then down 20. Model: numberline -35 +35 +25 -20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Up 35 to 0, up 25 more to 25, down 20: 5°.",
+              "tool": "numberline",
+              "type": "-35 +35 +25 -20"
+            },
+            {
+              "say": "60 − 20 = 40, then −35 + 40 = 5.",
+              "tool": "text",
+              "type": "60 - 20 = 40 ; -35 + 40 = 5",
+              "tip": "Combined the changes first. Good."
+            },
+            {
+              "say": "-75",
+              "tool": "text",
+              "type": "-35 + 60 - 20 = -75 ?",
+              "tip": "Ask: the temperature went up 60. Can it end up colder than −35?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d1-ten-percent-more-or-less",
+      "title": "10% More, 10% Less",
+      "label": "Day 1",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "bar",
+      "strategy": "To increase or decrease by 10%, find 10% (divide by 10), then add it on or take it away.",
+      "keywords": "increase, decrease, percent change, original amount, 10%, 110%, 90%",
+      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number. Curriculum: B2.3 (increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, 100%).",
+      "watchFor": [
+        "Adding the percent as a number (60 + 10% of 60 = 70): ask \"Is 10% of 60 the same as 10?\"",
+        "Finding the 10% but forgetting to add or subtract it (60 + 10% of 60 = 6): ask \"Is the answer the change, or the new amount?\"",
+        "Using the new amount to find the percent: ask \"10% of which number?\""
+      ],
+      "wrapUp": "Ask \"How are 10% more and 110% related?\" Land: find 10% of the original, then add it on (110%) or take it away (90%).",
+      "problems": [
+        {
+          "q": "10% of 60",
+          "a": "6",
+          "notes": "Look for: 60 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:6, 100:60",
+          "responses": [
+            {
+              "say": "A tenth of 60 is 6.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:6, 100:60"
+            },
+            {
+              "say": "60 ÷ 10 = 6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:60, 10:6"
+            }
+          ]
+        },
+        {
+          "q": "60 + 10% of 60",
+          "a": "66",
+          "notes": "Look for: 60 + 6. Ask: \"What does increasing by 10% mean?\" Word choice: \"The original plus 10% of the original.\" Model: bar Before: 60; After: 60 + 6",
+          "responses": [
+            {
+              "say": "10% is 6, so 60 + 6 = 66.",
+              "tool": "bar",
+              "type": "Before: 60; After: 60 + 6",
+              "tip": "The target model."
+            },
+            {
+              "say": "100% + 10% = 110%, so 66.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:6, 100:60, 110:66",
+              "tip": "Preview of 110%."
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "60 + 10 = 70 ?",
+              "tip": "Added 10, not 10%. Ask: what is 10% of 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 - 10% of 60",
+          "a": "54",
+          "notes": "Look for: 60 − 6. Ask: \"How is this like the last one?\" Model: bar 60 = 54 + 6",
+          "responses": [
+            {
+              "say": "Take away 10%, which is 6: 54.",
+              "tool": "bar",
+              "type": "60 = 54 + 6"
+            },
+            {
+              "say": "90% of 60: 9 × 6 = 54.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:6, 90:54"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "10% of 60 = 6",
+              "tip": "Stopped at the change. Ask: what is the new amount?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10% of 250",
+          "a": "25",
+          "notes": "Look for: 250 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:25, 100:250",
+          "responses": [
+            {
+              "say": "250 ÷ 10 = 25.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:25, 100:250"
+            }
+          ]
+        },
+        {
+          "q": "250 + 10% of 250",
+          "a": "275",
+          "notes": "Look for: 250 + 25. Ask: \"What changed, and what stayed the same?\" Model: bar Before: 250; After: 250 + 25",
+          "responses": [
+            {
+              "say": "250 + 25 = 275.",
+              "tool": "bar",
+              "type": "Before: 250; After: 250 + 25"
+            },
+            {
+              "say": "110% is 11 × 25 = 275.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:250, 10:25, 110:275"
+            },
+            {
+              "say": "260",
+              "tool": "text",
+              "type": "250 + 10 = 260 ?",
+              "tip": "Ask: is 10% of 250 equal to 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 - 10% of 250",
+          "a": "225",
+          "notes": "Look for: 250 − 25. Ask: \"Can you predict before calculating?\" Model: bar 250 = 225 + 25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 − 25 = 225.",
+              "tool": "bar",
+              "type": "250 = 225 + 25"
+            },
+            {
+              "say": "90% is 9 × 25 = 225.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:25, 90:225"
+            }
+          ]
+        },
+        {
+          "q": "110% of 80",
+          "a": "88",
+          "notes": "Look for: 100% + 10% = 80 + 8. Ask: \"How is 110% like increasing by 10%?\" Model: doubleline percent:amount, 0:0, 10:8, 100:80, 110:88",
+          "optional": true,
+          "responses": [
+            {
+              "say": "80 and 10% more, 8: 88.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:8, 100:80, 110:88"
+            },
+            {
+              "say": "11 tens of 8: 88.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:80, 10:8, 110:88"
+            },
+            {
+              "say": "190",
+              "tool": "text",
+              "type": "80 + 110 = 190 ?",
+              "tip": "Ask: is 110% of 80 a lot more than 80, or a little more?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d2-half-and-quarter-more-or-less",
+      "title": "50% and 25% More or Less",
+      "label": "Day 2",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "bar",
+      "strategy": "Find 50% (half) or 25% (quarter) of the original, then add it on or take it away.",
+      "keywords": "increase, decrease, half, quarter, 150%, 125%, 75%",
+      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6. Curriculum: B2.3.",
+      "watchFor": [
+        "Adding the percent as a number (40 + 50% of 40 = 90): ask \"What is 50% of 40?\"",
+        "Thinking 25% less means divide by 25: ask \"What fraction of the original is 25%?\"",
+        "Mixing up 75% of and 75% less: ask \"Are we keeping 75%, or taking 75% away?\""
+      ],
+      "wrapUp": "Ask \"How is 25% less the same as 75% of?\" Land: change = percent of the original; the new amount is the original plus or minus the change.",
+      "problems": [
+        {
+          "q": "50% of 40",
+          "a": "20",
+          "notes": "Look for: half of 40. Ask: \"Hold on to this.\" Model: bar 1/2 of 40",
+          "responses": [
+            {
+              "say": "Half of 40 is 20.",
+              "tool": "bar",
+              "type": "1/2 of 40"
+            }
+          ]
+        },
+        {
+          "q": "40 + 50% of 40",
+          "a": "60",
+          "notes": "Look for: 40 + 20. Ask: \"How did the first problem help?\" Model: bar Before: 40; After: 40 + 20",
+          "responses": [
+            {
+              "say": "Half of 40 is 20, so 40 + 20 = 60.",
+              "tool": "bar",
+              "type": "Before: 40; After: 40 + 20"
+            },
+            {
+              "say": "150% of 40: 40 and half again.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 150:60"
+            },
+            {
+              "say": "90",
+              "tool": "text",
+              "type": "40 + 50 = 90 ?",
+              "tip": "Added 50, not 50%. Ask: what is 50% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "40 - 25% of 40",
+          "a": "30",
+          "notes": "Look for: 25% is 10, 40 − 10. Ask: \"What is 25% of 40?\" Model: bar 40 = 30 + 10",
+          "responses": [
+            {
+              "say": "A quarter of 40 is 10, so 30.",
+              "tool": "bar",
+              "type": "40 = 30 + 10"
+            },
+            {
+              "say": "75% of 40: 3 × 10 = 30.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:10, 75:30, 100:40",
+              "tip": "Keep 75%. Name it."
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "40 - 25 = 15 ?",
+              "tip": "Subtracted 25, not 25%. Ask: what is 25% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 + 25% of 120",
+          "a": "150",
+          "notes": "Look for: 25% = 30, then 120 + 30. Ask: \"Halve, then halve again?\" Model: bar Before: 120; After: 120 + 30",
+          "responses": [
+            {
+              "say": "Half is 60, half again is 30: 120 + 30 = 150.",
+              "tool": "bar",
+              "type": "Before: 120; After: 120 + 30"
+            },
+            {
+              "say": "125%: 5 quarters of 120.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:120, 25:30, 125:150"
+            },
+            {
+              "say": "145",
+              "tool": "text",
+              "type": "120 + 25 = 145 ?",
+              "tip": "Ask: is 25% of 120 the same as 25?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 - 50% of 120",
+          "a": "60",
+          "notes": "Look for: half of 120 taken away. Ask: \"What's left when you take half away?\" Model: bar 120 = 60 + 60",
+          "responses": [
+            {
+              "say": "Take away half: 60 left.",
+              "tool": "bar",
+              "type": "120 = 60 + 60"
+            },
+            {
+              "say": "50% less is 50% of: 60.",
+              "tool": "text",
+              "type": "120 - 50% of 120 = 50% of 120 = 60",
+              "tip": "Ask: why is 50% less the same as 50% of?"
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "120 - 50 = 70 ?",
+              "tip": "Ask: what is 50% of 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75% of 120",
+          "a": "90",
+          "notes": "Look for: 3 × 30, or 120 − 30. Ask: \"Is this an increase or a decrease? By how much?\" Model: doubleline percent:amount, 0:0, 25:30, 75:90, 100:120",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 quarters: 3 × 30 = 90.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:30, 75:90, 100:120"
+            },
+            {
+              "say": "It's 25% less: 120 − 30 = 90.",
+              "tool": "bar",
+              "type": "120 = 90 + 30",
+              "tip": "Connect: 75% of = 25% less."
+            }
+          ]
+        },
+        {
+          "q": "150% of 30",
+          "a": "45",
+          "notes": "Look for: 30 + 15. Ask: \"Is the answer more or less than 30?\" Model: bar Before: 30; After: 30 + 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "All of it plus half: 30 + 15 = 45.",
+              "tool": "bar",
+              "type": "Before: 30; After: 30 + 15"
+            },
+            {
+              "say": "Three halves: 3 × 15 = 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:15, 100:30, 150:45"
+            },
+            {
+              "say": "180",
+              "tool": "text",
+              "type": "30 + 150 = 180 ?",
+              "tip": "Ask: what is 50% of 30? So what is 150%?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d3-five-and-one-percent-changes",
+      "title": "5% and 1% Changes",
+      "label": "Day 3",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "ratio",
+      "strategy": "Use 10% to find 5% (half) and 1% (a tenth), then add or take away the change.",
+      "keywords": "5%, 1%, small change, tax, discount, original",
+      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it. Curriculum: B2.3.",
+      "watchFor": [
+        "Dividing by 5 for 5% (5% of 300 = 60): ask \"Should 5% be more or less than 10%?\"",
+        "Adding the percent as a number (300 + 5% of 300 = 305): ask \"What is 5% of 300?\"",
+        "Forgetting that small percents make small changes: ask \"About how big should the change be?\""
+      ],
+      "wrapUp": "Ask \"How did 10% help you find 5% and 1%?\" Land: 10% → halve for 5%, divide by 10 for 1%. Then add or subtract the change.",
+      "problems": [
+        {
+          "q": "10% of 300",
+          "a": "30",
+          "notes": "Look for: 300 ÷ 10. Ask: \"Hold on to this.\" Model: ratio percent:amount, 100:300, 10:30",
+          "responses": [
+            {
+              "say": "A tenth of 300 is 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30"
+            }
+          ]
+        },
+        {
+          "q": "5% of 300",
+          "a": "15",
+          "notes": "Look for: half of 30. Ask: \"How does 10% help?\" Model: ratio percent:amount, 100:300, 10:30, 5:15",
+          "responses": [
+            {
+              "say": "Half of 30 is 15.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30, 5:15"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "300 / 5 = 60 ?",
+              "tip": "Divided by 5. Ask: should 5% be more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "300 + 5% of 300",
+          "a": "315",
+          "notes": "Look for: 300 + 15. Ask: \"Like a 5% tax on $300?\" Model: bar Before: 300; After: 300 + 15",
+          "responses": [
+            {
+              "say": "300 + 15 = 315.",
+              "tool": "bar",
+              "type": "Before: 300; After: 300 + 15"
+            },
+            {
+              "say": "105%: 100% and 5%.",
+              "tool": "text",
+              "type": "105% of 300 = 100% + 5% ; = 300 + 15 = 315"
+            },
+            {
+              "say": "305",
+              "tool": "text",
+              "type": "300 + 5 = 305 ?",
+              "tip": "Ask: what is 5% of 300?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1% of 300",
+          "a": "3",
+          "notes": "Look for: 30 ÷ 10. Ask: \"How does 10% help?\" Model: ratio percent:amount, 100:300, 10:30, 1:3",
+          "responses": [
+            {
+              "say": "10% is 30, 1% is 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30, 1:3"
+            },
+            {
+              "say": "300 ÷ 100 = 3.",
+              "tool": "text",
+              "type": "300 / 100 = 3"
+            }
+          ]
+        },
+        {
+          "q": "300 - 1% of 300",
+          "a": "297",
+          "notes": "Look for: 300 − 3. Ask: \"A small change or a big one?\" Model: bar 300 = 297 + 3",
+          "responses": [
+            {
+              "say": "300 − 3 = 297.",
+              "tool": "bar",
+              "type": "300 = 297 + 3"
+            },
+            {
+              "say": "99% of 300: 300 − 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 1:3, 99:297"
+            },
+            {
+              "say": "299",
+              "tool": "text",
+              "type": "300 - 1 = 299 ?",
+              "tip": "Ask: is 1% of 300 the same as 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "80 + 5% of 80",
+          "a": "84",
+          "notes": "Look for: 10% = 8, 5% = 4, 80 + 4. Ask: \"Same steps as before?\" Model: bar Before: 80; After: 80 + 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5% is 4, so 84.",
+              "tool": "bar",
+              "type": "Before: 80; After: 80 + 4"
+            },
+            {
+              "say": "105% of 80: 80 + 4.",
+              "tool": "text",
+              "type": "105% of 80 = 100% + 5% ; = 80 + 4 = 84"
+            },
+            {
+              "say": "96",
+              "tool": "text",
+              "type": "80 + 80 / 5 = 96 ?",
+              "tip": "Added 20%. Ask: what is 5% of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "500 - 6% of 500",
+          "a": "470",
+          "notes": "Look for: 5% = 25, 1% = 5, so 6% = 30; 500 − 30. Ask: \"Can you build 6%?\" Model: bar 500 = 470 + 30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5% + 1% = 25 + 5 = 30, so 470.",
+              "tool": "bar",
+              "type": "500 = 470 + 30"
+            },
+            {
+              "say": "1% is 5, so 6% is 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:500, 1:5, 6:30"
+            },
+            {
+              "say": "494",
+              "tool": "text",
+              "type": "500 - 6 = 494 ?",
+              "tip": "Ask: what is 6% of 500?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d4-doubling-and-beyond",
+      "title": "100% Increase and Beyond",
+      "label": "Day 4",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "doubleline",
+      "strategy": "A 100% increase doubles the original; percents over 100% mean more than the whole.",
+      "keywords": "100% increase, double, 200%, 150%, 125%, more than the whole",
+      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more. Curriculum: B2.3 (increase by 100%), B1.7.",
+      "watchFor": [
+        "Thinking 100% more means the same number: ask \"What is 100% of 36? Add that on.\"",
+        "Thinking a 200% increase and 200% of are the same: ask \"Is 36 + 200% of 36 the same as 200% of 36?\"",
+        "Not believing percents can go over 100: ask \"What does 150% of a pizza look like?\""
+      ],
+      "wrapUp": "Ask \"Why is a 100% increase the same as 200% of?\" Land: increase by p% means (100 + p)% of the original. 100% more is double.",
+      "problems": [
+        {
+          "q": "100% of 36",
+          "a": "36",
+          "notes": "Look for: all of it. Ask: \"What does 100% mean?\" Model: doubleline percent:amount, 0:0, 100:36",
+          "responses": [
+            {
+              "say": "100% is the whole: 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36"
+            }
+          ]
+        },
+        {
+          "q": "36 + 100% of 36",
+          "a": "72",
+          "notes": "Look for: 36 + 36, double. Ask: \"What happens when you add 100%?\" Word choice: \"A 100% increase doubles it.\" Model: bar Before: 36; After: 36 + 36",
+          "responses": [
+            {
+              "say": "36 + 36 = 72. It doubled.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 36",
+              "tip": "The target idea."
+            },
+            {
+              "say": "200% of 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36, 200:72"
+            },
+            {
+              "say": "136",
+              "tool": "text",
+              "type": "36 + 100 = 136 ?",
+              "tip": "Added 100, not 100%. Ask: what is 100% of 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "200% of 36",
+          "a": "72",
+          "notes": "Look for: the same as the last one. Ask: \"Why is it the same?\" Model: doubleline percent:amount, 0:0, 100:36, 200:72",
+          "responses": [
+            {
+              "say": "2 × 36 = 72, same as a 100% increase.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36, 200:72"
+            },
+            {
+              "say": "108",
+              "tool": "text",
+              "type": "36 + 200% of 36 = 108",
+              "tip": "That's a 200% increase. Ask: is 200% of the same as 200% more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 + 50% of 36",
+          "a": "54",
+          "notes": "Look for: 36 + 18. Ask: \"What percent of 36 is the new amount?\" Model: bar Before: 36; After: 36 + 18",
+          "responses": [
+            {
+              "say": "Half of 36 is 18, so 54.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 18"
+            },
+            {
+              "say": "150% of 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:18, 100:36, 150:54"
+            },
+            {
+              "say": "86",
+              "tool": "text",
+              "type": "36 + 50 = 86 ?",
+              "tip": "Ask: what is 50% of 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150% of 36",
+          "a": "54",
+          "notes": "Look for: same as the last one, 3 × 18. Ask: \"Which earlier problem is the same?\" Model: doubleline percent:amount, 0:0, 50:18, 100:36, 150:54",
+          "responses": [
+            {
+              "say": "100% + 50% = 36 + 18 = 54.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:18, 100:36, 150:54"
+            },
+            {
+              "say": "3 halves: 3 × 18 = 54.",
+              "tool": "ratio",
+              "type": "percent:amount, 50:18, 150:54"
+            },
+            {
+              "say": "186",
+              "tool": "text",
+              "type": "36 + 150 = 186 ?",
+              "tip": "Ask: is 150% of 36 a little more than 36, or a lot more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "125% of 36",
+          "a": "45",
+          "notes": "Look for: 36 + 9. Ask: \"What's 25% of 36?\" Model: doubleline percent:amount, 0:0, 25:9, 100:36, 125:45",
+          "optional": true,
+          "responses": [
+            {
+              "say": "100% is 36, 25% is 9: 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:9, 100:36, 125:45"
+            },
+            {
+              "say": "5 quarters: 5 × 9 = 45.",
+              "tool": "ratio",
+              "type": "percent:amount, 25:9, 125:45"
+            }
+          ]
+        },
+        {
+          "q": "36 + 15% of 36",
+          "a": "41.4",
+          "notes": "Look for: 10% = 3.6, 5% = 1.8, change = 5.4. Ask: \"How do you build 15%?\" Model: bar Before: 36; After: 36 + 5.4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3.6 + 1.8 = 5.4, so 41.4.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 5.4"
+            },
+            {
+              "say": "115% of 36: 10% is 3.6, 5% is 1.8.",
+              "tool": "text",
+              "type": "115% = 100% + 10% + 5% ; = 36 + 3.6 + 1.8 = 41.4"
+            },
+            {
+              "say": "51",
+              "tool": "text",
+              "type": "36 + 15 = 51 ?",
+              "tip": "Ask: what is 15% of 36?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d5-multipliers",
+      "title": "Percent Change as a Multiplier",
+      "label": "Day 5",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "ratio",
+      "strategy": "A percent change can be done in one step: increase by 10% is × 1.1, decrease by 25% is × 0.75.",
+      "keywords": "multiplier, 110%, 1.1, 90%, 0.9, one step, decimal",
+      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9). Curriculum: B1.7 (convert between fractions, decimals and percents), B2.3, B2.9.",
+      "watchFor": [
+        "Misplacing the decimal (1.1 × 50 = 5.5): ask \"Should the answer be more or less than 50? By how much?\"",
+        "Thinking × 1.1 adds 0.1 (1.1 × 50 = 50.1): ask \"What is 0.1 × 50?\"",
+        "Not connecting 0.75 with 25% less: ask \"What percent is 0.75? What percent is gone?\""
+      ],
+      "wrapUp": "Ask \"How is 10% more the same as × 1.1?\" Land: new amount = (100% ± change) of the original. Write that percent as a decimal to multiply in one step.",
+      "problems": [
+        {
+          "q": "110% of 50",
+          "a": "55",
+          "notes": "Look for: 50 + 5. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:5, 100:50, 110:55",
+          "responses": [
+            {
+              "say": "50 + 10% (5) = 55.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:5, 100:50, 110:55"
+            },
+            {
+              "say": "Before: 50, after: 50 + 5.",
+              "tool": "bar",
+              "type": "Before: 50; After: 50 + 5"
+            }
+          ]
+        },
+        {
+          "q": "1.1 x 50",
+          "a": "55",
+          "notes": "Look for: the same as 110%. Ask: \"What do you notice?\" Word choice: \"110% is 1.1 as a decimal.\" Model: ratio 1:50, 0.1:5, 1.1:55",
+          "responses": [
+            {
+              "say": "1 × 50 is 50, 0.1 × 50 is 5: 55.",
+              "tool": "ratio",
+              "type": "1:50, 0.1:5, 1.1:55",
+              "tip": "The target connection."
+            },
+            {
+              "say": "110% is 1.1, so it's the same as the last one.",
+              "tool": "text",
+              "type": "110% = 1.1 ; 1.1 x 50 = 55"
+            },
+            {
+              "say": "5.5",
+              "tool": "text",
+              "type": "1.1 x 50 = 5.5 ?",
+              "tip": "Decimal in the wrong place. Ask: should the answer be more or less than 50?",
+              "kind": "error"
+            },
+            {
+              "say": "50.1",
+              "tool": "text",
+              "type": "1.1 x 50 = 50 + 0.1 ?",
+              "tip": "Ask: what is 0.1 × 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "90% of 50",
+          "a": "45",
+          "notes": "Look for: 50 − 5. Ask: \"Is this an increase or a decrease?\" Model: bar 50 = 45 + 5",
+          "responses": [
+            {
+              "say": "10% less: 50 − 5 = 45.",
+              "tool": "bar",
+              "type": "50 = 45 + 5"
+            },
+            {
+              "say": "9 × 5 = 45.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:5, 90:45"
+            }
+          ]
+        },
+        {
+          "q": "0.9 x 50",
+          "a": "45",
+          "notes": "Look for: same as 90%. Ask: \"What percent change is × 0.9?\" Model: ratio 1:50, 0.1:5, 0.9:45",
+          "responses": [
+            {
+              "say": "0.9 is 90%, so 45.",
+              "tool": "ratio",
+              "type": "1:50, 0.1:5, 0.9:45"
+            },
+            {
+              "say": "50 − 0.1 × 50 = 45.",
+              "tool": "text",
+              "type": "0.9 x 50 = 50 - 5 = 45"
+            },
+            {
+              "say": "4.5",
+              "tool": "text",
+              "type": "0.9 x 50 = 4.5 ?",
+              "tip": "Ask: is 0.9 close to 1? So is the answer close to 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.75 x 80",
+          "a": "60",
+          "notes": "Look for: 75% of 80, or 25% less: 80 − 20. Ask: \"What percent change is this?\" Model: bar 80 = 60 + 20",
+          "responses": [
+            {
+              "say": "0.75 is 75%, which is 25% less: 80 − 20 = 60.",
+              "tool": "bar",
+              "type": "80 = 60 + 20"
+            },
+            {
+              "say": "3/4 of 80 = 60.",
+              "tool": "bar",
+              "type": "3/4 of 80"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "0.75 x 80 = 6 ?",
+              "tip": "Ask: is 0.75 close to 1? So should the answer be close to 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.25 x 80",
+          "a": "100",
+          "notes": "Look for: 80 + 25% of 80 = 80 + 20. Ask: \"Increase or decrease? By what percent?\" Model: bar Before: 80; After: 80 + 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25% more: 80 + 20 = 100.",
+              "tool": "bar",
+              "type": "Before: 80; After: 80 + 20"
+            },
+            {
+              "say": "5 quarters of 80.",
+              "tool": "ratio",
+              "type": "1:80, 0.25:20, 1.25:100"
+            },
+            {
+              "say": "80.25",
+              "tool": "text",
+              "type": "1.25 x 80 = 80 + 0.25 ?",
+              "tip": "Ask: what is 0.25 × 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.05 x 200",
+          "a": "210",
+          "notes": "Look for: 5% increase: 200 + 10. Ask: \"What percent is 1.05?\" Model: bar Before: 200; After: 200 + 10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "105%, so 200 + 10 = 210.",
+              "tool": "bar",
+              "type": "Before: 200; After: 200 + 10"
+            },
+            {
+              "say": "0.05 × 200 is 10.",
+              "tool": "ratio",
+              "type": "1:200, 0.05:10, 1.05:210"
+            },
+            {
+              "say": "300",
+              "tool": "text",
+              "type": "1.05 x 200 = 200 + 0.5 x 200 = 300 ?",
+              "tip": "Read 0.05 as 0.5. Ask: is 0.05 five tenths or five hundredths?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "w1-d1-adding-near-a-ten",
       "title": "Adding Near a Ten",
       "group": "Grade 8 · Week 1 · Additive Reasoning",

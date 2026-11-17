@@ -1,0 +1,923 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-w01-d1-zero-pairs",
+      "title": "Zero Pairs",
+      "label": "Day 1",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "tiles",
+      "strategy": "A positive and a negative of the same size make zero; cancel zero pairs and see what is left.",
+      "keywords": "integer, positive, negative, zero pair, opposite, cancel",
+      "connection": "First integer string. Builds the zero-pair idea used all week. Curriculum: B1.2 (integers), B2.4 (add and subtract integers).",
+      "watchFor": [
+        "Ignoring the signs (3 + −5 = 8): build it with tiles and ask \"Which tiles cancel?\"",
+        "Getting the size right but the sign wrong (3 + −5 = 2): ask \"Are there more positives or negatives left?\"",
+        "Thinking a negative plus a positive is always negative: compare −4 + 7 and −6 + 2."
+      ],
+      "wrapUp": "Ask \"How do you know if the answer is positive or negative?\" Land: cancel the zero pairs; whatever is left over (and its sign) is the answer.",
+      "problems": [
+        {
+          "q": "3 + -3",
+          "a": "0",
+          "notes": "Look for: they cancel. Ask: \"What happens when a positive meets its opposite?\" Word choice: \"3 and −3 are a zero pair.\" Model: tiles 3 + -3",
+          "responses": [
+            {
+              "say": "3 positives and 3 negatives cancel. Zero.",
+              "tool": "tiles",
+              "type": "3 + -3"
+            },
+            {
+              "say": "Up 3 and back 3 lands at 0.",
+              "tool": "numberline",
+              "type": "0 +3 -3"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "3 + 3 = 6 ?",
+              "tip": "Ignored the sign. Ask: what does −3 mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 + -3",
+          "a": "2",
+          "notes": "Look for: 3 zero pairs, 2 positives left. Ask: \"How many zero pairs?\" Model: tiles 5 + -3",
+          "responses": [
+            {
+              "say": "3 zero pairs, 2 positives left.",
+              "tool": "tiles",
+              "type": "5 + -3",
+              "tip": "The target model."
+            },
+            {
+              "say": "Start at 5 and go back 3.",
+              "tool": "numberline",
+              "type": "5 -3"
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "5 + 3 = 8 ?",
+              "tip": "Ignored the sign. Ask: which tiles cancel?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 + -5",
+          "a": "-2",
+          "notes": "Look for: 3 zero pairs, 2 negatives left. Ask: \"What's left over? Positive or negative?\" Model: tiles 3 + -5",
+          "responses": [
+            {
+              "say": "3 zero pairs, and 2 negatives left: −2.",
+              "tool": "tiles",
+              "type": "3 + -5"
+            },
+            {
+              "say": "From 3, back 3 to 0, then back 2 more.",
+              "tool": "numberline",
+              "type": "3 -3 -2",
+              "tip": "Through zero. Name it."
+            },
+            {
+              "say": "2",
+              "tool": "tiles",
+              "type": "3 + -5",
+              "tip": "Right size, wrong sign. Ask: are there more positives or negatives left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 + 7",
+          "a": "3",
+          "notes": "Look for: 4 zero pairs, 3 positives left. Ask: \"Does it matter which comes first?\" Model: tiles -4 + 7",
+          "responses": [
+            {
+              "say": "4 zero pairs, 3 positives left: 3.",
+              "tool": "tiles",
+              "type": "-4 + 7"
+            },
+            {
+              "say": "From −4 up 4 to 0, then 3 more.",
+              "tool": "numberline",
+              "type": "-4 +4 +3"
+            },
+            {
+              "say": "-3",
+              "tool": "tiles",
+              "type": "-4 + 7",
+              "tip": "Ask: which are there more of, positives or negatives?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-6 + 2",
+          "a": "-4",
+          "notes": "Look for: 2 zero pairs, 4 negatives left. Ask: \"How is this different from the last one?\" Model: tiles -6 + 2",
+          "responses": [
+            {
+              "say": "2 zero pairs, 4 negatives left: −4.",
+              "tool": "tiles",
+              "type": "-6 + 2"
+            },
+            {
+              "say": "From −6, up 2 to −4.",
+              "tool": "numberline",
+              "type": "-6 +2"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-6 + 2 = -8 ?",
+              "tip": "Moved the wrong way. Ask: does adding 2 make the number bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 + -12",
+          "a": "-4",
+          "notes": "Look for: 8 zero pairs, 4 negatives left. Ask: \"Can you tell the sign before you count?\" Model: tiles 8 + -12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 zero pairs, 4 negatives left.",
+              "tool": "tiles",
+              "type": "8 + -12"
+            },
+            {
+              "say": "From 8, back 8 to 0, then 4 more.",
+              "tool": "numberline",
+              "type": "8 -8 -4"
+            },
+            {
+              "say": "4",
+              "tool": "tiles",
+              "type": "8 + -12",
+              "tip": "Right size, wrong sign. Ask: which is bigger, 8 or 12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-15 + 9",
+          "a": "-6",
+          "notes": "Look for: 9 zero pairs, 6 negatives left. Ask: \"Do you need the tiles, or can you picture them?\" Model: numberline -15 +9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "9 zero pairs, 6 negatives left.",
+              "tool": "tiles",
+              "type": "-15 + 9"
+            },
+            {
+              "say": "From −15, up 9 to −6.",
+              "tool": "numberline",
+              "type": "-15 +9",
+              "tip": "Big numbers: the number line is quicker."
+            },
+            {
+              "say": "-24",
+              "tool": "text",
+              "type": "-15 + 9 = -24 ?",
+              "tip": "Ask: does adding 9 move you up or down?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d2-adding-on-the-number-line",
+      "title": "Adding Integers on the Number Line",
+      "label": "Day 2",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "Adding a positive moves right; adding a negative moves left. Jump to 0 first when you cross it.",
+      "keywords": "move right, move left, jump to zero, opposite, number line",
+      "connection": "Day 1 used zero pairs. Today the number line shows the same idea as moves, and \"jump to 0\" is like Grade 5's \"make the next whole\". Curriculum: B1.2, B2.4.",
+      "watchFor": [
+        "Moving right for a negative (−3 + −4 = 1): ask \"Which way does adding a negative move?\"",
+        "Counting the tick you start on: count jumps, not ticks.",
+        "Not using 0 as a stop: ask \"How far is it to 0? How much is left?\""
+      ],
+      "wrapUp": "Ask \"What does adding a negative do?\" Land: adding a negative moves left, just like subtracting a positive. When you cross 0, jump to 0 first.",
+      "problems": [
+        {
+          "q": "6 + -2",
+          "a": "4",
+          "notes": "Look for: move left 2. Ask: \"Which way do you move?\" Model: numberline 6 -2",
+          "responses": [
+            {
+              "say": "Start at 6, move left 2: 4.",
+              "tool": "numberline",
+              "type": "6 -2"
+            },
+            {
+              "say": "2 zero pairs, 4 positives left.",
+              "tool": "tiles",
+              "type": "6 + -2"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2",
+          "a": "4",
+          "notes": "Look for: the same answer. Ask: \"Why do these match?\" Word choice: \"Adding −2 does the same as subtracting 2.\" Model: numberline 6 -2",
+          "responses": [
+            {
+              "say": "Same as the last one: 4.",
+              "tool": "numberline",
+              "type": "6 -2",
+              "tip": "Ask: why are 6 + −2 and 6 − 2 the same?"
+            },
+            {
+              "say": "6 − 2 is 4.",
+              "tool": "text",
+              "type": "6 - 2 = 4 ; 6 + -2 = 4"
+            }
+          ]
+        },
+        {
+          "q": "-3 + -4",
+          "a": "-7",
+          "notes": "Look for: start at −3, move left 4. Ask: \"Which way does adding a negative go?\" Model: numberline -3 -4",
+          "responses": [
+            {
+              "say": "From −3, left 4: −7.",
+              "tool": "numberline",
+              "type": "-3 -4"
+            },
+            {
+              "say": "3 negatives and 4 negatives: 7 negatives.",
+              "tool": "tiles",
+              "type": "-3 + -4",
+              "tip": "No zero pairs here. Ask: why?"
+            },
+            {
+              "say": "1",
+              "tool": "numberline",
+              "type": "-3 +4",
+              "tip": "Moved right. Ask: which way does adding a negative move?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-5 + 8",
+          "a": "3",
+          "notes": "Look for: from −5 up 5 to 0, then 3 more. Ask: \"How far is it to 0?\" Model: numberline -5 +5 +3",
+          "responses": [
+            {
+              "say": "Up 5 to 0, then 3 more: 3.",
+              "tool": "numberline",
+              "type": "-5 +5 +3",
+              "tip": "Jump to 0. The target strategy."
+            },
+            {
+              "say": "5 zero pairs, 3 positives left.",
+              "tool": "tiles",
+              "type": "-5 + 8"
+            },
+            {
+              "say": "-13",
+              "tool": "text",
+              "type": "-5 + 8 = -13 ?",
+              "tip": "Ask: does adding 8 move you up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 + -15",
+          "a": "-3",
+          "notes": "Look for: back 12 to 0, then 3 more. Ask: \"How much of the −15 gets you to 0?\" Model: numberline 12 -12 -3",
+          "responses": [
+            {
+              "say": "Back 12 to 0, then 3 more: −3.",
+              "tool": "numberline",
+              "type": "12 -12 -3"
+            },
+            {
+              "say": "15 is 3 more than 12, so 3 negatives are left.",
+              "tool": "text",
+              "type": "15 - 12 = 3 ; more negatives, so -3",
+              "tip": "Compare sizes, then decide the sign."
+            },
+            {
+              "say": "3",
+              "tool": "numberline",
+              "type": "12 -12 -3",
+              "tip": "Right size, wrong sign. Ask: where did you land, left or right of 0?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-18 + 25",
+          "a": "7",
+          "notes": "Look for: up 18 to 0, then 7 more. Ask: \"Will it be positive or negative? How do you know?\" Model: numberline -18 +18 +7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Up 18 to 0, then 7 more: 7.",
+              "tool": "numberline",
+              "type": "-18 +18 +7"
+            },
+            {
+              "say": "25 − 18 = 7, and there's more positive.",
+              "tool": "text",
+              "type": "25 - 18 = 7 ; more positive, so 7"
+            },
+            {
+              "say": "-7",
+              "tool": "numberline",
+              "type": "-18 +18 +7",
+              "tip": "Ask: are there more positives or negatives?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-27 + -13",
+          "a": "-40",
+          "notes": "Look for: left 13 from −27. Ask: \"Is there any zero to cross?\" Model: numberline -27 -3 -10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From −27, left 3 to −30, then 10 more: −40.",
+              "tool": "numberline",
+              "type": "-27 -3 -10",
+              "tip": "Make a friendly number, like adding near a ten."
+            },
+            {
+              "say": "27 + 13 = 40, all negative.",
+              "tool": "text",
+              "type": "27 + 13 = 40 ; both negative, so -40"
+            },
+            {
+              "say": "-14",
+              "tool": "text",
+              "type": "-27 + -13 = -14 ?",
+              "tip": "Ask: both are negative. Can any cancel?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d3-subtraction-as-distance",
+      "title": "Subtraction as Distance",
+      "label": "Day 3",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "a − b is how far it is from b to a: count the distance, and the answer is negative if you move left.",
+      "keywords": "difference, distance, how far, direction, from b to a",
+      "connection": "Like Grade 5's subtraction as distance, now across 0. Curriculum: B2.4.",
+      "watchFor": [
+        "Subtracting sizes only (5 − −2 = 3): ask \"How far is it from −2 to 5 on the line?\"",
+        "Getting the direction wrong (−1 − 4 = 5): ask \"From 4 to −1, are you going up or down?\"",
+        "Not splitting at 0: ask \"How far to 0, then how far from 0?\""
+      ],
+      "wrapUp": "Ask \"How did the number line help with subtracting negatives?\" Land: a − b is the distance from b to a. Moving up gives a positive answer, moving down a negative one.",
+      "problems": [
+        {
+          "q": "5 - 2",
+          "a": "3",
+          "notes": "Look for: from 2 to 5 is 3. Ask: \"How far apart are 2 and 5?\" Model: numberline 2 ~5",
+          "responses": [
+            {
+              "say": "From 2 to 5 is 3.",
+              "tool": "numberline",
+              "type": "2 ~5"
+            },
+            {
+              "say": "5 take away 2 is 3.",
+              "tool": "numberline",
+              "type": "5 -2"
+            }
+          ]
+        },
+        {
+          "q": "5 - -2",
+          "a": "7",
+          "notes": "Look for: from −2 to 5 is 2 + 5 = 7. Ask: \"How far apart are −2 and 5?\" Word choice: \"The distance from −2 to 5 is 7.\" Model: numberline -2 >0 >5",
+          "responses": [
+            {
+              "say": "From −2 to 0 is 2, then 0 to 5 is 5. 7.",
+              "tool": "numberline",
+              "type": "-2 >0 >5",
+              "tip": "The target strategy. Ask: why go through 0?"
+            },
+            {
+              "say": "Add 2 zero pairs, then take away 2 negatives: 7 left.",
+              "tool": "tiles",
+              "type": "5 - -2",
+              "tip": "Connects to Day 1."
+            },
+            {
+              "say": "3",
+              "tool": "numberline",
+              "type": "-2 >0 >5",
+              "tip": "Subtracted sizes. Ask: how far is it from −2 to 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - -4",
+          "a": "7",
+          "notes": "Look for: from −4 to 3 is 4 + 3 = 7. Ask: \"Same idea?\" Model: numberline -4 >0 >3",
+          "responses": [
+            {
+              "say": "−4 to 0 is 4, 0 to 3 is 3: 7.",
+              "tool": "numberline",
+              "type": "-4 >0 >3"
+            },
+            {
+              "say": "Taking away a negative is like adding: 3 + 4.",
+              "tool": "text",
+              "type": "3 - -4 = 3 + 4 = 7",
+              "tip": "Tomorrow's idea. Name it."
+            },
+            {
+              "say": "-1",
+              "tool": "text",
+              "type": "3 - -4 = -1 ?",
+              "tip": "Ask: how far apart are −4 and 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 - -6",
+          "a": "4",
+          "notes": "Look for: from −6 to −2 is 4. Ask: \"Which is bigger, −2 or −6?\" Model: numberline -6 ~-2",
+          "responses": [
+            {
+              "say": "From −6 up to −2 is 4.",
+              "tool": "numberline",
+              "type": "-6 ~-2"
+            },
+            {
+              "say": "Take away 6 negatives from 2 negatives: add 4 zero pairs first.",
+              "tool": "tiles",
+              "type": "-2 - -6"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-2 - -6 = -8 ?",
+              "tip": "Ask: are −2 and −6 really 8 apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-1 - 4",
+          "a": "-5",
+          "notes": "Look for: from 4 down to −1 is 5, going down, so −5. Ask: \"From 4 to −1, which direction?\" Model: numberline 4 >0 >-1",
+          "responses": [
+            {
+              "say": "From 4 down to −1 is 5 steps down: −5.",
+              "tool": "numberline",
+              "type": "4 >0 >-1",
+              "tip": "Direction matters. Ask: up or down?"
+            },
+            {
+              "say": "Start at −1 and go back 4.",
+              "tool": "numberline",
+              "type": "-1 -4"
+            },
+            {
+              "say": "5",
+              "tool": "numberline",
+              "type": "4 >0 >-1",
+              "tip": "Right distance, wrong direction. Ask: from 4 to −1, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - -15",
+          "a": "25",
+          "notes": "Look for: from −15 to 10 is 15 + 10. Ask: \"How far to 0, then how far from 0?\" Model: numberline -15 >0 >10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15 to get to 0, then 10 more: 25.",
+              "tool": "numberline",
+              "type": "-15 >0 >10"
+            },
+            {
+              "say": "Subtracting −15 is adding 15.",
+              "tool": "text",
+              "type": "10 - -15 = 10 + 15 = 25"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "10 - -15 = -5 ?",
+              "tip": "Ask: how far apart are −15 and 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-8 - 3",
+          "a": "-11",
+          "notes": "Look for: start at −8 and go down 3. Ask: \"Where does subtracting 3 take you?\" Model: numberline -8 -3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From −8, down 3: −11.",
+              "tool": "numberline",
+              "type": "-8 -3"
+            },
+            {
+              "say": "From 3 down to −8 is 11 steps down: −11.",
+              "tool": "numberline",
+              "type": "3 >0 >-8"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "-8 - 3 = -5 ?",
+              "tip": "Ask: does subtracting 3 make −8 bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d4-add-the-opposite",
+      "title": "Subtracting Is Adding the Opposite",
+      "label": "Day 4",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "tiles",
+      "strategy": "Subtracting a number gives the same result as adding its opposite: a − b = a + (−b).",
+      "keywords": "opposite, add the opposite, zero pairs, take away, equivalent",
+      "connection": "Day 2 showed 6 + −2 = 6 − 2. Today we flip it around and use zero pairs to see why taking away a negative is like adding. Curriculum: B2.1, B2.4.",
+      "watchFor": [
+        "Changing both signs (4 − −3 → −4 + 3): ask \"Which number are we taking away?\"",
+        "Thinking two negatives always make a positive (−3 + −5 = 8): ask \"Are we subtracting here, or adding?\"",
+        "Not enough tiles to take away: ask \"What can you add that doesn't change the value?\" (zero pairs)"
+      ],
+      "wrapUp": "Ask \"Why does taking away a negative give the same result as adding a positive?\" Land: adding zero pairs lets us take away anything. a − b = a + (opposite of b).",
+      "problems": [
+        {
+          "q": "7 - 3",
+          "a": "4",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: tiles 7 - 3",
+          "responses": [
+            {
+              "say": "Take 3 positives away from 7: 4.",
+              "tool": "tiles",
+              "type": "7 - 3"
+            }
+          ]
+        },
+        {
+          "q": "7 + -3",
+          "a": "4",
+          "notes": "Look for: 3 zero pairs, 4 left. Ask: \"Why is it the same as 7 − 3?\" Model: tiles 7 + -3",
+          "responses": [
+            {
+              "say": "3 zero pairs, 4 positives left: 4.",
+              "tool": "tiles",
+              "type": "7 + -3"
+            },
+            {
+              "say": "Same as 7 − 3.",
+              "tool": "text",
+              "type": "7 - 3 = 7 + -3 = 4",
+              "tip": "Ask: what's the same, and what's different?"
+            }
+          ]
+        },
+        {
+          "q": "2 - 5",
+          "a": "-3",
+          "notes": "Look for: add 3 zero pairs, then take away 5 positives. Ask: \"There are only 2. How can we take away 5?\" Model: tiles 2 - 5",
+          "responses": [
+            {
+              "say": "Add 3 zero pairs, take away 5 positives: 3 negatives left.",
+              "tool": "tiles",
+              "type": "2 - 5",
+              "tip": "The target model. Ask: why add zero pairs?"
+            },
+            {
+              "say": "From 2, down 2 to 0, then 3 more.",
+              "tool": "numberline",
+              "type": "2 -2 -3"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "2 - 5 = 5 - 2 = 3 ?",
+              "tip": "Switched the order. Ask: is 2 − 5 the same as 5 − 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 + -5",
+          "a": "-3",
+          "notes": "Look for: the same as 2 − 5. Ask: \"Why do these match?\" Word choice: \"Subtracting 5 is the same as adding −5.\" Model: tiles 2 + -5",
+          "responses": [
+            {
+              "say": "2 zero pairs, 3 negatives left: −3.",
+              "tool": "tiles",
+              "type": "2 + -5"
+            },
+            {
+              "say": "Same as the last one.",
+              "tool": "text",
+              "type": "2 - 5 = 2 + -5 = -3"
+            }
+          ]
+        },
+        {
+          "q": "4 - -3",
+          "a": "7",
+          "notes": "Look for: add 3 zero pairs, take away 3 negatives: 7 positives. Ask: \"Which is the same: 4 + 3 or 4 + −3?\" Model: tiles 4 - -3",
+          "responses": [
+            {
+              "say": "Add 3 zero pairs, take away the 3 negatives: 7 positives.",
+              "tool": "tiles",
+              "type": "4 - -3",
+              "tip": "Ask: what's left after taking the negatives away?"
+            },
+            {
+              "say": "Subtracting −3 is adding 3: 4 + 3 = 7.",
+              "tool": "text",
+              "type": "4 - -3 = 4 + 3 = 7",
+              "tip": "Add the opposite. Name it."
+            },
+            {
+              "say": "From −3 up to 4 is 7.",
+              "tool": "numberline",
+              "type": "-3 >0 >4",
+              "tip": "Yesterday's distance. Connect."
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "4 - -3 = 4 - 3 = 1 ?",
+              "tip": "Ignored the negative. Ask: are we taking away 3 or −3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-3 - -5",
+          "a": "2",
+          "notes": "Look for: add 2 zero pairs, take away 5 negatives: 2 positives. Or −3 + 5. Ask: \"What's the opposite of −5?\" Model: tiles -3 - -5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 2 zero pairs, take away 5 negatives: 2.",
+              "tool": "tiles",
+              "type": "-3 - -5"
+            },
+            {
+              "say": "Add the opposite: −3 + 5 = 2.",
+              "tool": "numberline",
+              "type": "-3 +5"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-3 - -5 = -3 - 5 = -8 ?",
+              "tip": "Ask: are we taking away −5 or 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-6 - 4",
+          "a": "-10",
+          "notes": "Look for: −6 + −4. Ask: \"Add the opposite: what's the opposite of 4?\" Model: tiles -6 - 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 4 zero pairs, take away 4 positives: 10 negatives.",
+              "tool": "tiles",
+              "type": "-6 - 4"
+            },
+            {
+              "say": "−6 + −4 = −10.",
+              "tool": "numberline",
+              "type": "-6 -4"
+            },
+            {
+              "say": "-2",
+              "tool": "text",
+              "type": "-6 - 4 = -2 ?",
+              "tip": "Ask: does subtracting 4 make −6 bigger or smaller?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w01-d5-choosing-a-strategy",
+      "title": "Choosing an Integer Strategy",
+      "label": "Day 5",
+      "group": "Grade 7 · Week 1 · Adding and Subtracting Integers",
+      "tool": "numberline",
+      "strategy": "Choose zero pairs, moves on the number line, distance, or add the opposite, depending on the numbers.",
+      "keywords": "temperature, rise, drop, difference, choose, reasonable",
+      "connection": "Brings together Days 1 to 4, with temperature as a context. Curriculum: B2.4.",
+      "watchFor": [
+        "Mixing up \"difference\" with \"sum\": ask \"Are we combining, or finding how far apart?\"",
+        "Sign errors in the last step: ask \"Should the answer be above or below 0? Why?\"",
+        "Using tiles for large numbers: ask \"Is there a quicker model?\""
+      ],
+      "wrapUp": "Ask \"Which strategy did you use for each, and why?\" Land: decide the sign and the size. Zero pairs, jumps to 0, distance, and adding the opposite all work; pick the one that fits.",
+      "problems": [
+        {
+          "q": "-8 + 15",
+          "a": "7",
+          "notes": "Context: \"It was −8°C at 6 a.m. and rose 15 degrees.\" Look for: up 8 to 0, then 7. Model: numberline -8 +8 +7",
+          "responses": [
+            {
+              "say": "Up 8 to 0, then 7 more: 7°.",
+              "tool": "numberline",
+              "type": "-8 +8 +7"
+            },
+            {
+              "say": "8 zero pairs, 7 positives left.",
+              "tool": "tiles",
+              "type": "-8 + 15"
+            },
+            {
+              "say": "-23",
+              "tool": "text",
+              "type": "-8 + 15 = -23 ?",
+              "tip": "Ask: did the temperature go up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 - 15",
+          "a": "-8",
+          "notes": "Context: \"It was 7°C and dropped 15 degrees.\" Look for: back 7 to 0, then 8 more. Ask: \"How is this related to the last one?\" Model: numberline 7 -7 -8",
+          "responses": [
+            {
+              "say": "Down 7 to 0, then 8 more: −8°.",
+              "tool": "numberline",
+              "type": "7 -7 -8"
+            },
+            {
+              "say": "It undoes the last problem.",
+              "tool": "text",
+              "type": "-8 + 15 = 7 ; so 7 - 15 = -8",
+              "tip": "Inverse operations. Name it."
+            },
+            {
+              "say": "8",
+              "tool": "numberline",
+              "type": "7 -7 -8",
+              "tip": "Ask: are we above or below 0 now?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 - -9",
+          "a": "13",
+          "notes": "Context: \"How much warmer is 4°C than −9°C?\" Look for: distance from −9 to 4. Model: numberline -9 >0 >4",
+          "responses": [
+            {
+              "say": "9 up to 0, then 4 more: 13 degrees.",
+              "tool": "numberline",
+              "type": "-9 >0 >4",
+              "tip": "Distance. The context helps."
+            },
+            {
+              "say": "Add the opposite: 4 + 9 = 13.",
+              "tool": "text",
+              "type": "4 - -9 = 4 + 9 = 13"
+            },
+            {
+              "say": "-5",
+              "tool": "text",
+              "type": "4 - -9 = -5 ?",
+              "tip": "Ask: how far apart are 4 and −9 on a thermometer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 + -6",
+          "a": "-18",
+          "notes": "Context: \"It was −12°C and dropped 6 more degrees.\" Look for: left 6 from −12. Model: numberline -12 -6",
+          "responses": [
+            {
+              "say": "From −12 down 6: −18°.",
+              "tool": "numberline",
+              "type": "-12 -6"
+            },
+            {
+              "say": "12 negatives and 6 negatives: 18 negatives.",
+              "tool": "text",
+              "type": "12 + 6 = 18 ; all negative, so -18"
+            },
+            {
+              "say": "-6",
+              "tool": "text",
+              "type": "-12 + -6 = -6 ?",
+              "tip": "Ask: did it get colder or warmer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "25 + -40",
+          "a": "-15",
+          "notes": "Look for: back 25 to 0, then 15 more. Ask: \"Positive or negative? How do you know before you calculate?\" Model: numberline 25 -25 -15",
+          "responses": [
+            {
+              "say": "Back 25 to 0, then 15 more: −15.",
+              "tool": "numberline",
+              "type": "25 -25 -15"
+            },
+            {
+              "say": "40 − 25 = 15, more negatives, so −15.",
+              "tool": "text",
+              "type": "40 - 25 = 15 ; more negative, so -15"
+            },
+            {
+              "say": "15",
+              "tool": "numberline",
+              "type": "25 -25 -15",
+              "tip": "Ask: which is bigger, the 25 or the 40? So which sign wins?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-7 - -7",
+          "a": "0",
+          "notes": "Look for: anything minus itself is 0. Ask: \"Do you need to calculate?\" Model: tiles -7 - -7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Take away all 7 negatives: nothing left.",
+              "tool": "tiles",
+              "type": "-7 - -7"
+            },
+            {
+              "say": "Add the opposite: −7 + 7 = 0.",
+              "tool": "numberline",
+              "type": "-7 +7"
+            },
+            {
+              "say": "-14",
+              "tool": "text",
+              "type": "-7 - -7 = -14 ?",
+              "tip": "Ask: what is any number minus itself?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-35 + 60 - 20",
+          "a": "5",
+          "notes": "Context: \"−35°C at night, up 60 by afternoon, then down 20.\" Look for: up to 0, to 25, then down 20. Model: numberline -35 +35 +25 -20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Up 35 to 0, up 25 more to 25, down 20: 5°.",
+              "tool": "numberline",
+              "type": "-35 +35 +25 -20"
+            },
+            {
+              "say": "60 − 20 = 40, then −35 + 40 = 5.",
+              "tool": "text",
+              "type": "60 - 20 = 40 ; -35 + 40 = 5",
+              "tip": "Combined the changes first. Good."
+            },
+            {
+              "say": "-75",
+              "tool": "text",
+              "type": "-35 + 60 - 20 = -75 ?",
+              "tip": "Ask: the temperature went up 60. Can it end up colder than −35?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

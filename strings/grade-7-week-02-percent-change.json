@@ -1,0 +1,852 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-w02-d1-ten-percent-more-or-less",
+      "title": "10% More, 10% Less",
+      "label": "Day 1",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "bar",
+      "strategy": "To increase or decrease by 10%, find 10% (divide by 10), then add it on or take it away.",
+      "keywords": "increase, decrease, percent change, original amount, 10%, 110%, 90%",
+      "connection": "Builds on Grade 6 percents of whole numbers. Now the percent changes the number. Curriculum: B2.3 (increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, 100%).",
+      "watchFor": [
+        "Adding the percent as a number (60 + 10% of 60 = 70): ask \"Is 10% of 60 the same as 10?\"",
+        "Finding the 10% but forgetting to add or subtract it (60 + 10% of 60 = 6): ask \"Is the answer the change, or the new amount?\"",
+        "Using the new amount to find the percent: ask \"10% of which number?\""
+      ],
+      "wrapUp": "Ask \"How are 10% more and 110% related?\" Land: find 10% of the original, then add it on (110%) or take it away (90%).",
+      "problems": [
+        {
+          "q": "10% of 60",
+          "a": "6",
+          "notes": "Look for: 60 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:6, 100:60",
+          "responses": [
+            {
+              "say": "A tenth of 60 is 6.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:6, 100:60"
+            },
+            {
+              "say": "60 ÷ 10 = 6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:60, 10:6"
+            }
+          ]
+        },
+        {
+          "q": "60 + 10% of 60",
+          "a": "66",
+          "notes": "Look for: 60 + 6. Ask: \"What does increasing by 10% mean?\" Word choice: \"The original plus 10% of the original.\" Model: bar Before: 60; After: 60 + 6",
+          "responses": [
+            {
+              "say": "10% is 6, so 60 + 6 = 66.",
+              "tool": "bar",
+              "type": "Before: 60; After: 60 + 6",
+              "tip": "The target model."
+            },
+            {
+              "say": "100% + 10% = 110%, so 66.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:6, 100:60, 110:66",
+              "tip": "Preview of 110%."
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "60 + 10 = 70 ?",
+              "tip": "Added 10, not 10%. Ask: what is 10% of 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 - 10% of 60",
+          "a": "54",
+          "notes": "Look for: 60 − 6. Ask: \"How is this like the last one?\" Model: bar 60 = 54 + 6",
+          "responses": [
+            {
+              "say": "Take away 10%, which is 6: 54.",
+              "tool": "bar",
+              "type": "60 = 54 + 6"
+            },
+            {
+              "say": "90% of 60: 9 × 6 = 54.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:6, 90:54"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "10% of 60 = 6",
+              "tip": "Stopped at the change. Ask: what is the new amount?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10% of 250",
+          "a": "25",
+          "notes": "Look for: 250 ÷ 10. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:25, 100:250",
+          "responses": [
+            {
+              "say": "250 ÷ 10 = 25.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:25, 100:250"
+            }
+          ]
+        },
+        {
+          "q": "250 + 10% of 250",
+          "a": "275",
+          "notes": "Look for: 250 + 25. Ask: \"What changed, and what stayed the same?\" Model: bar Before: 250; After: 250 + 25",
+          "responses": [
+            {
+              "say": "250 + 25 = 275.",
+              "tool": "bar",
+              "type": "Before: 250; After: 250 + 25"
+            },
+            {
+              "say": "110% is 11 × 25 = 275.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:250, 10:25, 110:275"
+            },
+            {
+              "say": "260",
+              "tool": "text",
+              "type": "250 + 10 = 260 ?",
+              "tip": "Ask: is 10% of 250 equal to 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 - 10% of 250",
+          "a": "225",
+          "notes": "Look for: 250 − 25. Ask: \"Can you predict before calculating?\" Model: bar 250 = 225 + 25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 − 25 = 225.",
+              "tool": "bar",
+              "type": "250 = 225 + 25"
+            },
+            {
+              "say": "90% is 9 × 25 = 225.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:25, 90:225"
+            }
+          ]
+        },
+        {
+          "q": "110% of 80",
+          "a": "88",
+          "notes": "Look for: 100% + 10% = 80 + 8. Ask: \"How is 110% like increasing by 10%?\" Model: doubleline percent:amount, 0:0, 10:8, 100:80, 110:88",
+          "optional": true,
+          "responses": [
+            {
+              "say": "80 and 10% more, 8: 88.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:8, 100:80, 110:88"
+            },
+            {
+              "say": "11 tens of 8: 88.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:80, 10:8, 110:88"
+            },
+            {
+              "say": "190",
+              "tool": "text",
+              "type": "80 + 110 = 190 ?",
+              "tip": "Ask: is 110% of 80 a lot more than 80, or a little more?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d2-half-and-quarter-more-or-less",
+      "title": "50% and 25% More or Less",
+      "label": "Day 2",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "bar",
+      "strategy": "Find 50% (half) or 25% (quarter) of the original, then add it on or take it away.",
+      "keywords": "increase, decrease, half, quarter, 150%, 125%, 75%",
+      "connection": "Day 1 used 10%. Today: the halving benchmarks from Grade 6. Curriculum: B2.3.",
+      "watchFor": [
+        "Adding the percent as a number (40 + 50% of 40 = 90): ask \"What is 50% of 40?\"",
+        "Thinking 25% less means divide by 25: ask \"What fraction of the original is 25%?\"",
+        "Mixing up 75% of and 75% less: ask \"Are we keeping 75%, or taking 75% away?\""
+      ],
+      "wrapUp": "Ask \"How is 25% less the same as 75% of?\" Land: change = percent of the original; the new amount is the original plus or minus the change.",
+      "problems": [
+        {
+          "q": "50% of 40",
+          "a": "20",
+          "notes": "Look for: half of 40. Ask: \"Hold on to this.\" Model: bar 1/2 of 40",
+          "responses": [
+            {
+              "say": "Half of 40 is 20.",
+              "tool": "bar",
+              "type": "1/2 of 40"
+            }
+          ]
+        },
+        {
+          "q": "40 + 50% of 40",
+          "a": "60",
+          "notes": "Look for: 40 + 20. Ask: \"How did the first problem help?\" Model: bar Before: 40; After: 40 + 20",
+          "responses": [
+            {
+              "say": "Half of 40 is 20, so 40 + 20 = 60.",
+              "tool": "bar",
+              "type": "Before: 40; After: 40 + 20"
+            },
+            {
+              "say": "150% of 40: 40 and half again.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 150:60"
+            },
+            {
+              "say": "90",
+              "tool": "text",
+              "type": "40 + 50 = 90 ?",
+              "tip": "Added 50, not 50%. Ask: what is 50% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "40 - 25% of 40",
+          "a": "30",
+          "notes": "Look for: 25% is 10, 40 − 10. Ask: \"What is 25% of 40?\" Model: bar 40 = 30 + 10",
+          "responses": [
+            {
+              "say": "A quarter of 40 is 10, so 30.",
+              "tool": "bar",
+              "type": "40 = 30 + 10"
+            },
+            {
+              "say": "75% of 40: 3 × 10 = 30.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:10, 75:30, 100:40",
+              "tip": "Keep 75%. Name it."
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "40 - 25 = 15 ?",
+              "tip": "Subtracted 25, not 25%. Ask: what is 25% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 + 25% of 120",
+          "a": "150",
+          "notes": "Look for: 25% = 30, then 120 + 30. Ask: \"Halve, then halve again?\" Model: bar Before: 120; After: 120 + 30",
+          "responses": [
+            {
+              "say": "Half is 60, half again is 30: 120 + 30 = 150.",
+              "tool": "bar",
+              "type": "Before: 120; After: 120 + 30"
+            },
+            {
+              "say": "125%: 5 quarters of 120.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:120, 25:30, 125:150"
+            },
+            {
+              "say": "145",
+              "tool": "text",
+              "type": "120 + 25 = 145 ?",
+              "tip": "Ask: is 25% of 120 the same as 25?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 - 50% of 120",
+          "a": "60",
+          "notes": "Look for: half of 120 taken away. Ask: \"What's left when you take half away?\" Model: bar 120 = 60 + 60",
+          "responses": [
+            {
+              "say": "Take away half: 60 left.",
+              "tool": "bar",
+              "type": "120 = 60 + 60"
+            },
+            {
+              "say": "50% less is 50% of: 60.",
+              "tool": "text",
+              "type": "120 - 50% of 120 = 50% of 120 = 60",
+              "tip": "Ask: why is 50% less the same as 50% of?"
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "120 - 50 = 70 ?",
+              "tip": "Ask: what is 50% of 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75% of 120",
+          "a": "90",
+          "notes": "Look for: 3 × 30, or 120 − 30. Ask: \"Is this an increase or a decrease? By how much?\" Model: doubleline percent:amount, 0:0, 25:30, 75:90, 100:120",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 quarters: 3 × 30 = 90.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:30, 75:90, 100:120"
+            },
+            {
+              "say": "It's 25% less: 120 − 30 = 90.",
+              "tool": "bar",
+              "type": "120 = 90 + 30",
+              "tip": "Connect: 75% of = 25% less."
+            }
+          ]
+        },
+        {
+          "q": "150% of 30",
+          "a": "45",
+          "notes": "Look for: 30 + 15. Ask: \"Is the answer more or less than 30?\" Model: bar Before: 30; After: 30 + 15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "All of it plus half: 30 + 15 = 45.",
+              "tool": "bar",
+              "type": "Before: 30; After: 30 + 15"
+            },
+            {
+              "say": "Three halves: 3 × 15 = 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:15, 100:30, 150:45"
+            },
+            {
+              "say": "180",
+              "tool": "text",
+              "type": "30 + 150 = 180 ?",
+              "tip": "Ask: what is 50% of 30? So what is 150%?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d3-five-and-one-percent-changes",
+      "title": "5% and 1% Changes",
+      "label": "Day 3",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "ratio",
+      "strategy": "Use 10% to find 5% (half) and 1% (a tenth), then add or take away the change.",
+      "keywords": "5%, 1%, small change, tax, discount, original",
+      "connection": "Day 1's 10% helps here: 5% is half of it and 1% is a tenth of it. Curriculum: B2.3.",
+      "watchFor": [
+        "Dividing by 5 for 5% (5% of 300 = 60): ask \"Should 5% be more or less than 10%?\"",
+        "Adding the percent as a number (300 + 5% of 300 = 305): ask \"What is 5% of 300?\"",
+        "Forgetting that small percents make small changes: ask \"About how big should the change be?\""
+      ],
+      "wrapUp": "Ask \"How did 10% help you find 5% and 1%?\" Land: 10% → halve for 5%, divide by 10 for 1%. Then add or subtract the change.",
+      "problems": [
+        {
+          "q": "10% of 300",
+          "a": "30",
+          "notes": "Look for: 300 ÷ 10. Ask: \"Hold on to this.\" Model: ratio percent:amount, 100:300, 10:30",
+          "responses": [
+            {
+              "say": "A tenth of 300 is 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30"
+            }
+          ]
+        },
+        {
+          "q": "5% of 300",
+          "a": "15",
+          "notes": "Look for: half of 30. Ask: \"How does 10% help?\" Model: ratio percent:amount, 100:300, 10:30, 5:15",
+          "responses": [
+            {
+              "say": "Half of 30 is 15.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30, 5:15"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "300 / 5 = 60 ?",
+              "tip": "Divided by 5. Ask: should 5% be more or less than 10%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "300 + 5% of 300",
+          "a": "315",
+          "notes": "Look for: 300 + 15. Ask: \"Like a 5% tax on $300?\" Model: bar Before: 300; After: 300 + 15",
+          "responses": [
+            {
+              "say": "300 + 15 = 315.",
+              "tool": "bar",
+              "type": "Before: 300; After: 300 + 15"
+            },
+            {
+              "say": "105%: 100% and 5%.",
+              "tool": "text",
+              "type": "105% of 300 = 100% + 5% ; = 300 + 15 = 315"
+            },
+            {
+              "say": "305",
+              "tool": "text",
+              "type": "300 + 5 = 305 ?",
+              "tip": "Ask: what is 5% of 300?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1% of 300",
+          "a": "3",
+          "notes": "Look for: 30 ÷ 10. Ask: \"How does 10% help?\" Model: ratio percent:amount, 100:300, 10:30, 1:3",
+          "responses": [
+            {
+              "say": "10% is 30, 1% is 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 10:30, 1:3"
+            },
+            {
+              "say": "300 ÷ 100 = 3.",
+              "tool": "text",
+              "type": "300 / 100 = 3"
+            }
+          ]
+        },
+        {
+          "q": "300 - 1% of 300",
+          "a": "297",
+          "notes": "Look for: 300 − 3. Ask: \"A small change or a big one?\" Model: bar 300 = 297 + 3",
+          "responses": [
+            {
+              "say": "300 − 3 = 297.",
+              "tool": "bar",
+              "type": "300 = 297 + 3"
+            },
+            {
+              "say": "99% of 300: 300 − 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:300, 1:3, 99:297"
+            },
+            {
+              "say": "299",
+              "tool": "text",
+              "type": "300 - 1 = 299 ?",
+              "tip": "Ask: is 1% of 300 the same as 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "80 + 5% of 80",
+          "a": "84",
+          "notes": "Look for: 10% = 8, 5% = 4, 80 + 4. Ask: \"Same steps as before?\" Model: bar Before: 80; After: 80 + 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5% is 4, so 84.",
+              "tool": "bar",
+              "type": "Before: 80; After: 80 + 4"
+            },
+            {
+              "say": "105% of 80: 80 + 4.",
+              "tool": "text",
+              "type": "105% of 80 = 100% + 5% ; = 80 + 4 = 84"
+            },
+            {
+              "say": "96",
+              "tool": "text",
+              "type": "80 + 80 / 5 = 96 ?",
+              "tip": "Added 20%. Ask: what is 5% of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "500 - 6% of 500",
+          "a": "470",
+          "notes": "Look for: 5% = 25, 1% = 5, so 6% = 30; 500 − 30. Ask: \"Can you build 6%?\" Model: bar 500 = 470 + 30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5% + 1% = 25 + 5 = 30, so 470.",
+              "tool": "bar",
+              "type": "500 = 470 + 30"
+            },
+            {
+              "say": "1% is 5, so 6% is 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:500, 1:5, 6:30"
+            },
+            {
+              "say": "494",
+              "tool": "text",
+              "type": "500 - 6 = 494 ?",
+              "tip": "Ask: what is 6% of 500?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d4-doubling-and-beyond",
+      "title": "100% Increase and Beyond",
+      "label": "Day 4",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "doubleline",
+      "strategy": "A 100% increase doubles the original; percents over 100% mean more than the whole.",
+      "keywords": "100% increase, double, 200%, 150%, 125%, more than the whole",
+      "connection": "Days 1 to 3 changed by a part. Today the change is the whole (100%) or more. Curriculum: B2.3 (increase by 100%), B1.7.",
+      "watchFor": [
+        "Thinking 100% more means the same number: ask \"What is 100% of 36? Add that on.\"",
+        "Thinking a 200% increase and 200% of are the same: ask \"Is 36 + 200% of 36 the same as 200% of 36?\"",
+        "Not believing percents can go over 100: ask \"What does 150% of a pizza look like?\""
+      ],
+      "wrapUp": "Ask \"Why is a 100% increase the same as 200% of?\" Land: increase by p% means (100 + p)% of the original. 100% more is double.",
+      "problems": [
+        {
+          "q": "100% of 36",
+          "a": "36",
+          "notes": "Look for: all of it. Ask: \"What does 100% mean?\" Model: doubleline percent:amount, 0:0, 100:36",
+          "responses": [
+            {
+              "say": "100% is the whole: 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36"
+            }
+          ]
+        },
+        {
+          "q": "36 + 100% of 36",
+          "a": "72",
+          "notes": "Look for: 36 + 36, double. Ask: \"What happens when you add 100%?\" Word choice: \"A 100% increase doubles it.\" Model: bar Before: 36; After: 36 + 36",
+          "responses": [
+            {
+              "say": "36 + 36 = 72. It doubled.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 36",
+              "tip": "The target idea."
+            },
+            {
+              "say": "200% of 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36, 200:72"
+            },
+            {
+              "say": "136",
+              "tool": "text",
+              "type": "36 + 100 = 136 ?",
+              "tip": "Added 100, not 100%. Ask: what is 100% of 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "200% of 36",
+          "a": "72",
+          "notes": "Look for: the same as the last one. Ask: \"Why is it the same?\" Model: doubleline percent:amount, 0:0, 100:36, 200:72",
+          "responses": [
+            {
+              "say": "2 × 36 = 72, same as a 100% increase.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:36, 200:72"
+            },
+            {
+              "say": "108",
+              "tool": "text",
+              "type": "36 + 200% of 36 = 108",
+              "tip": "That's a 200% increase. Ask: is 200% of the same as 200% more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 + 50% of 36",
+          "a": "54",
+          "notes": "Look for: 36 + 18. Ask: \"What percent of 36 is the new amount?\" Model: bar Before: 36; After: 36 + 18",
+          "responses": [
+            {
+              "say": "Half of 36 is 18, so 54.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 18"
+            },
+            {
+              "say": "150% of 36.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:18, 100:36, 150:54"
+            },
+            {
+              "say": "86",
+              "tool": "text",
+              "type": "36 + 50 = 86 ?",
+              "tip": "Ask: what is 50% of 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150% of 36",
+          "a": "54",
+          "notes": "Look for: same as the last one, 3 × 18. Ask: \"Which earlier problem is the same?\" Model: doubleline percent:amount, 0:0, 50:18, 100:36, 150:54",
+          "responses": [
+            {
+              "say": "100% + 50% = 36 + 18 = 54.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:18, 100:36, 150:54"
+            },
+            {
+              "say": "3 halves: 3 × 18 = 54.",
+              "tool": "ratio",
+              "type": "percent:amount, 50:18, 150:54"
+            },
+            {
+              "say": "186",
+              "tool": "text",
+              "type": "36 + 150 = 186 ?",
+              "tip": "Ask: is 150% of 36 a little more than 36, or a lot more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "125% of 36",
+          "a": "45",
+          "notes": "Look for: 36 + 9. Ask: \"What's 25% of 36?\" Model: doubleline percent:amount, 0:0, 25:9, 100:36, 125:45",
+          "optional": true,
+          "responses": [
+            {
+              "say": "100% is 36, 25% is 9: 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:9, 100:36, 125:45"
+            },
+            {
+              "say": "5 quarters: 5 × 9 = 45.",
+              "tool": "ratio",
+              "type": "percent:amount, 25:9, 125:45"
+            }
+          ]
+        },
+        {
+          "q": "36 + 15% of 36",
+          "a": "41.4",
+          "notes": "Look for: 10% = 3.6, 5% = 1.8, change = 5.4. Ask: \"How do you build 15%?\" Model: bar Before: 36; After: 36 + 5.4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3.6 + 1.8 = 5.4, so 41.4.",
+              "tool": "bar",
+              "type": "Before: 36; After: 36 + 5.4"
+            },
+            {
+              "say": "115% of 36: 10% is 3.6, 5% is 1.8.",
+              "tool": "text",
+              "type": "115% = 100% + 10% + 5% ; = 36 + 3.6 + 1.8 = 41.4"
+            },
+            {
+              "say": "51",
+              "tool": "text",
+              "type": "36 + 15 = 51 ?",
+              "tip": "Ask: what is 15% of 36?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-w02-d5-multipliers",
+      "title": "Percent Change as a Multiplier",
+      "label": "Day 5",
+      "group": "Grade 7 · Week 2 · Percent Increase and Decrease",
+      "tool": "ratio",
+      "strategy": "A percent change can be done in one step: increase by 10% is × 1.1, decrease by 25% is × 0.75.",
+      "keywords": "multiplier, 110%, 1.1, 90%, 0.9, one step, decimal",
+      "connection": "Brings together Days 1 to 4, and connects percents to multiplying by decimals (B2.9). Curriculum: B1.7 (convert between fractions, decimals and percents), B2.3, B2.9.",
+      "watchFor": [
+        "Misplacing the decimal (1.1 × 50 = 5.5): ask \"Should the answer be more or less than 50? By how much?\"",
+        "Thinking × 1.1 adds 0.1 (1.1 × 50 = 50.1): ask \"What is 0.1 × 50?\"",
+        "Not connecting 0.75 with 25% less: ask \"What percent is 0.75? What percent is gone?\""
+      ],
+      "wrapUp": "Ask \"How is 10% more the same as × 1.1?\" Land: new amount = (100% ± change) of the original. Write that percent as a decimal to multiply in one step.",
+      "problems": [
+        {
+          "q": "110% of 50",
+          "a": "55",
+          "notes": "Look for: 50 + 5. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 10:5, 100:50, 110:55",
+          "responses": [
+            {
+              "say": "50 + 10% (5) = 55.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 10:5, 100:50, 110:55"
+            },
+            {
+              "say": "Before: 50, after: 50 + 5.",
+              "tool": "bar",
+              "type": "Before: 50; After: 50 + 5"
+            }
+          ]
+        },
+        {
+          "q": "1.1 x 50",
+          "a": "55",
+          "notes": "Look for: the same as 110%. Ask: \"What do you notice?\" Word choice: \"110% is 1.1 as a decimal.\" Model: ratio 1:50, 0.1:5, 1.1:55",
+          "responses": [
+            {
+              "say": "1 × 50 is 50, 0.1 × 50 is 5: 55.",
+              "tool": "ratio",
+              "type": "1:50, 0.1:5, 1.1:55",
+              "tip": "The target connection."
+            },
+            {
+              "say": "110% is 1.1, so it's the same as the last one.",
+              "tool": "text",
+              "type": "110% = 1.1 ; 1.1 x 50 = 55"
+            },
+            {
+              "say": "5.5",
+              "tool": "text",
+              "type": "1.1 x 50 = 5.5 ?",
+              "tip": "Decimal in the wrong place. Ask: should the answer be more or less than 50?",
+              "kind": "error"
+            },
+            {
+              "say": "50.1",
+              "tool": "text",
+              "type": "1.1 x 50 = 50 + 0.1 ?",
+              "tip": "Ask: what is 0.1 × 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "90% of 50",
+          "a": "45",
+          "notes": "Look for: 50 − 5. Ask: \"Is this an increase or a decrease?\" Model: bar 50 = 45 + 5",
+          "responses": [
+            {
+              "say": "10% less: 50 − 5 = 45.",
+              "tool": "bar",
+              "type": "50 = 45 + 5"
+            },
+            {
+              "say": "9 × 5 = 45.",
+              "tool": "ratio",
+              "type": "percent:amount, 10:5, 90:45"
+            }
+          ]
+        },
+        {
+          "q": "0.9 x 50",
+          "a": "45",
+          "notes": "Look for: same as 90%. Ask: \"What percent change is × 0.9?\" Model: ratio 1:50, 0.1:5, 0.9:45",
+          "responses": [
+            {
+              "say": "0.9 is 90%, so 45.",
+              "tool": "ratio",
+              "type": "1:50, 0.1:5, 0.9:45"
+            },
+            {
+              "say": "50 − 0.1 × 50 = 45.",
+              "tool": "text",
+              "type": "0.9 x 50 = 50 - 5 = 45"
+            },
+            {
+              "say": "4.5",
+              "tool": "text",
+              "type": "0.9 x 50 = 4.5 ?",
+              "tip": "Ask: is 0.9 close to 1? So is the answer close to 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.75 x 80",
+          "a": "60",
+          "notes": "Look for: 75% of 80, or 25% less: 80 − 20. Ask: \"What percent change is this?\" Model: bar 80 = 60 + 20",
+          "responses": [
+            {
+              "say": "0.75 is 75%, which is 25% less: 80 − 20 = 60.",
+              "tool": "bar",
+              "type": "80 = 60 + 20"
+            },
+            {
+              "say": "3/4 of 80 = 60.",
+              "tool": "bar",
+              "type": "3/4 of 80"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "0.75 x 80 = 6 ?",
+              "tip": "Ask: is 0.75 close to 1? So should the answer be close to 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.25 x 80",
+          "a": "100",
+          "notes": "Look for: 80 + 25% of 80 = 80 + 20. Ask: \"Increase or decrease? By what percent?\" Model: bar Before: 80; After: 80 + 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25% more: 80 + 20 = 100.",
+              "tool": "bar",
+              "type": "Before: 80; After: 80 + 20"
+            },
+            {
+              "say": "5 quarters of 80.",
+              "tool": "ratio",
+              "type": "1:80, 0.25:20, 1.25:100"
+            },
+            {
+              "say": "80.25",
+              "tool": "text",
+              "type": "1.25 x 80 = 80 + 0.25 ?",
+              "tip": "Ask: what is 0.25 × 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.05 x 200",
+          "a": "210",
+          "notes": "Look for: 5% increase: 200 + 10. Ask: \"What percent is 1.05?\" Model: bar Before: 200; After: 200 + 10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "105%, so 200 + 10 = 210.",
+              "tool": "bar",
+              "type": "Before: 200; After: 200 + 10"
+            },
+            {
+              "say": "0.05 × 200 is 10.",
+              "tool": "ratio",
+              "type": "1:200, 0.05:10, 1.05:210"
+            },
+            {
+              "say": "300",
+              "tool": "text",
+              "type": "1.05 x 200 = 200 + 0.5 x 200 = 300 ?",
+              "tip": "Read 0.05 as 0.5. Ask: is 0.05 five tenths or five hundredths?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
