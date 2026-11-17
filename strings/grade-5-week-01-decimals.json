@@ -9,7 +9,12 @@
       "tool": "numberline",
       "strategy": "Add up to the next whole number first, then add what is left.",
       "keywords": "next whole, tenths, hundredths, make a one, break apart",
-      "connection": "Like \"make the next ten\" with whole numbers, but now 10 tenths or 100 hundredths make a one. Curriculum: B1.5, B2.3, B2.4.",
+      "connection": "Like \"make the next ten\" with whole numbers, but now 10 tenths or 100 hundredths make a one.",
+      "curriculum": [
+        "B1.5",
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Adding digits as if they were whole numbers (2.7 + 0.5 = 2.12): ask \"Is 2.12 more or less than 3?\" and \"How many tenths make a one?\"",
         "Lining up the last digits instead of place value (3.75 + 0.4 = 3.79): ask \"Is 0.4 four tenths or four hundredths?\"",
@@ -205,7 +210,11 @@
       "tool": "numberline",
       "strategy": "When a decimal is close to a whole number, add the whole number, then take back the extra.",
       "keywords": "friendly number, close to, take back, adjust, compensate",
-      "connection": "Day 1 got to the next whole. Today we round a number up to a whole and fix it at the end. Curriculum: B2.3, B2.4.",
+      "connection": "Day 1 got to the next whole. Today we round a number up to a whole and fix it at the end.",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Adjusting the wrong way (3.99 + 2.45 = 6.46): ask \"Did you add too much or too little? So do you take back or add on?\"",
         "Taking back the wrong amount (taking back 0.1 instead of 0.01): ask \"How far is 3.99 from 4?\"",
@@ -388,7 +397,11 @@
       "tool": "numberline",
       "strategy": "Find the difference by adding up from the smaller number to the larger one, through friendly numbers.",
       "keywords": "difference, distance, add up, how far, friendly number",
-      "connection": "Uses Day 1's make-the-next-whole jumps to find how far apart two numbers are. Curriculum: B2.3, B2.4.",
+      "connection": "Uses Day 1's make-the-next-whole jumps to find how far apart two numbers are.",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Subtracting the smaller digit from the larger in each place (5 − 2.75 = 3.75 or 3.35): ask \"Is the gap from 2.75 to 5 more or less than 3?\"",
         "Forgetting a jump when adding up: ask \"Show me each jump. Add up the jumps.\"",
@@ -574,7 +587,12 @@
       "tool": "slide",
       "strategy": "Slide both numbers by the same amount so the one you subtract becomes a whole number; the difference stays the same.",
       "keywords": "same difference, slide, shift both, friendly number",
-      "connection": "Day 3 found the distance on a number line. Today we slide that distance to an easier place. Curriculum: B2.1, B2.3, B2.4.",
+      "connection": "Day 3 found the distance on a number line. Today we slide that distance to an easier place.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Sliding only one number (4.03 − 1.98 → 4.03 − 2): ask \"If you move only one number, does the gap stay the same?\"",
         "Sliding in opposite directions: ask \"Which way did each number move?\"",
@@ -751,7 +769,11 @@
       "tool": "estimate",
       "strategy": "Estimate first with friendly numbers, then choose a strategy that fits the numbers and check the answer against the estimate.",
       "keywords": "estimate, about, friendly number, reasonable, choose a strategy",
-      "connection": "Brings together Days 1 to 4. The estimate is a check: is the exact answer reasonable? Curriculum: B2.3 (estimate sums and differences of decimals), B2.4.",
+      "connection": "Brings together Days 1 to 4. The estimate is a check: is the exact answer reasonable?",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
       "watchFor": [
         "Skipping the estimate: before anyone solves, ask \"About how much? More or less than ...?\"",
         "Estimating with the wrong place value (4.5 as 45): ask \"Is 4.5 closer to 4 or to 40?\"",

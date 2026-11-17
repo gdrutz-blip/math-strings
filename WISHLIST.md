@@ -27,9 +27,9 @@ Before **Dec 4**:
 2. [x] **Suggested tools first** in the presenter: the string's tool and the tools in its responses, the rest under "More tools". Strings that suggest fewer than 3 tools still show them all; ⚙ can turn it off. (Nov 17)
 3. [x] **Don't lose site revisions**: tell a teacher when the site's copy of a string they edited has changed; 🗑 on a site string hides it instead of deleting ("Show hidden strings" brings it back). (Nov 17)
 4. [x] **Save a run**: Finish saves a dated copy (answers and models; class and a note at the wrap-up; 💾 Save run any time). 🗂 My runs lists them; open, print/PDF, compare two runs of a string side by side; Export/Import carry them. Finish also clears the session so the next class starts fresh. Pen drawings aren't saved yet. (Nov 17)
-5. [ ] **Try a response** buttons in the presenter (teacher-only), using each problem's practice responses.
-6. [ ] **Curriculum codes as a field** (`curriculum: "B2.3"`), shown as badges on the PD page and in notes.
-7. [ ] **Share a string by link** (the string packed into the URL; no server).
+5. [x] **Try a response**: 💡 Try (or Y) in the presenter lists the problem's likely responses; one tap draws the model (and a numeric mistake also goes in as an answer). (Nov 17)
+6. [x] **Curriculum codes as a field** (`curriculum: ["B2.3"]`): badges with the Ministry wording on the library, PD page (expandable list), practice cards and editor; searchable. Grade 7 integers corrected to B1.3. (Nov 17)
+7. [x] **Share a string by link**: 🔗 Share in the editor and on the practice card copies a link with the whole string packed inside (compressed; nothing uploaded). Opening it shows a preview and Add to my library (or Replace mine / Add as a copy). (Nov 17)
 8. [ ] ~~**Grade 8 wording** in the README and guides~~ (done Nov 17); **Grade 8 units** on Grade 8 expectations (B2.7 integers × ÷, B2.3 powers of ten).
 9. [ ] ~~Topic banks~~ → replaced by step 10.
 10. [ ] **A big string bank** (like the books with 100+ strings, but **all original**; don't copy published strings): many single strings per grade and topic, grouped by strategy and building in difficulty, separate from the weekly PD units (group `Grade N · Bank · Topic`). Built in checked batches of ~15–25 (every answer and model checked, like the units). Add a **strategy filter** once a topic has 30+ strings. Start with Grade 8, then 4–7.
@@ -39,7 +39,6 @@ Before **Dec 4**:
 - [ ] **Topic banks per grade**: several possible focus units for each grade (4–8), each tied to Ontario Number expectations, so teachers can pick a different focus after the first 8 weeks. Do after the PD units are written.
 - [ ] **Estimate tool with decimals**: it rounds small numbers to the nearest 5 on a 0–10 line, so decimal estimates crowd together. Workaround: type the friendly numbers (`3.99 + 2.45 ≈ 4 + 2.5`).
 
-- [ ] **"Try a response" buttons**: likely student answers listed for each problem; one tap draws that model. Good for rehearsing at home and as a safety net in class.
 - [ ] **Connect two problems**: an arrow between problems in the left column for "the last one helped me" (for now, use the pen).
 - [ ] **Printable teacher card** for each string: goal, what to listen for, 3 questions to ask.
 

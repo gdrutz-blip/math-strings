@@ -9,7 +9,11 @@
       "tool": "area",
       "strategy": "Split one factor into friendly parts (like 10 and 2), multiply each part, then add the products.",
       "keywords": "split, partial products, distributive property, ten and some more",
-      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact. Curriculum: B2.1 (distributive property), B2.2 (facts to 12 × 12).",
+      "connection": "Builds on facts to 10 × 10. Facts to 12 × 12 come from a ten fact plus a small fact.",
+      "curriculum": [
+        "B2.1",
+        "B2.2"
+      ],
       "watchFor": [
         "Splitting both factors and multiplying only matching parts (12 × 7 as 10 × 7 + 2 = 72): ask \"Did every part of 12 get multiplied by 7?\"",
         "Adding instead of multiplying a part (12 × 7 = 70 + 2 + 7): draw the area model and ask \"What is the area of the small piece?\"",
@@ -193,7 +197,11 @@
       "tool": "area",
       "strategy": "Split both factors by place value, find the four partial products, and add them.",
       "keywords": "area model, partial products, tens and ones, place value",
-      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts. Curriculum: B2.1, B2.6 (area model and algorithms).",
+      "connection": "Day 1 split one factor. Today both factors are split by place value, so the area model has four parts.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Multiplying only tens by tens and ones by ones (14 × 15 = 100 + 20 = 120): ask \"How many boxes are in the area model? Did you fill them all?\"",
         "Place-value slips in a partial product (10 × 20 = 20): ask \"Is that ten twenties?\"",
@@ -382,7 +390,11 @@
       "tool": "area",
       "strategy": "When a factor is close to a friendly number, multiply by the friendly number, then take away the extra group.",
       "keywords": "friendly number, over, take back, one group too many",
-      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many. Curriculum: B2.1, B2.6.",
+      "connection": "Like Week 1 Day 2 (add a friendly number, then adjust), but with groups: going over by 1 means one whole group too many.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Taking back 1 instead of one group (19 × 15 = 300 − 1 = 299): ask \"How many 15s did you add too many? How much is that?\"",
         "Taking back from the wrong factor (19 × 15 = 300 − 19): draw the area model and ask \"What is the size of the strip you're taking away?\"",
@@ -556,7 +568,11 @@
       "tool": "halve",
       "strategy": "Halve one factor and double the other; the product stays the same, and the new problem can be easier.",
       "keywords": "double, halve, same area, rearrange, friendly factor",
-      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product. Curriculum: B2.1 (properties of operations), B2.6.",
+      "connection": "Days 1 to 3 split a factor. Today we change both factors without changing the product.",
+      "curriculum": [
+        "B2.1",
+        "B2.6"
+      ],
       "watchFor": [
         "Doubling (or halving) both factors (16 × 15 → 32 × 30): cut the rectangle and ask \"Did the area stay the same?\"",
         "Halving an odd number and getting stuck: ask \"Which factor is easier to halve?\"",
@@ -712,7 +728,12 @@
       "tool": "text",
       "strategy": "Look at the numbers first, then choose: split a factor, go over and back, or double and halve.",
       "keywords": "choose, efficient, friendly numbers, split, over and back, double and halve",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.2, B2.6.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.1",
+        "B2.2",
+        "B2.6"
+      ],
       "watchFor": [
         "Using the same strategy for every problem: ask \"What do you notice about these numbers before you start?\"",
         "Forgetting to adjust after going over: ask \"How many groups too many?\"",

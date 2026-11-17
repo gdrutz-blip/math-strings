@@ -58,7 +58,7 @@
     library = library.map(normalizeString).map((s, i) => Object.assign(s, { _edited: library[i]._edited }));
     saveLibrary();
   }
-  const findString = id => library.find(s => s.id === id);
+  const findString = id => (library || []).find(s => s.id === id);
 
   /* ================= small helpers ================= */
   function toast(msg) {
@@ -108,8 +108,11 @@
   }
 
   /* ================= router ================= */
+  let ready = false;
   function route() {
+    if (!ready) return; // the first route runs once the library has loaded
     stopTimerUI();
+    document.querySelectorAll('.modal-back [data-close]').forEach(b => b.click()); // close any open dialog when the page changes
     const hash = location.hash.replace(/^#\/?/, '');
     const [view, id, id2] = hash.split('/');
     document.onkeydown = null;
@@ -119,6 +122,7 @@
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
     if (view === 'runs') return runsPage(id ? decodeURIComponent(id) : null);
+    if (view === 'share' && id) return sharePage(id);
     if (view === 'run' && id) return runPage(decodeURIComponent(id), id2 ? decodeURIComponent(id2) : null);
     if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
@@ -148,6 +152,39 @@
     const t = unit && TOPIC_CHECK.find(t => t.re.test(unit));
     return t ? t.id : 'other';
   }
+
+  // Ontario Mathematics (2020), Strand B Number: wording of the expectations our strings cite, by grade
+  const EXPECT = {
+    4: { 'B1.1': 'read, represent, compose, and decompose whole numbers up to and including 10 000, using appropriate tools and strategies, and describe various ways they are used in everyday life',
+      'B2.1': 'use the properties of operations, and the relationships between addition, subtraction, multiplication, and division, to solve problems involving whole numbers, including those requiring more than one operation, and check calculations',
+      'B2.2': 'recall and demonstrate multiplication facts for 1 × 1 to 10 × 10, and related division facts',
+      'B2.3': 'use mental math strategies to multiply whole numbers by 10, 100, and 1000, divide whole numbers by 10, and add and subtract decimal tenths, and explain the strategies used',
+      'B2.4': 'represent and solve problems involving the addition and subtraction of whole numbers that add up to no more than 10 000 and of decimal tenths, using appropriate tools and strategies, including algorithms',
+      'B2.5': 'represent and solve problems involving the multiplication of two- or three-digit whole numbers by one-digit whole numbers and by 10, 100, and 1000, using appropriate tools, including arrays' },
+    5: { 'B1.5': 'read, represent, compare, and order decimal numbers up to hundredths, in various contexts',
+      'B2.1': 'use the properties of operations, and the relationships between operations, to solve problems involving whole numbers and decimal numbers, including those requiring more than one operation, and check calculations',
+      'B2.2': 'recall and demonstrate multiplication facts from 0 × 0 to 12 × 12, and related division facts',
+      'B2.3': 'use mental math strategies to multiply whole numbers by 0.1 and 0.01 and estimate sums and differences of decimal numbers up to hundredths, and explain the strategies used',
+      'B2.4': 'represent and solve problems involving the addition and subtraction of whole numbers that add up to no more than 100 000, and of decimal numbers up to hundredths, using appropriate tools, strategies, and algorithms',
+      'B2.6': 'represent and solve problems involving the multiplication of two-digit whole numbers by two-digit whole numbers using the area model and using algorithms, and make connections between the two methods' },
+    6: { 'B1.3': 'compare and order integers, decimal numbers, and fractions, separately and in combination, in various contexts',
+      'B1.6': 'describe relationships and show equivalences among fractions and decimal numbers up to thousandths, using appropriate tools and drawings, in various contexts',
+      'B2.3': 'use mental math strategies to calculate percents of whole numbers, including 1%, 5%, 10%, 15%, 25%, and 50%, and explain the strategies used',
+      'B2.5': 'add and subtract fractions with like and unlike denominators, using appropriate tools, in various contexts',
+      'B2.12': 'solve problems involving ratios, including percents and rates, using appropriate tools and strategies' },
+    7: { 'B1.3': 'read, represent, compare, and order rational numbers, including positive and negative fractions and decimal numbers to thousandths, in various contexts',
+      'B1.7': 'convert between fractions, decimal numbers, and percents, in various contexts',
+      'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving whole numbers, decimal numbers, fractions, ratios, rates, and percents, including those requiring multiple steps or multiple operations',
+      'B2.3': 'use mental math strategies to increase and decrease a whole number by 1%, 5%, 10%, 25%, 50%, and 100%, and explain the strategies used',
+      'B2.4': 'use objects, diagrams, and equations to represent, describe, and solve situations involving addition and subtraction of integers',
+      'B2.9': 'multiply and divide decimal numbers by decimal numbers, in various contexts' },
+    8: { 'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving rational numbers, ratios, rates, and percents, including those requiring multiple steps or multiple operations' },
+  };
+  const currOf = s => (Array.isArray(s.curriculum) ? s.curriculum : String(s.curriculum || '').split(/[,;\s]+/)).map(c => c.trim().toUpperCase()).filter(c => /^[A-E]\d+\.\d+$/.test(c));
+  const codeSort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
+  const expectText = (grade, code) => (EXPECT[grade] || {})[code] || '';
+  const currBadges = (grade, codes) => codes.length ? `<span class="curr">${codes.map(c => `<span class="cbadge" title="${esc(grade ? `Grade ${grade} ${c}: ${expectText(grade, c) || 'Ontario Mathematics, Number strand'}` : c)}">${esc(c)}</span>`).join('')}</span>` : '';
+  const unitCodes = list => [...new Set(list.flatMap(currOf))].sort(codeSort);
 
   // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...], fav: true, todo: true } }
   const track = store.get('track', {});
@@ -201,7 +238,7 @@
       { id: 'new', name: '○ Not tried yet', test: s => !isDone(s.id), empty: 'You have tried every string here. 🎉' },
     ];
     const lf = LISTS.find(l => l.id === listFilter);
-    const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
+    const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...currOf(s), ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
@@ -236,7 +273,7 @@
         </div>
         <div id="groups">
           ${groups.length ? groups.map(G => { const pr = unitProgress(G.name); return `
-            <div class="group-title"><span>${esc(G.name)}</span>${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
+            <div class="group-title"><span>${esc(G.name)}</span>${currBadges(gradeOf(G.items[0]), unitCodes(library.filter(x => (x.group || 'Other strings') === G.name)))}${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
             <div class="cards">${G.items.map(cardHTML).join('')}</div>`; }).join('')
             : `<div class="empty">${!library.length ? 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
@@ -319,6 +356,7 @@
           <button class="btn ghost" data-act="back">← Library</button>
           <h2>Edit string</h2>
           <span class="saved" id="saved">✓ Saved</span>
+          <button class="btn" data-act="share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
           <button class="btn primary" data-act="present">▶ Present</button>
         </div>
         <div class="panel">
@@ -330,6 +368,10 @@
           <div class="grid2" style="margin-top:12px">
             <label class="field">Group<input data-f="group" value="${esc(s.group)}" list="groups" placeholder="e.g. Week 2 · Decimals"><datalist id="groups">${groups.map(g => `<option value="${esc(g)}">`).join('')}</datalist></label>
             <label class="field">Strategy (for you; not shown to students)<input data-f="strategy" value="${esc(s.strategy)}"></label>
+          </div>
+          <div class="grid2" style="margin-top:12px">
+            <label class="field">Ontario curriculum codes (e.g. B2.3, B2.4)<input data-f="curriculum" value="${esc(currOf(s).join(', '))}" placeholder="B2.3, B2.4"></label>
+            <div class="field curr-help">${currOf(s).map(c => `<span><b>${esc(c)}</b> ${esc(expectText(gradeOf(s), c))}</span>`).join('') || '<span class="hint">Number strand codes from the Ontario Mathematics curriculum (2020).</span>'}</div>
           </div>
         </div>
         <div class="panel">
@@ -373,7 +415,7 @@
     app.oninput = app.onchange = e => {
       const t = e.target;
       if (t.dataset.f) {
-        s[t.dataset.f] = t.dataset.f === 'watchFor' ? t.value.split('\n').map(x => x.trim()).filter(Boolean) : t.value;
+        s[t.dataset.f] = t.dataset.f === 'watchFor' ? t.value.split('\n').map(x => x.trim()).filter(Boolean) : t.dataset.f === 'curriculum' ? currOf({ curriculum: t.value }) : t.value;
         if (t.dataset.f === 'title') document.title = 'Edit · ' + s.title;
         save();
       } else if (t.dataset.p) {
@@ -395,6 +437,7 @@
       const row = b.closest('.prob-row'), i = row ? +row.dataset.i : -1, P = s.problems;
       switch (b.dataset.act) {
         case 'back': go(''); return;
+        case 'share': saveLibrary(); shareString(s); return;
         case 'present': saveLibrary(); go('present/' + encodeURIComponent(s.id)); return;
         case 'add': P.push({ q: '', a: '', optional: false, notes: '' }); save(); render(); $$('.prob-row input.q').pop().focus(); return;
         case 'rm': P.splice(i, 1); save(); render(); return;
@@ -490,10 +533,12 @@ Rules:
         <a class="btn ghost" href="#/">← Library</a>
         <span style="flex:1"></span>
         <button class="btn" onclick="window.print()">🖨 Print</button>
+        <button class="btn" id="pt-share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
         <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
       </div>
       <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)} <span class="pt-sub">Practice card</span></h1>
       ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
+      ${currOf(s).length ? `<p class="pt-curr">Ontario curriculum, Grade ${esc(gradeOf(s) || '')}: ${currOf(s).map(c => `<b>${esc(c)}</b>${expectText(gradeOf(s), c) ? ` ${esc(expectText(gradeOf(s), c))}` : ''}`).join(' · ')}</p>` : ''}
       <div class="pt-how"><b>How to practise in pairs:</b> one person presents the string; the other plays the class and reads a "student says" line. The presenter records the answer (<kbd>A</kbd>), picks the tool, types what's in the last column, and presses <kbd>Enter</kbd>. Swap after a few problems. Press <b>↺</b> in the top bar to start the string fresh.</div>
       ${s.problems.map((p, i) => `
         <section class="panel pt-prob">
@@ -503,6 +548,7 @@ Rules:
         </section>`).join('')}
       ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
     </div>`;
+    { const sb = $('#pt-share'); if (sb) sb.onclick = () => shareString(s); }
     window.scrollTo(0, 0);
   }
 
@@ -543,9 +589,10 @@ Rules:
         ${!grade ? '<p class="hint">Choose your grade to see its focus units.</p>'
           : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
           : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.</p>
-             ${units.map(u => `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
+             ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
+               ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
                <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
-                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`).join('')}`}
+                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
       </section>
 
       <section class="panel"><h2>2 · In your classroom</h2>
@@ -575,6 +622,70 @@ Rules:
       <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
     window.scrollTo(0, 0);
+  }
+
+  /* ================= share a string by link ================= */
+  // The string is packed into the link itself (after #), so nothing is uploaded anywhere.
+  const b64url = bytes => { let bin = ''; bytes.forEach(b => (bin += String.fromCharCode(b))); return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const unb64url = str => Uint8Array.from(atob(str.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+  const streamBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
+  async function packString(s) {
+    const bytes = new TextEncoder().encode(JSON.stringify(clean(s)));
+    if (window.CompressionStream) { try { return 'z' + b64url(await streamBytes(bytes, new CompressionStream('deflate-raw'))); } catch (e) { /* fall through */ } }
+    return 'j' + b64url(bytes);
+  }
+  async function unpackString(code) {
+    let bytes = unb64url(code.slice(1));
+    if (code[0] === 'z') bytes = await streamBytes(bytes, new DecompressionStream('deflate-raw'));
+    else if (code[0] !== 'j') throw new Error('unknown');
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+  async function shareString(s) {
+    const url = location.origin + location.pathname + '#/share/' + await packString(s);
+    let copied = false;
+    try { await navigator.clipboard.writeText(url); copied = true; } catch (e) { /* show it instead */ }
+    modal('Share this string', `
+      <p style="margin-top:0">${copied ? '<b>✓ Link copied.</b> Paste it in an email or chat.' : 'Copy this link and paste it in an email or chat.'} Anyone who opens it can add <b>${esc(s.title)}</b> to their own library. Nothing is uploaded: the whole string is inside the link.</p>
+      <textarea id="share-url" rows="4" readonly style="width:100%;font-size:13px">${esc(url)}</textarea>`,
+      [{ label: 'Copy link', primary: true, run: () => { const t = $('#share-url'); t.select(); try { navigator.clipboard.writeText(t.value); } catch (e) { document.execCommand('copy'); } toast('Link copied'); } }]);
+    const t = $('#share-url'); if (t) { t.focus(); t.select(); }
+  }
+  async function sharePage(code) {
+    document.title = 'Shared string · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    let s;
+    try { if (code.length > 300000) throw new Error('too long'); s = normalizeString(await unpackString(code)); if (!s.problems.length) throw new Error('empty'); }
+    catch (e) {
+      app.innerHTML = `<div class="guide"><div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div><h1>This link didn't work</h1><p class="lead">It may have been cut off when it was copied. Ask for the link again, or ask for an exported file and use <b>Import</b>.</p></div>`;
+      return;
+    }
+    const mine = findString(s.id), identical = mine && same(mine, s);
+    const g = gradeOf(s);
+    app.innerHTML = `
+    <div class="guide share-page">
+      <div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div>
+      <div class="pd-eyebrow">Shared with you</div>
+      <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)}</h1>
+      <p class="run-sub">${esc(s.group || '')} ${currBadges(g, currOf(s))}</p>
+      ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
+      <div class="chips share-chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}">${exprHTML(p.q)}</span>`).join('')}</div>
+      <p class="hint">${s.problems.length} problems${s.problems.some(p => p.responses) ? ' · with a practice card' : ''}${s.watchFor && s.watchFor.length ? ' · with teacher notes' : ''}.</p>
+      <div class="share-acts">
+        ${identical ? `<p><b>✓ You already have this string.</b></p><a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present it</a>`
+          : mine ? `<p>You already have a string called <b>${esc(mine.title)}</b> with the same id.</p><button class="btn primary" data-sh="replace">Replace mine with this one</button><button class="btn" data-sh="copy">Add as a separate copy</button>`
+          : `<button class="btn primary big" data-sh="add">＋ Add to my library</button>`}
+      </div>
+    </div>`;
+    app.onclick = e => {
+      const b = e.target.closest('[data-sh]'); if (!b) return;
+      const site = siteCopy(s.id);
+      if (b.dataset.sh === 'copy') { s.id = slug(s.title) + '-' + uid(); s.title += ' (shared)'; }
+      s._edited = !(site && same(site, s)); if (s._edited && site) s._siteSig = sig(site);
+      deleted.delete(s.id);
+      const i = library.findIndex(x => x.id === s.id);
+      if (i >= 0) library[i] = s; else library.unshift(s);
+      saveLibrary(); go(''); toast(`Added “${s.title}” to your library`);
+    };
   }
 
   /* ================= saved runs ================= */
@@ -712,6 +823,7 @@ Rules:
           <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
           <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
+          <li><b>💡 Try</b> (or <kbd>Y</kbd>) lists likely student responses for the problem. Tap one to draw it: great for rehearsing at home, or as a backup in class.</li>
           <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can print it or compare it with a later run. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
           <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
         </ul>
@@ -721,7 +833,7 @@ Rules:
         <div class="keys">
           <kbd>→</kbd><span>next problem</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
           <kbd>1</kbd><span>number line (other number keys add other tools)</span><kbd>Enter</kbd><span>finish the model you're typing</span>
-          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span>
+          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span>
           <kbd>P</kbd><span>pen</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
       </section>
@@ -1022,6 +1134,7 @@ Rules:
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
           <button class="btn ghost" data-a="pick" title="Random name (R)">🎲 Pick</button>
+          ${s.problems && s.problems.some(p => p.responses) ? '<button class="btn ghost" data-a="try" id="try-btn" title="Likely student responses for this problem: tap one to draw it (Y)">💡 Try</button>' : ''}
           <button class="btn ghost" data-a="pen" id="pen-btn" title="Pen (P)">✏️ Pen</button>
           <span class="pen-tools hidden" id="pen-tools">
             ${['#1d2433', '#1f5fd1', '#d0461a', '#0d8a55'].map(c => `<button class="swatch" data-color="${c}" style="background:${c}"></button>`).join('')}
@@ -1213,6 +1326,7 @@ Rules:
       <div class="bar" id="bar">${barHTML(d)}</div>`;
     layoutArea();
     setupInk();
+    renderTry();
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
   }
@@ -1283,6 +1397,35 @@ Rules:
     d.models.push({ type, input, labels: {} });
     P.activeM = d.models.length - 1; P.spot = null; P.focusTyper = true;
     saveSession(); renderStage(); renderRail();
+  }
+  // "Try a response": the planned student responses for this problem; one tap draws that model.
+  function renderTry() {
+    const old = $('#try-pop'); if (old) old.remove();
+    const btn = $('#try-btn'); if (btn) btn.classList.toggle('on', !!P.tryOpen);
+    if (!P || !P.tryOpen || P.overview || P.quick) return;
+    const idx = P.sess.shown[P.sess.active], prob = (P.s.problems || [])[idx] || {}, rs = prob.responses || [];
+    const pop = h(`<div class="try-pop" id="try-pop" role="dialog" aria-label="Likely student responses">
+      <div class="try-head"><b>💡 Likely responses</b><span class="try-q">${exprHTML(prob.q || '')}</span><button class="icon-btn" data-y="close" title="Close (Y or Esc)">✕</button></div>
+      ${rs.length ? `<div class="try-list">${rs.map((r, i) => { const t = TOOL[r.tool]; return `<button class="try-item${r.kind === 'error' ? ' err' : ''}" data-y="${i}" title="Draw this with the ${esc(t ? t.name : r.tool)}">
+          <span class="try-say">${r.kind === 'error' ? '<span class="tag-err">mistake</span> ' : ''}“${esc(r.say || '')}”</span>
+          <span class="try-tool">${t ? t.icon + ' ' + esc(t.short || t.name) : esc(r.tool)} <code>${esc(r.type || '')}</code></span>
+          ${r.tip ? `<span class="try-tip">${esc(r.tip)}</span>` : ''}</button>`; }).join('')}</div>`
+        : '<p class="hint" style="margin:8px 0">No planned responses for this problem. Model what your students say.</p>'}
+      <div class="try-foot">Tap one to draw it. This panel shows on the projector, so close it before students look.</div>
+    </div>`);
+    pop.onclick = e => {
+      const b = e.target.closest('[data-y]'); if (!b) return;
+      if (b.dataset.y === 'close') { P.tryOpen = false; renderTry(); return; }
+      const r = rs[+b.dataset.y]; if (!r || !TOOL[r.tool]) return;
+      finishActive(true);
+      cur().models.push({ type: r.tool, input: r.type || '', labels: {} });
+      // a planned mistake that is just a number ("3", "2/6") also goes in as a student answer, ready to cross out
+      const said = String(r.say || '').trim().replace(/\.$/, '').replace(/-/g, '−');
+      if (r.kind === 'error' && /^−?[\d\s.,\/]+$/.test(said) && !cur().answers.some(a => a.t === said)) cur().answers.push({ t: said, mark: '' });
+      P.tryOpen = false; P.activeM = null; P.spot = null;
+      saveSession(); renderStage(); renderRail();
+    };
+    $('.pres').appendChild(pop);
   }
   // Done typing: the model shrinks into the grid (an empty one is dropped)
   function finishActive(quiet) {
@@ -1473,6 +1616,7 @@ Rules:
       case 'skipnext': skipNext(); break;
       case 'pick': pickerOverlay(false); break;
       case 'pen': setPen('draw'); break;
+      case 'try': P.tryOpen = !P.tryOpen; renderTry(); break;
       case 'erase': setPen('erase'); break;
       case 'undo': undoStroke(); break;
       case 'clear': { const d = cur(); if (d.strokes.length && confirm('Clear the drawing on this problem?')) { d.strokes = []; saveSession(); renderStage(); } break; }
@@ -1498,11 +1642,12 @@ Rules:
     else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
     else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
-    else if (k === 'Escape') { if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
+    else if (k === 'Escape') { if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }
 
   /* ================= start ================= */
-  loadLibrary().then(route);
+  loadLibrary().then(() => { ready = true; route(); });
 })();

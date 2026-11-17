@@ -9,7 +9,11 @@
       "tool": "ratio",
       "strategy": "Multiplying by 10 makes each digit worth 10 times as much (ones become tens); multiplying by 100 makes them worth 100 times as much.",
       "keywords": "times 10, times 100, place value, ones become tens, groups of ten",
-      "connection": "Uses multiplication facts to 10 × 10. Sets up splitting by place value on Day 2. Curriculum: B2.2 (facts), B2.3 (multiply by 10, 100 and 1000).",
+      "connection": "Uses multiplication facts to 10 × 10. Sets up splitting by place value on Day 2.",
+      "curriculum": [
+        "B2.2",
+        "B2.3"
+      ],
       "watchFor": [
         "\"Just add a zero\" without knowing why: accept it, then ask \"Why does a zero appear? What happened to the 6?\"",
         "Adding instead of multiplying (6 × 10 = 16): ask \"Is that 6 groups of 10?\"",
@@ -186,7 +190,11 @@
       "tool": "area",
       "strategy": "Split the larger number into tens and ones, multiply each part, then add the parts.",
       "keywords": "split, tens and ones, partial products, area model, add the parts",
-      "connection": "Day 1 multiplied tens. Today: tens and ones together. Like Week 1's split by place value, but multiplying. Curriculum: B2.1 (distributive property), B2.5 (2- or 3-digit × 1-digit).",
+      "connection": "Day 1 multiplied tens. Today: tens and ones together. Like Week 1's split by place value, but multiplying.",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
       "watchFor": [
         "Writing the parts side by side (23 × 4 = 812): ask \"Is 812 about 20 groups of 4?\"",
         "Multiplying only the tens (23 × 4 = 83): ask \"Did the 3 get multiplied by 4 too?\"",
@@ -358,7 +366,12 @@
       "tool": "area",
       "strategy": "When a number is close to a ten, multiply the ten, then take away the extra group.",
       "keywords": "friendly number, one group too many, take away a group, close to a ten",
-      "connection": "Like Week 1 Day 4 (add a friendly number, then take back the extra), but with groups. Curriculum: B2.1, B2.3, B2.5.",
+      "connection": "Like Week 1 Day 4 (add a friendly number, then take back the extra), but with groups.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.5"
+      ],
       "watchFor": [
         "Taking away 1 instead of one group (39 × 4 = 159): ask \"How many fours did you add too many?\"",
         "Adding the extra group instead of taking it away: ask \"Did you make too many groups or too few?\"",
@@ -522,7 +535,12 @@
       "tool": "ratio",
       "strategy": "Times 4 is double, then double again; times 8 is double three times.",
       "keywords": "double, times 2, times 4, times 8, ratio table",
-      "connection": "Builds on doubles facts. A ratio table keeps track of each double. Curriculum: B2.1, B2.2, B2.5.",
+      "connection": "Builds on doubles facts. A ratio table keeps track of each double.",
+      "curriculum": [
+        "B2.1",
+        "B2.2",
+        "B2.5"
+      ],
       "watchFor": [
         "Doubling only once for × 4 (4 × 12 = 24): ask \"Is 4 groups the same as 2 groups?\"",
         "Doubling one more or one fewer time than needed for × 8: point to the ratio table and ask \"How many groups now?\"",
@@ -693,7 +711,12 @@
       "tool": "text",
       "strategy": "Look at the numbers first, then choose: times 10, split tens and ones, over and back, or double and double again.",
       "keywords": "choose, friendly numbers, split, over and back, double",
-      "connection": "Brings together Days 1 to 4. Curriculum: B2.1, B2.3, B2.5.",
+      "connection": "Brings together Days 1 to 4.",
+      "curriculum": [
+        "B2.1",
+        "B2.3",
+        "B2.5"
+      ],
       "watchFor": [
         "Using the same strategy every time: ask \"What do you notice about these numbers?\"",
         "Forgetting to take away a whole group: ask \"How many groups too many?\"",
