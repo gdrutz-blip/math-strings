@@ -23,7 +23,9 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 
 1. **Quick way:** in the app click **Import** and drop in a `.json` file (from Claude or from **Export** on
    another computer), or paste a plain list.
-2. **Permanent way:** on GitHub, open the `strings` folder → **Add file** → **Upload files**, and drop in the
+2. **Share with a colleague:** open a string's **Edit** page (or its practice card) and click **🔗 Share**. The link
+   carries the whole string; whoever opens it can add it to their library. Nothing is uploaded.
+3. **Permanent way:** on GitHub, open the `strings` folder → **Add file** → **Upload files**, and drop in the
    week's `.json` file. The site republishes in a minute or two and every computer picks it up.
    Uploading a file with the same name replaces it.
 

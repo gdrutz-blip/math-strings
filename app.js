@@ -58,7 +58,7 @@
     library = library.map(normalizeString).map((s, i) => Object.assign(s, { _edited: library[i]._edited }));
     saveLibrary();
   }
-  const findString = id => library.find(s => s.id === id);
+  const findString = id => (library || []).find(s => s.id === id);
 
   /* ================= small helpers ================= */
   function toast(msg) {
@@ -108,8 +108,11 @@
   }
 
   /* ================= router ================= */
+  let ready = false;
   function route() {
+    if (!ready) return; // the first route runs once the library has loaded
     stopTimerUI();
+    document.querySelectorAll('.modal-back [data-close]').forEach(b => b.click()); // close any open dialog when the page changes
     const hash = location.hash.replace(/^#\/?/, '');
     const [view, id, id2] = hash.split('/');
     document.onkeydown = null;
@@ -119,6 +122,7 @@
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
     if (view === 'runs') return runsPage(id ? decodeURIComponent(id) : null);
+    if (view === 'share' && id) return sharePage(id);
     if (view === 'run' && id) return runPage(decodeURIComponent(id), id2 ? decodeURIComponent(id2) : null);
     if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
@@ -352,6 +356,7 @@
           <button class="btn ghost" data-act="back">← Library</button>
           <h2>Edit string</h2>
           <span class="saved" id="saved">✓ Saved</span>
+          <button class="btn" data-act="share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
           <button class="btn primary" data-act="present">▶ Present</button>
         </div>
         <div class="panel">
@@ -432,6 +437,7 @@
       const row = b.closest('.prob-row'), i = row ? +row.dataset.i : -1, P = s.problems;
       switch (b.dataset.act) {
         case 'back': go(''); return;
+        case 'share': saveLibrary(); shareString(s); return;
         case 'present': saveLibrary(); go('present/' + encodeURIComponent(s.id)); return;
         case 'add': P.push({ q: '', a: '', optional: false, notes: '' }); save(); render(); $$('.prob-row input.q').pop().focus(); return;
         case 'rm': P.splice(i, 1); save(); render(); return;
@@ -527,6 +533,7 @@ Rules:
         <a class="btn ghost" href="#/">← Library</a>
         <span style="flex:1"></span>
         <button class="btn" onclick="window.print()">🖨 Print</button>
+        <button class="btn" id="pt-share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
         <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
       </div>
       <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)} <span class="pt-sub">Practice card</span></h1>
@@ -541,6 +548,7 @@ Rules:
         </section>`).join('')}
       ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
     </div>`;
+    { const sb = $('#pt-share'); if (sb) sb.onclick = () => shareString(s); }
     window.scrollTo(0, 0);
   }
 
@@ -614,6 +622,70 @@ Rules:
       <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
     window.scrollTo(0, 0);
+  }
+
+  /* ================= share a string by link ================= */
+  // The string is packed into the link itself (after #), so nothing is uploaded anywhere.
+  const b64url = bytes => { let bin = ''; bytes.forEach(b => (bin += String.fromCharCode(b))); return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const unb64url = str => Uint8Array.from(atob(str.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+  const streamBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
+  async function packString(s) {
+    const bytes = new TextEncoder().encode(JSON.stringify(clean(s)));
+    if (window.CompressionStream) { try { return 'z' + b64url(await streamBytes(bytes, new CompressionStream('deflate-raw'))); } catch (e) { /* fall through */ } }
+    return 'j' + b64url(bytes);
+  }
+  async function unpackString(code) {
+    let bytes = unb64url(code.slice(1));
+    if (code[0] === 'z') bytes = await streamBytes(bytes, new DecompressionStream('deflate-raw'));
+    else if (code[0] !== 'j') throw new Error('unknown');
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+  async function shareString(s) {
+    const url = location.origin + location.pathname + '#/share/' + await packString(s);
+    let copied = false;
+    try { await navigator.clipboard.writeText(url); copied = true; } catch (e) { /* show it instead */ }
+    modal('Share this string', `
+      <p style="margin-top:0">${copied ? '<b>✓ Link copied.</b> Paste it in an email or chat.' : 'Copy this link and paste it in an email or chat.'} Anyone who opens it can add <b>${esc(s.title)}</b> to their own library. Nothing is uploaded: the whole string is inside the link.</p>
+      <textarea id="share-url" rows="4" readonly style="width:100%;font-size:13px">${esc(url)}</textarea>`,
+      [{ label: 'Copy link', primary: true, run: () => { const t = $('#share-url'); t.select(); try { navigator.clipboard.writeText(t.value); } catch (e) { document.execCommand('copy'); } toast('Link copied'); } }]);
+    const t = $('#share-url'); if (t) { t.focus(); t.select(); }
+  }
+  async function sharePage(code) {
+    document.title = 'Shared string · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    let s;
+    try { if (code.length > 300000) throw new Error('too long'); s = normalizeString(await unpackString(code)); if (!s.problems.length) throw new Error('empty'); }
+    catch (e) {
+      app.innerHTML = `<div class="guide"><div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div><h1>This link didn't work</h1><p class="lead">It may have been cut off when it was copied. Ask for the link again, or ask for an exported file and use <b>Import</b>.</p></div>`;
+      return;
+    }
+    const mine = findString(s.id), identical = mine && same(mine, s);
+    const g = gradeOf(s);
+    app.innerHTML = `
+    <div class="guide share-page">
+      <div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div>
+      <div class="pd-eyebrow">Shared with you</div>
+      <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)}</h1>
+      <p class="run-sub">${esc(s.group || '')} ${currBadges(g, currOf(s))}</p>
+      ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
+      <div class="chips share-chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}">${exprHTML(p.q)}</span>`).join('')}</div>
+      <p class="hint">${s.problems.length} problems${s.problems.some(p => p.responses) ? ' · with a practice card' : ''}${s.watchFor && s.watchFor.length ? ' · with teacher notes' : ''}.</p>
+      <div class="share-acts">
+        ${identical ? `<p><b>✓ You already have this string.</b></p><a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present it</a>`
+          : mine ? `<p>You already have a string called <b>${esc(mine.title)}</b> with the same id.</p><button class="btn primary" data-sh="replace">Replace mine with this one</button><button class="btn" data-sh="copy">Add as a separate copy</button>`
+          : `<button class="btn primary big" data-sh="add">＋ Add to my library</button>`}
+      </div>
+    </div>`;
+    app.onclick = e => {
+      const b = e.target.closest('[data-sh]'); if (!b) return;
+      const site = siteCopy(s.id);
+      if (b.dataset.sh === 'copy') { s.id = slug(s.title) + '-' + uid(); s.title += ' (shared)'; }
+      s._edited = !(site && same(site, s)); if (s._edited && site) s._siteSig = sig(site);
+      deleted.delete(s.id);
+      const i = library.findIndex(x => x.id === s.id);
+      if (i >= 0) library[i] = s; else library.unshift(s);
+      saveLibrary(); go(''); toast(`Added “${s.title}” to your library`);
+    };
   }
 
   /* ================= saved runs ================= */
@@ -1577,5 +1649,5 @@ Rules:
   }
 
   /* ================= start ================= */
-  loadLibrary().then(route);
+  loadLibrary().then(() => { ready = true; route(); });
 })();

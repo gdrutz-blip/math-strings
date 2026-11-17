@@ -486,3 +486,8 @@ a.btn.small { text-decoration: none; }
 .pt-curr { font-size: 13.5px; color: var(--soft); margin: -4px 0 12px; }
 .curr-help { font-size: 13px; color: var(--soft); display: grid; gap: 3px; align-content: start; }
 .grid2:has(.curr-help) { align-items: start; }
+.share-chips { margin: 10px 0; }
+.share-chips .chip { font-size: 17px; padding: 4px 10px; }
+.share-acts { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.share-acts p { flex-basis: 100%; margin: 0; }
+.btn.big { font-size: 18px; padding: 12px 20px; }

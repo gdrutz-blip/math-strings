@@ -29,7 +29,7 @@ Before **Dec 4**:
 4. [x] **Save a run**: Finish saves a dated copy (answers and models; class and a note at the wrap-up; 💾 Save run any time). 🗂 My runs lists them; open, print/PDF, compare two runs of a string side by side; Export/Import carry them. Finish also clears the session so the next class starts fresh. Pen drawings aren't saved yet. (Nov 17)
 5. [x] **Try a response**: 💡 Try (or Y) in the presenter lists the problem's likely responses; one tap draws the model (and a numeric mistake also goes in as an answer). (Nov 17)
 6. [x] **Curriculum codes as a field** (`curriculum: ["B2.3"]`): badges with the Ministry wording on the library, PD page (expandable list), practice cards and editor; searchable. Grade 7 integers corrected to B1.3. (Nov 17)
-7. [ ] **Share a string by link** (the string packed into the URL; no server).
+7. [x] **Share a string by link**: 🔗 Share in the editor and on the practice card copies a link with the whole string packed inside (compressed; nothing uploaded). Opening it shows a preview and Add to my library (or Replace mine / Add as a copy). (Nov 17)
 8. [ ] ~~**Grade 8 wording** in the README and guides~~ (done Nov 17); **Grade 8 units** on Grade 8 expectations (B2.7 integers × ÷, B2.3 powers of ten).
 9. [ ] ~~Topic banks~~ → replaced by step 10.
 10. [ ] **A big string bank** (like the books with 100+ strings, but **all original**; don't copy published strings): many single strings per grade and topic, grouped by strategy and building in difficulty, separate from the weekly PD units (group `Grade N · Bank · Topic`). Built in checked batches of ~15–25 (every answer and model checked, like the units). Add a **strategy filter** once a topic has 30+ strings. Start with Grade 8, then 4–7.
