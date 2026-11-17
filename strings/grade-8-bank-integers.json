@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-int-01-groups-of-negatives",
+      "title": "Groups of Negatives",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "numberline",
+      "strategy": "A positive times a negative is that many groups of the negative, so the product is negative.",
+      "topic": "int",
+      "keywords": "groups of, repeated addition, jumps left, negative product",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Making the product positive (4 × −3 = 12): ask \"Four groups of −3: are we gaining or owing?\"",
+        "Adding instead of multiplying (4 × −3 = 1): ask \"What does 4 × mean?\""
+      ],
+      "wrapUp": "Ask \"Why is 4 × −3 negative?\" Land: 4 × −3 is four jumps of −3 (four groups of debt), so the product is negative.",
+      "problems": [
+        {
+          "q": "4 x 3",
+          "a": "12",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline 0 +3x4",
+          "responses": [
+            {
+              "say": "Four jumps of 3: 12.",
+              "tool": "numberline",
+              "type": "0 +3x4"
+            }
+          ]
+        },
+        {
+          "q": "4 x -3",
+          "a": "-12",
+          "notes": "Look for: four groups of −3. Ask: \"What changed from the last one?\" Word choice: \"Four groups of negative three.\" Model: numberline 0 -3x4",
+          "responses": [
+            {
+              "say": "Four jumps of −3 from 0: −12.",
+              "tool": "numberline",
+              "type": "0 -3x4",
+              "tip": "The target model."
+            },
+            {
+              "say": "Four groups of three red tiles: 12 negatives.",
+              "tool": "tiles",
+              "type": "4 x -3"
+            },
+            {
+              "say": "12",
+              "tool": "numberline",
+              "type": "0 -3x4",
+              "tip": "Ask: four groups of −3: where do you end up, left or right of 0?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 x -5",
+          "a": "-10",
+          "notes": "Look for: two jumps of −5. Ask: \"Positive or negative? How do you know before calculating?\" Model: numberline 0 -5x2",
+          "responses": [
+            {
+              "say": "Two groups of −5: −10.",
+              "tool": "numberline",
+              "type": "0 -5x2"
+            },
+            {
+              "say": "−5 + −5 = −10.",
+              "tool": "text",
+              "type": "2 x -5 = -5 + -5 = -10"
+            }
+          ]
+        },
+        {
+          "q": "6 x -4",
+          "a": "-24",
+          "notes": "Look for: 6 × 4 = 24, negative. Ask: \"Do you need to draw it?\" Model: numberline 0 -4x6",
+          "responses": [
+            {
+              "say": "6 × 4 is 24, and it's groups of a negative: −24.",
+              "tool": "text",
+              "type": "6 x 4 = 24 ; 6 groups of -4 = -24"
+            },
+            {
+              "say": "Six jumps of −4.",
+              "tool": "numberline",
+              "type": "0 -4x6"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "6 + -4 = 2 ?",
+              "tip": "Added. Ask: is that 6 groups of −4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 x -7",
+          "a": "-70",
+          "notes": "Look for: ten groups of −7. Ask: \"How does × 10 work with negatives?\" Model: text 10 x -7 = -70",
+          "responses": [
+            {
+              "say": "10 × 7 is 70, so −70.",
+              "tool": "text",
+              "type": "10 x 7 = 70 ; 10 x -7 = -70"
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "10 x -7 = 70 ?",
+              "tip": "Ask: ten groups of a debt of 7: do you owe or have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 x -12",
+          "a": "-60",
+          "notes": "Look for: half of 10 × −12. Ask: \"Which strategy from multiplying whole numbers helps?\" Model: text 10 x -12 = -120 ; 5 x -12 = -60",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 × −12 is −120, half is −60.",
+              "tool": "text",
+              "type": "10 x -12 = -120 ; 5 x -12 = -60",
+              "tip": "× 5 as half of × 10. Name it."
+            },
+            {
+              "say": "Five jumps of −12.",
+              "tool": "numberline",
+              "type": "0 -12x5"
+            }
+          ]
+        },
+        {
+          "q": "25 x -4",
+          "a": "-100",
+          "notes": "Look for: 25 × 4 = 100 (quarters), negative. Ask: \"What do you know about 25 × 4?\" Model: text 25 x 4 = 100 ; 25 x -4 = -100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4 quarters is a dollar, so 25 × 4 = 100. Negative: −100.",
+              "tool": "text",
+              "type": "25 x 4 = 100 ; 25 x -4 = -100"
+            },
+            {
+              "say": "21",
+              "tool": "text",
+              "type": "25 + -4 = 21 ?",
+              "tip": "Added instead of multiplying. Ask: is that 25 groups of −4?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-02-taking-away-groups",
+      "title": "Taking Away Groups",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "tiles",
+      "strategy": "A negative times a number means taking away that many groups; add zero pairs first so there is something to take away.",
+      "topic": "int",
+      "keywords": "take away groups, zero pairs, opposite, negative times negative",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Thinking −3 × −2 is negative (\"negatives make it negative\"): build it with tiles and ask \"What is left after we take away three groups of −2?\"",
+        "Forgetting to add zero pairs: ask \"There's nothing on the mat. How can we take away?\""
+      ],
+      "wrapUp": "Ask \"Why does taking away negatives leave positives?\" Land: −3 × −2 means take away three groups of −2; after adding zero pairs and removing the negatives, six positives are left.",
+      "problems": [
+        {
+          "q": "3 x 2",
+          "a": "6",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: tiles 3 x 2",
+          "responses": [
+            {
+              "say": "Three groups of two: 6.",
+              "tool": "tiles",
+              "type": "3 x 2"
+            }
+          ]
+        },
+        {
+          "q": "-3 x 2",
+          "a": "-6",
+          "notes": "Look for: take away three groups of 2. Ask: \"What could −3 groups mean?\" Word choice: \"Take away three groups of 2.\" Model: tiles -3 x 2",
+          "responses": [
+            {
+              "say": "Add 6 zero pairs, take away three groups of 2 positives: 6 negatives left.",
+              "tool": "tiles",
+              "type": "-3 x 2",
+              "tip": "The target model. Ask: why add zero pairs?"
+            },
+            {
+              "say": "It's the opposite of 3 × 2.",
+              "tool": "text",
+              "type": "3 x 2 = 6 ; -3 x 2 = -6"
+            }
+          ]
+        },
+        {
+          "q": "-3 x -2",
+          "a": "6",
+          "notes": "Look for: take away three groups of −2. Ask: \"What's left this time?\" Model: tiles -3 x -2",
+          "responses": [
+            {
+              "say": "Add 6 zero pairs, take away three groups of −2: 6 positives left.",
+              "tool": "tiles",
+              "type": "-3 x -2"
+            },
+            {
+              "say": "It's the opposite of 3 × −2, which is −6.",
+              "tool": "text",
+              "type": "3 x -2 = -6 ; -3 x -2 = 6",
+              "tip": "The opposite of the opposite. Name it."
+            },
+            {
+              "say": "-6",
+              "tool": "tiles",
+              "type": "-3 x -2",
+              "tip": "Ask: after taking away the negatives, which tiles are left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 x -5",
+          "a": "20",
+          "notes": "Look for: the opposite of 4 × −5. Ask: \"Can you predict the sign first?\" Model: tiles -4 x -5",
+          "responses": [
+            {
+              "say": "Take away four groups of −5: 20 positives left.",
+              "tool": "tiles",
+              "type": "-4 x -5"
+            },
+            {
+              "say": "4 × −5 = −20, and the opposite is 20.",
+              "tool": "text",
+              "type": "4 x -5 = -20 ; -4 x -5 = 20"
+            },
+            {
+              "say": "-20",
+              "tool": "text",
+              "type": "-4 x -5 = -20 ?",
+              "tip": "Ask: what's the opposite of 4 × −5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 x 7",
+          "a": "-14",
+          "notes": "Look for: take away two groups of 7. Ask: \"Positive or negative?\" Model: tiles -2 x 7",
+          "responses": [
+            {
+              "say": "Take away two groups of 7: −14.",
+              "tool": "tiles",
+              "type": "-2 x 7"
+            },
+            {
+              "say": "Opposite of 2 × 7.",
+              "tool": "text",
+              "type": "2 x 7 = 14 ; -2 x 7 = -14"
+            }
+          ]
+        },
+        {
+          "q": "-6 x -6",
+          "a": "36",
+          "notes": "Look for: opposite of 6 × −6. Ask: \"Do you need the tiles now?\" Model: text 6 x -6 = -36 ; -6 x -6 = 36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 × −6 is −36, so the opposite is 36.",
+              "tool": "text",
+              "type": "6 x -6 = -36 ; -6 x -6 = 36"
+            },
+            {
+              "say": "-36",
+              "tool": "text",
+              "type": "-6 x -6 = -36 ?",
+              "tip": "Ask: taking away groups of negatives leaves what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-10 x -9",
+          "a": "90",
+          "notes": "Look for: opposite of 10 × −9. Ask: \"What's the sign rule you're noticing?\" Model: text 10 x -9 = -90 ; -10 x -9 = 90",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Opposite of −90: 90.",
+              "tool": "text",
+              "type": "10 x -9 = -90 ; -10 x -9 = 90"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-03-pattern-of-products",
+      "title": "The Pattern of Products",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "text",
+      "strategy": "Following a pattern: as one factor goes down by 1, the product changes by the other factor, even past zero.",
+      "topic": "int",
+      "keywords": "pattern, decrease by, sign, continue the pattern",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Stopping at 0 × −4: ask \"What comes next in the pattern?\"",
+        "Continuing the pattern the wrong way (−1 × −4 = −4): ask \"What has been happening to the product each time?\""
+      ],
+      "wrapUp": "Ask \"How did the pattern show −1 × −4 = 4?\" Land: each step down in the first factor adds 4 to the product, so after 0 the products become positive.",
+      "problems": [
+        {
+          "q": "3 x -4",
+          "a": "-12",
+          "notes": "Look for: three groups of −4. Ask: \"Hold on to this.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "Three jumps of −4: −12.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            }
+          ]
+        },
+        {
+          "q": "2 x -4",
+          "a": "-8",
+          "notes": "Look for: −8. Ask: \"How did the product change?\" Model: text 3 x -4 = -12 ; 2 x -4 = -8",
+          "responses": [
+            {
+              "say": "−8. It went up by 4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; 2 x -4 = -8",
+              "tip": "Ask: why up by 4?"
+            }
+          ]
+        },
+        {
+          "q": "1 x -4",
+          "a": "-4",
+          "notes": "Look for: up by 4 again. Ask: \"What's the pattern?\" Model: text 3 x -4 = -12 ; 2 x -4 = -8 ; 1 x -4 = -4",
+          "responses": [
+            {
+              "say": "−4. Each time the product goes up 4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; 2 x -4 = -8 ; 1 x -4 = -4"
+            }
+          ]
+        },
+        {
+          "q": "0 x -4",
+          "a": "0",
+          "notes": "Look for: zero groups is 0, and it fits the pattern. Ask: \"Does the pattern agree?\" Model: text 1 x -4 = -4 ; 0 x -4 = 0",
+          "responses": [
+            {
+              "say": "Zero groups of anything is 0. And −4 + 4 = 0.",
+              "tool": "text",
+              "type": "1 x -4 = -4 ; 0 x -4 = 0"
+            }
+          ]
+        },
+        {
+          "q": "-1 x -4",
+          "a": "4",
+          "notes": "Look for: continue the pattern: up 4 again. Ask: \"What must come next?\" Word choice: \"The pattern says it goes up by 4 each time.\" Model: text 0 x -4 = 0 ; -1 x -4 = 4",
+          "responses": [
+            {
+              "say": "The product keeps going up by 4: 4.",
+              "tool": "text",
+              "type": "0 x -4 = 0 ; -1 x -4 = 4",
+              "tip": "The target reasoning."
+            },
+            {
+              "say": "Take away one group of −4: 4 positives left.",
+              "tool": "tiles",
+              "type": "-1 x -4",
+              "tip": "Connects to Taking Away Groups."
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "-1 x -4 = -4 ?",
+              "tip": "Ask: what's been happening to the product each step?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 x -4",
+          "a": "8",
+          "notes": "Look for: 8. Ask: \"Does the pattern keep going?\" Model: text -1 x -4 = 4 ; -2 x -4 = 8",
+          "responses": [
+            {
+              "say": "Up 4 again: 8.",
+              "tool": "text",
+              "type": "-1 x -4 = 4 ; -2 x -4 = 8"
+            }
+          ]
+        },
+        {
+          "q": "-5 x -4",
+          "a": "20",
+          "notes": "Look for: jump ahead in the pattern. Ask: \"Can you skip to it?\" Model: text -5 x -4 = 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Opposite of 5 × −4 = −20, so 20.",
+              "tool": "text",
+              "type": "5 x -4 = -20 ; -5 x -4 = 20"
+            },
+            {
+              "say": "-20",
+              "tool": "text",
+              "type": "-5 x -4 = -20 ?",
+              "tip": "Ask: what does the pattern say happens past 0?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-04-dividing-integers",
+      "title": "Dividing Integers",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "text",
+      "strategy": "Use the related multiplication fact: −12 ÷ 3 = −4 because 3 × −4 = −12; the sign follows the same rules.",
+      "topic": "int",
+      "keywords": "related facts, fact family, inverse, quotient, sign",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Getting the size right but the sign wrong: ask \"What times 3 makes −12?\"",
+        "Reversing dividend and divisor: ask \"Which number is being shared or grouped?\""
+      ],
+      "wrapUp": "Ask \"How did multiplication help you divide?\" Land: every division has a related multiplication; the same sign rules apply: same signs give a positive, different signs a negative.",
+      "problems": [
+        {
+          "q": "3 x -4",
+          "a": "-12",
+          "notes": "Look for: three groups of −4. Ask: \"Hold on to this.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "Three jumps of −4: −12.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            }
+          ]
+        },
+        {
+          "q": "-12 / 3",
+          "a": "-4",
+          "notes": "Look for: 3 × −4 = −12, so −4. Ask: \"How does the last problem help?\" Word choice: \"−12 shared into 3 equal groups.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "3 × −4 = −12, so −12 ÷ 3 = −4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; -12 / 3 = -4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Split −12 into 3 equal jumps: each is −4.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "-12 / 3 = 4 ?",
+              "tip": "Ask: 3 times 4 is 12, not −12. What times 3 is −12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 / -4",
+          "a": "3",
+          "notes": "Look for: how many groups of −4 in −12? Ask: \"Same fact family?\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "How many −4s make −12? Three.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            },
+            {
+              "say": "−4 × 3 = −12, so 3.",
+              "tool": "text",
+              "type": "-4 x 3 = -12 ; -12 / -4 = 3"
+            },
+            {
+              "say": "-3",
+              "tool": "text",
+              "type": "-12 / -4 = -3 ?",
+              "tip": "Ask: −4 × −3 is what? Is it −12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20 / -5",
+          "a": "-4",
+          "notes": "Look for: −5 × −4 = 20. Ask: \"What times −5 gives 20?\" Model: text -5 x -4 = 20 ; 20 / -5 = -4",
+          "responses": [
+            {
+              "say": "−5 × −4 = 20, so −4.",
+              "tool": "text",
+              "type": "-5 x -4 = 20 ; 20 / -5 = -4"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "20 / -5 = 4 ?",
+              "tip": "Ask: −5 × 4 is what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-36 / -9",
+          "a": "4",
+          "notes": "Look for: −9 × 4 = −36. Ask: \"Positive or negative? Why?\" Model: text -9 x 4 = -36 ; -36 / -9 = 4",
+          "responses": [
+            {
+              "say": "Same signs: positive. 36 ÷ 9 = 4.",
+              "tool": "text",
+              "type": "-9 x 4 = -36 ; -36 / -9 = 4"
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "-36 / -9 = -4 ?",
+              "tip": "Ask: −9 × −4 is what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-100 / 25",
+          "a": "-4",
+          "notes": "Look for: 25 × −4 = −100. Ask: \"Which fact do you know?\" Model: text 25 x -4 = -100 ; -100 / 25 = -4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Four 25s in 100, negative: −4.",
+              "tool": "text",
+              "type": "25 x -4 = -100 ; -100 / 25 = -4"
+            }
+          ]
+        },
+        {
+          "q": "-84 / -7",
+          "a": "12",
+          "notes": "Look for: 7 × 12 = 84, same signs. Ask: \"How do you know the sign first?\" Model: text -7 x 12 = -84 ; -84 / -7 = 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−7 × 12 = −84, so 12.",
+              "tool": "text",
+              "type": "-7 x 12 = -84 ; -84 / -7 = 12"
+            },
+            {
+              "say": "70 is 10 sevens, 14 is 2 more: 12.",
+              "tool": "text",
+              "type": "-84 = -70 + -14 ; 10 + 2 = 12",
+              "tip": "Split the dividend. Nice."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

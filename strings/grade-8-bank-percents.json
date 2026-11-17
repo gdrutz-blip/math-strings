@@ -1,0 +1,416 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-pct-01-more-than-100",
+      "title": "Percents Over 100%",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "doubleline",
+      "strategy": "Percents over 100% are more than the whole: 200% is double, 150% is the whole and half again.",
+      "topic": "pct",
+      "keywords": "more than the whole, 100%, double, 150%, 250%",
+      "curriculum": [
+        "B1.4"
+      ],
+      "watchFor": [
+        "Thinking a percent can't be over 100: ask \"What would 200% of your allowance be?\"",
+        "Adding the percent as a number (150% of 40 = 190): ask \"What is 50% of 40?\""
+      ],
+      "wrapUp": "Ask \"How do you think about percents over 100?\" Land: 100% is the whole; build from it: 200% is two wholes, 150% is a whole and a half.",
+      "problems": [
+        {
+          "q": "100% of 40",
+          "a": "40",
+          "notes": "Look for: the whole. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 100:40",
+          "responses": [
+            {
+              "say": "100% is all of it: 40.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:40"
+            }
+          ]
+        },
+        {
+          "q": "200% of 40",
+          "a": "80",
+          "notes": "Look for: two wholes. Ask: \"What does 200% mean?\" Model: doubleline percent:amount, 0:0, 100:40, 200:80",
+          "responses": [
+            {
+              "say": "Two times 40: 80.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:40, 200:80"
+            },
+            {
+              "say": "240",
+              "tool": "text",
+              "type": "40 + 200 = 240 ?",
+              "tip": "Ask: what is 100% of 40? So 200%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150% of 40",
+          "a": "60",
+          "notes": "Look for: 40 + 20. Ask: \"Between which two benchmarks?\" Model: doubleline percent:amount, 0:0, 50:20, 100:40, 150:60, 200:80",
+          "responses": [
+            {
+              "say": "100% is 40, 50% is 20: 60.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 150:60, 200:80"
+            },
+            {
+              "say": "190",
+              "tool": "text",
+              "type": "40 + 150 = 190 ?",
+              "tip": "Ask: what is 50% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250% of 40",
+          "a": "100",
+          "notes": "Look for: 80 + 20. Ask: \"How did you build 250%?\" Model: doubleline percent:amount, 0:0, 50:20, 100:40, 200:80, 250:100",
+          "responses": [
+            {
+              "say": "200% is 80 and 50% is 20: 100.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 200:80, 250:100"
+            },
+            {
+              "say": "2.5 × 40 = 100.",
+              "tool": "ratio",
+              "type": "1:40, 2.5:100",
+              "tip": "As a multiplier. Connect."
+            }
+          ]
+        },
+        {
+          "q": "125% of 80",
+          "a": "100",
+          "notes": "Look for: 80 + 20. Ask: \"What's 25% of 80?\" Model: doubleline percent:amount, 0:0, 25:20, 100:80, 125:100",
+          "responses": [
+            {
+              "say": "80 + 20 = 100.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:20, 100:80, 125:100"
+            },
+            {
+              "say": "1.25 × 80 = 100.",
+              "tool": "ratio",
+              "type": "1:80, 0.25:20, 1.25:100"
+            }
+          ]
+        },
+        {
+          "q": "300% of 15",
+          "a": "45",
+          "notes": "Look for: three wholes. Ask: \"Is the answer more or less than 15?\" Model: doubleline percent:amount, 0:0, 100:15, 200:30, 300:45",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 15 = 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:15, 200:30, 300:45"
+            }
+          ]
+        },
+        {
+          "q": "110% of 250",
+          "a": "275",
+          "notes": "Look for: 250 + 25. Ask: \"What's 10% of 250?\" Model: ratio percent:amount, 100:250, 10:25, 110:275",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 + 25 = 275.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:250, 10:25, 110:275"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pct-02-less-than-1",
+      "title": "Percents Less Than 1%",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "ratio",
+      "strategy": "A percent less than 1% is a part of 1%: find 1% (divide by 100), then take half, a tenth or a quarter of it.",
+      "topic": "pct",
+      "keywords": "less than 1%, half a percent, a tenth of a percent, 1%",
+      "curriculum": [
+        "B1.4"
+      ],
+      "watchFor": [
+        "Thinking 0.5% is half (0.5% of 600 = 300): ask \"Is 0.5% more or less than 1%?\"",
+        "Thinking 0.1% of 600 is 60: ask \"What is 1% of 600? So what is a tenth of that?\""
+      ],
+      "wrapUp": "Ask \"How did 1% help with tiny percents?\" Land: find 1% first, then halve it for 0.5% or divide by 10 for 0.1%.",
+      "problems": [
+        {
+          "q": "1% of 600",
+          "a": "6",
+          "notes": "Look for: 600 ÷ 100. Ask: \"Hold on to this.\" Model: ratio percent:amount, 100:600, 1:6",
+          "responses": [
+            {
+              "say": "600 ÷ 100 = 6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6"
+            }
+          ]
+        },
+        {
+          "q": "0.5% of 600",
+          "a": "3",
+          "notes": "Look for: half of 1%. Ask: \"Is 0.5% more or less than 1%?\" Word choice: \"half of one percent.\" Model: ratio percent:amount, 100:600, 1:6, 0.5:3",
+          "responses": [
+            {
+              "say": "1% is 6, half a percent is 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.5:3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "300",
+              "tool": "text",
+              "type": "0.5% of 600 = 300 ?",
+              "tip": "That's 50%. Ask: is 0.5% more or less than 1%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.1% of 600",
+          "a": "0.6",
+          "notes": "Look for: a tenth of 1%. Ask: \"How does 1% help?\" Model: ratio percent:amount, 100:600, 1:6, 0.1:0.6",
+          "responses": [
+            {
+              "say": "A tenth of 6: 0.6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.1:0.6"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "0.1% of 600 = 60 ?",
+              "tip": "That's 10%. Ask: is 0.1% a tenth of 1% or of 100%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5% of 2000",
+          "a": "10",
+          "notes": "Look for: 1% = 20, half = 10. Ask: \"Same steps?\" Model: ratio percent:amount, 100:2000, 1:20, 0.5:10",
+          "responses": [
+            {
+              "say": "1% is 20, half is 10.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:2000, 1:20, 0.5:10"
+            },
+            {
+              "say": "1000",
+              "tool": "text",
+              "type": "0.5% of 2000 = 1000 ?",
+              "tip": "That's 50%. Ask: what is 1% of 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25% of 800",
+          "a": "2",
+          "notes": "Look for: 1% = 8, a quarter of that = 2. Ask: \"What fraction of 1% is 0.25%?\" Model: ratio percent:amount, 100:800, 1:8, 0.25:2",
+          "responses": [
+            {
+              "say": "1% is 8, a quarter of 8 is 2.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:800, 1:8, 0.25:2"
+            },
+            {
+              "say": "200",
+              "tool": "text",
+              "type": "0.25% of 800 = 200 ?",
+              "tip": "That's 25%. Ask: what is 1% of 800?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5% of 600",
+          "a": "9",
+          "notes": "Look for: 1% + 0.5% = 6 + 3. Ask: \"Can you build it from today's percents?\" Model: ratio percent:amount, 100:600, 1:6, 0.5:3, 1.5:9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 + 3 = 9.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.5:3, 1.5:9"
+            }
+          ]
+        },
+        {
+          "q": "0.2% of 4500",
+          "a": "9",
+          "notes": "Look for: 1% = 45, 0.1% = 4.5, double = 9. Ask: \"Which benchmark first?\" Model: ratio percent:amount, 100:4500, 1:45, 0.1:4.5, 0.2:9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.1% is 4.5, so 0.2% is 9.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:4500, 1:45, 0.1:4.5, 0.2:9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pct-03-fraction-decimal-percent",
+      "title": "Fraction, Decimal or Percent?",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "bar",
+      "strategy": "A fraction, a decimal and a percent can name the same amount; choose the form that makes the calculation easiest.",
+      "topic": "pct",
+      "keywords": "equivalent, fraction, decimal, percent, choose the form",
+      "curriculum": [
+        "B1.4",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Not seeing 0.25, 25% and 1/4 as the same: write all three for the same bar.",
+        "Thinking 3/8 is hard: ask \"What is 1/8 of 80?\""
+      ],
+      "wrapUp": "Ask \"When is a fraction easier than a percent or a decimal?\" Land: they can name the same amount; switch to the form that makes the numbers friendly.",
+      "problems": [
+        {
+          "q": "1/4 of 60",
+          "a": "15",
+          "notes": "Look for: 60 ÷ 4. Ask: \"Hold on to this.\" Model: bar 1/4 of 60",
+          "responses": [
+            {
+              "say": "60 ÷ 4 = 15.",
+              "tool": "bar",
+              "type": "1/4 of 60"
+            }
+          ]
+        },
+        {
+          "q": "25% of 60",
+          "a": "15",
+          "notes": "Look for: the same as 1/4. Ask: \"Why is it the same answer?\" Model: bar 1/4 of 60",
+          "responses": [
+            {
+              "say": "25% is a quarter: 15.",
+              "tool": "bar",
+              "type": "1/4 of 60"
+            },
+            {
+              "say": "35",
+              "tool": "text",
+              "type": "60 - 25 = 35 ?",
+              "tip": "Ask: is 25% a part of 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25 x 60",
+          "a": "15",
+          "notes": "Look for: 0.25 = 1/4. Ask: \"Same again?\" Model: text 0.25 = 25% = 1/4 ; 0.25 x 60 = 15",
+          "responses": [
+            {
+              "say": "0.25 is a quarter: 15.",
+              "tool": "text",
+              "type": "0.25 = 25% = 1/4 ; 0.25 x 60 = 15"
+            },
+            {
+              "say": "1.5",
+              "tool": "text",
+              "type": "0.25 x 60 = 1.5 ?",
+              "tip": "Decimal in the wrong place. Ask: is a quarter of 60 about 15 or 1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.75 x 60",
+          "a": "45",
+          "notes": "Look for: three quarters: 3 × 15. Ask: \"Which form makes this easy?\" Model: bar 3/4 of 60",
+          "responses": [
+            {
+              "say": "0.75 is 3/4: 3 × 15 = 45.",
+              "tool": "bar",
+              "type": "3/4 of 60"
+            },
+            {
+              "say": "60 − 15 = 45.",
+              "tool": "bar",
+              "type": "60 = 45 + 15"
+            }
+          ]
+        },
+        {
+          "q": "3/8 of 80",
+          "a": "30",
+          "notes": "Look for: 1/8 = 10, so 3/8 = 30. Ask: \"What is 1/8 of 80?\" Model: bar 3/8 of 80",
+          "responses": [
+            {
+              "say": "80 ÷ 8 is 10, times 3 is 30.",
+              "tool": "bar",
+              "type": "3/8 of 80"
+            },
+            {
+              "say": "24",
+              "tool": "text",
+              "type": "3/8 of 80 = 3 x 8 = 24 ?",
+              "tip": "Ask: how big is one eighth of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "37.5% of 80",
+          "a": "30",
+          "notes": "Look for: 37.5% = 3/8. Ask: \"Have we seen this amount before?\" Model: bar 3/8 of 80",
+          "responses": [
+            {
+              "say": "37.5% is 3/8, so 30.",
+              "tool": "bar",
+              "type": "3/8 of 80",
+              "tip": "Ask: how do you know 37.5% is 3/8?"
+            },
+            {
+              "say": "25% is 20, 12.5% is 10: 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:80, 25:20, 12.5:10, 37.5:30"
+            }
+          ]
+        },
+        {
+          "q": "0.125 x 64",
+          "a": "8",
+          "notes": "Look for: 0.125 = 1/8. Ask: \"What fraction is 0.125?\" Model: bar 1/8 of 64",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.125 is 1/8: 64 ÷ 8 = 8.",
+              "tool": "bar",
+              "type": "1/8 of 64"
+            },
+            {
+              "say": "80",
+              "tool": "text",
+              "type": "0.125 x 64 = 80 ?",
+              "tip": "Ask: is 0.125 more or less than 1? So is the answer more or less than 64?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

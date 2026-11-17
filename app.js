@@ -241,6 +241,9 @@
     const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...currOf(s), ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
+    // within a grade, the weekly units come before the string bank
+    const isBank = name => /·\s*Bank\s*·/i.test(name);
+    groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
       <div class="lib">
@@ -569,7 +572,8 @@ Rules:
     if (grade) store.set('pdGrade', grade);
     const mine = grade ? library.filter(s => gradeOf(s) === grade) : [];
     const units = [];
-    mine.forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
+    const bankCount = mine.filter(s => /·\s*Bank\s*·/i.test(s.group || '')).length;
+    mine.filter(s => !/·\s*Bank\s*·/i.test(s.group || '')).forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
     const unitName = g => g.replace(/^Grade\s*\w+\s*·\s*/i, '');
     app.innerHTML = `
     <div class="guide pd">
@@ -588,7 +592,7 @@ Rules:
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
         ${!grade ? '<p class="hint">Choose your grade to see its focus units.</p>'
           : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
-          : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.</p>
+          : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.${bankCount ? ` For extra practice, the <a href="#/grade/${encodeURIComponent(grade)}">library</a> also has <b>${bankCount} single strings</b> in the Grade ${esc(grade)} string bank.` : ''}</p>
              ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
                ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
                <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>

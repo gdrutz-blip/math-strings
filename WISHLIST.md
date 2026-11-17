@@ -30,9 +30,11 @@ Before **Dec 4**:
 5. [x] **Try a response**: 💡 Try (or Y) in the presenter lists the problem's likely responses; one tap draws the model (and a numeric mistake also goes in as an answer). (Nov 17)
 6. [x] **Curriculum codes as a field** (`curriculum: ["B2.3"]`): badges with the Ministry wording on the library, PD page (expandable list), practice cards and editor; searchable. Grade 7 integers corrected to B1.3. (Nov 17)
 7. [x] **Share a string by link**: 🔗 Share in the editor and on the practice card copies a link with the whole string packed inside (compressed; nothing uploaded). Opening it shows a preview and Add to my library (or Replace mine / Add as a copy). (Nov 17)
-8. [ ] ~~**Grade 8 wording** in the README and guides~~ (done Nov 17); **Grade 8 units** on Grade 8 expectations (B2.7 integers × ÷, B2.3 powers of ten).
+8. [x] ~~**Grade 8 wording**~~ (done); Grade 8 content on Grade 8 expectations is now in the string bank, batch 1 (B2.7, B2.3, B1.4). (Nov 17)
 9. [ ] ~~Topic banks~~ → replaced by step 10.
 10. [ ] **A big string bank** (like the books with 100+ strings, but **all original**; don't copy published strings): many single strings per grade and topic, grouped by strategy and building in difficulty, separate from the weekly PD units (group `Grade N · Bank · Topic`). Built in checked batches of ~15–25 (every answer and model checked, like the units). Add a **strategy filter** once a topic has 30+ strings. Start with Grade 8, then 4–7.
+    - [x] Batch 1, Grade 8 (Nov 17): 10 strings. Integers × ÷ (4, B2.7), powers of ten (3, B2.3), percents over 100% / under 1% / fraction-decimal-percent (3, B1.4). Files `grade-8-bank-*.json`; the library lists the bank after a grade's weekly units, and the PD page points to it.
+    - [ ] Next batches: Grade 8 fractions × ÷ (B2.6), squares and square roots (B2.2, B1.3), scientific notation (B1.1); then Grades 4–7.
 
 ## Maybe later
 
