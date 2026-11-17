@@ -6888,6 +6888,1427 @@
       ]
     },
     {
+      "id": "g8-bank-int-01-groups-of-negatives",
+      "title": "Groups of Negatives",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "numberline",
+      "strategy": "A positive times a negative is that many groups of the negative, so the product is negative.",
+      "topic": "int",
+      "keywords": "groups of, repeated addition, jumps left, negative product",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Making the product positive (4 × −3 = 12): ask \"Four groups of −3: are we gaining or owing?\"",
+        "Adding instead of multiplying (4 × −3 = 1): ask \"What does 4 × mean?\""
+      ],
+      "wrapUp": "Ask \"Why is 4 × −3 negative?\" Land: 4 × −3 is four jumps of −3 (four groups of debt), so the product is negative.",
+      "problems": [
+        {
+          "q": "4 x 3",
+          "a": "12",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline 0 +3x4",
+          "responses": [
+            {
+              "say": "Four jumps of 3: 12.",
+              "tool": "numberline",
+              "type": "0 +3x4"
+            }
+          ]
+        },
+        {
+          "q": "4 x -3",
+          "a": "-12",
+          "notes": "Look for: four groups of −3. Ask: \"What changed from the last one?\" Word choice: \"Four groups of negative three.\" Model: numberline 0 -3x4",
+          "responses": [
+            {
+              "say": "Four jumps of −3 from 0: −12.",
+              "tool": "numberline",
+              "type": "0 -3x4",
+              "tip": "The target model."
+            },
+            {
+              "say": "Four groups of three red tiles: 12 negatives.",
+              "tool": "tiles",
+              "type": "4 x -3"
+            },
+            {
+              "say": "12",
+              "tool": "numberline",
+              "type": "0 -3x4",
+              "tip": "Ask: four groups of −3: where do you end up, left or right of 0?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 x -5",
+          "a": "-10",
+          "notes": "Look for: two jumps of −5. Ask: \"Positive or negative? How do you know before calculating?\" Model: numberline 0 -5x2",
+          "responses": [
+            {
+              "say": "Two groups of −5: −10.",
+              "tool": "numberline",
+              "type": "0 -5x2"
+            },
+            {
+              "say": "−5 + −5 = −10.",
+              "tool": "text",
+              "type": "2 x -5 = -5 + -5 = -10"
+            }
+          ]
+        },
+        {
+          "q": "6 x -4",
+          "a": "-24",
+          "notes": "Look for: 6 × 4 = 24, negative. Ask: \"Do you need to draw it?\" Model: numberline 0 -4x6",
+          "responses": [
+            {
+              "say": "6 × 4 is 24, and it's groups of a negative: −24.",
+              "tool": "text",
+              "type": "6 x 4 = 24 ; 6 groups of -4 = -24"
+            },
+            {
+              "say": "Six jumps of −4.",
+              "tool": "numberline",
+              "type": "0 -4x6"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "6 + -4 = 2 ?",
+              "tip": "Added. Ask: is that 6 groups of −4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 x -7",
+          "a": "-70",
+          "notes": "Look for: ten groups of −7. Ask: \"How does × 10 work with negatives?\" Model: text 10 x -7 = -70",
+          "responses": [
+            {
+              "say": "10 × 7 is 70, so −70.",
+              "tool": "text",
+              "type": "10 x 7 = 70 ; 10 x -7 = -70"
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "10 x -7 = 70 ?",
+              "tip": "Ask: ten groups of a debt of 7: do you owe or have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 x -12",
+          "a": "-60",
+          "notes": "Look for: half of 10 × −12. Ask: \"Which strategy from multiplying whole numbers helps?\" Model: text 10 x -12 = -120 ; 5 x -12 = -60",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 × −12 is −120, half is −60.",
+              "tool": "text",
+              "type": "10 x -12 = -120 ; 5 x -12 = -60",
+              "tip": "× 5 as half of × 10. Name it."
+            },
+            {
+              "say": "Five jumps of −12.",
+              "tool": "numberline",
+              "type": "0 -12x5"
+            }
+          ]
+        },
+        {
+          "q": "25 x -4",
+          "a": "-100",
+          "notes": "Look for: 25 × 4 = 100 (quarters), negative. Ask: \"What do you know about 25 × 4?\" Model: text 25 x 4 = 100 ; 25 x -4 = -100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4 quarters is a dollar, so 25 × 4 = 100. Negative: −100.",
+              "tool": "text",
+              "type": "25 x 4 = 100 ; 25 x -4 = -100"
+            },
+            {
+              "say": "21",
+              "tool": "text",
+              "type": "25 + -4 = 21 ?",
+              "tip": "Added instead of multiplying. Ask: is that 25 groups of −4?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-02-taking-away-groups",
+      "title": "Taking Away Groups",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "tiles",
+      "strategy": "A negative times a number means taking away that many groups; add zero pairs first so there is something to take away.",
+      "topic": "int",
+      "keywords": "take away groups, zero pairs, opposite, negative times negative",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Thinking −3 × −2 is negative (\"negatives make it negative\"): build it with tiles and ask \"What is left after we take away three groups of −2?\"",
+        "Forgetting to add zero pairs: ask \"There's nothing on the mat. How can we take away?\""
+      ],
+      "wrapUp": "Ask \"Why does taking away negatives leave positives?\" Land: −3 × −2 means take away three groups of −2; after adding zero pairs and removing the negatives, six positives are left.",
+      "problems": [
+        {
+          "q": "3 x 2",
+          "a": "6",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: tiles 3 x 2",
+          "responses": [
+            {
+              "say": "Three groups of two: 6.",
+              "tool": "tiles",
+              "type": "3 x 2"
+            }
+          ]
+        },
+        {
+          "q": "-3 x 2",
+          "a": "-6",
+          "notes": "Look for: take away three groups of 2. Ask: \"What could −3 groups mean?\" Word choice: \"Take away three groups of 2.\" Model: tiles -3 x 2",
+          "responses": [
+            {
+              "say": "Add 6 zero pairs, take away three groups of 2 positives: 6 negatives left.",
+              "tool": "tiles",
+              "type": "-3 x 2",
+              "tip": "The target model. Ask: why add zero pairs?"
+            },
+            {
+              "say": "It's the opposite of 3 × 2.",
+              "tool": "text",
+              "type": "3 x 2 = 6 ; -3 x 2 = -6"
+            }
+          ]
+        },
+        {
+          "q": "-3 x -2",
+          "a": "6",
+          "notes": "Look for: take away three groups of −2. Ask: \"What's left this time?\" Model: tiles -3 x -2",
+          "responses": [
+            {
+              "say": "Add 6 zero pairs, take away three groups of −2: 6 positives left.",
+              "tool": "tiles",
+              "type": "-3 x -2"
+            },
+            {
+              "say": "It's the opposite of 3 × −2, which is −6.",
+              "tool": "text",
+              "type": "3 x -2 = -6 ; -3 x -2 = 6",
+              "tip": "The opposite of the opposite. Name it."
+            },
+            {
+              "say": "-6",
+              "tool": "tiles",
+              "type": "-3 x -2",
+              "tip": "Ask: after taking away the negatives, which tiles are left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 x -5",
+          "a": "20",
+          "notes": "Look for: the opposite of 4 × −5. Ask: \"Can you predict the sign first?\" Model: tiles -4 x -5",
+          "responses": [
+            {
+              "say": "Take away four groups of −5: 20 positives left.",
+              "tool": "tiles",
+              "type": "-4 x -5"
+            },
+            {
+              "say": "4 × −5 = −20, and the opposite is 20.",
+              "tool": "text",
+              "type": "4 x -5 = -20 ; -4 x -5 = 20"
+            },
+            {
+              "say": "-20",
+              "tool": "text",
+              "type": "-4 x -5 = -20 ?",
+              "tip": "Ask: what's the opposite of 4 × −5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 x 7",
+          "a": "-14",
+          "notes": "Look for: take away two groups of 7. Ask: \"Positive or negative?\" Model: tiles -2 x 7",
+          "responses": [
+            {
+              "say": "Take away two groups of 7: −14.",
+              "tool": "tiles",
+              "type": "-2 x 7"
+            },
+            {
+              "say": "Opposite of 2 × 7.",
+              "tool": "text",
+              "type": "2 x 7 = 14 ; -2 x 7 = -14"
+            }
+          ]
+        },
+        {
+          "q": "-6 x -6",
+          "a": "36",
+          "notes": "Look for: opposite of 6 × −6. Ask: \"Do you need the tiles now?\" Model: text 6 x -6 = -36 ; -6 x -6 = 36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 × −6 is −36, so the opposite is 36.",
+              "tool": "text",
+              "type": "6 x -6 = -36 ; -6 x -6 = 36"
+            },
+            {
+              "say": "-36",
+              "tool": "text",
+              "type": "-6 x -6 = -36 ?",
+              "tip": "Ask: taking away groups of negatives leaves what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-10 x -9",
+          "a": "90",
+          "notes": "Look for: opposite of 10 × −9. Ask: \"What's the sign rule you're noticing?\" Model: text 10 x -9 = -90 ; -10 x -9 = 90",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Opposite of −90: 90.",
+              "tool": "text",
+              "type": "10 x -9 = -90 ; -10 x -9 = 90"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-03-pattern-of-products",
+      "title": "The Pattern of Products",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "text",
+      "strategy": "Following a pattern: as one factor goes down by 1, the product changes by the other factor, even past zero.",
+      "topic": "int",
+      "keywords": "pattern, decrease by, sign, continue the pattern",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Stopping at 0 × −4: ask \"What comes next in the pattern?\"",
+        "Continuing the pattern the wrong way (−1 × −4 = −4): ask \"What has been happening to the product each time?\""
+      ],
+      "wrapUp": "Ask \"How did the pattern show −1 × −4 = 4?\" Land: each step down in the first factor adds 4 to the product, so after 0 the products become positive.",
+      "problems": [
+        {
+          "q": "3 x -4",
+          "a": "-12",
+          "notes": "Look for: three groups of −4. Ask: \"Hold on to this.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "Three jumps of −4: −12.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            }
+          ]
+        },
+        {
+          "q": "2 x -4",
+          "a": "-8",
+          "notes": "Look for: −8. Ask: \"How did the product change?\" Model: text 3 x -4 = -12 ; 2 x -4 = -8",
+          "responses": [
+            {
+              "say": "−8. It went up by 4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; 2 x -4 = -8",
+              "tip": "Ask: why up by 4?"
+            }
+          ]
+        },
+        {
+          "q": "1 x -4",
+          "a": "-4",
+          "notes": "Look for: up by 4 again. Ask: \"What's the pattern?\" Model: text 3 x -4 = -12 ; 2 x -4 = -8 ; 1 x -4 = -4",
+          "responses": [
+            {
+              "say": "−4. Each time the product goes up 4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; 2 x -4 = -8 ; 1 x -4 = -4"
+            }
+          ]
+        },
+        {
+          "q": "0 x -4",
+          "a": "0",
+          "notes": "Look for: zero groups is 0, and it fits the pattern. Ask: \"Does the pattern agree?\" Model: text 1 x -4 = -4 ; 0 x -4 = 0",
+          "responses": [
+            {
+              "say": "Zero groups of anything is 0. And −4 + 4 = 0.",
+              "tool": "text",
+              "type": "1 x -4 = -4 ; 0 x -4 = 0"
+            }
+          ]
+        },
+        {
+          "q": "-1 x -4",
+          "a": "4",
+          "notes": "Look for: continue the pattern: up 4 again. Ask: \"What must come next?\" Word choice: \"The pattern says it goes up by 4 each time.\" Model: text 0 x -4 = 0 ; -1 x -4 = 4",
+          "responses": [
+            {
+              "say": "The product keeps going up by 4: 4.",
+              "tool": "text",
+              "type": "0 x -4 = 0 ; -1 x -4 = 4",
+              "tip": "The target reasoning."
+            },
+            {
+              "say": "Take away one group of −4: 4 positives left.",
+              "tool": "tiles",
+              "type": "-1 x -4",
+              "tip": "Connects to Taking Away Groups."
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "-1 x -4 = -4 ?",
+              "tip": "Ask: what's been happening to the product each step?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 x -4",
+          "a": "8",
+          "notes": "Look for: 8. Ask: \"Does the pattern keep going?\" Model: text -1 x -4 = 4 ; -2 x -4 = 8",
+          "responses": [
+            {
+              "say": "Up 4 again: 8.",
+              "tool": "text",
+              "type": "-1 x -4 = 4 ; -2 x -4 = 8"
+            }
+          ]
+        },
+        {
+          "q": "-5 x -4",
+          "a": "20",
+          "notes": "Look for: jump ahead in the pattern. Ask: \"Can you skip to it?\" Model: text -5 x -4 = 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Opposite of 5 × −4 = −20, so 20.",
+              "tool": "text",
+              "type": "5 x -4 = -20 ; -5 x -4 = 20"
+            },
+            {
+              "say": "-20",
+              "tool": "text",
+              "type": "-5 x -4 = -20 ?",
+              "tip": "Ask: what does the pattern say happens past 0?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-int-04-dividing-integers",
+      "title": "Dividing Integers",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Integers",
+      "tool": "text",
+      "strategy": "Use the related multiplication fact: −12 ÷ 3 = −4 because 3 × −4 = −12; the sign follows the same rules.",
+      "topic": "int",
+      "keywords": "related facts, fact family, inverse, quotient, sign",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Getting the size right but the sign wrong: ask \"What times 3 makes −12?\"",
+        "Reversing dividend and divisor: ask \"Which number is being shared or grouped?\""
+      ],
+      "wrapUp": "Ask \"How did multiplication help you divide?\" Land: every division has a related multiplication; the same sign rules apply: same signs give a positive, different signs a negative.",
+      "problems": [
+        {
+          "q": "3 x -4",
+          "a": "-12",
+          "notes": "Look for: three groups of −4. Ask: \"Hold on to this.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "Three jumps of −4: −12.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            }
+          ]
+        },
+        {
+          "q": "-12 / 3",
+          "a": "-4",
+          "notes": "Look for: 3 × −4 = −12, so −4. Ask: \"How does the last problem help?\" Word choice: \"−12 shared into 3 equal groups.\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "3 × −4 = −12, so −12 ÷ 3 = −4.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; -12 / 3 = -4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Split −12 into 3 equal jumps: each is −4.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "-12 / 3 = 4 ?",
+              "tip": "Ask: 3 times 4 is 12, not −12. What times 3 is −12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 / -4",
+          "a": "3",
+          "notes": "Look for: how many groups of −4 in −12? Ask: \"Same fact family?\" Model: numberline 0 -4x3",
+          "responses": [
+            {
+              "say": "How many −4s make −12? Three.",
+              "tool": "numberline",
+              "type": "0 -4x3"
+            },
+            {
+              "say": "−4 × 3 = −12, so 3.",
+              "tool": "text",
+              "type": "-4 x 3 = -12 ; -12 / -4 = 3"
+            },
+            {
+              "say": "-3",
+              "tool": "text",
+              "type": "-12 / -4 = -3 ?",
+              "tip": "Ask: −4 × −3 is what? Is it −12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20 / -5",
+          "a": "-4",
+          "notes": "Look for: −5 × −4 = 20. Ask: \"What times −5 gives 20?\" Model: text -5 x -4 = 20 ; 20 / -5 = -4",
+          "responses": [
+            {
+              "say": "−5 × −4 = 20, so −4.",
+              "tool": "text",
+              "type": "-5 x -4 = 20 ; 20 / -5 = -4"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "20 / -5 = 4 ?",
+              "tip": "Ask: −5 × 4 is what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-36 / -9",
+          "a": "4",
+          "notes": "Look for: −9 × 4 = −36. Ask: \"Positive or negative? Why?\" Model: text -9 x 4 = -36 ; -36 / -9 = 4",
+          "responses": [
+            {
+              "say": "Same signs: positive. 36 ÷ 9 = 4.",
+              "tool": "text",
+              "type": "-9 x 4 = -36 ; -36 / -9 = 4"
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "-36 / -9 = -4 ?",
+              "tip": "Ask: −9 × −4 is what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-100 / 25",
+          "a": "-4",
+          "notes": "Look for: 25 × −4 = −100. Ask: \"Which fact do you know?\" Model: text 25 x -4 = -100 ; -100 / 25 = -4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Four 25s in 100, negative: −4.",
+              "tool": "text",
+              "type": "25 x -4 = -100 ; -100 / 25 = -4"
+            }
+          ]
+        },
+        {
+          "q": "-84 / -7",
+          "a": "12",
+          "notes": "Look for: 7 × 12 = 84, same signs. Ask: \"How do you know the sign first?\" Model: text -7 x 12 = -84 ; -84 / -7 = 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−7 × 12 = −84, so 12.",
+              "tool": "text",
+              "type": "-7 x 12 = -84 ; -84 / -7 = 12"
+            },
+            {
+              "say": "70 is 10 sevens, 14 is 2 more: 12.",
+              "tool": "text",
+              "type": "-84 = -70 + -14 ; 10 + 2 = 12",
+              "tip": "Split the dividend. Nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pct-01-more-than-100",
+      "title": "Percents Over 100%",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "doubleline",
+      "strategy": "Percents over 100% are more than the whole: 200% is double, 150% is the whole and half again.",
+      "topic": "pct",
+      "keywords": "more than the whole, 100%, double, 150%, 250%",
+      "curriculum": [
+        "B1.4"
+      ],
+      "watchFor": [
+        "Thinking a percent can't be over 100: ask \"What would 200% of your allowance be?\"",
+        "Adding the percent as a number (150% of 40 = 190): ask \"What is 50% of 40?\""
+      ],
+      "wrapUp": "Ask \"How do you think about percents over 100?\" Land: 100% is the whole; build from it: 200% is two wholes, 150% is a whole and a half.",
+      "problems": [
+        {
+          "q": "100% of 40",
+          "a": "40",
+          "notes": "Look for: the whole. Ask: \"Hold on to this.\" Model: doubleline percent:amount, 0:0, 100:40",
+          "responses": [
+            {
+              "say": "100% is all of it: 40.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:40"
+            }
+          ]
+        },
+        {
+          "q": "200% of 40",
+          "a": "80",
+          "notes": "Look for: two wholes. Ask: \"What does 200% mean?\" Model: doubleline percent:amount, 0:0, 100:40, 200:80",
+          "responses": [
+            {
+              "say": "Two times 40: 80.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:40, 200:80"
+            },
+            {
+              "say": "240",
+              "tool": "text",
+              "type": "40 + 200 = 240 ?",
+              "tip": "Ask: what is 100% of 40? So 200%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150% of 40",
+          "a": "60",
+          "notes": "Look for: 40 + 20. Ask: \"Between which two benchmarks?\" Model: doubleline percent:amount, 0:0, 50:20, 100:40, 150:60, 200:80",
+          "responses": [
+            {
+              "say": "100% is 40, 50% is 20: 60.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 150:60, 200:80"
+            },
+            {
+              "say": "190",
+              "tool": "text",
+              "type": "40 + 150 = 190 ?",
+              "tip": "Ask: what is 50% of 40?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250% of 40",
+          "a": "100",
+          "notes": "Look for: 80 + 20. Ask: \"How did you build 250%?\" Model: doubleline percent:amount, 0:0, 50:20, 100:40, 200:80, 250:100",
+          "responses": [
+            {
+              "say": "200% is 80 and 50% is 20: 100.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 50:20, 100:40, 200:80, 250:100"
+            },
+            {
+              "say": "2.5 × 40 = 100.",
+              "tool": "ratio",
+              "type": "1:40, 2.5:100",
+              "tip": "As a multiplier. Connect."
+            }
+          ]
+        },
+        {
+          "q": "125% of 80",
+          "a": "100",
+          "notes": "Look for: 80 + 20. Ask: \"What's 25% of 80?\" Model: doubleline percent:amount, 0:0, 25:20, 100:80, 125:100",
+          "responses": [
+            {
+              "say": "80 + 20 = 100.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 25:20, 100:80, 125:100"
+            },
+            {
+              "say": "1.25 × 80 = 100.",
+              "tool": "ratio",
+              "type": "1:80, 0.25:20, 1.25:100"
+            }
+          ]
+        },
+        {
+          "q": "300% of 15",
+          "a": "45",
+          "notes": "Look for: three wholes. Ask: \"Is the answer more or less than 15?\" Model: doubleline percent:amount, 0:0, 100:15, 200:30, 300:45",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 15 = 45.",
+              "tool": "doubleline",
+              "type": "percent:amount, 0:0, 100:15, 200:30, 300:45"
+            }
+          ]
+        },
+        {
+          "q": "110% of 250",
+          "a": "275",
+          "notes": "Look for: 250 + 25. Ask: \"What's 10% of 250?\" Model: ratio percent:amount, 100:250, 10:25, 110:275",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 + 25 = 275.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:250, 10:25, 110:275"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pct-02-less-than-1",
+      "title": "Percents Less Than 1%",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "ratio",
+      "strategy": "A percent less than 1% is a part of 1%: find 1% (divide by 100), then take half, a tenth or a quarter of it.",
+      "topic": "pct",
+      "keywords": "less than 1%, half a percent, a tenth of a percent, 1%",
+      "curriculum": [
+        "B1.4"
+      ],
+      "watchFor": [
+        "Thinking 0.5% is half (0.5% of 600 = 300): ask \"Is 0.5% more or less than 1%?\"",
+        "Thinking 0.1% of 600 is 60: ask \"What is 1% of 600? So what is a tenth of that?\""
+      ],
+      "wrapUp": "Ask \"How did 1% help with tiny percents?\" Land: find 1% first, then halve it for 0.5% or divide by 10 for 0.1%.",
+      "problems": [
+        {
+          "q": "1% of 600",
+          "a": "6",
+          "notes": "Look for: 600 ÷ 100. Ask: \"Hold on to this.\" Model: ratio percent:amount, 100:600, 1:6",
+          "responses": [
+            {
+              "say": "600 ÷ 100 = 6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6"
+            }
+          ]
+        },
+        {
+          "q": "0.5% of 600",
+          "a": "3",
+          "notes": "Look for: half of 1%. Ask: \"Is 0.5% more or less than 1%?\" Word choice: \"half of one percent.\" Model: ratio percent:amount, 100:600, 1:6, 0.5:3",
+          "responses": [
+            {
+              "say": "1% is 6, half a percent is 3.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.5:3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "300",
+              "tool": "text",
+              "type": "0.5% of 600 = 300 ?",
+              "tip": "That's 50%. Ask: is 0.5% more or less than 1%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.1% of 600",
+          "a": "0.6",
+          "notes": "Look for: a tenth of 1%. Ask: \"How does 1% help?\" Model: ratio percent:amount, 100:600, 1:6, 0.1:0.6",
+          "responses": [
+            {
+              "say": "A tenth of 6: 0.6.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.1:0.6"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "0.1% of 600 = 60 ?",
+              "tip": "That's 10%. Ask: is 0.1% a tenth of 1% or of 100%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5% of 2000",
+          "a": "10",
+          "notes": "Look for: 1% = 20, half = 10. Ask: \"Same steps?\" Model: ratio percent:amount, 100:2000, 1:20, 0.5:10",
+          "responses": [
+            {
+              "say": "1% is 20, half is 10.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:2000, 1:20, 0.5:10"
+            },
+            {
+              "say": "1000",
+              "tool": "text",
+              "type": "0.5% of 2000 = 1000 ?",
+              "tip": "That's 50%. Ask: what is 1% of 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25% of 800",
+          "a": "2",
+          "notes": "Look for: 1% = 8, a quarter of that = 2. Ask: \"What fraction of 1% is 0.25%?\" Model: ratio percent:amount, 100:800, 1:8, 0.25:2",
+          "responses": [
+            {
+              "say": "1% is 8, a quarter of 8 is 2.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:800, 1:8, 0.25:2"
+            },
+            {
+              "say": "200",
+              "tool": "text",
+              "type": "0.25% of 800 = 200 ?",
+              "tip": "That's 25%. Ask: what is 1% of 800?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5% of 600",
+          "a": "9",
+          "notes": "Look for: 1% + 0.5% = 6 + 3. Ask: \"Can you build it from today's percents?\" Model: ratio percent:amount, 100:600, 1:6, 0.5:3, 1.5:9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 + 3 = 9.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:600, 1:6, 0.5:3, 1.5:9"
+            }
+          ]
+        },
+        {
+          "q": "0.2% of 4500",
+          "a": "9",
+          "notes": "Look for: 1% = 45, 0.1% = 4.5, double = 9. Ask: \"Which benchmark first?\" Model: ratio percent:amount, 100:4500, 1:45, 0.1:4.5, 0.2:9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.1% is 4.5, so 0.2% is 9.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:4500, 1:45, 0.1:4.5, 0.2:9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pct-03-fraction-decimal-percent",
+      "title": "Fraction, Decimal or Percent?",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Percents",
+      "tool": "bar",
+      "strategy": "A fraction, a decimal and a percent can name the same amount; choose the form that makes the calculation easiest.",
+      "topic": "pct",
+      "keywords": "equivalent, fraction, decimal, percent, choose the form",
+      "curriculum": [
+        "B1.4",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Not seeing 0.25, 25% and 1/4 as the same: write all three for the same bar.",
+        "Thinking 3/8 is hard: ask \"What is 1/8 of 80?\""
+      ],
+      "wrapUp": "Ask \"When is a fraction easier than a percent or a decimal?\" Land: they can name the same amount; switch to the form that makes the numbers friendly.",
+      "problems": [
+        {
+          "q": "1/4 of 60",
+          "a": "15",
+          "notes": "Look for: 60 ÷ 4. Ask: \"Hold on to this.\" Model: bar 1/4 of 60",
+          "responses": [
+            {
+              "say": "60 ÷ 4 = 15.",
+              "tool": "bar",
+              "type": "1/4 of 60"
+            }
+          ]
+        },
+        {
+          "q": "25% of 60",
+          "a": "15",
+          "notes": "Look for: the same as 1/4. Ask: \"Why is it the same answer?\" Model: bar 1/4 of 60",
+          "responses": [
+            {
+              "say": "25% is a quarter: 15.",
+              "tool": "bar",
+              "type": "1/4 of 60"
+            },
+            {
+              "say": "35",
+              "tool": "text",
+              "type": "60 - 25 = 35 ?",
+              "tip": "Ask: is 25% a part of 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25 x 60",
+          "a": "15",
+          "notes": "Look for: 0.25 = 1/4. Ask: \"Same again?\" Model: text 0.25 = 25% = 1/4 ; 0.25 x 60 = 15",
+          "responses": [
+            {
+              "say": "0.25 is a quarter: 15.",
+              "tool": "text",
+              "type": "0.25 = 25% = 1/4 ; 0.25 x 60 = 15"
+            },
+            {
+              "say": "1.5",
+              "tool": "text",
+              "type": "0.25 x 60 = 1.5 ?",
+              "tip": "Decimal in the wrong place. Ask: is a quarter of 60 about 15 or 1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.75 x 60",
+          "a": "45",
+          "notes": "Look for: three quarters: 3 × 15. Ask: \"Which form makes this easy?\" Model: bar 3/4 of 60",
+          "responses": [
+            {
+              "say": "0.75 is 3/4: 3 × 15 = 45.",
+              "tool": "bar",
+              "type": "3/4 of 60"
+            },
+            {
+              "say": "60 − 15 = 45.",
+              "tool": "bar",
+              "type": "60 = 45 + 15"
+            }
+          ]
+        },
+        {
+          "q": "3/8 of 80",
+          "a": "30",
+          "notes": "Look for: 1/8 = 10, so 3/8 = 30. Ask: \"What is 1/8 of 80?\" Model: bar 3/8 of 80",
+          "responses": [
+            {
+              "say": "80 ÷ 8 is 10, times 3 is 30.",
+              "tool": "bar",
+              "type": "3/8 of 80"
+            },
+            {
+              "say": "24",
+              "tool": "text",
+              "type": "3/8 of 80 = 3 x 8 = 24 ?",
+              "tip": "Ask: how big is one eighth of 80?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "37.5% of 80",
+          "a": "30",
+          "notes": "Look for: 37.5% = 3/8. Ask: \"Have we seen this amount before?\" Model: bar 3/8 of 80",
+          "responses": [
+            {
+              "say": "37.5% is 3/8, so 30.",
+              "tool": "bar",
+              "type": "3/8 of 80",
+              "tip": "Ask: how do you know 37.5% is 3/8?"
+            },
+            {
+              "say": "25% is 20, 12.5% is 10: 30.",
+              "tool": "ratio",
+              "type": "percent:amount, 100:80, 25:20, 12.5:10, 37.5:30"
+            }
+          ]
+        },
+        {
+          "q": "0.125 x 64",
+          "a": "8",
+          "notes": "Look for: 0.125 = 1/8. Ask: \"What fraction is 0.125?\" Model: bar 1/8 of 64",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.125 is 1/8: 64 ÷ 8 = 8.",
+              "tool": "bar",
+              "type": "1/8 of 64"
+            },
+            {
+              "say": "80",
+              "tool": "text",
+              "type": "0.125 x 64 = 80 ?",
+              "tip": "Ask: is 0.125 more or less than 1? So is the answer more or less than 64?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pow-01-times-powers-of-ten",
+      "title": "Multiplying by Powers of Ten",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Powers of Ten",
+      "tool": "ratio",
+      "strategy": "Multiplying by 10, 100 or 1000 makes each digit worth 10, 100 or 1000 times as much, so the digits move to the left.",
+      "topic": "mult",
+      "keywords": "power of ten, place value, digits move, 10^3",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "\"Add a zero\" with decimals (3.4 × 10 = 3.40): ask \"Is 3.40 ten times as much as 3.4?\"",
+        "Moving the digits the wrong way: ask \"Should the answer be bigger or smaller?\""
+      ],
+      "wrapUp": "Ask \"What happens to the digits when you multiply by 1000?\" Land: each digit becomes worth 1000 times as much, moving three places left. \"Add a zero\" doesn't work for decimals.",
+      "problems": [
+        {
+          "q": "3.4 x 10",
+          "a": "34",
+          "notes": "Look for: 3 ones become 3 tens, 4 tenths become 4 ones. Ask: \"What happened to each digit?\" Model: ratio 1:3.4, 10:34",
+          "responses": [
+            {
+              "say": "Each digit is worth 10 times as much: 34.",
+              "tool": "ratio",
+              "type": "1:3.4, 10:34"
+            },
+            {
+              "say": "3.40",
+              "tool": "text",
+              "type": "3.4 x 10 = 3.40 ?",
+              "tip": "\"Added a zero.\" Ask: is 3.40 ten times as much as 3.4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.4 x 100",
+          "a": "340",
+          "notes": "Look for: 10 × 34. Ask: \"How does the last one help?\" Model: ratio 1:3.4, 10:34, 100:340",
+          "responses": [
+            {
+              "say": "Times 10 is 34, times 10 again is 340.",
+              "tool": "ratio",
+              "type": "1:3.4, 10:34, 100:340"
+            },
+            {
+              "say": "34",
+              "tool": "text",
+              "type": "3.4 x 100 = 34 ?",
+              "tip": "Ask: is that × 10 or × 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.4 x 1000",
+          "a": "3400",
+          "notes": "Look for: one more × 10. Ask: \"How many places do the digits move?\" Model: ratio 1:3.4, 10:34, 100:340, 1000:3400",
+          "responses": [
+            {
+              "say": "Three places: 3400.",
+              "tool": "ratio",
+              "type": "1:3.4, 10:34, 100:340, 1000:3400"
+            }
+          ]
+        },
+        {
+          "q": "0.56 x 100",
+          "a": "56",
+          "notes": "Look for: 5 tenths become 5 tens. Ask: \"Where does the 5 go?\" Model: ratio 1:0.56, 100:56",
+          "responses": [
+            {
+              "say": "5 tenths become 5 tens, 6 hundredths become 6 ones: 56.",
+              "tool": "ratio",
+              "type": "1:0.56, 100:56"
+            },
+            {
+              "say": "0.5600",
+              "tool": "text",
+              "type": "0.56 x 100 = 0.5600 ?",
+              "tip": "Ask: is 0.5600 bigger than 0.56?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.072 x 1000",
+          "a": "72",
+          "notes": "Look for: thousandths become ones. Ask: \"What is each digit worth now?\" Model: ratio 1:0.072, 1000:72",
+          "responses": [
+            {
+              "say": "7 hundredths become 7 tens, 2 thousandths become 2 ones: 72.",
+              "tool": "ratio",
+              "type": "1:0.072, 1000:72"
+            },
+            {
+              "say": "7.2",
+              "tool": "text",
+              "type": "0.072 x 1000 = 7.2 ?",
+              "tip": "Moved two places. Ask: how many zeros in 1000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.005 x 100",
+          "a": "400.5",
+          "notes": "Look for: 4 ones become 4 hundreds; 5 thousandths become 5 tenths. Ask: \"What about the zeros in the middle?\" Model: ratio 1:4.005, 100:400.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "400.5.",
+              "tool": "ratio",
+              "type": "1:4.005, 100:400.5"
+            },
+            {
+              "say": "4.5",
+              "tool": "text",
+              "type": "4.005 x 100 = 4.5 ?",
+              "tip": "Ask: should the answer be about 400?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.3 x 10^4",
+          "a": "3000",
+          "notes": "Look for: 10^4 = 10 000, digits move 4 places. Ask: \"What does the exponent tell you?\" Model: ratio 1:0.3, 10000:3000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10^4 is 10 000: 3 tenths become 3 thousands.",
+              "tool": "ratio",
+              "type": "1:0.3, 10000:3000"
+            },
+            {
+              "say": "1.2",
+              "tool": "text",
+              "type": "0.3 x 10^4 = 0.3 x 4 ?",
+              "tip": "Ask: what does 10^4 mean?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pow-02-divide-by-powers-of-ten",
+      "title": "Dividing by Powers of Ten",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Powers of Ten",
+      "tool": "ratio",
+      "strategy": "Dividing by 10, 100 or 1000 makes each digit worth a tenth, hundredth or thousandth as much, so the digits move to the right.",
+      "topic": "mult",
+      "keywords": "power of ten, divide, place value, digits move right",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "\"Take off a zero\" when there isn't one (34 ÷ 100 = 3.4): ask \"Is 3.4 a hundredth of 34?\"",
+        "Losing place holders (7 ÷ 1000 = 0.7): ask \"How many places should the 7 move?\""
+      ],
+      "wrapUp": "Ask \"How is dividing by 100 the opposite of multiplying by 100?\" Land: the digits move right, one place for each power of ten; use zeros to hold empty places.",
+      "problems": [
+        {
+          "q": "34 / 10",
+          "a": "3.4",
+          "notes": "Look for: 3 tens become 3 ones. Ask: \"What is each digit worth now?\" Model: ratio 10:34, 1:3.4",
+          "responses": [
+            {
+              "say": "A tenth of 34 is 3.4.",
+              "tool": "ratio",
+              "type": "10:34, 1:3.4"
+            }
+          ]
+        },
+        {
+          "q": "34 / 100",
+          "a": "0.34",
+          "notes": "Look for: one more ÷ 10. Ask: \"How does the last one help?\" Model: ratio 100:34, 10:3.4, 1:0.34",
+          "responses": [
+            {
+              "say": "3.4 ÷ 10 = 0.34.",
+              "tool": "ratio",
+              "type": "100:34, 10:3.4, 1:0.34"
+            },
+            {
+              "say": "3.4",
+              "tool": "text",
+              "type": "34 / 100 = 3.4 ?",
+              "tip": "Ask: is that ÷ 10 or ÷ 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "34 / 1000",
+          "a": "0.034",
+          "notes": "Look for: three places right. Ask: \"Where is the 3 now?\" Model: ratio 1000:34, 1:0.034",
+          "responses": [
+            {
+              "say": "3 tens become 3 hundredths: 0.034.",
+              "tool": "ratio",
+              "type": "1000:34, 1:0.034"
+            },
+            {
+              "say": "0.34",
+              "tool": "text",
+              "type": "34 / 1000 = 0.34 ?",
+              "tip": "Ask: how many places for ÷ 1000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "560 / 100",
+          "a": "5.6",
+          "notes": "Look for: 5 hundreds become 5 ones. Ask: \"Is there a quick way?\" Model: ratio 100:560, 1:5.6",
+          "responses": [
+            {
+              "say": "560 ÷ 100 = 5.6.",
+              "tool": "ratio",
+              "type": "100:560, 1:5.6"
+            },
+            {
+              "say": "56",
+              "tool": "text",
+              "type": "560 / 100 = 56 ?",
+              "tip": "Took off one zero. Ask: is that ÷ 10 or ÷ 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 / 1000",
+          "a": "0.007",
+          "notes": "Look for: 7 ones become 7 thousandths. Ask: \"How many zeros hold the places?\" Model: ratio 1000:7, 1:0.007",
+          "responses": [
+            {
+              "say": "7 thousandths: 0.007.",
+              "tool": "ratio",
+              "type": "1000:7, 1:0.007"
+            },
+            {
+              "say": "0.7",
+              "tool": "text",
+              "type": "7 / 1000 = 0.7 ?",
+              "tip": "Ask: is 0.7 a thousandth of 7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "45.6 / 100",
+          "a": "0.456",
+          "notes": "Look for: 4 tens become 4 tenths. Ask: \"Where does each digit go?\" Model: ratio 100:45.6, 1:0.456",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.456.",
+              "tool": "ratio",
+              "type": "100:45.6, 1:0.456"
+            }
+          ]
+        },
+        {
+          "q": "2 / 10^3",
+          "a": "0.002",
+          "notes": "Look for: 10^3 = 1000. Ask: \"What does the exponent tell you?\" Model: ratio 1000:2, 1:0.002",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10^3 is 1000, so 2 thousandths: 0.002.",
+              "tool": "ratio",
+              "type": "1000:2, 1:0.002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-pow-03-times-a-tenth",
+      "title": "Times 0.1 Is Divide by 10",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Powers of Ten",
+      "tool": "text",
+      "strategy": "Multiplying by 0.1, 0.01 or 0.001 gives the same result as dividing by 10, 100 or 1000.",
+      "topic": "mult",
+      "keywords": "tenth of, hundredth of, equivalent, multiply by a decimal",
+      "curriculum": [
+        "B2.3",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Thinking multiplying always makes bigger (50 × 0.1 = 500): ask \"What is a tenth of 50?\"",
+        "Mixing 0.1 and 0.01: ask \"Is 0.01 a tenth or a hundredth?\""
+      ],
+      "wrapUp": "Ask \"Why is × 0.1 the same as ÷ 10?\" Land: 0.1 is one tenth, so × 0.1 finds a tenth of the number: the same as ÷ 10.",
+      "problems": [
+        {
+          "q": "50 / 10",
+          "a": "5",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: text 50 / 10 = 5",
+          "responses": [
+            {
+              "say": "50 ÷ 10 = 5.",
+              "tool": "text",
+              "type": "50 / 10 = 5"
+            }
+          ]
+        },
+        {
+          "q": "50 x 0.1",
+          "a": "5",
+          "notes": "Look for: a tenth of 50. Ask: \"Why is it the same as the last one?\" Word choice: \"0.1 of 50 is a tenth of 50.\" Model: text 50 x 0.1 = 50 / 10 = 5",
+          "responses": [
+            {
+              "say": "0.1 is one tenth, so a tenth of 50 is 5.",
+              "tool": "text",
+              "type": "50 x 0.1 = 50 / 10 = 5",
+              "tip": "The target idea."
+            },
+            {
+              "say": "500",
+              "tool": "text",
+              "type": "50 x 0.1 = 500 ?",
+              "tip": "Ask: is 0.1 more or less than 1? So is the answer more or less than 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "50 x 0.01",
+          "a": "0.5",
+          "notes": "Look for: a hundredth of 50. Ask: \"What's 0.01 as a division?\" Model: text 50 x 0.01 = 50 / 100 = 0.5",
+          "responses": [
+            {
+              "say": "Same as ÷ 100: 0.5.",
+              "tool": "text",
+              "type": "50 x 0.01 = 50 / 100 = 0.5"
+            },
+            {
+              "say": "5",
+              "tool": "text",
+              "type": "50 x 0.01 = 5 ?",
+              "tip": "Ask: is 0.01 a tenth or a hundredth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.6 x 0.1",
+          "a": "0.36",
+          "notes": "Look for: a tenth of 3.6. Ask: \"What is each digit worth now?\" Model: text 3.6 x 0.1 = 3.6 / 10 = 0.36",
+          "responses": [
+            {
+              "say": "3.6 ÷ 10 = 0.36.",
+              "tool": "text",
+              "type": "3.6 x 0.1 = 3.6 / 10 = 0.36"
+            },
+            {
+              "say": "36",
+              "tool": "text",
+              "type": "3.6 x 0.1 = 36 ?",
+              "tip": "Ask: should the answer be bigger or smaller than 3.6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.6 / 100",
+          "a": "0.036",
+          "notes": "Look for: same as × 0.01. Ask: \"Can you write it as a multiplication?\" Model: text 3.6 / 100 = 3.6 x 0.01 = 0.036",
+          "responses": [
+            {
+              "say": "0.036.",
+              "tool": "text",
+              "type": "3.6 / 100 = 3.6 x 0.01 = 0.036"
+            },
+            {
+              "say": "0.36",
+              "tool": "text",
+              "type": "3.6 / 100 = 0.36 ?",
+              "tip": "That's ÷ 10. Ask: how many places for ÷ 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 x 0.001",
+          "a": "0.25",
+          "notes": "Look for: same as ÷ 1000. Ask: \"What's 0.001 as a division?\" Model: text 250 x 0.001 = 250 / 1000 = 0.25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 ÷ 1000 = 0.25.",
+              "tool": "text",
+              "type": "250 x 0.001 = 250 / 1000 = 0.25"
+            }
+          ]
+        },
+        {
+          "q": "0.8 x 0.01",
+          "a": "0.008",
+          "notes": "Look for: a hundredth of 0.8. Ask: \"Do you trust the pattern with a decimal?\" Model: text 0.8 x 0.01 = 0.8 / 100 = 0.008",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.8 ÷ 100 = 0.008.",
+              "tool": "text",
+              "type": "0.8 x 0.01 = 0.8 / 100 = 0.008"
+            },
+            {
+              "say": "0.08",
+              "tool": "text",
+              "type": "0.8 x 0.01 = 0.08 ?",
+              "tip": "Ask: is that a tenth or a hundredth of 0.8?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "w1-d1-adding-near-a-ten",
       "title": "Adding Near a Ten",
       "group": "Grade 8 · Week 1 · Additive Reasoning",
