@@ -124,10 +124,11 @@ In `notes`, suggest how to model the expected strategy using `Model: <tool> <inp
 | `tool` id | Best for | Input the teacher types | What it draws |
 |---|---|---|---|
 | `numberline` | Addition and subtraction, adding up, decimals, fractions, integers | `38 +10 -1` · `76 >80 >100` (jump *to*) · `0 +20x3` (3 jumps of 20) · `89 ~100` (show gap) · `@100` (mark a point) · `0 +1/4x3` | Open number line with labeled jumps. Fraction jumps get fraction labels. |
+| `vline` | Integers in a vertical context (temperature, elevation) | same as `numberline`: `-8 +8 +7` | A vertical (thermometer) number line |
 | `slide` | Constant difference (same difference) | `62 - 49 = 63 - 50` or `62 - 49 > +1` | Both numbers sliding together, the same gap marked |
 | `givetake` | Give and take / compensation in addition | `49 + 26 = 50 + 25` or `49 + 26 > +1` | Bars showing the amount moving between the addends, total unchanged |
-| `ratio` | Ratio tables, ×10 / ÷2 / doubling, proportional reasoning | `1:7, 10:70, 5:35, 15:?` (optional names first: `bags:apples, 1:7, ...`) | Ratio table with ×/÷ arrows between columns |
-| `area` | Multiplication by place-value parts, over-and-back | `30+8 x 7` · `20+3 x 10+4` · `40-2 x 20` (or `40x20 - 2x20`) | Area model with partial products (and a hatched strip taken away) |
+| `ratio` | Ratio tables, ×10 / ÷2 / doubling, proportional reasoning, building percents | `1:7, 10:70, 5:35, 15:?` · `percent:amount, 100:60, 10:6, 5:3, 15:9` | Ratio table with ×/÷ arrows; a column that is the sum or difference of two others is marked (e.g. 10 + 5) |
+| `area` | Multiplication by place-value parts, over-and-back; **division as a missing side**; **multiplying fractions** | `30+8 x 7` · `20+3 x 10+4` · `40-2 x 20` · `84 / 7 = 70 + 14` · `86 / 7 = 70 + 14 + 2` · `2/3 x 3/4` · `1 1/2 x 2/3` | Area model with partial products (and a hatched strip taken away); for division, the dividend split into chunks with each missing side; for fractions, unit squares cut both ways with the product shaded |
 | `array` | Small multiplication, distributive property | `6 x 8` · `6 x 5+3` · `10-1 x 12` | Dot array, split or with a row/column crossed out |
 | `halve` | Doubling and halving, ×3 ÷3 | `16 x 25 = 8 x 50 = 4 x 100` | Rectangle cut and rearranged at each step |
 | `doubleline` | Rates, percents, unit rates | `miles:hours, 0:0, 60:1, 30:0.5, 150:2.5` | Double number line |

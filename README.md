@@ -75,22 +75,25 @@ bottom of the library brings it back.
 | | `76 >80 >100` | jump *to* 80, then to 100 |
 | | `89 ~100` | the gap (distance) from 89 to 100 |
 | | `0 +20x3` | three jumps of 20 |
-| | `0 +1/4x3 ~2` | fraction jumps (points labeled as fractions) |
+| | `0 +1/4x3 ~2` | fraction jumps (points labeled as fractions); mixed numbers work: `1 1/2 -1/2 -1/4` |
+| Vertical number line | `-8 +8 +7` (same typing as the number line) | a thermometer-style line: up is more, down is less |
 | | `@100` | mark a point |
 | Slide (same difference) | `62 - 49 = 63 - 50` or `62 - 49 > +1` | both numbers sliding together, same gap marked |
 | Give & take | `49 + 26 = 50 + 25` or `49 + 26 > +1` | bars showing the amount moving from one number to the other |
 | Doubling & halving | `16 x 25 = 8 x 50 = 4 x 100` | rectangle cut and rearranged at each step |
-| Ratio table | `bags:apples, 1:7, 10:70, 5:35` | table with ×/÷ arrows |
+| Ratio table | `bags:apples, 1:7, 10:70, 5:35` · `100:60, 10:6, 5:3, 15:9` | table with ×/÷ arrows; a column made by adding (or subtracting) two others is marked, e.g. 10 + 5 |
 | Area model | `30+8 x 7` | split rectangle with partial products |
 | | `40-2 x 20` or `40x20 - 2x20` | 40 × 20 with a 2 × 20 strip taken away |
+| | `84 / 7 = 70 + 14` · `86 / 7 = 70 + 14 + 2` · `84 / 7` | division as a missing side: 84 split into 70 and 14, sides 10 and 2 (a remainder is hatched) |
+| | `2/3 x 3/4` · `1 1/2 x 2/3` · `3 x 2/5` | fraction area model: unit squares cut both ways, the overlap is the product |
 | Array | `6 x 5+3` | dot array split into 5 and 3 |
 | | `10-1 x 12` or `40x20 - 2x20` | dots with a row/column crossed out |
-| Double number line | `miles:hours, 0:0, 60:1, 150:2.5` | two aligned lines |
+| Double number line | `miles:hours, 0:0, 60:1, 150:2.5` | two aligned lines (spaced evenly, marked "not to scale", when marks would overlap) |
 | Clock | `3/4 + 1/3` | shaded minutes of an hour |
 | Standard algorithm | `38 + 9` · `100 - 76` · `2.5 + 1.9` · `24 x 13` | column method with carries / regrouping / partial products |
 | Integer tiles | `3 + -5` · `-2 - 4` · `3 x -2` | yellow/red tiles with zero pairs |
 | Split by place value | `36 + 47` | tens with tens, ones with ones |
-| Estimate | `36 + 47` · `36 + 47 ≈ 35 + 45` | nearest friendly numbers, then the estimate |
+| Estimate | `36 + 47` · `3.99 + 2.45` · `36 + 47 ≈ 35 + 45` | nearest friendly numbers (decimals to the nearest half), then the estimate |
 | Words & equations | `38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40` | student words or equations; `;` starts a new line |
 | Bar model | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` | tape diagrams |
 

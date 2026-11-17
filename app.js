@@ -817,7 +817,14 @@ Rules:
           <tr><td><code>89 gap 100</code></td><td>a bracket showing the distance (11)</td></tr>
           <tr><td><code>5 jumps of 2</code></td><td>count by 2s from 0</td></tr>
         </table>
-        <p>Click any label on a drawing (like <b>+10</b>) to replace it with the student's own words. Every other tool (ratio table, area model, array, integer tiles, standard algorithm, and more) shows grey example hints under the typing box.</p>
+        <table class="gtable" style="margin-top:10px">
+          <tr><th>Type this</th><th>in…</th><th>draws…</th></tr>
+          <tr><td><code>84 / 7 = 70 + 14</code></td><td>Area</td><td>division as a missing side: 70 ÷ 7 = 10 and 14 ÷ 7 = 2, so 12</td></tr>
+          <tr><td><code>2/3 x 3/4</code></td><td>Area</td><td>a square cut into thirds and quarters; the overlap (6/12 = 1/2) is the product</td></tr>
+          <tr><td><code>100:60, 10:6, 5:3, 15:9</code></td><td>Ratio</td><td>a ratio table; 15% is marked as 10 + 5</td></tr>
+          <tr><td><code>-8 +8 +7</code></td><td>Vertical</td><td>a thermometer-style number line</td></tr>
+        </table>
+        <p>Click any label on a drawing (like <b>+10</b>) to replace it with the student's own words. Every tool (ratio table, area model, array, integer tiles, standard algorithm, and more) shows grey example hints under the typing box.</p>
       </section>
 
       <section class="panel"><h2>4 · Handy tips</h2>
@@ -1389,6 +1396,7 @@ Rules:
     let input = '';
     // number line starts blank: students start from different numbers
     if ((type === 'area' || type === 'array') && /[x×*]/.test(q)) input = q.replace(/×|\*/g, 'x');
+    if (type === 'area' && /^\s*[\d.]+\s*[\/÷]\s*[\d.]+\s*$/.test(q) && !/^\s*\d+\/\d+\s*$/.test(q)) input = q.replace(/÷/g, '/') + ' = ';
     if (type === 'clock' && /\d\/\d/.test(q)) input = q;
     const qx = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-').trim();
     if (type === 'slide' && /^\S+\s*-\s*\S+$/.test(qx)) input = qx + ' = ';

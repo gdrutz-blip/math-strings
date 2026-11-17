@@ -94,7 +94,7 @@
      76 >80 >100    jump to 80, then to 100
      @100           mark a point (no jump)
      ~100           show the gap (distance) to 100            */
-  function numberline(input, labels) {
+  function numberline(input, labels, model, vertical) {
     let s = norm(input).trim();
     if (!s) return { empty: true };
     // "38 + 9 = 38 + 10 - 1" or "38 +10 -1 = 47": use the last part that has jumps, ignore a bare answer
@@ -155,6 +155,7 @@
     });
     if (!pts.size) return { error: 'Start with a number, e.g. 38 +10 -1' };
     const vals = [...pts.keys()].sort((a, b) => a - b);
+    if (vertical) return verticalLine(vals, pts, arcs, labels);
     const xs = spread(vals, W - 120, 56).map(x => x + 60);
     const X = v => xs[vals.indexOf(round(v))];
 
@@ -199,6 +200,40 @@
     return { svg: svg(H, body) };
   }
 
+  // The same jumps on a vertical line, like a thermometer: up is more, down is less
+  function verticalLine(vals, pts, arcs, labels) {
+    const L = 430, top = 40, ax = W / 2 - 40;
+    const ys = spread(vals, L, 40); // positions from the bottom
+    const Y = v => top + L - ys[vals.indexOf(round(v))];
+    let body = `<line x1="${ax}" y1="${top - 22}" x2="${ax}" y2="${top + L + 22}" stroke="${C.line}" stroke-width="3" stroke-linecap="round"/>`;
+    if (vals[0] < 0 && vals[vals.length - 1] > 0 && !pts.has(0)) { const y0 = top + L - (ys[0] + (0 - vals[0]) / (vals[vals.length - 1] - vals[0]) * (ys[ys.length - 1] - ys[0])); body += `<line x1="${ax - 8}" y1="${y0}" x2="${ax + 8}" y2="${y0}" stroke="${C.soft}" stroke-width="2"/>` + text(ax - 18, y0 + 6, '0', { size: 16, fill: C.soft, anchor: 'end' }); }
+    const placed = [];
+    arcs.forEach((a, i) => {
+      const y1 = Y(a.from), y2 = Y(a.to), lo = Math.min(y1, y2), hi = Math.max(y1, y2);
+      if (a.kind === 'gap') {
+        const x = ax - 120;
+        body += `<path d="M${x + 10} ${lo} L${x} ${lo} L${x} ${hi} L${x + 10} ${hi}" fill="none" stroke="${C.gap}" stroke-width="3"/>`;
+        const l = editable('a' + i, labels, a.label);
+        body += text(x - 10, (lo + hi) / 2 + 8, l.text, { fill: C.gap, size: 22, weight: 700, anchor: 'end', edit: 'a' + i, custom: l.custom });
+        return;
+      }
+      let level = 0;
+      placed.forEach(b => { if (b.lo < hi - 2 && lo < b.hi - 2) level = Math.max(level, b.level + 1); });
+      const w = Math.min(Math.max((hi - lo) * 0.38, 30), 95) + level * 34;
+      placed.push({ lo, hi, level });
+      const col = C[a.kind], mid = (y1 + y2) / 2;
+      body += `<path d="M${ax + 4} ${y1} Q ${ax + 4 + 2 * w} ${mid} ${ax + 4} ${y2}" fill="none" stroke="${col}" stroke-width="3" marker-end="url(#ah-${a.kind})"/>`;
+      const l = editable('a' + i, labels, a.label);
+      body += text(ax + 14 + w, mid + 8, l.text, { fill: col, size: 21, weight: 700, anchor: 'start', edit: 'a' + i, custom: l.custom });
+    });
+    vals.forEach(v => {
+      const p = pts.get(v), y = Y(v);
+      body += `<line x1="${ax - 11}" y1="${y}" x2="${ax + 11}" y2="${y}" stroke="${C.line}" stroke-width="3"/>`;
+      body += text(ax - 20, y + 8, minus(p.label || fmt(v)), { size: p.start ? 24 : 22, weight: p.start ? 700 : 500, anchor: 'end' });
+    });
+    return { svg: svg(top + L + 40, body) };
+  }
+
   /* ---------- Ratio table ----------  1:7, 10:70, 5:35   (first pair can be names: bags:apples) */
   // "1:7, 10:70" · "1:7 10:70" · "1 to 7, 10 to 70" · "1|7" · "bags:apples, ..."
   function pairsOf(s) {
@@ -218,16 +253,39 @@
     const cfs = cw < 60 ? 18 : cw < 72 ? 22 : 26;
     const tw = hw + cw * cols.length, x0 = (W - tw) / 2, y0 = 92, rh = 60;
     let body = '';
-    const rel = (a, b) => {
+    const V = cols.map(c => [parseVal(c[0]), parseVal(c[1])].map(p => (p ? p.v : null)));
+    const nice = f => Math.abs(f * 100 - Math.round(f * 100)) < 1e-9 && f > 0; // ×2.5, ×0.5 are fine; ×2.3333 is not
+    // a column that is the sum (or difference) of two earlier columns, like 15% = 10% + 5%
+    const combo = i => {
+      const [t, b] = V[i]; if (t == null || b == null) return null;
+      for (let j = 0; j < i; j++) for (let k = 0; k < i; k++) {
+        if (j === k || V[j][0] == null || V[k][0] == null || V[j][1] == null || V[k][1] == null) continue;
+        if (j < k && Math.abs(V[j][0] + V[k][0] - t) < 1e-9 && Math.abs(V[j][1] + V[k][1] - b) < 1e-9) return { j, k, op: '+' };
+        if (Math.abs(V[j][0] - V[k][0] - t) < 1e-9 && Math.abs(V[j][1] - V[k][1] - b) < 1e-9 && t > 0) return { j, k, op: '−' };
+      }
+      return null;
+    };
+    const rel = (a, b, i) => {
       const A = parseVal(a), B = parseVal(b);
       if (!A || !B) return '';
-      if (A.v !== 0 && B.v / A.v > 1 && Number.isInteger(round(B.v / A.v))) return '×' + fmt(B.v / A.v);
-      if (B.v !== 0 && A.v / B.v > 1 && Number.isInteger(round(A.v / B.v))) return '÷' + fmt(A.v / B.v);
-      return signed(B.v - A.v);
+      const big = f => combo(i) && f > 10; // ×21 from 5% to 105% is true but unhelpful when 100% + 5% is there
+      if (A.v !== 0 && B.v / A.v > 1 && Number.isInteger(round(B.v / A.v))) return big(B.v / A.v) ? '' : '×' + fmt(B.v / A.v);
+      if (B.v !== 0 && A.v / B.v > 1 && Number.isInteger(round(A.v / B.v))) return big(A.v / B.v) ? '' : '÷' + fmt(A.v / B.v);
+      if (combo(i)) return '';
+      if (A.v !== 0 && nice(round(B.v / A.v))) return '×' + fmt(B.v / A.v);
+      return '';
     };
+    let below = '';
+    for (let i = 2; i < cols.length; i++) {
+      const c = combo(i); if (!c) continue;
+      const xc = x => x0 + hw + cw * (x + 0.5), yb = y0 + rh * 2 + 10;
+      const l = editable('s' + i, labels, `${minus(cols[c.j][0])} ${c.op} ${minus(cols[c.k][0])}`);
+      [c.j, c.k].forEach(m => (below += `<path d="M${xc(m)} ${yb} Q ${(xc(m) + xc(i)) / 2} ${yb + 46} ${xc(i)} ${yb + 4}" fill="none" stroke="${C.gap}" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#ah-fwd)"/>`));
+      below += text(xc(i), yb + 62, l.text, { fill: C.gap, size: cw < 60 ? 15 : 19, weight: 700, edit: 's' + i, custom: l.custom });
+    }
     for (let i = 1; i < cols.length; i++) {
       const xa = x0 + hw + cw * (i - 0.5), xb = x0 + hw + cw * (i + 0.5), mid = (xa + xb) / 2;
-      const l = editable('r' + i, labels, rel(cols[i - 1][0], cols[i][0]));
+      const l = editable('r' + i, labels, rel(cols[i - 1][0], cols[i][0], i));
       if (!l.text) continue;
       body += `<path d="M${xa + 6} ${y0 - 6} Q ${mid} ${y0 - 58} ${xb - 6} ${y0 - 6}" fill="none" stroke="${C.fwd}" stroke-width="2.5" marker-end="url(#ah-fwd)"/>`;
       body += text(mid, y0 - 38, l.text, { fill: C.fwd, size: cw < 60 ? 15 : 20, weight: 700, edit: 'r' + i, custom: l.custom });
@@ -243,7 +301,8 @@
       if (i > 0 || head) body += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + rh * 2}" stroke="${C.ink}" stroke-width="2"/>`;
       body += text(x + cw / 2, y0 + 38, minus(c[0]), { size: cfs, weight: 600 }) + text(x + cw / 2, y0 + rh + 38, minus(c[1]), { size: cfs, weight: 600 });
     });
-    return { svg: svg(y0 + rh * 2 + 16, body) };
+    body += below;
+    return { svg: svg(y0 + rh * 2 + (below ? 86 : 16), body) };
   }
 
   const C_ = C;
@@ -313,6 +372,11 @@
   function area(input, labels, model) {
     const s = norm(input).trim();
     if (!s) return { empty: true };
+    // division: "84 / 7" (missing side) or "84 / 7 = 70 + 14" (split the area into friendly chunks)
+    if (!/x/i.test(s) && /^\s*[\d.]+\s*\/\s*[\d.]+\s*(=.*)?$/.test(s)) return areaDivide(s, labels, model);
+    // fractions: "2/3 x 3/4", "1 1/2 x 2/3", "3 x 2/5" (each fraction of a unit square)
+    const fr = s.match(/^\s*((?:\d+\s+)?\d+(?:\/\d+)?)\s*x\s*((?:\d+\s+)?\d+(?:\/\d+)?)\s*$/i);
+    if (fr && /\//.test(s)) return areaFractions(fr[1], fr[2], labels, model);
     const f = parseFactors(s);
     if (!f) return { error: 'Type it like 30+8 x 7, or 40-2 x 20 to take a strip away' };
     const [colsT, rowsT] = f; // left factor runs across the top
@@ -359,6 +423,76 @@
       body += `<line x1="${x0 + Wd + 6}" y1="${y0 + n.a}" x2="${x0 + Wd + 6}" y2="${y0 + n.b}" stroke="${C_.back}" stroke-width="3"/>`;
     });
     return { svg: svg(y0 + H + (hasNegC ? 48 : 20), body) };
+  }
+
+  // 84 / 7 = 70 + 14: a rectangle 7 high; each chunk's missing side is chunk ÷ 7
+  function areaDivide(s, labels, model) {
+    const [lhs, rhs] = s.split('=');
+    const [Dt, dt] = lhs.split('/').map(t => t.trim());
+    const D = parseVal(Dt), d = parseVal(dt);
+    if (!D || !d || d.v <= 0 || D.v <= 0) return { error: 'Type it like 84 / 7, or 84 / 7 = 70 + 14' };
+    let chunks = [D.v], given = false;
+    if (rhs && rhs.trim()) {
+      const ts = rhs.split('+').map(t => parseVal(t.trim()));
+      if (ts.some(t => !t || t.v <= 0)) return { error: 'Split the number being divided into parts that add, like 84 / 7 = 70 + 14' };
+      chunks = ts.map(t => t.v); given = true;
+      if (Math.abs(chunks.reduce((a, b) => a + b, 0) - D.v) > 1e-9) return { error: `The parts should add up to ${fmt(D.v)}` };
+    }
+    const hidden = new Set((model && model.hidden) || []);
+    const parts = chunks.map(c => { const q = round(c / d.v); return { c, q, rem: !Number.isInteger(q) && Number.isInteger(c) && Number.isInteger(d.v) && c < d.v }; });
+    const sumW = parts.reduce((a, p) => a + Math.max(p.rem ? 0.6 : 0, p.q), 0) || 1;
+    const k = Math.min(680 / sumW, 260);
+    const Hh = Math.max(90, Math.min(200, d.v * k));
+    const widths = parts.map(p => Math.max(p.rem ? 46 : 70, (p.rem ? 0.6 : p.q) * k));
+    const tw = widths.reduce((a, b) => a + b, 0), x0 = (W - tw) / 2 + 20, y0 = 58;
+    let body = '', x = x0;
+    body += text(x0 - 16, y0 + Hh / 2 + 9, fmt(d.v), { size: 26, weight: 700, fill: C_.fwd, anchor: 'end' });
+    parts.forEach((p, i) => {
+      const w = widths[i], key = 'q' + i;
+      if (p.rem) body += `<rect x="${x}" y="${y0}" width="${w}" height="${Hh}" fill="url(#hatch)" fill-opacity=".85" stroke="${C_.back}" stroke-width="3" stroke-dasharray="7 4"/>`;
+      else body += `<rect class="cell-toggle" data-cell="${key}" x="${x}" y="${y0}" width="${w}" height="${Hh}" fill="${C_.fills[i % C_.fills.length]}" fill-opacity=".22" stroke="${C_.ink}" stroke-width="2.5"/>`;
+      const fs = Math.max(16, Math.min(30, w / 2.6));
+      body += text(x + w / 2, y0 + Hh / 2 + fs / 3, fmt(p.c), { size: fs, weight: 700, fill: p.rem ? C_.back : C_.ink });
+      const top = p.rem ? 'R ' + fmt(p.c) : (!given || hidden.has(key)) ? '?' : fmt(p.q);
+      const l = editable('t' + i, labels, top);
+      body += text(x + w / 2, y0 - 14, l.text, { size: 24, weight: 700, fill: p.rem ? C_.back : C_.gap, edit: 't' + i, custom: l.custom });
+      x += w;
+    });
+    const whole = parts.filter(p => !p.rem), rem = parts.filter(p => p.rem).reduce((a, p) => a + p.c, 0);
+    const qSum = whole.reduce((a, p) => a + p.q, 0);
+    const capText = given ? `${fmt(D.v)} ÷ ${fmt(d.v)} = ${whole.map(p => fmt(p.q)).join(' + ')}${whole.length > 1 ? ' = ' + (hidden.has('ans') ? '?' : fmt(qSum)) : ''}${rem ? ' R ' + fmt(rem) : ''}` : `${fmt(D.v)} ÷ ${fmt(d.v)} = ?`;
+    const l = editable('cap', labels, capText);
+    body += text(W / 2, y0 + Hh + 46, l.text, { size: 26, weight: 700, edit: 'cap', custom: l.custom });
+    return { svg: svg(y0 + Hh + 66, body) };
+  }
+  // 2/3 x 3/4: unit squares cut into thirds across and quarters down; the overlap is the product
+  function areaFractions(a, b, labels, model) {
+    const pf = t => { const m = t.trim().match(/^(?:(\d+)\s+)?(\d+)(?:\/(\d+))?$/); if (!m) return null; const den = m[3] ? +m[3] : 1, num = m[3] ? +m[2] : 0, whole = m[3] ? +(m[1] || 0) : +m[2]; if (!den) return null; return { v: whole + num / den, den, label: t.trim() }; };
+    const A = pf(a), B = pf(b);
+    if (!A || !B || A.v <= 0 || B.v <= 0) return { error: 'Type it like 2/3 x 3/4 or 1 1/2 x 2/3' };
+    if (A.den * B.den > 400 || A.v > 4 || B.v > 4) return { error: 'Too many pieces to show. Try smaller fractions.' };
+    const cu = Math.ceil(A.v - 1e-9), ru = Math.ceil(B.v - 1e-9);
+    const U = Math.min(560 / cu, 280 / ru, 280);
+    const x0 = (W - cu * U) / 2 + 20, y0 = 62;
+    const hidden = new Set((model && model.hidden) || []);
+    let body = '';
+    const wA = A.v * U, hB = B.v * U;
+    body += `<rect x="${x0}" y="${y0}" width="${wA}" height="${ru * U}" fill="${C_.fwd}" fill-opacity=".16"/>`;
+    body += `<rect x="${x0}" y="${y0}" width="${cu * U}" height="${hB}" fill="${C_.back}" fill-opacity=".14"/>`;
+    body += `<rect x="${x0}" y="${y0}" width="${wA}" height="${hB}" fill="#7a4fd0" fill-opacity=".38" stroke="#5b35a8" stroke-width="3.5"/>`;
+    for (let i = 0; i <= cu * A.den; i++) { const xx = x0 + (i / A.den) * U; body += `<line x1="${xx}" y1="${y0}" x2="${xx}" y2="${y0 + ru * U}" stroke="${C_.ink}" stroke-width="${i % A.den ? 1.2 : 3}" stroke-opacity="${i % A.den ? .55 : 1}"/>`; }
+    for (let j = 0; j <= ru * B.den; j++) { const yy = y0 + (j / B.den) * U; body += `<line x1="${x0}" y1="${yy}" x2="${x0 + cu * U}" y2="${yy}" stroke="${C_.ink}" stroke-width="${j % B.den ? 1.2 : 3}" stroke-opacity="${j % B.den ? .55 : 1}"/>`; }
+    // the factors, as brackets along the top and left
+    body += `<path d="M${x0} ${y0 - 8} v-8 H${x0 + wA} v8" fill="none" stroke="${C_.fwd}" stroke-width="2.5"/>` + text(x0 + wA / 2, y0 - 24, A.label, { size: 24, weight: 700, fill: C_.fwd });
+    body += `<path d="M${x0 - 8} ${y0} h-8 V${y0 + hB} h8" fill="none" stroke="${C_.back}" stroke-width="2.5"/>` + text(x0 - 24, y0 + hB / 2 + 8, B.label, { size: 24, weight: 700, fill: C_.back, anchor: 'end' });
+    const cells = round(A.v * A.den * B.v * B.den), per = A.den * B.den, prod = A.v * B.v;
+    const simp = toFrac(prod);
+    const capText = `${A.label} × ${B.label} = ${hidden.has('ans') ? '?' : `${fmt(cells)}/${per}${simp !== `${fmt(cells)}/${per}` ? ' = ' + simp : ''}`}`;
+    const l = editable('cap', labels, capText);
+    body += text(W / 2, y0 + ru * U + 44, l.text, { size: 26, weight: 700, edit: 'cap', custom: l.custom });
+    const n = editable('note', labels, `each small piece is 1/${per} of a whole square`);
+    body += text(W / 2, y0 + ru * U + 74, n.text, { size: 17, fill: C_.soft, edit: 'note', custom: n.custom });
+    return { svg: svg(y0 + ru * U + 92, body) };
   }
 
   /* ---------- Array (dots) ----------  6 x 8  ·  6 x 5+3  ·  10-1 x 12 */
@@ -418,7 +552,11 @@
     const tv = cols.map(c => parseVal(c[0]).v);
     const lo = Math.min(0, ...tv), hi = Math.max(...tv);
     const xl = head ? 150 : 50, xr = W - 40;
-    const X = v => (hi === lo ? (xl + xr) / 2 : xl + ((v - lo) / (hi - lo)) * (xr - xl));
+    let X = v => (hi === lo ? (xl + xr) / 2 : xl + ((v - lo) / (hi - lo)) * (xr - xl));
+    // marks too close to read (1% next to 0, 100% next to 105%): space them evenly and say so
+    const uniq = [...new Set([...tv, ...(tv.includes(0) || lo < 0 ? [] : [])])].sort((a, b) => a - b);
+    const tooClose = uniq.some((v, i) => i && X(v) - X(uniq[i - 1]) < 46);
+    if (tooClose && uniq.length > 1) { const step = (xr - xl) / (uniq.length - 1); X = v => xl + uniq.indexOf(v) * step; }
     const y1 = 70, y2 = 170;
     let body = '';
     [y1, y2].forEach(y => (body += `<line x1="${xl - 20}" y1="${y}" x2="${xr + 20}" y2="${y}" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`));
@@ -429,7 +567,8 @@
       body += `<line x1="${x}" y1="${y1 - 11}" x2="${x}" y2="${y1 + 11}" stroke="${C.ink}" stroke-width="3"/><line x1="${x}" y1="${y2 - 11}" x2="${x}" y2="${y2 + 11}" stroke="${C.ink}" stroke-width="3"/>`;
       body += text(x, y1 - 20, minus(c[0]), { size: 22, weight: 600, fill: C.fwd }) + text(x, y2 + 38, minus(c[1]), { size: 22, weight: 600, fill: C.back });
     });
-    return { svg: svg(y2 + 56, body) };
+    if (tooClose) body += text(xr + 20, y2 + 62, 'not to scale', { size: 15, fill: C.soft, anchor: 'end' });
+    return { svg: svg(y2 + (tooClose ? 72 : 56), body) };
   }
 
   /* ---------- Clock (fractions of an hour) ----------  1/4 + 1/3    3/4 - 1/6    5/12 */
@@ -1019,7 +1158,8 @@
     const terms = termsOf(sides[0]);
     if (!terms) return { error: 'Type a problem like 36 + 47, 368 + 457, 82 - 37, or 36 + 47 + 22' };
     if (terms.length > 6) return { error: 'Up to 6 numbers at a time' };
-    const stepOf = v => (v < 10 ? 5 : v < 100 ? 10 : 100);
+    const decimals = terms.some(t => !Number.isInteger(t.v));
+    const stepOf = v => (decimals ? (v < 100 ? 0.5 : 10) : v < 10 ? 5 : v < 100 ? 10 : 100); // 3.99 -> 4, 2.45 -> 2.5
     // each number rounds by its own size (47 -> 50, 198 -> 200), unless the student chose their own friendly numbers
     const mine = sides[1] && termsOf(sides[1]);
     const useMine = mine && mine.length === terms.length;
@@ -1067,10 +1207,11 @@
 
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
+    { id: 'vline', name: 'Vertical number line', short: 'Vertical', key: '', icon: '↕', render: (i, l, m) => numberline(i, l, m, true), help: '-8 +8 +7  ·  like a thermometer: up is more, down is less  ·  same typing as the number line' },
     { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
     { id: 'givetake', name: 'Give & take', key: '0', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  49 + 26 give 1' },
     { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  1 to 7, 10 to 70  ·  names first: bags:apples, 1:7' },
-    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  30x20 + 8x20 + 30x3 + 8x3  ·  click a box to hide its product' },
+    { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  divide: 84 / 7 = 70 + 14  ·  fractions: 2/3 x 3/4  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
     { id: 'halve', name: 'Doubling & halving', short: 'Halving', key: '', icon: '◫', render: halve, help: '16 x 25 = 8 x 50 = 4 x 100  ·  also ×3 ÷3: 12 x 15 = 4 x 45' },
     { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
