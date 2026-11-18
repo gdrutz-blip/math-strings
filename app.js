@@ -885,11 +885,13 @@ Rules:
 
       <section class="panel"><h2>Keyboard</h2>
         <div class="keys">
-          <kbd>→</kbd><span>next problem</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
-          <kbd>1</kbd><span>number line (other number keys add other tools)</span><kbd>Enter</kbd><span>finish the model you're typing</span>
+          <kbd>→</kbd><span>next problem (or Space)</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
+          <kbd>Enter</kbd><span>finish the model you're typing</span>
           <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span>
-          <kbd>P</kbd><span>pen</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
+          <kbd>P</kbd><span>pen</span><kbd>E</kbd><span>eraser</span><span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>undo a pen stroke</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
+        <p style="margin:10px 0 6px"><b>Number keys add a model</b> (the number also shows on each tool button):</p>
+        <div class="keys">${toolKeysHTML()}</div>
       </section>
 
       <p class="hint">Need a different string? Ask the teacher who shared this site with you. New strings can be added to the library for everyone.</p>
@@ -898,23 +900,30 @@ Rules:
     window.scrollTo(0, 0);
   }
 
+  const toolKeysHTML = () => TOOLS.filter(t => t.key).sort((a, b) => (a.key === '0') - (b.key === '0') || a.key.localeCompare(b.key))
+    .map(t => `<kbd>${t.key}</kbd><span>${esc(t.name)}</span>`).join('');
   function helpModal() {
     modal('How it works', `
       <div><b>Presenting.</b> Click <b>▶ Present</b> on a string. Problems appear one at a time and earlier ones shrink into the column on the left so the whole string stays visible.</div>
       <div><b>Recording answers.</b> Click <b>＋ answer</b> (or press <kbd>A</kbd>) and type what a student says, even if it is wrong. Click an answer to circle it, click again to cross it out.</div>
       <div><b>Modeling.</b> Pick a tool at the bottom and type in the box there. The drawing appears big while you type; press <kbd>Enter</kbd> and it shrinks into the grid so every student's model fits on one screen. Click a model to spotlight it; ✎ changes it. Click any label on a drawing to use the student's words. ⚙ chooses which tools show. Press <kbd>P</kbd> for the pen.</div>
       <div class="keys">
-        <kbd>→</kbd><span>Next problem (also Page Down, so a presentation clicker works)</span>
-        <kbd>←</kbd><span>Back</span>
+        <kbd>→</kbd><span>Next problem (also Space, N or Page Down, so a presentation clicker works)</span>
+        <kbd>←</kbd><span>Back (also Page Up)</span>
         <kbd>T</kbd><span>Start / pause the timer</span>
         <kbd>R</kbd><span>Random name picker</span>
         <kbd>A</kbd><span>Add a student answer</span>
-        <kbd>1</kbd>–<kbd>0</kbd><span>Add a model: 1 number line, 2 ratio, 3 area, 4 array, 5 double line, 6 clock, 7 bar, 8 words, 9 slide, 0 give &amp; take</span>
-        <kbd>P</kbd> / <kbd>E</kbd><span>Pen / eraser</span>
+        <kbd>Y</kbd><span>💡 Try: likely student responses for this problem</span>
+        <span class="kc"><kbd>P</kbd> / <kbd>E</kbd></span><span>Pen / eraser</span>
+        <span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>Undo the last pen stroke</span>
         <kbd>L</kbd><span>Show / hide the list of problems on the left</span>
         <kbd>O</kbd><span>Overview of the whole string (for the wrap-up). At the end, Next becomes Wrap-up, then Finish takes you back to the library.</span>
-        <kbd>Esc</kbd><span>Stop typing or drawing</span>
+        <kbd>Enter</kbd><span>Finish the model you're typing</span>
+        <kbd>Esc</kbd><span>Stop typing or drawing, or close a panel</span>
+        <kbd>?</kbd><span>This help</span>
       </div>
+      <div><b>Add a model</b> with a number key (also shown on each tool button). Tools without a number are under the tool bar or <b>More tools</b>.</div>
+      <div class="keys">${toolKeysHTML()}</div>
       <div><b>Adding strings with Claude.</b> Copy the instructions below into your planning chat. Claude will make a <code>.json</code> file you can bring in with <b>Import</b>.</div>
       <button class="btn" id="copy-fmt">📋 Copy instructions for Claude</button>`, [], { wide: true });
     $('#copy-fmt').onclick = () => { navigator.clipboard.writeText(CLAUDE_FORMAT).then(() => toast('Copied. Paste it into your planning chat.'), () => toast('Copy failed')); };

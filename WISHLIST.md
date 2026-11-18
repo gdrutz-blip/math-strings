@@ -19,7 +19,7 @@ Before **Dec 4**:
 
 
 
-- [ ] **Model suggestions in the notes**: add the Day 1 rehearsal "Model:" lines to the Week 1 notes so they print with the plan.
+- [x] ~~**Model suggestions in the notes**~~: covered by the practice responses now on every Grade 8 string (practice card and 💡 Try).
 
 ## 🛠 Build plan (agreed Nov 17), one step at a time
 

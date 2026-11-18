@@ -521,3 +521,4 @@ a.btn.small { text-decoration: none; }
 .pt-boardpane iframe { flex: 1; width: 100%; border: 0; }
 .pt-head .pt-go { margin-left: auto; }
 .pt-draw { margin-top: 6px; }
+.keys .kc { white-space: nowrap; }
