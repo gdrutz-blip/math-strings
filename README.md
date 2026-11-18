@@ -68,8 +68,9 @@ bottom of the library brings it back.
 `Y` try a likely response · `P` pen · `E` eraser · `Ctrl+Z` undo a stroke · `L` problem list · `O` whole-string overview ·
 `Enter` finish a model · `Esc` stop typing/drawing · `?` help
 
-Number keys add a model (shown on each tool button): `1` Number line · `2` Ratio table · `3` Area model · `4` Array ·
-`5` Double number line · `6` Clock · `7` Bar model · `8` Words · `9` Slide · `0` Give & take
+Number keys add a model (shown on each tool button): `1` Number line · `2` Double number line · `3` Area model · `4` Array ·
+`5` Ratio table · `6` Bar model · `7` Integer tiles · `8` Algorithm · `9` Slide · `0` Words (for anything else).
+The other tools (vertical number line, give & take, halving, clock, split, estimate) show in the tool bar when a string uses them, or under **More tools**.
 
 ## Model input cheat sheet
 

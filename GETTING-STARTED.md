@@ -53,7 +53,7 @@ Other tools (ratio table, area model, array, integer tiles, standard algorithm a
 
 ## Keyboard
 
-`→` next · `←` back · `A` answer · `1` number line · `8` words · `T` timer · `R` random name · `O` whole string · `L` problem list · `P` pen · `Esc` stop/close · `?` help
+`→` next · `←` back · `A` answer · `1` number line · `0` words · `T` timer · `R` random name · `O` whole string · `L` problem list · `P` pen · `Esc` stop/close · `?` help
 
 ## Need a different string?
 
