@@ -27,10 +27,10 @@
   // 0.75 -> "3/4", 1.25 -> "1 1/4" (denominators up to 100)
   function toFrac(v) {
     v = round(v);
-    if (Number.isInteger(v)) return String(v);
+    if (Math.abs(v - Math.round(v)) < 1e-7) return String(Math.round(v)); // 1.9999999 after many fraction jumps is 2
     for (let d = 2; d <= 100; d++) {
       const n = Math.round(v * d);
-      if (Math.abs(n / d - v) < 1e-9) {
+      if (Math.abs(n / d - v) < 1e-7) { // repeated jumps of 2/3 pile up tiny rounding errors
         const sign = n < 0 ? '-' : '', an = Math.abs(n), w = Math.floor(an / d), r = an % d;
         return sign + (w ? w + ' ' : '') + r + '/' + d;
       }

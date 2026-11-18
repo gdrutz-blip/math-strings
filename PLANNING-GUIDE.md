@@ -81,7 +81,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `group` | yes | Groups strings in the library. Format: `Grade N · Week N · Topic` (e.g. `Grade 8 · Week 3 · Decimals`). Use the exact same text for every string in that week. |
 | `tool` | yes | The model the teacher will most likely use. It gets highlighted on screen. One of the ids in section 4. |
 | `strategy` | yes | One sentence: the big idea the string is building. |
-| `topic` | no | Where the string appears in the library's topic filter: `add`, `mult`, `dec`, `frac`, `pct` or `int` (addition & subtraction, multiplication & division, decimals, fractions, percents, integers). If left out, the app works it out from the unit name in `group`, so it is only needed when the unit name doesn't say. |
+| `topic` | no | Where the string appears in the library's topic filter: `add`, `mult`, `dec`, `frac`, `pct`, `int` or `pow` (addition & subtraction, multiplication & division, decimals, fractions, percents, integers, powers & roots). If left out, the app works it out from the unit name in `group`, so it is only needed when the unit name doesn't say. |
 | `curriculum` | recommended | Ontario Mathematics (2020) Number strand codes the string addresses, e.g. `["B2.3", "B2.4"]`. Check the code against **that grade's** expectations (the same code means different things in different grades). Shown as badges on the PD page and practice cards. |
 | `keywords` | no | Class vocabulary for the strategy. |
 | `connection` | no | How it builds on earlier strings. |
@@ -168,7 +168,7 @@ Do not reuse these ids. Build on them where it makes sense.
 
 (Week 1's older ids use `w1-` rather than `w01-`. Keep them as they are.)
 
-Focus units for the Grades 4–7 PD are also in the library, one file per unit in `strings/`. Their ids start with the grade: `g4-w01-…`, `g4-w02-…`, `g5-w01-…`, `g5-w02-…`, `g6-w01-…`, `g6-w02-…`, `g7-w01-…`, `g7-w02-…`. For a new unit, use the next week number for that grade (e.g. `g5-w03-d1-…`, file `grade-5-week-03-topic.json`, group `Grade 5 · Week 3 · Topic`).
+Focus units for the Grades 4–7 PD are also in the library, one file per unit in `strings/`. Their ids start with the grade: `g4-w01-…`, `g4-w02-…`, `g5-w01-…`, `g5-w02-…`, `g6-w01-…`, `g6-w02-…`, `g7-w01-…`, `g7-w02-…`, `g8-w03-d5-…` (Grade 8 Week 3's Days 1–4 keep their earlier `g8-bank-int-0N-…` ids). String-bank ids look like `g8-bank-frac-01-…`, in files `grade-8-bank-topic.json`, group `Grade 8 · Bank · Topic`, label `Bank`. For a new unit, use the next week number for that grade (e.g. `g5-w03-d1-…`, file `grade-5-week-03-topic.json`, group `Grade 5 · Week 3 · Topic`).
 
 The teacher's running log lists what comes next: decimal addition and subtraction strings, then multiplicative strings (× 10, × 5 as half of × 10, doubling and halving).
 

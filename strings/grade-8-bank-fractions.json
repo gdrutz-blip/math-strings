@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-frac-01-fraction-of-a-fraction",
+      "title": "A Fraction of a Fraction",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Fractions",
+      "tool": "area",
+      "strategy": "Multiplying fractions finds a part of a part: on the area model, the overlap of the two fractions is the product.",
+      "topic": "frac",
+      "keywords": "of, part of a part, area model, overlap, numerator times numerator",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Adding instead of multiplying (1/2 × 1/3 = 2/5): ask \"Is a half of a third more or less than a third?\"",
+        "Thinking multiplying always makes bigger: ask \"What is half of a half?\"",
+        "Cross-multiplying out of habit: draw the area model and count the overlap."
+      ],
+      "wrapUp": "Ask \"Why is 2/3 × 3/4 smaller than both fractions?\" Land: it's 2/3 of 3/4, a part of a part. Multiply the numerators for the overlap pieces and the denominators for the size of each piece.",
+      "problems": [
+        {
+          "q": "1/2 x 1/2",
+          "a": "1/4",
+          "notes": "Look for: half of a half. Ask: \"What does 1/2 × 1/2 mean?\" Word choice: \"half of a half\". Model: area 1/2 x 1/2",
+          "responses": [
+            {
+              "say": "Half of a half is a quarter.",
+              "tool": "area",
+              "type": "1/2 x 1/2",
+              "tip": "The target model."
+            },
+            {
+              "say": "1/2 of 1/2 on a bar: 1/4.",
+              "tool": "bar",
+              "type": "1/2 of 1"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "1/2 + 1/2 = 1 ?",
+              "tip": "Added. Ask: are we adding halves, or taking half of a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 x 1/3",
+          "a": "1/6",
+          "notes": "Look for: half of a third. Ask: \"How many pieces make the whole now?\" Model: area 1/2 x 1/3",
+          "responses": [
+            {
+              "say": "Half of a third is a sixth.",
+              "tool": "area",
+              "type": "1/2 x 1/3"
+            },
+            {
+              "say": "2/5",
+              "tool": "text",
+              "type": "1/2 x 1/3 = 2/5 ?",
+              "tip": "Added tops and bottoms. Ask: is half of a third more or less than a third?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 x 1/2",
+          "a": "1/3",
+          "notes": "Look for: 2/6 = 1/3. Ask: \"Can you simplify?\" Model: area 2/3 x 1/2",
+          "responses": [
+            {
+              "say": "2 of the 6 pieces: 2/6 = 1/3.",
+              "tool": "area",
+              "type": "2/3 x 1/2"
+            },
+            {
+              "say": "Half of 2/3 is 1/3.",
+              "tool": "text",
+              "type": "1/2 of 2/3 = 1/3",
+              "tip": "Switching the order. Ask: why is it the same?"
+            }
+          ]
+        },
+        {
+          "q": "2/3 x 3/4",
+          "a": "1/2",
+          "notes": "Look for: 6 of 12 pieces. Ask: \"Where is the overlap?\" Model: area 2/3 x 3/4",
+          "responses": [
+            {
+              "say": "6 overlapping pieces out of 12: 6/12 = 1/2.",
+              "tool": "area",
+              "type": "2/3 x 3/4",
+              "tip": "Ask: why 12 pieces?"
+            },
+            {
+              "say": "2 × 3 is 6, 3 × 4 is 12: 6/12.",
+              "tool": "text",
+              "type": "2/3 x 3/4 = (2 x 3)/(3 x 4) ; = 6/12 = 1/2",
+              "tip": "Connect the rule to the model."
+            },
+            {
+              "say": "5/7",
+              "tool": "text",
+              "type": "2/3 x 3/4 = 5/7 ?",
+              "tip": "Added. Ask: should 2/3 of 3/4 be more or less than 3/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 x 4/5",
+          "a": "3/5",
+          "notes": "Look for: 12/20 = 3/5. Ask: \"Is there a shortcut?\" Model: area 3/4 x 4/5",
+          "responses": [
+            {
+              "say": "12 of 20 pieces: 12/20 = 3/5.",
+              "tool": "area",
+              "type": "3/4 x 4/5"
+            },
+            {
+              "say": "3/4 of 4 fifths is 3 fifths.",
+              "tool": "text",
+              "type": "3/4 of 4/5 = 3/5",
+              "tip": "A lovely shortcut. Ask: why does it work?"
+            }
+          ]
+        },
+        {
+          "q": "5/6 x 3/5",
+          "a": "1/2",
+          "notes": "Look for: 15/30 = 1/2, or 3/6. Ask: \"What do you notice about the 5s?\" Model: area 5/6 x 3/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15 of 30 pieces: 15/30 = 1/2.",
+              "tool": "area",
+              "type": "5/6 x 3/5"
+            },
+            {
+              "say": "3/5 of 5 sixths is 3 sixths: 1/2.",
+              "tool": "text",
+              "type": "3/5 of 5/6 = 3/6 ; = 1/2"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 x 2/3",
+          "a": "1",
+          "notes": "Look for: 1 × 2/3 + 1/2 × 2/3 = 2/3 + 1/3. Ask: \"Can you split the mixed number?\" Model: area 1 1/2 x 2/3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2/3 + 1/3 = 1.",
+              "tool": "area",
+              "type": "1 1/2 x 2/3"
+            },
+            {
+              "say": "1 1/2 is 3/2, and 3/2 × 2/3 = 6/6 = 1.",
+              "tool": "text",
+              "type": "3/2 x 2/3 = 6/6 ; = 1",
+              "tip": "Improper fractions. Both work."
+            },
+            {
+              "say": "1 2/6",
+              "tool": "text",
+              "type": "1 1/2 x 2/3 = 1 x 2/3 ... = 1 2/6 ?",
+              "tip": "Multiplied only the fraction parts. Ask: what is 1 × 2/3?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-frac-02-whole-times-fraction",
+      "title": "Whole Numbers and Fractions",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Fractions",
+      "tool": "bar",
+      "strategy": "A whole number times a fraction is repeated groups of that fraction, or that fraction of the whole number.",
+      "topic": "frac",
+      "keywords": "groups of, of, repeated addition, unit fraction",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Multiplying the denominator too (3 × 3/4 = 9/12): ask \"Three groups of three quarters: how many quarters?\"",
+        "Forgetting to rename an improper fraction: ask \"How many wholes are in 9/4?\""
+      ],
+      "wrapUp": "Ask \"Why is 3 × 3/4 the same as 3/4 of 3?\" Land: count the unit fractions (3 groups of 3 quarters is 9 quarters), or find the fraction of the whole number.",
+      "problems": [
+        {
+          "q": "3 x 1/4",
+          "a": "3/4",
+          "notes": "Look for: three quarters. Ask: \"Three groups of a quarter?\" Model: numberline 0 +1/4x3",
+          "responses": [
+            {
+              "say": "Three quarters: 3/4.",
+              "tool": "numberline",
+              "type": "0 +1/4x3"
+            },
+            {
+              "say": "3/12",
+              "tool": "text",
+              "type": "3 x 1/4 = 3/12 ?",
+              "tip": "Multiplied the bottom too. Ask: how many quarters are there?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x 3/4",
+          "a": "2 1/4",
+          "notes": "Look for: 9 quarters = 2 1/4. Ask: \"How many quarters? How many wholes?\" Model: numberline 0 +3/4x3",
+          "responses": [
+            {
+              "say": "Three jumps of 3/4: 2 1/4.",
+              "tool": "numberline",
+              "type": "0 +3/4x3",
+              "tip": "The target model."
+            },
+            {
+              "say": "9 quarters: 2 wholes and 1 quarter.",
+              "tool": "text",
+              "type": "3 x 3/4 = 9/4 ; = 2 1/4"
+            },
+            {
+              "say": "9/12",
+              "tool": "text",
+              "type": "3 x 3/4 = 9/12 ?",
+              "tip": "Ask: is 9/12 more or less than one group of 3/4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 2/3",
+          "a": "4",
+          "notes": "Look for: 12 thirds = 4. Ask: \"Is there a quicker way?\" Model: numberline 0 +2/3x6",
+          "responses": [
+            {
+              "say": "12 thirds is 4.",
+              "tool": "numberline",
+              "type": "0 +2/3x6"
+            },
+            {
+              "say": "2/3 of 6 is 4.",
+              "tool": "bar",
+              "type": "2/3 of 6",
+              "tip": "Switch the order: 2/3 of 6. Name it."
+            }
+          ]
+        },
+        {
+          "q": "2/3 of 12",
+          "a": "8",
+          "notes": "Look for: 1/3 of 12 is 4, so 2/3 is 8. Ask: \"What is one third of 12?\" Model: bar 2/3 of 12",
+          "responses": [
+            {
+              "say": "A third of 12 is 4, two thirds is 8.",
+              "tool": "bar",
+              "type": "2/3 of 12"
+            },
+            {
+              "say": "Same as 12 × 2/3: 24 thirds is 8.",
+              "tool": "text",
+              "type": "12 x 2/3 = 24/3 ; = 8"
+            },
+            {
+              "say": "18",
+              "tool": "text",
+              "type": "2/3 of 12 = 12 / 2 x 3 = 18 ?",
+              "tip": "Divided by 2. Ask: what is one third of 12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 of 20",
+          "a": "15",
+          "notes": "Look for: 1/4 of 20 is 5, so 3/4 is 15. Ask: \"Which unit fraction first?\" Model: bar 3/4 of 20",
+          "responses": [
+            {
+              "say": "A quarter of 20 is 5, three quarters is 15.",
+              "tool": "bar",
+              "type": "3/4 of 20"
+            },
+            {
+              "say": "20 − 5 = 15.",
+              "tool": "bar",
+              "type": "20 = 15 + 5",
+              "tip": "All of it minus a quarter."
+            }
+          ]
+        },
+        {
+          "q": "12 x 5/6",
+          "a": "10",
+          "notes": "Look for: 1/6 of 12 is 2, so 5/6 is 10. Ask: \"Is it more or less than 12?\" Model: bar 5/6 of 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5/6 of 12: a sixth is 2, five sixths is 10.",
+              "tool": "bar",
+              "type": "5/6 of 12"
+            },
+            {
+              "say": "12 − 2 = 10.",
+              "tool": "text",
+              "type": "12 x 5/6 = 12 - 1/6 of 12 ; = 12 - 2 = 10"
+            }
+          ]
+        },
+        {
+          "q": "2 1/2 x 4",
+          "a": "10",
+          "notes": "Look for: 2 × 4 + 1/2 × 4 = 8 + 2. Ask: \"Can you split the mixed number?\" Model: area 2 1/2 x 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 + 2 = 10.",
+              "tool": "area",
+              "type": "2 1/2 x 4"
+            },
+            {
+              "say": "Double 2 1/2 is 5, double again is 10.",
+              "tool": "ratio",
+              "type": "1:2.5, 2:5, 4:10"
+            },
+            {
+              "say": "8 1/2",
+              "tool": "text",
+              "type": "2 1/2 x 4 = 8 1/2 ?",
+              "tip": "Multiplied only the whole. Ask: what is 1/2 × 4?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-frac-03-how-many-groups",
+      "title": "How Many Groups? Dividing by a Fraction",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing by a fraction asks how many of that fraction fit: 3 ÷ 1/4 is how many quarters are in 3.",
+      "topic": "frac",
+      "keywords": "how many groups, fit into, quotative division, jumps",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Thinking division always makes smaller (3 ÷ 1/4 = 3/4): ask \"How many quarters fit in 3 wholes?\"",
+        "Dividing the denominator (3 ÷ 1/4 = 3/4 or 0.75): draw the jumps of 1/4 and count them."
+      ],
+      "wrapUp": "Ask \"Why is 3 ÷ 1/4 bigger than 3?\" Land: dividing by a fraction counts how many of that fraction fit in. Small pieces, so many of them.",
+      "problems": [
+        {
+          "q": "2 / 1/2",
+          "a": "4",
+          "notes": "Look for: how many halves in 2? Four. Ask: \"What does ÷ 1/2 mean?\" Word choice: \"how many halves fit in 2?\" Model: numberline 0 +1/2x4",
+          "responses": [
+            {
+              "say": "Four halves fit in 2.",
+              "tool": "numberline",
+              "type": "0 +1/2x4",
+              "tip": "The target model. Count the jumps."
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "2 / 1/2 = 1 ?",
+              "tip": "Took half of 2. Ask: how many halves are in 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 1/2",
+          "a": "6",
+          "notes": "Look for: 6 halves. Ask: \"How does the last problem help?\" Model: numberline 0 +1/2x6",
+          "responses": [
+            {
+              "say": "Six halves fit in 3.",
+              "tool": "numberline",
+              "type": "0 +1/2x6"
+            },
+            {
+              "say": "2 halves in every whole, so 3 × 2 = 6.",
+              "tool": "text",
+              "type": "2 halves in 1 ; 3 x 2 = 6"
+            },
+            {
+              "say": "1 1/2",
+              "tool": "text",
+              "type": "3 / 1/2 = 1 1/2 ?",
+              "tip": "Took half of 3. Ask: how many halves are in 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 1/4",
+          "a": "12",
+          "notes": "Look for: 4 quarters in each whole: 12. Ask: \"Why is the answer bigger than 3?\" Model: numberline 0 +1/4x12",
+          "responses": [
+            {
+              "say": "12 quarters fit in 3.",
+              "tool": "numberline",
+              "type": "0 +1/4x12"
+            },
+            {
+              "say": "4 quarters per whole, times 3 wholes.",
+              "tool": "text",
+              "type": "4 x 3 = 12"
+            },
+            {
+              "say": "3/4",
+              "tool": "text",
+              "type": "3 / 1/4 = 3/4 ?",
+              "tip": "Ask: how many quarters fit in 3 wholes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 / 1/4",
+          "a": "3",
+          "notes": "Look for: three quarters hold 3 quarters. Ask: \"How many quarters in 3/4?\" Model: numberline 0 +1/4x3",
+          "responses": [
+            {
+              "say": "Three quarters in 3/4: 3.",
+              "tool": "numberline",
+              "type": "0 +1/4x3"
+            },
+            {
+              "say": "3/16",
+              "tool": "text",
+              "type": "3/4 / 1/4 = 3/16 ?",
+              "tip": "Multiplied. Ask: how many quarters fit in three quarters?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 / 2/3",
+          "a": "3",
+          "notes": "Look for: jumps of 2/3 to reach 2: three. Ask: \"How many two-thirds fit?\" Model: numberline 0 +2/3x3",
+          "responses": [
+            {
+              "say": "Three jumps of 2/3 make 2.",
+              "tool": "numberline",
+              "type": "0 +2/3x3"
+            },
+            {
+              "say": "6 thirds in 2, and 2 thirds per group: 6 ÷ 2 = 3.",
+              "tool": "text",
+              "type": "2 = 6/3 ; 6/3 / 2/3 = 6 / 2 = 3",
+              "tip": "Common denominators. Nice."
+            },
+            {
+              "say": "1 1/3",
+              "tool": "text",
+              "type": "2 / 2/3 = 2 x 2/3 = 1 1/3 ?",
+              "tip": "Multiplied. Ask: how many 2/3 jumps reach 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 / 3/4",
+          "a": "2",
+          "notes": "Look for: two jumps of 3/4 make 1 1/2. Ask: \"How many 3/4s fit?\" Model: numberline 0 +3/4x2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Two jumps of 3/4: 1 1/2.",
+              "tool": "numberline",
+              "type": "0 +3/4x2"
+            },
+            {
+              "say": "6 quarters ÷ 3 quarters = 2.",
+              "tool": "text",
+              "type": "1 1/2 = 6/4 ; 6/4 / 3/4 = 6 / 3 = 2"
+            }
+          ]
+        },
+        {
+          "q": "5 / 5/6",
+          "a": "6",
+          "notes": "Look for: 30 sixths ÷ 5 sixths = 6. Ask: \"How many 5/6s fit in 5?\" Model: numberline 0 +5/6x6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Six jumps of 5/6 make 5.",
+              "tool": "numberline",
+              "type": "0 +5/6x6"
+            },
+            {
+              "say": "30 sixths ÷ 5 sixths = 6.",
+              "tool": "text",
+              "type": "5 = 30/6 ; 30 / 5 = 6"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

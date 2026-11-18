@@ -144,8 +144,9 @@
     { id: 'frac', name: 'Fractions', icon: '½', re: /fraction/i },
     { id: 'pct', name: 'Percents', icon: '%', re: /percent/i },
     { id: 'int', name: 'Integers', icon: '±', re: /integer/i },
+    { id: 'pow', name: 'Powers & Roots', icon: 'x²', re: /power|square|root|scientific|exponent/i },
   ];
-  const TOPIC_CHECK = ['int', 'frac', 'dec', 'pct', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
+  const TOPIC_CHECK = ['pow', 'int', 'frac', 'dec', 'pct', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
   function topicOf(s) {
     if (s.topic) { const k = String(s.topic).toLowerCase(); const t = TOPICS.find(t => t.id === k || t.name.toLowerCase() === k) || TOPIC_CHECK.find(t => t.re.test(k)); if (t) return t.id; }
     const unit = (s.group || '').replace(/^\s*Grade\s*\w+\s*·\s*/i, '').replace(/^Week\s*\d+\s*·\s*/i, '');
@@ -243,7 +244,8 @@
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     // within a grade, the weekly units come before the string bank
     const isBank = name => /·\s*Bank\s*·/i.test(name);
-    groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)); });
+    const weekOf = name => +((name.match(/Week\s*(\d+)/i) || [])[1] || 0);
+    groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)) || weekOf(a.name) - weekOf(b.name); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
       <div class="lib">
@@ -587,6 +589,7 @@ Rules:
     const units = [];
     const bankCount = mine.filter(s => /·\s*Bank\s*·/i.test(s.group || '')).length;
     mine.filter(s => !/·\s*Bank\s*·/i.test(s.group || '')).forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
+    units.sort((a, b) => +((a.name.match(/Week\s*(\d+)/i) || [])[1] || 0) - +((b.name.match(/Week\s*(\d+)/i) || [])[1] || 0));
     const unitName = g => g.replace(/^Grade\s*\w+\s*·\s*/i, '');
     app.innerHTML = `
     <div class="guide pd">
