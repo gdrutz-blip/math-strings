@@ -44,6 +44,8 @@ Before **Dec 4**:
 
 - [x] **Practice board** (Nov 18): 🧪 Practise here on a practice card opens a split screen with a sandbox presenter (its own session; no runs, no ✓; Finish restarts). ▶ Draw it and Show on board send responses and problems to it. On small screens it opens in a new tab. Tool buttons show their number key.
 
+- [x] **Tool keys rethought** (Nov 18): 1 Number line · 2 Double number line · 3 Area · 4 Array · 5 Ratio · 6 Bar · 7 Tiles · 8 Algorithm · 9 Slide · 0 Words (the fallback). Lines together, rectangles together; chosen from how often each tool is used in the Grade 4–8 strings. Buttons are in key order. Later, for K–3: a key map per grade band (ten frames, rekenrek, …).
+
 ## Maybe later
 
 

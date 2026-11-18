@@ -1228,21 +1228,21 @@
 
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
-    { id: 'vline', name: 'Vertical number line', short: 'Vertical', key: '', icon: '↕', render: (i, l, m) => numberline(i, l, m, true), help: '-8 +8 +7  ·  like a thermometer: up is more, down is less  ·  same typing as the number line' },
-    { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
-    { id: 'givetake', name: 'Give & take', key: '0', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  49 + 26 give 1' },
-    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '2', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  1 to 7, 10 to 70  ·  names first: bags:apples, 1:7' },
+    { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '2', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  divide: 84 / 7 = 70 + 14  ·  fractions: 2/3 x 3/4  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  1 to 7, 10 to 70  ·  names first: bags:apples, 1:7' },
+    { id: 'bar', name: 'Bar model', short: 'Bar', key: '6', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
+    { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '7', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
+    { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '8', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
+    { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
+    { id: 'vline', name: 'Vertical number line', short: 'Vertical', key: '', icon: '↕', render: (i, l, m) => numberline(i, l, m, true), help: '-8 +8 +7  ·  like a thermometer: up is more, down is less  ·  same typing as the number line' },
+    { id: 'givetake', name: 'Give & take', key: '', icon: '⇄', render: givetake, help: '49 + 26 = 50 + 25  ·  49 + 26 give 1' },
     { id: 'halve', name: 'Doubling & halving', short: 'Halving', key: '', icon: '◫', render: halve, help: '16 x 25 = 8 x 50 = 4 x 100  ·  also ×3 ÷3: 12 x 15 = 4 x 45' },
-    { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '5', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
-    { id: 'clock', name: 'Clock', key: '6', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
-    { id: 'bar', name: 'Bar model', short: 'Bar', key: '7', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
-    { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
+    { id: 'clock', name: 'Clock', key: '', icon: '◷', render: clock, help: '1/4 + 1/3  ·  3/4 - 1/6  ·  1 1/2 - 1/4  (minutes of an hour)' },
     { id: 'split', name: 'Split by place value', short: 'Split', key: '', icon: '⋔', render: split, help: '36 + 47  ·  368 + 457  ·  2.7 + 0.5  ·  25 + 36 + 14 + 48 (up to 8 numbers)  ·  click the total to hide it' },
     { id: 'estimate', name: 'Estimate', short: 'Estimate', key: '', icon: '≈', render: estimate, help: '36 + 47  ·  368 + 457  ·  82 - 37  ·  3.99 + 2.45  ·  36 + 47 + 22 (up to 8)  ·  their own friendly numbers: 36 + 47 ≈ 35 + 45' },
-    { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
-    { id: 'text', name: 'Words & equations', short: 'Words', key: '8', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
+    { id: 'text', name: 'Words & equations', short: 'Words', key: '0', icon: '✎', render: null, help: 'Words or math, ; for a new line, e.g. 38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40' },
   ];
 
 
