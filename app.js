@@ -1265,6 +1265,7 @@ Rules:
   }
   function barHTML(d) {
     const am = P.activeM != null ? d.models[P.activeM] : null;
+    const pq = P.quick ? '' : ((P.sess.problems[P.sess.shown[P.sess.active]] || {}).q || '');
     const all = visibleTools();
     const t = am && TOOL[am.type];
     // Show the string's suggested tools first and tuck the rest under "More" (only when the string suggests a few).
@@ -1276,7 +1277,7 @@ Rules:
       ? `<span class="more-sep" title="Other tools"></span>${more.map(btn).join('')}<button class="tool-btn more" data-a="moretools" title="Show only this string's suggested tools">Fewer ▴</button>`
       : `<button class="tool-btn more" data-a="moretools" title="Show all the other tools: ${esc(more.map(x => x.short || x.name).join(', '))}">More tools ▾</button>`;
     return `<div class="bar-tools">${main.map(btn).join('')}${moreHTML}<button class="tool-btn gear" data-a="choosetools" title="Choose which tools show here">⚙</button></div>
-      ${am ? `<div class="typer"><span class="typer-name">${t.icon} ${esc(t.short || t.name)}</span><input id="typer" value="${esc(am.input || '')}" placeholder="${esc(t.help.split('  ·  ')[0])}" autocomplete="off" spellcheck="false"><button class="btn primary" data-a="donem" title="Finish (Enter)">Done ✓</button><button class="icon-btn" data-a="rmactive" title="Remove this model">🗑</button></div>
+      ${am ? `<div class="typer"><span class="typer-name">${t.icon} ${esc(t.short || t.name)}</span><input id="typer" value="${esc(am.input || '')}" placeholder="${esc('e.g. ' + t.help.split('  ·  ')[0].replace(/^Words or math, ; for a new line, e\.g\. /, ''))}" autocomplete="off" spellcheck="false">${am.type === 'text' && !String(am.input || '').trim() && pq ? `<button class="btn small ghost useq" data-a="useq" title="Start with the problem">＋ ${exprHTML(pq)} =</button>` : ''}<button class="btn primary" data-a="donem" title="Finish (Enter)">Done ✓</button><button class="icon-btn" data-a="rmactive" title="Remove this model">🗑</button></div>
       <div class="typer-help">${esc(t.help)}  ·  Enter when done</div>` : ''}`;
   }
 
@@ -1391,6 +1392,7 @@ Rules:
   }
 
   /* ---- working with models ---- */
+  const drawsOK = (type, input) => { try { const r = TOOL[type].render(input, {}, { input }); return !!r && !r.error; } catch (e) { return false; } };
   function addModel(type) {
     if (P.overview) return;
     finishActive(true);
@@ -1399,15 +1401,19 @@ Rules:
     // number line starts blank: students start from different numbers
     if ((type === 'area' || type === 'array') && /[x×*]/.test(q)) input = q.replace(/×|\*/g, 'x');
     if (type === 'area' && /^\s*[\d.]+\s*[\/÷]\s*[\d.]+\s*$/.test(q) && !/^\s*\d+\/\d+\s*$/.test(q)) input = q.replace(/÷/g, '/') + ' = ';
-    if (type === 'clock' && /\d\/\d/.test(q)) input = q;
+    if (type === 'clock' && /\d\/\d/.test(q) && !/[x×*]|of/i.test(q)) input = q; // the clock adds and subtracts
     const qx = q.replace(/[×*]/g, 'x').replace(/[−–]/g, '-').trim();
     if (type === 'slide' && /^\S+\s*-\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
-    if (type === 'halve' && /^\S+\s*x\s*\S+$/i.test(qx)) input = qx + ' = ';
+    if (type === 'halve' && /^\d+\s*x\s*\d+$/i.test(qx)) input = qx + ' = ';
     if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = qx;
-    if ((type === 'split' || type === 'estimate') && /^\d+\s*[+\-]\s*\d+/.test(qx)) input = qx;
-    if (type === 'tiles' && /^-?\d+\s*[+\-x]\s*\(?-?\d+\)?$/.test(qx)) input = qx;
-    if (type === 'text' && /[x×*]|\d\/\d/.test(q)) input = q + ' = ';
+    if ((type === 'split' || type === 'estimate') && /^[\d.]+\s*[+\-]\s*[\d.]+/.test(qx)) input = qx;
+    // tiles only when negatives are involved; 47 positive tiles for 38 + 9 is no help
+    if (type === 'tiles' && /^-?\d+\s*[+\-x]\s*\(?-?\d+\)?$/.test(qx) && /(^-\d)|([+\-x(]\s*-\d)/.test(qx)) input = qx;
+    if (type === 'bar' && /^\s*\d+\s*\/\s*\d+\s+of\s+[\d.]+\s*$/i.test(q)) input = q.trim();
+    // Words starts blank, so it doesn't suggest one way in; the "+ problem" button adds it in one tap
+    // fill in the problem only if this tool can draw it, so a model never starts with an error
+    if (input && !drawsOK(type, input)) input = '';
     d.models.push({ type, input, labels: {} });
     P.activeM = d.models.length - 1; P.spot = null; P.focusTyper = true;
     saveSession(); renderStage(); renderRail();
@@ -1489,6 +1495,7 @@ Rules:
         case 'moretools': P.moreTools = !P.moreTools; return renderStage();
         case 'saverun': { const r = saveRun(false); if (r) { toast('💾 Saved in My runs'); renderStage(); } return; }
         case 'donem': return finishActive();
+        case 'useq': { const m = cur().models[P.activeM], pq = (P.sess.problems[P.sess.shown[P.sess.active]] || {}).q || ''; if (m && pq) { m.input = pq + ' = ' + (m.input || ''); m.labels = {}; P.focusTyper = true; saveSession(); renderStage(); } return; }
         case 'rmactive': { if (P.activeM != null) { d.models.splice(P.activeM, 1); P.activeM = null; saveSession(); renderStage(); renderRail(); } return; }
         case 'editm': return editModel(i);
         case 'rmmodel': { d.models.splice(i, 1); if (P.activeM != null && P.activeM > i) P.activeM--; saveSession(); renderStage(); renderRail(); return; }
