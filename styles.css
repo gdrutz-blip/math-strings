@@ -509,3 +509,15 @@ a.btn.small { text-decoration: none; }
 .pd-plan summary { cursor: pointer; padding: 6px 0; }
 .pd-plan .gtable { margin: 6px 0 4px; }
 .pd-min { white-space: nowrap; font-weight: 700; color: var(--accent); width: 70px; }
+
+/* ---- practice board (split screen) and tool key badges ---- */
+.tool-btn .tk { font-size: 10.5px; padding: 0 4px; margin-left: 2px; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 4px; color: var(--faint); background: #fff; font-family: inherit; line-height: 1.4; }
+.tool-btn.on .tk { color: var(--accent); }
+.sandbox-tag { font-weight: 800; color: #7a4fd0; background: #f1eafc; border: 1px solid #ddcdf6; border-radius: 8px; padding: 4px 8px; font-size: 14px; white-space: nowrap; }
+.pt-split { display: grid; grid-template-columns: minmax(400px, 1fr) minmax(0, 1.1fr); gap: 14px; padding: 0 12px; align-items: start; }
+.pt-split .guide.practice { max-width: none; margin: 0; }
+.pt-boardpane { position: sticky; top: 10px; height: calc(100vh - 20px); display: flex; flex-direction: column; border: 2px solid #ddcdf6; border-radius: var(--radius); overflow: hidden; background: #fff; }
+.pt-boardhead { font-size: 13.5px; padding: 6px 10px; background: #f1eafc; color: #4b2f86; }
+.pt-boardpane iframe { flex: 1; width: 100%; border: 0; }
+.pt-head .pt-go { margin-left: auto; }
+.pt-draw { margin-top: 6px; }

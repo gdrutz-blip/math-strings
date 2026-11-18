@@ -116,7 +116,7 @@
     const hash = location.hash.replace(/^#\/?/, '');
     const [view, id, id2] = hash.split('/');
     document.onkeydown = null;
-    if (view === 'present' && id) return presenter(decodeURIComponent(id));
+    if (view === 'present' && id) return presenter(decodeURIComponent(id), id2 === 'practice');
     if (view === 'quick') return presenter('__quick');
     if (view === 'start') return startPage();
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
@@ -532,13 +532,15 @@ Rules:
     document.title = 'Practice · ' + s.title;
     app.onclick = app.oninput = app.onchange = app.onkeydown = null;
     const toolCell = t => { const x = TOOL[t]; return x ? `<span class="pt-tool">${x.icon} ${esc(x.short || x.name)}</span>` : esc(t || ''); };
+    const split = store.get('practiceSplit', false) && innerWidth >= 1000;
     app.innerHTML = `
-    <div class="guide practice">
+    <div class="${split ? 'pt-split' : ''}"><div class="guide practice">
       <div class="ed-head no-print">
         <a class="btn ghost" href="#/">← Library</a>
         <span style="flex:1"></span>
         <button class="btn" onclick="window.print()">🖨 Print</button>
         <button class="btn" id="pt-share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
+        <button class="btn${split ? ' on' : ''}" id="pt-board" title="Practise beside a board: nothing you do there is saved">🧪 ${split ? 'Hide practice board' : 'Practise here'}</button>
         <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
       </div>
       <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)} <span class="pt-sub">Practice card</span></h1>
@@ -547,13 +549,32 @@ Rules:
       <div class="pt-how"><b>How to practise in pairs:</b> one person presents the string; the other plays the class and reads a "student says" line. The presenter records the answer (<kbd>A</kbd>), picks the tool, types what's in the last column, and presses <kbd>Enter</kbd>. Swap after a few problems. Press <b>↺</b> in the top bar to start the string fresh.</div>
       ${s.problems.map((p, i) => `
         <section class="panel pt-prob">
-          <div class="pt-head"><span class="pt-num">${i + 1}</span><span class="expr pt-q">${exprHTML(p.q)}</span><span class="pt-a">= ${esc(p.a)}</span>${p.optional ? '<span class="pt-opt">optional</span>' : ''}</div>
+          <div class="pt-head"><span class="pt-num">${i + 1}</span><span class="expr pt-q">${exprHTML(p.q)}</span><span class="pt-a">= ${esc(p.a)}</span>${p.optional ? '<span class="pt-opt">optional</span>' : ''}${split ? `<button class="btn small pt-go" data-go="${i}" title="Show this problem on the board">Show on board →</button>` : ''}</div>
           ${p.notes ? `<p class="pt-notes">${esc(p.notes.replace(/\s*Model:.*$/s, ''))}</p>` : ''}
-          ${p.responses ? `<table class="gtable pt-table"><tr><th>Student says</th><th>Tool</th><th>Type this</th></tr>${p.responses.map(r => `<tr class="${r.kind === 'error' ? 'pt-err' : ''}"><td>${r.kind === 'error' ? '<span class="pt-flag">mistake</span> ' : ''}“${esc(r.say)}”</td><td>${toolCell(r.tool)}</td><td>${r.type ? `<code>${esc(r.type)}</code>` : ''}${r.tip ? `<div class="pt-tip">${esc(r.tip)}</div>` : ''}</td></tr>`).join('')}</table>` : '<p class="hint">No practice responses for this problem yet.</p>'}
+          ${p.responses ? `<table class="gtable pt-table"><tr><th>Student says</th><th>Tool</th><th>Type this</th></tr>${p.responses.map(r => `<tr class="${r.kind === 'error' ? 'pt-err' : ''}"><td>${r.kind === 'error' ? '<span class="pt-flag">mistake</span> ' : ''}“${esc(r.say)}”</td><td>${toolCell(r.tool)}</td><td>${r.type ? `<code>${esc(r.type)}</code>` : ''}${r.tip ? `<div class="pt-tip">${esc(r.tip)}</div>` : ''}${split ? `<button class="btn small pt-draw" data-draw="${i}:${p.responses.indexOf(r)}" title="Draw this on the board">▶ Draw it</button>` : ''}</td></tr>`).join('')}</table>` : '<p class="hint">No practice responses for this problem yet.</p>'}
         </section>`).join('')}
       ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
-    </div>`;
+    </div>${split ? `<div class="pt-boardpane no-print"><div class="pt-boardhead">🧪 <b>Practice board</b> · nothing here is saved or marked done. Use <b>▶ Draw it</b> on the card, or type your own.</div><iframe id="pt-frame" title="Practice board" src="${esc(location.pathname + '#/present/' + encodeURIComponent(s.id) + '/practice')}"></iframe></div>` : ''}</div>`;
     { const sb = $('#pt-share'); if (sb) sb.onclick = () => shareString(s); }
+    { const pb = $('#pt-board'); if (pb) pb.onclick = () => {
+      if (innerWidth < 1000) { window.open(location.pathname + '#/present/' + encodeURIComponent(s.id) + '/practice', '_blank'); return; } // small screens: the board opens in its own tab
+      store.set('practiceSplit', !split); practicePage(id);
+    }; }
+    if (split) {
+      // the board is drawn at full presenter size and scaled down to fit its half of the screen
+      const fit = () => {
+        const pane = $('.pt-boardpane'), f = $('#pt-frame'), head = $('.pt-boardhead'); if (!pane || !f) return;
+        const BW = 1280, w = pane.clientWidth, h = pane.clientHeight - (head ? head.offsetHeight : 0), sc = Math.min(1, w / BW);
+        Object.assign(f.style, { width: BW + 'px', height: (h / sc) + 'px', transform: `scale(${sc})`, transformOrigin: '0 0', flex: 'none' });
+      };
+      fit(); window.onresize = fit;
+      const send = msg => { const f = $('#pt-frame'); if (f && f.contentWindow) f.contentWindow.postMessage(msg, location.origin); };
+      app.onclick = e => {
+        const g = e.target.closest('[data-go]'), dr = e.target.closest('[data-draw]');
+        if (g) send({ ms: 'goto', n: +g.dataset.go });
+        if (dr) { const [pi, ri] = dr.dataset.draw.split(':').map(Number), r = s.problems[pi].responses[ri]; send({ ms: 'draw', n: pi, tool: r.tool, type: r.type, kind: r.kind, say: r.say }); }
+      };
+    }
     window.scrollTo(0, 0);
   }
 
@@ -618,10 +639,9 @@ Rules:
       <section class="panel pd-ask"><h2>2 · Between sessions: the whole ask</h2>
         <ol class="steps">
           <li><b>Run your focus unit's strings</b>, about twice a week for 10–15 minutes. If you can only fit in one, that's fine.</li>
-          <li><b>Press Finish at the end.</b> The run is saved for you in <b>🗂 My runs</b>, dated, with every answer and model. Nothing else to write.</li>
+          <li><b>Press Finish at the end.</b> The run is saved for you in <b>🗂 My runs</b>, dated, with every answer and model.</li>
           <li><b>Bring one run and one question</b> to the next session, on your laptop or printed.</li>
         </ol>
-        <p class="hint">No journals and no extra reflections. Each session ends with a 2-minute exit ticket, and that's all.</p>
       </section>
 
       <section class="panel"><h2>3 · The sessions <span>(30 minutes each)</span></h2>
@@ -856,6 +876,7 @@ Rules:
           <li><b>⏱ Timer:</b> click it (or press <kbd>T</kbd>) to start or pause think time.</li>
           <li><b>✏️ Pen</b> draws on top of anything. <kbd>Esc</kbd> stops.</li>
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
+          <li><b>🧪 Practise here</b> on a string's practice card opens a practice board beside the card. Tap <b>▶ Draw it</b> to see each likely response modelled, or type your own. Nothing there is saved or marked done.</li>
           <li><b>💡 Try</b> (or <kbd>Y</kbd>) lists likely student responses for the problem. Tap one to draw it: great for rehearsing at home, or as a backup in class.</li>
           <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can print it or compare it with a later run. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
           <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
@@ -1121,18 +1142,19 @@ Rules:
   function newSession(id, s) {
     return { id, at: Date.now(), problems: s.problems.map(p => ({ q: p.q, optional: !!p.optional })), cursor: 0, shown: [], active: -1, data: {} };
   }
-  function loadSession(id, s) {
-    const saved = store.get('session', null);
+  const sessKey = sandbox => (sandbox ? 'practiceSession' : 'session');
+  function loadSession(id, s, sandbox) {
+    const saved = store.get(sessKey(sandbox), null);
     const fresh = saved && saved.id === id && Date.now() - saved.at < 8 * 3600e3;
     if (fresh && (id === '__quick' || JSON.stringify(saved.problems.map(p => p.q)) === JSON.stringify(s.problems.map(p => p.q)))) return saved;
     return newSession(id, s);
   }
   let sessT;
-  const saveSession = () => { clearTimeout(sessT); sessT = setTimeout(() => { if (P) { P.sess.at = Date.now(); store.set('session', P.sess); } }, 250); };
+  const saveSession = () => { clearTimeout(sessT); sessT = setTimeout(() => { if (P) { P.sess.at = Date.now(); store.set(sessKey(P.sandbox), P.sess); } }, 250); };
   const pdata = idx => (P.sess.data[idx] = P.sess.data[idx] || { answers: [], models: [], strokes: [] });
   // Keep a dated copy of this run (answers and models; pen drawings aren't kept). Saving again updates the same run.
   function saveRun(quiet) {
-    if (!P || P.quick) return null;
+    if (!P || P.quick || P.sandbox) return null;
     const S = P.sess;
     const problems = S.shown.map(idx => {
       const d = S.data[idx] || { answers: [], models: [] };
@@ -1149,12 +1171,13 @@ Rules:
     return r;
   }
 
-  function presenter(id) {
+  function presenter(id, sandbox) {
     const quick = id === '__quick';
+    sandbox = !!sandbox && !quick;
     const s = quick ? { id, title: 'Quick board', label: '', tool: 'numberline', problems: [] } : findString(id);
     if (!s) return go('');
     document.title = (s.label ? s.label + ' · ' : '') + s.title;
-    P = { s, quick, sess: loadSession(id, s), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
+    P = { s, quick, sandbox, sess: loadSession(id, s, sandbox), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
     if (quick && !P.sess.problems.length) { P.sess.problems.push({ q: '' }); }
     const firstRun = !P.sess.shown.length;
     if (firstRun) revealNext(true);
@@ -1162,7 +1185,7 @@ Rules:
     app.innerHTML = `
       <div class="pres">
         <div class="topbar">
-          <button class="icon-btn" data-a="home" title="Back to library">⌂</button>
+          ${sandbox ? '<span class="sandbox-tag" title="Practice board: nothing here is saved or marked done">🧪 Practice</span>' : '<button class="icon-btn" data-a="home" title="Back to library">⌂</button>'}
           <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
           <div class="title">${s.label ? esc(s.label) + ' · ' : ''}<b>${esc(s.title)}</b></div>
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
@@ -1210,7 +1233,8 @@ Rules:
     saveSession();
   }
   function goPrev() { finishActive(true); P.spot = null; if (P.overview) { P.overview = false; } else if (P.sess.active > 0) P.sess.active--; saveSession(); renderAll(); }
-  function goNext() { finishActive(true); P.spot = null; if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { markDone(P.s.id); const saved = saveRun(true); clearTimeout(sessT); store.set('session', null); P = null; window.onresize = null; go(''); toast(saved ? '✓ Done. This run is saved in 🗂 My runs' : '✓ Nice! Marked as done'); return; } P.overview = false; revealNext(); renderAll(); }
+  function goNext() { finishActive(true); P.spot = null; if (P.sandbox && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { P.sess = newSession(P.s.id, P.s); P.overview = false; revealNext(true); store.set(sessKey(true), P.sess); renderAll(); toast('Practice finished. Nothing was saved, so start again any time.'); return; }
+    if (!P.quick && P.overview && P.sess.active >= P.sess.shown.length - 1 && P.sess.cursor >= P.sess.problems.length) { markDone(P.s.id); const saved = saveRun(true); clearTimeout(sessT); store.set('session', null); P = null; window.onresize = null; go(''); toast(saved ? '✓ Done. This run is saved in 🗂 My runs' : '✓ Nice! Marked as done'); return; } P.overview = false; revealNext(); renderAll(); }
   function skipNext() { finishActive(true); const S = P.sess; if (S.cursor < S.problems.length) { S.cursor++; S.active = S.shown.length - 1; revealNext(); renderAll(); toast('Skipped the optional problem'); } }
 
   /* ---- tools shown in the bar (teacher can hide the ones they don't use) ---- */
@@ -1294,7 +1318,7 @@ Rules:
     const sug = P.quick || settings.suggestFirst === false ? [] : suggestedTools(P.s).map(id => TOOL[id]).filter(x => all.includes(x));
     let main = all, more = [];
     if (sug.length >= 3) { main = sug; if (t && !main.includes(t)) main = [...main, t]; more = all.filter(x => !main.includes(x)); }
-    const btn = x => `<button class="tool-btn${x.id === P.s.tool ? ' default' : ''}${am && am.type === x.id ? ' on' : ''}" data-tool="${x.id}" title="${esc(x.name)}${x.key ? ` (${x.key})` : ''}"><span class="ico">${x.icon}</span>${esc(x.short || x.name)}</button>`;
+    const btn = x => `<button class="tool-btn${x.id === P.s.tool ? ' default' : ''}${am && am.type === x.id ? ' on' : ''}" data-tool="${x.id}" title="${esc(x.name)}${x.key ? ` (${x.key})` : ''}"><span class="ico">${x.icon}</span>${esc(x.short || x.name)}${x.key ? `<kbd class="tk">${x.key}</kbd>` : ''}</button>`;
     const moreHTML = !more.length ? '' : P.moreTools
       ? `<span class="more-sep" title="Other tools"></span>${more.map(btn).join('')}<button class="tool-btn more" data-a="moretools" title="Show only this string's suggested tools">Fewer ▴</button>`
       : `<button class="tool-btn more" data-a="moretools" title="Show all the other tools: ${esc(more.map(x => x.short || x.name).join(', '))}">More tools ▾</button>`;
@@ -1405,7 +1429,7 @@ Rules:
         </div>`;
       }).join('')}</div>
       <p class="end-note">What did you notice?</p>
-      ${P.quick ? '' : `<div class="run-box">
+      ${P.quick || P.sandbox ? '' : `<div class="run-box">
         <label class="field">Class<input id="run-cls" value="${esc(S.cls || '')}" placeholder="e.g. 6B or Period 2" autocomplete="off"></label>
         <label class="field grow">Your note (optional)<input id="run-note" value="${esc(S.note || '')}" placeholder="What did you notice? e.g. Many used the clock; two added the tops and bottoms" autocomplete="off"></label>
         <button class="btn" data-a="saverun" title="Save a copy now (Finish also saves it)">💾 Save run</button>
@@ -1469,6 +1493,23 @@ Rules:
     };
     $('.pres').appendChild(pop);
   }
+  window.addEventListener('message', e => {
+    if (e.origin !== location.origin || !P || !P.sandbox || !e.data || !e.data.ms) return;
+    const d = e.data, S = P.sess;
+    if (typeof d.n === 'number' && d.n >= 0 && d.n < S.problems.length) {
+      finishActive(true); P.overview = false; P.spot = null;
+      while (!S.shown.includes(d.n) && S.cursor < S.problems.length) S.shown.push(S.cursor++);
+      if (!S.shown.includes(d.n)) { S.shown.push(d.n); S.shown.sort((a, b) => a - b); }
+      S.active = S.shown.indexOf(d.n);
+    }
+    if (d.ms === 'draw' && TOOL[d.tool]) {
+      cur().models.push({ type: d.tool, input: d.type || '', labels: {} });
+      const said = String(d.say || '').trim().replace(/\.$/, '').replace(/-/g, '−');
+      if (d.kind === 'error' && /^−?[\d\s.,\/]+$/.test(said) && !cur().answers.some(a => a.t === said)) cur().answers.push({ t: said, mark: '' });
+      P.activeM = null;
+    }
+    saveSession(); renderAll();
+  });
   // Done typing: the model shrinks into the grid (an empty one is dropped)
   function finishActive(quiet) {
     if (!P || P.activeM == null) return;
