@@ -500,3 +500,12 @@ a.btn.small { text-decoration: none; }
 
 .typer .useq { white-space: nowrap; font-weight: 700; color: var(--accent); }
 .typer .useq .frac { font-size: .8em; }
+
+/* ---- PD page: exit tickets and session plans ---- */
+.pd-sessions .pd-exit { justify-self: start; margin-top: 6px; }
+.pd-sessions .pd-exit-soon { font-size: 12.5px; color: var(--faint); margin-top: 6px; }
+.pd-ask { border: 2px solid var(--accent); }
+.pd-plan { margin: 6px 0; }
+.pd-plan summary { cursor: pointer; padding: 6px 0; }
+.pd-plan .gtable { margin: 6px 0 4px; }
+.pd-min { white-space: nowrap; font-weight: 700; color: var(--accent); width: 70px; }

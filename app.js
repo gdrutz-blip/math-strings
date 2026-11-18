@@ -558,10 +558,23 @@ Rules:
   // School PD hub: the sessions, this grade's focus units with practice cards, and how to collect evidence
   const PD = {
     title: 'Number strings PD · Grades 4–8',
+    // exit: the session's 2-minute exit ticket (a Google Form); add the link when it's ready
     sessions: [
-      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Learn about math strings, choose an instructional focus, and plan implementation.' },
-      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Review student learning evidence, reflect on implementation, and refine.' },
-      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Examine student growth, identify effective practices, and set next steps.' },
+      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Experience a string, practise one in pairs, and choose your focus unit.',
+        exit: 'https://docs.google.com/forms/d/e/1FAIpQLSdXow8jntjSn6yRDTUD6A0KwChNpLafDdQLNnyhr6y7Fr60Lg/viewform',
+        plan: [['5 min', 'Experience one: we run a short string together, with you as the students.'],
+          ['10 min', 'Try it in pairs: open your grade\'s practice card. One presents, one plays the class, then swap. 💡 Try is your safety net.'],
+          ['10 min', 'Choose your focus unit and pick a day for your first string.'],
+          ['5 min', 'Questions, and the 2-minute exit ticket.']] },
+      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Share one run, learn one new move, and keep going.', exit: '',
+        plan: [['10 min', 'In small groups, show your one run: "Here is what my students said." What surprised you? Which model helped?'],
+          ['10 min', 'One new move: a tool you haven\'t tried, more wait time, or "Can the last problem help?" Practise it in pairs.'],
+          ['5 min', 'Common questions and sticking points.'],
+          ['5 min', 'The next ask, and the exit ticket.']] },
+      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Compare December with March, share what worked, and plan next steps.', exit: '',
+        plan: [['10 min', 'Compare: in 🗂 My runs, open your March run and choose Compare with December. More strategies? More students explaining?'],
+          ['10 min', 'Share one thing that worked.'],
+          ['10 min', 'Next steps, and the exit ticket.']] },
     ],
     grades: ['4', '5', '6', '7', '8'],
   };
@@ -586,7 +599,7 @@ Rules:
       <h1>${esc(PD.title)}</h1>
       <p class="lead">Three short, collaborative sessions on using number strings to build fluency, with student reasoning, multiple strategies, purposeful questions, and evidence of growth over time.</p>
 
-      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span></div>`).join('')}</div>
+      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : '<span class="pd-exit-soon">Exit ticket: at the session</span>'}</div>`).join('')}</div>
 
       <section class="panel"><h2>1 · Your grade and focus</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
@@ -599,28 +612,34 @@ Rules:
                  <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
       </section>
 
-      <section class="panel"><h2>2 · In your classroom</h2>
-        <ul class="steps">
-          <li><b>Before:</b> read the string's notes (or its practice card) and rehearse once. Press <b>↺</b> to start fresh.</li>
-          <li><b>During:</b> give think time, record <i>every</i> answer (<kbd>A</kbd>), and model at least two strategies per problem. Ask "Can the last problem help?" and "What's the same?"</li>
-          <li><b>After:</b> press <kbd>O</kbd> for the whole string and ask "What did you notice?"</li>
-        </ul>
+      <section class="panel pd-ask"><h2>2 · Between sessions: the whole ask</h2>
+        <ol class="steps">
+          <li><b>Run your focus unit's strings</b>, about twice a week for 10–15 minutes. If you can only fit in one, that's fine.</li>
+          <li><b>Press Finish at the end.</b> The run is saved for you in <b>🗂 My runs</b>, dated, with every answer and model. Nothing else to write.</li>
+          <li><b>Bring one run and one question</b> to the next session, on your laptop or printed.</li>
+        </ol>
+        <p class="hint">No journals and no extra reflections. Each session ends with a 2-minute exit ticket, and that's all.</p>
       </section>
 
-      <section class="panel"><h2>3 · Collecting evidence (no extra assessments)</h2>
+      <section class="panel"><h2>3 · The sessions <span>(30 minutes each)</span></h2>
+        ${PD.sessions.map((x, i) => `<details class="pd-plan"${i === 0 ? ' open' : ''}><summary><b>${esc(x.name)}</b> · ${esc(x.date)}</summary>
+          <table class="gtable">${x.plan.map(([t, d]) => `<tr><td class="pd-min">${esc(t)}</td><td>${esc(d)}</td></tr>`).join('')}</table>
+          ${x.exit ? `<p><a class="btn small" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 ${esc(x.name.split(' · ')[0])} exit ticket ↗</a></p>` : ''}</details>`).join('')}
+      </section>
+
+      <section class="panel"><h2>4 · In your classroom</h2>
         <ul class="steps">
-          <li><b>Your runs are saved for you:</b> press <b>Finish</b> at the end of a string and it's kept in <b>🗂 My runs</b>, dated, with every answer and model. At the wrap-up, add the class and a quick note. Print one or two a month (or save as PDF).</li>
-          <li><b>Notes on student talk:</b> a few quick observations, like who explained, who connected strategies, who changed their mind.</li>
-          <li><b>Exit ticket, now and then:</b> one problem from the string with "show your thinking."</li>
-          <li><b>Benchmark:</b> before April 1, re-run the first string you used in December. In <b>🗂 My runs</b>, open the March run and choose <b>Compare with</b> your December run to see them side by side.</li>
+          <li><b>Before:</b> read the string's practice card (or Notes) and rehearse once. Press <b>↺</b> to start fresh.</li>
+          <li><b>During:</b> give think time, record <i>every</i> answer (<kbd>A</kbd>), and model at least two strategies per problem. Ask "Can the last problem help?" and "What's the same?"</li>
+          <li><b>After:</b> press <kbd>O</kbd> for the whole string, ask "What did you notice?", then <b>Finish</b>.</li>
         </ul>
       </section>
 
       <section class="panel"><h2>Bring to each session</h2>
         <ul class="steps">
-          <li>A laptop or Chromebook.</li>
-          <li><b>Feb 1:</b> one saved run (from 🗂 My runs, printed or as a PDF) where students surprised you, and one question.</li>
-          <li><b>Apr 1:</b> your December and March runs of your benchmark string, side by side (Compare in 🗂 My runs).</li>
+          <li><b>Dec 4:</b> a laptop or Chromebook.</li>
+          <li><b>Feb 1:</b> one saved run (in 🗂 My runs, or printed) where your students surprised you, and one question.</li>
+          <li><b>Apr 1:</b> before this session, re-run the <b>first string you used in December</b> and press Finish. Bring both runs; we'll compare them side by side.</li>
         </ul>
       </section>
       <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
