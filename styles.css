@@ -522,3 +522,19 @@ a.btn.small { text-decoration: none; }
 .pt-head .pt-go { margin-left: auto; }
 .pt-draw { margin-top: 6px; }
 .keys .kc { white-space: nowrap; }
+
+/* ---- "the last one helped": links between problems ---- */
+.link-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 22px; font-weight: 700; color: #5b35a8; background: #f1eafc; border: 2px solid #ddcdf6; border-radius: 12px; padding: 2px 12px; margin-left: 10px; white-space: nowrap; }
+.link-chip .expr, .link-chip .eq-mark { font-size: inherit; }
+.link-chip .lk-a { color: var(--accent); }
+.add-link { border: 2px dashed #ddcdf6; background: none; color: #7a4fd0; border-radius: 10px; padding: 4px 10px; font-weight: 700; font-size: 15px; margin-left: 8px; cursor: pointer; }
+.add-link.has { padding: 4px 8px; }
+.add-link:hover { border-color: #7a4fd0; background: #f7f2fe; }
+.link-pop { position: fixed; top: 120px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 28px)); z-index: 40; background: #fff; border: 2px solid #7a4fd0; border-radius: var(--radius); box-shadow: 0 10px 34px rgba(20, 30, 50, .22); padding: 10px 12px; }
+.lp-list { display: grid; gap: 6px; max-height: 50vh; overflow: auto; }
+.lp-item { display: flex; align-items: center; gap: 10px; text-align: left; font: inherit; font-size: 20px; font-weight: 700; border: 1px solid var(--line); background: #fbfcfe; border-radius: 10px; padding: 6px 10px; cursor: pointer; }
+.lp-item.on { background: #f1eafc; border-color: #7a4fd0; }
+.lp-item .lp-n { font-size: 12px; color: var(--faint); min-width: 16px; }
+.rail { position: relative; }
+.rail-links { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.ov-link { display: inline-block; font-size: 13px; font-weight: 700; color: #5b35a8; background: #f1eafc; border-radius: 8px; padding: 1px 8px; margin: 4px 4px 0 0; }

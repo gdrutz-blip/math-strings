@@ -1778,7 +1778,7 @@
         {
           "q": "0.7 + 0.3",
           "a": "1",
-          "notes": "Look for: 7 tenths and 3 tenths make 10 tenths. Ask: \"How many tenths make one whole?\" Model: numberline 0.7 +0.3 REV1 REV2",
+          "notes": "Look for: 7 tenths and 3 tenths make 10 tenths. Ask: \"How many tenths make one whole?\" Model: numberline 0.7 +0.3",
           "responses": [
             {
               "say": "7 tenths and 3 tenths is 10 tenths, that's 1.",

@@ -49,7 +49,7 @@ Before **Dec 4**:
 ## Maybe later
 
 
-- [ ] **Connect two problems**: an arrow between problems in the left column for "the last one helped me" (for now, use the pen).
+- [x] **Connect two problems** (Nov 18): H (or ↶ helped by) links a problem to the earlier one(s) a student used: a chip on the problem, arrows in the problem list, tags in the wrap-up, kept in saved runs.
 - [ ] **Printable teacher card** for each string: goal, what to listen for, 3 questions to ask. (Partly covered by the 📝 practice card and Notes.)
 
 ## Opening it up to K–8 (big idea, not yet)

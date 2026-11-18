@@ -740,6 +740,7 @@ Rules:
   function runCardsHTML(r) {
     return r.problems.map(p => `<div class="ov-card run-card"><span class="rnum">${p.n}</span>
       <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
+      ${(p.links || []).map(n => `<span class="ov-link">↶ used #${n}</span>`).join('')}
       ${p.snap ? snapHTML(p.snap) : p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
     </div>`).join('');
   }
@@ -887,7 +888,7 @@ Rules:
         <div class="keys">
           <kbd>→</kbd><span>next problem (or Space)</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
           <kbd>Enter</kbd><span>finish the model you're typing</span>
-          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span>
+          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span><kbd>H</kbd><span>"the last one helped": link problems</span>
           <kbd>P</kbd><span>pen</span><kbd>E</kbd><span>eraser</span><span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>undo a pen stroke</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
         <p style="margin:10px 0 6px"><b>Number keys add a model</b> (the number also shows on each tool button):</p>
@@ -914,6 +915,7 @@ Rules:
         <kbd>R</kbd><span>Random name picker</span>
         <kbd>A</kbd><span>Add a student answer</span>
         <kbd>Y</kbd><span>💡 Try: likely student responses for this problem</span>
+        <kbd>H</kbd><span>↶ Helped by: link this problem to the one before (press again for an earlier one, again to remove)</span>
         <span class="kc"><kbd>P</kbd> / <kbd>E</kbd></span><span>Pen / eraser</span>
         <span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>Undo the last pen stroke</span>
         <kbd>L</kbd><span>Show / hide the list of problems on the left</span>
@@ -1169,7 +1171,8 @@ Rules:
       const d = S.data[idx] || { answers: [], models: [] };
       return { n: idx + 1, q: S.problems[idx].q, answers: d.answers.map(a => ({ t: a.t, mark: a.mark || '' })),
         models: d.models.filter(m => String(m.input || '').trim()).map(m => ({ type: m.type, input: m.input, labels: m.labels || {}, hidden: m.hidden || [] })),
-        ...(d.snap && (d.strokes || []).some(st => st.n) ? { snap: d.snap } : {}) };
+        ...(d.snap && (d.strokes || []).some(st => st.n) ? { snap: d.snap } : {}),
+        ...((d.links || []).length ? { links: d.links.map(i => i + 1) } : {}) };
     });
     if (!problems.some(p => p.answers.length || p.models.length)) { if (!quiet) toast('Nothing to save yet. Add an answer or a model first.'); return null; }
     const runs = getRuns();
@@ -1316,7 +1319,40 @@ Rules:
       ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
-    return `${exprPart}<span class="eq-mark">=</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
+    const pos = P.sess.shown.indexOf(idx);
+    const links = (d.links || []).filter(i => P.sess.shown.indexOf(i) > -1 && P.sess.shown.indexOf(i) < pos);
+    return `${exprPart}<span class="eq-mark">=</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>
+      ${links.map(i => `<span class="link-chip" title="A student used problem ${P.sess.shown.indexOf(i) + 1}">↶ ${linkLabel(i)}</span>`).join('')}
+      ${pos > 0 ? `<button class="add-link${links.length ? ' has' : ''}" data-a="links" title="A student used an earlier problem (H)">↶ ${links.length ? '' : 'helped by'}</button>` : ''}`;
+  }
+  // "The last one helped me": link this problem to the earlier problem(s) a student used
+  const ansShown = d => { const c = d.answers.find(a => a.mark === 'circled'); return c ? c.t : ((d.answers.find(a => a.mark !== 'crossed') || {}).t); };
+  function linkLabel(i) { const a = ansShown(pdata(i)); return `<span class="expr">${exprHTML(P.sess.problems[i].q)}</span>${a ? ` <span class="eq-mark">=</span> <span class="lk-a">${exprHTML(a)}</span>` : ''}`; }
+  function cycleLink() {
+    if (!P || P.overview) return;
+    const S = P.sess, idx = S.shown[S.active], d = pdata(idx);
+    const before = S.shown.slice(0, S.active).reverse(); // nearest first
+    if (!before.length) { toast('This is the first problem, so there is nothing before it to link to'); return; }
+    const last = (d.links || [])[(d.links || []).length - 1], k = before.indexOf(last);
+    d.links = last == null || k < 0 ? [before[0]] : k + 1 < before.length ? [before[k + 1]] : [];
+    finishActive(true); saveSession(); renderStage(); renderRail();
+    toast(d.links.length ? `↶ Linked to problem ${S.shown.indexOf(d.links[0]) + 1}` : 'Link removed');
+  }
+  function renderLinkPop() {
+    const old = $('#link-pop'); if (old) old.remove();
+    if (!P || P.overview || P.linkFor == null || P.linkFor !== P.sess.shown[P.sess.active]) return;
+    const S = P.sess, idx = P.linkFor, d = pdata(idx), before = S.shown.slice(0, S.active);
+    const pop = h(`<div class="link-pop" id="link-pop"><div class="try-head"><b>↶ Which problem helped?</b><button class="icon-btn" data-l="close" title="Close">✕</button></div>
+      <div class="lp-list">${before.map(i => `<button class="lp-item${(d.links || []).includes(i) ? ' on' : ''}" data-l="${i}"><span class="lp-n">${S.shown.indexOf(i) + 1}</span>${linkLabel(i)}</button>`).join('')}</div>
+      <div class="try-foot">Tap to link or unlink (more than one is fine). Press <kbd>H</kbd> to link the problem just before.</div></div>`);
+    pop.onclick = e => {
+      const b = e.target.closest('[data-l]'); if (!b) return;
+      if (b.dataset.l === 'close') { P.linkFor = null; renderLinkPop(); return; }
+      const i = +b.dataset.l, L = d.links || (d.links = []);
+      if (L.includes(i)) L.splice(L.indexOf(i), 1); else { L.push(i); L.sort((a, b2) => S.shown.indexOf(a) - S.shown.indexOf(b2)); }
+      saveSession(); renderStage(); renderRail();
+    };
+    $('.pres').appendChild(pop);
   }
   function barHTML(d) {
     const am = P.activeM != null ? d.models[P.activeM] : null;
@@ -1370,6 +1406,12 @@ Rules:
         ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
       </div>`;
     }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
+    const items = $$('.rail-item', rail), arcs = [];
+    S.shown.forEach((idx, pos) => (pdata(idx).links || []).forEach(i => { const from = S.shown.indexOf(i); if (from > -1 && from < pos) arcs.push([from, pos]); }));
+    if (arcs.length) {
+      const y = k => items[k].offsetTop + items[k].offsetHeight / 2, H = rail.scrollHeight;
+      rail.insertAdjacentHTML('beforeend', `<svg class="rail-links" width="14" height="${H}" viewBox="0 0 14 ${H}"><defs><marker id="rl-ah" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#7a4fd0"/></marker></defs>${arcs.map(([a, b]) => `<path d="M13 ${y(a)} C 1 ${y(a)}, 1 ${y(b)}, 11 ${y(b)}" fill="none" stroke="#7a4fd0" stroke-width="2.2" marker-end="url(#rl-ah)"/>`).join('')}</svg>`);
+    }
   }
   const refreshRailCard = () => renderRail();
 
@@ -1395,7 +1437,7 @@ Rules:
     layoutArea();
     setupInk();
     if ((d.strokes && d.strokes.length) || d.snap) snapInk();
-    renderTry();
+    renderTry(); renderLinkPop();
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
   }
@@ -1434,6 +1476,7 @@ Rules:
         const d = pdata(idx), ms = d.models.filter(m => String(m.input || '').trim());
         return `<div class="ov-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span>
           <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
+          ${(d.links || []).filter(i => S.shown.indexOf(i) > -1 && S.shown.indexOf(i) < pos).map(i => `<span class="ov-link">↶ used #${S.shown.indexOf(i) + 1}</span>`).join('')}
           ${d.snap && (d.strokes || []).some(st => st.n) ? snapHTML(d.snap) : ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
         </div>`;
       }).join('')}</div>
@@ -1565,6 +1608,7 @@ Rules:
         case 'addans': return openAnswerInput();
         case 'choosetools': return toolsModal(() => renderStage());
         case 'moretools': P.moreTools = !P.moreTools; return renderStage();
+        case 'links': { const idx = P.sess.shown[P.sess.active]; P.linkFor = P.linkFor === idx ? null : idx; finishActive(true); return renderStage(); }
         case 'saverun': { const r = saveRun(false); if (r) { toast('💾 Saved in My runs'); renderStage(); } return; }
         case 'donem': return finishActive();
         case 'useq': { const m = cur().models[P.activeM], pq = (P.sess.problems[P.sess.shown[P.sess.active]] || {}).q || ''; if (m && pq) { m.input = pq + ' = ' + (m.input || ''); m.labels = {}; P.focusTyper = true; saveSession(); renderStage(); } return; }
@@ -1756,7 +1800,8 @@ Rules:
     else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
     else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
-    else if (k === 'Escape') { if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if (k === 'h' || k === 'H') cycleLink();
+    else if (k === 'Escape') { if (P.linkFor != null && $('#link-pop')) { P.linkFor = null; renderLinkPop(); } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }

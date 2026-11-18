@@ -65,7 +65,7 @@ bottom of the library brings it back.
 ## Keyboard (while presenting)
 
 `→` / Space / `N` / Page Down next · `←` / Page Up back · `T` timer · `R` random name · `A` add answer ·
-`Y` try a likely response · `P` pen · `E` eraser · `Ctrl+Z` undo a stroke · `L` problem list · `O` whole-string overview ·
+`Y` try a likely response · `H` "the last one helped" (link problems) · `P` pen · `E` eraser · `Ctrl+Z` undo a stroke · `L` problem list · `O` whole-string overview ·
 `Enter` finish a model · `Esc` stop typing/drawing · `?` help
 
 Number keys add a model (shown on each tool button): `1` Number line · `2` Double number line · `3` Area model · `4` Array ·
