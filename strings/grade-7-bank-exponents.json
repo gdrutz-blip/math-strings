@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-pow-01-powers-and-exponents",
+      "title": "Powers and Exponents",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Exponents",
+      "tool": "text",
+      "strategy": "An exponent counts how many times the base is multiplied by itself: 2^5 is five 2s multiplied. Each power is the one before times the base.",
+      "topic": "pow",
+      "keywords": "base, exponent, power, repeated multiplication, squared, cubed",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying base and exponent (2^3 = 6): ask \"What does the 3 tell us to do with the 2?\"",
+        "Adding instead of multiplying (3^3 = 9): ask \"Three 3s added, or multiplied?\"",
+        "Starting over every time: ask \"How does 2^4 help with 2^5?\""
+      ],
+      "wrapUp": "Ask \"How did each answer help with the next?\" Land: the exponent counts the factors. Each new power is the last one times the base, so 2^5 = 2^4 × 2. Powers grow fast.",
+      "problems": [
+        {
+          "q": "2^3",
+          "a": "8",
+          "notes": "Look for: 2 × 2 × 2. Ask: \"What does the little 3 mean?\" Word choice: \"2 to the power of 3\", \"2 cubed\". Model: text 2^3 = 2 x 2 x 2 ; = 8",
+          "responses": [
+            {
+              "say": "2 × 2 × 2 is 8.",
+              "tool": "text",
+              "type": "2^3 = 2 x 2 x 2 ; = 8",
+              "tip": "The target meaning."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "2^3 = 2 x 3 = 6 ?",
+              "tip": "Multiplied base and exponent. Ask: how many 2s are multiplied?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2^4",
+          "a": "16",
+          "notes": "Look for: 2^3 × 2. Ask: \"How does the last one help?\" Model: text 2^4 = 2^3 x 2 ; = 8 x 2 = 16",
+          "responses": [
+            {
+              "say": "2^3 is 8, one more 2: 16.",
+              "tool": "text",
+              "type": "2^4 = 2^3 x 2 ; = 8 x 2 = 16",
+              "tip": "Each power is the last one times the base."
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "2^4 = 2 x 4 = 8 ?",
+              "tip": "Ask: what does the 4 count?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2^5",
+          "a": "32",
+          "notes": "Look for: 16 × 2. Ask: \"What's the pattern?\" Model: text 2, 4, 8, 16, 32",
+          "responses": [
+            {
+              "say": "16 doubled is 32.",
+              "tool": "text",
+              "type": "2, 4, 8, 16, 32",
+              "tip": "Doubling each time."
+            },
+            {
+              "say": "2^5 = 2^2 × 2^3 = 4 × 8 = 32.",
+              "tool": "text",
+              "type": "2^5 = 2^2 x 2^3 ; = 4 x 8 = 32",
+              "tip": "Splitting the factors. Ask: why does that work?"
+            },
+            {
+              "say": "10",
+              "tool": "text",
+              "type": "2^5 = 2 x 5 = 10 ?",
+              "tip": "Ask: list the 2s. How many are there?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3^2",
+          "a": "9",
+          "notes": "Look for: 3 × 3, a square. Ask: \"Why do we say 3 squared?\" Model: array 3 x 3",
+          "responses": [
+            {
+              "say": "3 × 3 = 9. It makes a square.",
+              "tool": "array",
+              "type": "3 x 3",
+              "tip": "Why it's called squared."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "3^2 = 3 x 2 = 6 ?",
+              "tip": "Ask: draw a square with side 3. How many little squares?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3^3",
+          "a": "27",
+          "notes": "Look for: 3^2 × 3 = 9 × 3. Ask: \"Why do we say 3 cubed?\" Model: text 3^3 = 3^2 x 3 ; = 9 x 3 = 27",
+          "responses": [
+            {
+              "say": "9 × 3 is 27.",
+              "tool": "text",
+              "type": "3^3 = 3^2 x 3 ; = 9 x 3 = 27",
+              "tip": "Picture a 3 by 3 by 3 cube."
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "3^3 = 3 + 3 + 3 = 9 ?",
+              "tip": "Added. Ask: is an exponent repeated adding or repeated multiplying?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10^4",
+          "a": "10000",
+          "notes": "Look for: four 10s multiplied, a 1 with four zeros. Ask: \"What do you notice about powers of 10?\" Model: text 10^4 = 10 x 10 x 10 x 10 ; = 10 000",
+          "responses": [
+            {
+              "say": "Four 10s: 10 000.",
+              "tool": "text",
+              "type": "10^4 = 10 x 10 x 10 x 10 ; = 10 000",
+              "tip": "Ask: how many zeros? Why?"
+            },
+            {
+              "say": "40",
+              "tool": "text",
+              "type": "10^4 = 10 x 4 = 40 ?",
+              "tip": "Ask: what is 10 × 10 × 10 × 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2^10",
+          "a": "1024",
+          "notes": "Look for: 2^5 × 2^5 = 32 × 32, or keep doubling. Ask: \"Which earlier answer helps?\" Model: text 2^10 = 2^5 x 2^5 ; = 32 x 32 = 1024",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2^5 is 32, and 32 × 32 is 1024.",
+              "tool": "text",
+              "type": "2^10 = 2^5 x 2^5 ; = 32 x 32 = 1024",
+              "tip": "Used 2^5. Ask: why 2^5 twice?"
+            },
+            {
+              "say": "Keep doubling: 32, 64, 128, 256, 512, 1024.",
+              "tool": "text",
+              "type": "32, 64, 128, 256, 512, 1024"
+            },
+            {
+              "say": "20",
+              "tool": "text",
+              "type": "2^10 = 2 x 10 = 20 ?",
+              "tip": "Ask: 2^5 was already 32. Can 2^10 be 20?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

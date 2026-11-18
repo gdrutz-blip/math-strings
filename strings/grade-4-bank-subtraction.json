@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-sub-01-adding-up-to-subtract",
+      "title": "Adding Up to Subtract",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When two numbers are close together, find the difference by counting up from the smaller number to the bigger one, using friendly landing spots.",
+      "topic": "add",
+      "keywords": "difference, count up, adding up, friendly number, distance between",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Counting back from the big number in ones: ask \"How far apart are they? Could you start at the small number?\"",
+        "Losing track of the jumps: ask \"Which jumps are the answer? Add them up.\"",
+        "Regrouping errors with the algorithm on 403 − 397: ask \"Are these numbers close together? How far is it from 397 to 400?\""
+      ],
+      "wrapUp": "Ask \"When is counting up easier than taking away?\" Land: when the numbers are close, the difference is the distance between them. Jump to a friendly number, then to the end, and add the jumps.",
+      "problems": [
+        {
+          "q": "50 - 38",
+          "a": "12",
+          "notes": "Look for: 38 up 2 to 40, up 10 to 50. Ask: \"How far is it from 38 to 50?\" Word choice: \"difference\", \"distance\". Model: numberline 38 >40 >50",
+          "responses": [
+            {
+              "say": "38 up to 40 is 2, then 10 more to 50. 2 + 10 = 12.",
+              "tool": "numberline",
+              "type": "38 >40 >50",
+              "tip": "The target strategy. Ask: which numbers are the answer?"
+            },
+            {
+              "say": "Take away 30 is 20, take away 8 more is 12.",
+              "tool": "numberline",
+              "type": "50 -30 -8",
+              "tip": "Taking away works too. Ask: which way had fewer steps?"
+            },
+            {
+              "say": "28",
+              "tool": "text",
+              "type": "50 - 38 = 28 ?",
+              "tip": "Subtracted 0 − 8 as 8 − 0. Ask: is 38 + 28 = 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100 - 64",
+          "a": "36",
+          "notes": "Look for: 64 up 6 to 70, up 30 to 100. Ask: \"What's a friendly number to land on?\" Model: numberline 64 >70 >100",
+          "responses": [
+            {
+              "say": "64 up 6 is 70, then 30 more is 100. That's 36.",
+              "tool": "numberline",
+              "type": "64 >70 >100"
+            },
+            {
+              "say": "I went up 36 all at once because 64 + 36 = 100.",
+              "tool": "numberline",
+              "type": "64 >100",
+              "tip": "Knows the partner to 100. Ask: how did you know?"
+            },
+            {
+              "say": "46",
+              "tool": "text",
+              "type": "100 - 64 = 46 ?",
+              "tip": "Common with partners of 100. Ask: is 64 + 46 = 100? Check the tens.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "300 - 285",
+          "a": "15",
+          "notes": "Look for: 285 up 5 to 290, up 10 to 300 (or 15 to 300). Ask: \"Do you need to take away 285?\" Model: numberline 285 >290 >300",
+          "responses": [
+            {
+              "say": "285 to 290 is 5, then 10 more to 300. 15.",
+              "tool": "numberline",
+              "type": "285 >290 >300"
+            },
+            {
+              "say": "285 + 15 is 300.",
+              "tool": "numberline",
+              "type": "285 >300"
+            },
+            {
+              "say": "25",
+              "tool": "text",
+              "type": "300 - 285 = 25 ?",
+              "tip": "Ask: what is 285 + 25? Is that 300?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1000 - 975",
+          "a": "25",
+          "notes": "Look for: 975 up 25 to 1000. Ask: \"How is this like 100 − 75?\" Model: numberline 975 >1000",
+          "responses": [
+            {
+              "say": "975 is just 25 away from 1000.",
+              "tool": "numberline",
+              "type": "975 >1000",
+              "tip": "Ask: how is this like 100 − 75?"
+            },
+            {
+              "say": "Add 25 to both: 1025 − 1000 = 25.",
+              "tool": "slide",
+              "type": "1000 - 975 = 1025 - 1000",
+              "tip": "Same difference. Ask: why did that work?"
+            },
+            {
+              "say": "35",
+              "tool": "text",
+              "type": "1000 - 975 = 35 ?",
+              "tip": "Ask: count up from 975. Where does 35 land?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "403 - 397",
+          "a": "6",
+          "notes": "Look for: 397 up 3 to 400, up 3 to 403. Ask: \"Why is the algorithm hard here, and counting up easy?\" Model: numberline 397 >400 >403",
+          "responses": [
+            {
+              "say": "397 up 3 is 400, then up 3 is 403. 6.",
+              "tool": "numberline",
+              "type": "397 >400 >403"
+            },
+            {
+              "say": "Add 3 to both: 406 − 400 = 6.",
+              "tool": "slide",
+              "type": "403 - 397 = 406 - 400"
+            },
+            {
+              "say": "194",
+              "tool": "text",
+              "type": "403 - 397 = 194 ?",
+              "tip": "Algorithm slip with the zero. Ask: are 403 and 397 close or far apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2005 - 1989",
+          "a": "16",
+          "notes": "Look for: 1989 up 11 to 2000, up 5 to 2005. Ask: \"How many years between 1989 and 2005?\" Model: numberline 1989 >1990 >2000 >2005",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1989 to 1990 is 1, to 2000 is 10 more, then 5 more. 16.",
+              "tool": "numberline",
+              "type": "1989 >1990 >2000 >2005",
+              "tip": "A real use: how many years between two dates."
+            },
+            {
+              "say": "1989 up 11 is 2000, plus 5 is 16.",
+              "tool": "numberline",
+              "type": "1989 >2000 >2005"
+            },
+            {
+              "say": "26",
+              "tool": "text",
+              "type": "2005 - 1989 = 26 ?",
+              "tip": "Ask: what is 1989 + 26? Is it 2005?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

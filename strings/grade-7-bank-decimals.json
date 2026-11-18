@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-dec-01-multiplying-decimals",
+      "title": "Multiplying Decimals",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Multiplying a decimal by a decimal can make the answer smaller: 0.5 × 0.4 is half of 0.4. Use fractions you know and the area model to place the decimal sensibly.",
+      "topic": "dec",
+      "keywords": "of, half of, tenths, hundredths, area model, estimate, smaller than",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Expecting multiplying to make bigger (0.5 × 0.4 = 2): ask \"What is half of 0.4?\"",
+        "Placing the decimal by counting digits without checking (0.3 × 0.3 = 0.9): ask \"Is 0.9 three tenths of 0.3?\"",
+        "Forgetting a partial product in 1.2 × 1.5: ask \"Did you multiply both parts of 1.2?\""
+      ],
+      "wrapUp": "Ask \"When does multiplying make a number smaller?\" Land: multiplying by a number less than 1 takes a part of it. Think of 0.5 as a half and 0.25 as a quarter, and estimate before you place the decimal.",
+      "problems": [
+        {
+          "q": "0.5 x 0.4",
+          "a": "0.2",
+          "notes": "Look for: half of 0.4. Ask: \"Is the answer more or less than 0.4?\" Word choice: \"half of four tenths\". Model: area 0.5 x 0.4",
+          "responses": [
+            {
+              "say": "Half of 0.4 is 0.2.",
+              "tool": "area",
+              "type": "0.5 x 0.4",
+              "tip": "The target idea: a part of a part."
+            },
+            {
+              "say": "5 × 4 = 20, and tenths × tenths is hundredths: 0.20.",
+              "tool": "text",
+              "type": "5 x 4 = 20 ; tenths x tenths = hundredths ; 0.20 = 0.2"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "0.5 x 0.4 = 2 ?",
+              "tip": "Ask: what is half of 0.4? Can it be 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5 x 0.8",
+          "a": "0.4",
+          "notes": "Look for: half of 0.8. Ask: \"What's the same as the last one?\" Model: area 0.5 x 0.8",
+          "responses": [
+            {
+              "say": "Half of 0.8 is 0.4.",
+              "tool": "area",
+              "type": "0.5 x 0.8"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "0.5 x 0.8 = 4 ?",
+              "tip": "Ask: half of something less than 1, is it bigger than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.3 x 0.3",
+          "a": "0.09",
+          "notes": "Look for: 3 tenths of 3 tenths is 9 hundredths. Ask: \"Why hundredths?\" Model: area 0.3 x 0.3",
+          "responses": [
+            {
+              "say": "3 × 3 = 9, and a tenth of a tenth is a hundredth. 0.09.",
+              "tool": "area",
+              "type": "0.3 x 0.3",
+              "tip": "Ask: what size is each little square?"
+            },
+            {
+              "say": "3/10 × 3/10 = 9/100.",
+              "tool": "text",
+              "type": "3/10 x 3/10 = 9/100 ; = 0.09",
+              "tip": "Fraction connection."
+            },
+            {
+              "say": "0.9",
+              "tool": "text",
+              "type": "0.3 x 0.3 = 0.9 ?",
+              "tip": "Ask: is 0.9 less than 0.3? Should it be?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5 x 0.2",
+          "a": "0.3",
+          "notes": "Look for: 1 × 0.2 + 0.5 × 0.2. Ask: \"Can you split 1.5?\" Model: area 1+0.5 x 0.2",
+          "responses": [
+            {
+              "say": "1 × 0.2 is 0.2, 0.5 × 0.2 is 0.1. 0.3.",
+              "tool": "area",
+              "type": "1+0.5 x 0.2"
+            },
+            {
+              "say": "15 × 2 = 30, then tenths × tenths: 0.30.",
+              "tool": "text",
+              "type": "15 x 2 = 30 ; 0.30 = 0.3"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "1.5 x 0.2 = 3 ?",
+              "tip": "Ask: 0.2 is a fifth. Is a fifth of 1.5 more than 1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.5 x 0.4",
+          "a": "1",
+          "notes": "Look for: 2 × 0.4 + 0.5 × 0.4 = 0.8 + 0.2. Ask: \"Which problem helps?\" Model: area 2+0.5 x 0.4",
+          "responses": [
+            {
+              "say": "2 × 0.4 is 0.8 and half of 0.4 is 0.2. 1.",
+              "tool": "area",
+              "type": "2+0.5 x 0.4",
+              "tip": "Used 0.5 × 0.4."
+            },
+            {
+              "say": "Double and halve: 5 × 0.2 = 1.",
+              "tool": "halve",
+              "type": "2.5 x 0.4 = 5 x 0.2",
+              "tip": "Doubling and halving works with decimals too."
+            },
+            {
+              "say": "10",
+              "tool": "text",
+              "type": "2.5 x 0.4 = 10 ?",
+              "tip": "25 × 4 = 100, but ask: about how much is 2.5 × 0.4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.2 x 1.5",
+          "a": "1.8",
+          "notes": "Look for: 1 × 1.5 + 0.2 × 1.5 = 1.5 + 0.3. Ask: \"Did you use every part?\" Model: area 1+0.2 x 1.5",
+          "responses": [
+            {
+              "say": "1 × 1.5 is 1.5, 0.2 × 1.5 is 0.3. 1.8.",
+              "tool": "area",
+              "type": "1+0.2 x 1.5"
+            },
+            {
+              "say": "12 × 15 = 180, so 1.80.",
+              "tool": "column",
+              "type": "1.2 x 1.5",
+              "tip": "The algorithm. Ask: how does the area model show the 1.80?"
+            },
+            {
+              "say": "1.7",
+              "tool": "text",
+              "type": "1.2 x 1.5 = 1 x 1.5 + 0.2 = 1.7 ?",
+              "tip": "Missed a partial product. Ask: what is 0.2 × 1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25 x 0.8",
+          "a": "0.2",
+          "notes": "Look for: a quarter of 0.8. Ask: \"What fraction is 0.25?\" Model: text 0.25 = 1/4 ; 1/4 of 0.8 = 0.2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.25 is a quarter, and a quarter of 0.8 is 0.2.",
+              "tool": "text",
+              "type": "0.25 = 1/4 ; 1/4 of 0.8 = 0.2",
+              "tip": "Using a known fraction."
+            },
+            {
+              "say": "Half of 0.8 is 0.4, half again is 0.2.",
+              "tool": "text",
+              "type": "0.8 ÷ 2 = 0.4 ; 0.4 ÷ 2 = 0.2"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "0.25 x 0.8 = 2 ?",
+              "tip": "Ask: a quarter of something less than 1, can it be 2?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

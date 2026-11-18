@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-mult-01-use-a-fact-you-know",
+      "title": "Use a Fact You Know",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Multiplication Facts",
+      "tool": "array",
+      "strategy": "Use a fact you know to work out one you don't: one more group (5 × 7 to 6 × 7), or one group less (10 × 6 to 9 × 6).",
+      "topic": "mult",
+      "keywords": "groups of, fact, one more group, one less group, array, row",
+      "curriculum": [
+        "B2.2"
+      ],
+      "watchFor": [
+        "Adding one instead of one group (6 × 7 = 35 + 1): ask \"What does one more row of the array look like?\"",
+        "Taking away the wrong group (9 × 8 = 80 − 9): ask \"Which number is the group of? What did you take away?\"",
+        "Counting by ones on the array: ask \"Is there a row you already know?\""
+      ],
+      "wrapUp": "Ask \"How did 5 × 7 help with 6 × 7? How did 10 × 6 help with 9 × 6?\" Land: one more group means add one group; one less group means take one group away. The array shows which group.",
+      "problems": [
+        {
+          "q": "5 x 7",
+          "a": "35",
+          "notes": "Look for: 5 groups of 7, or 7 groups of 5 (counting by fives). Ask: \"How do you know it's 35?\" Model: array 5 x 7",
+          "responses": [
+            {
+              "say": "7 groups of 5: 5, 10, 15 ... 35.",
+              "tool": "array",
+              "type": "5 x 7",
+              "tip": "Ask: is it 5 rows of 7, or 7 rows of 5? Does it matter?"
+            },
+            {
+              "say": "10 × 7 is 70, half is 35.",
+              "tool": "text",
+              "type": "10 x 7 = 70 ; 5 x 7 = half of 70 = 35",
+              "tip": "A great fives strategy. Ask: why half?"
+            }
+          ]
+        },
+        {
+          "q": "6 x 7",
+          "a": "42",
+          "notes": "Look for: 5 × 7 = 35, plus one more 7. Ask: \"How does 5 × 7 help?\" Word choice: \"one more group of 7\". Model: area 5+1 x 7",
+          "responses": [
+            {
+              "say": "5 sevens is 35, one more 7 is 42.",
+              "tool": "area",
+              "type": "5+1 x 7",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Double 3 × 7: 21 + 21 = 42.",
+              "tool": "text",
+              "type": "3 x 7 = 21 ; 6 x 7 = 21 + 21 = 42",
+              "tip": "Doubling. Also a fact you know."
+            },
+            {
+              "say": "36",
+              "tool": "text",
+              "type": "6 x 7 = 35 + 1 = 36 ?",
+              "tip": "Added one, not one group. Ask: what does one more row look like?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 x 8",
+          "a": "40",
+          "notes": "Look for: half of 10 × 8. Ask: \"Which fact do you already know?\" Model: array 5 x 8",
+          "responses": [
+            {
+              "say": "Half of 80 is 40.",
+              "tool": "array",
+              "type": "5 x 8"
+            },
+            {
+              "say": "8 fives: 5, 10, 15, 20 ... 40.",
+              "tool": "text",
+              "type": "5, 10, 15, 20, 25, 30, 35, 40"
+            }
+          ]
+        },
+        {
+          "q": "6 x 8",
+          "a": "48",
+          "notes": "Look for: 5 × 8 = 40, plus one more 8. Ask: \"What's the same as 6 × 7?\" Model: area 5+1 x 8",
+          "responses": [
+            {
+              "say": "5 eights is 40, one more 8 is 48.",
+              "tool": "area",
+              "type": "5+1 x 8"
+            },
+            {
+              "say": "Double 3 × 8: 24 + 24 = 48.",
+              "tool": "text",
+              "type": "3 x 8 = 24 ; 24 + 24 = 48"
+            },
+            {
+              "say": "41",
+              "tool": "text",
+              "type": "6 x 8 = 40 + 1 = 41 ?",
+              "tip": "Ask: one more group of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 x 6",
+          "a": "60",
+          "notes": "Look for: 10 groups of 6. Ask: \"Hold on to this one.\" Model: array 10 x 6",
+          "responses": [
+            {
+              "say": "10 sixes is 60.",
+              "tool": "array",
+              "type": "10 x 6",
+              "tip": "Ask: hold on to this. It will help next."
+            },
+            {
+              "say": "6 tens is 60.",
+              "tool": "text",
+              "type": "6 x 10 = 60"
+            }
+          ]
+        },
+        {
+          "q": "9 x 6",
+          "a": "54",
+          "notes": "Look for: 10 × 6 = 60, take away one 6. Ask: \"How does 10 × 6 help?\" Word choice: \"one less group of 6\". Model: area 10-1 x 6",
+          "responses": [
+            {
+              "say": "10 sixes is 60, take away one 6 is 54.",
+              "tool": "area",
+              "type": "10-1 x 6",
+              "tip": "The target strategy: one group less."
+            },
+            {
+              "say": "5 sixes and 4 sixes: 30 + 24 = 54.",
+              "tool": "area",
+              "type": "5+4 x 6",
+              "tip": "Splitting into two facts. It works too."
+            },
+            {
+              "say": "51",
+              "tool": "text",
+              "type": "9 x 6 = 60 - 9 = 51 ?",
+              "tip": "Took away a 9 instead of a 6. Ask: which number is the group?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 x 8",
+          "a": "72",
+          "notes": "Look for: 10 × 8 = 80, take away one 8. Ask: \"Which group do you take away?\" Model: area 10-1 x 8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 eights is 80, minus one 8 is 72.",
+              "tool": "area",
+              "type": "10-1 x 8"
+            },
+            {
+              "say": "71",
+              "tool": "text",
+              "type": "9 x 8 = 80 - 9 = 71 ?",
+              "tip": "Ask: 9 groups of 8. Which group is missing from 10 groups?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

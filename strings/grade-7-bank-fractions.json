@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-frac-01-dividing-fractions",
+      "title": "Dividing Fractions by Fractions",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing by a fraction asks \"how many of these fit?\": 3/4 ÷ 1/8 is how many eighths fit in three quarters. Use the number line to count the jumps.",
+      "topic": "frac",
+      "keywords": "how many fit, groups of, quotative division, common denominator, number line",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Expecting the answer to be smaller than the first number: ask \"How many quarters fit in a half?\"",
+        "Dividing numerators and denominators without meaning: ask \"What is the question really asking?\"",
+        "Losing the leftover part in 5/6 ÷ 1/3: ask \"After 2 thirds, what's left? What part of a third is it?\""
+      ],
+      "wrapUp": "Ask \"Why is 1/2 ÷ 1/4 bigger than 1/2?\" Land: dividing by a fraction asks how many of that fraction fit, and lots of small pieces can fit. When the pieces share a denominator, just count them.",
+      "problems": [
+        {
+          "q": "1/2 / 1/4",
+          "a": "2",
+          "notes": "Look for: two quarters fit in a half. Ask: \"How many quarters fit in a half?\" Word choice: \"how many 1/4s fit in 1/2\". Model: numberline 0 +1/4x2",
+          "responses": [
+            {
+              "say": "Two quarters make a half, so 2.",
+              "tool": "numberline",
+              "type": "0 +1/4x2",
+              "tip": "The target meaning: how many fit."
+            },
+            {
+              "say": "2 quarters ÷ 1 quarter is 2.",
+              "tool": "text",
+              "type": "1/2 = 2/4 ; 2/4 ÷ 1/4 = 2",
+              "tip": "Same denominator, then divide the counts."
+            },
+            {
+              "say": "1/8",
+              "tool": "text",
+              "type": "1/2 ÷ 1/4 = 1/8 ?",
+              "tip": "Multiplied instead. Ask: how many quarters fit in a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 / 1/8",
+          "a": "6",
+          "notes": "Look for: 3/4 is 6/8, so 6 eighths fit. Ask: \"What's 3/4 in eighths?\" Model: numberline 0 +1/8x6",
+          "responses": [
+            {
+              "say": "Six eighths fit in three quarters.",
+              "tool": "numberline",
+              "type": "0 +1/8x6"
+            },
+            {
+              "say": "3/4 is 6/8, and 6 eighths ÷ 1 eighth is 6.",
+              "tool": "text",
+              "type": "3/4 = 6/8 ; 6/8 ÷ 1/8 = 6"
+            },
+            {
+              "say": "3/32",
+              "tool": "text",
+              "type": "3/4 ÷ 1/8 = 3/32 ?",
+              "tip": "Ask: is 3/32 how many eighths fit, or a tiny piece?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 / 1/6",
+          "a": "4",
+          "notes": "Look for: 2/3 = 4/6. Ask: \"How is this like the last one?\" Model: numberline 0 +1/6x4",
+          "responses": [
+            {
+              "say": "Four sixths fit in two thirds.",
+              "tool": "numberline",
+              "type": "0 +1/6x4"
+            },
+            {
+              "say": "2/3 is 4/6, so 4.",
+              "tool": "text",
+              "type": "2/3 = 4/6 ; 4/6 ÷ 1/6 = 4"
+            }
+          ]
+        },
+        {
+          "q": "5/6 / 1/3",
+          "a": "2 1/2",
+          "notes": "Look for: 2 thirds fit, with 1/6 left, which is half a third. Ask: \"What's left over? How much of a third is it?\" Model: numberline 0 +1/3x2 +1/6",
+          "responses": [
+            {
+              "say": "Two thirds fit, and the 1/6 left is half a third. 2 1/2.",
+              "tool": "numberline",
+              "type": "0 +1/3x2 +1/6",
+              "tip": "Ask: why is the leftover a half, not a sixth?"
+            },
+            {
+              "say": "5/6 ÷ 2/6 = 5 ÷ 2 = 2 1/2.",
+              "tool": "text",
+              "type": "1/3 = 2/6 ; 5/6 ÷ 2/6 = 5 ÷ 2 ; = 2 1/2",
+              "tip": "Common denominators, then divide the counts."
+            },
+            {
+              "say": "2 1/6",
+              "tool": "text",
+              "type": "5/6 ÷ 1/3 = 2 1/6 ?",
+              "tip": "Named the leftover in sixths. Ask: what part of a third is 1/6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 3/4",
+          "a": "4",
+          "notes": "Look for: four 3/4 jumps make 3. Ask: \"How many three-quarters fit in 3?\" Model: numberline 0 +3/4x4",
+          "responses": [
+            {
+              "say": "Four jumps of 3/4 land on 3.",
+              "tool": "numberline",
+              "type": "0 +3/4x4"
+            },
+            {
+              "say": "3 is 12 quarters, 12 ÷ 3 = 4.",
+              "tool": "text",
+              "type": "3 = 12/4 ; 12/4 ÷ 3/4 = 12 ÷ 3 = 4"
+            },
+            {
+              "say": "2 1/4",
+              "tool": "text",
+              "type": "3 ÷ 3/4 = 3 x 3/4 = 2 1/4 ?",
+              "tip": "Multiplied. Ask: should the answer be more or less than 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 / 3/4",
+          "a": "8/9",
+          "notes": "Look for: 3/4 doesn't fit in 2/3 even once, so less than 1: 8/12 ÷ 9/12 = 8/9. Ask: \"Does 3/4 fit into 2/3 a whole time?\" Model: text 2/3 = 8/12 ; 3/4 = 9/12 ; 8/12 ÷ 9/12 = 8/9",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 twelfths ÷ 9 twelfths is 8/9.",
+              "tool": "text",
+              "type": "2/3 = 8/12 ; 3/4 = 9/12 ; 8/12 ÷ 9/12 = 8/9",
+              "tip": "Common denominators again."
+            },
+            {
+              "say": "2/3 × 4/3 = 8/9.",
+              "tool": "text",
+              "type": "2/3 ÷ 3/4 = 2/3 x 4/3 ; = 8/9",
+              "tip": "Multiply by the reciprocal. Ask: why does it match?"
+            },
+            {
+              "say": "9/8",
+              "tool": "text",
+              "type": "2/3 ÷ 3/4 = 3/2 x 3/4 = 9/8 ?",
+              "tip": "Flipped the wrong fraction. Ask: is 3/4 bigger than 2/3? So does it fit more than once?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

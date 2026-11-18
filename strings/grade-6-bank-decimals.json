@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-dec-01-multiplying-by-tenths",
+      "title": "Multiplying by Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "ratio",
+      "strategy": "To multiply a whole number by decimal tenths, find one tenth first (× 0.1), then build up the tenths you need: 0.3 is 3 tenths, 1.5 is one whole and 5 tenths.",
+      "topic": "dec",
+      "keywords": "one tenth, times 0.1, tenths, build up, ratio table, half",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Thinking × 0.5 makes the number bigger: ask \"What is half of 120?\"",
+        "120 × 0.3 = 3.6 (multiplying 12 × 3 and placing the decimal by habit): ask \"About how much should it be? Is it close to a third of 120?\"",
+        "Forgetting the whole part in 450 × 1.1: ask \"What's 450 × 1? And then the 0.1 part?\""
+      ],
+      "wrapUp": "Ask \"How did the first problem help with all the others?\" Land: one tenth of the number is the building block. Multiply it to get any number of tenths, and add the whole number when there's a whole part.",
+      "problems": [
+        {
+          "q": "120 x 0.1",
+          "a": "12",
+          "notes": "Look for: one tenth of 120. Ask: \"What does × 0.1 do?\" Word choice: \"one tenth of 120\". Model: ratio 1:120, 0.1:12",
+          "responses": [
+            {
+              "say": "One tenth of 120 is 12.",
+              "tool": "ratio",
+              "type": "1:120, 0.1:12",
+              "tip": "Hold on to this. It's the building block."
+            },
+            {
+              "say": "1200",
+              "tool": "text",
+              "type": "120 x 0.1 = 1200 ?",
+              "tip": "Multiplied by 10. Ask: is 0.1 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 x 0.5",
+          "a": "60",
+          "notes": "Look for: 5 tenths is 5 × 12, or half of 120. Ask: \"What fraction is 0.5?\" Model: ratio 1:120, 0.1:12, 0.5:60",
+          "responses": [
+            {
+              "say": "0.5 is a half, so half of 120 is 60.",
+              "tool": "text",
+              "type": "0.5 = 1/2 ; 1/2 of 120 = 60"
+            },
+            {
+              "say": "One tenth is 12, five tenths is 60.",
+              "tool": "ratio",
+              "type": "1:120, 0.1:12, 0.5:60",
+              "tip": "Built up from 0.1."
+            },
+            {
+              "say": "600",
+              "tool": "text",
+              "type": "120 x 0.5 = 600 ?",
+              "tip": "Ask: should 120 × 0.5 be more or less than 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 x 1.5",
+          "a": "180",
+          "notes": "Look for: 120 + 60. Ask: \"How does 120 × 0.5 help?\" Model: ratio 1:120, 0.5:60, 1.5:180",
+          "responses": [
+            {
+              "say": "120 times 1 is 120, and the 0.5 is 60. 180.",
+              "tool": "ratio",
+              "type": "1:120, 0.5:60, 1.5:180",
+              "tip": "The whole part plus the tenths."
+            },
+            {
+              "say": "1.5 is three halves: 3 × 60 = 180.",
+              "tool": "text",
+              "type": "1.5 = 3 halves ; 3 x 60 = 180"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "120 x 1.5 = 60 ?",
+              "tip": "Forgot the whole part. Ask: is 1.5 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "240 x 0.3",
+          "a": "72",
+          "notes": "Look for: a tenth of 240 is 24, three tenths is 72. Ask: \"What's one tenth of 240?\" Model: ratio 1:240, 0.1:24, 0.3:72",
+          "responses": [
+            {
+              "say": "A tenth is 24, three tenths is 72.",
+              "tool": "ratio",
+              "type": "1:240, 0.1:24, 0.3:72"
+            },
+            {
+              "say": "200 × 0.3 is 60, 40 × 0.3 is 12. 72.",
+              "tool": "area",
+              "type": "200+40 x 0.3",
+              "tip": "Split the whole number."
+            },
+            {
+              "say": "7.2",
+              "tool": "text",
+              "type": "240 x 0.3 = 7.2 ?",
+              "tip": "Ask: is 7.2 close to a third of 240?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "350 x 0.2",
+          "a": "70",
+          "notes": "Look for: a tenth is 35, two tenths is 70. Ask: \"Could you also think of it as a fifth?\" Model: ratio 1:350, 0.1:35, 0.2:70",
+          "responses": [
+            {
+              "say": "A tenth of 350 is 35, double it is 70.",
+              "tool": "ratio",
+              "type": "1:350, 0.1:35, 0.2:70"
+            },
+            {
+              "say": "0.2 is one fifth, and a fifth of 350 is 70.",
+              "tool": "text",
+              "type": "0.2 = 1/5 ; 1/5 of 350 = 70",
+              "tip": "Fraction connection."
+            }
+          ]
+        },
+        {
+          "q": "450 x 1.1",
+          "a": "495",
+          "notes": "Look for: 450 + 45. Ask: \"What's the whole part? What's the tenth?\" Model: ratio 1:450, 0.1:45, 1.1:495",
+          "optional": true,
+          "responses": [
+            {
+              "say": "450 and one tenth more (45) is 495.",
+              "tool": "ratio",
+              "type": "1:450, 0.1:45, 1.1:495",
+              "tip": "1.1 = 1 + 0.1."
+            },
+            {
+              "say": "450 × 1 is 450, 450 × 0.1 is 45. 495.",
+              "tool": "text",
+              "type": "450 x 1 = 450 ; 450 x 0.1 = 45 ; 450 + 45 = 495"
+            },
+            {
+              "say": "451",
+              "tool": "text",
+              "type": "450 x 1.1 = 450 + 1 = 451 ?",
+              "tip": "Added 1 instead of one tenth of 450. Ask: what is 450 × 0.1?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-02-dividing-decimals-by-whole-numbers",
+      "title": "Dividing Decimals by Whole Numbers",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Divide a decimal by a whole number by thinking in tenths or hundredths (2.4 is 24 tenths), or by splitting it into friendly parts to share.",
+      "topic": "dec",
+      "keywords": "share, divide, tenths, hundredths, friendly parts, estimate",
+      "curriculum": [
+        "B2.11"
+      ],
+      "watchFor": [
+        "Putting the decimal in the wrong place (2.4 ÷ 4 = 6): ask \"Is 6 more or less than 2.4? Can sharing make it bigger?\"",
+        "Dividing only the whole part (7.5 ÷ 5 = 1.5 fine, but 3.6 ÷ 4 = 0.9 written as 0.09): ask \"How many tenths is 3.6?\"",
+        "Not estimating first: ask \"About how much should each share be?\""
+      ],
+      "wrapUp": "Ask \"How does thinking in tenths help?\" Land: 3.6 is 36 tenths, and 36 tenths ÷ 4 is 9 tenths. Estimate first so the decimal point lands in a sensible place.",
+      "problems": [
+        {
+          "q": "2.4 / 2",
+          "a": "1.2",
+          "notes": "Look for: half of 2.4. Ask: \"What's half of 2? Half of 0.4?\" Word choice: \"2.4 shared into 2\". Model: area 2.4 / 2 = 2 + 0.4",
+          "responses": [
+            {
+              "say": "Half of 2 is 1, half of 0.4 is 0.2. 1.2.",
+              "tool": "area",
+              "type": "2.4 / 2 = 2 + 0.4"
+            },
+            {
+              "say": "24 tenths ÷ 2 is 12 tenths, 1.2.",
+              "tool": "text",
+              "type": "2.4 = 24 tenths ; 24 tenths ÷ 2 = 12 tenths ; = 1.2",
+              "tip": "Thinking in tenths."
+            }
+          ]
+        },
+        {
+          "q": "2.4 / 4",
+          "a": "0.6",
+          "notes": "Look for: half of 1.2, or 24 tenths ÷ 4 = 6 tenths. Ask: \"Is the answer more or less than 1?\" Model: text 2.4 = 24 tenths ; 24 tenths ÷ 4 = 6 tenths ; = 0.6",
+          "responses": [
+            {
+              "say": "24 tenths ÷ 4 is 6 tenths, 0.6.",
+              "tool": "text",
+              "type": "2.4 = 24 tenths ; 24 tenths ÷ 4 = 6 tenths ; = 0.6",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Half of 1.2 is 0.6.",
+              "tool": "text",
+              "type": "2.4 ÷ 2 = 1.2 ; 1.2 ÷ 2 = 0.6",
+              "tip": "Used the last problem: halve again."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "2.4 ÷ 4 = 6 ?",
+              "tip": "Ask: can 4 people sharing $2.40 each get $6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.6 / 3",
+          "a": "1.2",
+          "notes": "Look for: 3 ÷ 3 and 0.6 ÷ 3. Ask: \"Which parts are easy to share by 3?\" Model: area 3.6 / 3 = 3 + 0.6",
+          "responses": [
+            {
+              "say": "3 ÷ 3 is 1, 0.6 ÷ 3 is 0.2. 1.2.",
+              "tool": "area",
+              "type": "3.6 / 3 = 3 + 0.6"
+            },
+            {
+              "say": "36 tenths ÷ 3 is 12 tenths.",
+              "tool": "text",
+              "type": "36 tenths ÷ 3 = 12 tenths ; = 1.2"
+            }
+          ]
+        },
+        {
+          "q": "3.6 / 4",
+          "a": "0.9",
+          "notes": "Look for: 36 tenths ÷ 4 = 9 tenths. Ask: \"Why can't we split it into 3 and 0.6 this time?\" Model: ratio 4:3.6, 1:0.9",
+          "responses": [
+            {
+              "say": "36 tenths ÷ 4 is 9 tenths, 0.9.",
+              "tool": "text",
+              "type": "3.6 = 36 tenths ; 36 ÷ 4 = 9 ; 9 tenths = 0.9"
+            },
+            {
+              "say": "4 is to 3.6 as 1 is to 0.9.",
+              "tool": "ratio",
+              "type": "4:3.6, 1:0.9"
+            },
+            {
+              "say": "0.09",
+              "tool": "text",
+              "type": "3.6 ÷ 4 = 0.09 ?",
+              "tip": "Ask: is 4 × 0.09 close to 3.6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.5 / 5",
+          "a": "1.5",
+          "notes": "Look for: 5 ÷ 5 and 2.5 ÷ 5. Ask: \"What's a friendly part of 7.5?\" Model: area 7.5 / 5 = 5 + 2.5",
+          "responses": [
+            {
+              "say": "5 ÷ 5 is 1, 2.5 ÷ 5 is 0.5. 1.5.",
+              "tool": "area",
+              "type": "7.5 / 5 = 5 + 2.5"
+            },
+            {
+              "say": "75 tenths ÷ 5 is 15 tenths.",
+              "tool": "text",
+              "type": "75 tenths ÷ 5 = 15 tenths ; = 1.5"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "7.5 ÷ 5 = 15 ?",
+              "tip": "Ask: about how much is 7.5 ÷ 5? Is 15 sensible?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.8 / 6",
+          "a": "0.8",
+          "notes": "Look for: 48 tenths ÷ 6 = 8 tenths. Ask: \"Is the answer more or less than 1? How do you know?\" Model: ratio 6:4.8, 1:0.8",
+          "responses": [
+            {
+              "say": "48 tenths ÷ 6 is 8 tenths.",
+              "tool": "text",
+              "type": "4.8 = 48 tenths ; 48 ÷ 6 = 8 ; = 0.8"
+            },
+            {
+              "say": "6 groups of 0.8 is 4.8.",
+              "tool": "ratio",
+              "type": "6:4.8, 1:0.8"
+            }
+          ]
+        },
+        {
+          "q": "0.84 / 4",
+          "a": "0.21",
+          "notes": "Look for: 0.8 ÷ 4 and 0.04 ÷ 4, or 84 hundredths ÷ 4. Ask: \"What changes with hundredths?\" Model: area 0.84 / 4 = 0.8 + 0.04",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.8 ÷ 4 is 0.2, 0.04 ÷ 4 is 0.01. 0.21.",
+              "tool": "area",
+              "type": "0.84 / 4 = 0.8 + 0.04"
+            },
+            {
+              "say": "84 hundredths ÷ 4 is 21 hundredths.",
+              "tool": "text",
+              "type": "84 hundredths ÷ 4 = 21 hundredths ; = 0.21"
+            },
+            {
+              "say": "2.1",
+              "tool": "text",
+              "type": "0.84 ÷ 4 = 2.1 ?",
+              "tip": "Ask: can sharing 0.84 give each person more than 0.84?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

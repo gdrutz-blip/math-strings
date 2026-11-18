@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-div-01-dividing-with-the-area-model",
+      "title": "Dividing with the Area Model",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Division",
+      "tool": "area",
+      "strategy": "Divide a three-digit number by a two-digit number with the area model: take out 10 groups first, then see what's left.",
+      "topic": "mult",
+      "keywords": "divide, area model, 10 groups, how many groups, quotient, what's left",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Splitting by place value (156 = 100 + 50 + 6) when those parts don't divide by 12: ask \"How much is 10 groups of 12? Start there.\"",
+        "Forgetting to add the parts of the quotient: ask \"How many 12s altogether?\"",
+        "Losing track of what's left: ask \"What's 156 − 120?\""
+      ],
+      "wrapUp": "Ask \"Why did we always start with 10 groups?\" Land: 10 times the divisor is easy, so take it out first; then divide what's left and add the parts. The area model shows the side lengths adding up.",
+      "problems": [
+        {
+          "q": "144 / 12",
+          "a": "12",
+          "notes": "Look for: 10 × 12 = 120, 24 left is 2 × 12. Ask: \"How many 12s?\" Word choice: \"how many groups of 12\". Model: area 144 / 12 = 120 + 24",
+          "responses": [
+            {
+              "say": "10 twelves is 120, 24 left is 2 more twelves. 12.",
+              "tool": "area",
+              "type": "144 / 12 = 120 + 24",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "12 × 12 is 144, I know that one.",
+              "tool": "text",
+              "type": "12 x 12 = 144",
+              "tip": "A fact. Ask: how could you check it?"
+            }
+          ]
+        },
+        {
+          "q": "156 / 12",
+          "a": "13",
+          "notes": "Look for: 120 + 36. Ask: \"How does the last one help?\" Model: area 156 / 12 = 120 + 36",
+          "responses": [
+            {
+              "say": "120 is 10 twelves, 36 is 3 twelves. 13.",
+              "tool": "area",
+              "type": "156 / 12 = 120 + 36"
+            },
+            {
+              "say": "144 is 12 twelves, plus one more 12 is 156. 13.",
+              "tool": "text",
+              "type": "144 ÷ 12 = 12 ; 156 = 144 + 12 ; 13",
+              "tip": "Used the last problem."
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "156 ÷ 12 = 36 ÷ 12 = 3 ?",
+              "tip": "Forgot the 10 groups in 120. Ask: how many 12s are in 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "168 / 14",
+          "a": "12",
+          "notes": "Look for: 140 + 28. Ask: \"What's 10 groups of 14?\" Model: area 168 / 14 = 140 + 28",
+          "responses": [
+            {
+              "say": "140 is 10 fourteens, 28 is 2 more. 12.",
+              "tool": "area",
+              "type": "168 / 14 = 140 + 28"
+            },
+            {
+              "say": "Half both: 84 ÷ 7 = 12.",
+              "tool": "text",
+              "type": "168 ÷ 14 = 84 ÷ 7 ; = 12",
+              "tip": "Halving both numbers. Ask: why is the answer the same?"
+            }
+          ]
+        },
+        {
+          "q": "195 / 15",
+          "a": "13",
+          "notes": "Look for: 150 + 45. Ask: \"How many 15s in 45?\" Model: area 195 / 15 = 150 + 45",
+          "responses": [
+            {
+              "say": "150 is 10 fifteens, 45 is 3 fifteens. 13.",
+              "tool": "area",
+              "type": "195 / 15 = 150 + 45"
+            },
+            {
+              "say": "200 is 13 fifteens and 5 more, so 195 is 13.",
+              "tool": "text",
+              "type": "15 x 13 = 195"
+            },
+            {
+              "say": "10 R45",
+              "tool": "text",
+              "type": "195 ÷ 15 = 10 R45 ?",
+              "tip": "Stopped after 10 groups. Ask: can 45 make more 15s?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "288 / 24",
+          "a": "12",
+          "notes": "Look for: 240 + 48. Ask: \"Is there a bigger first chunk?\" Model: area 288 / 24 = 240 + 48",
+          "responses": [
+            {
+              "say": "240 is 10 twenty-fours, 48 is 2. 12.",
+              "tool": "area",
+              "type": "288 / 24 = 240 + 48"
+            },
+            {
+              "say": "Half both twice: 72 ÷ 6 = 12.",
+              "tool": "text",
+              "type": "288 ÷ 24 = 144 ÷ 12 ; = 72 ÷ 6 ; = 12",
+              "tip": "Ask: why can we halve both?"
+            }
+          ]
+        },
+        {
+          "q": "252 / 21",
+          "a": "12",
+          "notes": "Look for: 210 + 42. Ask: \"What's the same as 288 ÷ 24?\" Model: area 252 / 21 = 210 + 42",
+          "optional": true,
+          "responses": [
+            {
+              "say": "210 is 10 twenty-ones, 42 is 2. 12.",
+              "tool": "area",
+              "type": "252 / 21 = 210 + 42"
+            },
+            {
+              "say": "21 × 12 = 252.",
+              "tool": "text",
+              "type": "21 x 12 = 252"
+            }
+          ]
+        },
+        {
+          "q": "300 / 25",
+          "a": "12",
+          "notes": "Look for: 250 + 50, or 4 quarters in each 100. Ask: \"How is this like money?\" Model: area 300 / 25 = 250 + 50",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 is 10 twenty-fives, 50 is 2. 12.",
+              "tool": "area",
+              "type": "300 / 25 = 250 + 50"
+            },
+            {
+              "say": "Four 25s in each 100, so 3 × 4 = 12.",
+              "tool": "text",
+              "type": "100 ÷ 25 = 4 ; 300 ÷ 25 = 3 x 4 = 12",
+              "tip": "Like quarters in dollars."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
