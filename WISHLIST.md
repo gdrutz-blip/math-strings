@@ -42,6 +42,8 @@ Before **Dec 4**:
 
 - [x] **What's filled in when you pick a tool** (Nov 18): a tool starts with the problem only if it can draw it (no more starting with an error); the number line and Words start blank (Words has a one-tap "＋ problem =" button); grey hints say "e.g."; Estimate fills in decimals and Bar fills in "3/4 of 24".
 
+- [x] **Practice board** (Nov 18): 🧪 Practise here on a practice card opens a split screen with a sandbox presenter (its own session; no runs, no ✓; Finish restarts). ▶ Draw it and Show on board send responses and problems to it. On small screens it opens in a new tab. Tool buttons show their number key.
+
 ## Maybe later
 
 
