@@ -38,6 +38,8 @@ Before **Dec 4**:
     - [x] Batch 1, Grade 8 (Nov 17): 10 strings. Integers × ÷ (4, B2.7), powers of ten (3, B2.3), percents over 100% / under 1% / fraction-decimal-percent (3, B1.4). Files `grade-8-bank-*.json`; the library lists the bank after a grade's weekly units, and the PD page points to it.
     - [ ] Next batches: Grade 8 fractions × ÷ (B2.6), squares and square roots (B2.2, B1.3), scientific notation (B1.1); then Grades 4–7.
 
+- [x] **What's filled in when you pick a tool** (Nov 18): a tool starts with the problem only if it can draw it (no more starting with an error); the number line and Words start blank (Words has a one-tap "＋ problem =" button); grey hints say "e.g."; Estimate fills in decimals and Bar fills in "3/4 of 24".
+
 ## Maybe later
 
 - [ ] **Topic banks per grade**: several possible focus units for each grade (4–8), each tied to Ontario Number expectations, so teachers can pick a different focus after the first 8 weeks. Do after the PD units are written.
