@@ -111,6 +111,7 @@
   let ready = false;
   function route() {
     if (!ready) return; // the first route runs once the library has loaded
+    { const tp = document.getElementById('tcard-page'); if (tp) tp.remove(); }
     stopTimerUI();
     document.querySelectorAll('.modal-back [data-close]').forEach(b => b.click()); // close any open dialog when the page changes
     const hash = location.hash.replace(/^#\/?/, '');
@@ -121,6 +122,7 @@
     if (view === 'start') return startPage();
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
+    if (view === 'card' && id) return teacherCard(decodeURIComponent(id));
     if (view === 'runs') return runsPage(id ? decodeURIComponent(id) : null);
     if (view === 'share' && id) return sharePage(id);
     if (view === 'run' && id) return runPage(decodeURIComponent(id), id2 ? decodeURIComponent(id2) : null);
@@ -361,6 +363,7 @@
           <button class="btn ghost" data-act="back">← Library</button>
           <h2>Edit string</h2>
           <span class="saved" id="saved">✓ Saved</span>
+          <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a>
           <button class="btn" data-act="share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
           <button class="btn primary" data-act="present">▶ Present</button>
         </div>
@@ -526,6 +529,61 @@ Rules:
 - Mark skippable problems with "optional": true.`;
 
   // A printable practice card: likely student responses for each problem, and exactly what to type
+  // Split a problem's notes into its parts: "Context: … Look for: … Ask: "…" Word choice: … Model: …"
+  function noteParts(n) {
+    const t = String(n || '').split(/\s*Model:/)[0];
+    const grab = re => { const m = t.match(re); return m ? m[1].trim() : ''; };
+    const stop = '(?=\\s*(?:Look for:|First ask:|Ask:|Word choice:|Context:|$))';
+    return {
+      look: grab(new RegExp('Look for:\\s*([\\s\\S]*?)' + stop, 'i')),
+      ask: grab(new RegExp('(?:First )?ask:\\s*([\\s\\S]*?)' + stop, 'i')),
+      ctx: grab(new RegExp('Context:\\s*([\\s\\S]*?)' + stop, 'i')),
+      word: grab(new RegExp('Word choice:\\s*([\\s\\S]*?)' + stop, 'i')),
+    };
+  }
+  // One printable page to keep beside you while running the string
+  function teacherCard(id) {
+    const s = findString(id);
+    if (!s) return go('');
+    document.title = 'Teacher card · ' + s.title;
+    // the card prints upright on one page (the presenter prints sideways); this rule is removed when you leave
+    document.head.insertAdjacentHTML('beforeend', '<style id="tcard-page">@page { size: portrait; margin: 12mm; }</style>');
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    const g = gradeOf(s), parts = s.problems.map(p => noteParts(p.notes));
+    // three questions to ask: the string's own questions, skipping the warm-ups ("Hold on to this")
+    const qs = [];
+    parts.forEach((x, i) => { const q = x.ask.replace(/^"|"$/g, ''); if (i && q && !/hold on to this/i.test(q) && !qs.some(y => y.toLowerCase() === q.toLowerCase()) && qs.length < 3) qs.push(q); });
+    const words = parts.map(x => x.word).filter(Boolean)[0];
+    app.innerHTML = `
+    <div class="guide tcard">
+      <div class="ed-head no-print">
+        <a class="btn ghost" href="#/">← Library</a>
+        <span style="flex:1"></span>
+        <button class="btn" onclick="window.print()">🖨 Print</button>
+        ${s.problems.some(p => p.responses) ? `<a class="btn" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}
+        <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>
+      </div>
+      <div class="tc-top">
+        <div><div class="tc-eyebrow">${esc(s.group || '')} ${currBadges(g, currOf(s))}</div>
+          <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)}</h1></div>
+      </div>
+      <div class="tc-goal"><b>Goal:</b> ${esc(s.strategy || '')}${s.keywords ? `<div class="tc-kw"><b>Key words:</b> ${esc(s.keywords)}</div>` : ''}${s.connection ? `<div class="tc-kw"><b>Builds on:</b> ${esc(s.connection)}</div>` : ''}</div>
+      <table class="tc-table">
+        <tr><th>#</th><th>Problem</th><th>Look for</th><th>Ask</th></tr>
+        ${s.problems.map((p, i) => `<tr class="${p.optional ? 'opt' : ''}"><td class="tc-n">${i + 1}</td>
+          <td class="tc-q"><span class="expr">${exprHTML(p.q)}</span> <span class="tc-a">= ${esc(p.a)}</span>${p.optional ? '<span class="tc-opt">optional</span>' : ''}</td>
+          <td>${parts[i].ctx ? `<i>${esc(parts[i].ctx)}</i> ` : ''}${esc(parts[i].look)}</td><td>${esc(parts[i].ask)}</td></tr>`).join('')}
+      </table>
+      <div class="tc-cols">
+        <div class="tc-box"><h3>3 questions to ask</h3><ol>${(qs.length ? qs : ['Can the last problem help?', "What's the same? What changed?", 'Who solved it a different way?']).map(q => `<li>${esc(q)}</li>`).join('')}</ol>
+          <p class="tc-always">Any time: <i>"Can the last problem help?"</i> · <i>"Who did it differently?"</i></p></div>
+        <div class="tc-box"><h3>Watch for</h3><ul>${(s.watchFor || []).slice(0, 3).map(w => `<li>${esc(w)}</li>`).join('') || '<li>Listen for how students start, and which earlier problem they use.</li>'}</ul></div>
+      </div>
+      ${s.wrapUp || words ? `<div class="tc-box tc-wrap">${s.wrapUp ? `<b>Wrap-up:</b> ${esc(s.wrapUp)}` : ''}${words ? `<div class="tc-kw"><b>Word choice:</b> ${esc(words)}</div>` : ''}</div>` : ''}
+      <p class="tc-foot">Math Strings · ${esc(s.label ? s.label + ' · ' : '')}${esc(s.title)}</p>
+    </div>`;
+    window.scrollTo(0, 0);
+  }
   function practicePage(id) {
     const s = findString(id);
     if (!s) return go('');
@@ -539,6 +597,7 @@ Rules:
         <a class="btn ghost" href="#/">← Library</a>
         <span style="flex:1"></span>
         <button class="btn" onclick="window.print()">🖨 Print</button>
+        <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a>
         <button class="btn" id="pt-share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
         <button class="btn${split ? ' on' : ''}" id="pt-board" title="Practise beside a board: nothing you do there is saved">🧪 ${split ? 'Hide practice board' : 'Practise here'}</button>
         <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
@@ -633,7 +692,7 @@ Rules:
              ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
                ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
                <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
-                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
+                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a><a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
       </section>
 
       <section class="panel pd-ask"><h2>2 · Between sessions: the whole ask</h2>

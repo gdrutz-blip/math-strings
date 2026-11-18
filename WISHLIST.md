@@ -50,7 +50,7 @@ Before **Dec 4**:
 
 
 - [x] **Connect two problems** (Nov 18): H (or ↶ helped by) links a problem to the earlier one(s) a student used: a chip on the problem, arrows in the problem list, tags in the wrap-up, kept in saved runs.
-- [ ] **Printable teacher card** for each string: goal, what to listen for, 3 questions to ask. (Partly covered by the 📝 practice card and Notes.)
+- [x] **Printable teacher card** (Nov 18): 🗒 Teacher card (PD page, practice card, editor) prints one upright page per string: goal, key words, a Look for / Ask row per problem, 3 questions to ask, watch-fors and the wrap-up. Checked: all 67 strings fit on one Letter page.
 
 ## Opening it up to K–8 (big idea, not yet)
 
