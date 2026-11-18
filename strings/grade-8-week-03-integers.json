@@ -4,12 +4,13 @@
     {
       "id": "g8-bank-int-01-groups-of-negatives",
       "title": "Groups of Negatives",
-      "label": "Bank",
-      "group": "Grade 8 · Bank · Integers",
+      "label": "Day 1",
+      "group": "Grade 8 · Week 3 · Multiplying and Dividing Integers",
       "tool": "numberline",
       "strategy": "A positive times a negative is that many groups of the negative, so the product is negative.",
       "topic": "int",
       "keywords": "groups of, repeated addition, jumps left, negative product",
+      "connection": "First string of the week. Builds on adding integers (Grade 7): 4 × −3 is −3 + −3 + −3 + −3.",
       "curriculum": [
         "B2.7"
       ],
@@ -160,12 +161,13 @@
     {
       "id": "g8-bank-int-02-taking-away-groups",
       "title": "Taking Away Groups",
-      "label": "Bank",
-      "group": "Grade 8 · Bank · Integers",
+      "label": "Day 2",
+      "group": "Grade 8 · Week 3 · Multiplying and Dividing Integers",
       "tool": "tiles",
       "strategy": "A negative times a number means taking away that many groups; add zero pairs first so there is something to take away.",
       "topic": "int",
       "keywords": "take away groups, zero pairs, opposite, negative times negative",
+      "connection": "Day 1 was groups of negatives. Today the first factor is negative: take away groups, using zero pairs from Grade 7.",
       "curriculum": [
         "B2.7"
       ],
@@ -309,12 +311,13 @@
     {
       "id": "g8-bank-int-03-pattern-of-products",
       "title": "The Pattern of Products",
-      "label": "Bank",
-      "group": "Grade 8 · Bank · Integers",
+      "label": "Day 3",
+      "group": "Grade 8 · Week 3 · Multiplying and Dividing Integers",
       "tool": "text",
       "strategy": "Following a pattern: as one factor goes down by 1, the product changes by the other factor, even past zero.",
       "topic": "int",
       "keywords": "pattern, decrease by, sign, continue the pattern",
+      "connection": "Days 1 and 2 built the sign rules with models. Today a pattern shows why −1 × −4 must be 4.",
       "curriculum": [
         "B2.7",
         "B2.1"
@@ -437,12 +440,13 @@
     {
       "id": "g8-bank-int-04-dividing-integers",
       "title": "Dividing Integers",
-      "label": "Bank",
-      "group": "Grade 8 · Bank · Integers",
+      "label": "Day 4",
+      "group": "Grade 8 · Week 3 · Multiplying and Dividing Integers",
       "tool": "text",
       "strategy": "Use the related multiplication fact: −12 ÷ 3 = −4 because 3 × −4 = −12; the sign follows the same rules.",
       "topic": "int",
       "keywords": "related facts, fact family, inverse, quotient, sign",
+      "connection": "Uses Days 1 to 3: every division has a related multiplication, so the same sign rules apply.",
       "curriculum": [
         "B2.7",
         "B2.1"
@@ -581,6 +585,199 @@
               "tool": "text",
               "type": "-84 = -70 + -14 ; 10 + 2 = 12",
               "tip": "Split the dividend. Nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-w03-d5-choosing-integer-operations",
+      "title": "Choosing an Integer Strategy",
+      "label": "Day 5",
+      "group": "Grade 8 · Week 3 · Multiplying and Dividing Integers",
+      "tool": "text",
+      "strategy": "Decide the sign first (count the negatives), then find the size with a friendly strategy.",
+      "topic": "int",
+      "keywords": "sign first, count the negatives, size, related fact, friendly numbers",
+      "connection": "Brings together Days 1 to 4, and extends to three factors: an even number of negatives makes a positive product.",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Getting the size right but the sign wrong: ask \"Before you calculate, positive or negative? How do you know?\"",
+        "Thinking two negatives always make a positive, even when adding (−3 + −4 = 7): ask \"Are we adding or multiplying?\"",
+        "Three factors: losing track of the sign. Ask \"How many negative factors are there?\""
+      ],
+      "wrapUp": "Ask \"How can you know the sign before you calculate?\" Land: count the negative factors: an even number gives a positive, an odd number a negative. Then find the size with any friendly strategy.",
+      "problems": [
+        {
+          "q": "-6 x 4",
+          "a": "-24",
+          "notes": "Look for: sign first (one negative: negative), then 6 × 4. Ask: \"Positive or negative? How do you know?\" Model: text 6 x 4 = 24 ; -6 x 4 = -24",
+          "responses": [
+            {
+              "say": "6 × 4 is 24, and one negative makes it negative: −24.",
+              "tool": "text",
+              "type": "6 x 4 = 24 ; -6 x 4 = -24",
+              "tip": "Sign first, then size."
+            },
+            {
+              "say": "Take away 6 groups of 4: 24 negatives left.",
+              "tool": "tiles",
+              "type": "-6 x 4"
+            },
+            {
+              "say": "24",
+              "tool": "text",
+              "type": "-6 x 4 = 24 ?",
+              "tip": "Ask: how many negative factors? So positive or negative?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-24 / -6",
+          "a": "4",
+          "notes": "Look for: the related fact from the last problem. Ask: \"How does −6 × 4 help?\" Model: text -6 x 4 = -24 ; -24 / -6 = 4",
+          "responses": [
+            {
+              "say": "−6 × 4 = −24, so −24 ÷ −6 = 4.",
+              "tool": "text",
+              "type": "-6 x 4 = -24 ; -24 / -6 = 4"
+            },
+            {
+              "say": "Same signs, so positive: 24 ÷ 6 = 4.",
+              "tool": "text",
+              "type": "24 / 6 = 4 ; same signs, so 4"
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "-24 / -6 = -4 ?",
+              "tip": "Ask: −6 × −4 is what? Is it −24?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-5 x -8",
+          "a": "40",
+          "notes": "Look for: two negatives: positive; 5 × 8 = 40. Ask: \"Do you need a model, or do you know the sign?\" Model: text 5 x 8 = 40 ; -5 x -8 = 40",
+          "responses": [
+            {
+              "say": "Two negatives make a positive product: 40.",
+              "tool": "text",
+              "type": "5 x 8 = 40 ; -5 x -8 = 40"
+            },
+            {
+              "say": "Take away 5 groups of −8: 40 positives left.",
+              "tool": "tiles",
+              "type": "-5 x -8",
+              "tip": "Day 2's model."
+            },
+            {
+              "say": "-40",
+              "tool": "text",
+              "type": "-5 x -8 = -40 ?",
+              "tip": "Ask: what's the opposite of 5 × −8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x -4 x -5",
+          "a": "60",
+          "notes": "Look for: count the negatives (two: positive), then 3 × 4 × 5. Ask: \"How many negative factors?\" Model: text 3 x -4 = -12 ; -12 x -5 = 60",
+          "responses": [
+            {
+              "say": "3 × −4 is −12, then −12 × −5 is 60.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; -12 x -5 = 60",
+              "tip": "Step by step."
+            },
+            {
+              "say": "Two negatives, so positive. 4 × 5 is 20, times 3 is 60.",
+              "tool": "text",
+              "type": "two negatives: positive ; 3 x 4 x 5 = 3 x 20 = 60",
+              "tip": "Sign first, friendly order. Name it."
+            },
+            {
+              "say": "-60",
+              "tool": "text",
+              "type": "3 x -4 x -5 = -60 ?",
+              "tip": "Ask: how many negative factors are there? Even or odd?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-72 / 8",
+          "a": "-9",
+          "notes": "Look for: 8 × −9 = −72. Ask: \"What times 8 gives −72?\" Model: text 8 x -9 = -72 ; -72 / 8 = -9",
+          "responses": [
+            {
+              "say": "8 × −9 = −72, so −9.",
+              "tool": "text",
+              "type": "8 x -9 = -72 ; -72 / 8 = -9"
+            },
+            {
+              "say": "Different signs: negative. 72 ÷ 8 = 9.",
+              "tool": "numberline",
+              "type": "0 -9x8",
+              "tip": "Split −72 into 8 equal jumps of −9."
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "-72 / 8 = 9 ?",
+              "tip": "Ask: 8 × 9 is 72, not −72. What times 8 is −72?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 x -3 x -5",
+          "a": "-30",
+          "notes": "Look for: three negatives: odd, so negative. Ask: \"Even or odd number of negatives?\" Model: text -2 x -3 = 6 ; 6 x -5 = -30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−2 × −3 is 6, then 6 × −5 is −30.",
+              "tool": "text",
+              "type": "-2 x -3 = 6 ; 6 x -5 = -30"
+            },
+            {
+              "say": "Three negatives is odd, so negative: 2 × 3 × 5 = 30, so −30.",
+              "tool": "text",
+              "type": "three negatives: negative ; 2 x 3 x 5 = 30 ; = -30"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "-2 x -3 x -5 = 30 ?",
+              "tip": "Ask: how many negatives? Do they all pair up?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-144 / -12",
+          "a": "12",
+          "notes": "Look for: same signs: positive; 12 × 12 = 144. Ask: \"Which fact do you know?\" Model: text 12 x 12 = 144 ; -144 / -12 = 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Same signs: positive. 12 × 12 = 144: 12.",
+              "tool": "text",
+              "type": "-12 x 12 = -144 ; -144 / -12 = 12"
+            },
+            {
+              "say": "-12",
+              "tool": "text",
+              "type": "-144 / -12 = -12 ?",
+              "tip": "Ask: −12 × −12 is what?",
+              "kind": "error"
             }
           ]
         }

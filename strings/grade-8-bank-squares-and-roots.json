@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-sq-01-squares-and-roots",
+      "title": "Squares and Square Roots",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Squares and Square Roots",
+      "tool": "array",
+      "strategy": "A square number is a number times itself, like the area of a square; its square root is the side length.",
+      "topic": "pow",
+      "keywords": "square, square root, side length, area, perfect square",
+      "curriculum": [
+        "B2.2",
+        "B1.3"
+      ],
+      "watchFor": [
+        "Doubling instead of squaring (5^2 = 10): build the square array and ask \"How many dots?\"",
+        "Halving for a square root (√36 = 18): ask \"What times itself makes 36?\""
+      ],
+      "wrapUp": "Ask \"How are squares and square roots related?\" Land: squaring finds the area of a square from its side; the square root finds the side from the area.",
+      "problems": [
+        {
+          "q": "6 x 6",
+          "a": "36",
+          "notes": "Look for: a known fact. Ask: \"Why is this called a square number?\" Model: array 6 x 6",
+          "responses": [
+            {
+              "say": "6 rows of 6: 36.",
+              "tool": "array",
+              "type": "6 x 6"
+            }
+          ]
+        },
+        {
+          "q": "5^2",
+          "a": "25",
+          "notes": "Look for: 5 × 5. Ask: \"What does the little 2 mean?\" Word choice: \"five squared\". Model: array 5 x 5",
+          "responses": [
+            {
+              "say": "5 × 5 = 25, a 5-by-5 square.",
+              "tool": "array",
+              "type": "5 x 5"
+            },
+            {
+              "say": "10",
+              "tool": "text",
+              "type": "5^2 = 5 x 2 = 10 ?",
+              "tip": "Doubled. Ask: what does the exponent 2 mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "√25",
+          "a": "5",
+          "notes": "Look for: the side of a square with area 25. Ask: \"What times itself makes 25?\" Model: array 5 x 5",
+          "responses": [
+            {
+              "say": "5 × 5 = 25, so the side is 5.",
+              "tool": "array",
+              "type": "5 x 5",
+              "tip": "The square root is the side length."
+            },
+            {
+              "say": "12.5",
+              "tool": "text",
+              "type": "√25 = 25 / 2 = 12.5 ?",
+              "tip": "Halved. Ask: what number times itself is 25?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12^2",
+          "a": "144",
+          "notes": "Look for: 10 × 12 + 2 × 12, or 100 + 20 + 20 + 4. Ask: \"Can you split the side?\" Model: area 10+2 x 10+2",
+          "responses": [
+            {
+              "say": "100 + 20 + 20 + 4 = 144.",
+              "tool": "area",
+              "type": "10+2 x 10+2"
+            },
+            {
+              "say": "A known fact: 144.",
+              "tool": "text",
+              "type": "12 x 12 = 144"
+            },
+            {
+              "say": "104",
+              "tool": "text",
+              "type": "12^2 = 10^2 + 2^2 = 104 ?",
+              "tip": "Missed two pieces. Ask: what's in the other two boxes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "√144",
+          "a": "12",
+          "notes": "Look for: the last problem in reverse. Ask: \"How does the last problem help?\" Model: area 10+2 x 10+2",
+          "responses": [
+            {
+              "say": "12 × 12 = 144, so 12.",
+              "tool": "text",
+              "type": "12 x 12 = 144 ; √144 = 12"
+            },
+            {
+              "say": "72",
+              "tool": "text",
+              "type": "√144 = 144 / 2 = 72 ?",
+              "tip": "Ask: what times itself makes 144?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20^2",
+          "a": "400",
+          "notes": "Look for: 2 × 2 = 4, then two zeros. Ask: \"What happens with tens?\" Model: area 20 x 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20 × 20 = 400.",
+              "tool": "area",
+              "type": "20 x 20"
+            },
+            {
+              "say": "40",
+              "tool": "text",
+              "type": "20^2 = 20 x 2 = 40 ?",
+              "tip": "Doubled. Ask: what does squared mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15^2",
+          "a": "225",
+          "notes": "Look for: 100 + 50 + 50 + 25, or 10 × 15 + 5 × 15. Ask: \"Which split is easiest?\" Model: area 10+5 x 10+5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "100 + 50 + 50 + 25 = 225.",
+              "tool": "area",
+              "type": "10+5 x 10+5"
+            },
+            {
+              "say": "10 × 15 is 150, 5 × 15 is 75: 225.",
+              "tool": "area",
+              "type": "10+5 x 15"
+            },
+            {
+              "say": "125",
+              "tool": "text",
+              "type": "15^2 = 10^2 + 5^2 = 125 ?",
+              "tip": "Missed two pieces. Ask: show me all four boxes.",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-bank-sq-02-estimating-square-roots",
+      "title": "Estimating Square Roots",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Squares and Square Roots",
+      "tool": "numberline",
+      "strategy": "To estimate a square root, find the perfect squares on either side, then decide which one it is closer to.",
+      "topic": "pow",
+      "keywords": "estimate, between, perfect squares, closer to",
+      "curriculum": [
+        "B1.3",
+        "B2.2"
+      ],
+      "watchFor": [
+        "Halving instead (√50 = 25): ask \"Is 25 × 25 close to 50?\"",
+        "Placing the estimate halfway every time (√50 = 7.5): ask \"Is 50 closer to 49 or to 64?\""
+      ],
+      "wrapUp": "Ask \"How did the perfect squares help?\" Land: find the squares on either side, then decide which one it's closer to. √50 is just over 7 because 50 is just over 49.",
+      "problems": [
+        {
+          "q": "√49",
+          "a": "7",
+          "notes": "Look for: 7 × 7 = 49. Ask: \"Hold on to this.\" Model: array 7 x 7",
+          "responses": [
+            {
+              "say": "7 × 7 = 49.",
+              "tool": "array",
+              "type": "7 x 7"
+            }
+          ]
+        },
+        {
+          "q": "√64",
+          "a": "8",
+          "notes": "Look for: 8 × 8 = 64. Ask: \"Hold on to this one too.\" Model: array 8 x 8",
+          "responses": [
+            {
+              "say": "8 × 8 = 64.",
+              "tool": "array",
+              "type": "8 x 8"
+            }
+          ]
+        },
+        {
+          "q": "√50",
+          "a": "about 7.1",
+          "notes": "Look for: between 7 and 8, very close to 7. Ask: \"Is 50 closer to 49 or to 64?\" Model: numberline 7 @7.1 @8",
+          "responses": [
+            {
+              "say": "Between 7 and 8, and 50 is just past 49, so about 7.1.",
+              "tool": "numberline",
+              "type": "7 @7.1 @8",
+              "tip": "The target reasoning."
+            },
+            {
+              "say": "49 to 50 is 1, out of 15 from 49 to 64.",
+              "tool": "numberline",
+              "type": "49 >50 >64"
+            },
+            {
+              "say": "7.5",
+              "tool": "numberline",
+              "type": "7 @7.5 @8",
+              "tip": "Halfway every time. Ask: is 50 halfway between 49 and 64?",
+              "kind": "error"
+            },
+            {
+              "say": "25",
+              "tool": "text",
+              "type": "√50 = 50 / 2 = 25 ?",
+              "tip": "Halved. Ask: is 25 × 25 close to 50?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "√60",
+          "a": "about 7.7",
+          "notes": "Look for: between 7 and 8, closer to 8. Ask: \"Closer to 49 or 64?\" Model: numberline 7 @7.7 @8",
+          "responses": [
+            {
+              "say": "60 is 11 past 49 and 4 before 64, so closer to 8: about 7.7.",
+              "tool": "numberline",
+              "type": "7 @7.7 @8"
+            },
+            {
+              "say": "7.75 × 7.75 is about 60.",
+              "tool": "text",
+              "type": "7.7 x 7.7 = 59.29 ; 7.8 x 7.8 = 60.84",
+              "tip": "Checking by multiplying. Great."
+            }
+          ]
+        },
+        {
+          "q": "√80",
+          "a": "about 8.9",
+          "notes": "Look for: between 8 and 9 (64 and 81), very close to 9. Ask: \"Which perfect squares?\" Model: numberline 8 @8.9 @9",
+          "responses": [
+            {
+              "say": "Just under 81, so just under 9: about 8.9.",
+              "tool": "numberline",
+              "type": "8 @8.9 @9"
+            },
+            {
+              "say": "8.5",
+              "tool": "numberline",
+              "type": "8 @8.5 @9",
+              "tip": "Halfway. Ask: is 80 halfway between 64 and 81?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "√99",
+          "a": "about 9.9",
+          "notes": "Look for: just under 100, so just under 10. Ask: \"What's the nearest perfect square?\" Model: numberline 9 @9.9 @10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Just under √100 = 10: about 9.9.",
+              "tool": "numberline",
+              "type": "9 @9.9 @10"
+            }
+          ]
+        },
+        {
+          "q": "√200",
+          "a": "about 14.1",
+          "notes": "Look for: 14 × 14 = 196, 15 × 15 = 225. Ask: \"Which squares is it between?\" Model: numberline 14 @14.1 @15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "196 < 200 < 225, and 200 is close to 196: about 14.1.",
+              "tool": "numberline",
+              "type": "14 @14.1 @15"
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "√200 = 200 / 2 = 100 ?",
+              "tip": "Ask: is 100 × 100 close to 200?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

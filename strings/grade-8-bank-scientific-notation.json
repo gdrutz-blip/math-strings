@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-sci-01-scientific-notation",
+      "title": "Scientific Notation",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Scientific Notation",
+      "tool": "ratio",
+      "strategy": "In scientific notation, a number from 1 to 10 is multiplied by a power of ten; the exponent tells how many places the digits move.",
+      "topic": "pow",
+      "keywords": "scientific notation, power of ten, exponent, large and small numbers",
+      "curriculum": [
+        "B1.1",
+        "B2.3"
+      ],
+      "watchFor": [
+        "Adding zeros to decimals (3.5 × 10^5 = 3.500000): ask \"Is that 100 000 times as much as 3.5?\"",
+        "Treating the exponent as a multiplier (3 × 10^5 = 3 × 50): ask \"What does 10^5 mean?\"",
+        "Negative exponents making negative numbers (6 × 10^-1 = −60): ask \"Is it a small positive number or a negative one?\""
+      ],
+      "wrapUp": "Ask \"What does the exponent tell you?\" Land: 10^5 is 100 000, so the digits move 5 places left; 10^-3 is a thousandth, so they move 3 places right.",
+      "problems": [
+        {
+          "q": "3 x 10^2",
+          "a": "300",
+          "notes": "Look for: 3 × 100. Ask: \"What is 10^2?\" Model: ratio 1:3, 100:300",
+          "responses": [
+            {
+              "say": "10^2 is 100, so 300.",
+              "tool": "ratio",
+              "type": "1:3, 100:300"
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "3 x 10^2 = 3 x 20 = 60 ?",
+              "tip": "Ask: is 10^2 the same as 10 × 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x 10^5",
+          "a": "300000",
+          "notes": "Look for: 3 followed by 5 zeros. Ask: \"How did the last problem help?\" Model: ratio 1:3, 100000:300000",
+          "responses": [
+            {
+              "say": "10^5 is 100 000, so 300 000.",
+              "tool": "ratio",
+              "type": "1:3, 100000:300000"
+            },
+            {
+              "say": "150",
+              "tool": "text",
+              "type": "3 x 10^5 = 3 x 50 = 150 ?",
+              "tip": "Ask: what does 10^5 mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.5 x 10^5",
+          "a": "350000",
+          "notes": "Look for: digits move 5 places: 350 000. Ask: \"What happens to the 5?\" Model: ratio 1:3.5, 100000:350000",
+          "responses": [
+            {
+              "say": "3.5 × 100 000 is 350 000.",
+              "tool": "ratio",
+              "type": "1:3.5, 100000:350000"
+            },
+            {
+              "say": "3 500 000",
+              "tool": "text",
+              "type": "3.5 x 10^5 = 35 and 5 zeros ?",
+              "tip": "Moved too far. Ask: how many places does the 3 move?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.2 x 10^6",
+          "a": "4200000",
+          "notes": "Look for: 4.2 million. Ask: \"How would you say this number?\" Model: ratio 1:4.2, 1000000:4200000",
+          "responses": [
+            {
+              "say": "4.2 million: 4 200 000.",
+              "tool": "ratio",
+              "type": "1:4.2, 1000000:4200000"
+            },
+            {
+              "say": "4.2000000",
+              "tool": "text",
+              "type": "4.2 x 10^6 = 4.2000000 ?",
+              "tip": "Added zeros after the decimal. Ask: is that a million times bigger?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 10^-1",
+          "a": "0.6",
+          "notes": "Look for: 10^-1 is a tenth: 0.6. Ask: \"What could a negative exponent mean?\" Model: text 10^-1 = 1/10 ; 6 x 1/10 = 0.6",
+          "responses": [
+            {
+              "say": "10^-1 is one tenth, so 0.6.",
+              "tool": "text",
+              "type": "10^-1 = 1/10 ; 6 x 1/10 = 0.6",
+              "tip": "Ask: what pattern shows 10^-1 is a tenth?"
+            },
+            {
+              "say": "Continue the pattern: 10^1 = 10, 10^0 = 1, 10^-1 = 0.1.",
+              "tool": "ratio",
+              "type": "10:60, 1:6, 0.1:0.6"
+            },
+            {
+              "say": "-60",
+              "tool": "text",
+              "type": "6 x 10^-1 = 6 x -10 = -60 ?",
+              "tip": "Ask: is a negative exponent a negative number?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 x 10^-3",
+          "a": "0.007",
+          "notes": "Look for: 7 thousandths. Ask: \"How many places right?\" Model: ratio 1:7, 0.001:0.007",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10^-3 is a thousandth: 0.007.",
+              "tool": "ratio",
+              "type": "1:7, 0.001:0.007"
+            },
+            {
+              "say": "0.0007",
+              "tool": "text",
+              "type": "7 x 10^-3 = 0.0007 ?",
+              "tip": "One place too far. Ask: what is a thousandth of 7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.5 x 10^-2",
+          "a": "0.025",
+          "notes": "Look for: a hundredth of 2.5. Ask: \"Where does each digit go?\" Model: ratio 1:2.5, 0.01:0.025",
+          "optional": true,
+          "responses": [
+            {
+              "say": "A hundredth of 2.5 is 0.025.",
+              "tool": "ratio",
+              "type": "1:2.5, 0.01:0.025"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
