@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-frac-01-whole-numbers-times-fractions",
+      "title": "Whole Numbers Times Fractions",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "bar",
+      "strategy": "To multiply a whole number by a fraction, find one part first (divide by the denominator), then take as many parts as the numerator says.",
+      "topic": "frac",
+      "keywords": "of, unit fraction, one part, numerator, denominator, bar model",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Multiplying the whole number by the denominator (12 × 3/4 = 48/4 and stopping): ask \"Is 3/4 of 12 more or less than 12?\"",
+        "Dividing by the numerator instead of the denominator: ask \"How many equal parts is the bar split into?\"",
+        "Thinking the answer should be bigger than the whole number: ask \"What is 1/2 of 20?\""
+      ],
+      "wrapUp": "Ask \"How did 1/4 of 20 help with 3/4 of 20?\" Land: find one part by dividing by the denominator, then multiply by the numerator. 12 × 3/4 and 3/4 of 12 are the same.",
+      "problems": [
+        {
+          "q": "1/4 of 20",
+          "a": "5",
+          "notes": "Look for: 20 split into 4 equal parts. Ask: \"How big is one part?\" Word choice: \"one fourth of\". Model: bar 1/4 of 20",
+          "responses": [
+            {
+              "say": "20 split into 4 parts is 5 each.",
+              "tool": "bar",
+              "type": "1/4 of 20",
+              "tip": "One part first."
+            },
+            {
+              "say": "Half of 20 is 10, half of that is 5.",
+              "tool": "text",
+              "type": "1/2 of 20 = 10 ; 1/2 of 10 = 5"
+            }
+          ]
+        },
+        {
+          "q": "3/4 of 20",
+          "a": "15",
+          "notes": "Look for: three of those parts. Ask: \"How does the last one help?\" Model: bar 3/4 of 20",
+          "responses": [
+            {
+              "say": "One fourth is 5, so three fourths is 15.",
+              "tool": "bar",
+              "type": "3/4 of 20",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "20 take away one fourth: 20 − 5 = 15.",
+              "tool": "text",
+              "type": "3/4 of 20 = 20 - 1/4 of 20 ; = 20 - 5 = 15",
+              "tip": "Whole minus one part. Clever."
+            },
+            {
+              "say": "60",
+              "tool": "text",
+              "type": "3/4 of 20 = 3 x 20 = 60 ?",
+              "tip": "Ask: is three quarters of 20 more or less than 20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/5 of 30",
+          "a": "12",
+          "notes": "Look for: one fifth is 6, two fifths is 12. Ask: \"What's one part?\" Model: bar 2/5 of 30",
+          "responses": [
+            {
+              "say": "A fifth of 30 is 6, two fifths is 12.",
+              "tool": "bar",
+              "type": "2/5 of 30"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "2/5 of 30 = 30 ÷ 2 = 15 ?",
+              "tip": "Divided by the numerator. Ask: how many equal parts does the bar have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 3/4",
+          "a": "9",
+          "notes": "Look for: the same as 3/4 of 12. Ask: \"Is 12 × 3/4 the same as 3/4 of 12?\" Model: bar 3/4 of 12",
+          "responses": [
+            {
+              "say": "3/4 of 12: one fourth is 3, three fourths is 9.",
+              "tool": "bar",
+              "type": "3/4 of 12",
+              "tip": "Ask: why can we switch it to 3/4 of 12?"
+            },
+            {
+              "say": "12 × 3 is 36, and 36 fourths is 9.",
+              "tool": "text",
+              "type": "12 x 3/4 = 36/4 ; = 9",
+              "tip": "Multiply first, then divide. Same answer."
+            },
+            {
+              "say": "36",
+              "tool": "text",
+              "type": "12 x 3/4 = 36 ?",
+              "tip": "Forgot the fourths. Ask: should 12 × 3/4 be bigger than 12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15 x 2/3",
+          "a": "10",
+          "notes": "Look for: a third of 15 is 5, two thirds is 10. Ask: \"Which is easier: divide first, or multiply first?\" Model: bar 2/3 of 15",
+          "responses": [
+            {
+              "say": "A third of 15 is 5, two thirds is 10.",
+              "tool": "bar",
+              "type": "2/3 of 15"
+            },
+            {
+              "say": "15 × 2 = 30, 30 thirds is 10.",
+              "tool": "text",
+              "type": "15 x 2/3 = 30/3 ; = 10"
+            }
+          ]
+        },
+        {
+          "q": "24 x 5/8",
+          "a": "15",
+          "notes": "Look for: an eighth of 24 is 3, five eighths is 15. Ask: \"What's one eighth?\" Model: bar 5/8 of 24",
+          "responses": [
+            {
+              "say": "An eighth of 24 is 3, so 5 eighths is 15.",
+              "tool": "bar",
+              "type": "5/8 of 24"
+            },
+            {
+              "say": "Half of 24 is 12, plus one more eighth (3) is 15.",
+              "tool": "text",
+              "type": "4/8 of 24 = 12 ; 1/8 of 24 = 3 ; 12 + 3 = 15",
+              "tip": "5/8 as a half and an eighth."
+            },
+            {
+              "say": "4.8",
+              "tool": "text",
+              "type": "24 x 5/8 = 24 ÷ 5 ?",
+              "tip": "Divided by the numerator. Ask: what does the 8 tell us?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "40 x 3/8",
+          "a": "15",
+          "notes": "Look for: an eighth of 40 is 5, three eighths is 15. Ask: \"What do you notice about the last two answers?\" Model: bar 3/8 of 40",
+          "optional": true,
+          "responses": [
+            {
+              "say": "An eighth of 40 is 5, three eighths is 15.",
+              "tool": "bar",
+              "type": "3/8 of 40"
+            },
+            {
+              "say": "40 × 3 = 120, divided by 8 is 15.",
+              "tool": "text",
+              "type": "40 x 3/8 = 120/8 ; = 15"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

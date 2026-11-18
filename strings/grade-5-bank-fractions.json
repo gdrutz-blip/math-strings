@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-frac-01-like-fractions",
+      "title": "Adding and Subtracting Like Fractions",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "When fractions have the same denominator, you're counting the same-sized pieces: add or subtract the numerators, and use the whole as a landing spot.",
+      "topic": "frac",
+      "keywords": "numerator, denominator, same-sized pieces, fifths, sevenths, thirds, whole, mixed number",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Adding the denominators (2/5 + 1/5 = 3/10): ask \"Did the pieces change size?\"",
+        "Not renaming 7/5 as 1 2/5: ask \"How many fifths make a whole?\"",
+        "Subtracting the parts separately in 3 1/5 − 3/5: ask \"Can you take 3/5 from 1/5? What could you jump to first?\""
+      ],
+      "wrapUp": "Ask \"Why don't the denominators change?\" Land: the denominator names the size of the pieces, and adding or subtracting doesn't change the size. Jump to the whole number first when you go past it.",
+      "problems": [
+        {
+          "q": "2/5 + 1/5",
+          "a": "3/5",
+          "notes": "Look for: 2 fifths and 1 fifth make 3 fifths. Ask: \"What are we counting?\" Word choice: say \"two fifths plus one fifth\". Model: numberline 0 +2/5 +1/5",
+          "responses": [
+            {
+              "say": "2 fifths and 1 more fifth is 3 fifths.",
+              "tool": "numberline",
+              "type": "0 +2/5 +1/5",
+              "tip": "The target idea: counting fifths."
+            },
+            {
+              "say": "3/10",
+              "tool": "text",
+              "type": "2/5 + 1/5 = 3/10 ?",
+              "tip": "Added the denominators. Ask: did the pieces get smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 2/5",
+          "a": "1",
+          "notes": "Look for: 5 fifths is a whole. Ask: \"What's another name for 5/5?\" Model: numberline 3/5 +2/5",
+          "responses": [
+            {
+              "say": "3 fifths and 2 fifths is 5 fifths, that's 1 whole.",
+              "tool": "numberline",
+              "type": "3/5 +2/5"
+            },
+            {
+              "say": "5/10",
+              "tool": "text",
+              "type": "3/5 + 2/5 = 5/10 ?",
+              "tip": "Ask: is the answer more than 3/5? Is 5/10 more than 3/5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 4/5",
+          "a": "1 2/5",
+          "notes": "Look for: 2/5 to make 1, then 2/5 more. Ask: \"How does the last one help?\" Model: numberline 3/5 +2/5 +2/5",
+          "responses": [
+            {
+              "say": "3/5 + 2/5 is 1, then 2/5 more. 1 2/5.",
+              "tool": "numberline",
+              "type": "3/5 +2/5 +2/5",
+              "tip": "Make a whole, just like tenths."
+            },
+            {
+              "say": "7 fifths is 1 whole and 2 fifths.",
+              "tool": "text",
+              "type": "3/5 + 4/5 = 7/5 ; = 1 2/5",
+              "tip": "Both names are right. Ask: which is easier to picture?"
+            },
+            {
+              "say": "7/10",
+              "tool": "text",
+              "type": "3/5 + 4/5 = 7/10 ?",
+              "tip": "Ask: two fractions near 1, is the total less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6/7 - 2/7",
+          "a": "4/7",
+          "notes": "Look for: 6 sevenths take away 2 sevenths. Ask: \"Is it the same as 6 − 2?\" Model: numberline 6/7 -2/7",
+          "responses": [
+            {
+              "say": "6 sevenths take away 2 sevenths is 4 sevenths.",
+              "tool": "numberline",
+              "type": "6/7 -2/7"
+            },
+            {
+              "say": "4/0",
+              "tool": "text",
+              "type": "6/7 - 2/7 = 4/0 ?",
+              "tip": "Subtracted the denominators too. Ask: what size are the pieces?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 - 2/5",
+          "a": "3/5",
+          "notes": "Look for: 1 is 5/5, so 5/5 − 2/5; or count up from 2/5 to 1. Ask: \"How many fifths is 1?\" Model: numberline 2/5 >1",
+          "responses": [
+            {
+              "say": "1 is 5 fifths, take away 2 fifths is 3 fifths.",
+              "tool": "text",
+              "type": "1 = 5/5 ; 5/5 - 2/5 = 3/5"
+            },
+            {
+              "say": "From 2/5 up to 1 is 3/5.",
+              "tool": "numberline",
+              "type": "2/5 >1",
+              "tip": "Counting up, like with whole numbers."
+            },
+            {
+              "say": "1 2/5",
+              "tool": "text",
+              "type": "1 - 2/5 = 1 2/5 ?",
+              "tip": "Ask: should taking away make the number bigger?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 2/3 + 2/3",
+          "a": "3 1/3",
+          "notes": "Look for: 1/3 to make 3, then 1/3 more. Ask: \"How much does 2 2/3 need to make 3?\" Model: numberline 2 2/3 +1/3 +1/3",
+          "responses": [
+            {
+              "say": "1/3 makes 3, then 1/3 more. 3 1/3.",
+              "tool": "numberline",
+              "type": "2 2/3 +1/3 +1/3"
+            },
+            {
+              "say": "2/3 + 2/3 is 4/3, which is 1 1/3. 2 + 1 1/3 = 3 1/3.",
+              "tool": "text",
+              "type": "2/3 + 2/3 = 4/3 = 1 1/3 ; 2 + 1 1/3 = 3 1/3"
+            },
+            {
+              "say": "2 4/3",
+              "tool": "text",
+              "type": "2 2/3 + 2/3 = 2 4/3 ?",
+              "tip": "Not wrong. Ask: how many thirds make a whole? Can you rename it?"
+            }
+          ]
+        },
+        {
+          "q": "3 1/5 - 3/5",
+          "a": "2 3/5",
+          "notes": "Look for: back 1/5 to 3, then 2/5 more to 2 3/5. Ask: \"Can you go through the whole number?\" Model: numberline 3 1/5 -1/5 -2/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Back 1/5 to 3, then 2/5 more to 2 3/5.",
+              "tool": "numberline",
+              "type": "3 1/5 -1/5 -2/5",
+              "tip": "Through the whole number."
+            },
+            {
+              "say": "3 1/5 is 16/5, take 3/5 is 13/5 = 2 3/5.",
+              "tool": "text",
+              "type": "3 1/5 = 16/5 ; 16/5 - 3/5 = 13/5 ; = 2 3/5"
+            },
+            {
+              "say": "3 2/5",
+              "tool": "text",
+              "type": "3 1/5 - 3/5 = 3 2/5 ?",
+              "tip": "Took 1 from 3 in the numerators. Ask: should the answer be less than 3?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

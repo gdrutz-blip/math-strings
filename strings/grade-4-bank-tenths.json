@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-dec-01-tenths-make-a-whole",
+      "title": "Tenths Make a Whole",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Tenths",
+      "tool": "numberline",
+      "strategy": "Ten tenths make one whole, so adding or subtracting tenths is easier when you jump to the next whole number first.",
+      "topic": "dec",
+      "keywords": "tenths, whole, decimal point, make a whole, next whole number",
+      "curriculum": [
+        "B2.3",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adding 0.6 + 0.4 = 0.10: ask \"How many tenths? How many tenths make a whole?\"",
+        "Lining up digits from the right with whole numbers (3.8 + 1.5 written as 38 + 15): ask \"About how much should it be?\"",
+        "Subtracting 5 − 0.3 = 2: ask \"Are we taking away 3 wholes or 3 tenths?\""
+      ],
+      "wrapUp": "Ask \"Which problem helped you with 2.6 + 0.7?\" Land: 2.6 needs 0.4 to make 3, so split 0.7 into 0.4 and 0.3. Ten tenths make a whole, so jump to the whole number first.",
+      "problems": [
+        {
+          "q": "0.6 + 0.4",
+          "a": "1",
+          "notes": "Look for: 6 tenths and 4 tenths are 10 tenths, which is 1. Ask: \"How many tenths make a whole?\" Word choice: say \"six tenths\" as well as \"zero point six\". Model: numberline 0.6 +0.4",
+          "responses": [
+            {
+              "say": "6 tenths and 4 tenths make 10 tenths, that's 1 whole.",
+              "tool": "numberline",
+              "type": "0.6 +0.4",
+              "tip": "The target idea. Ask: how many tenths make a whole?"
+            },
+            {
+              "say": "6 + 4 = 10, so 10 tenths is 1.",
+              "tool": "text",
+              "type": "6 tenths + 4 tenths = 10 tenths ; = 1"
+            },
+            {
+              "say": "0.10",
+              "tool": "text",
+              "type": "0.6 + 0.4 = 0.10 ?",
+              "tip": "Added like whole numbers. Ask: is 0.10 more or less than 0.6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.6 + 0.4",
+          "a": "3",
+          "notes": "Look for: the same 6 tenths + 4 tenths, now with 2 wholes. Ask: \"How does the last one help?\" Model: numberline 2.6 +0.4",
+          "responses": [
+            {
+              "say": "Just like 0.6 + 0.4, but with 2 more. 3.",
+              "tool": "numberline",
+              "type": "2.6 +0.4"
+            },
+            {
+              "say": "2.10",
+              "tool": "text",
+              "type": "2.6 + 0.4 = 2.10 ?",
+              "tip": "Ask: ten tenths make what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.6 + 0.7",
+          "a": "3.3",
+          "notes": "Look for: 0.4 to make 3, then 0.3 more. Ask: \"How much does 2.6 need to make the next whole?\" Model: numberline 2.6 +0.4 +0.3",
+          "responses": [
+            {
+              "say": "0.4 gets me to 3, then 0.3 more is 3.3.",
+              "tool": "numberline",
+              "type": "2.6 +0.4 +0.3",
+              "tip": "The target strategy: make a whole."
+            },
+            {
+              "say": "6 tenths and 7 tenths is 13 tenths, that's 1.3. 2 + 1.3 = 3.3.",
+              "tool": "split",
+              "type": "2.6 + 0.7"
+            },
+            {
+              "say": "2.13",
+              "tool": "text",
+              "type": "2.6 + 0.7 = 2.13 ?",
+              "tip": "Ask: how many tenths can fit in one place?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.8 + 1.5",
+          "a": "5.3",
+          "notes": "Look for: 3.8 + 0.2 = 4, then 1.3 more; or 3 + 1 and 0.8 + 0.5. Ask: \"Who made a whole? Who split it?\" Model: numberline 3.8 +0.2 +1.3",
+          "responses": [
+            {
+              "say": "3.8 plus 0.2 is 4, plus 1.3 is 5.3.",
+              "tool": "numberline",
+              "type": "3.8 +0.2 +1.3"
+            },
+            {
+              "say": "3 + 1 is 4, and 0.8 + 0.5 is 1.3, so 5.3.",
+              "tool": "split",
+              "type": "3.8 + 1.5",
+              "tip": "Split by place value. Both work."
+            },
+            {
+              "say": "4.13",
+              "tool": "text",
+              "type": "3.8 + 1.5 = 4.13 ?",
+              "tip": "Ask: about how much should it be? Is 4.13 close to 4 + 1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 - 0.3",
+          "a": "4.7",
+          "notes": "Look for: back 0.3 from 5 lands at 4.7. Ask: \"What's just below 5?\" Model: numberline 5 -0.3",
+          "responses": [
+            {
+              "say": "Back 3 tenths from 5 is 4.7.",
+              "tool": "numberline",
+              "type": "5 -0.3"
+            },
+            {
+              "say": "0.3 up to 1 is 0.7, so it's 4 and 0.7.",
+              "tool": "numberline",
+              "type": "0.3 >1 >5",
+              "tip": "Counting up. Ask: where are the 4 and the 0.7?"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "5 - 0.3 = 2 ?",
+              "tip": "Took away 3 wholes. Ask: is 0.3 three wholes or three tenths?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.2 - 0.5",
+          "a": "3.7",
+          "notes": "Look for: back 0.2 to 4, then 0.3 more to 3.7. Ask: \"Can you use the whole number on the way?\" Model: numberline 4.2 -0.2 -0.3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Back 0.2 to 4, then 0.3 more to 3.7.",
+              "tool": "numberline",
+              "type": "4.2 -0.2 -0.3",
+              "tip": "Through the whole number, like adding."
+            },
+            {
+              "say": "4.2 − 0.5 is 4.7 − 1, which is 3.7.",
+              "tool": "slide",
+              "type": "4.2 - 0.5 = 4.7 - 1",
+              "tip": "Same difference. Ask: why add 0.5 to both?"
+            },
+            {
+              "say": "4.3",
+              "tool": "text",
+              "type": "4.2 - 0.5 = 4.3 ?",
+              "tip": "Took 2 from 5 instead of 5 from 2. Ask: should the answer be less than 4?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-dec-01-times-tenth-and-hundredth",
+      "title": "Times 0.1 and 0.01",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Decimals",
+      "tool": "ratio",
+      "strategy": "Multiplying by 0.1 is finding one tenth, so the number gets 10 times smaller; multiplying by 0.01 is finding one hundredth, 100 times smaller.",
+      "topic": "dec",
+      "keywords": "one tenth, one hundredth, times 0.1, times 0.01, ten times smaller, place value",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "Thinking multiplying always makes bigger (40 × 0.1 = 400): ask \"Is a tenth of 40 more or less than 40?\"",
+        "Just adding a decimal point to the end or dropping a zero for 0.01: ask \"Is 400 × 0.01 one tenth or one hundredth of 400?\"",
+        "35 × 0.1 = 0.35: ask \"How many times smaller is 0.35 than 35?\""
+      ],
+      "wrapUp": "Ask \"What happens to the digits when you multiply by 0.1? By 0.01?\" Land: × 0.1 finds one tenth, so every digit moves one place to the right; × 0.01 finds one hundredth, two places. The number gets smaller.",
+      "problems": [
+        {
+          "q": "40 x 0.1",
+          "a": "4",
+          "notes": "Look for: one tenth of 40. Ask: \"What does × 0.1 mean?\" Word choice: \"one tenth of\". Model: ratio 1:40, 0.1:4",
+          "responses": [
+            {
+              "say": "0.1 is one tenth, and a tenth of 40 is 4.",
+              "tool": "ratio",
+              "type": "1:40, 0.1:4",
+              "tip": "The target idea."
+            },
+            {
+              "say": "40 tenths is 4.",
+              "tool": "text",
+              "type": "40 x 0.1 = 40 tenths ; = 4",
+              "tip": "Counting tenths. Also great."
+            },
+            {
+              "say": "400",
+              "tool": "text",
+              "type": "40 x 0.1 = 400 ?",
+              "tip": "Multiplied by 10. Ask: is 0.1 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "400 x 0.1",
+          "a": "40",
+          "notes": "Look for: one tenth of 400. Ask: \"What's the pattern?\" Model: ratio 1:400, 0.1:40",
+          "responses": [
+            {
+              "say": "A tenth of 400 is 40.",
+              "tool": "ratio",
+              "type": "1:400, 0.1:40"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "400 x 0.1 = 4 ?",
+              "tip": "Moved two places. Ask: is 4 one tenth of 400?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "400 x 0.01",
+          "a": "4",
+          "notes": "Look for: one hundredth of 400, or a tenth of a tenth. Ask: \"How is 0.01 different from 0.1?\" Model: ratio 1:400, 0.1:40, 0.01:4",
+          "responses": [
+            {
+              "say": "A hundredth of 400 is 4.",
+              "tool": "ratio",
+              "type": "1:400, 0.1:40, 0.01:4",
+              "tip": "Ask: what's a tenth of a tenth?"
+            },
+            {
+              "say": "400 hundredths is 4 wholes.",
+              "tool": "text",
+              "type": "400 x 0.01 = 400 hundredths ; = 4"
+            },
+            {
+              "say": "40",
+              "tool": "text",
+              "type": "400 x 0.01 = 40 ?",
+              "tip": "Treated 0.01 like 0.1. Ask: how many hundredths make 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "35 x 0.1",
+          "a": "3.5",
+          "notes": "Look for: a tenth of 35. Ask: \"Where does the 5 go?\" Model: ratio 1:35, 0.1:3.5",
+          "responses": [
+            {
+              "say": "A tenth of 35 is 3.5.",
+              "tool": "ratio",
+              "type": "1:35, 0.1:3.5"
+            },
+            {
+              "say": "35 tenths is 3 wholes and 5 tenths.",
+              "tool": "text",
+              "type": "35 tenths = 3.5"
+            },
+            {
+              "say": "0.35",
+              "tool": "text",
+              "type": "35 x 0.1 = 0.35 ?",
+              "tip": "Two places, not one. Ask: is 0.35 a tenth of 35?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "35 x 0.01",
+          "a": "0.35",
+          "notes": "Look for: a hundredth of 35, a tenth of 3.5. Ask: \"How does the last one help?\" Model: ratio 1:35, 0.1:3.5, 0.01:0.35",
+          "responses": [
+            {
+              "say": "A tenth of 3.5 is 0.35.",
+              "tool": "ratio",
+              "type": "1:35, 0.1:3.5, 0.01:0.35",
+              "tip": "Used the last problem."
+            },
+            {
+              "say": "35 hundredths is 0.35.",
+              "tool": "text",
+              "type": "35 hundredths = 0.35",
+              "tip": "Like 35 cents."
+            }
+          ]
+        },
+        {
+          "q": "250 x 0.01",
+          "a": "2.5",
+          "notes": "Look for: a hundredth of 250. Ask: \"How is this like cents and dollars?\" Model: ratio 1:250, 0.1:25, 0.01:2.5",
+          "responses": [
+            {
+              "say": "250 cents is $2.50.",
+              "tool": "text",
+              "type": "250 hundredths = 2.5",
+              "tip": "Money connection."
+            },
+            {
+              "say": "A tenth is 25, a tenth again is 2.5.",
+              "tool": "ratio",
+              "type": "1:250, 0.1:25, 0.01:2.5"
+            },
+            {
+              "say": "25",
+              "tool": "text",
+              "type": "250 x 0.01 = 25 ?",
+              "tip": "Ask: is 25 a tenth or a hundredth of 250?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 0.1",
+          "a": "0.8",
+          "notes": "Look for: 8 tenths. Ask: \"What's a tenth of a number smaller than 10?\" Model: ratio 1:8, 0.1:0.8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 tenths is 0.8.",
+              "tool": "text",
+              "type": "8 x 0.1 = 8 tenths = 0.8"
+            },
+            {
+              "say": "A tenth of 8 is 0.8.",
+              "tool": "ratio",
+              "type": "1:8, 0.1:0.8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

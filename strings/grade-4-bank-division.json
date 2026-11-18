@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-div-01-sharing-into-groups",
+      "title": "Sharing into Groups",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "area",
+      "strategy": "Divide by splitting the number into friendly parts you can share: 52 ÷ 4 is 40 ÷ 4 and 12 ÷ 4. Any leftover can be shared as a fraction.",
+      "topic": "mult",
+      "keywords": "divide, share, groups of, split, friendly parts, remainder, left over",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Splitting 52 into 50 and 2 (not easy to share by 4): ask \"Which part of 52 is easy to share into 4?\"",
+        "Forgetting to add the two parts: ask \"How many in each group altogether?\"",
+        "Leaving the remainder as 'R2' with no meaning: ask \"Could we share the 2 left over too?\""
+      ],
+      "wrapUp": "Ask \"How did you choose how to split 84?\" Land: split the number into parts that are easy to share (like 40 or 60, a ten times the divisor), share each part, then add. A leftover can be shared into fractions.",
+      "problems": [
+        {
+          "q": "24 / 4",
+          "a": "6",
+          "notes": "Look for: 4 × 6 = 24. Ask: \"What times 4 is 24?\" Word choice: \"24 shared into 4 groups\". Model: array 4 x 6",
+          "responses": [
+            {
+              "say": "4 groups of 6 is 24.",
+              "tool": "array",
+              "type": "4 x 6",
+              "tip": "Division as the missing factor."
+            },
+            {
+              "say": "Half of 24 is 12, half again is 6.",
+              "tool": "text",
+              "type": "24 ÷ 2 = 12 ; 12 ÷ 2 = 6",
+              "tip": "Halving twice. Ask: why does that work for ÷ 4?"
+            }
+          ]
+        },
+        {
+          "q": "48 / 4",
+          "a": "12",
+          "notes": "Look for: 40 ÷ 4 = 10 and 8 ÷ 4 = 2. Ask: \"Which part is easy to share?\" Model: area 48 / 4 = 40 + 8",
+          "responses": [
+            {
+              "say": "40 shared by 4 is 10, 8 shared by 4 is 2. 12.",
+              "tool": "area",
+              "type": "48 / 4 = 40 + 8",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "4 × 12 = 48.",
+              "tool": "text",
+              "type": "4 x 12 = 48"
+            }
+          ]
+        },
+        {
+          "q": "52 / 4",
+          "a": "13",
+          "notes": "Look for: 40 and 12. Ask: \"Why not split it into 50 and 2?\" Model: area 52 / 4 = 40 + 12",
+          "responses": [
+            {
+              "say": "40 ÷ 4 = 10 and 12 ÷ 4 = 3, so 13.",
+              "tool": "area",
+              "type": "52 / 4 = 40 + 12",
+              "tip": "Ask: why 40 and 12, not 50 and 2?"
+            },
+            {
+              "say": "48 ÷ 4 is 12, one more 4 makes 52, so 13.",
+              "tool": "text",
+              "type": "48 ÷ 4 = 12 ; 52 = 48 + 4 ; 12 + 1 = 13",
+              "tip": "Used the last problem. Lovely."
+            },
+            {
+              "say": "12 R4",
+              "tool": "text",
+              "type": "52 ÷ 4 = 12 R4 ?",
+              "tip": "Ask: if 4 are left, can we share them out once more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75 / 5",
+          "a": "15",
+          "notes": "Look for: 50 ÷ 5 = 10 and 25 ÷ 5 = 5. Ask: \"What's a friendly part?\" Model: area 75 / 5 = 50 + 25",
+          "responses": [
+            {
+              "say": "50 ÷ 5 is 10, 25 ÷ 5 is 5. 15.",
+              "tool": "area",
+              "type": "75 / 5 = 50 + 25"
+            },
+            {
+              "say": "Count by fives: 15 fives is 75.",
+              "tool": "text",
+              "type": "5 x 15 = 75"
+            }
+          ]
+        },
+        {
+          "q": "84 / 6",
+          "a": "14",
+          "notes": "Look for: 60 ÷ 6 = 10 and 24 ÷ 6 = 4. Ask: \"How did you choose the 60?\" Model: area 84 / 6 = 60 + 24",
+          "responses": [
+            {
+              "say": "60 ÷ 6 is 10, 24 ÷ 6 is 4. 14.",
+              "tool": "area",
+              "type": "84 / 6 = 60 + 24"
+            },
+            {
+              "say": "Half of 84 is 42, then a third of 42 is 14.",
+              "tool": "text",
+              "type": "84 ÷ 2 = 42 ; 42 ÷ 3 = 14",
+              "tip": "÷ 6 as ÷ 2 then ÷ 3. Ask: why does that work?"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "84 ÷ 6 = 24 ÷ 6 = 4 ?",
+              "tip": "Shared only the 24. Ask: what happened to the 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "96 / 4",
+          "a": "24",
+          "notes": "Look for: 80 ÷ 4 = 20 and 16 ÷ 4 = 4. Ask: \"Could you split it more than one way?\" Model: area 96 / 4 = 80 + 16",
+          "responses": [
+            {
+              "say": "80 ÷ 4 is 20, 16 ÷ 4 is 4. 24.",
+              "tool": "area",
+              "type": "96 / 4 = 80 + 16"
+            },
+            {
+              "say": "40 + 40 + 16: 10 + 10 + 4 = 24.",
+              "tool": "area",
+              "type": "96 / 4 = 40 + 40 + 16",
+              "tip": "Smaller parts. Ask: which is quicker?"
+            }
+          ]
+        },
+        {
+          "q": "50 / 4",
+          "a": "12 1/2",
+          "notes": "Look for: 48 ÷ 4 = 12, 2 left over, shared into 4 is 1/2 each. Ask: \"What do we do with the 2 left over?\" Model: text 50 = 48 + 2 ; 48 ÷ 4 = 12 ; 2 ÷ 4 = 1/2 ; 12 1/2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 each, and the 2 left over makes half each.",
+              "tool": "text",
+              "type": "50 = 48 + 2 ; 48 ÷ 4 = 12 ; 2 ÷ 4 = 1/2 ; 12 1/2",
+              "tip": "Remainder as a fraction. Ask: is 2 out of 4 a half?"
+            },
+            {
+              "say": "12 R2",
+              "tool": "text",
+              "type": "50 ÷ 4 = 12 R2",
+              "tip": "True, but ask: if it were 50 cookies, could we share the 2 left over?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
