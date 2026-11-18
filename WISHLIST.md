@@ -12,7 +12,7 @@ The app has a **🎓 PD page** (`#/pd`, `#/pd/4`…) for teachers: session dates
 
 Before **Dec 4**:
 - [ ] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Approved plan, Nov 17: G4 Wk 2 Multiplying by One Digit ✅ · G5 Decimals to Hundredths ✅, Two-Digit Multiplication ✅ · G6 Percents of Whole Numbers ✅, Adding and Subtracting Fractions ✅ · G7 Integers ✅, Percent Increase and Decrease ✅. Grades 4–7 now have 2 units each with practice responses; Grade 8 has 2 units without practice responses yet.)*
-- [ ] Add practice `responses` to Grade 4 Days 3–5 and to the Grade 8 strings
+- [x] Practice `responses` on every problem of every string, including Grade 4 Days 3–5 and the Grade 8 Weeks 1–2 (Nov 18). Now the standard for new strings (planning guide).
 - [ ] Test the site on the school network/laptops (ask IT to allow gdrutz-blip.github.io if blocked)
 - [x] **Save a run / benchmark strings**: done (🗂 My runs, with Compare). (Nov 17)
 - [ ] Short feedback form and an evidence tracker (outside the app)

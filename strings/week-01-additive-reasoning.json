@@ -23,43 +23,165 @@
           "q": "38 + 10",
           "a": "48",
           "optional": false,
-          "notes": "Look for: one jump of 10. Ask: \"Where did you start and where did you land?\""
+          "notes": "Look for: one jump of 10. Ask: \"Where did you start and where did you land?\"",
+          "responses": [
+            {
+              "say": "One jump of 10: 48.",
+              "tool": "numberline",
+              "type": "38 +10"
+            },
+            {
+              "say": "3 tens and 1 ten is 4 tens, and the 8 stays.",
+              "tool": "text",
+              "type": "30 + 10 = 40 ; 40 + 8 = 48"
+            }
+          ]
         },
         {
           "q": "38 + 20",
           "a": "58",
           "optional": true,
-          "notes": "Look for: one jump of 20, or two jumps of 10. Ask: \"How is this like the last one?\""
+          "notes": "Look for: one jump of 20, or two jumps of 10. Ask: \"How is this like the last one?\"",
+          "responses": [
+            {
+              "say": "One jump of 20: 58.",
+              "tool": "numberline",
+              "type": "38 +20"
+            },
+            {
+              "say": "Two jumps of 10.",
+              "tool": "numberline",
+              "type": "38 +10 +10"
+            }
+          ]
         },
         {
           "q": "38 + 9",
           "a": "47",
           "optional": false,
-          "notes": "Look for: 38 + 10, then back 1. Ask: \"Can 38 + 10 help you with 38 + 9?\" Word choice: \"jump to 48, then back 1\"."
+          "notes": "Look for: 38 + 10, then back 1. Ask: \"Can 38 + 10 help you with 38 + 9?\" Word choice: \"jump to 48, then back 1\".",
+          "responses": [
+            {
+              "say": "38 + 10 is 48, then back 1: 47.",
+              "tool": "numberline",
+              "type": "38 +10 -1",
+              "tip": "The target strategy. Ask: why back 1?"
+            },
+            {
+              "say": "38 + 2 is 40, then 7 more.",
+              "tool": "numberline",
+              "type": "38 +2 +7",
+              "tip": "Make the next ten. Also great."
+            },
+            {
+              "say": "49",
+              "tool": "numberline",
+              "type": "38 +10 +1",
+              "tip": "Adjusted the wrong way. Ask: did 10 add too much or too little?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "38 + 19",
           "a": "57",
           "optional": false,
-          "notes": "Look for: 38 + 20, then back 1. Ask: \"What is the same about 38 + 9 and 38 + 19?\""
+          "notes": "Look for: 38 + 20, then back 1. Ask: \"What is the same about 38 + 9 and 38 + 19?\"",
+          "responses": [
+            {
+              "say": "38 + 20 is 58, back 1: 57.",
+              "tool": "numberline",
+              "type": "38 +20 -1"
+            },
+            {
+              "say": "Like 38 + 9, with an extra ten.",
+              "tool": "text",
+              "type": "38 + 9 = 47 ; 38 + 19 = 47 + 10 = 57",
+              "tip": "Using the last problem. Name it."
+            },
+            {
+              "say": "59",
+              "tool": "numberline",
+              "type": "38 +20 +1",
+              "tip": "Ask: is 19 more or less than 20?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "38 + 29",
           "a": "67",
           "optional": true,
-          "notes": "Look for: 38 + 30, then back 1. Ask: \"Predict what someone will do.\""
+          "notes": "Look for: 38 + 30, then back 1. Ask: \"Predict what someone will do.\"",
+          "responses": [
+            {
+              "say": "38 + 30 is 68, back 1: 67.",
+              "tool": "numberline",
+              "type": "38 +30 -1"
+            },
+            {
+              "say": "38 + 29 is 10 more than 38 + 19.",
+              "tool": "numberline",
+              "type": "57 +10"
+            }
+          ]
         },
         {
           "q": "38 + 49",
           "a": "87",
           "optional": false,
-          "notes": "Look for: 38 + 50, then back 1. Ask: \"Before I show it, how might someone solve this?\""
+          "notes": "Look for: 38 + 50, then back 1. Ask: \"Before I show it, how might someone solve this?\"",
+          "responses": [
+            {
+              "say": "38 + 50 is 88, back 1: 87.",
+              "tool": "numberline",
+              "type": "38 +50 -1"
+            },
+            {
+              "say": "Give 1 to 49: 37 + 50.",
+              "tool": "givetake",
+              "type": "38 + 49 = 37 + 50",
+              "tip": "Give and take. Tomorrow's strategy."
+            },
+            {
+              "say": "I added the tens and ones: 70 + 17.",
+              "tool": "split",
+              "type": "38 + 49"
+            },
+            {
+              "say": "89",
+              "tool": "numberline",
+              "type": "38 +50 +1",
+              "tip": "Adjusted the wrong way. Ask: is 49 more or less than 50?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "38 + 98",
           "a": "136",
           "optional": false,
-          "notes": "Look for: 38 + 100, then back 2. Ask: \"How is this like problems 3 to 6? What changed?\" Word choice: go over the ten (or hundred), then take back the extra."
+          "notes": "Look for: 38 + 100, then back 2. Ask: \"How is this like problems 3 to 6? What changed?\" Word choice: go over the ten (or hundred), then take back the extra.",
+          "responses": [
+            {
+              "say": "38 + 100 is 138, back 2: 136.",
+              "tool": "numberline",
+              "type": "38 +100 -2",
+              "tip": "The target strategy. Ask: why back 2?"
+            },
+            {
+              "say": "Give 2 to 98: 36 + 100.",
+              "tool": "givetake",
+              "type": "38 + 98 = 36 + 100"
+            },
+            {
+              "say": "137",
+              "tool": "numberline",
+              "type": "38 +100 -1",
+              "tip": "Took back 1. Ask: how far is 98 from 100?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -86,43 +208,159 @@
           "q": "50 + 25",
           "a": "75",
           "optional": false,
-          "notes": "Look for: a quick answer. Ask: \"Hold on to this answer.\""
+          "notes": "Look for: a quick answer. Ask: \"Hold on to this answer.\"",
+          "responses": [
+            {
+              "say": "50 + 25 = 75.",
+              "tool": "numberline",
+              "type": "50 +25"
+            },
+            {
+              "say": "Three quarters.",
+              "tool": "text",
+              "type": "50 + 25 = 75"
+            }
+          ]
         },
         {
           "q": "49 + 26",
           "a": "75",
           "optional": false,
-          "notes": "Look for: \"same answer as problem 1\", or moving 1 from 26 to 49. Ask: \"What do you notice about the answer? Why?\" Word choice: \"give 1 to 49, take 1 from 26\"."
+          "notes": "Look for: \"same answer as problem 1\", or moving 1 from 26 to 49. Ask: \"What do you notice about the answer? Why?\" Word choice: \"give 1 to 49, take 1 from 26\".",
+          "responses": [
+            {
+              "say": "Give 1 to 49: 50 + 25 = 75.",
+              "tool": "givetake",
+              "type": "49 + 26 = 50 + 25",
+              "tip": "The target strategy. Ask: why is the total the same?"
+            },
+            {
+              "say": "49 + 1 is 50, then 25 more.",
+              "tool": "numberline",
+              "type": "49 +1 +25"
+            },
+            {
+              "say": "77",
+              "tool": "text",
+              "type": "49 + 26 = 50 + 27 = 77 ?",
+              "tip": "Added 1 to both. Ask: what happened to the total?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "48 + 27",
           "a": "75",
           "optional": false,
-          "notes": "Look for: moving 2. Ask: \"How many does 48 need? Where do they come from?\""
+          "notes": "Look for: moving 2. Ask: \"How many does 48 need? Where do they come from?\"",
+          "responses": [
+            {
+              "say": "Give 2 to 48: 50 + 25.",
+              "tool": "givetake",
+              "type": "48 + 27 = 50 + 25"
+            },
+            {
+              "say": "48 + 2 is 50, then 25 more.",
+              "tool": "numberline",
+              "type": "48 +2 +25"
+            }
+          ]
         },
         {
           "q": "39 + 36",
           "a": "75",
           "optional": false,
-          "notes": "Look for: 40 + 35. Ask: \"Which number did you make friendly, and why?\""
+          "notes": "Look for: 40 + 35. Ask: \"Which number did you make friendly, and why?\"",
+          "responses": [
+            {
+              "say": "Give 1 to 39: 40 + 35 = 75.",
+              "tool": "givetake",
+              "type": "39 + 36 = 40 + 35"
+            },
+            {
+              "say": "I made 36 friendly instead: 35 + 40.",
+              "tool": "givetake",
+              "type": "39 + 36 = 35 + 40",
+              "tip": "Moved the other way. Same total."
+            },
+            {
+              "say": "77",
+              "tool": "text",
+              "type": "39 + 36 = 40 + 37 = 77 ?",
+              "tip": "Ask: if you add 1 to one number, what do you do to the other?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "59 + 36",
           "a": "95",
           "optional": false,
-          "notes": "Look for: 60 + 35. Ask: \"What changed from problem 4? What happened to the total?\""
+          "notes": "Look for: 60 + 35. Ask: \"What changed from problem 4? What happened to the total?\"",
+          "responses": [
+            {
+              "say": "Give 1 to 59: 60 + 35 = 95.",
+              "tool": "givetake",
+              "type": "59 + 36 = 60 + 35"
+            },
+            {
+              "say": "It's 20 more than the last one.",
+              "tool": "text",
+              "type": "39 + 36 = 75 ; 59 + 36 = 75 + 20 = 95"
+            }
+          ]
         },
         {
           "q": "68 + 37",
           "a": "105",
           "optional": false,
-          "notes": "Look for: 70 + 35. Ask: \"How much did you move this time?\""
+          "notes": "Look for: 70 + 35. Ask: \"How much did you move this time?\"",
+          "responses": [
+            {
+              "say": "Give 2 to 68: 70 + 35 = 105.",
+              "tool": "givetake",
+              "type": "68 + 37 = 70 + 35"
+            },
+            {
+              "say": "68 + 2 is 70, then 35 more.",
+              "tool": "numberline",
+              "type": "68 +2 +35"
+            },
+            {
+              "say": "107",
+              "tool": "text",
+              "type": "68 + 37 = 70 + 37 = 107 ?",
+              "tip": "Gave 2 but didn't take 2. Ask: where did the 2 come from?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "198 + 47",
           "a": "245",
           "optional": false,
-          "notes": "Look for: 200 + 45, or Day 1's way (198 + 50, then back 3). Ask: \"Both work. Which is easier here, and why?\""
+          "notes": "Look for: 200 + 45, or Day 1's way (198 + 50, then back 3). Ask: \"Both work. Which is easier here, and why?\"",
+          "responses": [
+            {
+              "say": "Give 2 to 198: 200 + 45 = 245.",
+              "tool": "givetake",
+              "type": "198 + 47 = 200 + 45",
+              "tip": "Give and take."
+            },
+            {
+              "say": "198 + 50 is 248, back 3: 245.",
+              "tool": "numberline",
+              "type": "198 +50 -3",
+              "tip": "Day 1's way. Ask: which is easier here?"
+            },
+            {
+              "say": "249",
+              "tool": "text",
+              "type": "198 + 47 = 200 + 49 = 249 ?",
+              "tip": "Added 2 to both. Ask: what happened to the total?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -149,43 +387,160 @@
           "q": "100 - 90",
           "a": "10",
           "optional": false,
-          "notes": "Look for: a known fact. Ask: \"How far is 90 from 100?\""
+          "notes": "Look for: a known fact. Ask: \"How far is 90 from 100?\"",
+          "responses": [
+            {
+              "say": "90 to 100 is 10.",
+              "tool": "numberline",
+              "type": "90 ~100"
+            },
+            {
+              "say": "100 take away 90 is 10.",
+              "tool": "numberline",
+              "type": "100 -90"
+            }
+          ]
         },
         {
           "q": "100 - 98",
           "a": "2",
           "optional": false,
-          "notes": "Look for: \"98 to 100 is 2\" instead of taking away 98. Ask: \"Is it easier to take away 98 or to see how far 98 is from 100?\""
+          "notes": "Look for: \"98 to 100 is 2\" instead of taking away 98. Ask: \"Is it easier to take away 98 or to see how far 98 is from 100?\"",
+          "responses": [
+            {
+              "say": "98 to 100 is 2.",
+              "tool": "numberline",
+              "type": "98 ~100",
+              "tip": "The target strategy. Ask: why add up instead of take away?"
+            },
+            {
+              "say": "12",
+              "tool": "column",
+              "type": "100 - 98",
+              "tip": "Regrouping slip. Ask: is 98 close to 100? How far?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "100 - 89",
           "a": "11",
           "optional": false,
-          "notes": "Look for: 89 to 90 (1), then 90 to 100 (10). Ask: \"Where did you stop on the way?\""
+          "notes": "Look for: 89 to 90 (1), then 90 to 100 (10). Ask: \"Where did you stop on the way?\"",
+          "responses": [
+            {
+              "say": "89 to 90 is 1, then 10 more: 11.",
+              "tool": "numberline",
+              "type": "89 >90 >100"
+            },
+            {
+              "say": "100 − 90 is 10, plus 1 more: 11.",
+              "tool": "numberline",
+              "type": "100 -90 +1"
+            },
+            {
+              "say": "21",
+              "tool": "column",
+              "type": "100 - 89",
+              "tip": "Regrouping slip. Ask: how far is 89 from 90? From 100?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "100 - 76",
           "a": "24",
           "optional": false,
-          "notes": "Look for: 76 to 80 (4), then 80 to 100 (20), or one jump from 76 to 100. Ask: \"Which stops did you choose, and why?\""
+          "notes": "Look for: 76 to 80 (4), then 80 to 100 (20), or one jump from 76 to 100. Ask: \"Which stops did you choose, and why?\"",
+          "responses": [
+            {
+              "say": "76 to 80 is 4, then 20 more: 24.",
+              "tool": "numberline",
+              "type": "76 >80 >100"
+            },
+            {
+              "say": "One jump from 76 to 100: 24.",
+              "tool": "numberline",
+              "type": "76 ~100"
+            },
+            {
+              "say": "34",
+              "tool": "column",
+              "type": "100 - 76",
+              "tip": "Regrouping slip (10 − 7 = 3). Ask: how far is 76 from 80? From 100?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "300 - 276",
           "a": "24",
           "optional": false,
-          "notes": "Look for: the same gap as problem 4. Ask: \"What do you notice about the answer? Why is it the same?\" Word choice: \"same gap\", \"same distance\"."
+          "notes": "Look for: the same gap as problem 4. Ask: \"What do you notice about the answer? Why is it the same?\" Word choice: \"same gap\", \"same distance\".",
+          "responses": [
+            {
+              "say": "276 to 300 is 24, the same gap.",
+              "tool": "numberline",
+              "type": "276 >280 >300"
+            },
+            {
+              "say": "Same as 100 − 76, just 200 more on each.",
+              "tool": "text",
+              "type": "100 - 76 = 24 ; 300 - 276 = 24",
+              "tip": "Ask: why is the gap the same?"
+            }
+          ]
         },
         {
           "q": "1000 - 976",
           "a": "24",
           "optional": false,
-          "notes": "Look for: the same gap again. Ask: \"Predict 5000 − 4976 before I show it.\""
+          "notes": "Look for: the same gap again. Ask: \"Predict 5000 − 4976 before I show it.\"",
+          "responses": [
+            {
+              "say": "976 to 1000 is 24 again.",
+              "tool": "numberline",
+              "type": "976 >980 >1000"
+            },
+            {
+              "say": "The gap from 976 to 1000 is the same as from 76 to 100.",
+              "tool": "text",
+              "type": "1000 - 976 = 24"
+            },
+            {
+              "say": "124",
+              "tool": "column",
+              "type": "1000 - 976",
+              "tip": "Ask: is the answer closer to 24 or to 124? How far is 976 from 1000?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "1002 - 976",
           "a": "26",
           "optional": false,
-          "notes": "Look for: the gap from problem 6, plus 2. Ask: \"What changed from problem 6? What happened to the answer?\" Word choice: \"the top number moved up 2, so the gap grew by 2\"."
+          "notes": "Look for: the gap from problem 6, plus 2. Ask: \"What changed from problem 6? What happened to the answer?\" Word choice: \"the top number moved up 2, so the gap grew by 2\".",
+          "responses": [
+            {
+              "say": "976 to 1000 is 24, then 2 more: 26.",
+              "tool": "numberline",
+              "type": "976 >1000 >1002",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "The top number went up 2, so the gap is 2 more.",
+              "tool": "text",
+              "type": "1000 - 976 = 24 ; 1002 - 976 = 26"
+            },
+            {
+              "say": "22",
+              "tool": "text",
+              "type": "1002 - 976 = 24 - 2 = 22 ?",
+              "tip": "Adjusted the wrong way. Ask: did the gap get bigger or smaller?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -212,43 +567,140 @@
           "q": "12 - 8",
           "a": "4",
           "optional": false,
-          "notes": "Look for: a known fact."
+          "notes": "Look for: a known fact.",
+          "responses": [
+            {
+              "say": "12 − 8 is 4.",
+              "tool": "numberline",
+              "type": "8 ~12"
+            }
+          ]
         },
         {
           "q": "62 - 58",
           "a": "4",
           "optional": false,
-          "notes": "Look for: the gap is still 4. Ask: \"Is this harder than 12 − 8? Why not?\""
+          "notes": "Look for: the gap is still 4. Ask: \"Is this harder than 12 − 8? Why not?\"",
+          "responses": [
+            {
+              "say": "Still 4 apart.",
+              "tool": "numberline",
+              "type": "58 ~62"
+            },
+            {
+              "say": "Slide both down 50: 12 − 8.",
+              "tool": "slide",
+              "type": "62 - 58 = 12 - 8",
+              "tip": "Ask: why is the gap the same?"
+            }
+          ]
         },
         {
           "q": "62 - 49",
           "a": "13",
           "optional": false,
-          "notes": "Look for: 49 to 50 (1), then 50 to 62 (12), or sliding both up 1 to 63 − 50. Ask: \"What did you do to make 49 friendlier?\""
+          "notes": "Look for: 49 to 50 (1), then 50 to 62 (12), or sliding both up 1 to 63 − 50. Ask: \"What did you do to make 49 friendlier?\"",
+          "responses": [
+            {
+              "say": "Slide both up 1: 63 − 50 = 13.",
+              "tool": "slide",
+              "type": "62 - 49 > +1",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "49 to 50 is 1, then 12 more: 13.",
+              "tool": "numberline",
+              "type": "49 >50 >62"
+            },
+            {
+              "say": "12",
+              "tool": "slide",
+              "type": "62 - 49 = 62 - 50",
+              "tip": "Moved only one number. Ask: did the gap stay the same?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "63 - 50",
           "a": "13",
           "optional": false,
-          "notes": "Look for: the same answer as problem 3. Ask: \"What changed from problem 3? What happened to the answer? Why?\" Word choice: \"I slid both numbers up 1, so the difference stayed the same\"."
+          "notes": "Look for: the same answer as problem 3. Ask: \"What changed from problem 3? What happened to the answer? Why?\" Word choice: \"I slid both numbers up 1, so the difference stayed the same\".",
+          "responses": [
+            {
+              "say": "63 − 50 is 13, same as the last one.",
+              "tool": "slide",
+              "type": "62 - 49 = 63 - 50",
+              "tip": "Ask: what changed, and what didn't?"
+            },
+            {
+              "say": "From 50 to 63 is 13.",
+              "tool": "numberline",
+              "type": "50 ~63"
+            }
+          ]
         },
         {
           "q": "162 - 149",
           "a": "13",
           "optional": false,
-          "notes": "Look for: sliding both up 1 to 163 − 150. Ask: \"Predict before I show it.\""
+          "notes": "Look for: sliding both up 1 to 163 − 150. Ask: \"Predict before I show it.\"",
+          "responses": [
+            {
+              "say": "Slide both up 1: 163 − 150 = 13.",
+              "tool": "slide",
+              "type": "162 - 149 > +1"
+            },
+            {
+              "say": "149 to 150 is 1, then 12 more.",
+              "tool": "numberline",
+              "type": "149 >150 >162"
+            }
+          ]
         },
         {
           "q": "362 - 349",
           "a": "13",
           "optional": false,
-          "notes": "Look for: the same slide. Ask: \"Does the answer depend on how big the numbers are, or how far apart they are?\""
+          "notes": "Look for: the same slide. Ask: \"Does the answer depend on how big the numbers are, or how far apart they are?\"",
+          "responses": [
+            {
+              "say": "Slide up 1: 363 − 350 = 13.",
+              "tool": "slide",
+              "type": "362 - 349 > +1"
+            },
+            {
+              "say": "The numbers are still 13 apart.",
+              "tool": "text",
+              "type": "362 - 349 = 13",
+              "tip": "Ask: does size matter, or only the gap?"
+            }
+          ]
         },
         {
           "q": "71 - 38",
           "a": "33",
           "optional": false,
-          "notes": "Look for: sliding both up 2 to 73 − 40, or adding up 38 to 40 to 71 (2 + 31). Ask: \"Can you slide and add up? Which was quicker?\""
+          "notes": "Look for: sliding both up 2 to 73 − 40, or adding up 38 to 40 to 71 (2 + 31). Ask: \"Can you slide and add up? Which was quicker?\"",
+          "responses": [
+            {
+              "say": "Slide both up 2: 73 − 40 = 33.",
+              "tool": "slide",
+              "type": "71 - 38 > +2"
+            },
+            {
+              "say": "38 to 40 is 2, then 31 more: 33.",
+              "tool": "numberline",
+              "type": "38 >40 >71"
+            },
+            {
+              "say": "31",
+              "tool": "slide",
+              "type": "71 - 38 = 71 - 40",
+              "tip": "Moved only one number. Ask: did the gap stay the same?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -274,43 +726,172 @@
           "q": "100 - 97",
           "a": "3",
           "optional": false,
-          "notes": "Look for: adding up. Ask: \"Which strategy did you choose?\""
+          "notes": "Look for: adding up. Ask: \"Which strategy did you choose?\"",
+          "responses": [
+            {
+              "say": "97 to 100 is 3.",
+              "tool": "numberline",
+              "type": "97 ~100"
+            },
+            {
+              "say": "Slide up 3: 103 − 100.",
+              "tool": "slide",
+              "type": "100 - 97 > +3"
+            }
+          ]
         },
         {
           "q": "52 - 48",
           "a": "4",
           "optional": false,
-          "notes": "Look for: adding up from 48, or sliding to 54 − 50."
+          "notes": "Look for: adding up from 48, or sliding to 54 − 50.",
+          "responses": [
+            {
+              "say": "48 to 50 is 2, then 2 more: 4.",
+              "tool": "numberline",
+              "type": "48 >50 >52"
+            },
+            {
+              "say": "Slide up 2: 54 − 50.",
+              "tool": "slide",
+              "type": "52 - 48 > +2"
+            },
+            {
+              "say": "16",
+              "tool": "column",
+              "type": "52 - 48",
+              "tip": "Smaller digit from the larger (8 − 2). Ask: are 52 and 48 really 16 apart?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "70 - 38",
           "a": "32",
           "optional": false,
-          "notes": "Look for: 38 to 40 to 70 (2 + 30), or sliding to 72 − 40. Ask: \"Which did you choose?\""
+          "notes": "Look for: 38 to 40 to 70 (2 + 30), or sliding to 72 − 40. Ask: \"Which did you choose?\"",
+          "responses": [
+            {
+              "say": "38 to 40 is 2, then 30 more: 32.",
+              "tool": "numberline",
+              "type": "38 >40 >70"
+            },
+            {
+              "say": "Slide up 2: 72 − 40 = 32.",
+              "tool": "slide",
+              "type": "70 - 38 > +2"
+            },
+            {
+              "say": "48",
+              "tool": "column",
+              "type": "70 - 38",
+              "tip": "Smaller digit from the larger. Ask: is 38 close to 40? About how far to 70?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "84 - 39",
           "a": "45",
           "optional": false,
-          "notes": "Look for: sliding to 85 − 40, or adding up 39 to 40 to 84 (1 + 44)."
+          "notes": "Look for: sliding to 85 − 40, or adding up 39 to 40 to 84 (1 + 44).",
+          "responses": [
+            {
+              "say": "Slide up 1: 85 − 40 = 45.",
+              "tool": "slide",
+              "type": "84 - 39 > +1"
+            },
+            {
+              "say": "39 to 40 is 1, then 44 more: 45.",
+              "tool": "numberline",
+              "type": "39 >40 >84"
+            },
+            {
+              "say": "44",
+              "tool": "slide",
+              "type": "84 - 39 = 84 - 40",
+              "tip": "Moved only one number. Ask: did the gap stay the same?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "603 - 297",
           "a": "306",
           "optional": false,
-          "notes": "Look for: sliding both up 3 to 606 − 300. Ask: \"What made this one easy to slide?\""
+          "notes": "Look for: sliding both up 3 to 606 − 300. Ask: \"What made this one easy to slide?\"",
+          "responses": [
+            {
+              "say": "Slide up 3: 606 − 300 = 306.",
+              "tool": "slide",
+              "type": "603 - 297 > +3",
+              "tip": "The target strategy. Ask: what made it easy to slide?"
+            },
+            {
+              "say": "297 to 300 is 3, then 303 more: 306.",
+              "tool": "numberline",
+              "type": "297 >300 >603"
+            },
+            {
+              "say": "394",
+              "tool": "column",
+              "type": "603 - 297",
+              "tip": "Ask: is 297 close to 300? About how far is it to 603?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "1000 - 385",
           "a": "615",
           "optional": false,
-          "notes": "Look for: adding up 385 to 400 to 1000 (15 + 600), or sliding up 15 to 1015 − 400. Ask: \"Why might adding up feel easier here?\""
+          "notes": "Look for: adding up 385 to 400 to 1000 (15 + 600), or sliding up 15 to 1015 − 400. Ask: \"Why might adding up feel easier here?\"",
+          "responses": [
+            {
+              "say": "385 to 400 is 15, then 600 more: 615.",
+              "tool": "numberline",
+              "type": "385 >400 >1000",
+              "tip": "Adding up. Ask: why might this feel easier?"
+            },
+            {
+              "say": "Slide up 15: 1015 − 400 = 615.",
+              "tool": "slide",
+              "type": "1000 - 385 > +15"
+            },
+            {
+              "say": "725",
+              "tool": "column",
+              "type": "1000 - 385",
+              "tip": "Regrouping slip. Ask: how far is 385 from 400? From 1000?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "2400 - 1998",
           "a": "402",
           "optional": false,
-          "notes": "Look for: sliding both up 2 to 2402 − 2000. Ask: \"Which strategy fits this one? How can you tell from the numbers?\""
+          "notes": "Look for: sliding both up 2 to 2402 − 2000. Ask: \"Which strategy fits this one? How can you tell from the numbers?\"",
+          "responses": [
+            {
+              "say": "Slide up 2: 2402 − 2000 = 402.",
+              "tool": "slide",
+              "type": "2400 - 1998 > +2",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "1998 to 2000 is 2, then 400 more: 402.",
+              "tool": "numberline",
+              "type": "1998 >2000 >2400"
+            },
+            {
+              "say": "398",
+              "tool": "slide",
+              "type": "2400 - 1998 > -2",
+              "tip": "Slid the wrong way. Ask: which slide makes 1998 friendly?",
+              "kind": "error"
+            }
+          ]
         }
       ],
       "wrapUp": "Ask \"What do you look at in the numbers to choose?\" Land: if one number is close to a friendly number, add up or slide, and pick whichever you can do fastest."
