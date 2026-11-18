@@ -11,11 +11,11 @@ Three 30-minute small-group sessions (School Improvement Plan, math fluency): **
 The app has a **🎓 PD page** (`#/pd`, `#/pd/4`…) for teachers: session dates, their grade's focus units with Present / Practice card / Notes, classroom routine, and how to collect evidence. It lists whatever `Grade N · …` strings are in the library, so new units appear there automatically. Dates live in the `PD` constant in app.js.
 
 Before **Dec 4**:
-- [ ] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Approved plan, Nov 17: G4 Wk 2 Multiplying by One Digit ✅ · G5 Decimals to Hundredths ✅, Two-Digit Multiplication ✅ · G6 Percents of Whole Numbers ✅, Adding and Subtracting Fractions ✅ · G7 Integers ✅, Percent Increase and Decrease ✅. Grades 4–7 now have 2 units each with practice responses; Grade 8 has 2 units without practice responses yet.)*
+- [x] **Strings for Grades 4, 5, 6, 7 and 8**: at least 2 focus units per grade (a week of 5 strings each), aligned to the Ontario curriculum, each with `responses` for printable practice cards. Planned in the Claude Project, uploaded to `strings/` as `grade-N-week-NN-topic.json`. *(Approved plan, Nov 17: G4 Wk 2 Multiplying by One Digit ✅ · G5 Decimals to Hundredths ✅, Two-Digit Multiplication ✅ · G6 Percents of Whole Numbers ✅, Adding and Subtracting Fractions ✅ · G7 Integers ✅, Percent Increase and Decrease ✅. Every grade now has 2 units, all with practice responses (Grade 8's added Nov 18), plus a 10-string Grade 8 bank.)*
 - [x] Practice `responses` on every problem of every string, including Grade 4 Days 3–5 and the Grade 8 Weeks 1–2 (Nov 18). Now the standard for new strings (planning guide).
-- [ ] Test the site on the school network/laptops (ask IT to allow gdrutz-blip.github.io if blocked)
+- [x] Test the site on the school network/laptops: works, and progress saves (Nov 18)
 - [x] **Save a run / benchmark strings**: done (🗂 My runs, with Compare). (Nov 17)
-- [ ] Short feedback form and an evidence tracker (outside the app)
+- [x] Exit ticket for each session (a 2-minute Google Form; Session 1's is linked on the PD page). No separate evidence tracker: saved runs plus the exit tickets cover it. Sessions 2 and 3 tickets: add their links to `PD.sessions` in app.js when they're made (Nov 18)
 
 
 
@@ -42,24 +42,22 @@ Before **Dec 4**:
 
 ## Maybe later
 
-- [ ] **Topic banks per grade**: several possible focus units for each grade (4–8), each tied to Ontario Number expectations, so teachers can pick a different focus after the first 8 weeks. Do after the PD units are written.
-- [ ] **Estimate tool with decimals**: it rounds small numbers to the nearest 5 on a 0–10 line, so decimal estimates crowd together. Workaround: type the friendly numbers (`3.99 + 2.45 ≈ 4 + 2.5`).
 
 - [ ] **Connect two problems**: an arrow between problems in the left column for "the last one helped me" (for now, use the pen).
-- [ ] **Printable teacher card** for each string: goal, what to listen for, 3 questions to ask.
+- [ ] **Printable teacher card** for each string: goal, what to listen for, 3 questions to ask. (Partly covered by the 📝 practice card and Notes.)
 
 ## Opening it up to K–8 (big idea, not yet)
 
 Start with 1–2 interested colleagues, ideally including a primary teacher.
 
 - [ ] A K–8 strategy map (scope and sequence) per grade band, planned in the Claude Project before any code
-- [ ] A grade on every string, and a "Choose your grade" home page
+- [x] A grade on every string, and a "Choose your grade" home page (Nov 17)
 - [ ] Tools shown by grade band
 - [ ] Primary tools: ten frames, double ten frames, rekenrek, dot images, number path, hundred chart (tap-friendly for smartboards)
 - [ ] Picture problems and quick-flash (show an image for 2 seconds, then hide it) for K–1
 - [ ] A "first week" guide per grade for new teachers
 - [ ] Check district approval for classroom web tools (privacy is good: no accounts, and no student data leaves the browser)
-- [ ] Write original strings; don't copy published string books
+- [x] Write original strings; don't copy published string books (the rule for the bank)
 
 ## Done
 
