@@ -364,38 +364,167 @@
         {
           "q": "90 + 10",
           "a": "100",
-          "notes": "Look for: 9 tens + 1 ten = 10 tens. Ask: \"How many tens make 100?\""
+          "notes": "Look for: 9 tens + 1 ten = 10 tens. Ask: \"How many tens make 100?\"",
+          "responses": [
+            {
+              "say": "9 tens and 1 ten is 10 tens: 100.",
+              "tool": "numberline",
+              "type": "90 +10"
+            },
+            {
+              "say": "I counted by tens: 100.",
+              "tool": "text",
+              "type": "90 + 10 = 100"
+            }
+          ]
         },
         {
           "q": "95 + 8",
           "a": "103",
-          "notes": "Look for: 95 + 5 = 100, then 3 more. Ask: \"Where did you stop?\" Model: numberline 95 +5 +3"
+          "notes": "Look for: 95 + 5 = 100, then 3 more. Ask: \"Where did you stop?\" Model: numberline 95 +5 +3",
+          "responses": [
+            {
+              "say": "95 + 5 is 100, then 3 more: 103.",
+              "tool": "numberline",
+              "type": "95 +5 +3",
+              "tip": "The target strategy. Ask: where did you stop?"
+            },
+            {
+              "say": "I counted on 8.",
+              "tool": "numberline",
+              "type": "95 +1x8",
+              "tip": "Then ask: is there a jump that gets you to 100?"
+            },
+            {
+              "say": "913",
+              "tool": "text",
+              "type": "9 tens and 13 ones written as 913 ?",
+              "tip": "Ask: how many tens are in 13?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "195 + 8",
           "a": "203",
-          "notes": "Look for: the same as 95 + 8, plus 100. Ask: \"What is the same? What changed?\" Model: numberline 195 +5 +3"
+          "notes": "Look for: the same as 95 + 8, plus 100. Ask: \"What is the same? What changed?\" Model: numberline 195 +5 +3",
+          "responses": [
+            {
+              "say": "195 + 5 is 200, then 3 more: 203.",
+              "tool": "numberline",
+              "type": "195 +5 +3"
+            },
+            {
+              "say": "Same as 95 + 8, plus 100.",
+              "tool": "text",
+              "type": "95 + 8 = 103 ; 195 + 8 = 203",
+              "tip": "Using the last problem. Name it."
+            },
+            {
+              "say": "193",
+              "tool": "text",
+              "type": "195 + 8 = 193 ?",
+              "tip": "Ask: is the answer more or less than 195?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "186 + 25",
           "a": "211",
-          "notes": "Look for: 186 + 14 = 200, then 11 more; or 186 + 20 + 5. Ask: \"How did you know to use 14?\" Model: numberline 186 +14 +11"
+          "notes": "Look for: 186 + 14 = 200, then 11 more; or 186 + 20 + 5. Ask: \"How did you know to use 14?\" Model: numberline 186 +14 +11",
+          "responses": [
+            {
+              "say": "186 + 14 is 200, then 11 more: 211.",
+              "tool": "numberline",
+              "type": "186 +14 +11"
+            },
+            {
+              "say": "186 + 20 is 206, then 5 more: 211.",
+              "tool": "numberline",
+              "type": "186 +20 +5"
+            },
+            {
+              "say": "201",
+              "tool": "text",
+              "type": "186 + 25 = 201 ?",
+              "tip": "Lost a ten. Ask: 6 + 5 is how many ones?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "275 + 30",
           "a": "305",
-          "notes": "Look for: 275 + 25 = 300, then 5 more. Ask: \"How many tens did it take to cross 300?\" Model: numberline 275 +25 +5"
+          "notes": "Look for: 275 + 25 = 300, then 5 more. Ask: \"How many tens did it take to cross 300?\" Model: numberline 275 +25 +5",
+          "responses": [
+            {
+              "say": "275 + 25 is 300, then 5 more: 305.",
+              "tool": "numberline",
+              "type": "275 +25 +5"
+            },
+            {
+              "say": "Three jumps of 10: 285, 295, 305.",
+              "tool": "numberline",
+              "type": "275 +10x3"
+            },
+            {
+              "say": "278",
+              "tool": "text",
+              "type": "275 + 30 = 275 + 3 = 278 ?",
+              "tip": "Added 3 ones. Ask: is 30 three ones or three tens?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "275 + 38",
           "a": "313",
-          "notes": "Look for: 275 + 25 = 300, then 13 more. Ask: \"Can the last problem help?\" Model: numberline 275 +25 +13"
+          "notes": "Look for: 275 + 25 = 300, then 13 more. Ask: \"Can the last problem help?\" Model: numberline 275 +25 +13",
+          "responses": [
+            {
+              "say": "275 + 25 is 300, then 13 more: 313.",
+              "tool": "numberline",
+              "type": "275 +25 +13"
+            },
+            {
+              "say": "Last one was 305, plus 8: 313.",
+              "tool": "numberline",
+              "type": "305 +8"
+            },
+            {
+              "say": "303",
+              "tool": "text",
+              "type": "275 + 38 = 303 ?",
+              "tip": "Ask: 5 + 8 is how many ones? Where does the new ten go?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "368 + 45",
           "a": "413",
           "notes": "Look for: 368 + 32 = 400, then 13; or 368 + 40 + 5. Ask: \"Which stops did you choose, and why?\" Model: numberline 368 +32 +13",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "368 + 32 is 400, then 13 more: 413.",
+              "tool": "numberline",
+              "type": "368 +32 +13"
+            },
+            {
+              "say": "368 + 40 is 408, then 5 more: 413.",
+              "tool": "numberline",
+              "type": "368 +40 +5"
+            },
+            {
+              "say": "403",
+              "tool": "text",
+              "type": "368 + 45 = 403 ?",
+              "tip": "Lost a ten when regrouping. Ask: how many ones is 8 + 5?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -422,38 +551,139 @@
         {
           "q": "46 + 10",
           "a": "56",
-          "notes": "Look for: one jump of 10. Ask: \"Where did you start and land?\" Model: numberline 46 +10"
+          "notes": "Look for: one jump of 10. Ask: \"Where did you start and land?\" Model: numberline 46 +10",
+          "responses": [
+            {
+              "say": "One jump of 10: 56.",
+              "tool": "numberline",
+              "type": "46 +10"
+            }
+          ]
         },
         {
           "q": "46 + 9",
           "a": "55",
-          "notes": "Look for: 46 + 10, then back 1. Ask: \"Can 46 + 10 help?\" Word choice: \"too much by 1, take it back.\" Model: numberline 46 +10 -1"
+          "notes": "Look for: 46 + 10, then back 1. Ask: \"Can 46 + 10 help?\" Word choice: \"too much by 1, take it back.\" Model: numberline 46 +10 -1",
+          "responses": [
+            {
+              "say": "46 + 10 is 56, back 1: 55.",
+              "tool": "numberline",
+              "type": "46 +10 -1",
+              "tip": "The target strategy. Ask: why back 1?"
+            },
+            {
+              "say": "46 + 4 is 50, then 5 more: 55.",
+              "tool": "numberline",
+              "type": "46 +4 +5",
+              "tip": "Make the next ten. Also great."
+            },
+            {
+              "say": "57",
+              "tool": "numberline",
+              "type": "46 +10 +1",
+              "tip": "Adjusted the wrong way. Ask: did 10 add too much or too little?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "46 + 19",
           "a": "65",
-          "notes": "Look for: 46 + 20, back 1. Ask: \"What is the same about 46 + 9 and 46 + 19?\" Model: numberline 46 +20 -1"
+          "notes": "Look for: 46 + 20, back 1. Ask: \"What is the same about 46 + 9 and 46 + 19?\" Model: numberline 46 +20 -1",
+          "responses": [
+            {
+              "say": "46 + 20 is 66, back 1: 65.",
+              "tool": "numberline",
+              "type": "46 +20 -1"
+            },
+            {
+              "say": "It's 10 more than 46 + 9.",
+              "tool": "numberline",
+              "type": "55 +10"
+            }
+          ]
         },
         {
           "q": "46 + 29",
           "a": "75",
           "notes": "Look for: 46 + 30, back 1. Ask: \"Predict how someone will do it.\" Model: numberline 46 +30 -1",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "46 + 30 is 76, back 1: 75.",
+              "tool": "numberline",
+              "type": "46 +30 -1"
+            }
+          ]
         },
         {
           "q": "135 + 99",
           "a": "234",
-          "notes": "Look for: 135 + 100, back 1. Ask: \"Why 100?\" Model: numberline 135 +100 -1"
+          "notes": "Look for: 135 + 100, back 1. Ask: \"Why 100?\" Model: numberline 135 +100 -1",
+          "responses": [
+            {
+              "say": "135 + 100 is 235, back 1: 234.",
+              "tool": "numberline",
+              "type": "135 +100 -1",
+              "tip": "Ask: why 100?"
+            },
+            {
+              "say": "236",
+              "tool": "numberline",
+              "type": "135 +100 +1",
+              "tip": "Ask: is 99 more or less than 100?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "135 + 98",
           "a": "233",
-          "notes": "Look for: 135 + 100, back 2. Ask: \"What changed from the last one?\" Model: numberline 135 +100 -2"
+          "notes": "Look for: 135 + 100, back 2. Ask: \"What changed from the last one?\" Model: numberline 135 +100 -2",
+          "responses": [
+            {
+              "say": "135 + 100 is 235, back 2: 233.",
+              "tool": "numberline",
+              "type": "135 +100 -2"
+            },
+            {
+              "say": "One less than the last one.",
+              "tool": "text",
+              "type": "135 + 99 = 234 ; 135 + 98 = 233"
+            },
+            {
+              "say": "237",
+              "tool": "numberline",
+              "type": "135 +100 +2",
+              "tip": "Adjusted the wrong way. Ask: did 100 add too much or too little?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "247 + 198",
           "a": "445",
-          "notes": "Look for: 247 + 200, back 2; or 245 + 200 (give and take). Ask: \"Which friendly number did you use?\" Model: numberline 247 +200 -2"
+          "notes": "Look for: 247 + 200, back 2; or 245 + 200 (give and take). Ask: \"Which friendly number did you use?\" Model: numberline 247 +200 -2",
+          "responses": [
+            {
+              "say": "247 + 200 is 447, back 2: 445.",
+              "tool": "numberline",
+              "type": "247 +200 -2"
+            },
+            {
+              "say": "Give 2 to 198: 245 + 200.",
+              "tool": "text",
+              "type": "247 + 198 = 245 + 200 ; = 445",
+              "tip": "Give and take. Name it."
+            },
+            {
+              "say": "449",
+              "tool": "numberline",
+              "type": "247 +200 +2",
+              "tip": "Ask: is 198 more or less than 200?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -479,38 +709,173 @@
         {
           "q": "7 + 5",
           "a": "12",
-          "notes": "Look for: 7 + 3 + 2, or a known fact. Ask: \"How many tens and ones is 12?\""
+          "notes": "Look for: 7 + 3 + 2, or a known fact. Ask: \"How many tens and ones is 12?\"",
+          "responses": [
+            {
+              "say": "7 + 3 is 10, plus 2: 12.",
+              "tool": "numberline",
+              "type": "7 +3 +2"
+            },
+            {
+              "say": "I just know it: 12.",
+              "tool": "text",
+              "type": "7 + 5 = 12 ; = 1 ten and 2 ones"
+            }
+          ]
         },
         {
           "q": "27 + 5",
           "a": "32",
-          "notes": "Look for: 27 + 3 + 2. Ask: \"Where did the new ten come from?\" Model: numberline 27 +3 +2"
+          "notes": "Look for: 27 + 3 + 2. Ask: \"Where did the new ten come from?\" Model: numberline 27 +3 +2",
+          "responses": [
+            {
+              "say": "27 + 3 is 30, then 2 more: 32.",
+              "tool": "numberline",
+              "type": "27 +3 +2"
+            },
+            {
+              "say": "The algorithm: 7 + 5 is 12, write 2, carry the ten.",
+              "tool": "column",
+              "type": "27 + 5",
+              "tip": "Ask: what does the little 1 stand for?"
+            },
+            {
+              "say": "212",
+              "tool": "text",
+              "type": "2 tens and 12 ones written as 212 ?",
+              "tip": "Ask: is the answer close to 30 or 200?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "27 + 35",
           "a": "62",
-          "notes": "Look for: 50 + 12, or the algorithm. Ask: \"In the algorithm, where is the 12?\" Model: column 27 + 35 Model: text 7 + 5 = 12 ones = 1 ten and 2 ones"
+          "notes": "Look for: 50 + 12, or the algorithm. Ask: \"In the algorithm, where is the 12?\" Model: column 27 + 35 Model: text 7 + 5 = 12 ones = 1 ten and 2 ones",
+          "responses": [
+            {
+              "say": "20 + 30 is 50, 7 + 5 is 12: 62.",
+              "tool": "split",
+              "type": "27 + 35"
+            },
+            {
+              "say": "The algorithm, carrying the new ten.",
+              "tool": "column",
+              "type": "27 + 35",
+              "tip": "Ask: where is the 12 in the algorithm?"
+            },
+            {
+              "say": "512",
+              "tool": "text",
+              "type": "5 tens and 12 ones written as 512 ?",
+              "tip": "Didn't regroup. Ask: is it about 60 or about 500?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "127 + 35",
           "a": "162",
-          "notes": "Look for: the same as 27 + 35, plus 100. Ask: \"What is the same in the algorithm?\" Model: column 127 + 35"
+          "notes": "Look for: the same as 27 + 35, plus 100. Ask: \"What is the same in the algorithm?\" Model: column 127 + 35",
+          "responses": [
+            {
+              "say": "Same as 27 + 35, plus 100: 162.",
+              "tool": "column",
+              "type": "127 + 35"
+            },
+            {
+              "say": "100 + 50 + 12 = 162.",
+              "tool": "split",
+              "type": "127 + 35"
+            },
+            {
+              "say": "1512",
+              "tool": "text",
+              "type": "1 hundred, 5 tens and 12 ones as 1512 ?",
+              "tip": "Ask: how many tens are in 12 ones?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "168 + 57",
           "a": "225",
-          "notes": "Look for: two regroups (ones and tens). Ask: \"How many new tens? How many new hundreds?\" Model: column 168 + 57 Model: numberline 168 +32 +25"
+          "notes": "Look for: two regroups (ones and tens). Ask: \"How many new tens? How many new hundreds?\" Model: column 168 + 57 Model: numberline 168 +32 +25",
+          "responses": [
+            {
+              "say": "Two regroups: 15 ones and 12 tens.",
+              "tool": "column",
+              "type": "168 + 57",
+              "tip": "Ask: how many new tens? How many new hundreds?"
+            },
+            {
+              "say": "168 + 32 is 200, then 25 more: 225.",
+              "tool": "numberline",
+              "type": "168 +32 +25"
+            },
+            {
+              "say": "100 + 110 + 15 = 225.",
+              "tool": "split",
+              "type": "168 + 57"
+            },
+            {
+              "say": "215",
+              "tool": "text",
+              "type": "168 + 57 = 215 ?",
+              "tip": "Forgot a carried ten. Ask: 6 + 5 + 1 is how many tens?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "268 + 157",
           "a": "425",
-          "notes": "Look for: the same regroups as 168 + 57, plus 100. Ask: \"Predict the answer from the last problem.\" Model: column 268 + 157"
+          "notes": "Look for: the same regroups as 168 + 57, plus 100. Ask: \"Predict the answer from the last problem.\" Model: column 268 + 157",
+          "responses": [
+            {
+              "say": "The same regroups as 168 + 57, plus 100: 425.",
+              "tool": "column",
+              "type": "268 + 157"
+            },
+            {
+              "say": "200 + 100 + 110 + 15 = 425.",
+              "tool": "split",
+              "type": "268 + 157"
+            },
+            {
+              "say": "415",
+              "tool": "text",
+              "type": "268 + 157 = 415 ?",
+              "tip": "Forgot a carried ten. Ask: how many new tens are there?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "399 + 226",
           "a": "625",
-          "notes": "Look for: 400 + 226 - 1 (Day 4!), or the algorithm with three regroups. Ask: \"Which way was easier here, and why?\" Model: numberline 399 +1 +225, and column 399 + 226",
-          "optional": true
+          "notes": "Look for: 400 + 226 - 1 (Day 4!), or the algorithm with three regroups. Ask: \"Which way was easier here, and why?\" Model: numberline 399 +1 +225 Model: column 399 + 226",
+          "optional": true,
+          "responses": [
+            {
+              "say": "399 + 1 is 400, then 225 more: 625.",
+              "tool": "numberline",
+              "type": "399 +1 +225",
+              "tip": "A friendly hundred, like Day 4. Ask: which way was easier?"
+            },
+            {
+              "say": "The algorithm with three regroups.",
+              "tool": "column",
+              "type": "399 + 226"
+            },
+            {
+              "say": "515",
+              "tool": "text",
+              "type": "399 + 226 = 515 ?",
+              "tip": "Ask: is 399 close to 400? So about how much is the answer?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     }

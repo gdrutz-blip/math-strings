@@ -23,43 +23,159 @@
         {
           "q": "8 x 10",
           "a": "80",
-          "notes": "Look for: a known fact. Ask: \"Hold on to this answer.\""
+          "notes": "Look for: a known fact. Ask: \"Hold on to this answer.\"",
+          "responses": [
+            {
+              "say": "8 tens is 80.",
+              "tool": "ratio",
+              "type": "1:8, 10:80"
+            }
+          ]
         },
         {
           "q": "8 x 5",
           "a": "40",
-          "notes": "Look for: half of 80. Ask: \"Can 8 x 10 help you with 8 x 5?\" Word choice: \"half of ten groups is five groups\". Model: ratio 1:8, 10:80, 5:40"
+          "notes": "Look for: half of 80. Ask: \"Can 8 x 10 help you with 8 x 5?\" Word choice: \"half of ten groups is five groups\". Model: ratio 1:8, 10:80, 5:40",
+          "responses": [
+            {
+              "say": "Half of 8 × 10 is 40.",
+              "tool": "ratio",
+              "type": "1:8, 10:80, 5:40",
+              "tip": "The target strategy. Ask: why half?"
+            },
+            {
+              "say": "Five 8s: 8, 16, 24, 32, 40.",
+              "tool": "numberline",
+              "type": "0 +8x5"
+            },
+            {
+              "say": "160",
+              "tool": "ratio",
+              "type": "1:8, 10:80, 20:160",
+              "tip": "Doubled instead of halving. Ask: is 5 more or less than 10?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "18 x 10",
           "a": "180",
           "notes": "Look for: a quick answer. Ask: \"Hold on to this one too.\"",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "18 tens is 180.",
+              "tool": "ratio",
+              "type": "1:18, 10:180"
+            }
+          ]
         },
         {
           "q": "18 x 5",
           "a": "90",
-          "notes": "Look for: half of 180. Ask: \"What is the same as 8 x 5?\" Model: ratio 1:18, 10:180, 5:90"
+          "notes": "Look for: half of 180. Ask: \"What is the same as 8 x 5?\" Model: ratio 1:18, 10:180, 5:90",
+          "responses": [
+            {
+              "say": "Half of 180 is 90.",
+              "tool": "ratio",
+              "type": "1:18, 10:180, 5:90"
+            },
+            {
+              "say": "10 × 5 is 50 and 8 × 5 is 40: 90.",
+              "tool": "area",
+              "type": "10+8 x 5"
+            },
+            {
+              "say": "360",
+              "tool": "ratio",
+              "type": "1:18, 10:180, 20:360",
+              "tip": "Ask: is 18 × 5 more or less than 18 × 10?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "24 x 5",
           "a": "120",
-          "notes": "Look for: half of 240. Ask: \"Predict how someone will do this.\" Model: ratio 1:24, 10:240, 5:120"
+          "notes": "Look for: half of 240. Ask: \"Predict how someone will do this.\" Model: ratio 1:24, 10:240, 5:120",
+          "responses": [
+            {
+              "say": "24 × 10 is 240, half is 120.",
+              "tool": "ratio",
+              "type": "1:24, 10:240, 5:120"
+            },
+            {
+              "say": "20 × 5 is 100 and 4 × 5 is 20: 120.",
+              "tool": "area",
+              "type": "20+4 x 5"
+            }
+          ]
         },
         {
           "q": "36 x 5",
           "a": "180",
-          "notes": "Look for: half of 360. Ask: \"Where does the 180 come from?\" Model: ratio 1:36, 10:360, 5:180"
+          "notes": "Look for: half of 360. Ask: \"Where does the 180 come from?\" Model: ratio 1:36, 10:360, 5:180",
+          "responses": [
+            {
+              "say": "360, half is 180.",
+              "tool": "ratio",
+              "type": "1:36, 10:360, 5:180"
+            },
+            {
+              "say": "Halve 36, double 5: 18 × 10 = 180.",
+              "tool": "halve",
+              "type": "36 x 5 = 18 x 10",
+              "tip": "Double and halve. Tomorrow's strategy."
+            },
+            {
+              "say": "1800",
+              "tool": "text",
+              "type": "36 x 5 = 360 x 5 ?",
+              "tip": "Ask: what's 36 × 10? Then what do you do?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "17 x 5",
           "a": "85",
-          "notes": "Look for: half of 170. Ask: \"What did you do with the 170?\" Word choice: \"half of 170 is 85\". Model: ratio 1:17, 10:170, 5:85"
+          "notes": "Look for: half of 170. Ask: \"What did you do with the 170?\" Word choice: \"half of 170 is 85\". Model: ratio 1:17, 10:170, 5:85",
+          "responses": [
+            {
+              "say": "170, half is 85.",
+              "tool": "ratio",
+              "type": "1:17, 10:170, 5:85"
+            },
+            {
+              "say": "10 × 5 is 50, 7 × 5 is 35: 85.",
+              "tool": "area",
+              "type": "10+7 x 5"
+            },
+            {
+              "say": "80",
+              "tool": "text",
+              "type": "half of 170 = 80 ?",
+              "tip": "Ask: what is half of 170? Half of 100 and half of 70?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "64 x 5",
           "a": "320",
-          "notes": "Look for: half of 640. Ask: \"Would this work with bigger numbers?\" Model: ratio 1:64, 10:640, 5:320"
+          "notes": "Look for: half of 640. Ask: \"Would this work with bigger numbers?\" Model: ratio 1:64, 10:640, 5:320",
+          "responses": [
+            {
+              "say": "640, half is 320.",
+              "tool": "ratio",
+              "type": "1:64, 10:640, 5:320"
+            },
+            {
+              "say": "Halve 64, double 5: 32 × 10.",
+              "tool": "halve",
+              "type": "64 x 5 = 32 x 10"
+            }
+          ]
         }
       ]
     },
@@ -85,39 +201,146 @@
         {
           "q": "4 x 25",
           "a": "100",
-          "notes": "Look for: a known fact (four quarters). Ask: \"Hold on to this answer.\""
+          "notes": "Look for: a known fact (four quarters). Ask: \"Hold on to this answer.\"",
+          "responses": [
+            {
+              "say": "Four quarters make a dollar: 100.",
+              "tool": "text",
+              "type": "4 x 25 = 100"
+            },
+            {
+              "say": "25, 50, 75, 100.",
+              "tool": "numberline",
+              "type": "0 +25x4"
+            }
+          ]
         },
         {
           "q": "8 x 25",
           "a": "200",
-          "notes": "Look for: double 100, or 4 x 50. Ask: \"What do you notice about 8 x 25 and 4 x 50?\" Model: halve 8 x 25 = 4 x 50 = 2 x 100"
+          "notes": "Look for: double 100, or 4 x 50. Ask: \"What do you notice about 8 x 25 and 4 x 50?\" Model: halve 8 x 25 = 4 x 50 = 2 x 100",
+          "responses": [
+            {
+              "say": "Halve 8, double 25: 4 × 50, then 2 × 100.",
+              "tool": "halve",
+              "type": "8 x 25 = 4 x 50 = 2 x 100",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Double 4 × 25: 200.",
+              "tool": "ratio",
+              "type": "4:100, 8:200"
+            },
+            {
+              "say": "400",
+              "tool": "text",
+              "type": "8 x 25 = 16 x 25 ?",
+              "tip": "Doubled both. Ask: is the area the same?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "16 x 25",
           "a": "400",
-          "notes": "Look for: 8 x 50, then 4 x 100. Ask: \"How many times did you halve? Why stop there?\" Model: halve 16 x 25 = 8 x 50 = 4 x 100"
+          "notes": "Look for: 8 x 50, then 4 x 100. Ask: \"How many times did you halve? Why stop there?\" Model: halve 16 x 25 = 8 x 50 = 4 x 100",
+          "responses": [
+            {
+              "say": "8 × 50, then 4 × 100: 400.",
+              "tool": "halve",
+              "type": "16 x 25 = 8 x 50 = 4 x 100"
+            },
+            {
+              "say": "16 is 4 fours, so 4 × 100.",
+              "tool": "ratio",
+              "type": "4:100, 16:400"
+            }
+          ]
         },
         {
           "q": "12 x 25",
           "a": "300",
           "notes": "Look for: 6 x 50 = 3 x 100, or 3 x 4 x 25. Ask: \"What did you do first?\" Model: halve 12 x 25 = 6 x 50 = 3 x 100",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 × 50, then 3 × 100: 300.",
+              "tool": "halve",
+              "type": "12 x 25 = 6 x 50 = 3 x 100"
+            },
+            {
+              "say": "12 is 3 fours: 3 × 100.",
+              "tool": "ratio",
+              "type": "4:100, 12:300"
+            }
+          ]
         },
         {
           "q": "14 x 25",
           "a": "350",
           "notes": "Look for: 7 x 50, or 10 x 25 + 4 x 25. Ask: \"Both work. Which was quicker, and why?\" Model: halve 14 x 25 = 7 x 50",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "Halve 14, double 25: 7 × 50 = 350.",
+              "tool": "halve",
+              "type": "14 x 25 = 7 x 50"
+            },
+            {
+              "say": "10 × 25 is 250, 4 × 25 is 100: 350.",
+              "tool": "area",
+              "type": "10+4 x 25"
+            }
+          ]
         },
         {
           "q": "18 x 50",
           "a": "900",
-          "notes": "Look for: 9 x 100. Ask: \"Which number did you halve? What did the 50 become?\" Model: halve 18 x 50 = 9 x 100"
+          "notes": "Look for: 9 x 100. Ask: \"Which number did you halve? What did the 50 become?\" Model: halve 18 x 50 = 9 x 100",
+          "responses": [
+            {
+              "say": "Halve 18, double 50: 9 × 100 = 900.",
+              "tool": "halve",
+              "type": "18 x 50 = 9 x 100"
+            },
+            {
+              "say": "18 × 100 is 1800, half is 900.",
+              "tool": "ratio",
+              "type": "100:1800, 50:900"
+            },
+            {
+              "say": "1800",
+              "tool": "text",
+              "type": "18 x 50 = 18 x 100 ?",
+              "tip": "Doubled only one. Ask: what did you do to the 18?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "15 x 12",
           "a": "180",
-          "notes": "Look for: 30 x 6 = 180, or 15 x 10 + 15 x 2. Ask: \"Which number would you double here, and why?\" Model: halve 15 x 12 = 30 x 6"
+          "notes": "Look for: 30 x 6 = 180, or 15 x 10 + 15 x 2. Ask: \"Which number would you double here, and why?\" Model: halve 15 x 12 = 30 x 6",
+          "responses": [
+            {
+              "say": "Double 15, halve 12: 30 × 6 = 180.",
+              "tool": "halve",
+              "type": "15 x 12 = 30 x 6",
+              "tip": "Ask: why double the 15?"
+            },
+            {
+              "say": "15 × 10 is 150, 15 × 2 is 30: 180.",
+              "tool": "area",
+              "type": "15 x 10+2"
+            },
+            {
+              "say": "360",
+              "tool": "text",
+              "type": "15 x 12 = 30 x 12 ?",
+              "tip": "Doubled without halving. Ask: what happens to the other factor?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -143,44 +366,155 @@
         {
           "q": "10 x 7",
           "a": "70",
-          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\"",
+          "responses": [
+            {
+              "say": "Ten 7s is 70.",
+              "tool": "array",
+              "type": "10 x 7"
+            }
+          ]
         },
         {
           "q": "9 x 7",
           "a": "63",
-          "notes": "Look for: 70 - 7. Ask: \"Can 10 x 7 help you with 9 x 7?\" Word choice: \"one less group\". Model: array 10-1 x 7"
+          "notes": "Look for: 70 - 7. Ask: \"Can 10 x 7 help you with 9 x 7?\" Word choice: \"one less group\". Model: array 10-1 x 7",
+          "responses": [
+            {
+              "say": "10 × 7 is 70, one less 7: 63.",
+              "tool": "array",
+              "type": "10-1 x 7",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "A known fact: 63.",
+              "tool": "text",
+              "type": "9 x 7 = 63"
+            },
+            {
+              "say": "69",
+              "tool": "text",
+              "type": "9 x 7 = 70 - 1 = 69 ?",
+              "tip": "Took away 1, not one group. Ask: how big is each group?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "9 x 8",
           "a": "72",
-          "notes": "Look for: 80 - 8. Ask: \"What is the same as 9 x 7?\" Model: array 10-1 x 8"
+          "notes": "Look for: 80 - 8. Ask: \"What is the same as 9 x 7?\" Model: array 10-1 x 8",
+          "responses": [
+            {
+              "say": "80 − 8 = 72.",
+              "tool": "array",
+              "type": "10-1 x 8"
+            },
+            {
+              "say": "71",
+              "tool": "text",
+              "type": "9 x 8 = 80 - 9 = 71 ?",
+              "tip": "Took away a 9. Ask: what is the size of the group you took back?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "11 x 7",
           "a": "77",
           "notes": "Look for: 70 + 7. Ask: \"Over or under 10 groups? What do you add?\" Model: array 10+1 x 7",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "70 + 7 = 77.",
+              "tool": "array",
+              "type": "10+1 x 7"
+            }
+          ]
         },
         {
           "q": "19 x 8",
           "a": "152",
-          "notes": "Look for: 20 x 8 = 160, then - 8. Ask: \"What are you taking back?\" Model: area 20-1 x 8"
+          "notes": "Look for: 20 x 8 = 160, then - 8. Ask: \"What are you taking back?\" Model: area 20-1 x 8",
+          "responses": [
+            {
+              "say": "20 × 8 is 160, take away one 8: 152.",
+              "tool": "area",
+              "type": "20-1 x 8"
+            },
+            {
+              "say": "10 × 8 is 80, 9 × 8 is 72: 152.",
+              "tool": "area",
+              "type": "10+9 x 8"
+            },
+            {
+              "say": "159",
+              "tool": "text",
+              "type": "19 x 8 = 160 - 1 = 159 ?",
+              "tip": "Took back 1 instead of one group. Ask: how many 8s too many?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "29 x 6",
           "a": "174",
-          "notes": "Look for: 30 x 6 = 180, then - 6. Ask: \"Predict what someone will do.\" Model: area 30-1 x 6"
+          "notes": "Look for: 30 x 6 = 180, then - 6. Ask: \"Predict what someone will do.\" Model: area 30-1 x 6",
+          "responses": [
+            {
+              "say": "30 × 6 is 180, take away 6: 174.",
+              "tool": "area",
+              "type": "30-1 x 6"
+            },
+            {
+              "say": "20 × 6 is 120, 9 × 6 is 54: 174.",
+              "tool": "area",
+              "type": "20+9 x 6"
+            }
+          ]
         },
         {
           "q": "49 x 4",
           "a": "196",
           "notes": "Look for: 50 x 4 = 200, then - 4. Ask: \"What is the same about the last three?\" Model: area 50-1 x 4",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "50 × 4 is 200, take away 4: 196.",
+              "tool": "area",
+              "type": "50-1 x 4"
+            },
+            {
+              "say": "Double 49, double again: 98, 196.",
+              "tool": "ratio",
+              "type": "1:49, 2:98, 4:196"
+            }
+          ]
         },
         {
           "q": "99 x 5",
           "a": "495",
-          "notes": "Look for: 100 x 5 = 500, then - 5. Ask: \"Would this work with bigger numbers?\" Model: area 100-1 x 5"
+          "notes": "Look for: 100 x 5 = 500, then - 5. Ask: \"Would this work with bigger numbers?\" Model: area 100-1 x 5",
+          "responses": [
+            {
+              "say": "100 × 5 is 500, take away 5: 495.",
+              "tool": "area",
+              "type": "100-1 x 5"
+            },
+            {
+              "say": "Half of 990: 495.",
+              "tool": "ratio",
+              "type": "1:99, 10:990, 5:495",
+              "tip": "Times 5 as half of times 10. Name it."
+            },
+            {
+              "say": "499",
+              "tool": "text",
+              "type": "99 x 5 = 500 - 1 = 499 ?",
+              "tip": "Ask: how many 5s too many?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -206,38 +540,125 @@
         {
           "q": "80 / 10",
           "a": "8",
-          "notes": "Look for: a known fact. Ask: \"Hold on to this.\""
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\"",
+          "responses": [
+            {
+              "say": "80 ÷ 10 = 8.",
+              "tool": "ratio",
+              "type": "80:10, 8:1"
+            }
+          ]
         },
         {
           "q": "80 / 5",
           "a": "16",
-          "notes": "Look for: double 8, or 160 / 10. Ask: \"Why is it more than 80 / 10?\" Word choice: \"twice as many fives as tens\". Model: ratio 80:5, 160:10, 16:1"
+          "notes": "Look for: double 8, or 160 / 10. Ask: \"Why is it more than 80 / 10?\" Word choice: \"twice as many fives as tens\". Model: ratio 80:5, 160:10, 16:1",
+          "responses": [
+            {
+              "say": "Double both: 160 ÷ 10 = 16.",
+              "tool": "ratio",
+              "type": "80:5, 160:10, 16:1",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "There are twice as many 5s as 10s in 80: 16.",
+              "tool": "text",
+              "type": "80 / 10 = 8 ; 80 / 5 = 2 x 8 = 16"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "80 / 5 = 8 / 2 = 4 ?",
+              "tip": "Halved instead of doubling. Ask: are there more 5s or more 10s in 80?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "35 / 5",
           "a": "7",
-          "notes": "Look for: 70 / 10. Ask: \"What did you do to 35?\" Model: ratio 35:5, 70:10, 7:1"
+          "notes": "Look for: 70 / 10. Ask: \"What did you do to 35?\" Model: ratio 35:5, 70:10, 7:1",
+          "responses": [
+            {
+              "say": "70 ÷ 10 = 7.",
+              "tool": "ratio",
+              "type": "35:5, 70:10, 7:1"
+            },
+            {
+              "say": "A known fact: 7 × 5 = 35.",
+              "tool": "text",
+              "type": "7 x 5 = 35 ; 35 / 5 = 7"
+            }
+          ]
         },
         {
           "q": "75 / 5",
           "a": "15",
-          "notes": "Look for: 150 / 10. Ask: \"Predict how someone will do this.\" Model: ratio 75:5, 150:10, 15:1"
+          "notes": "Look for: 150 / 10. Ask: \"Predict how someone will do this.\" Model: ratio 75:5, 150:10, 15:1",
+          "responses": [
+            {
+              "say": "150 ÷ 10 = 15.",
+              "tool": "ratio",
+              "type": "75:5, 150:10, 15:1"
+            },
+            {
+              "say": "7.5",
+              "tool": "text",
+              "type": "75 / 5 = 75 / 10 = 7.5 ?",
+              "tip": "Divided by 10 without doubling. Ask: how many 5s in 10?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "135 / 5",
           "a": "27",
-          "notes": "Look for: 270 / 10. Ask: \"How did you double 135?\" Word choice: \"double the hundred, double the thirty-five\". Model: ratio 135:5, 270:10, 27:1"
+          "notes": "Look for: 270 / 10. Ask: \"How did you double 135?\" Word choice: \"double the hundred, double the thirty-five\". Model: ratio 135:5, 270:10, 27:1",
+          "responses": [
+            {
+              "say": "Double 135 is 270, ÷ 10 is 27.",
+              "tool": "ratio",
+              "type": "135:5, 270:10, 27:1"
+            },
+            {
+              "say": "100 ÷ 5 is 20, 35 ÷ 5 is 7: 27.",
+              "tool": "text",
+              "type": "135 = 100 + 35 ; 20 + 7 = 27",
+              "tip": "Split the dividend. Nice."
+            }
+          ]
         },
         {
           "q": "240 / 5",
           "a": "48",
           "notes": "Look for: 480 / 10. Ask: \"Is this the same move as Day 1 turned around?\" Model: ratio 240:5, 480:10, 48:1",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "480 ÷ 10 = 48.",
+              "tool": "ratio",
+              "type": "240:5, 480:10, 48:1"
+            }
+          ]
         },
         {
           "q": "420 / 5",
           "a": "84",
-          "notes": "Look for: 840 / 10. Ask: \"Would this work with bigger numbers?\" Model: ratio 420:5, 840:10, 84:1"
+          "notes": "Look for: 840 / 10. Ask: \"Would this work with bigger numbers?\" Model: ratio 420:5, 840:10, 84:1",
+          "responses": [
+            {
+              "say": "840 ÷ 10 = 84.",
+              "tool": "ratio",
+              "type": "420:5, 840:10, 84:1"
+            },
+            {
+              "say": "42",
+              "tool": "text",
+              "type": "420 / 5 = 420 / 10 = 42 ?",
+              "tip": "Ask: do you double first or halve?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     },
@@ -263,38 +684,150 @@
         {
           "q": "26 x 5",
           "a": "130",
-          "notes": "Look for: half of 260. Ask: \"Which strategy did you choose?\" Model: text 26 x 10 = 260 ; half is 130"
+          "notes": "Look for: half of 260. Ask: \"Which strategy did you choose?\" Model: text 26 x 10 = 260 ; half is 130",
+          "responses": [
+            {
+              "say": "26 × 10 is 260, half is 130.",
+              "tool": "ratio",
+              "type": "1:26, 10:260, 5:130"
+            },
+            {
+              "say": "Halve 26, double 5: 13 × 10.",
+              "tool": "halve",
+              "type": "26 x 5 = 13 x 10"
+            }
+          ]
         },
         {
           "q": "48 x 25",
           "a": "1200",
-          "notes": "Look for: 12 x 100, or 24 x 50 = 12 x 100. Ask: \"What made 25 easy to work with?\" Model: text 48 x 25 = 24 x 50 ; = 12 x 100"
+          "notes": "Look for: 12 x 100, or 24 x 50 = 12 x 100. Ask: \"What made 25 easy to work with?\" Model: text 48 x 25 = 24 x 50 ; = 12 x 100",
+          "responses": [
+            {
+              "say": "Halve and double twice: 12 × 100.",
+              "tool": "halve",
+              "type": "48 x 25 = 24 x 50 = 12 x 100"
+            },
+            {
+              "say": "48 is 12 fours, and 4 × 25 is 100.",
+              "tool": "ratio",
+              "type": "4:100, 48:1200"
+            },
+            {
+              "say": "120",
+              "tool": "text",
+              "type": "48 x 25 = 12 x 10 ?",
+              "tip": "Ask: what is 4 × 25?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "9 x 14",
           "a": "126",
-          "notes": "Look for: 140 - 14. Ask: \"What are you taking back?\" Model: text 10 x 14 = 140 ; 140 - 14 = 126"
+          "notes": "Look for: 140 - 14. Ask: \"What are you taking back?\" Model: text 10 x 14 = 140 ; 140 - 14 = 126",
+          "responses": [
+            {
+              "say": "10 × 14 is 140, take away 14: 126.",
+              "tool": "area",
+              "type": "10-1 x 14"
+            },
+            {
+              "say": "9 × 10 is 90, 9 × 4 is 36: 126.",
+              "tool": "area",
+              "type": "9 x 10+4"
+            },
+            {
+              "say": "139",
+              "tool": "text",
+              "type": "9 x 14 = 140 - 1 = 139 ?",
+              "tip": "Ask: how many 14s too many?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "195 / 5",
           "a": "39",
-          "notes": "Look for: 390 / 10. Ask: \"Which Day 4 move did you use?\" Model: text 195 / 5 = 390 / 10 ; = 39"
+          "notes": "Look for: 390 / 10. Ask: \"Which Day 4 move did you use?\" Model: text 195 / 5 = 390 / 10 ; = 39",
+          "responses": [
+            {
+              "say": "Double it: 390 ÷ 10 = 39.",
+              "tool": "ratio",
+              "type": "195:5, 390:10, 39:1"
+            },
+            {
+              "say": "200 ÷ 5 is 40, minus one 5: 39.",
+              "tool": "text",
+              "type": "200 / 5 = 40 ; 195 / 5 = 40 - 1 = 39"
+            }
+          ]
         },
         {
           "q": "29 x 8",
           "a": "232",
           "notes": "Look for: 240 - 8. Ask: \"What made this one easy to adjust?\" Model: text 30 x 8 = 240 ; 240 - 8 = 232",
-          "optional": true
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 × 8 is 240, take away 8: 232.",
+              "tool": "area",
+              "type": "30-1 x 8"
+            },
+            {
+              "say": "Double 29 three times: 58, 116, 232.",
+              "tool": "ratio",
+              "type": "1:29, 2:58, 4:116, 8:232"
+            }
+          ]
         },
         {
           "q": "98 x 5",
           "a": "490",
-          "notes": "Look for: 500 - 10, or half of 980. Ask: \"Two good ways. Which feels quicker, and why?\" Model: text 100 x 5 = 500 ; 500 - 10 = 490"
+          "notes": "Look for: 500 - 10, or half of 980. Ask: \"Two good ways. Which feels quicker, and why?\" Model: text 100 x 5 = 500 ; 500 - 10 = 490",
+          "responses": [
+            {
+              "say": "100 × 5 is 500, take away 2 fives: 490.",
+              "tool": "area",
+              "type": "100-2 x 5"
+            },
+            {
+              "say": "98 × 10 is 980, half is 490.",
+              "tool": "ratio",
+              "type": "1:98, 10:980, 5:490"
+            },
+            {
+              "say": "498",
+              "tool": "text",
+              "type": "98 x 5 = 500 - 2 = 498 ?",
+              "tip": "Ask: 2 what? How big is each group?",
+              "kind": "error"
+            }
+          ]
         },
         {
           "q": "16 x 35",
           "a": "560",
-          "notes": "Look for: 8 x 70, or 4 x 140, or 16 x 30 + 16 x 5. Ask: \"Which number did you halve?\" Model: halve 16 x 35 = 8 x 70 = 4 x 140"
+          "notes": "Look for: 8 x 70, or 4 x 140, or 16 x 30 + 16 x 5. Ask: \"Which number did you halve?\" Model: halve 16 x 35 = 8 x 70 = 4 x 140",
+          "responses": [
+            {
+              "say": "Halve 16, double 35: 8 × 70 = 560.",
+              "tool": "halve",
+              "type": "16 x 35 = 8 x 70 = 4 x 140"
+            },
+            {
+              "say": "16 × 30 is 480, 16 × 5 is 80: 560.",
+              "tool": "area",
+              "type": "16 x 30+5"
+            },
+            {
+              "say": "1120",
+              "tool": "text",
+              "type": "16 x 35 = 16 x 70 ?",
+              "tip": "Doubled without halving. Ask: what happens to the 16?",
+              "kind": "error"
+            }
+          ]
         }
       ]
     }

@@ -97,7 +97,7 @@ Put the file in a code block **and** offer it as a downloadable file if you can.
 | `a` | yes | The correct answer (teacher only). **Double-check every answer.** |
 | `optional` | no | `true` for problems to skip if short on time. The app shows a "Skip" button for these. |
 | `notes` | no | Teacher-only prompts. Use this order: `Look for: … Ask: "…" Word choice: … Model: <tool> <input>` |
-| `responses` | recommended | Likely student responses for the **printable practice card**: a list of `{ "say": "what the student says", "tool": "numberline", "type": "28 +2 +3", "kind": "error" (only for a common mistake), "tip": "short teacher tip" }`. Give 2–4 per problem: the target strategy, another likely strategy, and one common mistake. `type` must be valid input for `tool` (section 4). |
+| `responses` | **yes, on every problem** | Likely student responses. They power the **printable practice card** (teachers rehearse in pairs) and **💡 Try** in the presenter (one tap draws the model). Write them as a list of `{ "say": "what the student says", "tool": "numberline", "type": "28 +2 +3", "kind": "error" (only for a common mistake), "tip": "short teacher tip" }`. Give 2–4 per problem: the target strategy, another likely strategy, and one common mistake. `type` must be valid input for `tool` (section 4). |
 
 ### How to write problems (`q`)
 
@@ -150,6 +150,7 @@ Choose the string's `tool` as the model that best shows the **target strategy**,
 - **Build each string around one strategy.** Start with a helper problem students can do quickly, then problems that lean on it, then one that stretches the strategy or asks students to predict.
 - **Mark one or two problems `"optional": true`** so the teacher can shorten the string.
 - **Check every answer.** Wrong answers in the file would mislead the teacher.
+- **Give every problem anticipated responses** (2–4): the target strategy, another reasonable strategy, and one realistic mistake (mark it `"kind": "error"` and add a `tip` with the question to ask). Use mistakes students really make, such as regrouping slips, adjusting the wrong way, or taking back 1 instead of one group. Keep it to 2–4, so the card supports listening rather than becoming a script. Check that each `type` draws the model you mean.
 - **Never put student names** (or any student information) in a file. The app's name picker keeps class lists only in the teacher's browser.
 - **Keep ids stable.** When revising, keep each string's `id` and return the **whole week's file** with the same file name. A revised file replaces the old one.
 
