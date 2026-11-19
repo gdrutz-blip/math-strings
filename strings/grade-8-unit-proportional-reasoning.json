@@ -268,7 +268,8 @@
             }
           ]
         }
-      ]
+      ],
+      "connection": "Day 1: Building a Ratio Table"
     },
     {
       "id": "g8-prop-d03-unit-prices-with-decimals",
@@ -530,260 +531,9 @@
       "connection": "Day 3: Unit Prices with Decimals"
     },
     {
-      "id": "g8-prop-d05-speed-on-a-double-number-line",
-      "title": "Speed on a Double Number Line",
-      "label": "Day 5",
-      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
-      "tool": "doubleline",
-      "strategy": "A constant speed is a rate: 90 km in 60 minutes. On a double number line, halve, third, or add marks to find the distance for any time.",
-      "topic": "rat",
-      "keywords": "speed, rate, km per hour, double number line, minutes, half, third",
-      "curriculum": [
-        "B2.8"
-      ],
-      "watchFor": [
-        "Treating 20 minutes as a fifth of an hour: ask \"How many 20s make 60?\"",
-        "Adding the same amount to both lines: ask \"Is the car going the same speed?\"",
-        "Forgetting the times aren't hours: ask \"Is 100 minutes more or less than an hour?\""
-      ],
-      "wrapUp": "Ask \"Which marks helped the most?\" Land: 30, 20, 15 and 10 minutes are friendly parts of an hour. Find one, then add marks to reach any time.",
-      "problems": [
-        {
-          "q": "60 : 90 = 30 : ?",
-          "a": "45",
-          "notes": "Context: \"A car travels 90 km in 60 minutes.\" Look for: half the time, half the distance. Ask: \"How far in half an hour?\" Word choice: \"90 km per hour\". Model: doubleline min:km, 0:0, 30:45, 60:90",
-          "responses": [
-            {
-              "say": "Half an hour, half of 90: 45 km.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 30:45, 60:90"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = 20 : ?",
-          "a": "30",
-          "notes": "Look for: a third of an hour. Ask: \"How many 20s make 60?\" Model: doubleline min:km, 0:0, 20:30, 60:90",
-          "responses": [
-            {
-              "say": "20 minutes is a third of an hour: 30 km.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 20:30, 60:90"
-            },
-            {
-              "say": "18",
-              "tool": "text",
-              "type": "60 : 90 = 20 : 18 ?",
-              "tip": "Treated 20 min as a fifth. Ask: how many 20s in 60?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = 10 : ?",
-          "a": "15",
-          "notes": "Look for: half of 20 minutes. Ask: \"How does the last one help?\" Model: doubleline min:km, 0:0, 10:15, 20:30, 60:90",
-          "responses": [
-            {
-              "say": "Half of 30 km: 15.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 10:15, 20:30, 60:90"
-            },
-            {
-              "say": "90 ÷ 6 = 15.",
-              "tool": "text",
-              "type": "60 ÷ 10 = 6 ; 90 ÷ 6 = 15"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = 40 : ?",
-          "a": "60",
-          "notes": "Look for: 20 + 20, or 60 − 20. Ask: \"Two ways?\" Model: doubleline min:km, 0:0, 20:30, 40:60, 60:90",
-          "responses": [
-            {
-              "say": "Two 20-minute marks: 30 + 30 = 60 km.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 20:30, 40:60, 60:90"
-            },
-            {
-              "say": "An hour minus 20 minutes: 90 − 30 = 60.",
-              "tool": "text",
-              "type": "90 - 30 = 60"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = 100 : ?",
-          "a": "150",
-          "notes": "Look for: 60 + 40 minutes = 90 + 60 km. Ask: \"Is 100 minutes more than an hour?\" Model: doubleline min:km, 0:0, 40:60, 60:90, 100:150",
-          "responses": [
-            {
-              "say": "60 min is 90, 40 min is 60: 150 km.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 40:60, 60:90, 100:150",
-              "tip": "Adding marks past the hour."
-            },
-            {
-              "say": "10 × 15 = 150.",
-              "tool": "text",
-              "type": "10-minute chunks: 10 x 15 = 150"
-            },
-            {
-              "say": "9000",
-              "tool": "text",
-              "type": "100 x 90 = 9000 ?",
-              "tip": "Ask: is 90 km per minute, or per hour?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = 75 : ?",
-          "a": "112.5",
-          "notes": "Look for: 60 + 15 minutes. Ask: \"What's 15 minutes?\" Model: doubleline min:km, 0:0, 15:22.5, 60:90, 75:112.5",
-          "optional": true,
-          "responses": [
-            {
-              "say": "A quarter hour is 22.5 km: 90 + 22.5 = 112.5.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 15:22.5, 60:90, 75:112.5"
-            }
-          ]
-        }
-      ],
-      "connection": "Day 1: Building a Ratio Table"
-    },
-    {
-      "id": "g8-prop-d06-working-backward",
-      "title": "Working Backward: How Long?",
-      "label": "Day 6",
-      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
-      "tool": "doubleline",
-      "strategy": "Use the same double number line to go backward: given a distance, find the time. Find a mark you know and scale it.",
-      "topic": "rat",
-      "keywords": "rate, working backward, time, distance, double number line, scale",
-      "curriculum": [
-        "B2.8"
-      ],
-      "watchFor": [
-        "Multiplying when they should divide (45 km × 60): ask \"Is the answer a time or a distance?\"",
-        "Answering in hours when the line is in minutes: ask \"Which line is the time on?\"",
-        "Losing the rate: ask \"How far in 60 minutes? Is 45 km more or less than that?\""
-      ],
-      "wrapUp": "Ask \"How is going backward like going forward?\" Land: it's the same ratio table. Find the distance mark, read across to the time. Halve, third, double or add marks.",
-      "problems": [
-        {
-          "q": "60 : 90 = ? : 45",
-          "a": "30",
-          "notes": "Context: \"The same car: 90 km in 60 minutes. How long for 45 km?\" Look for: half the distance, half the time. Ask: \"Is 45 km more or less than an hour of driving?\" Model: doubleline min:km, 0:0, 30:45, 60:90",
-          "responses": [
-            {
-              "say": "45 is half of 90, so 30 minutes.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 30:45, 60:90"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = ? : 180",
-          "a": "120",
-          "notes": "Look for: double. Ask: \"Twice as far?\" Model: doubleline min:km, 0:0, 60:90, 120:180",
-          "responses": [
-            {
-              "say": "Double: 120 minutes, or 2 hours.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 60:90, 120:180"
-            },
-            {
-              "say": "2",
-              "tool": "text",
-              "type": "180 ÷ 90 = 2",
-              "tip": "Right in hours! Ask: what is that in minutes?"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = ? : 30",
-          "a": "20",
-          "notes": "Look for: a third of the distance. Ask: \"How many 30s in 90?\" Model: doubleline min:km, 0:0, 20:30, 60:90",
-          "responses": [
-            {
-              "say": "30 is a third of 90: 20 minutes.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 20:30, 60:90"
-            },
-            {
-              "say": "45",
-              "tool": "text",
-              "type": "60 : 90 = 45 : 30 ?",
-              "tip": "Took 45 off the distance and 15 off the time. Ask: is 30 km half of 90, or a third?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = ? : 135",
-          "a": "90",
-          "notes": "Look for: 90 + 45 km = 60 + 30 minutes. Ask: \"Which marks add to 135?\" Model: doubleline min:km, 0:0, 30:45, 60:90, 90:135",
-          "responses": [
-            {
-              "say": "90 km is 60 min, 45 km is 30 min: 90 minutes.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 30:45, 60:90, 90:135"
-            },
-            {
-              "say": "8100",
-              "tool": "text",
-              "type": "135 x 60 = 8100 ?",
-              "tip": "Ask: should a trip take more than 5 days?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = ? : 15",
-          "a": "10",
-          "notes": "Look for: a sixth. Ask: \"How does 30 km help?\" Model: doubleline min:km, 0:0, 10:15, 20:30, 60:90",
-          "responses": [
-            {
-              "say": "Half of 30 km is 15, so half of 20 minutes: 10.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 10:15, 20:30, 60:90"
-            },
-            {
-              "say": "1.5 km per minute, so 15 ÷ 1.5 = 10.",
-              "tool": "text",
-              "type": "90 ÷ 60 = 1.5 km per minute ; 15 ÷ 1.5 = 10",
-              "tip": "The unit rate per minute."
-            }
-          ]
-        },
-        {
-          "q": "60 : 90 = ? : 240",
-          "a": "160",
-          "notes": "Look for: 180 + 60 km = 120 + 40 minutes. Ask: \"Will it be a whole number of hours?\" Model: doubleline min:km, 0:0, 40:60, 120:180, 160:240",
-          "optional": true,
-          "responses": [
-            {
-              "say": "180 km is 120 min, 60 km is 40 min: 160 minutes.",
-              "tool": "doubleline",
-              "type": "min:km, 0:0, 40:60, 120:180, 160:240"
-            },
-            {
-              "say": "240 ÷ 1.5 = 160.",
-              "tool": "text",
-              "type": "240 ÷ 1.5 = 160"
-            }
-          ]
-        }
-      ],
-      "connection": "Day 5: Speed on a Double Number Line"
-    },
-    {
-      "id": "g8-prop-d07-across-the-table",
+      "id": "g8-prop-d05-across-the-table",
       "title": "The Multiplier Across the Table",
-      "label": "Day 7",
+      "label": "Day 5",
       "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
       "tool": "ratio",
       "strategy": "In a ratio table, you can multiply down a column (×2, ×10), or across a row: if 4 becomes 10, every first number times 2.5 gives the second. Across is fast when the down factor is awkward.",
@@ -926,6 +676,257 @@
         }
       ],
       "connection": "Day 2: How Much for One?"
+    },
+    {
+      "id": "g8-prop-d06-speed-on-a-double-number-line",
+      "title": "Speed on a Double Number Line",
+      "label": "Day 6",
+      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
+      "tool": "doubleline",
+      "strategy": "A constant speed is a rate: 90 km in 60 minutes. On a double number line, halve, third, or add marks to find the distance for any time.",
+      "topic": "rat",
+      "keywords": "speed, rate, km per hour, double number line, minutes, half, third",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Treating 20 minutes as a fifth of an hour: ask \"How many 20s make 60?\"",
+        "Adding the same amount to both lines: ask \"Is the car going the same speed?\"",
+        "Forgetting the times aren't hours: ask \"Is 100 minutes more or less than an hour?\""
+      ],
+      "wrapUp": "Ask \"Which marks helped the most?\" Land: 30, 20, 15 and 10 minutes are friendly parts of an hour. Find one, then add marks to reach any time.",
+      "problems": [
+        {
+          "q": "60 : 90 = 30 : ?",
+          "a": "45",
+          "notes": "Context: \"A car travels 90 km in 60 minutes.\" Look for: half the time, half the distance. Ask: \"How far in half an hour?\" Word choice: \"90 km per hour\". Model: doubleline min:km, 0:0, 30:45, 60:90",
+          "responses": [
+            {
+              "say": "Half an hour, half of 90: 45 km.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 30:45, 60:90"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = 20 : ?",
+          "a": "30",
+          "notes": "Look for: a third of an hour. Ask: \"How many 20s make 60?\" Model: doubleline min:km, 0:0, 20:30, 60:90",
+          "responses": [
+            {
+              "say": "20 minutes is a third of an hour: 30 km.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 20:30, 60:90"
+            },
+            {
+              "say": "18",
+              "tool": "text",
+              "type": "60 : 90 = 20 : 18 ?",
+              "tip": "Treated 20 min as a fifth. Ask: how many 20s in 60?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = 10 : ?",
+          "a": "15",
+          "notes": "Look for: half of 20 minutes. Ask: \"How does the last one help?\" Model: doubleline min:km, 0:0, 10:15, 20:30, 60:90",
+          "responses": [
+            {
+              "say": "Half of 30 km: 15.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 10:15, 20:30, 60:90"
+            },
+            {
+              "say": "90 ÷ 6 = 15.",
+              "tool": "text",
+              "type": "60 ÷ 10 = 6 ; 90 ÷ 6 = 15"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = 40 : ?",
+          "a": "60",
+          "notes": "Look for: 20 + 20, or 60 − 20. Ask: \"Two ways?\" Model: doubleline min:km, 0:0, 20:30, 40:60, 60:90",
+          "responses": [
+            {
+              "say": "Two 20-minute marks: 30 + 30 = 60 km.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 20:30, 40:60, 60:90"
+            },
+            {
+              "say": "An hour minus 20 minutes: 90 − 30 = 60.",
+              "tool": "text",
+              "type": "90 - 30 = 60"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = 100 : ?",
+          "a": "150",
+          "notes": "Look for: 60 + 40 minutes = 90 + 60 km. Ask: \"Is 100 minutes more than an hour?\" Model: doubleline min:km, 0:0, 40:60, 60:90, 100:150",
+          "responses": [
+            {
+              "say": "60 min is 90, 40 min is 60: 150 km.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 40:60, 60:90, 100:150",
+              "tip": "Adding marks past the hour."
+            },
+            {
+              "say": "10 × 15 = 150.",
+              "tool": "text",
+              "type": "10-minute chunks: 10 x 15 = 150"
+            },
+            {
+              "say": "9000",
+              "tool": "text",
+              "type": "100 x 90 = 9000 ?",
+              "tip": "Ask: is 90 km per minute, or per hour?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = 75 : ?",
+          "a": "112.5",
+          "notes": "Look for: 60 + 15 minutes. Ask: \"What's 15 minutes?\" Model: doubleline min:km, 0:0, 15:22.5, 60:90, 75:112.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "A quarter hour is 22.5 km: 90 + 22.5 = 112.5.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 15:22.5, 60:90, 75:112.5"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 1: Building a Ratio Table"
+    },
+    {
+      "id": "g8-prop-d07-working-backward",
+      "title": "Working Backward: How Long?",
+      "label": "Day 7",
+      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
+      "tool": "doubleline",
+      "strategy": "Use the same double number line to go backward: given a distance, find the time. Find a mark you know and scale it.",
+      "topic": "rat",
+      "keywords": "rate, working backward, time, distance, double number line, scale",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Multiplying when they should divide (45 km × 60): ask \"Is the answer a time or a distance?\"",
+        "Answering in hours when the line is in minutes: ask \"Which line is the time on?\"",
+        "Losing the rate: ask \"How far in 60 minutes? Is 45 km more or less than that?\""
+      ],
+      "wrapUp": "Ask \"How is going backward like going forward?\" Land: it's the same ratio table. Find the distance mark, read across to the time. Halve, third, double or add marks.",
+      "problems": [
+        {
+          "q": "60 : 90 = ? : 45",
+          "a": "30",
+          "notes": "Context: \"The same car: 90 km in 60 minutes. How long for 45 km?\" Look for: half the distance, half the time. Ask: \"Is 45 km more or less than an hour of driving?\" Model: doubleline min:km, 0:0, 30:45, 60:90",
+          "responses": [
+            {
+              "say": "45 is half of 90, so 30 minutes.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 30:45, 60:90"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = ? : 180",
+          "a": "120",
+          "notes": "Look for: double. Ask: \"Twice as far?\" Model: doubleline min:km, 0:0, 60:90, 120:180",
+          "responses": [
+            {
+              "say": "Double: 120 minutes, or 2 hours.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 60:90, 120:180"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "180 ÷ 90 = 2",
+              "tip": "Right in hours! Ask: what is that in minutes?"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = ? : 30",
+          "a": "20",
+          "notes": "Look for: a third of the distance. Ask: \"How many 30s in 90?\" Model: doubleline min:km, 0:0, 20:30, 60:90",
+          "responses": [
+            {
+              "say": "30 is a third of 90: 20 minutes.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 20:30, 60:90"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "60 : 90 = 45 : 30 ?",
+              "tip": "Took 45 off the distance and 15 off the time. Ask: is 30 km half of 90, or a third?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = ? : 135",
+          "a": "90",
+          "notes": "Look for: 90 + 45 km = 60 + 30 minutes. Ask: \"Which marks add to 135?\" Model: doubleline min:km, 0:0, 30:45, 60:90, 90:135",
+          "responses": [
+            {
+              "say": "90 km is 60 min, 45 km is 30 min: 90 minutes.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 30:45, 60:90, 90:135"
+            },
+            {
+              "say": "8100",
+              "tool": "text",
+              "type": "135 x 60 = 8100 ?",
+              "tip": "Ask: should a trip take more than 5 days?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = ? : 15",
+          "a": "10",
+          "notes": "Look for: a sixth. Ask: \"How does 30 km help?\" Model: doubleline min:km, 0:0, 10:15, 20:30, 60:90",
+          "responses": [
+            {
+              "say": "Half of 30 km is 15, so half of 20 minutes: 10.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 10:15, 20:30, 60:90"
+            },
+            {
+              "say": "1.5 km per minute, so 15 ÷ 1.5 = 10.",
+              "tool": "text",
+              "type": "90 ÷ 60 = 1.5 km per minute ; 15 ÷ 1.5 = 10",
+              "tip": "The unit rate per minute."
+            }
+          ]
+        },
+        {
+          "q": "60 : 90 = ? : 240",
+          "a": "160",
+          "notes": "Look for: 180 + 60 km = 120 + 40 minutes. Ask: \"Will it be a whole number of hours?\" Model: doubleline min:km, 0:0, 40:60, 120:180, 160:240",
+          "optional": true,
+          "responses": [
+            {
+              "say": "180 km is 120 min, 60 km is 40 min: 160 minutes.",
+              "tool": "doubleline",
+              "type": "min:km, 0:0, 40:60, 120:180, 160:240"
+            },
+            {
+              "say": "240 ÷ 1.5 = 160.",
+              "tool": "text",
+              "type": "240 ÷ 1.5 = 160"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 6: Speed on a Double Number Line"
     },
     {
       "id": "g8-prop-d08-percent-as-a-rate",
@@ -1171,632 +1172,430 @@
       "connection": "Day 8: Percent as a Rate per 100"
     },
     {
-      "id": "g8-prop-d10-scale-maps",
-      "title": "Scale on a Map",
-      "label": "Day 10",
+      "id": "g8-prop-d10-percent-change",
+      "title": "Percent Change: Compare to the Original",
       "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
       "tool": "ratio",
-      "strategy": "A map scale is a rate: 1 cm on the map is 25 km on the ground. Scale up to find real distances, or back down to find map distances.",
-      "topic": "rat",
-      "keywords": "scale, map, centimetres, kilometres, rate, ratio",
+      "strategy": "Percent change compares the change to the ORIGINAL amount: change ÷ original, scaled to 100. The same change can be a different percent, depending on where you started.",
+      "topic": "pct",
+      "keywords": "percent increase, percent decrease, change, original, out of 100",
       "curriculum": [
+        "B1.4",
         "B2.8"
       ],
       "watchFor": [
-        "Adding 25 instead of multiplying (4 cm = 29 km): ask \"Is every centimetre worth 25 km?\"",
-        "Going the wrong way for map distance (150 × 25): ask \"Is the map distance bigger or smaller than the real one?\"",
-        "Decimal centimetres: ask \"What's half a centimetre worth? A tenth?\""
+        "Dividing by the new amount: ask \"What did we start with?\"",
+        "Thinking up 30 and down 30 are the same percent: ask \"Is 30 the same part of 120 as it is of 150?\"",
+        "Giving the change, not the percent: ask \"Is 60 a percent, or an amount?\""
       ],
-      "wrapUp": "Ask \"How is a map scale like a unit rate?\" Land: 1 cm stands for 25 km, so multiply map centimetres by 25 for kilometres, and divide kilometres by 25 to get centimetres.",
+      "wrapUp": "Ask \"Why was 120 to 150 a 25% increase, but 150 to 120 only a 20% decrease?\" Land: the change is the same (30), but the original is different. Always compare the change to where you started.",
       "problems": [
         {
-          "q": "1 : 25 = 4 : ?",
-          "a": "100",
-          "notes": "Context: \"On a map, 1 cm represents 25 km.\" Look for: 4 × 25. Ask: \"How far is 4 cm?\" Word choice: \"represents\", \"scale\". Model: ratio cm:km, 1:25, 4:100",
+          "q": "40 : 200 = ? : 100",
+          "a": "20",
+          "notes": "Context: \"Smoothie sales went from 200 to 240.\" Look for: the change is 40, out of the original 200: a fifth. Ask: \"What percent of 200 is 40?\" Word choice: \"compared to the original\". Model: ratio change:original, 40:200, 20:100",
           "responses": [
             {
-              "say": "4 × 25 = 100 km.",
+              "say": "40 is a fifth of 200, so a 20% increase.",
               "tool": "ratio",
-              "type": "cm:km, 1:25, 4:100"
+              "type": "change:original, 40:200, 20:100",
+              "tip": "Change ÷ original."
             },
             {
-              "say": "29",
+              "say": "40",
               "tool": "text",
-              "type": "1 : 25 = 4 : 29 ?",
-              "tip": "Added 3 to both. Ask: is every centimetre worth 25 km?",
+              "type": "200 to 240 is a 40% increase ?",
+              "tip": "Gave the change, not the percent. Ask: is 40 out of 100, or out of 200?",
               "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 25 = 2.4 : ?",
-          "a": "60",
-          "notes": "Look for: 2 cm = 50, 0.4 cm = 10. Ask: \"What's 0.4 cm worth?\" Model: ratio cm:km, 1:25, 2:50, 0.4:10, 2.4:60",
-          "responses": [
-            {
-              "say": "50 + 10 = 60 km.",
-              "tool": "ratio",
-              "type": "cm:km, 1:25, 2:50, 0.4:10, 2.4:60"
-            },
-            {
-              "say": "2.4 × 25 = 60.",
-              "tool": "area",
-              "type": "2+0.4 x 25"
-            }
-          ]
-        },
-        {
-          "q": "1 : 25 = ? : 150",
-          "a": "6",
-          "notes": "Look for: 150 ÷ 25. Ask: \"Is the map distance bigger or smaller?\" Model: ratio cm:km, 1:25, 6:150",
-          "responses": [
-            {
-              "say": "150 ÷ 25 = 6 cm.",
-              "tool": "ratio",
-              "type": "cm:km, 1:25, 6:150"
-            },
-            {
-              "say": "3750",
-              "tool": "text",
-              "type": "150 x 25 = 3750 ?",
-              "tip": "Ask: would 3750 cm fit on a map?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "1 : 25 = 0.6 : ?",
+          "q": "60 : 400 = ? : 100",
           "a": "15",
-          "notes": "Look for: 6 tenths of 25. Ask: \"What's 0.1 cm worth?\" Model: ratio cm:km, 1:25, 0.2:5, 0.6:15",
+          "notes": "Context: \"Sales went from 400 to 460.\" Look for: 60 out of 400: ÷4 to 15 out of 100. Ask: \"What's the change? What's the original?\" Model: ratio change:original, 60:400, 15:100",
           "responses": [
             {
-              "say": "0.2 cm is 5 km, so 0.6 cm is 15 km.",
+              "say": "60 out of 400 is 15 out of 100: 15%.",
               "tool": "ratio",
-              "type": "cm:km, 1:25, 0.2:5, 0.6:15"
-            }
-          ]
-        },
-        {
-          "q": "1 : 25 = ? : 40",
-          "a": "1.6",
-          "notes": "Look for: 1 cm = 25, 0.6 cm = 15. Ask: \"How does the last one help?\" Model: ratio cm:km, 1:25, 0.6:15, 1.6:40",
-          "responses": [
-            {
-              "say": "25 + 15 = 40, so 1 + 0.6 = 1.6 cm.",
-              "tool": "ratio",
-              "type": "cm:km, 1:25, 0.6:15, 1.6:40",
-              "tip": "Used the last problem."
+              "type": "change:original, 60:400, 15:100"
             },
             {
-              "say": "40 ÷ 25 = 1.6.",
+              "say": "13",
               "tool": "text",
-              "type": "40 ÷ 25 = 160 ÷ 100 = 1.6"
+              "type": "60 : 460 = 13 : 100 ?",
+              "tip": "Divided by the new amount. Ask: what did we start with?",
+              "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 25 = 7.2 : ?",
-          "a": "180",
-          "notes": "Look for: 7 cm = 175, 0.2 cm = 5. Ask: \"Which parts?\" Model: ratio cm:km, 1:25, 7:175, 0.2:5, 7.2:180",
+          "q": "30 : 120 = ? : 100",
+          "a": "25",
+          "notes": "Context: \"A smoothie price goes from $120 for a case to $150.\" Look for: 30 out of 120 is a quarter. Ask: \"What fraction of 120 is 30?\" Model: ratio change:original, 30:120, 1:4, 25:100",
+          "responses": [
+            {
+              "say": "30 is a quarter of 120: a 25% increase.",
+              "tool": "ratio",
+              "type": "change:original, 30:120, 1:4, 25:100"
+            }
+          ]
+        },
+        {
+          "q": "30 : 150 = ? : 100",
+          "a": "20",
+          "notes": "Context: \"Now the price drops back from $150 to $120.\" Look for: the same 30, but out of 150: a fifth. Ask: \"Why isn't it 25% again?\" Model: ratio change:original, 30:150, 1:5, 20:100",
+          "responses": [
+            {
+              "say": "30 out of 150 is a fifth: a 20% decrease.",
+              "tool": "ratio",
+              "type": "change:original, 30:150, 1:5, 20:100",
+              "tip": "Same change, different original."
+            },
+            {
+              "say": "25",
+              "tool": "text",
+              "type": "150 to 120 is a 25% decrease ?",
+              "tip": "Used the old original. Ask: where did we start this time?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "18 : 72 = ? : 100",
+          "a": "25",
+          "notes": "Context: \"72 to 90.\" Look for: 18 out of 72 is a quarter. Ask: \"What do you notice about 18 and 72?\" Model: ratio change:original, 18:72, 1:4, 25:100",
+          "responses": [
+            {
+              "say": "18 is a quarter of 72: 25% up.",
+              "tool": "ratio",
+              "type": "change:original, 18:72, 1:4, 25:100"
+            }
+          ]
+        },
+        {
+          "q": "18 : 90 = ? : 100",
+          "a": "20",
+          "notes": "Context: \"90 back down to 72.\" Look for: 18 out of 90 is a fifth. Ask: \"Does this match the last pair?\" Model: ratio change:original, 18:90, 1:5, 20:100",
+          "responses": [
+            {
+              "say": "A fifth of 90: 20% down.",
+              "tool": "ratio",
+              "type": "change:original, 18:90, 1:5, 20:100",
+              "tip": "Up 25%, down 20%: same pattern as before."
+            }
+          ]
+        },
+        {
+          "q": "45 : 60 = ? : 100",
+          "a": "75",
+          "notes": "Context: \"60 to 105.\" Look for: 45 out of 60 is 3/4. Ask: \"Can a change be most of the original?\" Model: ratio change:original, 45:60, 3:4, 75:100",
           "optional": true,
           "responses": [
             {
-              "say": "175 + 5 = 180 km.",
+              "say": "45 out of 60 is 3/4: a 75% increase.",
               "tool": "ratio",
-              "type": "cm:km, 1:25, 7:175, 0.2:5, 7.2:180"
+              "type": "change:original, 45:60, 3:4, 75:100"
             }
           ]
         }
       ],
-      "connection": "Day 2: How Much for One?"
+      "label": "Day 10",
+      "connection": "Day 9: Finding the Whole"
     },
     {
-      "id": "g8-prop-d11-converting-units",
-      "title": "Converting Units with Rates",
-      "label": "Day 11",
+      "id": "g8-prop-d11-percent-multipliers",
+      "title": "Percent Change as a Multiplier",
       "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
-      "tool": "ratio",
-      "strategy": "A unit conversion is a rate: 1 hour is 60 minutes, 1 inch is 2.54 cm. Use a ratio table to convert either way.",
-      "topic": "rat",
-      "keywords": "convert, unit, rate, hours, minutes, inches, centimetres, ratio table",
+      "tool": "text",
+      "strategy": "Up 20% means you keep all of it (100%) and add 20%: multiply by 1.2. Down 30% means you keep 70%: multiply by 0.7. One multiplication does the whole change.",
+      "topic": "pct",
+      "keywords": "multiplier, percent increase, percent decrease, 120%, 70%, times 1.2, times 0.7",
       "curriculum": [
+        "B1.4",
         "B2.8"
       ],
       "watchFor": [
-        "Writing 2.5 hours as 2 h 50 min: ask \"What is half an hour in minutes?\"",
-        "Multiplying when converting to a bigger unit: ask \"Should there be more hours or more minutes?\"",
-        "Decimals in 12 × 2.54: ask \"What's 10 inches? 2 inches?\""
+        "Multiplying by 0.3 for a 30% decrease: ask \"Is that the part you lose, or the part you keep?\"",
+        "Multiplying by 0.2 for a 20% increase: ask \"Where's the original 100%?\"",
+        "Thinking up 20% then down 20% gets back to the start: ask \"Is 20% of the bigger number the same as 20% of the smaller one?\""
       ],
-      "wrapUp": "Ask \"How did you know whether to multiply or divide?\" Land: converting to a smaller unit gives a bigger number (multiply); to a bigger unit gives a smaller number (divide). The ratio table keeps it straight.",
+      "wrapUp": "Ask \"Why is up 20% the same as × 1.2?\" Land: you keep 100% and add 20%, which is 120%, or × 1.2. Down 30% keeps 70%, or × 0.7. Up then down by the same percent doesn't get you back.",
       "problems": [
         {
-          "q": "1 : 60 = 2.5 : ?",
-          "a": "150",
-          "notes": "Context: \"A movie is 2.5 hours long. How many minutes?\" Look for: 2 h = 120, half an hour = 30. Ask: \"Is it 2 h 50 min?\" Word choice: \"convert\". Model: ratio hours:minutes, 1:60, 2:120, 0.5:30, 2.5:150",
+          "q": "1.2 x 50",
+          "a": "60",
+          "notes": "Context: \"A $50 smoothie order goes up 20%.\" Look for: 50 + 20% of 50 = 50 + 10. Ask: \"Why does × 1.2 give the new price?\" Word choice: \"120% of the original\". Model: text 1.2 x 50 = 50 + 0.2 x 50 ; = 50 + 10 = 60",
           "responses": [
             {
-              "say": "120 + 30 = 150 minutes.",
-              "tool": "ratio",
-              "type": "hours:minutes, 1:60, 2:120, 0.5:30, 2.5:150"
+              "say": "All of 50 plus 20% of 50: 50 + 10 = 60.",
+              "tool": "text",
+              "type": "1.2 x 50 = 50 + 0.2 x 50 ; = 50 + 10 = 60",
+              "tip": "The target idea: 100% + 20%."
             },
             {
-              "say": "250",
+              "say": "10",
               "tool": "text",
-              "type": "2.5 hours = 250 minutes ?",
-              "tip": "Ask: how many minutes are in one hour?",
+              "type": "0.2 x 50 = 10 ?",
+              "tip": "Found only the increase. Ask: what's the new price?",
               "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 60 = ? : 45",
-          "a": "0.75",
-          "notes": "Look for: 45 minutes is 3/4 of an hour. Ask: \"What fraction of an hour?\" Model: ratio hours:minutes, 1:60, 0.25:15, 0.75:45",
+          "q": "0.7 x 50",
+          "a": "35",
+          "notes": "Context: \"$50 goes down 30%.\" Look for: keep 70%: 7 × 5. Ask: \"What part do you keep?\" Model: text 0.7 x 50 = 7 x 5 = 35",
           "responses": [
             {
-              "say": "A quarter hour is 15 minutes, so 0.75 hours.",
-              "tool": "ratio",
-              "type": "hours:minutes, 1:60, 0.25:15, 0.75:45"
+              "say": "Keep 70%: 7 × 5 = 35.",
+              "tool": "text",
+              "type": "0.7 x 50 = 7 x 5 = 35"
             },
             {
-              "say": "0.45",
+              "say": "50 − 30% of 50 = 50 − 15 = 35.",
               "tool": "text",
-              "type": "45 minutes = 0.45 hours ?",
-              "tip": "Ask: is 45 minutes almost half an hour or three quarters?",
+              "type": "50 - 0.3 x 50 = 50 - 15 = 35",
+              "tip": "Two steps. The multiplier does it in one."
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "0.3 x 50 = 15 ?",
+              "tip": "That's the part you lose. Ask: what's left?",
               "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 60 = 0.2 : ?",
-          "a": "12",
-          "notes": "Look for: a fifth of 60. Ask: \"What's 0.1 hours?\" Model: ratio hours:minutes, 1:60, 0.1:6, 0.2:12",
+          "q": "1.2 x 85",
+          "a": "102",
+          "notes": "Look for: 85 + 17. Ask: \"What's 10% of 85? 20%?\" Model: text 1.2 x 85 = 85 + 17 = 102",
           "responses": [
             {
-              "say": "0.1 h is 6 min, so 0.2 h is 12 min.",
-              "tool": "ratio",
-              "type": "hours:minutes, 1:60, 0.1:6, 0.2:12"
+              "say": "20% of 85 is 17, so 85 + 17 = 102.",
+              "tool": "text",
+              "type": "10% of 85 = 8.5 ; 20% = 17 ; 85 + 17 = 102"
+            }
+          ]
+        },
+        {
+          "q": "0.7 x 85",
+          "a": "59.5",
+          "notes": "Look for: 85 − 25.5, or 7 × 8.5. Ask: \"Which is easier for you?\" Model: text 0.7 x 85 = 7 x 8.5 = 59.5",
+          "responses": [
+            {
+              "say": "7 × 8.5 = 59.5.",
+              "tool": "text",
+              "type": "0.7 x 85 = 7 x 8.5 = 59.5",
+              "tip": "10% is 8.5, then 7 of them."
             },
             {
-              "say": "20",
+              "say": "85 − 30%: 85 − 25.5 = 59.5.",
               "tool": "text",
-              "type": "0.2 hours = 20 minutes ?",
-              "tip": "Ask: is 0.2 of an hour the same as 20 minutes?",
+              "type": "85 - 25.5 = 59.5"
+            }
+          ]
+        },
+        {
+          "q": "1.15 x 80",
+          "a": "92",
+          "notes": "Look for: 80 + 12. Ask: \"What multiplier is up 15%?\" Model: text 1.15 x 80 = 80 + 8 + 4 = 92",
+          "responses": [
+            {
+              "say": "10% is 8, 5% is 4: 80 + 12 = 92.",
+              "tool": "text",
+              "type": "1.15 x 80 = 80 + 8 + 4 = 92"
+            },
+            {
+              "say": "1.5",
+              "tool": "text",
+              "type": "up 15% = x 1.5 ?",
+              "tip": "Ask: is 1.5 up 15% or up 50%?",
               "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 2.54 = 10 : ?",
-          "a": "25.4",
-          "notes": "Context: \"1 inch is 2.54 cm.\" Look for: ×10. Ask: \"How many cm in 10 inches?\" Model: ratio inches:cm, 1:2.54, 10:25.4",
+          "q": "0.85 x 80",
+          "a": "68",
+          "notes": "Look for: 80 − 12. Ask: \"How does the last one help?\" Model: text 0.85 x 80 = 80 - 12 = 68",
           "responses": [
             {
-              "say": "Times 10: 25.4 cm.",
-              "tool": "ratio",
-              "type": "inches:cm, 1:2.54, 10:25.4"
-            }
-          ]
-        },
-        {
-          "q": "1 : 2.54 = 12 : ?",
-          "a": "30.48",
-          "notes": "Look for: 10 in + 2 in = 25.4 + 5.08. Ask: \"How long is a foot in cm?\" Model: ratio inches:cm, 10:25.4, 2:5.08, 12:30.48",
-          "responses": [
-            {
-              "say": "25.4 + 5.08 = 30.48 cm.",
-              "tool": "ratio",
-              "type": "inches:cm, 10:25.4, 2:5.08, 12:30.48",
-              "tip": "A foot is about 30 cm."
-            },
-            {
-              "say": "3.048",
+              "say": "Down 15%: 80 − 12 = 68.",
               "tool": "text",
-              "type": "12 x 2.54 = 3.048 ?",
-              "tip": "Ask: about how big should 12 × 2.5 be?",
-              "kind": "error"
+              "type": "0.85 x 80 = 80 - 12 = 68",
+              "tip": "Same 12, other direction."
             }
           ]
         },
         {
-          "q": "1 : 1000 = ? : 250",
-          "a": "0.25",
-          "notes": "Context: \"1 km is 1000 m. How many km is 250 m?\" Look for: a quarter. Ask: \"What fraction of 1000 is 250?\" Model: ratio km:m, 1:1000, 0.25:250",
+          "q": "1.2 x 0.8 x 100",
+          "a": "96",
+          "notes": "Look for: up 20% to 120, then down 20% to 96. Ask: \"Why didn't we get back to 100?\" Model: text 100 x 1.2 = 120 ; 120 x 0.8 = 96",
           "optional": true,
           "responses": [
             {
-              "say": "250 is a quarter of 1000: 0.25 km.",
-              "tool": "ratio",
-              "type": "km:m, 1:1000, 0.25:250"
+              "say": "Up to 120, then down 20% of 120 (24): 96.",
+              "tool": "text",
+              "type": "100 x 1.2 = 120 ; 120 x 0.8 = 96",
+              "tip": "Ask: why is the 20% down bigger than the 20% up?"
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "up 20%, down 20% = 100 ?",
+              "tip": "Ask: is 20% of 120 the same as 20% of 100?",
+              "kind": "error"
             }
           ]
         }
       ],
-      "connection": "Day 10: Scale on a Map"
+      "label": "Day 11",
+      "connection": "Day 10: Percent Change: Compare to the Original"
     },
     {
-      "id": "g8-prop-d12-two-step-rates",
-      "title": "Two-Step Rate Problems",
-      "label": "Day 12",
+      "id": "g8-prop-d12-discount-then-tax",
+      "title": "Discount, Then Tax",
       "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
       "tool": "ratio",
-      "strategy": "Some problems chain two rates: litres per 100 km, then dollars per litre. Solve one rate, then use the answer in the next.",
-      "topic": "rat",
-      "keywords": "rate, two steps, fuel, litres, per 100 km, cost, chain",
+      "strategy": "Take the discount first (keep what's left), then add 13% HST to the sale price. Round to the cent at the end.",
+      "topic": "pct",
+      "keywords": "discount, sale price, tax, HST, 13%, 113%, multiplier, round at the end",
       "curriculum": [
-        "B2.8",
+        "B1.4",
         "B2.1"
       ],
       "watchFor": [
-        "Mixing the two rates (multiplying km by $1.50): ask \"What does $1.50 per litre need: km or litres?\"",
-        "Stopping after the first step: ask \"Did we answer the question asked?\"",
-        "Losing track of units: ask \"Is that number litres, kilometres, or dollars?\""
+        "Taxing the full price, then taking off the dollar discount (90.40 − 24): ask \"What price is the tax charged on?\"",
+        "Subtracting percents (30% off, plus 13% tax = 17% off): ask \"13% of what? 30% of what?\"",
+        "Rounding in the middle: ask \"When should you round to the cent?\""
       ],
-      "wrapUp": "Ask \"How did the first answer help with the second?\" Land: in a chain of rates, the answer to one step (litres) is the input to the next (dollars). Label the units to keep them straight.",
+      "wrapUp": "Ask \"Why discount first, then tax?\" Land: tax is charged on the sale price. Keep 70% (× 0.7), then pay 113% (× 1.13), and round at the end. With multipliers the order gives the same total; the mistake is taking dollars off after taxing the full price.",
       "problems": [
         {
-          "q": "100 : 8 = 250 : ?",
-          "a": "20",
-          "notes": "Context: \"A car uses 8 L of gas every 100 km. How much gas for 250 km?\" Look for: 200 km + 50 km = 16 + 4 L. Ask: \"What's 50 km?\" Word choice: \"8 litres per 100 km\". Model: ratio km:litres, 100:8, 50:4, 200:16, 250:20",
+          "q": "70% of 80",
+          "a": "56",
+          "notes": "Context: \"A blender is $80, and it's 30% off.\" Look for: keep 70%: 7 × 8. Ask: \"What's the sale price?\" Word choice: \"30% off means you pay 70%\". Model: ratio percent:dollars, 100:80, 10:8, 70:56",
           "responses": [
             {
-              "say": "200 km is 16 L, 50 km is 4 L: 20 L.",
+              "say": "10% is $8, so 70% is $56.",
               "tool": "ratio",
-              "type": "km:litres, 100:8, 200:16, 50:4, 250:20"
+              "type": "percent:dollars, 100:80, 10:8, 70:56"
             },
             {
-              "say": "2.5 × 8 = 20.",
+              "say": "24",
               "tool": "text",
-              "type": "250 ÷ 100 = 2.5 ; 2.5 x 8 = 20"
+              "type": "30% of 80 = 24 ?",
+              "tip": "That's the discount. Ask: what do you pay?",
+              "kind": "error"
             }
           ]
         },
         {
-          "q": "1 : 1.5 = 20 : ?",
+          "q": "113% of 56",
+          "a": "63.28",
+          "notes": "Look for: 56 + 13% of 56: 5.60 + 1.68 = 7.28. Ask: \"What do you pay at the till?\" Model: ratio percent:dollars, 100:56, 10:5.6, 3:1.68, 113:63.28",
+          "responses": [
+            {
+              "say": "10% is 5.60, 3% is 1.68: 56 + 7.28 = $63.28.",
+              "tool": "ratio",
+              "type": "percent:dollars, 100:56, 10:5.6, 1:0.56, 3:1.68, 113:63.28",
+              "tip": "Build 13% from 10% and 1%."
+            },
+            {
+              "say": "$66.40",
+              "tool": "text",
+              "type": "80 x 1.13 = 90.40 ; 90.40 - 24 = 66.40 ?",
+              "tip": "Taxed the full price, then took off the $24 discount. Ask: what price is the tax charged on?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75% of 40",
           "a": "30",
-          "notes": "Context: \"Gas costs $1.50 per litre. What does that gas cost?\" Look for: 20 × 1.5. Ask: \"How does the last answer help?\" Model: ratio litres:dollars, 1:1.5, 20:30",
+          "notes": "Context: \"$40 shoes, 25% off.\" Look for: three quarters of 40. Ask: \"What fraction do you keep?\" Model: bar 3/4 of 40",
           "responses": [
             {
-              "say": "20 L at $1.50 is $30.",
+              "say": "Keep 3/4: $30.",
+              "tool": "bar",
+              "type": "3/4 of 40"
+            }
+          ]
+        },
+        {
+          "q": "113% of 30",
+          "a": "33.9",
+          "notes": "Look for: 30 + 3.90. Ask: \"What's 13% of 30?\" Model: ratio percent:dollars, 100:30, 10:3, 3:0.9, 113:33.9",
+          "responses": [
+            {
+              "say": "$3 + $0.90 = $3.90 tax: $33.90.",
               "tool": "ratio",
-              "type": "litres:dollars, 1:1.5, 20:30",
-              "tip": "Step 2 uses step 1."
+              "type": "percent:dollars, 100:30, 10:3, 3:0.9, 113:33.9"
             },
             {
-              "say": "375",
+              "say": "$43",
               "tool": "text",
-              "type": "250 x 1.5 = 375 ?",
-              "tip": "Used km instead of litres. Ask: is the $1.50 per km or per litre?",
+              "type": "30 + 13 = 43 ?",
+              "tip": "Added 13 dollars. Ask: is it 13 dollars or 13%?",
               "kind": "error"
             }
           ]
         },
         {
-          "q": "100 : 8 = 350 : ?",
-          "a": "28",
-          "notes": "Look for: 300 km + 50 km = 24 + 4. Ask: \"What's the same?\" Model: ratio km:litres, 100:8, 300:24, 50:4, 350:28",
+          "q": "80% of 25",
+          "a": "20",
+          "notes": "Context: \"A $25 game, 20% off.\" Look for: keep 4/5. Ask: \"What's 20% of 25?\" Model: bar 4/5 of 25",
           "responses": [
             {
-              "say": "24 + 4 = 28 L.",
-              "tool": "ratio",
-              "type": "km:litres, 100:8, 300:24, 50:4, 350:28"
+              "say": "Keep 4/5 of 25: $20.",
+              "tool": "bar",
+              "type": "4/5 of 25"
             }
           ]
         },
         {
-          "q": "1 : 1.5 = 28 : ?",
-          "a": "42",
-          "notes": "Look for: 28 × 1.5 = 28 + 14. Ask: \"How do you multiply by 1.5 in your head?\" Model: ratio litres:dollars, 1:1.5, 28:42",
+          "q": "113% of 20",
+          "a": "22.6",
+          "notes": "Look for: 20 + 2.60. Ask: \"Is 13% of 20 easy?\" Model: ratio percent:dollars, 100:20, 10:2, 3:0.6, 113:22.6",
           "responses": [
             {
-              "say": "28 and half of 28: 28 + 14 = 42.",
-              "tool": "text",
-              "type": "28 x 1.5 = 28 + 14 = 42",
-              "tip": "× 1.5 is the number plus half."
-            },
-            {
-              "say": "28 L at $1.50: $42.",
+              "say": "$2 + $0.60 = $2.60 tax: $22.60.",
               "tool": "ratio",
-              "type": "litres:dollars, 1:1.5, 28:42"
+              "type": "percent:dollars, 100:20, 10:2, 3:0.6, 113:22.6"
             }
           ]
         },
         {
-          "q": "8 : 120 = 1 : ?",
-          "a": "15",
-          "notes": "Context: \"Sam earns $120 for 8 hours of work.\" Look for: $120 ÷ 8. Ask: \"What's the hourly rate?\" Model: ratio hours:dollars, 8:120, 4:60, 1:15",
-          "responses": [
-            {
-              "say": "Halve: 4 h for $60, 2 h for $30, 1 h for $15.",
-              "tool": "ratio",
-              "type": "hours:dollars, 8:120, 4:60, 2:30, 1:15"
-            }
-          ]
-        },
-        {
-          "q": "8 : 120 = 30 : ?",
-          "a": "450",
-          "notes": "Look for: 30 × 15. Ask: \"How much for 30 hours?\" Model: ratio hours:dollars, 1:15, 30:450",
+          "q": "0.7 x 1.13 x 80",
+          "a": "63.28",
+          "notes": "Look for: the same as the first two problems, in one line. Ask: \"Could you do the whole blender in one calculation?\" Model: text 80 x 0.7 = 56 ; 56 x 1.13 = 63.28",
           "optional": true,
           "responses": [
             {
-              "say": "30 × $15 = $450.",
-              "tool": "ratio",
-              "type": "hours:dollars, 1:15, 30:450"
+              "say": "× 0.7 then × 1.13: $63.28 again.",
+              "tool": "text",
+              "type": "80 x 0.7 = 56 ; 56 x 1.13 = 63.28",
+              "tip": "Multipliers chain together."
             },
             {
-              "say": "142",
+              "say": "$66.40",
               "tool": "text",
-              "type": "8 : 120 = 30 : 142 ?",
-              "tip": "Added 22 to both. Ask: is Sam still paid the same per hour?",
+              "type": "30% off and 13% tax = 17% off ; 80 x 0.83 = 66.40 ?",
+              "tip": "Combined the percents. Ask: 13% of what? 30% of what?",
               "kind": "error"
             }
           ]
         }
       ],
-      "connection": "Day 11: Converting Units with Rates"
+      "label": "Day 12",
+      "connection": "Day 11: Percent Change as a Multiplier"
     },
     {
-      "id": "g8-prop-d13-comparing-mixtures",
-      "title": "Comparing Mixtures",
-      "label": "Day 13",
-      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
-      "tool": "ratio",
-      "strategy": "To compare two mixtures, make one part the same in both, or find what percent of each mixture is concentrate. Then the comparison is fair.",
-      "topic": "rat",
-      "keywords": "concentrate, mixture, stronger, part to part, part to whole, percent, compare",
-      "curriculum": [
-        "B2.8"
-      ],
-      "watchFor": [
-        "Comparing the differences (Mix B has 2 more cups of water than concentrate, Mix A only 1): ask \"Does the difference tell you how strong it tastes?\"",
-        "Mixing part-to-part and part-to-whole: ask \"Is 2 out of 3, or 2 out of 5 cups?\"",
-        "Thinking more concentrate always means stronger: ask \"What about the water?\""
-      ],
-      "wrapUp": "Ask \"Which mix is stronger, and how do you know?\" Land: compare fairly by making the concentrate the same (6 cups in each) or by finding the percent of concentrate in the whole mixture.",
-      "problems": [
-        {
-          "q": "2 : 3 = 6 : ?",
-          "a": "9",
-          "notes": "Context: \"Mix A: 2 cups orange concentrate for 3 cups water. Mix B: 3 cups concentrate for 5 cups water.\" Look for: ×3. Ask: \"How much water with 6 cups of concentrate in Mix A?\" Word choice: \"concentrate\", \"stronger\". Model: ratio concentrate:water, 2:3, 6:9",
-          "responses": [
-            {
-              "say": "Triple Mix A: 6 concentrate, 9 water.",
-              "tool": "ratio",
-              "type": "concentrate:water, 2:3, 6:9"
-            }
-          ]
-        },
-        {
-          "q": "3 : 5 = 6 : ?",
-          "a": "10",
-          "notes": "Look for: ×2. Ask: \"Now compare: which has more water for the same concentrate?\" Model: ratio concentrate:water, 3:5, 6:10",
-          "responses": [
-            {
-              "say": "Double Mix B: 6 concentrate, 10 water. B is weaker.",
-              "tool": "ratio",
-              "type": "concentrate:water, 3:5, 6:10",
-              "tip": "Same concentrate, more water: weaker."
-            },
-            {
-              "say": "B is stronger, because it has 3 cups of concentrate.",
-              "tool": "text",
-              "type": "3 > 2 so B is stronger ?",
-              "tip": "Ask: B has more water too. Is it a fair comparison?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "2 : 5 = ? : 100",
-          "a": "40",
-          "notes": "Look for: Mix A is 2 cups concentrate out of 5 cups total. Ask: \"What percent of Mix A is concentrate?\" Model: ratio concentrate:total, 2:5, 40:100",
-          "responses": [
-            {
-              "say": "2 out of 5 cups is 40%.",
-              "tool": "ratio",
-              "type": "concentrate:total, 2:5, 40:100",
-              "tip": "Part to whole."
-            },
-            {
-              "say": "67",
-              "tool": "text",
-              "type": "2 out of 3 = 67% ?",
-              "tip": "Used part to part (2 to 3). Ask: how many cups are in the whole mix?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "3 : 8 = ? : 100",
-          "a": "37.5",
-          "notes": "Look for: Mix B is 3 out of 8 cups. Ask: \"What's 1 out of 8 as a percent?\" Model: ratio concentrate:total, 1:8, 3:24, 37.5:100",
-          "responses": [
-            {
-              "say": "1/8 is 12.5%, so 3/8 is 37.5%. Less than 40%.",
-              "tool": "text",
-              "type": "1/8 = 12.5% ; 3/8 = 37.5%"
-            },
-            {
-              "say": "8 cups to 100: ×12.5, so 3 × 12.5 = 37.5.",
-              "tool": "ratio",
-              "type": "concentrate:total, 3:8, 37.5:100"
-            }
-          ]
-        },
-        {
-          "q": "5 : 7 = 15 : ?",
-          "a": "21",
-          "notes": "Context: \"Mix C: 5 cups concentrate for 7 cups water.\" Look for: ×3. Ask: \"Compare C with A: 15 concentrate each?\" Model: ratio concentrate:water, 5:7, 15:21",
-          "responses": [
-            {
-              "say": "15 concentrate needs 21 water in Mix C.",
-              "tool": "ratio",
-              "type": "concentrate:water, 5:7, 15:21"
-            },
-            {
-              "say": "Mix A with 15 concentrate would be 22.5 water, so C is stronger.",
-              "tool": "ratio",
-              "type": "concentrate:water, 2:3, 15:22.5",
-              "tip": "Ask: why does less water mean stronger?"
-            }
-          ]
-        },
-        {
-          "q": "1 : 4 = ? : 100",
-          "a": "25",
-          "notes": "Context: \"Mix D: 1 cup concentrate for 3 cups water.\" Look for: 1 out of 4 cups total. Ask: \"Part to whole: 1 out of how many?\" Model: ratio concentrate:total, 1:4, 25:100",
-          "optional": true,
-          "responses": [
-            {
-              "say": "1 out of 4 cups is 25%, the weakest.",
-              "tool": "ratio",
-              "type": "concentrate:total, 1:4, 25:100"
-            },
-            {
-              "say": "33",
-              "tool": "text",
-              "type": "1 out of 3 = 33% ?",
-              "tip": "Part to part again. Ask: how many cups in the whole mix?",
-              "kind": "error"
-            }
-          ]
-        }
-      ],
-      "connection": "Day 8: Percent as a Rate per 100"
-    },
-    {
-      "id": "g8-prop-d14-rates-with-parts-of-an-hour",
-      "title": "Rates with Parts of an Hour",
-      "label": "Day 14",
-      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
-      "tool": "doubleline",
-      "strategy": "When a rate is given for part of an hour (2 km in half an hour), scale up to 1 hour to get the speed, then use it for other times.",
-      "topic": "rat",
-      "keywords": "speed, km per hour, part of an hour, half, quarter, scale up",
-      "curriculum": [
-        "B2.8"
-      ],
-      "watchFor": [
-        "Treating the given distance as the hourly speed (2 km in 1/2 h = 2 km/h): ask \"How far in a whole hour?\"",
-        "Dividing instead of multiplying (2 ÷ 2 = 1): ask \"Is a whole hour longer or shorter than half an hour?\"",
-        "Stuck with 15 minutes: ask \"How many quarter hours in an hour?\""
-      ],
-      "wrapUp": "Ask \"How did you get to a whole hour each time?\" Land: if you know a part of an hour, multiply up: ×2 for a half, ×4 for a quarter, ×(4/3) for three quarters. That's the speed per hour.",
-      "problems": [
-        {
-          "q": "0.5 : 2 = 1 : ?",
-          "a": "4",
-          "notes": "Context: \"A hiker walks 2 km in half an hour.\" Look for: double. Ask: \"How far in a whole hour?\" Word choice: \"km per hour\". Model: doubleline hours:km, 0:0, 0.5:2, 1:4",
-          "responses": [
-            {
-              "say": "Double: 4 km in an hour.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.5:2, 1:4"
-            },
-            {
-              "say": "1",
-              "tool": "text",
-              "type": "2 ÷ 2 = 1 km per hour ?",
-              "tip": "Ask: is a whole hour longer or shorter than half an hour?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "0.5 : 2 = 2.5 : ?",
-          "a": "10",
-          "notes": "Look for: 2 h = 8 km, half hour = 2 km. Ask: \"How does 4 km/h help?\" Model: doubleline hours:km, 0:0, 0.5:2, 2:8, 2.5:10",
-          "responses": [
-            {
-              "say": "8 + 2 = 10 km.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.5:2, 2:8, 2.5:10"
-            },
-            {
-              "say": "2.5 × 4 = 10.",
-              "tool": "text",
-              "type": "2.5 x 4 = 10"
-            }
-          ]
-        },
-        {
-          "q": "0.25 : 1.5 = 1 : ?",
-          "a": "6",
-          "notes": "Context: \"A cyclist goes 1.5 km in 15 minutes.\" Look for: ×4. Ask: \"How many quarter hours in an hour?\" Model: doubleline hours:km, 0:0, 0.25:1.5, 1:6",
-          "responses": [
-            {
-              "say": "4 quarters: 4 × 1.5 = 6 km per hour.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.25:1.5, 1:6"
-            },
-            {
-              "say": "1.75",
-              "tool": "text",
-              "type": "1.5 + 0.25 = 1.75 ?",
-              "tip": "Added. Ask: what does 0.25 mean here?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "0.25 : 1.5 = 0.75 : ?",
-          "a": "4.5",
-          "notes": "Look for: three quarter hours: 3 × 1.5. Ask: \"Is it more or less than 6?\" Model: doubleline hours:km, 0:0, 0.25:1.5, 0.75:4.5, 1:6",
-          "responses": [
-            {
-              "say": "3 × 1.5 = 4.5 km.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.25:1.5, 0.75:4.5, 1:6"
-            },
-            {
-              "say": "6 − 1.5 = 4.5.",
-              "tool": "text",
-              "type": "1 hour - 1 quarter: 6 - 1.5 = 4.5",
-              "tip": "From the whole hour."
-            }
-          ]
-        },
-        {
-          "q": "0.75 : 3 = 1 : ?",
-          "a": "4",
-          "notes": "Context: \"A runner covers 3 km in 45 minutes.\" Look for: 1 km per 15 min, so 4 km per hour. Ask: \"What's 15 minutes?\" Model: doubleline hours:km, 0:0, 0.25:1, 0.75:3, 1:4",
-          "responses": [
-            {
-              "say": "15 min is 1 km, so an hour is 4 km.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.25:1, 0.75:3, 1:4",
-              "tip": "Through a quarter hour."
-            },
-            {
-              "say": "2.25",
-              "tool": "text",
-              "type": "3 x 0.75 = 2.25 ?",
-              "tip": "Multiplied. Ask: in a whole hour, more or less than 3 km?",
-              "kind": "error"
-            }
-          ]
-        },
-        {
-          "q": "1.5 : 6 = 0.5 : ?",
-          "a": "2",
-          "notes": "Context: \"A swimmer swims 6 km in 1.5 hours.\" Look for: ÷3. Ask: \"How many half hours in 1.5 hours?\" Model: doubleline hours:km, 0:0, 0.5:2, 1.5:6",
-          "optional": true,
-          "responses": [
-            {
-              "say": "3 half hours, so 6 ÷ 3 = 2 km.",
-              "tool": "doubleline",
-              "type": "hours:km, 0:0, 0.5:2, 1.5:6"
-            }
-          ]
-        }
-      ],
-      "connection": "Day 5: Speed on a Double Number Line"
-    },
-    {
-      "id": "g8-prop-d15-tax-and-tip",
+      "id": "g8-prop-d13-tax-and-tip",
       "title": "Tax and Tip",
-      "label": "Day 15",
+      "label": "Day 13",
       "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
       "tool": "ratio",
       "strategy": "Sales tax and tips are percents of a price. Find a friendly percent (10%, 1%, 5%) and build the rest. The total is the price plus the percent, or 113% of the price.",
@@ -1921,7 +1720,275 @@
           ]
         }
       ],
-      "connection": "Day 9: Finding the Whole"
+      "connection": "Day 12: Discount, Then Tax"
+    },
+    {
+      "id": "g8-prop-d14-simple-interest",
+      "title": "Simple Interest",
+      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
+      "tool": "ratio",
+      "strategy": "Simple interest is the same amount every year: find one year's interest (principal × rate), then multiply by the number of years. That's I = Prt.",
+      "topic": "pct",
+      "keywords": "interest, principal, rate, time, per year, I = Prt, decimal rate",
+      "curriculum": [
+        "B1.4",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Using 4 instead of 0.04: ask \"Is 4% of $1000 really $4000?\"",
+        "Forgetting the years: ask \"Is that for one year, or all three?\"",
+        "Time in months (18 months as 18): ask \"How many years is 18 months?\""
+      ],
+      "wrapUp": "Ask \"Why does one year's interest help so much?\" Land: simple interest is the same each year. Find principal × rate for one year, then multiply by the years. Rate as a decimal, time in years.",
+      "problems": [
+        {
+          "q": "1000 x 0.04",
+          "a": "40",
+          "notes": "Context: \"$1000 saved at 4% simple interest per year.\" Look for: 1% is 10, 4% is 40. Ask: \"How much interest in one year?\" Word choice: \"principal\", \"rate\". Model: ratio percent:dollars, 100:1000, 1:10, 4:40",
+          "responses": [
+            {
+              "say": "1% of 1000 is 10, so 4% is $40.",
+              "tool": "ratio",
+              "type": "percent:dollars, 100:1000, 1:10, 4:40"
+            },
+            {
+              "say": "4000",
+              "tool": "text",
+              "type": "1000 x 4 = 4000 ?",
+              "tip": "Used 4 instead of 0.04. Ask: is the interest more than the savings?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1000 x 0.04 x 3",
+          "a": "120",
+          "notes": "Look for: 3 years of $40. Ask: \"Is it the same every year?\" Model: ratio years:interest, 1:40, 3:120",
+          "responses": [
+            {
+              "say": "$40 a year for 3 years: $120.",
+              "tool": "ratio",
+              "type": "years:interest, 1:40, 3:120",
+              "tip": "The same amount each year."
+            },
+            {
+              "say": "40",
+              "tool": "text",
+              "type": "interest = $40 ?",
+              "tip": "That's one year. Ask: how many years?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2000 x 0.04 x 3",
+          "a": "240",
+          "notes": "Look for: double the principal, double the interest. Ask: \"How does the last one help?\" Model: ratio years:interest, 1:80, 3:240",
+          "responses": [
+            {
+              "say": "Double: $240.",
+              "tool": "text",
+              "type": "1000 x 0.04 x 3 = 120 ; 2000 x 0.04 x 3 = 240"
+            },
+            {
+              "say": "$80 a year for 3 years.",
+              "tool": "ratio",
+              "type": "years:interest, 1:80, 3:240"
+            }
+          ]
+        },
+        {
+          "q": "500 x 0.03 x 2",
+          "a": "30",
+          "notes": "Look for: 3% of 500 is 15 a year. Ask: \"What's 1% of 500?\" Model: ratio years:interest, 1:15, 2:30",
+          "responses": [
+            {
+              "say": "1% is 5, 3% is 15, two years: $30.",
+              "tool": "ratio",
+              "type": "years:interest, 1:15, 2:30"
+            }
+          ]
+        },
+        {
+          "q": "2000 x 0.025 x 4",
+          "a": "200",
+          "notes": "Look for: 2.5% of 2000 is 50 a year. Ask: \"How do you find 2.5%?\" Model: ratio percent:dollars, 100:2000, 1:20, 2.5:50",
+          "responses": [
+            {
+              "say": "1% is 20, 2.5% is 50, four years: $200.",
+              "tool": "ratio",
+              "type": "percent:dollars, 100:2000, 1:20, 2.5:50"
+            },
+            {
+              "say": "5% is 100, half is 50; × 4 = 200.",
+              "tool": "text",
+              "type": "5% of 2000 = 100 ; 2.5% = 50 ; 50 x 4 = 200"
+            }
+          ]
+        },
+        {
+          "q": "1500 x 0.02 x 5",
+          "a": "150",
+          "notes": "Look for: 2% of 1500 is 30 a year. Ask: \"Which is friendlier: 2% of 1500, or 5 × 2%?\" Model: ratio years:interest, 1:30, 5:150",
+          "responses": [
+            {
+              "say": "$30 a year, 5 years: $150.",
+              "tool": "ratio",
+              "type": "years:interest, 1:30, 5:150"
+            },
+            {
+              "say": "5 years at 2% is 10% in total: $150.",
+              "tool": "text",
+              "type": "5 x 2% = 10% ; 10% of 1500 = 150",
+              "tip": "Combine the years first. Only works for simple interest."
+            }
+          ]
+        },
+        {
+          "q": "800 x 0.05 x 1.5",
+          "a": "60",
+          "notes": "Context: \"$800 at 5% for 18 months.\" Look for: $40 a year, half a year more is $20. Ask: \"How many years is 18 months?\" Model: ratio years:interest, 1:40, 0.5:20, 1.5:60",
+          "optional": true,
+          "responses": [
+            {
+              "say": "$40 a year, 1.5 years: $60.",
+              "tool": "ratio",
+              "type": "years:interest, 1:40, 0.5:20, 1.5:60"
+            },
+            {
+              "say": "720",
+              "tool": "text",
+              "type": "800 x 0.05 x 18 = 720 ?",
+              "tip": "Used months for time. Ask: is t in months or years?",
+              "kind": "error"
+            }
+          ]
+        }
+      ],
+      "label": "Day 14",
+      "connection": "Day 13: Tax and Tip"
+    },
+    {
+      "id": "g8-prop-d15-two-step-rates",
+      "title": "Two-Step Rate Problems",
+      "label": "Day 15",
+      "group": "Grade 8 · Unit · Rates and Proportional Reasoning",
+      "tool": "ratio",
+      "strategy": "Some problems chain two rates: litres per 100 km, then dollars per litre. Solve one rate, then use the answer in the next.",
+      "topic": "rat",
+      "keywords": "rate, two steps, fuel, litres, per 100 km, cost, chain",
+      "curriculum": [
+        "B2.8",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Mixing the two rates (multiplying km by $1.50): ask \"What does $1.50 per litre need: km or litres?\"",
+        "Stopping after the first step: ask \"Did we answer the question asked?\"",
+        "Losing track of units: ask \"Is that number litres, kilometres, or dollars?\""
+      ],
+      "wrapUp": "Ask \"How did the first answer help with the second?\" Land: in a chain of rates, the answer to one step (litres) is the input to the next (dollars). Label the units to keep them straight.",
+      "problems": [
+        {
+          "q": "100 : 8 = 250 : ?",
+          "a": "20",
+          "notes": "Context: \"A car uses 8 L of gas every 100 km. How much gas for 250 km?\" Look for: 200 km + 50 km = 16 + 4 L. Ask: \"What's 50 km?\" Word choice: \"8 litres per 100 km\". Model: ratio km:litres, 100:8, 50:4, 200:16, 250:20",
+          "responses": [
+            {
+              "say": "200 km is 16 L, 50 km is 4 L: 20 L.",
+              "tool": "ratio",
+              "type": "km:litres, 100:8, 200:16, 50:4, 250:20"
+            },
+            {
+              "say": "2.5 × 8 = 20.",
+              "tool": "text",
+              "type": "250 ÷ 100 = 2.5 ; 2.5 x 8 = 20"
+            }
+          ]
+        },
+        {
+          "q": "1 : 1.5 = 20 : ?",
+          "a": "30",
+          "notes": "Context: \"Gas costs $1.50 per litre. What does that gas cost?\" Look for: 20 × 1.5. Ask: \"How does the last answer help?\" Model: ratio litres:dollars, 1:1.5, 20:30",
+          "responses": [
+            {
+              "say": "20 L at $1.50 is $30.",
+              "tool": "ratio",
+              "type": "litres:dollars, 1:1.5, 20:30",
+              "tip": "Step 2 uses step 1."
+            },
+            {
+              "say": "375",
+              "tool": "text",
+              "type": "250 x 1.5 = 375 ?",
+              "tip": "Used km instead of litres. Ask: is the $1.50 per km or per litre?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100 : 8 = 350 : ?",
+          "a": "28",
+          "notes": "Look for: 300 km + 50 km = 24 + 4. Ask: \"What's the same?\" Model: ratio km:litres, 100:8, 300:24, 50:4, 350:28",
+          "responses": [
+            {
+              "say": "24 + 4 = 28 L.",
+              "tool": "ratio",
+              "type": "km:litres, 100:8, 300:24, 50:4, 350:28"
+            }
+          ]
+        },
+        {
+          "q": "1 : 1.5 = 28 : ?",
+          "a": "42",
+          "notes": "Look for: 28 × 1.5 = 28 + 14. Ask: \"How do you multiply by 1.5 in your head?\" Model: ratio litres:dollars, 1:1.5, 28:42",
+          "responses": [
+            {
+              "say": "28 and half of 28: 28 + 14 = 42.",
+              "tool": "text",
+              "type": "28 x 1.5 = 28 + 14 = 42",
+              "tip": "× 1.5 is the number plus half."
+            },
+            {
+              "say": "28 L at $1.50: $42.",
+              "tool": "ratio",
+              "type": "litres:dollars, 1:1.5, 28:42"
+            }
+          ]
+        },
+        {
+          "q": "8 : 120 = 1 : ?",
+          "a": "15",
+          "notes": "Context: \"Sam earns $120 for 8 hours of work.\" Look for: $120 ÷ 8. Ask: \"What's the hourly rate?\" Model: ratio hours:dollars, 8:120, 4:60, 1:15",
+          "responses": [
+            {
+              "say": "Halve: 4 h for $60, 2 h for $30, 1 h for $15.",
+              "tool": "ratio",
+              "type": "hours:dollars, 8:120, 4:60, 2:30, 1:15"
+            }
+          ]
+        },
+        {
+          "q": "8 : 120 = 30 : ?",
+          "a": "450",
+          "notes": "Look for: 30 × 15. Ask: \"How much for 30 hours?\" Model: ratio hours:dollars, 1:15, 30:450",
+          "optional": true,
+          "responses": [
+            {
+              "say": "30 × $15 = $450.",
+              "tool": "ratio",
+              "type": "hours:dollars, 1:15, 30:450"
+            },
+            {
+              "say": "142",
+              "tool": "text",
+              "type": "8 : 120 = 30 : 142 ?",
+              "tip": "Added 22 to both. Ask: is Sam still paid the same per hour?",
+              "kind": "error"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 4: Which Deal Is Better? and Day 13: Tax and Tip"
     },
     {
       "id": "g8-prop-d16-choosing-a-strategy",

@@ -19,6 +19,18 @@
   let library = store.get('library', null);   // [{...string}]
   let bundled = [];                            // strings.json from the site
   const deleted = new Set(store.get('deleted', []));
+  // Site strings that were given new ids (old -> new). Unedited copies of the old ones are removed; progress marks move over.
+  const RENAMED = {
+    'g8-prop-d05-speed-on-a-double-number-line': 'g8-prop-d06-speed-on-a-double-number-line',
+    'g8-prop-d06-working-backward': 'g8-prop-d07-working-backward',
+    'g8-prop-d07-across-the-table': 'g8-prop-d05-across-the-table',
+    'g8-prop-d10-scale-maps': 'g8-bank-rat-01-scale-maps',
+    'g8-prop-d11-converting-units': 'g8-bank-rat-02-converting-units',
+    'g8-prop-d12-two-step-rates': 'g8-prop-d15-two-step-rates',
+    'g8-prop-d13-comparing-mixtures': 'g8-bank-rat-03-comparing-mixtures',
+    'g8-prop-d14-rates-with-parts-of-an-hour': 'g8-bank-rat-04-rates-with-parts-of-an-hour',
+    'g8-prop-d15-tax-and-tip': 'g8-prop-d13-tax-and-tip',
+  };
   const saveLibrary = () => { store.set('library', library); store.set('deleted', [...deleted]); };
 
   const uid = () => Math.random().toString(36).slice(2, 9);
@@ -49,6 +61,12 @@
       if (r.ok) bundled = ((await r.json()).strings || []).map(normalizeString);
     } catch (e) { /* offline or opened as a file */ }
     if (!Array.isArray(library)) library = [];
+    // Drop unedited copies of strings the site no longer has (renamed or retired). Your own and edited strings stay.
+    if (bundled.length) {
+      const now = new Set(bundled.map(b => b.id)), seen = new Set(store.get('siteIds', []));
+      library = library.filter(s => s._edited || now.has(s.id) || !(seen.has(s.id) || s.id in RENAMED));
+      store.set('siteIds', [...now]);
+    }
     // Add new strings from the site; refresh ones you haven't edited yourself.
     bundled.forEach(b => {
       const i = library.findIndex(s => s.id === b.id);
@@ -227,6 +245,7 @@
 
   // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...], fav: true, todo: true } }
   const track = store.get('track', {});
+  Object.entries(RENAMED).forEach(([a, b]) => { if (track[a]) { if (!track[b]) track[b] = track[a]; delete track[a]; store.set('track', track); } });
   const T_ = id => track[id] || {};
   const isDone = id => !!(T_(id).done || []).length;
   function setTrack(id, patch) {

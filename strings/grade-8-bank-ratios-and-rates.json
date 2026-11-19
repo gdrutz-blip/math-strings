@@ -1,0 +1,506 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-rat-01-scale-maps",
+      "title": "Scale on a Map",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Ratios and Rates",
+      "tool": "ratio",
+      "strategy": "A map scale is a rate: 1 cm on the map is 25 km on the ground. Scale up to find real distances, or back down to find map distances.",
+      "topic": "rat",
+      "keywords": "scale, map, centimetres, kilometres, rate, ratio",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Adding 25 instead of multiplying (4 cm = 29 km): ask \"Is every centimetre worth 25 km?\"",
+        "Going the wrong way for map distance (150 × 25): ask \"Is the map distance bigger or smaller than the real one?\"",
+        "Decimal centimetres: ask \"What's half a centimetre worth? A tenth?\""
+      ],
+      "wrapUp": "Ask \"How is a map scale like a unit rate?\" Land: 1 cm stands for 25 km, so multiply map centimetres by 25 for kilometres, and divide kilometres by 25 to get centimetres.",
+      "problems": [
+        {
+          "q": "1 : 25 = 4 : ?",
+          "a": "100",
+          "notes": "Context: \"On a map, 1 cm represents 25 km.\" Look for: 4 × 25. Ask: \"How far is 4 cm?\" Word choice: \"represents\", \"scale\". Model: ratio cm:km, 1:25, 4:100",
+          "responses": [
+            {
+              "say": "4 × 25 = 100 km.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 4:100"
+            },
+            {
+              "say": "29",
+              "tool": "text",
+              "type": "1 : 25 = 4 : 29 ?",
+              "tip": "Added 3 to both. Ask: is every centimetre worth 25 km?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 25 = 2.4 : ?",
+          "a": "60",
+          "notes": "Look for: 2 cm = 50, 0.4 cm = 10. Ask: \"What's 0.4 cm worth?\" Model: ratio cm:km, 1:25, 2:50, 0.4:10, 2.4:60",
+          "responses": [
+            {
+              "say": "50 + 10 = 60 km.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 2:50, 0.4:10, 2.4:60"
+            },
+            {
+              "say": "2.4 × 25 = 60.",
+              "tool": "area",
+              "type": "2+0.4 x 25"
+            }
+          ]
+        },
+        {
+          "q": "1 : 25 = ? : 150",
+          "a": "6",
+          "notes": "Look for: 150 ÷ 25. Ask: \"Is the map distance bigger or smaller?\" Model: ratio cm:km, 1:25, 6:150",
+          "responses": [
+            {
+              "say": "150 ÷ 25 = 6 cm.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 6:150"
+            },
+            {
+              "say": "3750",
+              "tool": "text",
+              "type": "150 x 25 = 3750 ?",
+              "tip": "Ask: would 3750 cm fit on a map?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 25 = 0.6 : ?",
+          "a": "15",
+          "notes": "Look for: 6 tenths of 25. Ask: \"What's 0.1 cm worth?\" Model: ratio cm:km, 1:25, 0.2:5, 0.6:15",
+          "responses": [
+            {
+              "say": "0.2 cm is 5 km, so 0.6 cm is 15 km.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 0.2:5, 0.6:15"
+            }
+          ]
+        },
+        {
+          "q": "1 : 25 = ? : 40",
+          "a": "1.6",
+          "notes": "Look for: 1 cm = 25, 0.6 cm = 15. Ask: \"How does the last one help?\" Model: ratio cm:km, 1:25, 0.6:15, 1.6:40",
+          "responses": [
+            {
+              "say": "25 + 15 = 40, so 1 + 0.6 = 1.6 cm.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 0.6:15, 1.6:40",
+              "tip": "Used the last problem."
+            },
+            {
+              "say": "40 ÷ 25 = 1.6.",
+              "tool": "text",
+              "type": "40 ÷ 25 = 160 ÷ 100 = 1.6"
+            }
+          ]
+        },
+        {
+          "q": "1 : 25 = 7.2 : ?",
+          "a": "180",
+          "notes": "Look for: 7 cm = 175, 0.2 cm = 5. Ask: \"Which parts?\" Model: ratio cm:km, 1:25, 7:175, 0.2:5, 7.2:180",
+          "optional": true,
+          "responses": [
+            {
+              "say": "175 + 5 = 180 km.",
+              "tool": "ratio",
+              "type": "cm:km, 1:25, 7:175, 0.2:5, 7.2:180"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 2: How Much for One?"
+    },
+    {
+      "id": "g8-bank-rat-02-converting-units",
+      "title": "Converting Units with Rates",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Ratios and Rates",
+      "tool": "ratio",
+      "strategy": "A unit conversion is a rate: 1 hour is 60 minutes, 1 inch is 2.54 cm. Use a ratio table to convert either way.",
+      "topic": "rat",
+      "keywords": "convert, unit, rate, hours, minutes, inches, centimetres, ratio table",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Writing 2.5 hours as 2 h 50 min: ask \"What is half an hour in minutes?\"",
+        "Multiplying when converting to a bigger unit: ask \"Should there be more hours or more minutes?\"",
+        "Decimals in 12 × 2.54: ask \"What's 10 inches? 2 inches?\""
+      ],
+      "wrapUp": "Ask \"How did you know whether to multiply or divide?\" Land: converting to a smaller unit gives a bigger number (multiply); to a bigger unit gives a smaller number (divide). The ratio table keeps it straight.",
+      "problems": [
+        {
+          "q": "1 : 60 = 2.5 : ?",
+          "a": "150",
+          "notes": "Context: \"A movie is 2.5 hours long. How many minutes?\" Look for: 2 h = 120, half an hour = 30. Ask: \"Is it 2 h 50 min?\" Word choice: \"convert\". Model: ratio hours:minutes, 1:60, 2:120, 0.5:30, 2.5:150",
+          "responses": [
+            {
+              "say": "120 + 30 = 150 minutes.",
+              "tool": "ratio",
+              "type": "hours:minutes, 1:60, 2:120, 0.5:30, 2.5:150"
+            },
+            {
+              "say": "250",
+              "tool": "text",
+              "type": "2.5 hours = 250 minutes ?",
+              "tip": "Ask: how many minutes are in one hour?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 60 = ? : 45",
+          "a": "0.75",
+          "notes": "Look for: 45 minutes is 3/4 of an hour. Ask: \"What fraction of an hour?\" Model: ratio hours:minutes, 1:60, 0.25:15, 0.75:45",
+          "responses": [
+            {
+              "say": "A quarter hour is 15 minutes, so 0.75 hours.",
+              "tool": "ratio",
+              "type": "hours:minutes, 1:60, 0.25:15, 0.75:45"
+            },
+            {
+              "say": "0.45",
+              "tool": "text",
+              "type": "45 minutes = 0.45 hours ?",
+              "tip": "Ask: is 45 minutes almost half an hour or three quarters?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 60 = 0.2 : ?",
+          "a": "12",
+          "notes": "Look for: a fifth of 60. Ask: \"What's 0.1 hours?\" Model: ratio hours:minutes, 1:60, 0.1:6, 0.2:12",
+          "responses": [
+            {
+              "say": "0.1 h is 6 min, so 0.2 h is 12 min.",
+              "tool": "ratio",
+              "type": "hours:minutes, 1:60, 0.1:6, 0.2:12"
+            },
+            {
+              "say": "20",
+              "tool": "text",
+              "type": "0.2 hours = 20 minutes ?",
+              "tip": "Ask: is 0.2 of an hour the same as 20 minutes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 2.54 = 10 : ?",
+          "a": "25.4",
+          "notes": "Context: \"1 inch is 2.54 cm.\" Look for: ×10. Ask: \"How many cm in 10 inches?\" Model: ratio inches:cm, 1:2.54, 10:25.4",
+          "responses": [
+            {
+              "say": "Times 10: 25.4 cm.",
+              "tool": "ratio",
+              "type": "inches:cm, 1:2.54, 10:25.4"
+            }
+          ]
+        },
+        {
+          "q": "1 : 2.54 = 12 : ?",
+          "a": "30.48",
+          "notes": "Look for: 10 in + 2 in = 25.4 + 5.08. Ask: \"How long is a foot in cm?\" Model: ratio inches:cm, 10:25.4, 2:5.08, 12:30.48",
+          "responses": [
+            {
+              "say": "25.4 + 5.08 = 30.48 cm.",
+              "tool": "ratio",
+              "type": "inches:cm, 10:25.4, 2:5.08, 12:30.48",
+              "tip": "A foot is about 30 cm."
+            },
+            {
+              "say": "3.048",
+              "tool": "text",
+              "type": "12 x 2.54 = 3.048 ?",
+              "tip": "Ask: about how big should 12 × 2.5 be?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 : 1000 = ? : 250",
+          "a": "0.25",
+          "notes": "Context: \"1 km is 1000 m. How many km is 250 m?\" Look for: a quarter. Ask: \"What fraction of 1000 is 250?\" Model: ratio km:m, 1:1000, 0.25:250",
+          "optional": true,
+          "responses": [
+            {
+              "say": "250 is a quarter of 1000: 0.25 km.",
+              "tool": "ratio",
+              "type": "km:m, 1:1000, 0.25:250"
+            }
+          ]
+        }
+      ],
+      "connection": "Bank: Scale on a Map"
+    },
+    {
+      "id": "g8-bank-rat-03-comparing-mixtures",
+      "title": "Comparing Mixtures",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Ratios and Rates",
+      "tool": "ratio",
+      "strategy": "To compare two mixtures, make one part the same in both, or find what percent of each mixture is concentrate. Then the comparison is fair.",
+      "topic": "rat",
+      "keywords": "concentrate, mixture, stronger, part to part, part to whole, percent, compare",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Comparing the differences (Mix B has 2 more cups of water than concentrate, Mix A only 1): ask \"Does the difference tell you how strong it tastes?\"",
+        "Mixing part-to-part and part-to-whole: ask \"Is 2 out of 3, or 2 out of 5 cups?\"",
+        "Thinking more concentrate always means stronger: ask \"What about the water?\""
+      ],
+      "wrapUp": "Ask \"Which mix is stronger, and how do you know?\" Land: compare fairly by making the concentrate the same (6 cups in each) or by finding the percent of concentrate in the whole mixture.",
+      "problems": [
+        {
+          "q": "2 : 3 = 6 : ?",
+          "a": "9",
+          "notes": "Context: \"Mix A: 2 cups orange concentrate for 3 cups water. Mix B: 3 cups concentrate for 5 cups water.\" Look for: ×3. Ask: \"How much water with 6 cups of concentrate in Mix A?\" Word choice: \"concentrate\", \"stronger\". Model: ratio concentrate:water, 2:3, 6:9",
+          "responses": [
+            {
+              "say": "Triple Mix A: 6 concentrate, 9 water.",
+              "tool": "ratio",
+              "type": "concentrate:water, 2:3, 6:9"
+            }
+          ]
+        },
+        {
+          "q": "3 : 5 = 6 : ?",
+          "a": "10",
+          "notes": "Look for: ×2. Ask: \"Now compare: which has more water for the same concentrate?\" Model: ratio concentrate:water, 3:5, 6:10",
+          "responses": [
+            {
+              "say": "Double Mix B: 6 concentrate, 10 water. B is weaker.",
+              "tool": "ratio",
+              "type": "concentrate:water, 3:5, 6:10",
+              "tip": "Same concentrate, more water: weaker."
+            },
+            {
+              "say": "B is stronger, because it has 3 cups of concentrate.",
+              "tool": "text",
+              "type": "3 > 2 so B is stronger ?",
+              "tip": "Ask: B has more water too. Is it a fair comparison?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 : 5 = ? : 100",
+          "a": "40",
+          "notes": "Look for: Mix A is 2 cups concentrate out of 5 cups total. Ask: \"What percent of Mix A is concentrate?\" Model: ratio concentrate:total, 2:5, 40:100",
+          "responses": [
+            {
+              "say": "2 out of 5 cups is 40%.",
+              "tool": "ratio",
+              "type": "concentrate:total, 2:5, 40:100",
+              "tip": "Part to whole."
+            },
+            {
+              "say": "67",
+              "tool": "text",
+              "type": "2 out of 3 = 67% ?",
+              "tip": "Used part to part (2 to 3). Ask: how many cups are in the whole mix?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 8 = ? : 100",
+          "a": "37.5",
+          "notes": "Look for: Mix B is 3 out of 8 cups. Ask: \"What's 1 out of 8 as a percent?\" Model: ratio concentrate:total, 1:8, 3:24, 37.5:100",
+          "responses": [
+            {
+              "say": "1/8 is 12.5%, so 3/8 is 37.5%. Less than 40%.",
+              "tool": "text",
+              "type": "1/8 = 12.5% ; 3/8 = 37.5%"
+            },
+            {
+              "say": "8 cups to 100: ×12.5, so 3 × 12.5 = 37.5.",
+              "tool": "ratio",
+              "type": "concentrate:total, 3:8, 37.5:100"
+            }
+          ]
+        },
+        {
+          "q": "5 : 7 = 15 : ?",
+          "a": "21",
+          "notes": "Context: \"Mix C: 5 cups concentrate for 7 cups water.\" Look for: ×3. Ask: \"Compare C with A: 15 concentrate each?\" Model: ratio concentrate:water, 5:7, 15:21",
+          "responses": [
+            {
+              "say": "15 concentrate needs 21 water in Mix C.",
+              "tool": "ratio",
+              "type": "concentrate:water, 5:7, 15:21"
+            },
+            {
+              "say": "Mix A with 15 concentrate would be 22.5 water, so C is stronger.",
+              "tool": "ratio",
+              "type": "concentrate:water, 2:3, 15:22.5",
+              "tip": "Ask: why does less water mean stronger?"
+            }
+          ]
+        },
+        {
+          "q": "1 : 4 = ? : 100",
+          "a": "25",
+          "notes": "Context: \"Mix D: 1 cup concentrate for 3 cups water.\" Look for: 1 out of 4 cups total. Ask: \"Part to whole: 1 out of how many?\" Model: ratio concentrate:total, 1:4, 25:100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1 out of 4 cups is 25%, the weakest.",
+              "tool": "ratio",
+              "type": "concentrate:total, 1:4, 25:100"
+            },
+            {
+              "say": "33",
+              "tool": "text",
+              "type": "1 out of 3 = 33% ?",
+              "tip": "Part to part again. Ask: how many cups in the whole mix?",
+              "kind": "error"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 8: Percent as a Rate per 100"
+    },
+    {
+      "id": "g8-bank-rat-04-rates-with-parts-of-an-hour",
+      "title": "Rates with Parts of an Hour",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Ratios and Rates",
+      "tool": "doubleline",
+      "strategy": "When a rate is given for part of an hour (2 km in half an hour), scale up to 1 hour to get the speed, then use it for other times.",
+      "topic": "rat",
+      "keywords": "speed, km per hour, part of an hour, half, quarter, scale up",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Treating the given distance as the hourly speed (2 km in 1/2 h = 2 km/h): ask \"How far in a whole hour?\"",
+        "Dividing instead of multiplying (2 ÷ 2 = 1): ask \"Is a whole hour longer or shorter than half an hour?\"",
+        "Stuck with 15 minutes: ask \"How many quarter hours in an hour?\""
+      ],
+      "wrapUp": "Ask \"How did you get to a whole hour each time?\" Land: if you know a part of an hour, multiply up: ×2 for a half, ×4 for a quarter, ×(4/3) for three quarters. That's the speed per hour.",
+      "problems": [
+        {
+          "q": "0.5 : 2 = 1 : ?",
+          "a": "4",
+          "notes": "Context: \"A hiker walks 2 km in half an hour.\" Look for: double. Ask: \"How far in a whole hour?\" Word choice: \"km per hour\". Model: doubleline hours:km, 0:0, 0.5:2, 1:4",
+          "responses": [
+            {
+              "say": "Double: 4 km in an hour.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.5:2, 1:4"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "2 ÷ 2 = 1 km per hour ?",
+              "tip": "Ask: is a whole hour longer or shorter than half an hour?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5 : 2 = 2.5 : ?",
+          "a": "10",
+          "notes": "Look for: 2 h = 8 km, half hour = 2 km. Ask: \"How does 4 km/h help?\" Model: doubleline hours:km, 0:0, 0.5:2, 2:8, 2.5:10",
+          "responses": [
+            {
+              "say": "8 + 2 = 10 km.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.5:2, 2:8, 2.5:10"
+            },
+            {
+              "say": "2.5 × 4 = 10.",
+              "tool": "text",
+              "type": "2.5 x 4 = 10"
+            }
+          ]
+        },
+        {
+          "q": "0.25 : 1.5 = 1 : ?",
+          "a": "6",
+          "notes": "Context: \"A cyclist goes 1.5 km in 15 minutes.\" Look for: ×4. Ask: \"How many quarter hours in an hour?\" Model: doubleline hours:km, 0:0, 0.25:1.5, 1:6",
+          "responses": [
+            {
+              "say": "4 quarters: 4 × 1.5 = 6 km per hour.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.25:1.5, 1:6"
+            },
+            {
+              "say": "1.75",
+              "tool": "text",
+              "type": "1.5 + 0.25 = 1.75 ?",
+              "tip": "Added. Ask: what does 0.25 mean here?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.25 : 1.5 = 0.75 : ?",
+          "a": "4.5",
+          "notes": "Look for: three quarter hours: 3 × 1.5. Ask: \"Is it more or less than 6?\" Model: doubleline hours:km, 0:0, 0.25:1.5, 0.75:4.5, 1:6",
+          "responses": [
+            {
+              "say": "3 × 1.5 = 4.5 km.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.25:1.5, 0.75:4.5, 1:6"
+            },
+            {
+              "say": "6 − 1.5 = 4.5.",
+              "tool": "text",
+              "type": "1 hour - 1 quarter: 6 - 1.5 = 4.5",
+              "tip": "From the whole hour."
+            }
+          ]
+        },
+        {
+          "q": "0.75 : 3 = 1 : ?",
+          "a": "4",
+          "notes": "Context: \"A runner covers 3 km in 45 minutes.\" Look for: 1 km per 15 min, so 4 km per hour. Ask: \"What's 15 minutes?\" Model: doubleline hours:km, 0:0, 0.25:1, 0.75:3, 1:4",
+          "responses": [
+            {
+              "say": "15 min is 1 km, so an hour is 4 km.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.25:1, 0.75:3, 1:4",
+              "tip": "Through a quarter hour."
+            },
+            {
+              "say": "2.25",
+              "tool": "text",
+              "type": "3 x 0.75 = 2.25 ?",
+              "tip": "Multiplied. Ask: in a whole hour, more or less than 3 km?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5 : 6 = 0.5 : ?",
+          "a": "2",
+          "notes": "Context: \"A swimmer swims 6 km in 1.5 hours.\" Look for: ÷3. Ask: \"How many half hours in 1.5 hours?\" Model: doubleline hours:km, 0:0, 0.5:2, 1.5:6",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 half hours, so 6 ÷ 3 = 2 km.",
+              "tool": "doubleline",
+              "type": "hours:km, 0:0, 0.5:2, 1.5:6"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 6: Speed on a Double Number Line"
+    }
+  ]
+}
