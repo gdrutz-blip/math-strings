@@ -113,7 +113,7 @@
       const c = s[i];
       if (/\s/.test(c)) {
         m = rest.match(/^\s+([xX×*\/÷:])\s+/);
-        if (m) { out += op(m[1]); i += m[0].length; continue; }
+        if (m && !(/[xX]/.test(m[1]) && !/[\d.)\]]/.test(s.slice(0, i).trim().slice(-1)))) { out += op(m[1]); i += m[0].length; continue; }
         out += ' '; i++; continue;
       }
       if ('+=×*÷<>≤≥'.includes(c)) { out += op(c); i++; continue; }
@@ -168,8 +168,9 @@
     { id: 'rat', name: 'Ratios & Rates', icon: '∶', re: /ratio|rate/i },
     { id: 'int', name: 'Integers', icon: '±', re: /integer/i },
     { id: 'pow', name: 'Powers & Roots', icon: 'x²', re: /power|square|root|scientific|exponent/i },
+    { id: 'alg', name: 'Algebra', icon: 'n', re: /algebra|equation|expression|pattern|inequalit/i },
   ];
-  const TOPIC_CHECK = ['pow', 'int', 'frac', 'dec', 'pct', 'rat', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
+  const TOPIC_CHECK = ['alg', 'pow', 'int', 'frac', 'dec', 'pct', 'rat', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
   function topicOf(s) {
     if (s.topic) { const k = String(s.topic).toLowerCase(); const t = TOPICS.find(t => t.id === k || t.name.toLowerCase() === k) || TOPIC_CHECK.find(t => t.re.test(k)); if (t) return t.id; }
     const unit = (s.group || '').replace(/^\s*Grade\s*\w+\s*·\s*/i, '').replace(/^Week\s*\d+\s*·\s*/i, '');
@@ -235,7 +236,15 @@
       'B2.5': 'add and subtract fractions, using appropriate strategies, in various contexts',
       'B2.6': 'multiply and divide fractions by fractions, as well as by whole numbers and mixed numbers, in various contexts',
       'B2.7': 'multiply and divide integers, using appropriate strategies, in various contexts',
-      'B2.8': 'compare proportional situations and determine unknown values in proportional situations, and apply proportional reasoning to solve problems in various contexts' },
+      'B2.8': 'compare proportional situations and determine unknown values in proportional situations, and apply proportional reasoning to solve problems in various contexts',
+      'C1.1': 'identify and compare a variety of repeating, growing, and shrinking patterns, including patterns found in real-life contexts, and compare linear growing and shrinking patterns on the basis of their constant rates and initial values',
+      'C1.2': 'create and translate repeating, growing, and shrinking patterns involving rational numbers using various representations, including algebraic expressions and equations for linear growing and shrinking patterns',
+      'C1.3': 'determine pattern rules and use them to extend patterns, make and justify predictions, and identify missing elements in growing and shrinking patterns involving rational numbers, and use algebraic representations of the pattern rules to solve for unknown values in linear growing and shrinking patterns',
+      'C1.4': 'create and describe patterns to illustrate relationships among rational numbers',
+      'C2.1': 'add and subtract monomials with a degree of 1, and add binomials with a degree of 1 that involve integers, using tools',
+      'C2.2': 'evaluate algebraic expressions that involve rational numbers',
+      'C2.3': 'solve equations that involve multiple terms, integers, and decimal numbers in various contexts, and verify solutions',
+      'C2.4': 'solve inequalities that involve integers, and verify and graph the solutions' },
   };
   const currOf = s => (Array.isArray(s.curriculum) ? s.curriculum : String(s.curriculum || '').split(/[,;\s]+/)).map(c => c.trim().toUpperCase()).filter(c => /^[A-E]\d+\.\d+$/.test(c));
   const codeSort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
@@ -301,7 +310,7 @@
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     // within a grade, the weekly units come before the string bank
     const isBank = name => /·\s*Bank\s*·/i.test(name);
-    const weekOf = name => +((name.match(/Week\s*(\d+)/i) || [])[1] || 50); // a unit with no week number (a 15-20 day unit) comes after the weeks
+    const weekOf = name => { const w = name.match(/Week\s*(\d+)/i), u = name.match(/Unit\s*(\d+)/i); return w ? +w[1] : u ? 20 + +u[1] : 50; }; // weeks, then numbered units (15-20 days), then the rest
     groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)) || weekOf(a.name) - weekOf(b.name); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
