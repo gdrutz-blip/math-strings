@@ -300,7 +300,7 @@
             <button class="btn" data-act="classes">🎲 Classes</button>
             <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
-            <a class="btn" href="#/pd" title="Our school's number strings professional learning: sessions, focus units, practice cards">🎓 PD</a>
+            <a class="btn" href="#/pd" title="Our number strings PD: the sessions, your grade's units and practice cards">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
@@ -678,21 +678,21 @@ Rules:
     title: 'Number strings PD · Grades 4–8',
     // exit: the session's 2-minute exit ticket (a Google Form); add the link when it's ready
     sessions: [
-      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Experience a string, practise one in pairs, and choose your focus unit.',
+      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Do a string as students, practise running one with a partner, and pick a unit to start with.',
         exit: 'https://docs.google.com/forms/d/e/1FAIpQLSdXow8jntjSn6yRDTUD6A0KwChNpLafDdQLNnyhr6y7Fr60Lg/viewform',
-        plan: [['5 min', 'Experience one: we run a short string together, with you as the students.'],
-          ['10 min', 'Try it in pairs: open your grade\'s practice card. One presents, one plays the class, then swap. 💡 Try is your safety net.'],
-          ['10 min', 'Choose your focus unit and pick a day for your first string.'],
-          ['5 min', 'Questions, and the 2-minute exit ticket.']] },
-      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Share one run, learn one new move, and keep going.', exit: '',
-        plan: [['10 min', 'In small groups, show your one run: "Here is what my students said." What surprised you? Which model helped?'],
-          ['10 min', 'One new move: a tool you haven\'t tried, more wait time, or "Can the last problem help?" Practise it in pairs.'],
-          ['5 min', 'Common questions and sticking points.'],
-          ['5 min', 'The next ask, and the exit ticket.']] },
-      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Compare December with March, share what worked, and plan next steps.', exit: '',
-        plan: [['10 min', 'Compare: in 🗂 My runs, open your March run and choose Compare with December. More strategies? More students explaining?'],
+        plan: [['5 min', 'We run a short string together, and you\'re the students.'],
+          ['10 min', 'With a partner, open your grade\'s practice card. One of you runs the string and the other answers, then switch. If you get stuck, press Try to see what students might say.'],
+          ['10 min', 'Pick your unit and a day to run your first string.'],
+          ['5 min', 'Questions and the exit ticket.']] },
+      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Bring a string you ran with your class. We talk about what students said and pick one thing to try next.', exit: '',
+        plan: [['10 min', 'In small groups, share a string you ran. What did your students say? What surprised you? Which model helped?'],
+          ['10 min', 'Pick one thing to try next: a model you haven\'t used, more wait time, or asking "Can the last problem help?" Practise it with a partner.'],
+          ['5 min', 'Questions, and anything that\'s been tricky.'],
+          ['5 min', 'Plans for the next few weeks, and the exit ticket.']] },
+      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Run your first string again and compare it with December. What\'s changed?', exit: '',
+        plan: [['10 min', 'In My runs, open your March run and press Compare with December. Are more students explaining? Are you seeing more strategies?'],
           ['10 min', 'Share one thing that worked.'],
-          ['10 min', 'Next steps, and the exit ticket.']] },
+          ['10 min', 'Where to go from here, and the exit ticket.']] },
     ],
     grades: ['4', '5', '6', '7', '8'],
   };
@@ -716,25 +716,26 @@ Rules:
       </div>
       <div class="pd-eyebrow">School Improvement Plan · Mathematics</div>
       <h1>${esc(PD.title)}</h1>
-      <p class="lead">Three short, collaborative sessions on using number strings to build fluency, with student reasoning, multiple strategies, purposeful questions, and evidence of growth over time.</p>
+      <p class="lead">Three 30-minute sessions this year on number strings: a short routine where students solve a set of related problems in their heads and explain how they did it. There's very little prep and nothing to hand in.</p>
 
       <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : '<span class="pd-exit-soon">Exit ticket: at the session</span>'}</div>`).join('')}</div>
 
-      <section class="panel"><h2>1 · Your grade and focus</h2>
+      <section class="panel"><h2>1 · Pick your grade and unit</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
-        ${!grade ? '<p class="hint">Choose your grade to see its focus units.</p>'
+        ${!grade ? '<p class="hint">Pick your grade to see its units.</p>'
           : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
-          : `<p>Choose <b>one focus unit</b> to use for the next 8 weeks. Each unit is a week of strings. Run them about twice a week for 10–15 minutes, then repeat or move to the next unit.${bankCount ? ` For extra practice, the <a href="#/grade/${encodeURIComponent(grade)}">library</a> also has <b>${bankCount} single strings</b> in the Grade ${esc(grade)} string bank.` : ''}</p>
+          : `<p>Pick <b>one unit</b> to start with and run a string from it about twice a week, for 10–15 minutes. When you finish, repeat the ones your class liked or move on to the next unit.${bankCount ? ` The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has <b>${bankCount} more strings</b> for Grade ${esc(grade)} if you want extras.` : ''}</p>
              ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
                ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
                <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
                  <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a><a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
       </section>
 
-      <section class="panel pd-ask"><h2>2 · Between sessions: the whole ask</h2>
+      <section class="panel pd-ask"><h2>2 · Between sessions</h2>
+        <p>This is all we're asking:</p>
         <ol class="steps">
-          <li><b>Run your focus unit's strings</b>, about twice a week for 10–15 minutes. If you can only fit in one, that's fine.</li>
-          <li><b>Press Finish at the end.</b> The run is saved for you in <b>🗂 My runs</b>, dated, with every answer and model.</li>
+          <li><b>Run a string from your unit</b> about twice a week. Once a week is fine too.</li>
+          <li><b>Press Finish when you're done.</b> It saves the run in <b>My runs</b> with the date, the answers and the models.</li>
           <li><b>Bring one run and one question</b> to the next session, on your laptop or printed.</li>
         </ol>
       </section>
@@ -747,20 +748,20 @@ Rules:
 
       <section class="panel"><h2>4 · In your classroom</h2>
         <ul class="steps">
-          <li><b>Before:</b> read the string's practice card (or Notes) and rehearse once. Press <b>↺</b> to start fresh.</li>
-          <li><b>During:</b> give think time, record <i>every</i> answer (<kbd>A</kbd>), and model at least two strategies per problem. Ask "Can the last problem help?" and "What's the same?"</li>
-          <li><b>After:</b> press <kbd>O</kbd> for the whole string, ask "What did you notice?", then <b>Finish</b>.</li>
+          <li><b>Before class:</b> read the teacher card or practice card and run through the string once on your own. Press <b>↺</b> to clear it before class.</li>
+          <li><b>During:</b> give think time before taking answers. Write down every answer, right or wrong (<kbd>A</kbd>), and show at least two ways to solve each problem. Two questions that work well: "Can the last problem help?" and "What's the same?"</li>
+          <li><b>At the end:</b> press <kbd>O</kbd> to see the whole string, ask what they noticed, then press <b>Finish</b>.</li>
         </ul>
       </section>
 
       <section class="panel"><h2>Bring to each session</h2>
         <ul class="steps">
           <li><b>Dec 4:</b> a laptop or Chromebook.</li>
-          <li><b>Feb 1:</b> one saved run (in 🗂 My runs, or printed) where your students surprised you, and one question.</li>
-          <li><b>Apr 1:</b> before this session, re-run the <b>first string you used in December</b> and press Finish. Bring both runs; we'll compare them side by side.</li>
+          <li><b>Feb 1:</b> one run where your students surprised you (in My runs, or printed) and one question.</li>
+          <li><b>Apr 1:</b> before the session, run the <b>first string you used in December</b> again and press Finish. Bring both runs and we'll compare them.</li>
         </ul>
       </section>
-      <p class="hint">Grounded in the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
+      <p class="hint">Based on the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
     window.scrollTo(0, 0);
   }
