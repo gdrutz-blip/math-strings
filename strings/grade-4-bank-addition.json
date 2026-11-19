@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-add-01-give-and-take",
+      "title": "Give and Take",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Addition",
+      "tool": "givetake",
+      "strategy": "When one number is close to a hundred or a thousand, give it what it needs from the other number. The total stays the same: 298 + 145 = 300 + 143.",
+      "topic": "add",
+      "keywords": "give and take, friendly number, close to, total stays the same, compensate",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Making the friendly number but forgetting to take from the other (298 + 145 = 445): ask \"Where did the 2 come from?\"",
+        "Taking from the wrong number, or giving too much: ask \"How much does 298 need to make 300?\"",
+        "Lining up the algorithm when the numbers are friendly: ask \"Is one number close to a hundred?\""
+      ],
+      "wrapUp": "Ask \"Why does the total stay the same?\" Land: moving an amount from one number to the other doesn't change the total. Make one number friendly, then the adding is easy.",
+      "problems": [
+        {
+          "q": "300 + 145",
+          "a": "445",
+          "notes": "Look for: a quick friendly sum. Ask: \"Hold on to this one.\" Model: split 300 + 145",
+          "responses": [
+            {
+              "say": "3 hundreds and 1 hundred, plus 45: 445.",
+              "tool": "split",
+              "type": "300 + 145"
+            }
+          ]
+        },
+        {
+          "q": "298 + 145",
+          "a": "443",
+          "notes": "Look for: 298 gets 2 from 145: 300 + 143. Ask: \"How does the last one help?\" Word choice: \"give and take\". Model: givetake 298 + 145 = 300 + 143",
+          "responses": [
+            {
+              "say": "Give 2 to 298: 300 + 143 = 443.",
+              "tool": "givetake",
+              "type": "298 + 145 = 300 + 143",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "300 + 145 is 445, take away the extra 2: 443.",
+              "tool": "numberline",
+              "type": "145 +300 -2",
+              "tip": "Over and back. Also great."
+            },
+            {
+              "say": "445",
+              "tool": "text",
+              "type": "298 + 145 = 300 + 145 = 445 ?",
+              "tip": "Gave 2 but didn't take it. Ask: where did the 2 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "499 + 238",
+          "a": "737",
+          "notes": "Look for: 500 + 237. Ask: \"What does 499 need?\" Model: givetake 499 + 238 = 500 + 237",
+          "responses": [
+            {
+              "say": "Give 1: 500 + 237 = 737.",
+              "tool": "givetake",
+              "type": "499 + 238 = 500 + 237"
+            },
+            {
+              "say": "738",
+              "tool": "text",
+              "type": "499 + 238 = 500 + 238 = 738 ?",
+              "tip": "Ask: what did 238 give away?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1998 + 347",
+          "a": "2345",
+          "notes": "Look for: 2000 + 345. Ask: \"Is it the same idea with thousands?\" Model: givetake 1998 + 347 = 2000 + 345",
+          "responses": [
+            {
+              "say": "Give 2: 2000 + 345 = 2345.",
+              "tool": "givetake",
+              "type": "1998 + 347 = 2000 + 345"
+            },
+            {
+              "say": "2000 + 347 − 2 = 2345.",
+              "tool": "numberline",
+              "type": "347 +2000 -2"
+            }
+          ]
+        },
+        {
+          "q": "3995 + 2006",
+          "a": "6001",
+          "notes": "Look for: 4000 + 2001. Ask: \"Which number should give?\" Model: givetake 3995 + 2006 = 4000 + 2001",
+          "responses": [
+            {
+              "say": "Give 5 to 3995: 4000 + 2001 = 6001.",
+              "tool": "givetake",
+              "type": "3995 + 2006 = 4000 + 2001"
+            },
+            {
+              "say": "Take 6 from 2006 to make 2000: 4001 + 2000 = 6001.",
+              "tool": "givetake",
+              "type": "3995 + 2006 = 4001 + 2000",
+              "tip": "Either number can give. Ask: which was easier?"
+            },
+            {
+              "say": "6011",
+              "tool": "text",
+              "type": "3995 + 2006 = 4000 + 2006 + 5 = 6011 ?",
+              "tip": "Added the 5 back instead of taking it away. Ask: is 3995 more or less than 4000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1499 + 2501",
+          "a": "4000",
+          "notes": "Look for: 1500 + 2500. Ask: \"What do you notice about these numbers?\" Model: givetake 1499 + 2501 = 1500 + 2500",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Give 1: 1500 + 2500 = 4000.",
+              "tool": "givetake",
+              "type": "1499 + 2501 = 1500 + 2500",
+              "tip": "A neat one: both become friendly."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

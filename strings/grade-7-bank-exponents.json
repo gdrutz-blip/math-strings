@@ -173,6 +173,160 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g7-bank-pow-02-same-number-different-powers",
+      "title": "Same Number, Different Powers",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Exponents",
+      "tool": "text",
+      "strategy": "The same number can be written as different powers: 64 = 8^2 = 4^3 = 2^6. Regrouping the repeated factors shows why.",
+      "topic": "pow",
+      "keywords": "base, exponent, power, repeated multiplication, squared, cubed, regroup factors",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying base and exponent (4^3 = 12): ask \"How many 4s are multiplied?\"",
+        "Thinking a bigger exponent always means a bigger number: ask \"Is 2^6 bigger than 8^2?\"",
+        "Not seeing the regrouping: ask \"Can you group six 2s into pairs? Into threes?\""
+      ],
+      "wrapUp": "Ask \"Why are 8^2, 4^3 and 2^6 all 64?\" Land: they are the same factors grouped differently: six 2s grouped in pairs is three 4s, grouped in threes is two 8s.",
+      "problems": [
+        {
+          "q": "8^2",
+          "a": "64",
+          "notes": "Look for: 8 × 8. Ask: \"Hold on to this.\" Word choice: \"8 squared\". Model: array 8 x 8",
+          "responses": [
+            {
+              "say": "8 × 8 = 64, an 8 by 8 square.",
+              "tool": "array",
+              "type": "8 x 8"
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "8^2 = 8 x 2 = 16 ?",
+              "tip": "Ask: how many 8s are multiplied?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4^3",
+          "a": "64",
+          "notes": "Look for: 4 × 4 × 4 = 16 × 4. Ask: \"What do you notice?\" Word choice: \"4 cubed\". Model: text 4^3 = 4 x 4 x 4 ; = 16 x 4 = 64",
+          "responses": [
+            {
+              "say": "4 × 4 is 16, × 4 is 64. The same as 8^2!",
+              "tool": "text",
+              "type": "4^3 = 4 x 4 x 4 ; = 16 x 4 = 64"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "4^3 = 4 x 3 = 12 ?",
+              "tip": "Ask: how many 4s are multiplied?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2^6",
+          "a": "64",
+          "notes": "Look for: double 6 times: 2, 4, 8, 16, 32, 64. Ask: \"Why is it 64 again?\" Model: text 2^6 = 2 x 2 x 2 x 2 x 2 x 2 ; = (2 x 2) x (2 x 2) x (2 x 2) = 4^3",
+          "responses": [
+            {
+              "say": "2, 4, 8, 16, 32, 64.",
+              "tool": "text",
+              "type": "2, 4, 8, 16, 32, 64",
+              "tip": "Doubling."
+            },
+            {
+              "say": "Six 2s in pairs is three 4s: 4^3.",
+              "tool": "text",
+              "type": "2^6 = 2 x 2 x 2 x 2 x 2 x 2 ; = (2 x 2) x (2 x 2) x (2 x 2) = 4^3",
+              "tip": "Regrouping the factors. Ask: what about groups of three 2s?"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "2^6 = 2 x 6 = 12 ?",
+              "tip": "Ask: list the 2s. How many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9^2",
+          "a": "81",
+          "notes": "Look for: 9 × 9. Ask: \"Is 81 another power too?\" Model: area 10-1 x 9",
+          "responses": [
+            {
+              "say": "9 × 9 = 81.",
+              "tool": "array",
+              "type": "9 x 9"
+            },
+            {
+              "say": "10 nines is 90, take away a 9: 81.",
+              "tool": "area",
+              "type": "10-1 x 9"
+            }
+          ]
+        },
+        {
+          "q": "3^4",
+          "a": "81",
+          "notes": "Look for: 3 × 3 × 3 × 3 = 9 × 9. Ask: \"How does the last one help?\" Model: text 3^4 = (3 x 3) x (3 x 3) ; = 9 x 9 = 81",
+          "responses": [
+            {
+              "say": "3 × 3 is 9, and 9 × 9 is 81.",
+              "tool": "text",
+              "type": "3^4 = (3 x 3) x (3 x 3) ; = 9 x 9 = 81",
+              "tip": "Regrouping again."
+            },
+            {
+              "say": "27",
+              "tool": "text",
+              "type": "3^4 = 3 x 3 x 3 = 27 ?",
+              "tip": "One 3 short. Ask: how many 3s does the 4 tell you?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10^3",
+          "a": "1000",
+          "notes": "Look for: 10 × 10 × 10. Ask: \"Is 1000 a square too?\" Model: text 10^3 = 10 x 10 x 10 ; = 1000",
+          "responses": [
+            {
+              "say": "10 × 10 × 10 = 1000.",
+              "tool": "text",
+              "type": "10^3 = 10 x 10 x 10 ; = 1000"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "10^3 = 10 x 3 = 30 ?",
+              "tip": "Ask: how many zeros should 10 × 10 × 10 have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5^3",
+          "a": "125",
+          "notes": "Look for: 25 × 5. Ask: \"What is 5^2? Then one more 5?\" Model: text 5^3 = 5^2 x 5 ; = 25 x 5 = 125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25 × 5 = 125.",
+              "tool": "text",
+              "type": "5^3 = 5^2 x 5 ; = 25 x 5 = 125"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

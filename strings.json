@@ -2,6 +2,141 @@
   "version": 1,
   "strings": [
     {
+      "id": "g4-bank-add-01-give-and-take",
+      "title": "Give and Take",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Addition",
+      "tool": "givetake",
+      "strategy": "When one number is close to a hundred or a thousand, give it what it needs from the other number. The total stays the same: 298 + 145 = 300 + 143.",
+      "topic": "add",
+      "keywords": "give and take, friendly number, close to, total stays the same, compensate",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Making the friendly number but forgetting to take from the other (298 + 145 = 445): ask \"Where did the 2 come from?\"",
+        "Taking from the wrong number, or giving too much: ask \"How much does 298 need to make 300?\"",
+        "Lining up the algorithm when the numbers are friendly: ask \"Is one number close to a hundred?\""
+      ],
+      "wrapUp": "Ask \"Why does the total stay the same?\" Land: moving an amount from one number to the other doesn't change the total. Make one number friendly, then the adding is easy.",
+      "problems": [
+        {
+          "q": "300 + 145",
+          "a": "445",
+          "notes": "Look for: a quick friendly sum. Ask: \"Hold on to this one.\" Model: split 300 + 145",
+          "responses": [
+            {
+              "say": "3 hundreds and 1 hundred, plus 45: 445.",
+              "tool": "split",
+              "type": "300 + 145"
+            }
+          ]
+        },
+        {
+          "q": "298 + 145",
+          "a": "443",
+          "notes": "Look for: 298 gets 2 from 145: 300 + 143. Ask: \"How does the last one help?\" Word choice: \"give and take\". Model: givetake 298 + 145 = 300 + 143",
+          "responses": [
+            {
+              "say": "Give 2 to 298: 300 + 143 = 443.",
+              "tool": "givetake",
+              "type": "298 + 145 = 300 + 143",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "300 + 145 is 445, take away the extra 2: 443.",
+              "tool": "numberline",
+              "type": "145 +300 -2",
+              "tip": "Over and back. Also great."
+            },
+            {
+              "say": "445",
+              "tool": "text",
+              "type": "298 + 145 = 300 + 145 = 445 ?",
+              "tip": "Gave 2 but didn't take it. Ask: where did the 2 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "499 + 238",
+          "a": "737",
+          "notes": "Look for: 500 + 237. Ask: \"What does 499 need?\" Model: givetake 499 + 238 = 500 + 237",
+          "responses": [
+            {
+              "say": "Give 1: 500 + 237 = 737.",
+              "tool": "givetake",
+              "type": "499 + 238 = 500 + 237"
+            },
+            {
+              "say": "738",
+              "tool": "text",
+              "type": "499 + 238 = 500 + 238 = 738 ?",
+              "tip": "Ask: what did 238 give away?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1998 + 347",
+          "a": "2345",
+          "notes": "Look for: 2000 + 345. Ask: \"Is it the same idea with thousands?\" Model: givetake 1998 + 347 = 2000 + 345",
+          "responses": [
+            {
+              "say": "Give 2: 2000 + 345 = 2345.",
+              "tool": "givetake",
+              "type": "1998 + 347 = 2000 + 345"
+            },
+            {
+              "say": "2000 + 347 − 2 = 2345.",
+              "tool": "numberline",
+              "type": "347 +2000 -2"
+            }
+          ]
+        },
+        {
+          "q": "3995 + 2006",
+          "a": "6001",
+          "notes": "Look for: 4000 + 2001. Ask: \"Which number should give?\" Model: givetake 3995 + 2006 = 4000 + 2001",
+          "responses": [
+            {
+              "say": "Give 5 to 3995: 4000 + 2001 = 6001.",
+              "tool": "givetake",
+              "type": "3995 + 2006 = 4000 + 2001"
+            },
+            {
+              "say": "Take 6 from 2006 to make 2000: 4001 + 2000 = 6001.",
+              "tool": "givetake",
+              "type": "3995 + 2006 = 4001 + 2000",
+              "tip": "Either number can give. Ask: which was easier?"
+            },
+            {
+              "say": "6011",
+              "tool": "text",
+              "type": "3995 + 2006 = 4000 + 2006 + 5 = 6011 ?",
+              "tip": "Added the 5 back instead of taking it away. Ask: is 3995 more or less than 4000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1499 + 2501",
+          "a": "4000",
+          "notes": "Look for: 1500 + 2500. Ask: \"What do you notice about these numbers?\" Model: givetake 1499 + 2501 = 1500 + 2500",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Give 1: 1500 + 2500 = 4000.",
+              "tool": "givetake",
+              "type": "1499 + 2501 = 1500 + 2500",
+              "tip": "A neat one: both become friendly."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g4-bank-div-01-sharing-into-groups",
       "title": "Sharing into Groups",
       "label": "Bank",
@@ -295,6 +430,156 @@
               "type": "2050 ÷ 10 = 250 ?",
               "tip": "Took out the wrong zero. Ask: is 10 × 250 equal to 2050?",
               "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-div-03-sharing-leftovers",
+      "title": "Sharing the Leftovers",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "numberline",
+      "strategy": "When a number doesn't share out evenly, the leftover can be shared too, as a fraction: 13 ÷ 4 is 3 each, and the 1 left over gives everyone 1/4 more.",
+      "topic": "mult",
+      "keywords": "share, left over, remainder, fraction, each gets, equal shares",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Writing the remainder as a fraction of the wrong number (13 ÷ 4 = 3 1/13): ask \"The 1 left over is shared by how many?\"",
+        "Stopping at 'R1' every time: ask \"If these were pizzas, could we cut up the last one?\"",
+        "Not simplifying 2/4 to 1/2: ask \"Is 2 out of 4 the same as a half?\""
+      ],
+      "wrapUp": "Ask \"What do we do with the leftovers?\" Land: share each leftover among the groups. The remainder goes on top, the number of groups on the bottom: 1 left over shared by 4 is 1/4 each.",
+      "problems": [
+        {
+          "q": "12 / 4",
+          "a": "3",
+          "notes": "Look for: 3 each, none left. Ask: \"Hold on to this.\" Model: numberline 0 +4x3",
+          "responses": [
+            {
+              "say": "4 × 3 = 12: 3 each.",
+              "tool": "numberline",
+              "type": "0 +4x3"
+            }
+          ]
+        },
+        {
+          "q": "13 / 4",
+          "a": "3 1/4",
+          "notes": "Context: \"13 pizzas shared by 4 friends.\" Look for: 3 each, 1 left, cut into 4: 1/4 each. Ask: \"What do we do with the last pizza?\" Word choice: \"remainder\", \"left over\". Model: numberline 0 +4x3 +1",
+          "responses": [
+            {
+              "say": "3 each, and the last pizza cut in 4: 3 1/4.",
+              "tool": "numberline",
+              "type": "0 +4x3 +1",
+              "tip": "The target idea."
+            },
+            {
+              "say": "12 shares evenly, 1 is left over.",
+              "tool": "bar",
+              "type": "13 = 12 + 1"
+            },
+            {
+              "say": "3 1/13",
+              "tool": "text",
+              "type": "13 ÷ 4 = 3 1/13 ?",
+              "tip": "Ask: the 1 left over is shared by how many friends?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 / 2",
+          "a": "4 1/2",
+          "notes": "Look for: 4 each, 1 left, half each. Ask: \"What is 1 shared by 2?\" Model: numberline 0 +2x4 +1",
+          "responses": [
+            {
+              "say": "4 each, and half of the last one: 4 1/2.",
+              "tool": "numberline",
+              "type": "0 +2x4 +1"
+            },
+            {
+              "say": "4 R1",
+              "tool": "text",
+              "type": "9 ÷ 2 = 4 R1",
+              "tip": "True. Ask: if it's 9 cookies, could we share the last one?"
+            }
+          ]
+        },
+        {
+          "q": "25 / 4",
+          "a": "6 1/4",
+          "notes": "Look for: 24 shares into 6s, 1 left. Ask: \"Which number near 25 shares evenly by 4?\" Model: text 25 = 24 + 1 ; 24 ÷ 4 = 6 ; 1 ÷ 4 = 1/4 ; 6 1/4",
+          "responses": [
+            {
+              "say": "24 ÷ 4 is 6, then 1 ÷ 4: 6 1/4.",
+              "tool": "text",
+              "type": "25 = 24 + 1 ; 24 ÷ 4 = 6 ; 1 ÷ 4 = 1/4 ; 6 1/4"
+            },
+            {
+              "say": "Like $25 shared by 4: $6.25 each.",
+              "tool": "text",
+              "type": "25 ÷ 4 = 6.25 = 6 1/4",
+              "tip": "A money connection."
+            }
+          ]
+        },
+        {
+          "q": "30 / 4",
+          "a": "7 1/2",
+          "notes": "Look for: 28 shares into 7s, 2 left: 2/4 = 1/2. Ask: \"Is 2/4 the same as a half?\" Model: text 30 = 28 + 2 ; 28 ÷ 4 = 7 ; 2 ÷ 4 = 2/4 = 1/2 ; 7 1/2",
+          "responses": [
+            {
+              "say": "7 each and 2 left: 2/4, which is a half.",
+              "tool": "text",
+              "type": "30 = 28 + 2 ; 28 ÷ 4 = 7 ; 2 ÷ 4 = 2/4 = 1/2 ; 7 1/2"
+            },
+            {
+              "say": "7 2/4",
+              "tool": "text",
+              "type": "30 ÷ 4 = 7 2/4",
+              "tip": "Right! Ask: is there another name for 2/4?"
+            },
+            {
+              "say": "7 2/30",
+              "tool": "text",
+              "type": "30 ÷ 4 = 7 2/30 ?",
+              "tip": "Ask: the 2 left over are shared by how many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "50 / 3",
+          "a": "16 2/3",
+          "notes": "Look for: 48 ÷ 3 = 16, 2 left: 2/3. Ask: \"What's 2 shared by 3?\" Model: text 50 = 48 + 2 ; 48 ÷ 3 = 16 ; 2 ÷ 3 = 2/3 ; 16 2/3",
+          "responses": [
+            {
+              "say": "16 each and 2/3 more.",
+              "tool": "text",
+              "type": "50 = 48 + 2 ; 48 ÷ 3 = 16 ; 2 ÷ 3 = 2/3 ; 16 2/3"
+            },
+            {
+              "say": "30 ÷ 3 = 10 and 18 ÷ 3 = 6, with 2 left.",
+              "tool": "area",
+              "type": "48 / 3 = 30 + 18",
+              "tip": "Area model for the part that shares evenly."
+            }
+          ]
+        },
+        {
+          "q": "100 / 8",
+          "a": "12 1/2",
+          "notes": "Look for: 96 ÷ 8 = 12, 4 left: 4/8 = 1/2. Ask: \"Can you name 4/8 another way?\" Model: numberline 0 +8x12 +4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 each, and 4/8 is a half: 12 1/2.",
+              "tool": "numberline",
+              "type": "0 +8x12 +4"
             }
           ]
         }
@@ -781,6 +1066,157 @@
       ]
     },
     {
+      "id": "g4-bank-mult-03-three-digit-times-one-digit",
+      "title": "Three-Digit Times One-Digit",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Multiplication",
+      "tool": "area",
+      "strategy": "Split the three-digit number by place value (or into friendly parts), multiply each part, and add. The area model keeps track of every part.",
+      "topic": "mult",
+      "keywords": "split, place value, partial products, area model, friendly parts, hundreds",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Multiplying only the hundreds (123 × 3 = 300 + 23): ask \"Did every part get multiplied by 3?\"",
+        "Losing a partial product when adding: ask \"How many parts are in your area model? Did you add them all?\"",
+        "Not seeing 199 as 200 − 1: ask \"Is 199 close to a friendly number?\""
+      ],
+      "wrapUp": "Ask \"How did splitting the number help?\" Land: multiply each part (hundreds, tens, ones) and add. Sometimes a friendlier split, like 200 − 1 or 125 = 100 + 25, is faster.",
+      "problems": [
+        {
+          "q": "100 x 3",
+          "a": "300",
+          "notes": "Look for: 3 hundreds. Ask: \"Hold on to this.\" Model: area 100 x 3",
+          "responses": [
+            {
+              "say": "3 groups of 100 is 300.",
+              "tool": "area",
+              "type": "100 x 3"
+            }
+          ]
+        },
+        {
+          "q": "123 x 3",
+          "a": "369",
+          "notes": "Look for: 300 + 60 + 9. Ask: \"How does the last one help?\" Word choice: \"split 123 into 100, 20 and 3\". Model: area 100+20+3 x 3",
+          "responses": [
+            {
+              "say": "300 + 60 + 9 = 369.",
+              "tool": "area",
+              "type": "100+20+3 x 3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "123 + 123 + 123 = 369.",
+              "tool": "text",
+              "type": "123 + 123 + 123 = 369",
+              "tip": "Repeated addition. Works for small multipliers."
+            },
+            {
+              "say": "323",
+              "tool": "text",
+              "type": "123 x 3 = 300 + 23 = 323 ?",
+              "tip": "Multiplied only the 100. Ask: did 20 and 3 get multiplied too?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 x 6",
+          "a": "900",
+          "notes": "Look for: 600 + 300. Ask: \"What are the parts?\" Model: area 100+50 x 6",
+          "responses": [
+            {
+              "say": "600 + 300 = 900.",
+              "tool": "area",
+              "type": "100+50 x 6"
+            },
+            {
+              "say": "Halve and double: 300 × 3 = 900.",
+              "tool": "halve",
+              "type": "150 x 6 = 300 x 3"
+            }
+          ]
+        },
+        {
+          "q": "125 x 4",
+          "a": "500",
+          "notes": "Look for: 400 + 100, because 25 × 4 = 100. Ask: \"Is there a friendly part?\" Model: area 100+25 x 4",
+          "responses": [
+            {
+              "say": "400 + 100 = 500.",
+              "tool": "area",
+              "type": "100+25 x 4",
+              "tip": "25 × 4 = 100 is a friendly fact."
+            },
+            {
+              "say": "Double 125 is 250, double again is 500.",
+              "tool": "ratio",
+              "type": "1:125, 2:250, 4:500"
+            }
+          ]
+        },
+        {
+          "q": "248 x 4",
+          "a": "992",
+          "notes": "Look for: 800 + 160 + 32, or 250 × 4 − 2 × 4. Ask: \"Which split is easier?\" Model: area 200+40+8 x 4",
+          "responses": [
+            {
+              "say": "800 + 160 + 32 = 992.",
+              "tool": "area",
+              "type": "200+40+8 x 4"
+            },
+            {
+              "say": "250 × 4 is 1000, take away 2 × 4: 992.",
+              "tool": "area",
+              "type": "250-2 x 4",
+              "tip": "A friendly number, then take back."
+            },
+            {
+              "say": "832",
+              "tool": "text",
+              "type": "248 x 4 = 800 + 32 = 832 ?",
+              "tip": "Lost the tens part. Ask: what is 40 × 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "199 x 5",
+          "a": "995",
+          "notes": "Look for: 200 × 5 − 5. Ask: \"What is 199 close to?\" Model: area 200-1 x 5",
+          "responses": [
+            {
+              "say": "200 fives is 1000, take away one 5: 995.",
+              "tool": "area",
+              "type": "200-1 x 5"
+            },
+            {
+              "say": "999",
+              "tool": "text",
+              "type": "199 x 5 = 1000 - 1 = 999 ?",
+              "tip": "Took away 1, not one group of 5. Ask: one less group of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "312 x 3",
+          "a": "936",
+          "notes": "Look for: 900 + 30 + 6. Ask: \"Could you do this one in your head?\" Model: area 300+10+2 x 3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "900 + 30 + 6 = 936.",
+              "tool": "area",
+              "type": "300+10+2 x 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g4-bank-rate-01-packs-and-boxes",
       "title": "Packs of Juice Boxes",
       "label": "Bank",
@@ -1100,6 +1536,155 @@
               "type": "2005 - 1989 = 26 ?",
               "tip": "Ask: what is 1989 + 26? Is it 2005?",
               "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-02-same-difference",
+      "title": "Same Difference",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "slide",
+      "strategy": "Add the same amount to both numbers and the difference stays the same. Slide the problem to one that subtracts a friendly number: 302 − 198 = 304 − 200.",
+      "topic": "add",
+      "keywords": "difference, same difference, slide, add to both, friendly number, distance",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adding to one number and taking from the other (302 − 198 to 300 − 200): ask \"Did the distance between them stay the same?\"",
+        "Sliding the wrong number to a friendly one: ask \"Which number would be easier to subtract?\"",
+        "Regrouping across zeros in 1003 − 997: ask \"Are these numbers close? Could you slide or count up?\""
+      ],
+      "wrapUp": "Ask \"Why do we add the same amount to both?\" Land: the difference is the distance between the numbers, and sliding both the same amount keeps the distance. Slide so you subtract a friendly number.",
+      "problems": [
+        {
+          "q": "52 - 19",
+          "a": "33",
+          "notes": "Look for: 53 − 20. Ask: \"What could you add to both?\" Word choice: \"the difference stays the same\". Model: slide 52 - 19 = 53 - 20",
+          "responses": [
+            {
+              "say": "Add 1 to both: 53 − 20 = 33.",
+              "tool": "slide",
+              "type": "52 - 19 = 53 - 20",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "19 up to 20 is 1, up to 52 is 32: 33.",
+              "tool": "numberline",
+              "type": "19 >20 >52",
+              "tip": "Adding up. Also great."
+            },
+            {
+              "say": "31",
+              "tool": "text",
+              "type": "52 - 19 = 51 - 20 = 31 ?",
+              "tip": "Took 1 from 52 but added 1 to 19. Ask: are they still the same distance apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "302 - 198",
+          "a": "104",
+          "notes": "Look for: 304 − 200. Ask: \"What does 198 need to be friendly?\" Model: slide 302 - 198 = 304 - 200",
+          "responses": [
+            {
+              "say": "Add 2 to both: 304 − 200 = 104.",
+              "tool": "slide",
+              "type": "302 - 198 = 304 - 200"
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "302 - 198 = 300 - 200 = 100 ?",
+              "tip": "Moved the numbers in opposite directions. Ask: did the distance change?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "500 - 297",
+          "a": "203",
+          "notes": "Look for: 503 − 300. Ask: \"Which number should be friendly?\" Model: slide 500 - 297 = 503 - 300",
+          "responses": [
+            {
+              "say": "Add 3 to both: 503 − 300 = 203.",
+              "tool": "slide",
+              "type": "500 - 297 = 503 - 300"
+            },
+            {
+              "say": "297 up to 300 is 3, then 200 more: 203.",
+              "tool": "numberline",
+              "type": "297 >300 >500"
+            },
+            {
+              "say": "197",
+              "tool": "text",
+              "type": "500 - 300 - 3 = 197 ?",
+              "tip": "Took away 300, then took 3 more. Ask: is 300 more or less than 297? Should you give 3 back?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1003 - 997",
+          "a": "6",
+          "notes": "Look for: 1006 − 1000, or count up 3 and 3. Ask: \"How far apart are they?\" Model: slide 1003 - 997 = 1006 - 1000",
+          "responses": [
+            {
+              "say": "Add 3 to both: 1006 − 1000 = 6.",
+              "tool": "slide",
+              "type": "1003 - 997 = 1006 - 1000"
+            },
+            {
+              "say": "997 to 1000 is 3, then 3 more: 6.",
+              "tool": "numberline",
+              "type": "997 >1000 >1003",
+              "tip": "Counting up. Best when numbers are close."
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "1003 - 997 = 16 ?",
+              "tip": "Regrouping slip. Ask: count up from 997. Where do you land?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4000 - 1998",
+          "a": "2002",
+          "notes": "Look for: 4002 − 2000. Ask: \"How does the slide help with all those zeros?\" Model: slide 4000 - 1998 = 4002 - 2000",
+          "responses": [
+            {
+              "say": "Add 2 to both: 4002 − 2000 = 2002.",
+              "tool": "slide",
+              "type": "4000 - 1998 = 4002 - 2000",
+              "tip": "No regrouping needed."
+            },
+            {
+              "say": "2000",
+              "tool": "text",
+              "type": "4000 - 1998 = 4000 - 2000 = 2000 ?",
+              "tip": "Rounded and forgot to adjust. Ask: 1998 is less than 2000, so is the answer more or less than 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7002 - 3995",
+          "a": "3007",
+          "notes": "Look for: 7007 − 4000. Ask: \"How much do you add to both?\" Model: slide 7002 - 3995 = 7007 - 4000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 5 to both: 7007 − 4000 = 3007.",
+              "tool": "slide",
+              "type": "7002 - 3995 = 7007 - 4000"
             }
           ]
         }
@@ -3366,6 +3951,138 @@
       ]
     },
     {
+      "id": "g5-bank-div-02-remainders-in-context",
+      "title": "What Do We Do with the Remainder?",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Division",
+      "tool": "text",
+      "strategy": "The same division can have different answers depending on the story: round up (buses), drop the leftover (full pages), or share it as a fraction (ribbon).",
+      "topic": "mult",
+      "keywords": "remainder, round up, left over, context, fraction, makes sense",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Giving 8 1/3 buses: ask \"Can we order a third of a bus?\"",
+        "Always rounding up or always dropping the remainder: ask \"What does the leftover mean in this story?\"",
+        "Losing the remainder entirely: ask \"How many are left after the full groups?\""
+      ],
+      "wrapUp": "Ask \"Why did 100 ÷ 12 have three different answers?\" Land: the division is the same, but the story decides: buses round up to 9, full pages drop the leftover (8), and ribbon shares it as a fraction (8 1/3).",
+      "problems": [
+        {
+          "q": "96 / 12",
+          "a": "8",
+          "notes": "Context: \"96 students, 12 on each bus.\" Look for: 8 × 12 = 96. Ask: \"Hold on to this.\" Model: ratio buses:students, 1:12, 8:96",
+          "responses": [
+            {
+              "say": "8 buses of 12 is 96.",
+              "tool": "ratio",
+              "type": "buses:students, 1:12, 8:96"
+            },
+            {
+              "say": "12 × 8 = 96.",
+              "tool": "text",
+              "type": "12 x 8 = 96"
+            }
+          ]
+        },
+        {
+          "q": "100 / 12",
+          "a": "8 1/3",
+          "notes": "Context: \"100 students, 12 on each bus. How many buses?\" Look for: 8 full buses, 4 students left: 9 buses. Ask: \"Does 8 1/3 buses make sense?\" Model: text 100 = 96 + 4 ; 8 buses full, 4 students left ; 9 buses",
+          "responses": [
+            {
+              "say": "8 buses are full and 4 students are left, so we need 9 buses.",
+              "tool": "text",
+              "type": "100 = 96 + 4 ; 8 buses full, 4 students left ; 9 buses",
+              "tip": "Round up: everyone needs a seat."
+            },
+            {
+              "say": "8 1/3",
+              "tool": "text",
+              "type": "100 ÷ 12 = 8 1/3 buses ?",
+              "tip": "The math is right. Ask: can we order a third of a bus?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100 / 12",
+          "a": "8 1/3",
+          "notes": "Context: \"100 stickers, 12 on each page. How many full pages?\" Look for: 8 full pages, 4 stickers left over. Ask: \"What's different from the buses?\" Model: text 100 = 96 + 4 ; 8 full pages, 4 stickers left",
+          "responses": [
+            {
+              "say": "8 full pages, with 4 stickers left over.",
+              "tool": "text",
+              "type": "100 = 96 + 4 ; 8 full pages, 4 stickers left",
+              "tip": "Drop the leftover: it isn't a full page."
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "100 ÷ 12 = 9 pages ?",
+              "tip": "Rounded up like the buses. Ask: is the 9th page full?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100 / 12",
+          "a": "8 1/3",
+          "notes": "Context: \"100 cm of ribbon cut into 12 equal pieces. How long is each piece?\" Look for: 8 1/3 cm. Ask: \"Can the leftover be shared this time?\" Model: text 100 = 96 + 4 ; 4 ÷ 12 = 4/12 = 1/3 ; 8 1/3 cm",
+          "responses": [
+            {
+              "say": "8 cm each, and the 4 cm left shared by 12 is 1/3 cm more.",
+              "tool": "text",
+              "type": "100 = 96 + 4 ; 4 ÷ 12 = 4/12 = 1/3 ; 8 1/3 cm",
+              "tip": "Share the leftover as a fraction."
+            },
+            {
+              "say": "8 R4",
+              "tool": "text",
+              "type": "100 ÷ 12 = 8 R4 cm ?",
+              "tip": "Ask: what happens to the last 4 cm of ribbon?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 / 12",
+          "a": "12 1/2",
+          "notes": "Context: \"150 muffins, boxes hold 12. How many boxes do we need?\" Look for: 12 full boxes, 6 left: 13 boxes. Ask: \"Round up or drop it?\" Model: area 144 / 12 = 120 + 24",
+          "responses": [
+            {
+              "say": "12 boxes is 144, 6 muffins left, so 13 boxes.",
+              "tool": "area",
+              "type": "144 / 12 = 120 + 24",
+              "tip": "Ask: why 13 and not 12 1/2?"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "150 ÷ 12 = 12 boxes ?",
+              "tip": "Dropped the leftover. Ask: where do the last 6 muffins go?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 / 24",
+          "a": "10 5/12",
+          "notes": "Context: \"250 hours. How many full days is that?\" Look for: 10 full days (240 h), 10 hours left. Ask: \"Which kind of remainder is this?\" Model: text 250 = 240 + 10 ; 240 ÷ 24 = 10 ; 10 days and 10 hours",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 full days and 10 hours.",
+              "tool": "text",
+              "type": "250 = 240 + 10 ; 10 days and 10 hours",
+              "tip": "Drop the leftover, or name it in hours."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g5-bank-frac-01-like-fractions",
       "title": "Adding and Subtracting Like Fractions",
       "label": "Bank",
@@ -3695,6 +4412,152 @@
       ]
     },
     {
+      "id": "g5-bank-frac-03-taking-from-a-whole",
+      "title": "Taking Fractions from Whole Numbers",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "To subtract a fraction from a whole number, take it from one of the wholes: 3 − 1/4 is 2 and 3/4. Counting up from the fraction works too.",
+      "topic": "frac",
+      "keywords": "whole, take from one whole, mixed number, count up, fourths, thirds, fifths",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Writing 3 − 1/4 = 3 1/4 or 2 1/4: ask \"If you eat a quarter of one of 3 pizzas, how much is left of that pizza?\"",
+        "Subtracting the denominator: ask \"How many fourths are in one whole?\"",
+        "Losing a whole in 4 − 1 1/3: ask \"Take away the 1 first. Then what's left to take?\""
+      ],
+      "wrapUp": "Ask \"How does knowing 1 − 1/4 help with 3 − 1/4?\" Land: take the fraction from one whole (1 − 1/4 = 3/4) and keep the other wholes. Counting up from the fraction to the next whole works too.",
+      "problems": [
+        {
+          "q": "1 - 1/4",
+          "a": "3/4",
+          "notes": "Look for: 4 fourths take away 1 fourth. Ask: \"How many fourths in a whole?\" Word choice: say \"one whole take away one fourth\". Model: numberline 1 -1/4",
+          "responses": [
+            {
+              "say": "4 fourths minus 1 fourth is 3 fourths.",
+              "tool": "numberline",
+              "type": "1 -1/4"
+            },
+            {
+              "say": "1/4 up to 1 is 3/4.",
+              "tool": "numberline",
+              "type": "1/4 >1",
+              "tip": "Counting up."
+            }
+          ]
+        },
+        {
+          "q": "3 - 1/4",
+          "a": "2 3/4",
+          "notes": "Look for: take 1/4 from one of the wholes. Ask: \"How does the last one help?\" Model: numberline 3 -1/4",
+          "responses": [
+            {
+              "say": "2 wholes stay, and 1 − 1/4 is 3/4: 2 3/4.",
+              "tool": "numberline",
+              "type": "3 -1/4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "3 1/4",
+              "tool": "text",
+              "type": "3 - 1/4 = 3 1/4 ?",
+              "tip": "Added. Ask: should taking away make it bigger?",
+              "kind": "error"
+            },
+            {
+              "say": "2 1/4",
+              "tool": "text",
+              "type": "3 - 1/4 = 2 1/4 ?",
+              "tip": "Ask: if you take a quarter from one whole, how much of that whole is left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - 3/4",
+          "a": "2 1/4",
+          "notes": "Look for: 1 − 3/4 = 1/4, plus 2 wholes. Ask: \"What's the same? What changed?\" Model: numberline 3 -3/4",
+          "responses": [
+            {
+              "say": "2 wholes and 1/4: 2 1/4.",
+              "tool": "numberline",
+              "type": "3 -3/4"
+            },
+            {
+              "say": "3 − 1 is 2, then give back 1/4: 2 1/4.",
+              "tool": "numberline",
+              "type": "3 -1 +1/4",
+              "tip": "Over and back."
+            }
+          ]
+        },
+        {
+          "q": "5 - 2/3",
+          "a": "4 1/3",
+          "notes": "Look for: 1 − 2/3 = 1/3, plus 4 wholes. Ask: \"How many thirds make a whole?\" Model: numberline 5 -2/3",
+          "responses": [
+            {
+              "say": "4 wholes and 1/3: 4 1/3.",
+              "tool": "numberline",
+              "type": "5 -2/3"
+            },
+            {
+              "say": "4 2/3",
+              "tool": "text",
+              "type": "5 - 2/3 = 4 2/3 ?",
+              "tip": "Kept the 2/3. Ask: 1 whole take away 2/3 leaves what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 - 1 1/3",
+          "a": "2 2/3",
+          "notes": "Look for: take away 1, then 1/3: 3 − 1/3. Or count up from 1 1/3. Ask: \"Which part do you take first?\" Model: numberline 4 -1 -1/3",
+          "responses": [
+            {
+              "say": "4 − 1 is 3, then 3 − 1/3 is 2 2/3.",
+              "tool": "numberline",
+              "type": "4 -1 -1/3"
+            },
+            {
+              "say": "1 1/3 up to 2 is 2/3, then 2 more to 4: 2 2/3.",
+              "tool": "numberline",
+              "type": "1 1/3 >2 >4",
+              "tip": "Counting up."
+            },
+            {
+              "say": "3 1/3",
+              "tool": "text",
+              "type": "4 - 1 1/3 = 3 1/3 ?",
+              "tip": "Took only the 1/3, or only the 1. Ask: did you take away both parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2 3/5",
+          "a": "3 2/5",
+          "notes": "Look for: 6 − 2 = 4, then 4 − 3/5. Ask: \"Could you count up instead?\" Model: numberline 6 -2 -3/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 − 2 is 4, 4 − 3/5 is 3 2/5.",
+              "tool": "numberline",
+              "type": "6 -2 -3/5"
+            },
+            {
+              "say": "2 3/5 up to 3 is 2/5, then 3 more: 3 2/5.",
+              "tool": "numberline",
+              "type": "2 3/5 >3 >6"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g5-bank-mult-01-elevens-and-twelves",
       "title": "Elevens and Twelves",
       "label": "Bank",
@@ -3984,6 +4847,139 @@
               "type": "3 : 5 = 12 : 14 ?",
               "tip": "Added 9 to both. Ask: is it still 3 for every 5?",
               "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-rate-01-distance-and-time",
+      "title": "Distance and Time",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Ratios",
+      "tool": "doubleline",
+      "strategy": "A steady speed is a rate: 3 km every 12 minutes. Use a double number line to find the time for 1 km, then any distance (or the distance for any time).",
+      "topic": "rat",
+      "keywords": "rate, per, for every, double number line, minutes, kilometres, equivalent",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Adding the same amount to both lines (3 km in 12 min, so 6 km in 15 min): ask \"Is the cyclist going the same speed?\"",
+        "Mixing up which line is which: ask \"Is 4 the minutes or the kilometres?\"",
+        "Not using marks they already have: ask \"Which marks add up to 5 km?\""
+      ],
+      "wrapUp": "Ask \"How did 1 km help?\" Land: 1 km takes 4 minutes, so the minutes are always 4 times the kilometres. Both lines grow together.",
+      "problems": [
+        {
+          "q": "3 : 12 = 1 : ?",
+          "a": "4",
+          "notes": "Context: \"A cyclist rides 3 km every 12 minutes.\" Look for: divide both by 3. Ask: \"How long for 1 km?\" Word choice: \"minutes per kilometre\". Model: doubleline km:min, 0:0, 3:12, 1:4",
+          "responses": [
+            {
+              "say": "12 ÷ 3 = 4 minutes for 1 km.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:4, 3:12",
+              "tip": "The unit rate."
+            },
+            {
+              "say": "10",
+              "tool": "text",
+              "type": "3 : 12 = 1 : 10 ?",
+              "tip": "Took 2 from both. Ask: is the speed the same?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 6 : ?",
+          "a": "24",
+          "notes": "Look for: double both. Ask: \"Twice as far takes how long?\" Model: doubleline km:min, 0:0, 3:12, 6:24",
+          "responses": [
+            {
+              "say": "Double: 6 km in 24 minutes.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 3:12, 6:24"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "3 : 12 = 6 : 15 ?",
+              "tip": "Added 3 to both. Ask: does twice the distance take only 3 more minutes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 5 : ?",
+          "a": "20",
+          "notes": "Look for: 5 × 4, or 3 km + 2 km. Ask: \"Which marks help?\" Model: doubleline km:min, 0:0, 1:4, 3:12, 5:20",
+          "responses": [
+            {
+              "say": "5 km at 4 minutes each: 20.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:4, 3:12, 5:20"
+            },
+            {
+              "say": "3 km is 12 min, 2 km is 8 min: 20.",
+              "tool": "text",
+              "type": "12 + 8 = 20",
+              "tip": "Adding parts."
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 10 : ?",
+          "a": "40",
+          "notes": "Look for: 10 × 4, or double 5 km. Ask: \"How does the last one help?\" Model: doubleline km:min, 0:0, 5:20, 10:40",
+          "responses": [
+            {
+              "say": "Double 5 km: 40 minutes.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 5:20, 10:40"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = ? : 60",
+          "a": "15",
+          "notes": "Look for: 60 ÷ 4, or 12 minutes × 5. Ask: \"How far in an hour?\" Model: doubleline km:min, 0:0, 3:12, 15:60",
+          "responses": [
+            {
+              "say": "60 minutes is 5 lots of 12, so 5 lots of 3 km: 15.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 3:12, 15:60"
+            },
+            {
+              "say": "60 ÷ 4 = 15 km.",
+              "tool": "text",
+              "type": "60 ÷ 4 = 15",
+              "tip": "The unit rate backward."
+            },
+            {
+              "say": "240",
+              "tool": "text",
+              "type": "60 x 4 = 240 ?",
+              "tip": "Multiplied minutes by 4. Ask: is 4 the minutes for 1 km, or the km for 1 minute?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 7.5 : ?",
+          "a": "30",
+          "notes": "Look for: 6 km + 1.5 km, or 7.5 × 4. Ask: \"Can a rate work with decimals?\" Model: doubleline km:min, 0:0, 1.5:6, 6:24, 7.5:30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 km is 24 min, 1.5 km is 6 min: 30.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1.5:6, 6:24, 7.5:30"
+            },
+            {
+              "say": "7.5 × 4 = 30.",
+              "tool": "text",
+              "type": "7.5 x 4 = 30"
             }
           ]
         }
@@ -6849,6 +7845,296 @@
       ]
     },
     {
+      "id": "g6-bank-frac-03-fifths-and-tenths",
+      "title": "Fifths and Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Halves, fifths and tenths all fit together because tenths are the common piece: 1/2 = 5/10 and 1/5 = 2/10.",
+      "topic": "frac",
+      "keywords": "common denominator, equivalent fractions, tenths, fifths, halves, rename",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Adding tops and bottoms (1/2 + 3/10 = 4/12): ask \"Is 4/12 more than 1/2?\"",
+        "Renaming 2/5 as 2/10: ask \"How many tenths are in one fifth?\"",
+        "Forgetting to simplify 8/10: ask \"Can you name 8/10 with fifths?\""
+      ],
+      "wrapUp": "Ask \"Why are tenths so useful here?\" Land: a half is 5 tenths and a fifth is 2 tenths, so tenths are a common piece. Rename, then add or subtract the tenths.",
+      "problems": [
+        {
+          "q": "1/2 + 3/10",
+          "a": "4/5",
+          "notes": "Look for: 5/10 + 3/10 = 8/10 = 4/5. Ask: \"How many tenths is a half?\" Word choice: \"same-sized pieces\". Model: numberline 0 +1/2 +3/10",
+          "responses": [
+            {
+              "say": "5 tenths and 3 tenths is 8 tenths: 4/5.",
+              "tool": "numberline",
+              "type": "0 +1/2 +3/10",
+              "tip": "Ask: why does 8/10 equal 4/5?"
+            },
+            {
+              "say": "0.5 + 0.3 = 0.8.",
+              "tool": "text",
+              "type": "1/2 = 0.5 ; 3/10 = 0.3 ; 0.5 + 0.3 = 0.8",
+              "tip": "Decimals are tenths too."
+            },
+            {
+              "say": "4/12",
+              "tool": "text",
+              "type": "1/2 + 3/10 = 4/12 ?",
+              "tip": "Added tops and bottoms. Ask: is 4/12 more than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/5 + 3/10",
+          "a": "7/10",
+          "notes": "Look for: 4/10 + 3/10. Ask: \"How many tenths in 2/5?\" Model: numberline 0 +2/5 +3/10",
+          "responses": [
+            {
+              "say": "2/5 is 4/10, plus 3/10 is 7/10.",
+              "tool": "numberline",
+              "type": "0 +2/5 +3/10"
+            },
+            {
+              "say": "5/10",
+              "tool": "text",
+              "type": "2/5 + 3/10 = 2/10 + 3/10 = 5/10 ?",
+              "tip": "Renamed 2/5 as 2/10. Ask: how many tenths in one fifth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 1/2",
+          "a": "1 1/10",
+          "notes": "Look for: 6/10 + 5/10 = 11/10. Ask: \"Is it more than 1?\" Model: numberline 3/5 +2/5 +1/10",
+          "responses": [
+            {
+              "say": "3/5 + 2/5 makes 1, plus 1/10 more: 1 1/10.",
+              "tool": "numberline",
+              "type": "3/5 +2/5 +1/10",
+              "tip": "Make a whole."
+            },
+            {
+              "say": "6/10 + 5/10 = 11/10.",
+              "tool": "text",
+              "type": "6/10 + 5/10 = 11/10 ; = 1 1/10"
+            }
+          ]
+        },
+        {
+          "q": "1 - 3/10",
+          "a": "7/10",
+          "notes": "Look for: 10/10 − 3/10. Ask: \"How many tenths in 1?\" Model: numberline 1 -3/10",
+          "responses": [
+            {
+              "say": "10 tenths minus 3 tenths is 7 tenths.",
+              "tool": "numberline",
+              "type": "1 -3/10"
+            }
+          ]
+        },
+        {
+          "q": "4/5 - 1/2",
+          "a": "3/10",
+          "notes": "Look for: 8/10 − 5/10. Ask: \"How does the first problem help?\" Model: numberline 1/2 >4/5",
+          "responses": [
+            {
+              "say": "8/10 − 5/10 = 3/10.",
+              "tool": "text",
+              "type": "4/5 = 8/10 ; 1/2 = 5/10 ; 8/10 - 5/10 = 3/10"
+            },
+            {
+              "say": "From 1/2 up to 4/5 is 3/10, just like the first problem.",
+              "tool": "numberline",
+              "type": "1/2 >4/5",
+              "tip": "Used 1/2 + 3/10 = 4/5."
+            },
+            {
+              "say": "3/3",
+              "tool": "text",
+              "type": "4/5 - 1/2 = 3/3 ?",
+              "tip": "Subtracted tops and bottoms. Ask: is the answer really 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/5 - 7/10",
+          "a": "1 1/2",
+          "notes": "Look for: back 2/10 to 2, then 5/10 more to 1 1/2. Ask: \"Can you go through the whole number?\" Model: numberline 2 1/5 -1/5 -1/2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Back 1/5 to 2, then 1/2 more: 1 1/2.",
+              "tool": "numberline",
+              "type": "2 1/5 -1/5 -1/2",
+              "tip": "7/10 = 2/10 + 5/10."
+            },
+            {
+              "say": "22/10 − 7/10 = 15/10 = 1 1/2.",
+              "tool": "text",
+              "type": "2 1/5 = 22/10 ; 22/10 - 7/10 = 15/10 ; = 1 1/2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-pct-01-one-and-five-percent",
+      "title": "One Percent and Five Percent",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Percents",
+      "tool": "ratio",
+      "strategy": "1% is one hundredth of the number. Build other percents from it: 5% is 5 × 1% (or half of 10%), 6% is 5% + 1%, 99% is 100% − 1%.",
+      "topic": "pct",
+      "keywords": "percent, one hundredth, 1%, 5%, 10%, build up, take away",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "Finding 1% by dividing by 10: ask \"Is 1% one tenth or one hundredth?\"",
+        "Thinking 99% must be hard: ask \"How far is 99% from 100%?\"",
+        "Losing the decimal with 1% of 450: ask \"About how much is one hundredth of 450?\""
+      ],
+      "wrapUp": "Ask \"How did 1% help with every other percent?\" Land: 1% is the number ÷ 100. Then build: 5% is five of them or half of 10%, and 99% is the whole take away 1%.",
+      "problems": [
+        {
+          "q": "1% of 300",
+          "a": "3",
+          "notes": "Look for: 300 ÷ 100. Ask: \"What is one hundredth of 300?\" Word choice: \"percent means out of 100\". Model: ratio 100:300, 1:3",
+          "responses": [
+            {
+              "say": "One hundredth of 300 is 3.",
+              "tool": "ratio",
+              "type": "100:300, 1:3"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "1% of 300 = 300 ÷ 10 = 30 ?",
+              "tip": "That's 10%. Ask: is 1% one tenth or one hundredth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5% of 300",
+          "a": "15",
+          "notes": "Look for: 5 × 3, or half of 10% (30). Ask: \"How does 1% help?\" Model: ratio 100:300, 1:3, 5:15",
+          "responses": [
+            {
+              "say": "5 lots of 3 is 15.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 5:15"
+            },
+            {
+              "say": "10% is 30, half of that is 15.",
+              "tool": "ratio",
+              "type": "100:300, 10:30, 5:15",
+              "tip": "Half of 10%. Also great."
+            }
+          ]
+        },
+        {
+          "q": "6% of 300",
+          "a": "18",
+          "notes": "Look for: 5% + 1% = 15 + 3. Ask: \"Which two percents add to 6%?\" Model: ratio 100:300, 1:3, 5:15, 6:18",
+          "responses": [
+            {
+              "say": "5% + 1%: 15 + 3 = 18.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 5:15, 6:18",
+              "tip": "Adding percents."
+            },
+            {
+              "say": "6 × 3 = 18.",
+              "tool": "text",
+              "type": "6 x 1% = 6 x 3 = 18"
+            }
+          ]
+        },
+        {
+          "q": "99% of 300",
+          "a": "297",
+          "notes": "Look for: 100% − 1% = 300 − 3. Ask: \"How far is 99% from 100%?\" Model: ratio 100:300, 1:3, 99:297",
+          "responses": [
+            {
+              "say": "All of it take away 1%: 300 − 3 = 297.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 99:297",
+              "tip": "Take away from the whole."
+            },
+            {
+              "say": "2.97",
+              "tool": "text",
+              "type": "99% of 300 = 2.97 ?",
+              "tip": "Ask: is 99% almost all of 300, or a tiny bit?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1% of 450",
+          "a": "4.5",
+          "notes": "Look for: 450 ÷ 100. Ask: \"Where does the decimal go?\" Model: ratio 100:450, 1:4.5",
+          "responses": [
+            {
+              "say": "One hundredth of 450 is 4.5.",
+              "tool": "ratio",
+              "type": "100:450, 1:4.5"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "1% of 450 = 45 ?",
+              "tip": "That's 10%. Ask: what's one hundredth of 450?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5% of 450",
+          "a": "22.5",
+          "notes": "Look for: half of 10% (45), or 5 × 4.5. Ask: \"Which way is easier here?\" Model: ratio 100:450, 10:45, 5:22.5",
+          "responses": [
+            {
+              "say": "10% is 45, half is 22.5.",
+              "tool": "ratio",
+              "type": "100:450, 10:45, 5:22.5"
+            },
+            {
+              "say": "5 × 4.5 = 22.5.",
+              "tool": "text",
+              "type": "5 x 4.5 = 22.5"
+            }
+          ]
+        },
+        {
+          "q": "4% of 450",
+          "a": "18",
+          "notes": "Look for: 4 × 4.5, or 5% − 1%. Ask: \"Could you take away instead?\" Model: ratio 100:450, 1:4.5, 4:18",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4 × 4.5 = 18.",
+              "tool": "ratio",
+              "type": "100:450, 1:4.5, 4:18"
+            },
+            {
+              "say": "5% − 1%: 22.5 − 4.5 = 18.",
+              "tool": "ratio",
+              "type": "100:450, 5:22.5, 1:4.5, 4:18"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g6-bank-rate-01-unit-rates",
       "title": "Unit Rates",
       "label": "Bank",
@@ -6977,6 +8263,140 @@
               "say": "15 × 5 = 75.",
               "tool": "text",
               "type": "15 x 5 = 75"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-rate-02-better-buy",
+      "title": "Which Is the Better Buy?",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Rates",
+      "tool": "ratio",
+      "strategy": "To compare two prices, find the unit price (the cost of 1) for each, or scale both to the same number of items.",
+      "topic": "rat",
+      "keywords": "unit price, rate, per, better buy, compare, same number of items",
+      "curriculum": [
+        "B2.12"
+      ],
+      "watchFor": [
+        "Comparing the totals ($6 vs $8.40) without the number of cans: ask \"Do they give you the same number of cans?\"",
+        "Dividing the wrong way (cans per dollar vs dollars per can): ask \"What does 1.5 mean here?\"",
+        "Thinking the bigger pack is always cheaper: ask \"Is it, per can?\""
+      ],
+      "wrapUp": "Ask \"How did you decide which was the better buy?\" Land: compare the same number of items: the unit price (cost of 1), or the cost of the same amount, like 12 cans each.",
+      "problems": [
+        {
+          "q": "4 : 6 = 1 : ?",
+          "a": "1.5",
+          "notes": "Context: \"Store A: 4 cans for $6.\" Look for: $6 ÷ 4 = $1.50. Ask: \"How much for one can?\" Word choice: \"unit price\", \"per can\". Model: ratio cans:dollars, 4:6, 1:1.5",
+          "responses": [
+            {
+              "say": "$6 ÷ 4 is $1.50 a can.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 1:1.5",
+              "tip": "The unit price."
+            },
+            {
+              "say": "Half of 6 is 3 for 2 cans, half again is 1.50.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 2:3, 1:1.5",
+              "tip": "Halving twice."
+            },
+            {
+              "say": "0.67",
+              "tool": "text",
+              "type": "4 ÷ 6 = 0.67 ?",
+              "tip": "That's cans per dollar. Ask: what does the question ask: dollars for one can?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 : 8.4 = 1 : ?",
+          "a": "1.4",
+          "notes": "Context: \"Store B: 6 cans for $8.40.\" Look for: $8.40 ÷ 6 = $1.40. Ask: \"Which store is cheaper per can?\" Model: ratio cans:dollars, 6:8.4, 1:1.4",
+          "responses": [
+            {
+              "say": "$8.40 ÷ 6 is $1.40, so Store B is cheaper.",
+              "tool": "ratio",
+              "type": "cans:dollars, 6:8.4, 1:1.4"
+            },
+            {
+              "say": "Store A, because $6 is less than $8.40.",
+              "tool": "text",
+              "type": "6 < 8.40 so A is cheaper ?",
+              "tip": "Compared totals. Ask: do they give the same number of cans?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 6 = 12 : ?",
+          "a": "18",
+          "notes": "Look for: 3 times Store A's deal. Ask: \"What's 12 cans at Store A?\" Model: ratio cans:dollars, 4:6, 12:18",
+          "responses": [
+            {
+              "say": "3 packs of 4: 3 × $6 = $18.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 12:18"
+            }
+          ]
+        },
+        {
+          "q": "6 : 8.4 = 12 : ?",
+          "a": "16.8",
+          "notes": "Look for: double Store B's deal. Ask: \"Does it agree with the unit prices?\" Model: ratio cans:dollars, 6:8.4, 12:16.8",
+          "responses": [
+            {
+              "say": "2 packs of 6: $16.80. Cheaper than $18.",
+              "tool": "ratio",
+              "type": "cans:dollars, 6:8.4, 12:16.8",
+              "tip": "Same number of cans: easy to compare."
+            },
+            {
+              "say": "14.4",
+              "tool": "text",
+              "type": "6 : 8.4 = 12 : 14.4 ?",
+              "tip": "Added 6 to both. Ask: does 12 cans cost only $6 more than 6 cans?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 : 7 = 1 : ?",
+          "a": "1.4",
+          "notes": "Context: \"Store C: 5 cans for $7.\" Look for: $7 ÷ 5 = $1.40. Ask: \"How does C compare with B?\" Model: ratio cans:dollars, 5:7, 1:1.4",
+          "responses": [
+            {
+              "say": "$1.40 a can, the same as Store B.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 1:1.4"
+            },
+            {
+              "say": "10 cans for $14 is $1.40 each.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 10:14, 1:1.4"
+            }
+          ]
+        },
+        {
+          "q": "5 : 7 = 30 : ?",
+          "a": "42",
+          "notes": "Look for: 6 packs of 5. Ask: \"What would 30 cans cost at each store?\" Model: ratio cans:dollars, 5:7, 30:42",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 × $7 = $42.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 30:42"
+            },
+            {
+              "say": "30 × $1.40 = $42.",
+              "tool": "text",
+              "type": "30 x 1.40 = 42",
+              "tip": "Using the unit price."
             }
           ]
         }
@@ -9324,6 +10744,160 @@
       ]
     },
     {
+      "id": "g7-bank-pow-02-same-number-different-powers",
+      "title": "Same Number, Different Powers",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Exponents",
+      "tool": "text",
+      "strategy": "The same number can be written as different powers: 64 = 8^2 = 4^3 = 2^6. Regrouping the repeated factors shows why.",
+      "topic": "pow",
+      "keywords": "base, exponent, power, repeated multiplication, squared, cubed, regroup factors",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying base and exponent (4^3 = 12): ask \"How many 4s are multiplied?\"",
+        "Thinking a bigger exponent always means a bigger number: ask \"Is 2^6 bigger than 8^2?\"",
+        "Not seeing the regrouping: ask \"Can you group six 2s into pairs? Into threes?\""
+      ],
+      "wrapUp": "Ask \"Why are 8^2, 4^3 and 2^6 all 64?\" Land: they are the same factors grouped differently: six 2s grouped in pairs is three 4s, grouped in threes is two 8s.",
+      "problems": [
+        {
+          "q": "8^2",
+          "a": "64",
+          "notes": "Look for: 8 × 8. Ask: \"Hold on to this.\" Word choice: \"8 squared\". Model: array 8 x 8",
+          "responses": [
+            {
+              "say": "8 × 8 = 64, an 8 by 8 square.",
+              "tool": "array",
+              "type": "8 x 8"
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "8^2 = 8 x 2 = 16 ?",
+              "tip": "Ask: how many 8s are multiplied?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4^3",
+          "a": "64",
+          "notes": "Look for: 4 × 4 × 4 = 16 × 4. Ask: \"What do you notice?\" Word choice: \"4 cubed\". Model: text 4^3 = 4 x 4 x 4 ; = 16 x 4 = 64",
+          "responses": [
+            {
+              "say": "4 × 4 is 16, × 4 is 64. The same as 8^2!",
+              "tool": "text",
+              "type": "4^3 = 4 x 4 x 4 ; = 16 x 4 = 64"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "4^3 = 4 x 3 = 12 ?",
+              "tip": "Ask: how many 4s are multiplied?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2^6",
+          "a": "64",
+          "notes": "Look for: double 6 times: 2, 4, 8, 16, 32, 64. Ask: \"Why is it 64 again?\" Model: text 2^6 = 2 x 2 x 2 x 2 x 2 x 2 ; = (2 x 2) x (2 x 2) x (2 x 2) = 4^3",
+          "responses": [
+            {
+              "say": "2, 4, 8, 16, 32, 64.",
+              "tool": "text",
+              "type": "2, 4, 8, 16, 32, 64",
+              "tip": "Doubling."
+            },
+            {
+              "say": "Six 2s in pairs is three 4s: 4^3.",
+              "tool": "text",
+              "type": "2^6 = 2 x 2 x 2 x 2 x 2 x 2 ; = (2 x 2) x (2 x 2) x (2 x 2) = 4^3",
+              "tip": "Regrouping the factors. Ask: what about groups of three 2s?"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "2^6 = 2 x 6 = 12 ?",
+              "tip": "Ask: list the 2s. How many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9^2",
+          "a": "81",
+          "notes": "Look for: 9 × 9. Ask: \"Is 81 another power too?\" Model: area 10-1 x 9",
+          "responses": [
+            {
+              "say": "9 × 9 = 81.",
+              "tool": "array",
+              "type": "9 x 9"
+            },
+            {
+              "say": "10 nines is 90, take away a 9: 81.",
+              "tool": "area",
+              "type": "10-1 x 9"
+            }
+          ]
+        },
+        {
+          "q": "3^4",
+          "a": "81",
+          "notes": "Look for: 3 × 3 × 3 × 3 = 9 × 9. Ask: \"How does the last one help?\" Model: text 3^4 = (3 x 3) x (3 x 3) ; = 9 x 9 = 81",
+          "responses": [
+            {
+              "say": "3 × 3 is 9, and 9 × 9 is 81.",
+              "tool": "text",
+              "type": "3^4 = (3 x 3) x (3 x 3) ; = 9 x 9 = 81",
+              "tip": "Regrouping again."
+            },
+            {
+              "say": "27",
+              "tool": "text",
+              "type": "3^4 = 3 x 3 x 3 = 27 ?",
+              "tip": "One 3 short. Ask: how many 3s does the 4 tell you?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10^3",
+          "a": "1000",
+          "notes": "Look for: 10 × 10 × 10. Ask: \"Is 1000 a square too?\" Model: text 10^3 = 10 x 10 x 10 ; = 1000",
+          "responses": [
+            {
+              "say": "10 × 10 × 10 = 1000.",
+              "tool": "text",
+              "type": "10^3 = 10 x 10 x 10 ; = 1000"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "10^3 = 10 x 3 = 30 ?",
+              "tip": "Ask: how many zeros should 10 × 10 × 10 have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5^3",
+          "a": "125",
+          "notes": "Look for: 25 × 5. Ask: \"What is 5^2? Then one more 5?\" Model: text 5^3 = 5^2 x 5 ; = 25 x 5 = 125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25 × 5 = 125.",
+              "tool": "text",
+              "type": "5^3 = 5^2 x 5 ; = 25 x 5 = 125"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g7-bank-frac-01-dividing-fractions",
       "title": "Dividing Fractions by Fractions",
       "label": "Bank",
@@ -9811,6 +11385,323 @@
       ]
     },
     {
+      "id": "g7-bank-frac-04-mixed-numbers",
+      "title": "Mixed Numbers with Different Denominators",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Add or subtract mixed numbers by jumping through whole numbers on the number line, renaming fractions as the same-sized pieces when you need to.",
+      "topic": "frac",
+      "keywords": "mixed number, whole number, common denominator, jump through a whole, rename",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Subtracting the parts separately in 3 1/4 − 1 1/2 (2 −1/4): ask \"Can you take 1/2 from 1/4? What could you jump to first?\"",
+        "Adding the fractions without a common denominator: ask \"Are halves and thirds the same size?\"",
+        "Losing the whole numbers: ask \"Did you take away the 1 as well as the fraction?\""
+      ],
+      "wrapUp": "Ask \"Why did jumping to a whole number help?\" Land: break the jump into the whole part and pieces that land on whole numbers. Rename fractions only when the pieces don't match.",
+      "problems": [
+        {
+          "q": "3 1/4 - 1/2",
+          "a": "2 3/4",
+          "notes": "Look for: back 1/4 to 3, then 1/4 more. Ask: \"How is 1/2 made of quarters?\" Word choice: \"jump to the whole number\". Model: numberline 3 1/4 -1/4 -1/4",
+          "responses": [
+            {
+              "say": "Back 1/4 to 3, then 1/4 more: 2 3/4.",
+              "tool": "numberline",
+              "type": "3 1/4 -1/4 -1/4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "3 1/4 − 1/2 = 3 1/4 − 2/4: 2 5/4 − 2/4 = 2 3/4.",
+              "tool": "text",
+              "type": "3 1/4 = 2 5/4 ; 2 5/4 - 2/4 = 2 3/4",
+              "tip": "Renaming a whole."
+            },
+            {
+              "say": "3 1/4",
+              "tool": "text",
+              "type": "3 1/4 - 1/2 = 3 1/4 ?",
+              "tip": "Ask: did anything get taken away?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 1/4 - 1 1/2",
+          "a": "1 3/4",
+          "notes": "Look for: back 1, then the same as the last one. Ask: \"How does the last one help?\" Model: numberline 3 1/4 -1 -1/4 -1/4",
+          "responses": [
+            {
+              "say": "Back 1 to 2 1/4, back 1/4 to 2, back 1/4 more: 1 3/4.",
+              "tool": "numberline",
+              "type": "3 1/4 -1 -1/4 -1/4"
+            },
+            {
+              "say": "2 3/4 − 1 = 1 3/4.",
+              "tool": "text",
+              "type": "3 1/4 - 1/2 = 2 3/4 ; 2 3/4 - 1 = 1 3/4",
+              "tip": "Used the last problem."
+            },
+            {
+              "say": "2 1/4",
+              "tool": "text",
+              "type": "3 1/4 - 1 1/2 = 2 1/4 ?",
+              "tip": "Subtracted 1/4 from 1/2 instead. Ask: should the answer be less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/2 - 1 5/6",
+          "a": "2/3",
+          "notes": "Look for: back 1, back 1/2 to 1, then 1/3 more. Ask: \"What is 5/6 made of?\" Model: numberline 2 1/2 -1 -1/2 -1/3",
+          "responses": [
+            {
+              "say": "Back 1, then 1/2 to 1, then 1/3: 2/3.",
+              "tool": "numberline",
+              "type": "2 1/2 -1 -1/2 -1/3",
+              "tip": "5/6 = 1/2 + 1/3."
+            },
+            {
+              "say": "15/6 − 11/6 = 4/6 = 2/3.",
+              "tool": "text",
+              "type": "2 1/2 = 15/6 ; 1 5/6 = 11/6 ; 15/6 - 11/6 = 4/6 = 2/3"
+            },
+            {
+              "say": "1 1/3",
+              "tool": "text",
+              "type": "2 1/2 - 1 5/6 = 1 + (5/6 - 1/2) = 1 1/3 ?",
+              "tip": "Subtracted the fractions backward. Ask: is 1 5/6 more than 1 1/2? So less than 1 is left.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 2/3 + 2 1/2",
+          "a": "4 1/6",
+          "notes": "Look for: 1 2/3 + 2 = 3 2/3, + 1/3 = 4, + 1/6. Ask: \"What does 3 2/3 need to make 4?\" Model: numberline 1 2/3 +2 +1/3 +1/6",
+          "responses": [
+            {
+              "say": "Up 2 to 3 2/3, up 1/3 to 4, then 1/6: 4 1/6.",
+              "tool": "numberline",
+              "type": "1 2/3 +2 +1/3 +1/6"
+            },
+            {
+              "say": "3 + 2/3 + 1/2 = 3 + 7/6 = 4 1/6.",
+              "tool": "clock",
+              "type": "2/3 + 1/2",
+              "tip": "Clock for the fraction parts: 40 + 30 = 70 minutes."
+            },
+            {
+              "say": "3 3/5",
+              "tool": "text",
+              "type": "1 2/3 + 2 1/2 = 3 3/5 ?",
+              "tip": "Added tops and bottoms. Ask: is 2/3 + 1/2 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 1/3 - 2 3/4",
+          "a": "1 7/12",
+          "notes": "Look for: back 2, back 1/3 to 2, then 5/12 more. Ask: \"What's 3/4 − 1/3 in twelfths?\" Model: numberline 4 1/3 -2 -1/3 -5/12",
+          "responses": [
+            {
+              "say": "Back 2 to 2 1/3, back 1/3 to 2, back 5/12 more: 1 7/12.",
+              "tool": "numberline",
+              "type": "4 1/3 -2 -1/3 -5/12"
+            },
+            {
+              "say": "52/12 − 33/12 = 19/12 = 1 7/12.",
+              "tool": "text",
+              "type": "4 1/3 = 52/12 ; 2 3/4 = 33/12 ; 52/12 - 33/12 = 19/12 = 1 7/12"
+            }
+          ]
+        },
+        {
+          "q": "5 - 2 3/8",
+          "a": "2 5/8",
+          "notes": "Look for: back 2 to 3, then 3/8 to 2 5/8. Ask: \"Could you count up from 2 3/8?\" Model: numberline 2 3/8 >3 >5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2 3/8 up to 3 is 5/8, then 2 more: 2 5/8.",
+              "tool": "numberline",
+              "type": "2 3/8 >3 >5",
+              "tip": "Counting up."
+            },
+            {
+              "say": "3 3/8",
+              "tool": "text",
+              "type": "5 - 2 3/8 = 3 3/8 ?",
+              "tip": "Ask: 5 − 2 is 3. Then take away 3/8 more: more or less than 3?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-bank-int-01-subtracting-as-distance",
+      "title": "Subtracting Integers as Distance",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Integers",
+      "tool": "vline",
+      "strategy": "Subtraction finds the difference: how far, and which way, from the second number to the first. On a vertical number line, 5 − (−3) is the jump from −3 up to 5.",
+      "topic": "int",
+      "keywords": "difference, distance, from, to, up, down, vertical number line, thermometer",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Subtracting the digits and keeping a sign by habit (5 − −3 = 2): ask \"How far is it from −3 to 5?\"",
+        "Getting the direction backward (−8 − −2 = 6): ask \"Do you go up or down from −2 to get to −8?\"",
+        "Treating − − as always positive in −4 − 5: ask \"Is there a double negative here?\""
+      ],
+      "wrapUp": "Ask \"How does thinking 'from the second number to the first' help?\" Land: a − b is the jump from b to a. Up is positive, down is negative. Through zero, add the two parts.",
+      "problems": [
+        {
+          "q": "5 - 2",
+          "a": "3",
+          "notes": "Look for: from 2 up to 5 is 3. Ask: \"Hold on to this: how far from 2 to 5?\" Word choice: \"from 2 to 5\". Model: vline 2 >5",
+          "responses": [
+            {
+              "say": "From 2 up to 5 is 3.",
+              "tool": "vline",
+              "type": "2 >5",
+              "tip": "The difference as a jump."
+            }
+          ]
+        },
+        {
+          "q": "5 - -3",
+          "a": "8",
+          "notes": "Look for: from −3 up to 0 is 3, then up to 5 is 5. Ask: \"How far from −3 to 5?\" Model: vline -3 >0 >5",
+          "responses": [
+            {
+              "say": "−3 up to 0 is 3, then 5 more: up 8.",
+              "tool": "vline",
+              "type": "-3 >0 >5",
+              "tip": "The target strategy: through zero."
+            },
+            {
+              "say": "Add the opposite: 5 + 3 = 8.",
+              "tool": "tiles",
+              "type": "5 - -3",
+              "tip": "Ask: why does adding the opposite give the same answer?"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "5 - -3 = 5 - 3 = 2 ?",
+              "tip": "Ask: how far is it from −3 to 5 on the thermometer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 - -6",
+          "a": "8",
+          "notes": "Look for: −6 up to 0 is 6, then 2 more. Ask: \"What's the same as the last one?\" Model: vline -6 >0 >2",
+          "responses": [
+            {
+              "say": "Up 6 to 0, up 2 more: 8.",
+              "tool": "vline",
+              "type": "-6 >0 >2"
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "2 - -6 = -4 ?",
+              "tip": "Ask: going from −6 to 2, are you going up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 - -6",
+          "a": "4",
+          "notes": "Look for: from −6 up to −2 is 4. Ask: \"Is −2 above or below −6?\" Model: vline -6 >-2",
+          "responses": [
+            {
+              "say": "From −6 up to −2 is 4.",
+              "tool": "vline",
+              "type": "-6 >-2"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-2 - -6 = -8 ?",
+              "tip": "Added the numbers. Ask: how far apart are −2 and −6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-8 - -2",
+          "a": "-6",
+          "notes": "Look for: from −2 down to −8 is 6 down: −6. Ask: \"Which way do you go?\" Model: vline -2 -6",
+          "responses": [
+            {
+              "say": "From −2 down to −8 is 6 down: −6.",
+              "tool": "vline",
+              "type": "-2 -6",
+              "tip": "Down means negative."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "-8 - -2 = 6 ?",
+              "tip": "Right distance, wrong direction. Ask: from −2 to −8, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 - 5",
+          "a": "-9",
+          "notes": "Look for: from 5 down to −4: 5 down to 0, 4 more. Ask: \"Is there a double negative here?\" Model: vline 5 -5 -4",
+          "responses": [
+            {
+              "say": "From 5 down to 0 is 5, then 4 more down: −9.",
+              "tool": "vline",
+              "type": "5 -5 -4"
+            },
+            {
+              "say": "Start at −4 and go down 5: −9.",
+              "tool": "vline",
+              "type": "-4 -5",
+              "tip": "Taking away 5. Also fine."
+            },
+            {
+              "say": "-1",
+              "tool": "text",
+              "type": "-4 - 5 = -1 ?",
+              "tip": "Ask: if it's −4°C and drops 5 degrees, is it warmer or colder?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 - -7",
+          "a": "14",
+          "notes": "Look for: −7 up to 0 is 7, and 7 more. Ask: \"How far apart are a number and its opposite?\" Model: vline -7 >0 >7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 and 7: 14.",
+              "tool": "vline",
+              "type": "-7 >0 >7",
+              "tip": "Double the distance to zero."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g7-bank-pct-01-friendly-percents",
       "title": "Friendly Percents as Fractions",
       "label": "Bank",
@@ -9965,6 +11856,137 @@
               "say": "40% is 4 × 3.5 = 14.",
               "tool": "ratio",
               "type": "100:35, 10:3.5, 40:14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-bank-rat-01-scaling-a-recipe",
+      "title": "Scaling a Recipe",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Proportional Reasoning",
+      "tool": "ratio",
+      "strategy": "In a proportional situation, every row of the table has the same ratio. Find a helpful row (like 1 cup of flour), then scale up or down.",
+      "topic": "rat",
+      "keywords": "proportional, ratio, scale, unit rate, recipe, for every, constant",
+      "curriculum": [
+        "B2.10"
+      ],
+      "watchFor": [
+        "Adding instead of multiplying (3 cups for 24, so 5 cups for 26): ask \"Is it still 8 cookies per cup?\"",
+        "Stuck going backward (cups for 60 cookies): ask \"How many cookies per cup? How many cups for 60?\"",
+        "Thinking a non-proportional change is proportional: ask \"If you double the flour, does the oven time double?\""
+      ],
+      "wrapUp": "Ask \"What stayed the same in every row?\" Land: in a proportional situation the ratio is constant: 8 cookies per cup of flour. Find a unit rate or a friendly row and scale it.",
+      "problems": [
+        {
+          "q": "3 : 24 = 1 : ?",
+          "a": "8",
+          "notes": "Context: \"A recipe uses 3 cups of flour for 24 cookies.\" Look for: ÷ 3 both. Ask: \"How many cookies per cup?\" Word choice: \"proportional\", \"per cup\". Model: ratio flour:cookies, 3:24, 1:8",
+          "responses": [
+            {
+              "say": "24 ÷ 3 = 8 cookies per cup.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1:8",
+              "tip": "The unit rate."
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = 5 : ?",
+          "a": "40",
+          "notes": "Look for: 5 × 8. Ask: \"How does the unit rate help?\" Model: ratio flour:cookies, 3:24, 1:8, 5:40",
+          "responses": [
+            {
+              "say": "5 cups at 8 each: 40.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1:8, 5:40"
+            },
+            {
+              "say": "26",
+              "tool": "text",
+              "type": "3 : 24 = 5 : 26 ?",
+              "tip": "Added 2 to both. Ask: is it still 8 cookies per cup?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = ? : 60",
+          "a": "7.5",
+          "notes": "Look for: 60 ÷ 8. Ask: \"How many cups for 60 cookies?\" Model: ratio flour:cookies, 1:8, 7:56, 7.5:60",
+          "responses": [
+            {
+              "say": "60 ÷ 8 = 7.5 cups.",
+              "tool": "text",
+              "type": "60 ÷ 8 = 7.5",
+              "tip": "The unit rate backward."
+            },
+            {
+              "say": "7 cups make 56, half a cup makes 4 more: 7.5.",
+              "tool": "ratio",
+              "type": "flour:cookies, 1:8, 7:56, 7.5:60"
+            },
+            {
+              "say": "480",
+              "tool": "text",
+              "type": "60 x 8 = 480 ?",
+              "tip": "Multiplied. Ask: does 60 cookies need 480 cups of flour?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = 4.5 : ?",
+          "a": "36",
+          "notes": "Look for: 3 cups + 1.5 cups = 24 + 12. Ask: \"Could you add half the recipe?\" Model: ratio flour:cookies, 3:24, 1.5:12, 4.5:36",
+          "responses": [
+            {
+              "say": "The recipe plus half the recipe: 24 + 12 = 36.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1.5:12, 4.5:36"
+            },
+            {
+              "say": "4.5 × 8 = 36.",
+              "tool": "text",
+              "type": "4.5 x 8 = 36"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = ? : 100",
+          "a": "12.5",
+          "notes": "Look for: 100 ÷ 8. Ask: \"Will it be a whole number of cups?\" Model: ratio flour:cookies, 1:8, 12:96, 12.5:100",
+          "responses": [
+            {
+              "say": "12 cups make 96, half a cup makes 4 more: 12.5.",
+              "tool": "ratio",
+              "type": "flour:cookies, 1:8, 12:96, 12.5:100"
+            },
+            {
+              "say": "100 ÷ 8 = 12.5.",
+              "tool": "text",
+              "type": "100 ÷ 8 = 12.5"
+            }
+          ]
+        },
+        {
+          "q": "2 : 5 = 7 : ?",
+          "a": "17.5",
+          "notes": "Context: \"2 cups of rice for 5 people.\" Look for: 6:15 plus 1:2.5. Ask: \"How many people does 1 cup feed?\" Model: ratio rice:people, 2:5, 1:2.5, 6:15, 7:17.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 cups feed 15, 1 cup feeds 2.5: 17.5 people.",
+              "tool": "ratio",
+              "type": "rice:people, 2:5, 1:2.5, 6:15, 7:17.5"
+            },
+            {
+              "say": "7 × 2.5 = 17.5.",
+              "tool": "text",
+              "type": "7 x 2.5 = 17.5",
+              "tip": "Ask: does 17.5 people make sense? What would you do?"
             }
           ]
         }

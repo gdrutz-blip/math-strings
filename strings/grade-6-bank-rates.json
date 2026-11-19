@@ -134,6 +134,140 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-rate-02-better-buy",
+      "title": "Which Is the Better Buy?",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Rates",
+      "tool": "ratio",
+      "strategy": "To compare two prices, find the unit price (the cost of 1) for each, or scale both to the same number of items.",
+      "topic": "rat",
+      "keywords": "unit price, rate, per, better buy, compare, same number of items",
+      "curriculum": [
+        "B2.12"
+      ],
+      "watchFor": [
+        "Comparing the totals ($6 vs $8.40) without the number of cans: ask \"Do they give you the same number of cans?\"",
+        "Dividing the wrong way (cans per dollar vs dollars per can): ask \"What does 1.5 mean here?\"",
+        "Thinking the bigger pack is always cheaper: ask \"Is it, per can?\""
+      ],
+      "wrapUp": "Ask \"How did you decide which was the better buy?\" Land: compare the same number of items: the unit price (cost of 1), or the cost of the same amount, like 12 cans each.",
+      "problems": [
+        {
+          "q": "4 : 6 = 1 : ?",
+          "a": "1.5",
+          "notes": "Context: \"Store A: 4 cans for $6.\" Look for: $6 ÷ 4 = $1.50. Ask: \"How much for one can?\" Word choice: \"unit price\", \"per can\". Model: ratio cans:dollars, 4:6, 1:1.5",
+          "responses": [
+            {
+              "say": "$6 ÷ 4 is $1.50 a can.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 1:1.5",
+              "tip": "The unit price."
+            },
+            {
+              "say": "Half of 6 is 3 for 2 cans, half again is 1.50.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 2:3, 1:1.5",
+              "tip": "Halving twice."
+            },
+            {
+              "say": "0.67",
+              "tool": "text",
+              "type": "4 ÷ 6 = 0.67 ?",
+              "tip": "That's cans per dollar. Ask: what does the question ask: dollars for one can?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 : 8.4 = 1 : ?",
+          "a": "1.4",
+          "notes": "Context: \"Store B: 6 cans for $8.40.\" Look for: $8.40 ÷ 6 = $1.40. Ask: \"Which store is cheaper per can?\" Model: ratio cans:dollars, 6:8.4, 1:1.4",
+          "responses": [
+            {
+              "say": "$8.40 ÷ 6 is $1.40, so Store B is cheaper.",
+              "tool": "ratio",
+              "type": "cans:dollars, 6:8.4, 1:1.4"
+            },
+            {
+              "say": "Store A, because $6 is less than $8.40.",
+              "tool": "text",
+              "type": "6 < 8.40 so A is cheaper ?",
+              "tip": "Compared totals. Ask: do they give the same number of cans?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 6 = 12 : ?",
+          "a": "18",
+          "notes": "Look for: 3 times Store A's deal. Ask: \"What's 12 cans at Store A?\" Model: ratio cans:dollars, 4:6, 12:18",
+          "responses": [
+            {
+              "say": "3 packs of 4: 3 × $6 = $18.",
+              "tool": "ratio",
+              "type": "cans:dollars, 4:6, 12:18"
+            }
+          ]
+        },
+        {
+          "q": "6 : 8.4 = 12 : ?",
+          "a": "16.8",
+          "notes": "Look for: double Store B's deal. Ask: \"Does it agree with the unit prices?\" Model: ratio cans:dollars, 6:8.4, 12:16.8",
+          "responses": [
+            {
+              "say": "2 packs of 6: $16.80. Cheaper than $18.",
+              "tool": "ratio",
+              "type": "cans:dollars, 6:8.4, 12:16.8",
+              "tip": "Same number of cans: easy to compare."
+            },
+            {
+              "say": "14.4",
+              "tool": "text",
+              "type": "6 : 8.4 = 12 : 14.4 ?",
+              "tip": "Added 6 to both. Ask: does 12 cans cost only $6 more than 6 cans?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 : 7 = 1 : ?",
+          "a": "1.4",
+          "notes": "Context: \"Store C: 5 cans for $7.\" Look for: $7 ÷ 5 = $1.40. Ask: \"How does C compare with B?\" Model: ratio cans:dollars, 5:7, 1:1.4",
+          "responses": [
+            {
+              "say": "$1.40 a can, the same as Store B.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 1:1.4"
+            },
+            {
+              "say": "10 cans for $14 is $1.40 each.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 10:14, 1:1.4"
+            }
+          ]
+        },
+        {
+          "q": "5 : 7 = 30 : ?",
+          "a": "42",
+          "notes": "Look for: 6 packs of 5. Ask: \"What would 30 cans cost at each store?\" Model: ratio cans:dollars, 5:7, 30:42",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 × $7 = $42.",
+              "tool": "ratio",
+              "type": "cans:dollars, 5:7, 30:42"
+            },
+            {
+              "say": "30 × $1.40 = $42.",
+              "tool": "text",
+              "type": "30 x 1.40 = 42",
+              "tip": "Using the unit price."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -329,6 +329,152 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-frac-03-taking-from-a-whole",
+      "title": "Taking Fractions from Whole Numbers",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "To subtract a fraction from a whole number, take it from one of the wholes: 3 − 1/4 is 2 and 3/4. Counting up from the fraction works too.",
+      "topic": "frac",
+      "keywords": "whole, take from one whole, mixed number, count up, fourths, thirds, fifths",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Writing 3 − 1/4 = 3 1/4 or 2 1/4: ask \"If you eat a quarter of one of 3 pizzas, how much is left of that pizza?\"",
+        "Subtracting the denominator: ask \"How many fourths are in one whole?\"",
+        "Losing a whole in 4 − 1 1/3: ask \"Take away the 1 first. Then what's left to take?\""
+      ],
+      "wrapUp": "Ask \"How does knowing 1 − 1/4 help with 3 − 1/4?\" Land: take the fraction from one whole (1 − 1/4 = 3/4) and keep the other wholes. Counting up from the fraction to the next whole works too.",
+      "problems": [
+        {
+          "q": "1 - 1/4",
+          "a": "3/4",
+          "notes": "Look for: 4 fourths take away 1 fourth. Ask: \"How many fourths in a whole?\" Word choice: say \"one whole take away one fourth\". Model: numberline 1 -1/4",
+          "responses": [
+            {
+              "say": "4 fourths minus 1 fourth is 3 fourths.",
+              "tool": "numberline",
+              "type": "1 -1/4"
+            },
+            {
+              "say": "1/4 up to 1 is 3/4.",
+              "tool": "numberline",
+              "type": "1/4 >1",
+              "tip": "Counting up."
+            }
+          ]
+        },
+        {
+          "q": "3 - 1/4",
+          "a": "2 3/4",
+          "notes": "Look for: take 1/4 from one of the wholes. Ask: \"How does the last one help?\" Model: numberline 3 -1/4",
+          "responses": [
+            {
+              "say": "2 wholes stay, and 1 − 1/4 is 3/4: 2 3/4.",
+              "tool": "numberline",
+              "type": "3 -1/4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "3 1/4",
+              "tool": "text",
+              "type": "3 - 1/4 = 3 1/4 ?",
+              "tip": "Added. Ask: should taking away make it bigger?",
+              "kind": "error"
+            },
+            {
+              "say": "2 1/4",
+              "tool": "text",
+              "type": "3 - 1/4 = 2 1/4 ?",
+              "tip": "Ask: if you take a quarter from one whole, how much of that whole is left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 - 3/4",
+          "a": "2 1/4",
+          "notes": "Look for: 1 − 3/4 = 1/4, plus 2 wholes. Ask: \"What's the same? What changed?\" Model: numberline 3 -3/4",
+          "responses": [
+            {
+              "say": "2 wholes and 1/4: 2 1/4.",
+              "tool": "numberline",
+              "type": "3 -3/4"
+            },
+            {
+              "say": "3 − 1 is 2, then give back 1/4: 2 1/4.",
+              "tool": "numberline",
+              "type": "3 -1 +1/4",
+              "tip": "Over and back."
+            }
+          ]
+        },
+        {
+          "q": "5 - 2/3",
+          "a": "4 1/3",
+          "notes": "Look for: 1 − 2/3 = 1/3, plus 4 wholes. Ask: \"How many thirds make a whole?\" Model: numberline 5 -2/3",
+          "responses": [
+            {
+              "say": "4 wholes and 1/3: 4 1/3.",
+              "tool": "numberline",
+              "type": "5 -2/3"
+            },
+            {
+              "say": "4 2/3",
+              "tool": "text",
+              "type": "5 - 2/3 = 4 2/3 ?",
+              "tip": "Kept the 2/3. Ask: 1 whole take away 2/3 leaves what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 - 1 1/3",
+          "a": "2 2/3",
+          "notes": "Look for: take away 1, then 1/3: 3 − 1/3. Or count up from 1 1/3. Ask: \"Which part do you take first?\" Model: numberline 4 -1 -1/3",
+          "responses": [
+            {
+              "say": "4 − 1 is 3, then 3 − 1/3 is 2 2/3.",
+              "tool": "numberline",
+              "type": "4 -1 -1/3"
+            },
+            {
+              "say": "1 1/3 up to 2 is 2/3, then 2 more to 4: 2 2/3.",
+              "tool": "numberline",
+              "type": "1 1/3 >2 >4",
+              "tip": "Counting up."
+            },
+            {
+              "say": "3 1/3",
+              "tool": "text",
+              "type": "4 - 1 1/3 = 3 1/3 ?",
+              "tip": "Took only the 1/3, or only the 1. Ask: did you take away both parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2 3/5",
+          "a": "3 2/5",
+          "notes": "Look for: 6 − 2 = 4, then 4 − 3/5. Ask: \"Could you count up instead?\" Model: numberline 6 -2 -3/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 − 2 is 4, 4 − 3/5 is 3 2/5.",
+              "tool": "numberline",
+              "type": "6 -2 -3/5"
+            },
+            {
+              "say": "2 3/5 up to 3 is 2/5, then 3 more: 3 2/5.",
+              "tool": "numberline",
+              "type": "2 3/5 >3 >6"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
