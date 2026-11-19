@@ -328,7 +328,7 @@
             <button class="btn" data-act="classes">🎲 Classes</button>
             <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
-            <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and your grade's six weeks of strings">🎓 PD</a>
+            <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and a suggested six weeks of strings">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
@@ -749,7 +749,6 @@ Rules:
     if (grade) store.set('pdGrade', grade);
     const weeks = grade ? (PD.paths[grade] || []).map(w => w.map(findString).filter(Boolean)) : [];
     const inPath = new Set(weeks.flat().map(s => s.id));
-    const extra = grade ? library.filter(s => gradeOf(s) === grade && !inPath.has(s.id)).length : 0;
     const row = s => `<div class="pd-day"><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
       <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a></span></div>`;
     const codes = unitCodes(weeks.flat());
@@ -766,7 +765,7 @@ Rules:
 
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
-          <li><b>Before December 4:</b> your class does the common task. It comes by email.</li>
+          <li><b>Before December 4:</b> your class does the common task.</li>
           <li><b>December 4, Session 1:</b> we look at the app together and plan your first week.</li>
           <li><b>Six weeks of strings,</b> two before the winter break and four in January. Aim for 2–3 strings a week, 10–15 minutes each.</li>
           <li><b>Last week of January:</b> your class does the same common task again.</li>
@@ -777,10 +776,10 @@ Rules:
 
       <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : x.plan.length ? '<span class="pd-exit-soon">Exit ticket: at the session</span>' : ''}</div>`).join('')}</div>
 
-      <section class="panel"><h2>Your six weeks of strings</h2>
+      <section class="panel"><h2>Suggested six weeks of strings</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
-        ${!grade ? '<p class="hint">Pick your grade to see its six weeks.</p>'
-          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first.${extra ? ` The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has ${extra} more Grade ${esc(grade)} strings if you want extras.` : ''}</p>
+        ${!grade ? '<p class="hint">Pick your grade to see its suggested six weeks.</p>'
+          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first. The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has more strings if you want extras.</p>
              ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
              ${weeks.map((w, i) => `<div class="pd-unit"><h3>Week ${i + 1} <span class="pd-when">${esc(PD.weekWhen[i] || '')}</span></h3><div class="pd-days">${w.map(row).join('')}</div></div>`).join('')}`}
       </section>

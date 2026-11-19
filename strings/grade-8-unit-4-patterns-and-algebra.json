@@ -206,7 +206,7 @@
         {
           "q": "4n + 3, n = 25",
           "a": "103",
-          "notes": "Look for: 100 + 3. Model: text 4 x 25 + 3 = 103",
+          "notes": "Look for: 100 + 3. Ask: \"What do you put in for n?\" Model: text 4 x 25 + 3 = 103",
           "responses": [
             {
               "say": "103.",
@@ -237,7 +237,7 @@
         {
           "q": "2.5n + 1, n = 4",
           "a": "11",
-          "notes": "Look for: 10 + 1. Model: text 2.5 x 4 + 1 = 11",
+          "notes": "Look for: 10 + 1. Ask: \"What do you put in for n?\" Model: text 2.5 x 4 + 1 = 11",
           "responses": [
             {
               "say": "11.",
@@ -286,7 +286,7 @@
         {
           "q": "1.5, 3, 4.5, 6",
           "a": "1.5n",
-          "notes": "Look for: up 1.5, term 0 is 0. Model: numberline 0 +1.5 +1.5 +1.5 +1.5",
+          "notes": "Look for: up 1.5, term 0 is 0. Ask: \"What's the jump? What's term 0?\" Model: numberline 0 +1.5 +1.5 +1.5 +1.5",
           "responses": [
             {
               "say": "1.5n.",
@@ -348,7 +348,7 @@
         {
           "q": "0.75, 1.25, 1.75, 2.25",
           "a": "0.5n + 0.25",
-          "notes": "Look for: up 0.5, term 0 is 0.25. Model: numberline 0.25 +0.5 +0.5 +0.5 +0.5",
+          "notes": "Look for: up 0.5, term 0 is 0.25. Ask: \"What's the jump? What's term 0?\" Model: numberline 0.25 +0.5 +0.5 +0.5 +0.5",
           "responses": [
             {
               "say": "0.5n + 0.25.",
@@ -414,7 +414,7 @@
         {
           "q": "3n + 5, n = -2",
           "a": "-1",
-          "notes": "Look for: −6 + 5. Model: text 3(-2) + 5 = -6 + 5 = -1",
+          "notes": "Look for: −6 + 5. Ask: \"What do you put in, and what comes first?\" Model: text 3(-2) + 5 = -6 + 5 = -1",
           "responses": [
             {
               "say": "−6 + 5 = −1.",
@@ -433,7 +433,7 @@
         {
           "q": "3n + 5, n = 0.5",
           "a": "6.5",
-          "notes": "Look for: 1.5 + 5. Model: text 3(0.5) + 5 = 1.5 + 5 = 6.5",
+          "notes": "Look for: 1.5 + 5. Ask: \"What do you put in, and what comes first?\" Model: text 3(0.5) + 5 = 1.5 + 5 = 6.5",
           "responses": [
             {
               "say": "6.5.",
@@ -445,7 +445,7 @@
         {
           "q": "2(n + 3), n = 4",
           "a": "14",
-          "notes": "Look for: brackets first: 2 × 7. Model: text 2(4 + 3) = 2(7) = 14",
+          "notes": "Look for: brackets first: 2 × 7. Ask: \"What do you put in, and what comes first?\" Model: text 2(4 + 3) = 2(7) = 14",
           "responses": [
             {
               "say": "2 × 7 = 14.",
@@ -483,7 +483,7 @@
         {
           "q": "5 - 2n, n = -1.5",
           "a": "8",
-          "notes": "Look for: 5 − (−3) = 8. Model: text 5 - 2(-1.5) = 5 - -3 = 8",
+          "notes": "Look for: 5 − (−3) = 8. Ask: \"What do you put in, and what comes first?\" Model: text 5 - 2(-1.5) = 5 - -3 = 8",
           "responses": [
             {
               "say": "5 − (−3) = 8.",
@@ -502,7 +502,7 @@
         {
           "q": "4n - n^2, n = 1.5",
           "a": "3.75",
-          "notes": "Look for: 6 − 2.25. Model: text 4(1.5) - (1.5)^2 = 6 - 2.25 = 3.75",
+          "notes": "Look for: 6 − 2.25. Ask: \"What do you put in, and what comes first?\" Model: text 4(1.5) - (1.5)^2 = 6 - 2.25 = 3.75",
           "optional": true,
           "responses": [
             {
@@ -594,7 +594,7 @@
         {
           "q": "(4x - 2) + (-x + 6)",
           "a": "3x + 4",
-          "notes": "Look for: 4x − x and −2 + 6. Model: text 4x - x = 3x ; -2 + 6 = 4 ; 3x + 4",
+          "notes": "Look for: 4x − x and −2 + 6. Ask: \"Which terms go together?\" Model: text 4x - x = 3x ; -2 + 6 = 4 ; 3x + 4",
           "responses": [
             {
               "say": "3x + 4.",
@@ -625,7 +625,7 @@
         {
           "q": "-2x + 5 + 6x - 8",
           "a": "4x - 3",
-          "notes": "Look for: 4x and −3. Model: text -2x + 6x = 4x ; 5 - 8 = -3 ; 4x - 3",
+          "notes": "Look for: 4x and −3. Ask: \"Which terms go together?\" Model: text -2x + 6x = 4x ; 5 - 8 = -3 ; 4x - 3",
           "responses": [
             {
               "say": "4x − 3.",
@@ -644,7 +644,7 @@
         {
           "q": "(3x - 4) + (-5x - 1)",
           "a": "-2x - 5",
-          "notes": "Look for: −2x and −5. Model: text 3x - 5x = -2x ; -4 - 1 = -5 ; -2x - 5",
+          "notes": "Look for: −2x and −5. Ask: \"Which terms go together?\" Model: text 3x - 5x = -2x ; -4 - 1 = -5 ; -2x - 5",
           "optional": true,
           "responses": [
             {
@@ -710,7 +710,7 @@
         {
           "q": "3x + 5 = 26",
           "a": "x = 7",
-          "notes": "Look for: 3x = 21. Model: bar 21 = 7 + 7 + 7",
+          "notes": "Look for: 3x = 21. Ask: \"What do you undo first?\" Model: bar 21 = 7 + 7 + 7",
           "responses": [
             {
               "say": "26 − 5 = 21, 21 ÷ 3 = 7.",
@@ -741,7 +741,7 @@
         {
           "q": "6x + 10 = 52",
           "a": "x = 7",
-          "notes": "Look for: 6x = 42. Model: text 6x = 52 - 10 = 42 ; x = 7",
+          "notes": "Look for: 6x = 42. Ask: \"What do you undo first?\" Model: text 6x = 52 - 10 = 42 ; x = 7",
           "responses": [
             {
               "say": "6x = 42, x = 7.",
@@ -772,7 +772,7 @@
         {
           "q": "4x + 7 = -5",
           "a": "x = -3",
-          "notes": "Look for: 4x = −12. Model: text 4x = -5 - 7 = -12 ; x = -3",
+          "notes": "Look for: 4x = −12. Ask: \"What do you undo first?\" Model: text 4x = -5 - 7 = -12 ; x = -3",
           "optional": true,
           "responses": [
             {
@@ -808,7 +808,7 @@
         {
           "q": "5n + 1 = 51",
           "a": "n = 10",
-          "notes": "Context: \"Pattern 5n + 1. Which term is 51?\" Look for: 5n = 50. Word choice: \"term number\". Model: text 5n = 51 - 1 = 50 ; n = 10",
+          "notes": "Context: \"Pattern 5n + 1. Which term is 51?\" Look for: 5n = 50. Word choice: \"term number\". Ask: \"What do you undo first?\" Model: text 5n = 51 - 1 = 50 ; n = 10",
           "responses": [
             {
               "say": "5n = 50, term 10.",
@@ -839,7 +839,7 @@
         {
           "q": "4n - 1 = 39",
           "a": "n = 10",
-          "notes": "Look for: 4n = 40. Model: text 4n = 39 + 1 = 40 ; n = 10",
+          "notes": "Look for: 4n = 40. Ask: \"What do you undo first?\" Model: text 4n = 39 + 1 = 40 ; n = 10",
           "responses": [
             {
               "say": "Term 10.",
@@ -851,7 +851,7 @@
         {
           "q": "4n - 1 = 79",
           "a": "n = 20",
-          "notes": "Look for: 4n = 80. Model: text 4n = 80 ; n = 20",
+          "notes": "Look for: 4n = 80. Ask: \"What do you undo first?\" Model: text 4n = 80 ; n = 20",
           "responses": [
             {
               "say": "Term 20.",
@@ -863,7 +863,7 @@
         {
           "q": "12 - 2n = 0",
           "a": "n = 6",
-          "notes": "Context: \"Pattern 12 − 2n. When does it reach 0?\" Look for: 2n = 12. Model: text 12 - 2n = 0 ; 2n = 12 ; n = 6",
+          "notes": "Context: \"Pattern 12 − 2n. When does it reach 0?\" Look for: 2n = 12. Ask: \"What do you undo first?\" Model: text 12 - 2n = 0 ; 2n = 12 ; n = 6",
           "responses": [
             {
               "say": "Term 6.",
@@ -894,7 +894,7 @@
         {
           "q": "1.5n + 1 = 31",
           "a": "n = 20",
-          "notes": "Look for: 1.5n = 30. Model: text 1.5n = 30 ; n = 20",
+          "notes": "Look for: 1.5n = 30. Ask: \"What do you undo first?\" Model: text 1.5n = 30 ; n = 20",
           "optional": true,
           "responses": [
             {
@@ -929,7 +929,7 @@
         {
           "q": "2x + 3 = x + 8",
           "a": "x = 5",
-          "notes": "Look for: take x from both sides: x + 3 = 8. Word choice: \"same to both sides\". Model: text 2x + 3 = x + 8 ; x + 3 = 8 ; x = 5",
+          "notes": "Look for: take x from both sides: x + 3 = 8. Word choice: \"same to both sides\". Ask: \"What can you take from both sides?\" Model: text 2x + 3 = x + 8 ; x + 3 = 8 ; x = 5",
           "responses": [
             {
               "say": "x + 3 = 8, x = 5.",
@@ -947,7 +947,7 @@
         {
           "q": "3x + 4 = x + 12",
           "a": "x = 4",
-          "notes": "Look for: 2x + 4 = 12. Model: text 3x + 4 = x + 12 ; 2x + 4 = 12 ; 2x = 8 ; x = 4",
+          "notes": "Look for: 2x + 4 = 12. Ask: \"What can you take from both sides?\" Model: text 3x + 4 = x + 12 ; 2x + 4 = 12 ; 2x = 8 ; x = 4",
           "responses": [
             {
               "say": "2x = 8, x = 4.",
@@ -959,7 +959,7 @@
         {
           "q": "5x - 2 = 2x + 10",
           "a": "x = 4",
-          "notes": "Look for: 3x − 2 = 10. Model: text 5x - 2 = 2x + 10 ; 3x - 2 = 10 ; 3x = 12 ; x = 4",
+          "notes": "Look for: 3x − 2 = 10. Ask: \"What can you take from both sides?\" Model: text 5x - 2 = 2x + 10 ; 3x - 2 = 10 ; 3x = 12 ; x = 4",
           "responses": [
             {
               "say": "3x = 12, x = 4.",
@@ -991,7 +991,7 @@
         {
           "q": "2x + 7 = -x + 1",
           "a": "x = -2",
-          "notes": "Look for: add x to both: 3x + 7 = 1. Model: text 2x + 7 = -x + 1 ; 3x + 7 = 1 ; 3x = -6 ; x = -2",
+          "notes": "Look for: add x to both: 3x + 7 = 1. Ask: \"What can you take from both sides?\" Model: text 2x + 7 = -x + 1 ; 3x + 7 = 1 ; 3x = -6 ; x = -2",
           "responses": [
             {
               "say": "3x = −6, x = −2.",
@@ -1003,7 +1003,7 @@
         {
           "q": "0.5x + 4 = 2x - 2",
           "a": "x = 4",
-          "notes": "Look for: take 0.5x: 4 = 1.5x − 2. Model: text 0.5x + 4 = 2x - 2 ; 4 = 1.5x - 2 ; 6 = 1.5x ; x = 4",
+          "notes": "Look for: take 0.5x: 4 = 1.5x − 2. Ask: \"What can you take from both sides?\" Model: text 0.5x + 4 = 2x - 2 ; 4 = 1.5x - 2 ; 6 = 1.5x ; x = 4",
           "responses": [
             {
               "say": "1.5x = 6, x = 4.",
@@ -1015,7 +1015,7 @@
         {
           "q": "1.2x + 3 = 0.2x + 8",
           "a": "x = 5",
-          "notes": "Look for: x + 3 = 8. Model: text 1.2x + 3 = 0.2x + 8 ; x + 3 = 8 ; x = 5",
+          "notes": "Look for: x + 3 = 8. Ask: \"What can you take from both sides?\" Model: text 1.2x + 3 = 0.2x + 8 ; x + 3 = 8 ; x = 5",
           "optional": true,
           "responses": [
             {
@@ -1100,7 +1100,7 @@
         {
           "q": "1.2x - 0.4 = 2",
           "a": "x = 2",
-          "notes": "Look for: 1.2x = 2.4. Model: text 1.2x = 2 + 0.4 = 2.4 ; x = 2",
+          "notes": "Look for: 1.2x = 2.4. Ask: \"What undoes it?\" Model: text 1.2x = 2 + 0.4 = 2.4 ; x = 2",
           "responses": [
             {
               "say": "1.2x = 2.4, x = 2.",
@@ -1112,7 +1112,7 @@
         {
           "q": "0.25x + 1.5 = 4",
           "a": "x = 10",
-          "notes": "Look for: 0.25x = 2.5, a quarter of x. Model: text 0.25x = 2.5 ; x = 2.5 x 4 = 10",
+          "notes": "Look for: 0.25x = 2.5, a quarter of x. Ask: \"What undoes it?\" Model: text 0.25x = 2.5 ; x = 2.5 x 4 = 10",
           "responses": [
             {
               "say": "A quarter of x is 2.5, so x = 10.",
@@ -1124,7 +1124,7 @@
         {
           "q": "2.5x - 1.5 = 8.5",
           "a": "x = 4",
-          "notes": "Look for: 2.5x = 10. Model: text 2.5x = 8.5 + 1.5 = 10 ; x = 4",
+          "notes": "Look for: 2.5x = 10. Ask: \"What undoes it?\" Model: text 2.5x = 8.5 + 1.5 = 10 ; x = 4",
           "responses": [
             {
               "say": "2.5x = 10, x = 4.",
@@ -1136,7 +1136,7 @@
         {
           "q": "x/5 - 1 = 3",
           "a": "x = 20",
-          "notes": "Look for: x/5 = 4. Model: text x/5 = 4 ; x = 20",
+          "notes": "Look for: x/5 = 4. Ask: \"What undoes it?\" Model: text x/5 = 4 ; x = 20",
           "optional": true,
           "responses": [
             {
@@ -1190,7 +1190,7 @@
         {
           "q": "3x > 18",
           "a": "x > 6",
-          "notes": "Look for: divide by 3. Model: text 3x > 18 ; x > 6",
+          "notes": "Look for: divide by 3. Ask: \"Which values work? Try one.\" Model: text 3x > 18 ; x > 6",
           "responses": [
             {
               "say": "x > 6.",
@@ -1234,7 +1234,7 @@
         {
           "q": "4x + 1 ≥ -7",
           "a": "x ≥ -2",
-          "notes": "Look for: 4x ≥ −8. Model: text 4x + 1 ≥ -7 ; 4x ≥ -8 ; x ≥ -2",
+          "notes": "Look for: 4x ≥ −8. Ask: \"Which values work? Try one.\" Model: text 4x + 1 ≥ -7 ; 4x ≥ -8 ; x ≥ -2",
           "responses": [
             {
               "say": "x ≥ −2.",
@@ -1246,7 +1246,7 @@
         {
           "q": "5 + 2x < 2",
           "a": "x < -1.5",
-          "notes": "Look for: 2x < −3. Model: text 5 + 2x < 2 ; 2x < -3 ; x < -1.5",
+          "notes": "Look for: 2x < −3. Ask: \"Which values work? Try one.\" Model: text 5 + 2x < 2 ; 2x < -3 ; x < -1.5",
           "responses": [
             {
               "say": "x < −1.5. Check x = −2: 5 − 4 = 1 < 2.",
