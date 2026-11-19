@@ -164,6 +164,141 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-div-02-ten-times-smaller",
+      "title": "Ten Times Smaller",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "ratio",
+      "strategy": "Dividing by 10 makes a number ten times smaller: every digit moves one place to the right. 340 ÷ 10 = 34 because 10 × 34 = 340.",
+      "topic": "mult",
+      "keywords": "divide by 10, ten times smaller, place value, digits move, groups of ten",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "\"Just take off a zero\" with no reason: ask \"Why does that work? What happens to each digit?\"",
+        "Taking off the wrong zero in 2050 ÷ 10 (writing 250): ask \"Is 10 × 250 equal to 2050?\"",
+        "Dividing by 10 when there is no zero at the end: save that for later grades; here every answer is a whole number."
+      ],
+      "wrapUp": "Ask \"What happens to the digits when we divide by 10?\" Land: each digit moves one place to the right, so the number is ten times smaller. Check with multiplying: 10 × 34 = 340.",
+      "problems": [
+        {
+          "q": "50 / 10",
+          "a": "5",
+          "notes": "Look for: 10 × 5 = 50, or 5 tens is 50. Ask: \"How many tens are in 50?\" Word choice: \"how many groups of 10\". Model: ratio number:tens, 10:1, 50:5",
+          "responses": [
+            {
+              "say": "5 tens make 50, so 5.",
+              "tool": "ratio",
+              "type": "number:tens, 10:1, 50:5",
+              "tip": "Ask: how many groups of 10?"
+            },
+            {
+              "say": "10 × 5 = 50.",
+              "tool": "text",
+              "type": "10 x 5 = 50"
+            }
+          ]
+        },
+        {
+          "q": "500 / 10",
+          "a": "50",
+          "notes": "Look for: 50 tens in 500. Ask: \"How does the last one help?\" Model: ratio number:tens, 10:1, 50:5, 500:50",
+          "responses": [
+            {
+              "say": "500 is 50 tens.",
+              "tool": "ratio",
+              "type": "number:tens, 10:1, 50:5, 500:50"
+            },
+            {
+              "say": "5",
+              "tool": "text",
+              "type": "500 ÷ 10 = 5 ?",
+              "tip": "Took off both zeros. Ask: is 10 × 5 equal to 500?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "340 / 10",
+          "a": "34",
+          "notes": "Look for: 34 tens. Ask: \"Where does the 3 go? The 4?\" Model: ratio number:tens, 10:1, 340:34",
+          "responses": [
+            {
+              "say": "340 is 34 tens.",
+              "tool": "ratio",
+              "type": "number:tens, 10:1, 340:34",
+              "tip": "Ask: why 34 and not 3.4?"
+            },
+            {
+              "say": "The 3 hundreds become 3 tens, the 4 tens become 4 ones.",
+              "tool": "text",
+              "type": "3 hundreds -> 3 tens ; 4 tens -> 4 ones ; 34",
+              "tip": "Place value reasoning."
+            }
+          ]
+        },
+        {
+          "q": "3400 / 10",
+          "a": "340",
+          "notes": "Look for: ten times bigger than the last answer. Ask: \"What's the same? What changed?\" Model: ratio number:tens, 10:1, 340:34, 3400:340",
+          "responses": [
+            {
+              "say": "Ten times bigger than 340 ÷ 10, so 340.",
+              "tool": "ratio",
+              "type": "number:tens, 10:1, 340:34, 3400:340"
+            },
+            {
+              "say": "34",
+              "tool": "text",
+              "type": "3400 ÷ 10 = 34 ?",
+              "tip": "Divided by 100. Ask: is 10 × 34 equal to 3400?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7000 / 10",
+          "a": "700",
+          "notes": "Look for: 700 tens. Ask: \"How many tens are in a thousand?\" Model: ratio number:tens, 10:1, 1000:100, 7000:700",
+          "responses": [
+            {
+              "say": "100 tens in each thousand, so 700.",
+              "tool": "ratio",
+              "type": "number:tens, 10:1, 1000:100, 7000:700"
+            },
+            {
+              "say": "70",
+              "tool": "text",
+              "type": "7000 ÷ 10 = 70 ?",
+              "tip": "Ask: what is 10 × 70?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2050 / 10",
+          "a": "205",
+          "notes": "Look for: which zero moves away. Ask: \"Why isn't it 250?\" Model: text 2050 = 205 tens ; 2050 ÷ 10 = 205",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2050 is 205 tens.",
+              "tool": "text",
+              "type": "2050 = 205 tens ; 2050 ÷ 10 = 205"
+            },
+            {
+              "say": "250",
+              "tool": "text",
+              "type": "2050 ÷ 10 = 250 ?",
+              "tip": "Took out the wrong zero. Ask: is 10 × 250 equal to 2050?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

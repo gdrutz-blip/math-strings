@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-mult-01-elevens-and-twelves",
+      "title": "Elevens and Twelves",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Multiplication Facts",
+      "tool": "area",
+      "strategy": "Elevens are ten groups plus one more group; twelves are ten groups plus two more groups.",
+      "topic": "mult",
+      "keywords": "groups of, tens and ones, split a factor, ten and one more, ten and two more",
+      "curriculum": [
+        "B2.2"
+      ],
+      "watchFor": [
+        "Treating 11 × 12 like the 11 pattern for one-digit numbers (writing 1212): ask \"Is it 10 twelves plus one twelve?\"",
+        "Forgetting the extra groups: ask \"What's left after the 10 groups?\"",
+        "Adding 2 instead of 2 groups: ask \"Two more of what?\""
+      ],
+      "wrapUp": "Ask \"How did 10 groups help every time?\" Land: 11 × n is 10 × n plus n; 12 × n is 10 × n plus 2 × n. Split the 11 or 12 into 10 and a little more.",
+      "problems": [
+        {
+          "q": "11 x 4",
+          "a": "44",
+          "notes": "Look for: 40 + 4. Ask: \"How is 11 like 10?\" Word choice: \"10 groups and 1 more group\". Model: area 10+1 x 4",
+          "responses": [
+            {
+              "say": "10 fours and 1 more four: 40 + 4 = 44.",
+              "tool": "area",
+              "type": "10+1 x 4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "11 x 4 = 40 + 5 ?",
+              "tip": "Ask: what is 1 group of 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "11 x 7",
+          "a": "77",
+          "notes": "Look for: 70 + 7. Ask: \"What's the pattern?\" Model: area 10+1 x 7",
+          "responses": [
+            {
+              "say": "70 + 7 = 77.",
+              "tool": "area",
+              "type": "10+1 x 7"
+            }
+          ]
+        },
+        {
+          "q": "11 x 12",
+          "a": "132",
+          "notes": "Look for: 120 + 12. Ask: \"Does the pattern still work?\" Model: area 10+1 x 12",
+          "responses": [
+            {
+              "say": "10 twelves is 120, one more twelve is 132.",
+              "tool": "area",
+              "type": "10+1 x 12",
+              "tip": "The repeating-digit pattern stops here. Ask: why?"
+            },
+            {
+              "say": "1212",
+              "tool": "text",
+              "type": "11 x 12 = 1212 ?",
+              "tip": "Stretched the pattern. Ask: is 10 × 12 + 12 equal to 1212?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 5",
+          "a": "60",
+          "notes": "Look for: 50 + 10. Ask: \"What is 2 more groups of 5?\" Model: area 10+2 x 5",
+          "responses": [
+            {
+              "say": "10 fives and 2 fives: 50 + 10 = 60.",
+              "tool": "area",
+              "type": "10+2 x 5"
+            },
+            {
+              "say": "Double and halve: 6 × 10 = 60.",
+              "tool": "halve",
+              "type": "12 x 5 = 6 x 10",
+              "tip": "Halve and double."
+            }
+          ]
+        },
+        {
+          "q": "12 x 6",
+          "a": "72",
+          "notes": "Look for: 60 + 12. Ask: \"How does 12 × 5 help?\" Model: area 10+2 x 6",
+          "responses": [
+            {
+              "say": "60 + 12 = 72.",
+              "tool": "area",
+              "type": "10+2 x 6"
+            },
+            {
+              "say": "12 × 5 is 60, plus one more 12 is 72.",
+              "tool": "text",
+              "type": "12 x 5 = 60 ; 60 + 12 = 72",
+              "tip": "Used the last one."
+            },
+            {
+              "say": "62",
+              "tool": "text",
+              "type": "12 x 6 = 60 + 2 = 62 ?",
+              "tip": "Added 2, not 2 groups of 6. Ask: two more of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 8",
+          "a": "96",
+          "notes": "Look for: 80 + 16. Ask: \"Which way do you split the 12?\" Model: area 10+2 x 8",
+          "responses": [
+            {
+              "say": "80 + 16 = 96.",
+              "tool": "area",
+              "type": "10+2 x 8"
+            },
+            {
+              "say": "Double 12 three times: 24, 48, 96.",
+              "tool": "ratio",
+              "type": "1:12, 2:24, 4:48, 8:96",
+              "tip": "Doubling. Also a fact you know."
+            }
+          ]
+        },
+        {
+          "q": "12 x 12",
+          "a": "144",
+          "notes": "Look for: 120 + 24. Ask: \"Which earlier problem helps?\" Model: area 10+2 x 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 twelves and 2 twelves: 120 + 24 = 144.",
+              "tool": "area",
+              "type": "10+2 x 12"
+            },
+            {
+              "say": "11 × 12 is 132, plus 12 is 144.",
+              "tool": "text",
+              "type": "11 x 12 = 132 ; 132 + 12 = 144",
+              "tip": "Used 11 × 12."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

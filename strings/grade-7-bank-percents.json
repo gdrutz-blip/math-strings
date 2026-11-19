@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-pct-01-friendly-percents",
+      "title": "Friendly Percents as Fractions",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Percents",
+      "tool": "ratio",
+      "strategy": "Common percents have fraction partners: 25% is 1/4, 12.5% is 1/8, 20% is 1/5. Use the fraction to find the percent of a number in your head.",
+      "topic": "pct",
+      "keywords": "percent, fraction, equivalent, one quarter, one eighth, one fifth, benchmark",
+      "curriculum": [
+        "B2.2"
+      ],
+      "watchFor": [
+        "Treating 12.5% as 1/12: ask \"What is half of 25%? Half of a quarter?\"",
+        "Finding 75% by dividing by 75: ask \"What fraction is 75%?\"",
+        "Forgetting the build-up (37.5% = 3 × 12.5%): ask \"How many eighths is 37.5%?\""
+      ],
+      "wrapUp": "Ask \"Which fraction did each percent remind you of?\" Land: 50% = 1/2, 25% = 1/4, 12.5% = 1/8, 20% = 1/5, 10% = 1/10. Find one part, then build up.",
+      "problems": [
+        {
+          "q": "25% of 48",
+          "a": "12",
+          "notes": "Look for: a quarter of 48. Ask: \"What fraction is 25%?\" Word choice: \"one quarter of\". Model: bar 1/4 of 48",
+          "responses": [
+            {
+              "say": "25% is a quarter, and a quarter of 48 is 12.",
+              "tool": "bar",
+              "type": "1/4 of 48"
+            },
+            {
+              "say": "Half of 48 is 24, half again is 12.",
+              "tool": "ratio",
+              "type": "100:48, 50:24, 25:12",
+              "tip": "Halving twice."
+            }
+          ]
+        },
+        {
+          "q": "75% of 48",
+          "a": "36",
+          "notes": "Look for: three quarters: 3 × 12, or 48 − 12. Ask: \"How does 25% help?\" Model: ratio 100:48, 25:12, 75:36",
+          "responses": [
+            {
+              "say": "3 quarters is 36.",
+              "tool": "ratio",
+              "type": "100:48, 25:12, 75:36"
+            },
+            {
+              "say": "48 take away a quarter: 48 − 12 = 36.",
+              "tool": "bar",
+              "type": "3/4 of 48"
+            },
+            {
+              "say": "0.64",
+              "tool": "text",
+              "type": "75% of 48 = 48 ÷ 75 ?",
+              "tip": "Divided by the percent. Ask: what fraction is 75%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.5% of 48",
+          "a": "6",
+          "notes": "Look for: half of 25%, an eighth. Ask: \"What is half of a quarter?\" Model: ratio 100:48, 25:12, 12.5:6",
+          "responses": [
+            {
+              "say": "Half of 12 is 6. 12.5% is an eighth.",
+              "tool": "ratio",
+              "type": "100:48, 25:12, 12.5:6"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "12.5% of 48 = 1/12 of 48 = 4 ?",
+              "tip": "Ask: is 12.5% one twelfth, or half of 25%?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "37.5% of 48",
+          "a": "18",
+          "notes": "Look for: 3 eighths: 3 × 6, or 25% + 12.5%. Ask: \"Which two parts add to 37.5%?\" Model: ratio 100:48, 12.5:6, 25:12, 37.5:18",
+          "responses": [
+            {
+              "say": "25% + 12.5%: 12 + 6 = 18.",
+              "tool": "ratio",
+              "type": "100:48, 12.5:6, 25:12, 37.5:18"
+            },
+            {
+              "say": "3 eighths of 48: 3 × 6 = 18.",
+              "tool": "bar",
+              "type": "3/8 of 48"
+            }
+          ]
+        },
+        {
+          "q": "20% of 35",
+          "a": "7",
+          "notes": "Look for: a fifth of 35. Ask: \"What fraction is 20%?\" Model: bar 1/5 of 35",
+          "responses": [
+            {
+              "say": "20% is a fifth: 7.",
+              "tool": "bar",
+              "type": "1/5 of 35"
+            },
+            {
+              "say": "10% is 3.5, double it: 7.",
+              "tool": "ratio",
+              "type": "100:35, 10:3.5, 20:7"
+            }
+          ]
+        },
+        {
+          "q": "60% of 35",
+          "a": "21",
+          "notes": "Look for: 3 fifths: 3 × 7. Ask: \"How does 20% help?\" Model: bar 3/5 of 35",
+          "responses": [
+            {
+              "say": "3 fifths is 3 × 7 = 21.",
+              "tool": "bar",
+              "type": "3/5 of 35"
+            },
+            {
+              "say": "50% is 17.5, plus 10% (3.5): 21.",
+              "tool": "ratio",
+              "type": "100:35, 50:17.5, 10:3.5, 60:21",
+              "tip": "Adding friendly percents."
+            },
+            {
+              "say": "0.58",
+              "tool": "text",
+              "type": "60% of 35 = 35 ÷ 60 ?",
+              "tip": "Ask: should 60% of 35 be more than half of 35?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.4 x 35",
+          "a": "14",
+          "notes": "Look for: 0.4 is 40%, 2 fifths. Ask: \"What percent is 0.4?\" Model: bar 2/5 of 35",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.4 is 2/5, and 2/5 of 35 is 14.",
+              "tool": "bar",
+              "type": "2/5 of 35",
+              "tip": "Decimal, percent and fraction all at once."
+            },
+            {
+              "say": "40% is 4 × 3.5 = 14.",
+              "tool": "ratio",
+              "type": "100:35, 10:3.5, 40:14"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

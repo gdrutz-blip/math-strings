@@ -192,6 +192,169 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g7-bank-dec-02-dividing-decimals",
+      "title": "Dividing Decimals by Decimals",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Decimals",
+      "tool": "ratio",
+      "strategy": "Dividing by a decimal asks how many fit. Multiply both numbers by the same power of 10 to get an equivalent problem with whole numbers: 1.2 ÷ 0.3 = 12 ÷ 3.",
+      "topic": "dec",
+      "keywords": "how many fit, equivalent, times 10 both, scale both, quotient, tenths, hundredths",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Expecting the quotient to be smaller (4.5 ÷ 0.5 = 2.25): ask \"How many halves fit in 4.5?\"",
+        "Scaling only one number: ask \"Did you multiply both by 10?\"",
+        "Placing the decimal by counting digits without checking: ask \"About how many 0.03s fit in 1.2?\""
+      ],
+      "wrapUp": "Ask \"Why is 1.2 ÷ 0.3 the same as 12 ÷ 3?\" Land: multiplying both numbers by 10 keeps the quotient the same, like a ratio. Then ask how many fit.",
+      "problems": [
+        {
+          "q": "12 / 3",
+          "a": "4",
+          "notes": "Look for: 4 threes. Ask: \"Hold on to this.\" Word choice: \"how many 3s fit in 12\". Model: ratio 3:12, 1:4",
+          "responses": [
+            {
+              "say": "4 threes make 12.",
+              "tool": "text",
+              "type": "3 x 4 = 12"
+            }
+          ]
+        },
+        {
+          "q": "1.2 / 0.3",
+          "a": "4",
+          "notes": "Look for: 12 tenths ÷ 3 tenths, the same as 12 ÷ 3. Ask: \"How is this like the last one?\" Model: ratio dividend:divisor, 1.2:0.3, 12:3",
+          "responses": [
+            {
+              "say": "Times both by 10: 12 ÷ 3 = 4.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 1.2:0.3, 12:3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "12 tenths ÷ 3 tenths = 4.",
+              "tool": "text",
+              "type": "1.2 = 12 tenths ; 0.3 = 3 tenths ; 12 ÷ 3 = 4"
+            },
+            {
+              "say": "0.4",
+              "tool": "text",
+              "type": "1.2 ÷ 0.3 = 0.4 ?",
+              "tip": "Ask: is 0.4 × 0.3 equal to 1.2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.2 / 0.03",
+          "a": "40",
+          "notes": "Look for: times both by 100: 120 ÷ 3. Ask: \"Smaller pieces: more or fewer fit?\" Model: ratio dividend:divisor, 1.2:0.03, 120:3",
+          "responses": [
+            {
+              "say": "Times both by 100: 120 ÷ 3 = 40.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 1.2:0.03, 120:3"
+            },
+            {
+              "say": "0.03 is ten times smaller than 0.3, so ten times as many fit.",
+              "tool": "text",
+              "type": "1.2 ÷ 0.3 = 4 ; 1.2 ÷ 0.03 = 40",
+              "tip": "Used the last one."
+            },
+            {
+              "say": "0.4",
+              "tool": "text",
+              "type": "1.2 ÷ 0.03 = 0.4 ?",
+              "tip": "Ask: about how many 0.03s fit in 1.2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.12 / 0.3",
+          "a": "0.4",
+          "notes": "Look for: times both by 100: 12 ÷ 30. Ask: \"Does 0.3 fit into 0.12 even once?\" Model: ratio dividend:divisor, 0.12:0.3, 12:30",
+          "responses": [
+            {
+              "say": "12 ÷ 30 = 0.4.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 0.12:0.3, 12:30"
+            },
+            {
+              "say": "0.3 doesn't fit once; 0.12 is 4 tenths of 0.3.",
+              "tool": "text",
+              "type": "0.3 x 0.4 = 0.12"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "0.12 ÷ 0.3 = 4 ?",
+              "tip": "Ask: is 4 × 0.3 equal to 0.12?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.5 / 0.5",
+          "a": "9",
+          "notes": "Look for: 2 halves per whole: 9. Ask: \"What fraction is 0.5?\" Model: ratio dividend:divisor, 4.5:0.5, 45:5",
+          "responses": [
+            {
+              "say": "2 halves in each whole, 4.5 wholes: 9.",
+              "tool": "text",
+              "type": "4.5 x 2 = 9",
+              "tip": "0.5 is a half."
+            },
+            {
+              "say": "45 ÷ 5 = 9.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 4.5:0.5, 45:5"
+            },
+            {
+              "say": "2.25",
+              "tool": "text",
+              "type": "4.5 ÷ 0.5 = 2.25 ?",
+              "tip": "Found half. Ask: how many halves fit in 4.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.5 / 0.05",
+          "a": "90",
+          "notes": "Look for: 450 ÷ 5. Ask: \"How does the last one help?\" Model: ratio dividend:divisor, 4.5:0.05, 450:5",
+          "responses": [
+            {
+              "say": "Times both by 100: 450 ÷ 5 = 90.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 4.5:0.05, 450:5"
+            }
+          ]
+        },
+        {
+          "q": "0.75 / 0.25",
+          "a": "3",
+          "notes": "Look for: 3 quarters ÷ 1 quarter. Ask: \"What fractions are these?\" Model: text 0.75 = 3/4 ; 0.25 = 1/4 ; 3/4 ÷ 1/4 = 3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 quarters ÷ 1 quarter is 3.",
+              "tool": "text",
+              "type": "0.75 = 3/4 ; 0.25 = 1/4 ; 3/4 ÷ 1/4 = 3",
+              "tip": "Fraction connection."
+            },
+            {
+              "say": "75 ÷ 25 = 3.",
+              "tool": "ratio",
+              "type": "dividend:divisor, 0.75:0.25, 75:25"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

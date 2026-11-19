@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-rat-01-equivalent-ratios",
+      "title": "Equivalent Ratios",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Ratios",
+      "tool": "ratio",
+      "strategy": "Equivalent ratios keep the same relationship: multiply (or divide) both parts by the same number. Build up with a ratio table.",
+      "topic": "rat",
+      "keywords": "ratio, for every, equivalent, times both, ratio table, scale up",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Adding the same number to both parts (2:3 to 4:5): ask \"Is it still 2 for every 3?\"",
+        "Multiplying only one part: ask \"What happened to the other part?\"",
+        "Not seeing a path to a row: ask \"Which row could you double, or add?\""
+      ],
+      "wrapUp": "Ask \"How did you keep the ratio the same?\" Land: multiply or divide both parts by the same number, or add two rows you already have. Adding the same amount to both parts changes the ratio.",
+      "problems": [
+        {
+          "q": "2 : 3 = 4 : ?",
+          "a": "6",
+          "notes": "Context: \"2 cups of juice for every 3 cups of water.\" Look for: double both. Ask: \"What happened to the 2?\" Word choice: \"for every\". Model: ratio juice:water, 2:3, 4:6",
+          "responses": [
+            {
+              "say": "Double both: 4 juice, 6 water.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 4:6",
+              "tip": "The target idea: times both."
+            },
+            {
+              "say": "5",
+              "tool": "text",
+              "type": "2 : 3 = 4 : 5 ?",
+              "tip": "Added 2 to both. Ask: is it still 2 juice for every 3 water?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 : 3 = 8 : ?",
+          "a": "12",
+          "notes": "Look for: ×4, or double again. Ask: \"How does the last one help?\" Model: ratio juice:water, 2:3, 4:6, 8:12",
+          "responses": [
+            {
+              "say": "Double again: 8 and 12.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 4:6, 8:12"
+            },
+            {
+              "say": "2 × 4 = 8, so 3 × 4 = 12.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 8:12",
+              "tip": "Times both by 4."
+            }
+          ]
+        },
+        {
+          "q": "2 : 3 = 10 : ?",
+          "a": "15",
+          "notes": "Look for: ×5, or 8:12 plus 2:3. Ask: \"Could you add two rows?\" Model: ratio juice:water, 2:3, 8:12, 10:15",
+          "responses": [
+            {
+              "say": "8:12 plus 2:3 is 10:15.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 8:12, 10:15",
+              "tip": "Adding rows."
+            },
+            {
+              "say": "Times both by 5: 10:15.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 10:15"
+            },
+            {
+              "say": "11",
+              "tool": "text",
+              "type": "2 : 3 = 10 : 11 ?",
+              "tip": "Added 8 to both. Ask: what did you do to the 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 : 3 = 1 : ?",
+          "a": "1.5",
+          "notes": "Look for: halve both. Ask: \"Can we go down too?\" Model: ratio juice:water, 2:3, 1:1.5",
+          "responses": [
+            {
+              "say": "Half of 2 is 1, half of 3 is 1.5.",
+              "tool": "ratio",
+              "type": "juice:water, 2:3, 1:1.5",
+              "tip": "Dividing both works too."
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "2 : 3 = 1 : 2 ?",
+              "tip": "Took 1 from both. Ask: is that still 2 for every 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 : 3 = 7 : ?",
+          "a": "10.5",
+          "notes": "Look for: 6:9 plus 1:1.5, or 7 × 1.5. Ask: \"Which rows could you use?\" Model: ratio juice:water, 1:1.5, 6:9, 7:10.5",
+          "responses": [
+            {
+              "say": "6:9 and 1:1.5 make 7:10.5.",
+              "tool": "ratio",
+              "type": "juice:water, 1:1.5, 6:9, 7:10.5"
+            },
+            {
+              "say": "Each cup of juice needs 1.5 water: 7 × 1.5.",
+              "tool": "text",
+              "type": "7 x 1.5 = 10.5",
+              "tip": "The unit rate."
+            }
+          ]
+        },
+        {
+          "q": "3 : 5 = 12 : ?",
+          "a": "20",
+          "notes": "Context: \"3 red beads for every 5 blue beads.\" Look for: ×4. Ask: \"How do you get from 3 to 12?\" Model: ratio red:blue, 3:5, 6:10, 12:20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double twice: 6:10, 12:20.",
+              "tool": "ratio",
+              "type": "red:blue, 3:5, 6:10, 12:20"
+            },
+            {
+              "say": "14",
+              "tool": "text",
+              "type": "3 : 5 = 12 : 14 ?",
+              "tip": "Added 9 to both. Ask: is it still 3 for every 5?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
