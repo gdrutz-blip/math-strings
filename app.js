@@ -206,7 +206,18 @@
       'B2.8': 'multiply and divide fractions by fractions, using tools in various contexts',
       'B2.9': 'multiply and divide decimal numbers by decimal numbers, in various contexts',
       'B2.10': 'identify proportional and non-proportional situations and apply proportional reasoning to solve problems' },
-    8: { 'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving rational numbers, ratios, rates, and percents, including those requiring multiple steps or multiple operations' },
+    8: { 'B1.1': 'represent and compare very large and very small numbers, including through the use of scientific notation, and describe various ways they are used in everyday life',
+      'B1.2': 'describe, compare, and order numbers in the real number system (rational and irrational numbers), separately and in combination, in various contexts',
+      'B1.3': 'estimate and calculate square roots, in various contexts',
+      'B1.4': 'use fractions, decimal numbers, and percents, including percents of more than 100% or less than 1%, interchangeably and flexibly to solve a variety of problems',
+      'B2.1': 'use the properties and order of operations, and the relationships between operations, to solve problems involving rational numbers, ratios, rates, and percents, including those requiring multiple steps or multiple operations',
+      'B2.2': 'understand and recall commonly used square numbers and their square roots',
+      'B2.3': 'use mental math strategies to multiply and divide whole numbers and decimal numbers up to thousandths by powers of ten, and explain the strategies used',
+      'B2.4': 'add and subtract integers, using appropriate strategies, in various contexts',
+      'B2.5': 'add and subtract fractions, using appropriate strategies, in various contexts',
+      'B2.6': 'multiply and divide fractions by fractions, as well as by whole numbers and mixed numbers, in various contexts',
+      'B2.7': 'multiply and divide integers, using appropriate strategies, in various contexts',
+      'B2.8': 'compare proportional situations and determine unknown values in proportional situations, and apply proportional reasoning to solve problems in various contexts' },
   };
   const currOf = s => (Array.isArray(s.curriculum) ? s.curriculum : String(s.curriculum || '').split(/[,;\s]+/)).map(c => c.trim().toUpperCase()).filter(c => /^[A-E]\d+\.\d+$/.test(c));
   const codeSort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
@@ -271,7 +282,7 @@
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     // within a grade, the weekly units come before the string bank
     const isBank = name => /·\s*Bank\s*·/i.test(name);
-    const weekOf = name => +((name.match(/Week\s*(\d+)/i) || [])[1] || 0);
+    const weekOf = name => +((name.match(/Week\s*(\d+)/i) || [])[1] || 50); // a unit with no week number (a 15-20 day unit) comes after the weeks
     groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)) || weekOf(a.name) - weekOf(b.name); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
@@ -694,7 +705,7 @@ Rules:
     const units = [];
     const bankCount = mine.filter(s => /·\s*Bank\s*·/i.test(s.group || '')).length;
     mine.filter(s => !/·\s*Bank\s*·/i.test(s.group || '')).forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
-    units.sort((a, b) => +((a.name.match(/Week\s*(\d+)/i) || [])[1] || 0) - +((b.name.match(/Week\s*(\d+)/i) || [])[1] || 0));
+    units.sort((a, b) => +((a.name.match(/Week\s*(\d+)/i) || [])[1] || 50) - +((b.name.match(/Week\s*(\d+)/i) || [])[1] || 50));
     const unitName = g => g.replace(/^Grade\s*\w+\s*·\s*/i, '');
     app.innerHTML = `
     <div class="guide pd">
