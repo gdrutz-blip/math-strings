@@ -1,0 +1,634 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-r2-mult-d1-times-5-with-decimals",
+      "title": "Times 5 as Half of Times 10, with Decimals",
+      "label": "Day 1",
+      "group": "Grade 8 · Round 2 · Multiplication",
+      "tool": "ratio",
+      "strategy": "To multiply by 5, multiply by 10 and halve. It works with decimals, and it works backwards for × 0.5 (just halve).",
+      "topic": "mult",
+      "keywords": "times 10, halve, times 5, times 0.5, times 50, decimals",
+      "curriculum": [
+        "B2.1",
+        "B2.3"
+      ],
+      "watchFor": [
+        "Halving before multiplying and losing the decimal (0.64 × 5 = 32): ask \"About how big should 0.64 × 5 be?\"",
+        "Thinking × 0.5 makes bigger: ask \"What's half of 36?\"",
+        "Forgetting the extra × 10 for × 50: ask \"Is 50 ten times 5?\""
+      ],
+      "wrapUp": "Ask \"Why is × 5 the same as × 10 then halve?\" Land: 5 is half of 10. × 0.5 is just halving, and × 50 is × 100 then halve.",
+      "problems": [
+        {
+          "q": "4.8 x 10",
+          "a": "48",
+          "notes": "Look for: ten times bigger. Ask: \"Hold on to this.\" Model: ratio 1:4.8, 10:48",
+          "responses": [
+            {
+              "say": "48.",
+              "tool": "ratio",
+              "type": "1:4.8, 10:48"
+            }
+          ]
+        },
+        {
+          "q": "4.8 x 5",
+          "a": "24",
+          "notes": "Look for: half of 48. Ask: \"How does the last one help?\" Word choice: \"half of times 10\". Model: ratio 1:4.8, 10:48, 5:24",
+          "responses": [
+            {
+              "say": "Half of 48 is 24.",
+              "tool": "ratio",
+              "type": "1:4.8, 10:48, 5:24",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2.4",
+              "tool": "text",
+              "type": "4.8 x 5 = 2.4 ?",
+              "tip": "Halved only. Ask: is 4.8 × 5 bigger or smaller than 4.8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "36 x 0.5",
+          "a": "18",
+          "notes": "Look for: half of 36. Ask: \"What does × 0.5 mean?\" Model: ratio 1:36, 0.5:18",
+          "responses": [
+            {
+              "say": "Half of 36: 18.",
+              "tool": "ratio",
+              "type": "1:36, 0.5:18"
+            },
+            {
+              "say": "180",
+              "tool": "text",
+              "type": "36 x 0.5 = 180 ?",
+              "tip": "Ask: is half of 36 bigger than 36?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.2 x 5",
+          "a": "36",
+          "notes": "Look for: 72 halved. Ask: \"Same as before?\" Model: ratio 1:7.2, 10:72, 5:36",
+          "responses": [
+            {
+              "say": "72 ÷ 2 = 36.",
+              "tool": "ratio",
+              "type": "1:7.2, 10:72, 5:36"
+            }
+          ]
+        },
+        {
+          "q": "0.64 x 5",
+          "a": "3.2",
+          "notes": "Look for: 6.4 halved. Ask: \"About how big should it be?\" Model: ratio 1:0.64, 10:6.4, 5:3.2",
+          "responses": [
+            {
+              "say": "6.4 ÷ 2 = 3.2.",
+              "tool": "ratio",
+              "type": "1:0.64, 10:6.4, 5:3.2"
+            },
+            {
+              "say": "32",
+              "tool": "text",
+              "type": "0.64 x 5 = 32 ?",
+              "tip": "Ask: 0.64 is less than 1. Can 5 of them be 32?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "18.6 x 5",
+          "a": "93",
+          "notes": "Look for: 186 halved. Ask: \"Which way do you halve 186?\" Model: ratio 1:18.6, 10:186, 5:93",
+          "responses": [
+            {
+              "say": "186 ÷ 2 = 93.",
+              "tool": "ratio",
+              "type": "1:18.6, 10:186, 5:93"
+            }
+          ]
+        },
+        {
+          "q": "2.46 x 50",
+          "a": "123",
+          "notes": "Look for: × 100 then halve: 246 ÷ 2. Ask: \"What about × 50?\" Model: ratio 1:2.46, 100:246, 50:123",
+          "optional": true,
+          "responses": [
+            {
+              "say": "246 ÷ 2 = 123.",
+              "tool": "ratio",
+              "type": "1:2.46, 100:246, 50:123"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 2 · Day 1: Times 5 as Half of Times 10"
+    },
+    {
+      "id": "g8-r2-mult-d2-double-and-halve",
+      "title": "Double and Halve with Decimals",
+      "label": "Day 2",
+      "group": "Grade 8 · Round 2 · Multiplication",
+      "tool": "halve",
+      "strategy": "Double one factor and halve the other: the product stays the same. Keep going until one factor is friendly, like 10 or 100. It works with decimals too.",
+      "topic": "mult",
+      "keywords": "double, halve, product stays the same, friendly factor, decimals",
+      "curriculum": [
+        "B2.1"
+      ],
+      "watchFor": [
+        "Doubling both factors: ask \"If you double one and double the other, what happens to the product?\"",
+        "Stopping too early: ask \"Can you keep going to a friendlier number?\"",
+        "Halving the wrong factor (halving 25): ask \"Which factor is easy to halve? Which becomes friendly when doubled?\""
+      ],
+      "wrapUp": "Ask \"Why does the product stay the same?\" Land: doubling one factor and halving the other is ×2 ÷2, which changes nothing. Keep going until one factor is 10 or 100.",
+      "problems": [
+        {
+          "q": "25 x 4.8",
+          "a": "120",
+          "notes": "Look for: 50 × 2.4 = 100 × 1.2. Ask: \"Which factor should you double?\" Word choice: \"double one, halve the other\". Model: halve 25 x 4.8 = 50 x 2.4 = 100 x 1.2",
+          "responses": [
+            {
+              "say": "100 × 1.2 = 120.",
+              "tool": "halve",
+              "type": "25 x 4.8 = 50 x 2.4 = 100 x 1.2",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "25 x 4.8 = 100 x 0.12 ?",
+              "tip": "Halved too far. Ask: halve 4.8 twice: what do you get?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.5 x 16",
+          "a": "56",
+          "notes": "Look for: 7 × 8. Ask: \"What happens if you double 3.5?\" Model: halve 3.5 x 16 = 7 x 8",
+          "responses": [
+            {
+              "say": "7 × 8 = 56.",
+              "tool": "halve",
+              "type": "3.5 x 16 = 7 x 8"
+            }
+          ]
+        },
+        {
+          "q": "12.5 x 24",
+          "a": "300",
+          "notes": "Look for: 25 × 12 = 50 × 6 = 100 × 3. Ask: \"How many doubles to get to 100?\" Model: halve 12.5 x 24 = 25 x 12 = 50 x 6 = 100 x 3",
+          "responses": [
+            {
+              "say": "100 × 3 = 300.",
+              "tool": "halve",
+              "type": "12.5 x 24 = 25 x 12 = 50 x 6 = 100 x 3"
+            }
+          ]
+        },
+        {
+          "q": "0.25 x 36",
+          "a": "9",
+          "notes": "Look for: 0.5 × 18 = 1 × 9. Or a quarter of 36. Ask: \"What fraction is 0.25?\" Model: halve 0.25 x 36 = 0.5 x 18 = 1 x 9",
+          "responses": [
+            {
+              "say": "1 × 9 = 9.",
+              "tool": "halve",
+              "type": "0.25 x 36 = 0.5 x 18 = 1 x 9"
+            },
+            {
+              "say": "A quarter of 36 is 9.",
+              "tool": "bar",
+              "type": "1/4 of 36"
+            }
+          ]
+        },
+        {
+          "q": "4.5 x 18",
+          "a": "81",
+          "notes": "Look for: 9 × 9. Ask: \"Double 4.5?\" Model: halve 4.5 x 18 = 9 x 9",
+          "responses": [
+            {
+              "say": "9 × 9 = 81.",
+              "tool": "halve",
+              "type": "4.5 x 18 = 9 x 9"
+            }
+          ]
+        },
+        {
+          "q": "1.25 x 32",
+          "a": "40",
+          "notes": "Look for: 2.5 × 16 = 5 × 8 = 10 × 4. Ask: \"How far can you go?\" Model: halve 1.25 x 32 = 2.5 x 16 = 5 x 8 = 10 x 4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 × 4 = 40.",
+              "tool": "halve",
+              "type": "1.25 x 32 = 2.5 x 16 = 5 x 8 = 10 x 4"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 2 · Day 2: Double and Halve"
+    },
+    {
+      "id": "g8-r2-mult-d3-over-and-back",
+      "title": "Over and Back with Decimals",
+      "label": "Day 3",
+      "group": "Grade 8 · Round 2 · Multiplication",
+      "tool": "area",
+      "strategy": "Multiply by a friendly number just over, then take back the extra groups. 19 × 3.5 is 20 × 3.5 − 3.5. With decimal factors, check what the extra group is.",
+      "topic": "mult",
+      "keywords": "over and back, friendly number, take back a group, decimals, area model",
+      "curriculum": [
+        "B2.1"
+      ],
+      "watchFor": [
+        "Taking back 1 instead of one group (19 × 3.5 = 70 − 1): ask \"One less group of what?\"",
+        "Taking back the wrong group when the decimal is in the other factor (4.99 × 8 = 40 − 0.01): ask \"How much is 0.01 × 8?\"",
+        "Losing the decimal: ask \"About how big should 99 × 0.7 be?\""
+      ],
+      "wrapUp": "Ask \"What was the extra group each time?\" Land: multiply by the friendly number, then take back the extra: one group of the other factor (19 × 3.5 takes back 3.5), or 0.01 of it (4.99 × 8 takes back 0.08).",
+      "problems": [
+        {
+          "q": "19 x 3.5",
+          "a": "66.5",
+          "notes": "Look for: 20 × 3.5 − 3.5 = 70 − 3.5. Ask: \"What's one more group?\" Word choice: \"take back a group\". Model: area 20-1 x 3.5",
+          "responses": [
+            {
+              "say": "70 − 3.5 = 66.5.",
+              "tool": "area",
+              "type": "20-1 x 3.5",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "69",
+              "tool": "text",
+              "type": "19 x 3.5 = 70 - 1 = 69 ?",
+              "tip": "Took back 1, not one group of 3.5. Ask: one less group of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.9 x 6",
+          "a": "17.4",
+          "notes": "Look for: 3 × 6 − 0.1 × 6 = 18 − 0.6. Ask: \"How far is 2.9 from 3?\" Model: area 3-0.1 x 6",
+          "responses": [
+            {
+              "say": "18 − 0.6 = 17.4.",
+              "tool": "area",
+              "type": "3-0.1 x 6"
+            },
+            {
+              "say": "17.9",
+              "tool": "text",
+              "type": "2.9 x 6 = 18 - 0.1 = 17.9 ?",
+              "tip": "Took back 0.1, not 0.1 × 6. Ask: how many 0.1s did you add?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "99 x 0.7",
+          "a": "69.3",
+          "notes": "Look for: 100 × 0.7 − 0.7 = 70 − 0.7. Ask: \"Same move?\" Model: area 100-1 x 0.7",
+          "responses": [
+            {
+              "say": "70 − 0.7 = 69.3.",
+              "tool": "area",
+              "type": "100-1 x 0.7"
+            }
+          ]
+        },
+        {
+          "q": "4.99 x 8",
+          "a": "39.92",
+          "notes": "Look for: 5 × 8 − 0.01 × 8 = 40 − 0.08. Ask: \"What's the extra?\" Model: area 5-0.01 x 8",
+          "responses": [
+            {
+              "say": "40 − 0.08 = 39.92.",
+              "tool": "area",
+              "type": "5-0.01 x 8"
+            },
+            {
+              "say": "39.99",
+              "tool": "text",
+              "type": "4.99 x 8 = 40 - 0.01 = 39.99 ?",
+              "tip": "Ask: 8 of them were each 0.01 too big. How much too much?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "21 x 1.5",
+          "a": "31.5",
+          "notes": "Look for: 20 × 1.5 + 1.5 = 30 + 1.5. Ask: \"Over or under?\" Model: area 20+1 x 1.5",
+          "responses": [
+            {
+              "say": "30 + 1.5 = 31.5.",
+              "tool": "area",
+              "type": "20+1 x 1.5",
+              "tip": "One more group."
+            }
+          ]
+        },
+        {
+          "q": "0.98 x 25",
+          "a": "24.5",
+          "notes": "Look for: 25 − 0.02 × 25 = 25 − 0.5. Ask: \"What's 0.98 close to?\" Model: area 1-0.02 x 25",
+          "responses": [
+            {
+              "say": "25 − 0.5 = 24.5.",
+              "tool": "area",
+              "type": "1-0.02 x 25"
+            }
+          ]
+        },
+        {
+          "q": "199 x 0.3",
+          "a": "59.7",
+          "notes": "Look for: 200 × 0.3 − 0.3. Ask: \"Which way?\" Model: area 200-1 x 0.3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "60 − 0.3 = 59.7.",
+              "tool": "area",
+              "type": "200-1 x 0.3"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 2 · Day 3: Over and Back"
+    },
+    {
+      "id": "g8-r2-mult-d4-dividing-by-5-25-50",
+      "title": "Dividing by 5, 25 and 50",
+      "label": "Day 4",
+      "group": "Grade 8 · Round 2 · Multiplication",
+      "tool": "ratio",
+      "strategy": "Dividing by 5 is dividing by 10 and doubling. Dividing by 25 is dividing by 100 and multiplying by 4. Dividing by 50 is dividing by 100 and doubling.",
+      "topic": "mult",
+      "keywords": "divide, times 2, times 4, divide by 10, divide by 100, how many groups",
+      "curriculum": [
+        "B2.1",
+        "B2.3"
+      ],
+      "watchFor": [
+        "Halving instead of doubling (120 ÷ 5 = 6): ask \"Are there more 5s or more 10s in 120?\"",
+        "Losing the decimal (460 ÷ 25 = 184): ask \"About how many 25s in 460?\"",
+        "Not seeing 90 ÷ 2.5 as 900 ÷ 25: ask \"Could you multiply both by 10?\""
+      ],
+      "wrapUp": "Ask \"Why do we double when we divide by 5?\" Land: 5 is half of 10, so twice as many 5s fit as 10s. For 25, four times as many fit as 100s.",
+      "problems": [
+        {
+          "q": "120 / 5",
+          "a": "24",
+          "notes": "Look for: 12 tens, so 24 fives. Ask: \"How many 10s? How many 5s?\" Model: ratio 10:12, 5:24",
+          "responses": [
+            {
+              "say": "120 ÷ 10 = 12, doubled is 24.",
+              "tool": "ratio",
+              "type": "10:12, 5:24",
+              "tip": "Twice as many 5s as 10s."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "120 ÷ 5 = 12 ÷ 2 = 6 ?",
+              "tip": "Halved instead of doubling. Ask: are there more 5s or more 10s in 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 / 25",
+          "a": "4.8",
+          "notes": "Look for: 1.2 hundreds, × 4. Ask: \"How many 25s in a hundred?\" Model: ratio 100:1.2, 25:4.8",
+          "responses": [
+            {
+              "say": "120 ÷ 100 = 1.2, × 4 = 4.8.",
+              "tool": "ratio",
+              "type": "100:1.2, 25:4.8"
+            },
+            {
+              "say": "4 quarters in each dollar: $1.20 is 4.8 quarters.",
+              "tool": "text",
+              "type": "120 cents ÷ 25 cents = 4.8",
+              "tip": "Money connection."
+            }
+          ]
+        },
+        {
+          "q": "350 / 50",
+          "a": "7",
+          "notes": "Look for: 3.5 hundreds, doubled. Ask: \"How many 50s in 100?\" Model: ratio 100:3.5, 50:7",
+          "responses": [
+            {
+              "say": "3.5 × 2 = 7.",
+              "tool": "ratio",
+              "type": "100:3.5, 50:7"
+            }
+          ]
+        },
+        {
+          "q": "460 / 25",
+          "a": "18.4",
+          "notes": "Look for: 4.6 × 4. Ask: \"About how many?\" Model: ratio 100:4.6, 25:18.4",
+          "responses": [
+            {
+              "say": "4.6 × 4 = 18.4.",
+              "tool": "ratio",
+              "type": "100:4.6, 25:18.4"
+            },
+            {
+              "say": "184",
+              "tool": "text",
+              "type": "460 ÷ 25 = 184 ?",
+              "tip": "Ask: about how many 25s fit in 460? Fewer than 20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.5 / 5",
+          "a": "1.5",
+          "notes": "Look for: 0.75 doubled. Ask: \"Same move with a decimal?\" Model: ratio 10:0.75, 5:1.5",
+          "responses": [
+            {
+              "say": "7.5 ÷ 10 = 0.75, doubled 1.5.",
+              "tool": "ratio",
+              "type": "10:0.75, 5:1.5"
+            }
+          ]
+        },
+        {
+          "q": "90 / 2.5",
+          "a": "36",
+          "notes": "Look for: 900 ÷ 25 = 9 × 4. Ask: \"Could you multiply both by 10?\" Model: text 90 ÷ 2.5 = 900 ÷ 25 ; = 9 x 4 = 36",
+          "responses": [
+            {
+              "say": "900 ÷ 25 = 36.",
+              "tool": "text",
+              "type": "90 ÷ 2.5 = 900 ÷ 25 ; = 9 x 4 = 36",
+              "tip": "Scale both, then divide by 25."
+            },
+            {
+              "say": "2.5 fits 4 times in 10, so 36 times in 90.",
+              "tool": "ratio",
+              "type": "10:4, 90:36"
+            }
+          ]
+        },
+        {
+          "q": "1000 / 125",
+          "a": "8",
+          "notes": "Look for: 125 × 8 = 1000. Ask: \"What do you know about 125?\" Model: halve 125 x 8 = 250 x 4 = 500 x 2 = 1000 x 1",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 eighths of 1000.",
+              "tool": "halve",
+              "type": "125 x 8 = 250 x 4 = 500 x 2 = 1000 x 1"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 2 · Day 4: Dividing by 5"
+    },
+    {
+      "id": "g8-r2-mult-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy, Round 2",
+      "label": "Day 5",
+      "group": "Grade 8 · Round 2 · Multiplication",
+      "tool": "area",
+      "strategy": "Look at the factors first: is one near a friendly number? Can you double and halve? Is there a 5 or 25? Then choose.",
+      "topic": "mult",
+      "keywords": "choose, double and halve, over and back, times 5, divide by 25, friendly factor",
+      "curriculum": [
+        "B2.1"
+      ],
+      "watchFor": [
+        "Using the algorithm for 4.5 × 22: ask \"Can you double one and halve the other?\"",
+        "Over and back with the wrong group: ask \"One less group of what?\"",
+        "Not estimating: ask \"About how big should it be?\""
+      ],
+      "wrapUp": "Ask \"What did you notice first?\" Land: a factor near a friendly number means over and back; an even factor with a 5, 25 or decimal means double and halve; × 5 or ÷ 25 means think in 10s or 100s.",
+      "problems": [
+        {
+          "q": "4.5 x 22",
+          "a": "99",
+          "notes": "Look for: 9 × 11. Ask: \"Double and halve?\" Model: halve 4.5 x 22 = 9 x 11",
+          "responses": [
+            {
+              "say": "9 × 11 = 99.",
+              "tool": "halve",
+              "type": "4.5 x 22 = 9 x 11"
+            }
+          ]
+        },
+        {
+          "q": "39 x 2.5",
+          "a": "97.5",
+          "notes": "Look for: 40 × 2.5 − 2.5 = 100 − 2.5. Ask: \"Over and back?\" Model: area 40-1 x 2.5",
+          "responses": [
+            {
+              "say": "100 − 2.5 = 97.5.",
+              "tool": "area",
+              "type": "40-1 x 2.5"
+            },
+            {
+              "say": "99",
+              "tool": "text",
+              "type": "39 x 2.5 = 100 - 1 = 99 ?",
+              "tip": "Ask: one less group of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.4 x 5",
+          "a": "32",
+          "notes": "Look for: 64 halved. Ask: \"Which strategy fits these numbers?\" Model: ratio 1:6.4, 10:64, 5:32",
+          "responses": [
+            {
+              "say": "64 ÷ 2 = 32.",
+              "tool": "ratio",
+              "type": "1:6.4, 10:64, 5:32"
+            }
+          ]
+        },
+        {
+          "q": "340 / 25",
+          "a": "13.6",
+          "notes": "Look for: 3.4 × 4. Ask: \"Which strategy fits these numbers?\" Model: ratio 100:3.4, 25:13.6",
+          "responses": [
+            {
+              "say": "3.4 × 4 = 13.6.",
+              "tool": "ratio",
+              "type": "100:3.4, 25:13.6"
+            }
+          ]
+        },
+        {
+          "q": "0.5 x 0.5",
+          "a": "0.25",
+          "notes": "Look for: half of a half. Ask: \"Bigger or smaller than 0.5?\" Model: area 0.5 x 0.5",
+          "responses": [
+            {
+              "say": "Half of 0.5: 0.25.",
+              "tool": "area",
+              "type": "0.5 x 0.5"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "0.5 x 0.5 = 1 ?",
+              "tip": "Added. Ask: what is half of a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5 x 2.4",
+          "a": "3.6",
+          "notes": "Look for: 3 × 1.2 (double and halve), or 2.4 + 1.2. Ask: \"Which way?\" Model: halve 1.5 x 2.4 = 3 x 1.2",
+          "responses": [
+            {
+              "say": "3 × 1.2 = 3.6.",
+              "tool": "halve",
+              "type": "1.5 x 2.4 = 3 x 1.2"
+            },
+            {
+              "say": "2.4 and half of 2.4: 2.4 + 1.2 = 3.6.",
+              "tool": "area",
+              "type": "1+0.5 x 2.4"
+            }
+          ]
+        },
+        {
+          "q": "2.5 x 2.5",
+          "a": "6.25",
+          "notes": "Look for: 2 × 2.5 + 0.5 × 2.5 = 5 + 1.25. Ask: \"Split a factor?\" Model: area 2+0.5 x 2.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5 + 1.25 = 6.25.",
+              "tool": "area",
+              "type": "2+0.5 x 2.5"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 2 · Day 5: Choosing a Strategy"
+    }
+  ]
+}

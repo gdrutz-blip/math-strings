@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-bank-ops-01-order-of-operations",
+      "title": "Order of Operations",
+      "label": "Bank",
+      "group": "Grade 8 · Bank · Order of Operations",
+      "tool": "text",
+      "strategy": "Brackets, then exponents, then multiplication and division, then addition and subtraction. Pairs of problems show how brackets and exponents change the answer.",
+      "topic": "pow",
+      "keywords": "order of operations, brackets, exponents, multiply first, BEDMAS",
+      "curriculum": [
+        "B2.1"
+      ],
+      "watchFor": [
+        "Working left to right (2 + 3 × 4 = 20): ask \"Which comes first?\"",
+        "Treating 3^2 as 3 × 2: ask \"What does the exponent mean?\"",
+        "Squaring only part of a bracket: ask \"What's inside the brackets first?\""
+      ],
+      "wrapUp": "Ask \"Why did each pair have different answers?\" Land: brackets go first, then exponents, then × and ÷, then + and −. Changing the brackets changes what happens first.",
+      "problems": [
+        {
+          "q": "2 + 3 x 4",
+          "a": "14",
+          "notes": "Look for: 3 × 4 first. Ask: \"Which comes first?\" Word choice: \"multiply before you add\". Model: text 3 x 4 = 12 ; 2 + 12 = 14",
+          "responses": [
+            {
+              "say": "12 + 2 = 14.",
+              "tool": "text",
+              "type": "3 x 4 = 12 ; 2 + 12 = 14"
+            },
+            {
+              "say": "20",
+              "tool": "text",
+              "type": "2 + 3 = 5 ; 5 x 4 = 20 ?",
+              "tip": "Worked left to right. Ask: which comes first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(2 + 3) x 4",
+          "a": "20",
+          "notes": "Look for: brackets first. Ask: \"What changed?\" Model: text 2 + 3 = 5 ; 5 x 4 = 20",
+          "responses": [
+            {
+              "say": "5 × 4 = 20.",
+              "tool": "text",
+              "type": "2 + 3 = 5 ; 5 x 4 = 20"
+            }
+          ]
+        },
+        {
+          "q": "2 + 3^2",
+          "a": "11",
+          "notes": "Look for: 3^2 = 9 first. Ask: \"Exponent or adding first?\" Model: text 3^2 = 9 ; 2 + 9 = 11",
+          "responses": [
+            {
+              "say": "9 + 2 = 11.",
+              "tool": "text",
+              "type": "3^2 = 9 ; 2 + 9 = 11"
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "2 + 3^2 = 2 + 6 = 8 ?",
+              "tip": "Read 3^2 as 3 × 2. Ask: what does the exponent mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(2 + 3)^2",
+          "a": "25",
+          "notes": "Look for: 5^2. Ask: \"How did the brackets change it?\" Model: text 2 + 3 = 5 ; 5^2 = 25",
+          "responses": [
+            {
+              "say": "5^2 = 25.",
+              "tool": "text",
+              "type": "2 + 3 = 5 ; 5^2 = 25"
+            },
+            {
+              "say": "13",
+              "tool": "text",
+              "type": "(2 + 3)^2 = 4 + 9 = 13 ?",
+              "tip": "Squared each part. Ask: what's inside the brackets first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 1/2 x 4",
+          "a": "2 1/2",
+          "notes": "Look for: 1/2 × 4 = 2 first. Ask: \"Does the order matter with fractions?\" Model: text 1/2 x 4 = 2 ; 1/2 + 2 = 2 1/2",
+          "responses": [
+            {
+              "say": "2 + 1/2 = 2 1/2.",
+              "tool": "text",
+              "type": "1/2 x 4 = 2 ; 1/2 + 2 = 2 1/2"
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "1/2 + 1/2 = 1 ; 1 x 4 = 4 ?",
+              "tip": "Ask: which comes first, adding or multiplying?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - 6 / 2 + 1",
+          "a": "8",
+          "notes": "Look for: 6 ÷ 2 = 3, then 10 − 3 + 1. Ask: \"Left to right for − and +?\" Model: text 6 ÷ 2 = 3 ; 10 - 3 + 1 = 8",
+          "responses": [
+            {
+              "say": "10 − 3 + 1 = 8.",
+              "tool": "text",
+              "type": "6 ÷ 2 = 3 ; 10 - 3 + 1 = 8"
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "10 - 3 + 1 = 10 - 4 = 6 ?",
+              "tip": "Added before subtracting. Ask: with only + and −, which way do you go?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x (4 - 1)^2",
+          "a": "27",
+          "notes": "Look for: 3 × 3^2 = 3 × 9. Ask: \"Brackets, exponent, multiply?\" Model: text 4 - 1 = 3 ; 3^2 = 9 ; 3 x 9 = 27",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 9 = 27.",
+              "tool": "text",
+              "type": "4 - 1 = 3 ; 3^2 = 9 ; 3 x 9 = 27"
+            },
+            {
+              "say": "81",
+              "tool": "text",
+              "type": "3 x (4 - 1)^2 = 9^2 = 81 ?",
+              "tip": "Multiplied before the exponent. Ask: exponent or multiplying first?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
