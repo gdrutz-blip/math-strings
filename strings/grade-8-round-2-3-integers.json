@@ -1,0 +1,680 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-r2-int-d1-adding-integers",
+      "title": "Adding Integers",
+      "label": "Day 1",
+      "group": "Grade 8 · Round 2 · Integers",
+      "tool": "vline",
+      "strategy": "Adding a negative moves down; adding a positive moves up. Jump to zero first when you cross it, or make zero pairs.",
+      "topic": "int",
+      "keywords": "integers, positive, negative, zero, zero pairs, jump through zero, vertical number line",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adding the digits and keeping the first sign (-25 + 40 = -65): ask \"Do you go up or down from −25? How far?\"",
+        "Thinking two negatives make a positive when adding: ask \"Owing 8 and owing 3 more: how much do you owe?\"",
+        "Losing track crossing zero: ask \"How far is −63 from 0? Then how much is left of the 48?\""
+      ],
+      "wrapUp": "Ask \"How did zero help?\" Land: jump to zero first, then use what's left. Adding a negative moves down; adding a positive moves up.",
+      "problems": [
+        {
+          "q": "8 + -3",
+          "a": "5",
+          "notes": "Look for: down 3 from 8. Ask: \"Hold on to this.\" Word choice: \"adding a negative\". Model: vline 8 -3",
+          "responses": [
+            {
+              "say": "Down 3 from 8: 5.",
+              "tool": "vline",
+              "type": "8 -3"
+            },
+            {
+              "say": "3 zero pairs, 5 positives left.",
+              "tool": "tiles",
+              "type": "8 + -3"
+            }
+          ]
+        },
+        {
+          "q": "-8 + 3",
+          "a": "-5",
+          "notes": "Look for: up 3 from −8. Ask: \"What's the same as the last one? What's different?\" Model: vline -8 +3",
+          "responses": [
+            {
+              "say": "Up 3 from −8: −5.",
+              "tool": "vline",
+              "type": "-8 +3"
+            },
+            {
+              "say": "5",
+              "tool": "text",
+              "type": "-8 + 3 = 5 ?",
+              "tip": "Ask: from −8, going up 3, do you reach zero?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-8 + -3",
+          "a": "-11",
+          "notes": "Look for: down 3 more from −8. Ask: \"Up or down?\" Model: vline -8 -3",
+          "responses": [
+            {
+              "say": "Down 3 from −8: −11.",
+              "tool": "vline",
+              "type": "-8 -3"
+            },
+            {
+              "say": "11",
+              "tool": "text",
+              "type": "-8 + -3 = 11 ?",
+              "tip": "Ask: owing 8 and owing 3 more: how much do you owe?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-25 + 40",
+          "a": "15",
+          "notes": "Look for: 25 up to 0, 15 more. Ask: \"Where does zero help?\" Model: vline -25 +25 +15",
+          "responses": [
+            {
+              "say": "Up 25 to 0, 15 more: 15.",
+              "tool": "vline",
+              "type": "-25 +25 +15",
+              "tip": "Through zero."
+            },
+            {
+              "say": "-65",
+              "tool": "text",
+              "type": "-25 + 40 = -65 ?",
+              "tip": "Added the numbers, kept the sign. Ask: up or down from −25?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-63 + 48",
+          "a": "-15",
+          "notes": "Look for: up 48 doesn't reach zero: −15. Ask: \"Do you get to zero?\" Model: numberline -63 +48",
+          "responses": [
+            {
+              "say": "Up 48 from −63: −15.",
+              "tool": "numberline",
+              "type": "-63 +48"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "-63 + 48 = 15 ?",
+              "tip": "Right size, wrong side. Ask: is 48 enough to get from −63 to 0?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "120 + -175",
+          "a": "-55",
+          "notes": "Look for: down 120 to 0, 55 more. Ask: \"Up or down? Past zero?\" Model: numberline 120 -120 -55",
+          "responses": [
+            {
+              "say": "Down 120 to 0, down 55 more: −55.",
+              "tool": "numberline",
+              "type": "120 -120 -55"
+            }
+          ]
+        },
+        {
+          "q": "-2.5 + 4.75",
+          "a": "2.25",
+          "notes": "Look for: up 2.5 to 0, 2.25 more. Ask: \"Same moves with decimals?\" Model: vline -2.5 +2.5 +2.25",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Up 2.5 to 0, 2.25 more: 2.25.",
+              "tool": "vline",
+              "type": "-2.5 +2.5 +2.25"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 3: Multiplying and Dividing Integers"
+    },
+    {
+      "id": "g8-r2-int-d2-subtracting-integers",
+      "title": "Subtracting Integers as Distance",
+      "label": "Day 2",
+      "group": "Grade 8 · Round 2 · Integers",
+      "tool": "vline",
+      "strategy": "a − b is the jump from b to a: how far, and which way. Up is positive, down is negative. 12 − (−5) is the jump from −5 up to 12.",
+      "topic": "int",
+      "keywords": "difference, distance, from, to, up, down, vertical number line, thermometer",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Treating − − as \"just subtract\" (12 − −5 = 7): ask \"How far is it from −5 to 12?\"",
+        "Right distance, wrong direction (−30 − −45 = −15): ask \"From −45 to −30, up or down?\"",
+        "Seeing a double negative where there isn't one (45 − 72): ask \"Is 72 negative?\""
+      ],
+      "wrapUp": "Ask \"How does 'from the second number to the first' help?\" Land: a − b is the jump from b to a. Up is positive, down is negative. Through zero, add the two parts.",
+      "problems": [
+        {
+          "q": "12 - -5",
+          "a": "17",
+          "notes": "Look for: from −5 up to 0 is 5, then 12 more. Ask: \"How far from −5 to 12?\" Word choice: \"from −5 to 12\". Model: vline -5 >0 >12",
+          "responses": [
+            {
+              "say": "5 + 12 = 17, going up.",
+              "tool": "vline",
+              "type": "-5 >0 >12",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Add the opposite: 12 + 5 = 17.",
+              "tool": "tiles",
+              "type": "12 - -5"
+            },
+            {
+              "say": "7",
+              "tool": "text",
+              "type": "12 - -5 = 12 - 5 = 7 ?",
+              "tip": "Ask: how far is it from −5 to 12 on the thermometer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 - 5",
+          "a": "-17",
+          "notes": "Look for: from 5 down to −12: 17 down. Ask: \"Up or down?\" Model: vline 5 -5 -12",
+          "responses": [
+            {
+              "say": "Down 5 to 0, down 12 more: −17.",
+              "tool": "vline",
+              "type": "5 -5 -12"
+            },
+            {
+              "say": "Start at −12, go down 5: −17.",
+              "tool": "vline",
+              "type": "-12 -5",
+              "tip": "Taking away 5. Also fine."
+            }
+          ]
+        },
+        {
+          "q": "-12 - -5",
+          "a": "-7",
+          "notes": "Look for: from −5 down to −12: 7 down. Ask: \"Is −12 above or below −5?\" Model: vline -5 -7",
+          "responses": [
+            {
+              "say": "From −5 down to −12 is 7 down: −7.",
+              "tool": "vline",
+              "type": "-5 -7"
+            },
+            {
+              "say": "7",
+              "tool": "text",
+              "type": "-12 - -5 = 7 ?",
+              "tip": "Right distance, wrong direction. Ask: from −5 to −12, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-30 - -45",
+          "a": "15",
+          "notes": "Look for: from −45 up to −30: 15. Ask: \"Which is higher?\" Model: vline -45 >-30",
+          "responses": [
+            {
+              "say": "Up 15 from −45 to −30.",
+              "tool": "vline",
+              "type": "-45 >-30"
+            },
+            {
+              "say": "-15",
+              "tool": "text",
+              "type": "-30 - -45 = -15 ?",
+              "tip": "Ask: from −45 to −30, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "45 - 72",
+          "a": "-27",
+          "notes": "Look for: from 72 down to 45: 27 down. Ask: \"Is there a double negative here?\" Model: vline 72 -27",
+          "responses": [
+            {
+              "say": "From 72 down to 45: −27.",
+              "tool": "vline",
+              "type": "72 -27"
+            },
+            {
+              "say": "27",
+              "tool": "text",
+              "type": "45 - 72 = 27 ?",
+              "tip": "Ask: is the answer above or below zero if you take 72 from 45?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-1.5 - 2.5",
+          "a": "-4",
+          "notes": "Look for: from 2.5 down to −1.5: 2.5 to 0, 1.5 more. Ask: \"Same with decimals?\" Model: vline 2.5 -2.5 -1.5",
+          "responses": [
+            {
+              "say": "Down 2.5 to 0, down 1.5: −4.",
+              "tool": "vline",
+              "type": "2.5 -2.5 -1.5"
+            }
+          ]
+        },
+        {
+          "q": "-100 - -37",
+          "a": "-63",
+          "notes": "Look for: from −37 down to −100: 63 down. Ask: \"How far apart are they?\" Model: vline -37 -63",
+          "optional": true,
+          "responses": [
+            {
+              "say": "From −37 down 63 to −100: −63.",
+              "tool": "vline",
+              "type": "-37 -63"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 1: Adding Integers"
+    },
+    {
+      "id": "g8-r2-int-d3-bigger-products",
+      "title": "Bigger Integer Products and Quotients",
+      "label": "Day 3",
+      "group": "Grade 8 · Round 2 · Integers",
+      "tool": "text",
+      "strategy": "Work out the size with a mental math strategy (double and halve, a friendly factor), then decide the sign: same signs positive, different signs negative.",
+      "topic": "int",
+      "keywords": "integers, product, quotient, sign, double and halve, friendly factor",
+      "curriculum": [
+        "B2.7",
+        "B2.1"
+      ],
+      "watchFor": [
+        "Getting the size right but the sign wrong: ask \"Same signs or different signs?\"",
+        "Doing the sign first and getting lost in the calculation: ask \"Ignore the signs: what's 25 × 16?\"",
+        "With decimals (−48 ÷ −1.2), losing the place: ask \"How many 1.2s in 48? About how many?\""
+      ],
+      "wrapUp": "Ask \"How did you split the work?\" Land: size first, with your best mental strategy; sign second, from the rule. Two separate questions.",
+      "problems": [
+        {
+          "q": "-25 x 16",
+          "a": "-400",
+          "notes": "Look for: 25 × 16 = 100 × 4, then the sign. Ask: \"Size first, then sign?\" Word choice: \"same signs, different signs\". Model: halve 25 x 16 = 50 x 8 = 100 x 4",
+          "responses": [
+            {
+              "say": "25 × 16 = 400, different signs: −400.",
+              "tool": "halve",
+              "type": "25 x 16 = 50 x 8 = 100 x 4",
+              "tip": "Size by double and halve, then the sign."
+            },
+            {
+              "say": "400",
+              "tool": "text",
+              "type": "-25 x 16 = 400 ?",
+              "tip": "Size right, sign wrong. Ask: same signs or different signs?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-12 x -15",
+          "a": "180",
+          "notes": "Look for: 12 × 15 = 6 × 30. Ask: \"Same signs?\" Model: halve 12 x 15 = 6 x 30",
+          "responses": [
+            {
+              "say": "6 × 30 = 180, same signs: 180.",
+              "tool": "halve",
+              "type": "12 x 15 = 6 x 30"
+            }
+          ]
+        },
+        {
+          "q": "-360 / 24",
+          "a": "-15",
+          "notes": "Look for: 360 ÷ 24 = 15. Ask: \"What's 24 × 15?\" Model: text 24 x 15 = 360 ; -360 ÷ 24 = -15",
+          "responses": [
+            {
+              "say": "24 × 15 = 360, different signs: −15.",
+              "tool": "text",
+              "type": "24 x 15 = 360 ; -360 ÷ 24 = -15"
+            }
+          ]
+        },
+        {
+          "q": "1.5 x -8",
+          "a": "-12",
+          "notes": "Look for: 8 and half of 8. Ask: \"Does the rule change with decimals?\" Model: area 1+0.5 x 8",
+          "responses": [
+            {
+              "say": "8 + 4 = 12, different signs: −12.",
+              "tool": "area",
+              "type": "1+0.5 x 8"
+            }
+          ]
+        },
+        {
+          "q": "-0.5 x -36",
+          "a": "18",
+          "notes": "Look for: half of 36. Ask: \"Same signs?\" Model: bar 1/2 of 36",
+          "responses": [
+            {
+              "say": "Half of 36 is 18, positive.",
+              "tool": "bar",
+              "type": "1/2 of 36"
+            },
+            {
+              "say": "-18",
+              "tool": "text",
+              "type": "-0.5 x -36 = -18 ?",
+              "tip": "Ask: two negatives multiplied: same signs or different?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-48 / -1.2",
+          "a": "40",
+          "notes": "Look for: 480 ÷ 12. Ask: \"How many 1.2s in 48?\" Model: text -48 ÷ -1.2 = 480 ÷ 12 ; = 40",
+          "responses": [
+            {
+              "say": "480 ÷ 12 = 40, same signs: 40.",
+              "tool": "text",
+              "type": "-48 ÷ -1.2 = 480 ÷ 12 ; = 40",
+              "tip": "Scale both by 10."
+            },
+            {
+              "say": "4",
+              "tool": "text",
+              "type": "-48 ÷ -1.2 = 4 ?",
+              "tip": "Ask: 4 × 1.2 is 4.8. Is that 48?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-125 x -8",
+          "a": "1000",
+          "notes": "Look for: 125 × 8 = 1000. Ask: \"What do you know about 125?\" Model: halve 125 x 8 = 250 x 4 = 500 x 2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1000, same signs.",
+              "tool": "halve",
+              "type": "125 x 8 = 250 x 4 = 500 x 2"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 3: Multiplying and Dividing Integers"
+    },
+    {
+      "id": "g8-r2-int-d4-order-of-operations",
+      "title": "Order of Operations with Integers",
+      "label": "Day 4",
+      "group": "Grade 8 · Round 2 · Integers",
+      "tool": "text",
+      "strategy": "Brackets first, then multiplication and division, then addition and subtraction. Pairs of problems that differ only by brackets show why the order matters.",
+      "topic": "int",
+      "keywords": "order of operations, brackets, multiply first, integers, sign",
+      "curriculum": [
+        "B2.1",
+        "B2.4",
+        "B2.7"
+      ],
+      "watchFor": [
+        "Working left to right (−3 + 4 × −2 = −2): ask \"Which operation comes first?\"",
+        "Dropping the sign after multiplying (20 − 3 × −4 = 20 − 12): ask \"What is 3 × −4? What does subtracting a negative do?\"",
+        "Ignoring brackets: ask \"What do the brackets tell you to do first?\""
+      ],
+      "wrapUp": "Ask \"Why did each pair have different answers?\" Land: the brackets changed what happens first. Multiplication and division come before addition and subtraction, unless brackets say otherwise.",
+      "problems": [
+        {
+          "q": "-3 + 4 x -2",
+          "a": "-11",
+          "notes": "Look for: 4 × −2 = −8 first, then −3 + −8. Ask: \"Which comes first?\" Word choice: \"multiply first\". Model: text 4 x -2 = -8 ; -3 + -8 = -11",
+          "responses": [
+            {
+              "say": "4 × −2 is −8, then −3 + −8 = −11.",
+              "tool": "text",
+              "type": "4 x -2 = -8 ; -3 + -8 = -11",
+              "tip": "Multiply first."
+            },
+            {
+              "say": "-2",
+              "tool": "text",
+              "type": "-3 + 4 = 1 ; 1 x -2 = -2 ?",
+              "tip": "Worked left to right. Ask: which operation comes first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(-3 + 4) x -2",
+          "a": "-2",
+          "notes": "Look for: brackets first: 1 × −2. Ask: \"What changed?\" Model: text -3 + 4 = 1 ; 1 x -2 = -2",
+          "responses": [
+            {
+              "say": "1 × −2 = −2.",
+              "tool": "text",
+              "type": "-3 + 4 = 1 ; 1 x -2 = -2",
+              "tip": "Brackets change the order."
+            }
+          ]
+        },
+        {
+          "q": "20 - 3 x -4",
+          "a": "32",
+          "notes": "Look for: 3 × −4 = −12, then 20 − −12 = 32. Ask: \"What's 20 − (−12)?\" Model: text 3 x -4 = -12 ; 20 - -12 = 32",
+          "responses": [
+            {
+              "say": "20 − (−12) = 32.",
+              "tool": "text",
+              "type": "3 x -4 = -12 ; 20 - -12 = 32"
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "20 - 3 x -4 = 20 - 12 = 8 ?",
+              "tip": "Lost the negative. Ask: what is 3 × −4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(20 - 3) x -4",
+          "a": "-68",
+          "notes": "Look for: 17 × −4. Ask: \"Brackets first?\" Model: text 20 - 3 = 17 ; 17 x -4 = -68",
+          "responses": [
+            {
+              "say": "17 × −4 = −68.",
+              "tool": "text",
+              "type": "20 - 3 = 17 ; 17 x -4 = -68"
+            }
+          ]
+        },
+        {
+          "q": "-12 / 3 + 5",
+          "a": "1",
+          "notes": "Look for: −12 ÷ 3 = −4, then −4 + 5. Ask: \"Divide first?\" Model: text -12 ÷ 3 = -4 ; -4 + 5 = 1",
+          "responses": [
+            {
+              "say": "−4 + 5 = 1.",
+              "tool": "text",
+              "type": "-12 ÷ 3 = -4 ; -4 + 5 = 1"
+            }
+          ]
+        },
+        {
+          "q": "-12 / (3 + 5)",
+          "a": "-1.5",
+          "notes": "Look for: −12 ÷ 8. Ask: \"What do the brackets do this time?\" Model: text 3 + 5 = 8 ; -12 ÷ 8 = -1.5",
+          "responses": [
+            {
+              "say": "−12 ÷ 8 = −1.5.",
+              "tool": "text",
+              "type": "3 + 5 = 8 ; -12 ÷ 8 = -1.5"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "-12 / (3 + 5) = -12 ÷ 3 + 5 = 1 ?",
+              "tip": "Ignored the brackets. Ask: what do the brackets tell you to do first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2 x (5 - 8)",
+          "a": "12",
+          "notes": "Look for: 5 − 8 = −3, 2 × −3 = −6, 6 − −6 = 12. Ask: \"How many steps?\" Model: text 5 - 8 = -3 ; 2 x -3 = -6 ; 6 - -6 = 12",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Three steps: −3, −6, then 6 − (−6) = 12.",
+              "tool": "text",
+              "type": "5 - 8 = -3 ; 2 x -3 = -6 ; 6 - -6 = 12"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 3: Bigger Integer Products and Quotients"
+    },
+    {
+      "id": "g8-r2-int-d5-choosing-an-integer-strategy",
+      "title": "Choosing an Integer Strategy, Round 2",
+      "label": "Day 5",
+      "group": "Grade 8 · Round 2 · Integers",
+      "tool": "vline",
+      "strategy": "All four operations with integers, mixed. Decide the operation, think about direction or sign, then use a friendly strategy for the size.",
+      "topic": "int",
+      "keywords": "integers, add, subtract, multiply, divide, sign, direction, distance",
+      "curriculum": [
+        "B2.1",
+        "B2.4",
+        "B2.7"
+      ],
+      "watchFor": [
+        "Using the multiplication sign rule for addition (−7 + −9 = 16): ask \"Is it adding or multiplying?\"",
+        "Subtracting as distance in the wrong direction: ask \"From which number to which?\"",
+        "Not checking reasonableness: ask \"Should the answer be positive or negative? Big or small?\""
+      ],
+      "wrapUp": "Ask \"How did you decide the sign each time?\" Land: adding and subtracting are about direction on the number line; multiplying and dividing use same signs/different signs. Size comes from your best mental strategy.",
+      "problems": [
+        {
+          "q": "-7 + -9",
+          "a": "-16",
+          "notes": "Look for: down 9 from −7. Ask: \"Adding or multiplying?\" Model: vline -7 -9",
+          "responses": [
+            {
+              "say": "Down 9 from −7: −16.",
+              "tool": "vline",
+              "type": "-7 -9"
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "-7 + -9 = 16 ?",
+              "tip": "Used the multiplication rule. Ask: is it adding or multiplying?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-7 x -9",
+          "a": "63",
+          "notes": "Look for: same signs, 63. Ask: \"What changed?\" Model: text 7 x 9 = 63 ; same signs: 63",
+          "responses": [
+            {
+              "say": "63, same signs.",
+              "tool": "text",
+              "type": "7 x 9 = 63 ; same signs: 63"
+            }
+          ]
+        },
+        {
+          "q": "15 - -15",
+          "a": "30",
+          "notes": "Look for: from −15 up to 15. Ask: \"How far apart?\" Model: vline -15 >0 >15",
+          "responses": [
+            {
+              "say": "15 + 15 = 30.",
+              "tool": "vline",
+              "type": "-15 >0 >15"
+            }
+          ]
+        },
+        {
+          "q": "-84 / 7",
+          "a": "-12",
+          "notes": "Look for: 84 ÷ 7 = 12, different signs. Ask: \"Which strategy fits these numbers?\" Model: text 7 x 12 = 84 ; -84 ÷ 7 = -12",
+          "responses": [
+            {
+              "say": "−12.",
+              "tool": "text",
+              "type": "7 x 12 = 84 ; -84 ÷ 7 = -12"
+            }
+          ]
+        },
+        {
+          "q": "-50 + 125",
+          "a": "75",
+          "notes": "Look for: up 50 to 0, 75 more. Ask: \"Which strategy fits these numbers?\" Model: vline -50 +50 +75",
+          "responses": [
+            {
+              "say": "Up 50, then 75: 75.",
+              "tool": "vline",
+              "type": "-50 +50 +75"
+            }
+          ]
+        },
+        {
+          "q": "-4 x 2.5 x -3",
+          "a": "30",
+          "notes": "Look for: −4 × 2.5 = −10, × −3 = 30. Ask: \"Which pair first?\" Model: text -4 x 2.5 = -10 ; -10 x -3 = 30",
+          "responses": [
+            {
+              "say": "−10 × −3 = 30.",
+              "tool": "text",
+              "type": "-4 x 2.5 = -10 ; -10 x -3 = 30",
+              "tip": "Pick the friendly pair first."
+            },
+            {
+              "say": "-30",
+              "tool": "text",
+              "type": "-4 x 2.5 x -3 = -30 ?",
+              "tip": "Ask: how many negatives? Even or odd?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(-6 + -4) x (3 - 8)",
+          "a": "50",
+          "notes": "Look for: −10 × −5 = 50. Ask: \"Brackets first?\" Model: text -6 + -4 = -10 ; 3 - 8 = -5 ; -10 x -5 = 50",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−10 × −5 = 50.",
+              "tool": "text",
+              "type": "-6 + -4 = -10 ; 3 - 8 = -5 ; -10 x -5 = 50"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 3 · Day 5: Choosing an Integer Strategy"
+    }
+  ]
+}

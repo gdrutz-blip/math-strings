@@ -1,0 +1,614 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-r2-add-d1-adding-near-a-whole",
+      "title": "Adding Near a Whole",
+      "label": "Day 1",
+      "group": "Grade 8 · Round 2 · Additive Reasoning",
+      "tool": "numberline",
+      "strategy": "Add a friendly whole number, then take back the extra. The same move as 38 + 9, now with decimals: 3.8 + 0.9 is 3.8 + 1 − 0.1.",
+      "topic": "dec",
+      "keywords": "friendly number, take back, decimals, tenths, hundredths, thousandths",
+      "curriculum": [
+        "B2.1"
+      ],
+      "watchFor": [
+        "Adjusting the wrong way (4.75 + 2.98 = 4.75 + 3 + 0.02): ask \"Did adding 3 add too much or too little?\"",
+        "Taking back the wrong place (12.6 + 7.99 = 20.6 − 0.1): ask \"How far is 7.99 from 8?\"",
+        "Lining up 0.45 + 0.98 and losing the regrouping: ask \"What's 0.98 close to?\""
+      ],
+      "wrapUp": "Ask \"How is this like Week 1?\" Land: it's the same move. Add the friendly number, then take back exactly how far away it was: a tenth, a hundredth or a thousandth.",
+      "problems": [
+        {
+          "q": "3.8 + 1",
+          "a": "4.8",
+          "notes": "Look for: just the ones change. Ask: \"Hold on to this.\" Model: numberline 3.8 +1",
+          "responses": [
+            {
+              "say": "4.8.",
+              "tool": "numberline",
+              "type": "3.8 +1"
+            }
+          ]
+        },
+        {
+          "q": "3.8 + 0.9",
+          "a": "4.7",
+          "notes": "Look for: add 1, take back 0.1. Ask: \"How does the last one help?\" Word choice: \"take back the extra\". Model: numberline 3.8 +1 -0.1",
+          "responses": [
+            {
+              "say": "3.8 + 1 − 0.1 = 4.7.",
+              "tool": "numberline",
+              "type": "3.8 +1 -0.1",
+              "tip": "Same move as 38 + 9."
+            },
+            {
+              "say": "4.9",
+              "tool": "text",
+              "type": "3.8 + 0.9 = 3.8 + 1 + 0.1 = 4.9 ?",
+              "tip": "Ask: did adding 1 add too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.8 + 1.9",
+          "a": "5.7",
+          "notes": "Look for: add 2, take back 0.1. Ask: \"What's 1.9 close to?\" Model: numberline 3.8 +2 -0.1",
+          "responses": [
+            {
+              "say": "3.8 + 2 − 0.1 = 5.7.",
+              "tool": "numberline",
+              "type": "3.8 +2 -0.1"
+            }
+          ]
+        },
+        {
+          "q": "4.75 + 2.98",
+          "a": "7.73",
+          "notes": "Look for: add 3, take back 0.02. Ask: \"How far is 2.98 from 3?\" Model: numberline 4.75 +3 -0.02",
+          "responses": [
+            {
+              "say": "4.75 + 3 − 0.02 = 7.73.",
+              "tool": "numberline",
+              "type": "4.75 +3 -0.02"
+            },
+            {
+              "say": "7.77",
+              "tool": "text",
+              "type": "4.75 + 2.98 = 4.75 + 3 + 0.02 = 7.77 ?",
+              "tip": "Adjusted the wrong way. Ask: too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.6 + 7.99",
+          "a": "20.59",
+          "notes": "Look for: add 8, take back 0.01. Ask: \"Which place is the extra in?\" Model: numberline 12.6 +8 -0.01",
+          "responses": [
+            {
+              "say": "20.6 − 0.01 = 20.59.",
+              "tool": "numberline",
+              "type": "12.6 +8 -0.01"
+            },
+            {
+              "say": "20.5",
+              "tool": "text",
+              "type": "12.6 + 7.99 = 20.6 - 0.1 = 20.5 ?",
+              "tip": "Took back a tenth. Ask: is 7.99 a tenth or a hundredth from 8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.45 + 0.98",
+          "a": "1.43",
+          "notes": "Look for: add 1, take back 0.02. Ask: \"Is the answer more or less than 1?\" Model: numberline 0.45 +1 -0.02",
+          "responses": [
+            {
+              "say": "1.45 − 0.02 = 1.43.",
+              "tool": "numberline",
+              "type": "0.45 +1 -0.02"
+            }
+          ]
+        },
+        {
+          "q": "6.25 + 3.995",
+          "a": "10.245",
+          "notes": "Look for: add 4, take back 0.005. Ask: \"Thousandths now?\" Model: numberline 6.25 +4 -0.005",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10.25 − 0.005 = 10.245.",
+              "tool": "numberline",
+              "type": "6.25 +4 -0.005"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 1 · Day 1: Adding Near a Ten"
+    },
+    {
+      "id": "g8-r2-add-d2-give-and-take",
+      "title": "Give and Take with Decimals and Fractions",
+      "label": "Day 2",
+      "group": "Grade 8 · Round 2 · Additive Reasoning",
+      "tool": "givetake",
+      "strategy": "Move an amount from one number to the other so one becomes friendly. The total stays the same with decimals and fractions too.",
+      "topic": "dec",
+      "keywords": "give and take, friendly number, decimals, fractions, mixed numbers, make a whole",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Giving but not taking (2.98 + 4.37 = 3 + 4.37): ask \"Where did the 0.02 come from?\"",
+        "Giving the wrong amount with fractions: ask \"How much does 3 7/8 need to make 4?\"",
+        "Missing that 0.999 is almost 1: ask \"What's 0.999 close to?\""
+      ],
+      "wrapUp": "Ask \"What did each friendly number need?\" Land: find what one number needs to be friendly (0.02, 1/8, 0.001), move that much from the other number, then add.",
+      "problems": [
+        {
+          "q": "2.98 + 4.37",
+          "a": "7.35",
+          "notes": "Look for: give 0.02: 3 + 4.35. Ask: \"What does 2.98 need?\" Model: givetake 2.98 + 4.37 = 3 + 4.35",
+          "responses": [
+            {
+              "say": "3 + 4.35 = 7.35.",
+              "tool": "givetake",
+              "type": "2.98 + 4.37 = 3 + 4.35"
+            },
+            {
+              "say": "7.37",
+              "tool": "text",
+              "type": "2.98 + 4.37 = 3 + 4.37 = 7.37 ?",
+              "tip": "Gave but didn't take. Ask: where did the 0.02 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5.995 + 1.25",
+          "a": "7.245",
+          "notes": "Look for: give 0.005: 6 + 1.245. Ask: \"How far is 5.995 from 6?\" Model: givetake 5.995 + 1.25 = 6 + 1.245",
+          "responses": [
+            {
+              "say": "6 + 1.245 = 7.245.",
+              "tool": "givetake",
+              "type": "5.995 + 1.25 = 6 + 1.245"
+            }
+          ]
+        },
+        {
+          "q": "19.97 + 8.48",
+          "a": "28.45",
+          "notes": "Look for: give 0.03: 20 + 8.45. Ask: \"Which number should get the gift?\" Model: givetake 19.97 + 8.48 = 20 + 8.45",
+          "responses": [
+            {
+              "say": "20 + 8.45 = 28.45.",
+              "tool": "givetake",
+              "type": "19.97 + 8.48 = 20 + 8.45"
+            }
+          ]
+        },
+        {
+          "q": "3 7/8 + 2 3/4",
+          "a": "6 5/8",
+          "notes": "Look for: give 1/8: 4 + 2 5/8. Ask: \"What does 3 7/8 need?\" Word choice: \"make a whole\". Model: numberline 3 7/8 +1/8 +2 +5/8",
+          "responses": [
+            {
+              "say": "1/8 makes 4, then 2 5/8: 6 5/8.",
+              "tool": "numberline",
+              "type": "3 7/8 +1/8 +2 +5/8",
+              "tip": "Give and take with fractions."
+            },
+            {
+              "say": "5 10/12",
+              "tool": "text",
+              "type": "3 7/8 + 2 3/4 = 5 10/12 ?",
+              "tip": "Added tops and bottoms. Ask: is 7/8 + 3/4 more than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.999 + 0.456",
+          "a": "1.455",
+          "notes": "Look for: give 0.001: 1 + 0.455. Ask: \"What's 0.999 close to?\" Model: givetake 0.999 + 0.456 = 1 + 0.455",
+          "responses": [
+            {
+              "say": "1 + 0.455 = 1.455.",
+              "tool": "givetake",
+              "type": "0.999 + 0.456 = 1 + 0.455"
+            }
+          ]
+        },
+        {
+          "q": "4 5/6 + 1 1/2",
+          "a": "6 1/3",
+          "notes": "Look for: 1/6 makes 5, then 1 1/3. Ask: \"How do you split the 1/2?\" Model: numberline 4 5/6 +1/6 +1 +1/3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1/6 to 5, 1 to 6, 1/3 more: 6 1/3.",
+              "tool": "numberline",
+              "type": "4 5/6 +1/6 +1 +1/3",
+              "tip": "1/2 = 1/6 + 1/3."
+            }
+          ]
+        }
+      ],
+      "connection": "Week 1 · Day 2: Give and Take"
+    },
+    {
+      "id": "g8-r2-add-d3-subtraction-as-distance",
+      "title": "Subtraction as Distance, Harder Numbers",
+      "label": "Day 3",
+      "group": "Grade 8 · Round 2 · Additive Reasoning",
+      "tool": "numberline",
+      "strategy": "When two numbers are close, the difference is the distance between them. Count up through friendly numbers, now with decimals, thousandths and fractions.",
+      "topic": "dec",
+      "keywords": "distance, count up, next whole, friendly number, decimals, fractions",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Subtracting digits that don't line up (5.3 − 2.85 = 3.55): ask \"Is 0.3 the same as 0.30?\"",
+        "Taking a big fraction from a small one: ask \"Could you count up instead?\"",
+        "Losing a small jump: ask \"How far is 99.75 from 100?\""
+      ],
+      "wrapUp": "Ask \"Which friendly numbers did you count through?\" Land: count up to the next whole (or ten, or hundred), then on. The jumps add up to the distance, whatever kind of number it is.",
+      "problems": [
+        {
+          "q": "7.02 - 3.96",
+          "a": "3.06",
+          "notes": "Look for: 0.04 to 4, then 3.02. Ask: \"Close together?\" Model: numberline 3.96 >4 >7.02",
+          "responses": [
+            {
+              "say": "0.04 + 3.02 = 3.06.",
+              "tool": "numberline",
+              "type": "3.96 >4 >7.02"
+            },
+            {
+              "say": "3.16",
+              "tool": "text",
+              "type": "7.02 - 3.96 = 3.16 ?",
+              "tip": "Regrouping slip. Ask: count up from 3.96. How far to 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - 6.47",
+          "a": "3.53",
+          "notes": "Look for: 0.03 to 6.5, 0.5 to 7, 3 to 10. Ask: \"How is this like making change?\" Model: numberline 6.47 >6.5 >7 >10",
+          "responses": [
+            {
+              "say": "0.03 + 0.5 + 3 = 3.53.",
+              "tool": "numberline",
+              "type": "6.47 >6.5 >7 >10"
+            },
+            {
+              "say": "4.53",
+              "tool": "text",
+              "type": "10 - 6.47 = 4.53 ?",
+              "tip": "Ask: is 6.47 + 4.53 = 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5.3 - 2.85",
+          "a": "2.45",
+          "notes": "Look for: 0.15 to 3, 2.3 to 5.3. Ask: \"What does 2.85 need to make 3?\" Model: numberline 2.85 >3 >5.3",
+          "responses": [
+            {
+              "say": "0.15 + 2.3 = 2.45.",
+              "tool": "numberline",
+              "type": "2.85 >3 >5.3"
+            },
+            {
+              "say": "3.55",
+              "tool": "text",
+              "type": "5.3 - 2.85 = 3.55 ?",
+              "tip": "Ask: is 0.3 the same as 0.30? Which is bigger, 0.30 or 0.85?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100.1 - 99.75",
+          "a": "0.35",
+          "notes": "Look for: 0.25 to 100, 0.1 more. Ask: \"How far apart are they?\" Model: numberline 99.75 >100 >100.1",
+          "responses": [
+            {
+              "say": "0.25 + 0.1 = 0.35.",
+              "tool": "numberline",
+              "type": "99.75 >100 >100.1"
+            }
+          ]
+        },
+        {
+          "q": "4 1/4 - 2 5/6",
+          "a": "1 5/12",
+          "notes": "Look for: 1/6 to 3, then 1 1/4: 1 5/12. Ask: \"Same move with fractions?\" Model: numberline 2 5/6 >3 >4 1/4",
+          "responses": [
+            {
+              "say": "1/6 + 1 1/4 = 2/12 + 1 3/12 = 1 5/12.",
+              "tool": "numberline",
+              "type": "2 5/6 >3 >4 1/4"
+            },
+            {
+              "say": "2 7/12",
+              "tool": "text",
+              "type": "4 1/4 - 2 5/6 = 2 7/12 ?",
+              "tip": "Ask: if you take away almost 3, can more than 2 be left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.004 - 9.998",
+          "a": "2.006",
+          "notes": "Look for: 0.002 to 10, then 2.004. Ask: \"Thousandths: does it change anything?\" Model: numberline 9.998 >10 >12.004",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.002 + 2.004 = 2.006.",
+              "tool": "numberline",
+              "type": "9.998 >10 >12.004"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 1 · Day 3: Subtraction as Distance"
+    },
+    {
+      "id": "g8-r2-add-d4-constant-difference",
+      "title": "Constant Difference, Harder Numbers",
+      "label": "Day 4",
+      "group": "Grade 8 · Round 2 · Additive Reasoning",
+      "tool": "slide",
+      "strategy": "Slide both numbers the same amount so you subtract a whole number. The difference stays the same with decimals and fractions too: 5 1/8 − 2 7/8 = 5 1/4 − 3.",
+      "topic": "dec",
+      "keywords": "same difference, slide, friendly number, decimals, fractions",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Sliding the numbers in opposite directions: ask \"Did the distance between them stay the same?\"",
+        "Sliding by the wrong amount: ask \"What does 2.98 need to make 3?\"",
+        "With fractions, sliding only the fraction part: ask \"What do you add to both?\""
+      ],
+      "wrapUp": "Ask \"How did you decide how far to slide?\" Land: slide both by whatever makes the second number friendly. The difference doesn't change, and the subtraction gets easy.",
+      "problems": [
+        {
+          "q": "8.03 - 2.98",
+          "a": "5.05",
+          "notes": "Look for: add 0.02 to both: 8.05 − 3. Ask: \"What does 2.98 need?\" Model: slide 8.03 - 2.98 = 8.05 - 3",
+          "responses": [
+            {
+              "say": "8.05 − 3 = 5.05.",
+              "tool": "slide",
+              "type": "8.03 - 2.98 = 8.05 - 3"
+            },
+            {
+              "say": "5.01",
+              "tool": "text",
+              "type": "8.03 - 2.98 = 8.01 - 3 = 5.01 ?",
+              "tip": "Slid in opposite directions. Ask: did the distance stay the same?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.2 - 3.95",
+          "a": "2.25",
+          "notes": "Look for: add 0.05 to both: 6.25 − 4. Ask: \"How far to slide?\" Model: slide 6.2 - 3.95 = 6.25 - 4",
+          "responses": [
+            {
+              "say": "6.25 − 4 = 2.25.",
+              "tool": "slide",
+              "type": "6.2 - 3.95 = 6.25 - 4"
+            }
+          ]
+        },
+        {
+          "q": "15.07 - 9.99",
+          "a": "5.08",
+          "notes": "Look for: add 0.01 to both: 15.08 − 10. Ask: \"Which number should be friendly?\" Model: slide 15.07 - 9.99 = 15.08 - 10",
+          "responses": [
+            {
+              "say": "15.08 − 10 = 5.08.",
+              "tool": "slide",
+              "type": "15.07 - 9.99 = 15.08 - 10"
+            }
+          ]
+        },
+        {
+          "q": "5 1/8 - 2 7/8",
+          "a": "2 1/4",
+          "notes": "Look for: add 1/8 to both: 5 2/8 − 3. Ask: \"Does sliding work with fractions?\" Model: text 5 1/8 - 2 7/8 = 5 2/8 - 3 ; = 2 2/8 = 2 1/4",
+          "responses": [
+            {
+              "say": "5 2/8 − 3 = 2 2/8 = 2 1/4.",
+              "tool": "text",
+              "type": "5 1/8 - 2 7/8 = 5 2/8 - 3 ; = 2 2/8 = 2 1/4",
+              "tip": "Same difference with fractions."
+            },
+            {
+              "say": "1/8 to 3, 2 1/8 more: 2 2/8.",
+              "tool": "numberline",
+              "type": "2 7/8 >3 >5 1/8",
+              "tip": "Counting up."
+            },
+            {
+              "say": "3 6/8",
+              "tool": "text",
+              "type": "5 1/8 - 2 7/8 = 3 6/8 ?",
+              "tip": "Took 1/8 from 7/8. Ask: should the answer be less than 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.141 - 1.997",
+          "a": "1.144",
+          "notes": "Look for: add 0.003 to both: 3.144 − 2. Ask: \"How far is 1.997 from 2?\" Model: slide 3.141 - 1.997 = 3.144 - 2",
+          "responses": [
+            {
+              "say": "3.144 − 2 = 1.144.",
+              "tool": "slide",
+              "type": "3.141 - 1.997 = 3.144 - 2"
+            }
+          ]
+        },
+        {
+          "q": "1000.5 - 498.75",
+          "a": "501.75",
+          "notes": "Look for: add 1.25 to both: 1001.75 − 500. Ask: \"What makes 498.75 friendly?\" Model: slide 1000.5 - 498.75 = 1001.75 - 500",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1001.75 − 500 = 501.75.",
+              "tool": "slide",
+              "type": "1000.5 - 498.75 = 1001.75 - 500"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 1 · Day 4: Constant Difference"
+    },
+    {
+      "id": "g8-r2-add-d5-choosing-a-strategy",
+      "title": "Choosing a Strategy, Round 2",
+      "label": "Day 5",
+      "group": "Grade 8 · Round 2 · Additive Reasoning",
+      "tool": "numberline",
+      "strategy": "Look at the numbers first, then choose: add a friendly number and take back, give and take, count up the distance, or slide. Decimals and fractions use the same moves.",
+      "topic": "dec",
+      "keywords": "choose, friendly number, give and take, distance, same difference, look first",
+      "curriculum": [
+        "B2.1",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Using the algorithm for everything: ask \"What do you notice about these numbers?\"",
+        "Choosing a strategy that makes it harder: ask \"Was there a quicker way?\"",
+        "Not estimating with decimals: ask \"About how big should it be?\""
+      ],
+      "wrapUp": "Ask \"What did you notice that helped you choose?\" Land: near a friendly number? Use it and adjust. Close together? Count up or slide. Partners? Put them together first.",
+      "problems": [
+        {
+          "q": "6.99 + 3.47",
+          "a": "10.46",
+          "notes": "Look for: give 0.01: 7 + 3.46. Ask: \"Which strategy fits these numbers?\" Model: givetake 6.99 + 3.47 = 7 + 3.46",
+          "responses": [
+            {
+              "say": "7 + 3.46 = 10.46.",
+              "tool": "givetake",
+              "type": "6.99 + 3.47 = 7 + 3.46"
+            }
+          ]
+        },
+        {
+          "q": "10.46 - 6.99",
+          "a": "3.47",
+          "notes": "Look for: it undoes the last one. Ask: \"Do you need to calculate?\" Model: numberline 6.99 >7 >10.46",
+          "responses": [
+            {
+              "say": "6.99 + 3.47 = 10.46, so 3.47.",
+              "tool": "text",
+              "type": "6.99 + 3.47 = 10.46 ; 10.46 - 6.99 = 3.47",
+              "tip": "Addition undoes subtraction."
+            },
+            {
+              "say": "0.01 to 7, 3.46 more: 3.47.",
+              "tool": "numberline",
+              "type": "6.99 >7 >10.46"
+            }
+          ]
+        },
+        {
+          "q": "2.25 + 4.5 + 0.75",
+          "a": "7.5",
+          "notes": "Look for: 2.25 + 0.75 = 3 first. Ask: \"Partners?\" Model: text 2.25 + 0.75 = 3 ; 3 + 4.5 = 7.5",
+          "responses": [
+            {
+              "say": "3 + 4.5 = 7.5.",
+              "tool": "text",
+              "type": "2.25 + 0.75 = 3 ; 3 + 4.5 = 7.5"
+            }
+          ]
+        },
+        {
+          "q": "9.1 - 0.15",
+          "a": "8.95",
+          "notes": "Look for: back 0.1 to 9, back 0.05. Ask: \"Small amount: take it away?\" Model: numberline 9.1 -0.1 -0.05",
+          "responses": [
+            {
+              "say": "Back 0.1, back 0.05: 8.95.",
+              "tool": "numberline",
+              "type": "9.1 -0.1 -0.05"
+            },
+            {
+              "say": "9.05",
+              "tool": "text",
+              "type": "9.1 - 0.15 = 9.05 ?",
+              "tip": "Ask: if you take 0.1 you're at 9. How much more?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 2/3 + 1 5/6",
+          "a": "5 1/2",
+          "notes": "Look for: 1/3 makes 4, then 1 1/2. Ask: \"How do you split 5/6?\" Model: numberline 3 2/3 +1/3 +1 +1/2",
+          "responses": [
+            {
+              "say": "1/3 to 4, 1 to 5, 1/2 more: 5 1/2.",
+              "tool": "numberline",
+              "type": "3 2/3 +1/3 +1 +1/2",
+              "tip": "5/6 = 1/3 + 1/2."
+            }
+          ]
+        },
+        {
+          "q": "20.05 - 19.8",
+          "a": "0.25",
+          "notes": "Look for: 0.2 to 20, 0.05 more. Ask: \"Close together?\" Model: numberline 19.8 >20 >20.05",
+          "responses": [
+            {
+              "say": "0.2 + 0.05 = 0.25.",
+              "tool": "numberline",
+              "type": "19.8 >20 >20.05"
+            }
+          ]
+        },
+        {
+          "q": "47.5 - 18.75",
+          "a": "28.75",
+          "notes": "Look for: take 20, add 1.25 back; or slide 48.75 − 20. Ask: \"Which way?\" Model: slide 47.5 - 18.75 = 48.75 - 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "48.75 − 20 = 28.75.",
+              "tool": "slide",
+              "type": "47.5 - 18.75 = 48.75 - 20"
+            },
+            {
+              "say": "47.5 − 20 + 1.25 = 28.75.",
+              "tool": "numberline",
+              "type": "47.5 -20 +1.25"
+            }
+          ]
+        }
+      ],
+      "connection": "Week 1 · Day 5: Choosing a Strategy"
+    }
+  ]
+}
