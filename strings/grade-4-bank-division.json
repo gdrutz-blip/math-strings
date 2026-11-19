@@ -449,6 +449,140 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-div-04-what-times-what",
+      "title": "What Times What? Division Facts",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "array",
+      "strategy": "Every division has a multiplication hiding in it: 36 ÷ 4 asks \"4 times what is 36?\" Use facts you know, and split bigger numbers into tens.",
+      "topic": "mult",
+      "keywords": "division, missing factor, groups of, array, related facts, tens",
+      "curriculum": [
+        "B2.2",
+        "B2.6"
+      ],
+      "watchFor": [
+        "Counting by ones to divide: ask \"4 times what is 36?\"",
+        "Mixing up 36 ÷ 4 and 36 ÷ 9: ask \"Are there 4 groups or groups of 4?\"",
+        "Not using tens for 140 ÷ 7: ask \"How many tens is 140? What's 14 tens ÷ 7?\""
+      ],
+      "wrapUp": "Ask \"How did multiplication help you divide?\" Land: 36 ÷ 4 = 9 because 4 × 9 = 36. For bigger numbers, split into tens: 147 ÷ 7 is 140 ÷ 7 and 7 ÷ 7.",
+      "problems": [
+        {
+          "q": "36 / 4",
+          "a": "9",
+          "notes": "Look for: 4 × 9 = 36. Ask: \"4 times what is 36?\" Word choice: \"36 shared into 4 equal groups\". Model: array 4 x 9",
+          "responses": [
+            {
+              "say": "4 rows of 9 make 36.",
+              "tool": "array",
+              "type": "4 x 9"
+            },
+            {
+              "say": "Half of 36 is 18, half again is 9.",
+              "tool": "text",
+              "type": "36 ÷ 2 = 18 ; 18 ÷ 2 = 9",
+              "tip": "Halving twice."
+            }
+          ]
+        },
+        {
+          "q": "36 / 9",
+          "a": "4",
+          "notes": "Look for: the same array, turned. Ask: \"How does the last one help?\" Model: array 9 x 4",
+          "responses": [
+            {
+              "say": "9 × 4 = 36, so 4.",
+              "tool": "array",
+              "type": "9 x 4",
+              "tip": "The same fact family."
+            }
+          ]
+        },
+        {
+          "q": "72 / 8",
+          "a": "9",
+          "notes": "Look for: 8 × 9 = 72. Ask: \"What fact do you know?\" Model: array 8 x 9",
+          "responses": [
+            {
+              "say": "8 × 9 = 72.",
+              "tool": "array",
+              "type": "8 x 9"
+            },
+            {
+              "say": "8 × 10 is 80, take away an 8: 72. So 9.",
+              "tool": "area",
+              "type": "8 x 10-1",
+              "tip": "A fact you know, minus a group."
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "72 ÷ 8 = 8 ?",
+              "tip": "Ask: what is 8 × 8? Is it 72?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "63 / 7",
+          "a": "9",
+          "notes": "Look for: 7 × 9 = 63. Ask: \"Is there a pattern?\" Model: array 7 x 9",
+          "responses": [
+            {
+              "say": "7 × 9 = 63.",
+              "tool": "array",
+              "type": "7 x 9"
+            }
+          ]
+        },
+        {
+          "q": "140 / 7",
+          "a": "20",
+          "notes": "Look for: 14 tens ÷ 7 = 2 tens. Ask: \"How many tens is 140?\" Model: text 140 = 14 tens ; 14 tens ÷ 7 = 2 tens ; = 20",
+          "responses": [
+            {
+              "say": "14 tens shared by 7 is 2 tens: 20.",
+              "tool": "text",
+              "type": "140 = 14 tens ; 14 tens ÷ 7 = 2 tens ; = 20"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "140 ÷ 7 = 2 ?",
+              "tip": "Ask: is 7 × 2 equal to 140?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "147 / 7",
+          "a": "21",
+          "notes": "Look for: 140 ÷ 7 = 20 and 7 ÷ 7 = 1. Ask: \"How does the last one help?\" Model: area 147 / 7 = 140 + 7",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "147 / 7 = 140 + 7"
+            }
+          ]
+        },
+        {
+          "q": "280 / 4",
+          "a": "70",
+          "notes": "Look for: 28 tens ÷ 4 = 7 tens. Ask: \"Same idea?\" Model: text 280 = 28 tens ; 28 tens ÷ 4 = 7 tens ; = 70",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 tens: 70.",
+              "tool": "text",
+              "type": "280 = 28 tens ; 28 tens ÷ 4 = 7 tens ; = 70"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

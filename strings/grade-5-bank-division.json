@@ -294,6 +294,133 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-div-03-friendly-chunks",
+      "title": "Dividing in Friendly Chunks",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Division",
+      "tool": "area",
+      "strategy": "Divide by a two-digit number by taking out friendly chunks: 20 groups, 10 groups, 1 group. The area model shows the chunks side by side.",
+      "topic": "mult",
+      "keywords": "divide, area model, chunks, 10 groups, 20 groups, quotient",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Taking out only 10 groups when 20 fit: ask \"Could you take a bigger chunk?\"",
+        "Losing track of the chunks: ask \"How many groups altogether?\"",
+        "Splitting 276 into 200 + 76: ask \"Does 200 share evenly by 12?\""
+      ],
+      "wrapUp": "Ask \"How did you choose your chunks?\" Land: use friendly multiples of the divisor: 10, 20 or 25 groups, then what's left. Add the chunks for the answer.",
+      "problems": [
+        {
+          "q": "240 / 12",
+          "a": "20",
+          "notes": "Look for: 20 × 12 = 240. Ask: \"Hold on to this.\" Model: text 12 x 20 = 240",
+          "responses": [
+            {
+              "say": "20 twelves is 240.",
+              "tool": "text",
+              "type": "12 x 20 = 240"
+            }
+          ]
+        },
+        {
+          "q": "252 / 12",
+          "a": "21",
+          "notes": "Look for: 240 + 12: 20 + 1. Ask: \"How does the last one help?\" Word choice: \"chunks\". Model: area 252 / 12 = 240 + 12",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "252 / 12 = 240 + 12",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2 R12",
+              "tool": "text",
+              "type": "252 ÷ 12 = 2 R12 ?",
+              "tip": "Ask: is 12 × 2 close to 252?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "276 / 12",
+          "a": "23",
+          "notes": "Look for: 240 + 36: 20 + 3. Ask: \"What's left after 20 groups?\" Model: area 276 / 12 = 240 + 36",
+          "responses": [
+            {
+              "say": "20 + 3 = 23.",
+              "tool": "area",
+              "type": "276 / 12 = 240 + 36"
+            }
+          ]
+        },
+        {
+          "q": "325 / 25",
+          "a": "13",
+          "notes": "Look for: 250 + 75: 10 + 3. Or think quarters: $3.25 is 13 quarters. Ask: \"How is this like money?\" Model: area 325 / 25 = 250 + 75",
+          "responses": [
+            {
+              "say": "10 + 3 = 13.",
+              "tool": "area",
+              "type": "325 / 25 = 250 + 75"
+            },
+            {
+              "say": "$3.25 is 13 quarters.",
+              "tool": "text",
+              "type": "4 quarters per dollar ; 3 x 4 + 1 = 13",
+              "tip": "Money connection."
+            }
+          ]
+        },
+        {
+          "q": "378 / 18",
+          "a": "21",
+          "notes": "Look for: 360 + 18: 20 + 1. Ask: \"What's 20 groups of 18?\" Model: area 378 / 18 = 360 + 18",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "378 / 18 = 360 + 18"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "378 ÷ 18 = 12 ?",
+              "tip": "Ask: is 18 × 12 close to 378? What's 18 × 20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "416 / 32",
+          "a": "13",
+          "notes": "Look for: 320 + 96: 10 + 3. Ask: \"How many 32s in 96?\" Model: area 416 / 32 = 320 + 96",
+          "responses": [
+            {
+              "say": "10 + 3 = 13.",
+              "tool": "area",
+              "type": "416 / 32 = 320 + 96"
+            }
+          ]
+        },
+        {
+          "q": "625 / 25",
+          "a": "25",
+          "notes": "Look for: 500 + 125: 20 + 5. Ask: \"Quarters again?\" Model: area 625 / 25 = 500 + 125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20 + 5 = 25.",
+              "tool": "area",
+              "type": "625 / 25 = 500 + 125"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

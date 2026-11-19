@@ -851,6 +851,126 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-frac-07-how-many-pieces",
+      "title": "How Many Pieces?",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing a whole number by a unit fraction asks how many pieces you can cut: 5 ÷ 1/4 is 5 wholes cut into fourths, 4 in each whole.",
+      "topic": "frac",
+      "keywords": "how many fit, unit fraction, pieces, cut, divide, fourths, thirds, fifths",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Thinking division makes smaller (5 ÷ 1/4 = 1 1/4): ask \"If you cut 5 pizzas into fourths, how many pieces?\"",
+        "Multiplying by the fraction instead: ask \"Are we finding a fourth of 5, or how many fourths fit?\"",
+        "Not using the pieces in one whole: ask \"How many fourths in one whole?\""
+      ],
+      "wrapUp": "Ask \"How did 1 ÷ 1/4 help with all the others?\" Land: count the pieces in one whole (4 fourths), then multiply by the number of wholes.",
+      "problems": [
+        {
+          "q": "1 / 1/4",
+          "a": "4",
+          "notes": "Context: \"Cut 1 sandwich into fourths.\" Look for: 4 pieces. Ask: \"How many fourths in one whole?\" Word choice: \"how many fourths fit\". Model: numberline 0 +1/4x4",
+          "responses": [
+            {
+              "say": "4 fourths in a whole.",
+              "tool": "numberline",
+              "type": "0 +1/4x4"
+            }
+          ]
+        },
+        {
+          "q": "2 / 1/4",
+          "a": "8",
+          "notes": "Look for: 4 per whole, 2 wholes. Ask: \"How does the last one help?\" Model: numberline 0 +1/4x8",
+          "responses": [
+            {
+              "say": "4 + 4 = 8 pieces.",
+              "tool": "numberline",
+              "type": "0 +1/4x8"
+            }
+          ]
+        },
+        {
+          "q": "5 / 1/4",
+          "a": "20",
+          "notes": "Look for: 4 × 5. Ask: \"Do you need to count them all?\" Model: numberline 0 +1/4x20",
+          "responses": [
+            {
+              "say": "5 wholes, 4 pieces each: 20.",
+              "tool": "numberline",
+              "type": "0 +1/4x20"
+            },
+            {
+              "say": "1 1/4",
+              "tool": "text",
+              "type": "5 ÷ 1/4 = 5 x 1/4 = 1 1/4 ?",
+              "tip": "Found a fourth of 5. Ask: how many fourths fit in 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 1/3",
+          "a": "9",
+          "notes": "Look for: 3 thirds per whole, 3 wholes. Ask: \"Same idea with thirds?\" Model: numberline 0 +1/3x9",
+          "responses": [
+            {
+              "say": "3 × 3 = 9.",
+              "tool": "numberline",
+              "type": "0 +1/3x9"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/5",
+          "a": "20",
+          "notes": "Look for: 5 fifths per whole, 4 wholes. Model: numberline 0 +1/5x20",
+          "responses": [
+            {
+              "say": "4 × 5 = 20.",
+              "tool": "numberline",
+              "type": "0 +1/5x20"
+            },
+            {
+              "say": "4/5",
+              "tool": "text",
+              "type": "4 ÷ 1/5 = 4/5 ?",
+              "tip": "Ask: how many fifths fit in 4 wholes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 / 1/2",
+          "a": "14",
+          "notes": "Look for: 2 halves per whole, 7 wholes. Ask: \"What's the pattern?\" Model: numberline 0 +1/2x14",
+          "responses": [
+            {
+              "say": "7 × 2 = 14.",
+              "tool": "numberline",
+              "type": "0 +1/2x14"
+            }
+          ]
+        },
+        {
+          "q": "9 / 1/3",
+          "a": "27",
+          "notes": "Look for: 3 per whole, 9 wholes. Model: numberline 0 +1/3x27",
+          "optional": true,
+          "responses": [
+            {
+              "say": "9 × 3 = 27.",
+              "tool": "numberline",
+              "type": "0 +1/3x27"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
