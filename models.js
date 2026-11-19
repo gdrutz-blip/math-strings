@@ -283,7 +283,7 @@
       if (A.v !== 0 && B.v / A.v > 1 && Number.isInteger(round(B.v / A.v))) return big(B.v / A.v) ? '' : '×' + fmt(B.v / A.v);
       if (B.v !== 0 && A.v / B.v > 1 && Number.isInteger(round(A.v / B.v))) return big(A.v / B.v) ? '' : '÷' + fmt(A.v / B.v);
       if (combo(i)) return '';
-      if (A.v !== 0 && nice(round(B.v / A.v))) return '×' + fmt(B.v / A.v);
+      if (A.v !== 0 && B.v / A.v > 1 && nice(round(B.v / A.v))) return '×' + fmt(B.v / A.v); // ×2.5 helps; ×0.4 doesn't
       return '';
     };
     let below = '';

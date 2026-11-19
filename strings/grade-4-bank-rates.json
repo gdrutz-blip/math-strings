@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-rate-01-packs-and-boxes",
+      "title": "Packs of Juice Boxes",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Rates",
+      "tool": "ratio",
+      "strategy": "A rate stays the same in every row: 1 pack has 6 juice boxes, so build up with rows you know (2 packs, 5 packs, 10 packs) to find any number of packs.",
+      "topic": "rat",
+      "keywords": "rate, for every, per, ratio table, times as many, packs, boxes",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Adding the same amount to both columns (1:6 to 2:7): ask \"If 1 pack has 6, how many do 2 packs have?\"",
+        "Starting from 1 pack every time: ask \"Is there a row in the table that helps?\"",
+        "Going backward (42 boxes) feels hard: ask \"How many packs make 42? Which row is close?\""
+      ],
+      "wrapUp": "Ask \"Which rows were the most useful?\" Land: 1, 5 and 10 are friendly rows; add or double rows to get the rest. The rate (6 per pack) stays the same in every row.",
+      "problems": [
+        {
+          "q": "2 x 6",
+          "a": "12",
+          "notes": "Context: \"One pack has 6 juice boxes. How many in 2 packs?\" Look for: double 6. Ask: \"How many boxes in 2 packs?\" Word choice: \"6 boxes per pack\". Model: ratio packs:boxes, 1:6, 2:12",
+          "responses": [
+            {
+              "say": "Double 6 is 12 boxes.",
+              "tool": "ratio",
+              "type": "packs:boxes, 1:6, 2:12",
+              "tip": "Start the ratio table."
+            },
+            {
+              "say": "7",
+              "tool": "text",
+              "type": "1 pack = 6 boxes ; 2 packs = 7 boxes ?",
+              "tip": "Added 1 to each side. Ask: does the second pack have only 1 box?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 x 6",
+          "a": "30",
+          "notes": "Context: \"How many in 5 packs?\" Look for: half of 10 packs, or 5 sixes. Ask: \"Which row is easy to find?\" Model: ratio packs:boxes, 1:6, 10:60, 5:30",
+          "responses": [
+            {
+              "say": "10 packs is 60, so 5 packs is half: 30.",
+              "tool": "ratio",
+              "type": "packs:boxes, 1:6, 10:60, 5:30",
+              "tip": "Halving a friendly row."
+            },
+            {
+              "say": "5 sixes: 6, 12, 18, 24, 30.",
+              "tool": "text",
+              "type": "6, 12, 18, 24, 30"
+            }
+          ]
+        },
+        {
+          "q": "10 x 6",
+          "a": "60",
+          "notes": "Context: \"How many in 10 packs?\" Look for: double 5 packs, or 10 sixes. Ask: \"How does the last row help?\" Model: ratio packs:boxes, 1:6, 5:30, 10:60",
+          "responses": [
+            {
+              "say": "Double 30 is 60.",
+              "tool": "ratio",
+              "type": "packs:boxes, 1:6, 5:30, 10:60"
+            }
+          ]
+        },
+        {
+          "q": "15 x 6",
+          "a": "90",
+          "notes": "Context: \"How many in 15 packs?\" Look for: 10 packs + 5 packs = 60 + 30. Ask: \"Which two rows add to 15 packs?\" Model: ratio packs:boxes, 10:60, 5:30, 15:90",
+          "responses": [
+            {
+              "say": "10 packs and 5 packs: 60 + 30 = 90.",
+              "tool": "ratio",
+              "type": "packs:boxes, 10:60, 5:30, 15:90",
+              "tip": "Adding rows."
+            },
+            {
+              "say": "15 × 6 with the area model: 60 + 30.",
+              "tool": "area",
+              "type": "10+5 x 6"
+            },
+            {
+              "say": "66",
+              "tool": "text",
+              "type": "15 packs = 60 + 6 = 66 ?",
+              "tip": "Added 1 pack, not 5. Ask: 10 packs plus how many packs make 15?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20 x 6",
+          "a": "120",
+          "notes": "Context: \"How many in 20 packs?\" Look for: double 10 packs. Ask: \"What's the quickest row to use?\" Model: ratio packs:boxes, 1:6, 10:60, 20:120",
+          "responses": [
+            {
+              "say": "Double 60 is 120.",
+              "tool": "ratio",
+              "type": "packs:boxes, 1:6, 10:60, 20:120"
+            }
+          ]
+        },
+        {
+          "q": "42 / 6",
+          "a": "7",
+          "notes": "Context: \"We need 42 juice boxes. How many packs?\" Look for: 5 packs is 30, 2 packs is 12, so 7 packs. Ask: \"Which rows add to 42 boxes?\" Model: ratio packs:boxes, 5:30, 2:12, 7:42",
+          "responses": [
+            {
+              "say": "5 packs is 30 and 2 packs is 12. 7 packs.",
+              "tool": "ratio",
+              "type": "packs:boxes, 5:30, 2:12, 7:42",
+              "tip": "Working backward with the table."
+            },
+            {
+              "say": "6 × 7 = 42.",
+              "tool": "text",
+              "type": "6 x 7 = 42",
+              "tip": "A fact you know."
+            },
+            {
+              "say": "36",
+              "tool": "text",
+              "type": "42 - 6 = 36 ?",
+              "tip": "Ask: we know the boxes. What are we looking for?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 6",
+          "a": "48",
+          "notes": "Context: \"How many in 8 packs?\" Look for: 10 packs take away 2 packs, or double, double, double. Ask: \"Who used a different row?\" Model: ratio packs:boxes, 10:60, 2:12, 8:48",
+          "optional": true,
+          "responses": [
+            {
+              "say": "10 packs take away 2 packs: 60 − 12 = 48.",
+              "tool": "ratio",
+              "type": "packs:boxes, 10:60, 2:12, 8:48"
+            },
+            {
+              "say": "Double 2 packs, then double again: 12, 24, 48.",
+              "tool": "ratio",
+              "type": "packs:boxes, 2:12, 4:24, 8:48"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -77,6 +77,8 @@
   const shortDate = ymd => { const [y, m, d] = String(ymd).split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }); };
 
   // Pretty math: 3/4 -> stacked fraction, 2^3 -> superscript, - -> −, * -> ×
+  // a problem that already has an = in it (like 2 : 3 = 8 : ?) gets an arrow before its answer
+  const eqSym = q => /=/.test(String(q || '')) ? '→' : '=';
   function exprHTML(q) {
     const s = String(q || '').trim();
     let out = '', i = 0;
@@ -145,10 +147,11 @@
     { id: 'dec', name: 'Decimals', icon: '0.5', re: /decimal/i },
     { id: 'frac', name: 'Fractions', icon: '½', re: /fraction/i },
     { id: 'pct', name: 'Percents', icon: '%', re: /percent/i },
+    { id: 'rat', name: 'Ratios & Rates', icon: '∶', re: /ratio|rate/i },
     { id: 'int', name: 'Integers', icon: '±', re: /integer/i },
     { id: 'pow', name: 'Powers & Roots', icon: 'x²', re: /power|square|root|scientific|exponent/i },
   ];
-  const TOPIC_CHECK = ['pow', 'int', 'frac', 'dec', 'pct', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
+  const TOPIC_CHECK = ['pow', 'int', 'frac', 'dec', 'pct', 'rat', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
   function topicOf(s) {
     if (s.topic) { const k = String(s.topic).toLowerCase(); const t = TOPICS.find(t => t.id === k || t.name.toLowerCase() === k) || TOPIC_CHECK.find(t => t.re.test(k)); if (t) return t.id; }
     const unit = (s.group || '').replace(/^\s*Grade\s*\w+\s*·\s*/i, '').replace(/^Week\s*\d+\s*·\s*/i, '');
@@ -593,7 +596,7 @@ Rules:
       <table class="tc-table">
         <tr><th>#</th><th>Problem</th><th>Look for</th><th>Ask</th></tr>
         ${s.problems.map((p, i) => `<tr class="${p.optional ? 'opt' : ''}"><td class="tc-n">${i + 1}</td>
-          <td class="tc-q"><span class="expr">${exprHTML(p.q)}</span> <span class="tc-a">= ${esc(p.a)}</span>${p.optional ? '<span class="tc-opt">optional</span>' : ''}</td>
+          <td class="tc-q"><span class="expr">${exprHTML(p.q)}</span> <span class="tc-a">${eqSym(p.q)} ${esc(p.a)}</span>${p.optional ? '<span class="tc-opt">optional</span>' : ''}</td>
           <td>${parts[i].ctx ? `<i>${esc(parts[i].ctx)}</i> ` : ''}${esc(parts[i].look)}</td><td>${esc(parts[i].ask)}</td></tr>`).join('')}
       </table>
       <div class="tc-cols">
@@ -630,7 +633,7 @@ Rules:
       <div class="pt-how"><b>How to practise in pairs:</b> one person presents the string; the other plays the class and reads a "student says" line. The presenter records the answer (<kbd>A</kbd>), picks the tool, types what's in the last column, and presses <kbd>Enter</kbd>. Swap after a few problems. Press <b>↺</b> in the top bar to start the string fresh.</div>
       ${s.problems.map((p, i) => `
         <section class="panel pt-prob">
-          <div class="pt-head"><span class="pt-num">${i + 1}</span><span class="expr pt-q">${exprHTML(p.q)}</span><span class="pt-a">= ${esc(p.a)}</span>${p.optional ? '<span class="pt-opt">optional</span>' : ''}${split ? `<button class="btn small pt-go" data-go="${i}" title="Show this problem on the board">Show on board →</button>` : ''}</div>
+          <div class="pt-head"><span class="pt-num">${i + 1}</span><span class="expr pt-q">${exprHTML(p.q)}</span><span class="pt-a">${eqSym(p.q)} ${esc(p.a)}</span>${p.optional ? '<span class="pt-opt">optional</span>' : ''}${split ? `<button class="btn small pt-go" data-go="${i}" title="Show this problem on the board">Show on board →</button>` : ''}</div>
           ${p.notes ? `<p class="pt-notes">${esc(p.notes.replace(/\s*Model:.*$/s, ''))}</p>` : ''}
           ${p.responses ? `<table class="gtable pt-table"><tr><th>Student says</th><th>Tool</th><th>Type this</th></tr>${p.responses.map(r => `<tr class="${r.kind === 'error' ? 'pt-err' : ''}"><td>${r.kind === 'error' ? '<span class="pt-flag">mistake</span> ' : ''}“${esc(r.say)}”</td><td>${toolCell(r.tool)}</td><td>${r.type ? `<code>${esc(r.type)}</code>` : ''}${r.tip ? `<div class="pt-tip">${esc(r.tip)}</div>` : ''}${split ? `<button class="btn small pt-draw" data-draw="${i}:${p.responses.indexOf(r)}" title="Draw this on the board">▶ Draw it</button>` : ''}</td></tr>`).join('')}</table>` : '<p class="hint">No practice responses for this problem yet.</p>'}
         </section>`).join('')}
@@ -820,7 +823,7 @@ Rules:
   const runName = r => `${r.label ? r.label + ' · ' : ''}${r.title}`;
   function runCardsHTML(r) {
     return r.problems.map(p => `<div class="ov-card run-card"><span class="rnum">${p.n}</span>
-      <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
+      <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">${eqSym(p.q)}</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
       ${(p.links || []).map(n => `<span class="ov-link">↶ used #${n}</span>`).join('')}
       ${p.snap ? snapHTML(p.snap) : p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
     </div>`).join('');
@@ -1402,13 +1405,13 @@ Rules:
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
     const pos = P.sess.shown.indexOf(idx);
     const links = (d.links || []).filter(i => P.sess.shown.indexOf(i) > -1 && P.sess.shown.indexOf(i) < pos);
-    return `${exprPart}<span class="eq-mark">=</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>
+    return `${exprPart}<span class="eq-mark">${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>
       ${links.map(i => `<span class="link-chip" title="A student used problem ${P.sess.shown.indexOf(i) + 1}">↶ ${linkLabel(i)}</span>`).join('')}
       ${pos > 0 ? `<button class="add-link${links.length ? ' has' : ''}" data-a="links" title="A student used an earlier problem (H)">↶ ${links.length ? '' : 'helped by'}</button>` : ''}`;
   }
   // "The last one helped me": link this problem to the earlier problem(s) a student used
   const ansShown = d => { const c = d.answers.find(a => a.mark === 'circled'); return c ? c.t : ((d.answers.find(a => a.mark !== 'crossed') || {}).t); };
-  function linkLabel(i) { const a = ansShown(pdata(i)); return `<span class="expr">${exprHTML(P.sess.problems[i].q)}</span>${a ? ` <span class="eq-mark">=</span> <span class="lk-a">${exprHTML(a)}</span>` : ''}`; }
+  function linkLabel(i) { const a = ansShown(pdata(i)); return `<span class="expr">${exprHTML(P.sess.problems[i].q)}</span>${a ? ` <span class="eq-mark">${eqSym(P.sess.problems[i].q)}</span> <span class="lk-a">${exprHTML(a)}</span>` : ''}`; }
   function cycleLink() {
     if (!P || P.overview) return;
     const S = P.sess, idx = S.shown[S.active], d = pdata(idx);
@@ -1483,7 +1486,7 @@ Rules:
       const circled = d.answers.find(a => a.mark === 'circled');
       const show = circled ? [circled] : d.answers.filter(a => a.mark !== 'crossed');
       return `<div class="rail-item${pos === S.active && !P.overview ? ' active' : ''}" data-pos="${pos}">
-        <span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">=</span><span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
+        <span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">${eqSym(S.problems[idx].q)}</span><span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
         ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
       </div>`;
     }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
@@ -1556,7 +1559,7 @@ Rules:
       <div class="overview">${S.shown.map((idx, pos) => {
         const d = pdata(idx), ms = d.models.filter(m => String(m.input || '').trim());
         return `<div class="ov-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span>
-          <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">=</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
+          <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">${eqSym(S.problems[idx].q)}</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
           ${(d.links || []).filter(i => S.shown.indexOf(i) > -1 && S.shown.indexOf(i) < pos).map(i => `<span class="ov-link">↶ used #${S.shown.indexOf(i) + 1}</span>`).join('')}
           ${d.snap && (d.strokes || []).some(st => st.n) ? snapHTML(d.snap) : ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
         </div>`;

@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-rate-01-unit-rates",
+      "title": "Unit Rates",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Rates",
+      "tool": "doubleline",
+      "strategy": "Find the unit rate first (how much for 1), then scale it to any amount. On a double number line, both lines grow at the same rate.",
+      "topic": "rat",
+      "keywords": "rate, unit rate, per, for each, double number line, scale",
+      "curriculum": [
+        "B2.12"
+      ],
+      "watchFor": [
+        "Adding instead of scaling (4 km in 20 min, so 10 km in 26 min): ask \"Is the walker going the same speed?\"",
+        "Dividing the wrong way (4 ÷ 20): ask \"How many minutes for 1 km?\"",
+        "Not using rows they have: ask \"Which mark on the line is closest?\""
+      ],
+      "wrapUp": "Ask \"Why did the unit rate help so much?\" Land: once you know the minutes for 1 km, any distance is just that many groups. Both lines on the double number line grow by the same factor.",
+      "problems": [
+        {
+          "q": "4 : 20 = 1 : ?",
+          "a": "5",
+          "notes": "Context: \"A walker goes 4 km in 20 minutes.\" Look for: ÷ 4 both. Ask: \"How long for 1 km?\" Word choice: \"5 minutes per kilometre\". Model: doubleline km:min, 0:0, 4:20, 1:5",
+          "responses": [
+            {
+              "say": "20 ÷ 4 = 5 minutes for 1 km.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 4:20, 1:5",
+              "tip": "The unit rate."
+            },
+            {
+              "say": "0.2",
+              "tool": "text",
+              "type": "4 ÷ 20 = 0.2 ?",
+              "tip": "That's km per minute. Ask: what are we asked: minutes for 1 km?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 20 = 10 : ?",
+          "a": "50",
+          "notes": "Look for: 10 × 5. Ask: \"How does the unit rate help?\" Model: doubleline km:min, 0:0, 1:5, 4:20, 10:50",
+          "responses": [
+            {
+              "say": "10 km at 5 minutes each: 50.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:5, 4:20, 10:50"
+            },
+            {
+              "say": "26",
+              "tool": "text",
+              "type": "4 : 20 = 10 : 26 ?",
+              "tip": "Added 6 to both. Ask: is the walker going the same speed?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 20 = 6 : ?",
+          "a": "30",
+          "notes": "Look for: 6 × 5, or 4 km + 2 km. Ask: \"Could you use 4 km?\" Model: doubleline km:min, 0:0, 2:10, 4:20, 6:30",
+          "responses": [
+            {
+              "say": "6 × 5 = 30.",
+              "tool": "text",
+              "type": "6 x 5 = 30"
+            },
+            {
+              "say": "4 km is 20 min, 2 km is 10 min: 30.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 2:10, 4:20, 6:30",
+              "tip": "Adding parts."
+            }
+          ]
+        },
+        {
+          "q": "4 : 20 = 9 : ?",
+          "a": "45",
+          "notes": "Look for: 10 km take away 1 km. Ask: \"Which mark is closest?\" Model: doubleline km:min, 0:0, 1:5, 9:45, 10:50",
+          "responses": [
+            {
+              "say": "10 km is 50 min, less 5: 45.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:5, 9:45, 10:50"
+            }
+          ]
+        },
+        {
+          "q": "4 : 20 = ? : 60",
+          "a": "12",
+          "notes": "Look for: 60 minutes ÷ 5. Ask: \"How far in an hour?\" Model: doubleline km:min, 0:0, 4:20, 12:60",
+          "responses": [
+            {
+              "say": "Three times 20 minutes, so three times 4 km: 12.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 4:20, 12:60",
+              "tip": "Scaling by 3."
+            },
+            {
+              "say": "60 ÷ 5 = 12 km.",
+              "tool": "text",
+              "type": "60 ÷ 5 = 12",
+              "tip": "Using the unit rate backward."
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "60 ÷ 20 = 3 ?",
+              "tip": "Found how many 20-minute blocks. Ask: how many km in each block?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 20 = 15 : ?",
+          "a": "75",
+          "notes": "Look for: 10 km + 5 km = 50 + 25. Ask: \"Which two marks add to 15?\" Model: doubleline km:min, 0:0, 5:25, 10:50, 15:75",
+          "optional": true,
+          "responses": [
+            {
+              "say": "50 + 25 = 75 minutes.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 5:25, 10:50, 15:75"
+            },
+            {
+              "say": "15 × 5 = 75.",
+              "tool": "text",
+              "type": "15 x 5 = 75"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

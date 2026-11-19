@@ -170,6 +170,170 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-frac-02-dividing-by-a-fraction",
+      "title": "Dividing Whole Numbers by Fractions",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing a whole number by a fraction asks how many of those fractions fit. Count how many unit fractions fit, then group them: 4 ÷ 2/3 is 12 thirds in groups of 2, which is 6.",
+      "topic": "frac",
+      "keywords": "how many fit, unit fraction, groups of, number line, measure",
+      "curriculum": [
+        "B2.10"
+      ],
+      "watchFor": [
+        "Expecting the answer to be smaller than the whole number: ask \"How many halves fit in 2?\"",
+        "Stopping at the unit fraction count (4 ÷ 2/3 = 12): ask \"How many thirds are in one 2/3?\"",
+        "Multiplying instead (6 × 3/4 = 4 1/2): ask \"Are we finding a part of 6, or how many 3/4s fit?\""
+      ],
+      "wrapUp": "Ask \"How did 4 ÷ 1/3 help with 4 ÷ 2/3?\" Land: count how many unit fractions fit (multiply by the denominator), then put them into groups (divide by the numerator).",
+      "problems": [
+        {
+          "q": "2 / 1/2",
+          "a": "4",
+          "notes": "Look for: 2 halves in each whole. Ask: \"How many halves fit in 2?\" Word choice: \"how many 1/2s fit in 2\". Model: numberline 0 +1/2x4",
+          "responses": [
+            {
+              "say": "2 halves in each whole: 4.",
+              "tool": "numberline",
+              "type": "0 +1/2x4"
+            },
+            {
+              "say": "1",
+              "tool": "text",
+              "type": "2 ÷ 1/2 = 1 ?",
+              "tip": "Found half of 2. Ask: how many halves fit in 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/3",
+          "a": "12",
+          "notes": "Look for: 3 thirds per whole, 4 wholes. Ask: \"Hold on to this one.\" Model: numberline 0 +1/3x12",
+          "responses": [
+            {
+              "say": "3 thirds in each whole, 4 wholes: 12.",
+              "tool": "numberline",
+              "type": "0 +1/3x12",
+              "tip": "Hold on to this."
+            }
+          ]
+        },
+        {
+          "q": "4 / 2/3",
+          "a": "6",
+          "notes": "Look for: 12 thirds in groups of 2. Ask: \"How does 4 ÷ 1/3 help?\" Model: numberline 0 +2/3x6",
+          "responses": [
+            {
+              "say": "12 thirds, in groups of 2 thirds: 6.",
+              "tool": "text",
+              "type": "4 ÷ 1/3 = 12 ; 12 ÷ 2 = 6",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Six jumps of 2/3 land on 4.",
+              "tool": "numberline",
+              "type": "0 +2/3x6"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "4 ÷ 2/3 = 12 ?",
+              "tip": "Counted thirds, not two-thirds. Ask: how many thirds in one 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 / 3/4",
+          "a": "8",
+          "notes": "Look for: 24 fourths in groups of 3. Ask: \"How many fourths in 6?\" Model: numberline 0 +3/4x8",
+          "responses": [
+            {
+              "say": "24 fourths in groups of 3: 8.",
+              "tool": "text",
+              "type": "6 ÷ 1/4 = 24 ; 24 ÷ 3 = 8"
+            },
+            {
+              "say": "Eight jumps of 3/4 land on 6.",
+              "tool": "numberline",
+              "type": "0 +3/4x8"
+            },
+            {
+              "say": "4 1/2",
+              "tool": "text",
+              "type": "6 ÷ 3/4 = 6 x 3/4 = 4 1/2 ?",
+              "tip": "Multiplied. Ask: are we finding 3/4 of 6, or how many 3/4s fit?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 3/5",
+          "a": "5",
+          "notes": "Look for: 15 fifths in groups of 3. Ask: \"What's the same as the last one?\" Model: numberline 0 +3/5x5",
+          "responses": [
+            {
+              "say": "15 fifths in groups of 3: 5.",
+              "tool": "text",
+              "type": "3 ÷ 1/5 = 15 ; 15 ÷ 3 = 5"
+            },
+            {
+              "say": "Five jumps of 3/5 land on 3.",
+              "tool": "numberline",
+              "type": "0 +3/5x5"
+            }
+          ]
+        },
+        {
+          "q": "5 / 1/2",
+          "a": "10",
+          "notes": "Context: \"5 m of ribbon, cut into 1/2 m pieces.\" Look for: 2 pieces per metre. Ask: \"How many pieces?\" Model: numberline 0 +1/2x10",
+          "responses": [
+            {
+              "say": "2 half-metre pieces in each metre: 10.",
+              "tool": "numberline",
+              "type": "0 +1/2x10"
+            },
+            {
+              "say": "2 1/2",
+              "tool": "text",
+              "type": "5 ÷ 1/2 = 2 1/2 ?",
+              "tip": "Ask: can cutting 5 m into half-metres give only 2 1/2 pieces?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 2/5",
+          "a": "7 1/2",
+          "notes": "Look for: 15 fifths in groups of 2 is 7 groups, with 1 fifth left (half a group). Ask: \"What do we do with the leftover fifth?\" Model: numberline 0 +2/5x7 +1/5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 jumps of 2/5 is 2 4/5, and the last 1/5 is half a jump: 7 1/2.",
+              "tool": "numberline",
+              "type": "0 +2/5x7 +1/5",
+              "tip": "Ask: why half a jump?"
+            },
+            {
+              "say": "15 fifths ÷ 2 = 7 1/2.",
+              "tool": "text",
+              "type": "3 ÷ 1/5 = 15 ; 15 ÷ 2 = 7 1/2"
+            },
+            {
+              "say": "7 1/5",
+              "tool": "text",
+              "type": "3 ÷ 2/5 = 7 1/5 ?",
+              "tip": "Named the leftover in fifths. Ask: what part of a 2/5 jump is 1/5?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

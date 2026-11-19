@@ -171,6 +171,162 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-mult-02-double-and-double-again",
+      "title": "Double, Then Double Again",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Multiplication Facts",
+      "tool": "ratio",
+      "strategy": "Use doubling to work out facts: 2 × 7 doubled is 4 × 7, and 4 × 7 doubled is 8 × 7.",
+      "topic": "mult",
+      "keywords": "double, twice as many, 2 times, 4 times, 8 times, groups of",
+      "curriculum": [
+        "B2.2"
+      ],
+      "watchFor": [
+        "Doubling the wrong number (4 × 7 from 2 × 7 = 14, then 14 + 2 = 16): ask \"What does double mean?\"",
+        "Counting up from scratch every time: ask \"Did the last answer help?\"",
+        "Losing track of how many doubles: ask \"Is 8 two times 4, or four times 4?\""
+      ],
+      "wrapUp": "Ask \"How did 2 × 7 help with 8 × 7?\" Land: 4 groups is double 2 groups, and 8 groups is double 4 groups. Doubling twice is times 4; doubling three times is times 8.",
+      "problems": [
+        {
+          "q": "2 x 7",
+          "a": "14",
+          "notes": "Look for: double 7. Ask: \"What's double 7?\" Word choice: \"double\", \"twice\". Model: ratio 1:7, 2:14",
+          "responses": [
+            {
+              "say": "Double 7 is 14.",
+              "tool": "ratio",
+              "type": "1:7, 2:14"
+            },
+            {
+              "say": "7 + 7 = 14.",
+              "tool": "text",
+              "type": "7 + 7 = 14"
+            }
+          ]
+        },
+        {
+          "q": "4 x 7",
+          "a": "28",
+          "notes": "Look for: double 14. Ask: \"How does 2 × 7 help?\" Model: ratio 1:7, 2:14, 4:28",
+          "responses": [
+            {
+              "say": "Double 14 is 28.",
+              "tool": "ratio",
+              "type": "1:7, 2:14, 4:28",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "4 × 7 is 2 × 14.",
+              "tool": "halve",
+              "type": "4 x 7 = 2 x 14",
+              "tip": "Halve and double. Same answer."
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "4 x 7 = 14 + 2 = 16 ?",
+              "tip": "Added 2 instead of doubling. Ask: 4 groups of 7 is how many 7s?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 7",
+          "a": "56",
+          "notes": "Look for: double 28. Ask: \"How many times did you double?\" Model: ratio 1:7, 2:14, 4:28, 8:56",
+          "responses": [
+            {
+              "say": "Double 28 is 56.",
+              "tool": "ratio",
+              "type": "1:7, 2:14, 4:28, 8:56"
+            },
+            {
+              "say": "10 sevens is 70, take away 2 sevens: 56.",
+              "tool": "area",
+              "type": "10-2 x 7",
+              "tip": "A different fact you know. Also great."
+            },
+            {
+              "say": "42",
+              "tool": "text",
+              "type": "8 x 7 = 28 + 14 = 42 ?",
+              "tip": "Added 2 × 7, not 4 × 7. Ask: is 8 double 4, or 4 + 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 x 6",
+          "a": "12",
+          "notes": "Look for: double 6. Ask: \"Hold on to this one.\" Model: ratio 1:6, 2:12",
+          "responses": [
+            {
+              "say": "Double 6 is 12.",
+              "tool": "ratio",
+              "type": "1:6, 2:12"
+            }
+          ]
+        },
+        {
+          "q": "4 x 6",
+          "a": "24",
+          "notes": "Look for: double 12. Ask: \"What's the same as 4 × 7?\" Model: ratio 1:6, 2:12, 4:24",
+          "responses": [
+            {
+              "say": "Double 12 is 24.",
+              "tool": "ratio",
+              "type": "1:6, 2:12, 4:24"
+            },
+            {
+              "say": "14",
+              "tool": "text",
+              "type": "4 x 6 = 12 + 2 = 14 ?",
+              "tip": "Ask: what does doubling 12 give?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 6",
+          "a": "48",
+          "notes": "Look for: double 24. Ask: \"Could you double three times from 6?\" Model: ratio 1:6, 2:12, 4:24, 8:48",
+          "responses": [
+            {
+              "say": "Double 24 is 48.",
+              "tool": "ratio",
+              "type": "1:6, 2:12, 4:24, 8:48"
+            },
+            {
+              "say": "8 × 6 is 4 × 12, which is 48.",
+              "tool": "halve",
+              "type": "8 x 6 = 4 x 12 = 2 x 24"
+            }
+          ]
+        },
+        {
+          "q": "4 x 9",
+          "a": "36",
+          "notes": "Look for: double 18. Ask: \"Which way is quicker for you?\" Model: ratio 1:9, 2:18, 4:36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double 9 is 18, double 18 is 36.",
+              "tool": "ratio",
+              "type": "1:9, 2:18, 4:36"
+            },
+            {
+              "say": "4 tens is 40, take away 4: 36.",
+              "tool": "area",
+              "type": "4 x 10-1",
+              "tip": "Fact you know: one less group. Ask: which is easier?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

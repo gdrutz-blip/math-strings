@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-frac-01-unit-fractions-add-up",
+      "title": "Unit Fractions Add Up",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Adding the same unit fraction again and again is multiplying: 1/4 + 1/4 + 1/4 is 3 × 1/4, which is 3/4.",
+      "topic": "frac",
+      "keywords": "unit fraction, repeated addition, groups of, fourths, fifths, thirds, numerator",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying the denominator too (3 × 1/4 = 3/12): ask \"Three fourths, or three twelfths? Count the jumps.\"",
+        "Adding denominators (1/4 + 1/4 = 2/8): ask \"Did the pieces change size?\"",
+        "Not seeing 5/5 or 4/4 as a whole: ask \"How many fifths make one whole?\""
+      ],
+      "wrapUp": "Ask \"How is 3 × 1/4 the same as 1/4 + 1/4 + 1/4?\" Land: both count three fourths. The number of unit fractions is the numerator, and the size of the piece doesn't change.",
+      "problems": [
+        {
+          "q": "1/4 + 1/4 + 1/4",
+          "a": "3/4",
+          "notes": "Look for: counting fourths: one fourth, two fourths, three fourths. Ask: \"What are we counting?\" Word choice: say \"one fourth\", not \"one over four\". Model: numberline 0 +1/4x3",
+          "responses": [
+            {
+              "say": "1, 2, 3 fourths.",
+              "tool": "numberline",
+              "type": "0 +1/4x3",
+              "tip": "The target idea: counting unit fractions."
+            },
+            {
+              "say": "3/12",
+              "tool": "text",
+              "type": "1/4 + 1/4 + 1/4 = 3/12 ?",
+              "tip": "Added the denominators. Ask: did the pieces get smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 x 1/4",
+          "a": "3/4",
+          "notes": "Look for: the same as the last one. Ask: \"Why is it the same?\" Model: numberline 0 +1/4x3",
+          "responses": [
+            {
+              "say": "3 groups of 1/4 is 3/4, just like the last one.",
+              "tool": "numberline",
+              "type": "0 +1/4x3",
+              "tip": "Ask: how is × the same as adding again?"
+            },
+            {
+              "say": "3/12",
+              "tool": "text",
+              "type": "3 x 1/4 = 3/12 ?",
+              "tip": "Multiplied the denominator. Ask: count the jumps of 1/4.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 1/5",
+          "a": "4/5",
+          "notes": "Look for: four fifths. Ask: \"How many more fifths to make a whole?\" Model: numberline 0 +1/5x4",
+          "responses": [
+            {
+              "say": "4 jumps of 1/5 is 4/5.",
+              "tool": "numberline",
+              "type": "0 +1/5x4"
+            },
+            {
+              "say": "1/5 + 1/5 + 1/5 + 1/5 = 4/5.",
+              "tool": "text",
+              "type": "1/5 + 1/5 + 1/5 + 1/5 = 4/5"
+            }
+          ]
+        },
+        {
+          "q": "5 x 1/5",
+          "a": "1",
+          "notes": "Look for: five fifths is a whole. Ask: \"What's another name for 5/5?\" Model: numberline 0 +1/5x5",
+          "responses": [
+            {
+              "say": "5 fifths make 1 whole.",
+              "tool": "numberline",
+              "type": "0 +1/5x5"
+            },
+            {
+              "say": "5/25",
+              "tool": "text",
+              "type": "5 x 1/5 = 5/25 ?",
+              "tip": "Ask: how many fifths make a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 1/5",
+          "a": "6/5",
+          "notes": "Look for: one more fifth past the whole: 6/5 or 1 1/5. Ask: \"Can a fraction be more than 1?\" Model: numberline 0 +1/5x6",
+          "responses": [
+            {
+              "say": "6 fifths, that's 1 whole and 1 fifth.",
+              "tool": "numberline",
+              "type": "0 +1/5x6",
+              "tip": "Both names are right: 6/5 and 1 1/5."
+            },
+            {
+              "say": "5 fifths is 1, plus one more fifth.",
+              "tool": "text",
+              "type": "5 x 1/5 = 1 ; 6 x 1/5 = 1 1/5",
+              "tip": "Used the last problem."
+            }
+          ]
+        },
+        {
+          "q": "5 x 1/3",
+          "a": "5/3",
+          "notes": "Look for: 3 thirds make 1, 2 more thirds. Ask: \"Where is 1 on the number line?\" Model: numberline 0 +1/3x5",
+          "responses": [
+            {
+              "say": "5 thirds: 1 whole and 2 thirds.",
+              "tool": "numberline",
+              "type": "0 +1/3x5"
+            },
+            {
+              "say": "5/15",
+              "tool": "text",
+              "type": "5 x 1/3 = 5/15 ?",
+              "tip": "Ask: is 5 thirds more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8 x 1/4",
+          "a": "2",
+          "notes": "Look for: 4 fourths is 1, 8 fourths is 2. Ask: \"How many wholes?\" Model: numberline 0 +1/4x8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "8 fourths is 2 wholes.",
+              "tool": "numberline",
+              "type": "0 +1/4x8"
+            },
+            {
+              "say": "4 fourths is 1, so 8 fourths is 2.",
+              "tool": "text",
+              "type": "4 x 1/4 = 1 ; 8 x 1/4 = 2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

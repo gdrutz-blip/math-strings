@@ -179,6 +179,156 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-frac-02-unit-fractions",
+      "title": "Times and Divided by Unit Fractions",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Times a unit fraction is groups of that fraction; divided by a unit fraction asks how many of those pieces fit. 3 ÷ 1/4 is 12, because 12 fourths fit in 3.",
+      "topic": "frac",
+      "keywords": "unit fraction, groups of, how many fit, halves, thirds, fourths, fifths",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Thinking division always makes smaller (3 ÷ 1/4 = 3/4): ask \"How many fourths fit in 3 wholes?\"",
+        "Mixing up × 1/2 and ÷ 1/2: ask \"Groups of a half, or how many halves fit?\"",
+        "Losing count on the number line: ask \"How many in each whole? How many wholes?\""
+      ],
+      "wrapUp": "Ask \"Why is 4 × 1/2 small but 4 ÷ 1/2 big?\" Land: 4 × 1/2 is four halves (2). 4 ÷ 1/2 is how many halves fit in 4 (8). Each whole holds 2 halves, 3 thirds, 4 fourths.",
+      "problems": [
+        {
+          "q": "4 x 1/2",
+          "a": "2",
+          "notes": "Look for: four halves make 2. Ask: \"What is four halves?\" Word choice: \"4 groups of one half\". Model: numberline 0 +1/2x4",
+          "responses": [
+            {
+              "say": "4 halves make 2 wholes.",
+              "tool": "numberline",
+              "type": "0 +1/2x4"
+            },
+            {
+              "say": "4/8",
+              "tool": "text",
+              "type": "4 x 1/2 = 4/8 ?",
+              "tip": "Multiplied the denominator. Ask: count the halves.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/2",
+          "a": "8",
+          "notes": "Look for: 2 halves in each whole, 4 wholes: 8. Ask: \"How many halves fit in 4?\" Word choice: \"how many halves fit in 4\". Model: numberline 0 +1/2x8",
+          "responses": [
+            {
+              "say": "2 halves in each whole, 4 wholes: 8 halves.",
+              "tool": "numberline",
+              "type": "0 +1/2x8",
+              "tip": "The target meaning: how many fit."
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "4 ÷ 1/2 = 2 ?",
+              "tip": "Found half of 4. Ask: how many halves fit in 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 1/3",
+          "a": "2",
+          "notes": "Look for: six thirds is 2. Ask: \"How many thirds make a whole?\" Model: numberline 0 +1/3x6",
+          "responses": [
+            {
+              "say": "6 thirds is 2 wholes.",
+              "tool": "numberline",
+              "type": "0 +1/3x6"
+            }
+          ]
+        },
+        {
+          "q": "2 / 1/3",
+          "a": "6",
+          "notes": "Look for: 3 thirds in each whole, so 6. Ask: \"How does the last one help?\" Model: numberline 0 +1/3x6",
+          "responses": [
+            {
+              "say": "3 thirds fit in each whole, 2 wholes: 6.",
+              "tool": "numberline",
+              "type": "0 +1/3x6",
+              "tip": "Same picture as 6 × 1/3. Ask: why?"
+            },
+            {
+              "say": "2/3",
+              "tool": "text",
+              "type": "2 ÷ 1/3 = 2/3 ?",
+              "tip": "Multiplied. Ask: how many thirds fit in 2 wholes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 1/4",
+          "a": "12",
+          "notes": "Look for: 4 fourths per whole, 3 wholes. Ask: \"How many fourths fit in 3?\" Model: numberline 0 +1/4x12",
+          "responses": [
+            {
+              "say": "4 fourths in each whole, 3 wholes: 12.",
+              "tool": "numberline",
+              "type": "0 +1/4x12"
+            },
+            {
+              "say": "3 × 4 = 12.",
+              "tool": "text",
+              "type": "3 wholes x 4 fourths each = 12 fourths",
+              "tip": "Ask: why multiply by 4?"
+            },
+            {
+              "say": "3/4",
+              "tool": "text",
+              "type": "3 ÷ 1/4 = 3/4 ?",
+              "tip": "Ask: is 3/4 how many fourths fit in 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 x 1/4",
+          "a": "5/4",
+          "notes": "Look for: 5 fourths, 1 whole and 1 fourth. Ask: \"Is it more or less than 1?\" Model: numberline 0 +1/4x5",
+          "responses": [
+            {
+              "say": "5 fourths: 1 whole and a fourth.",
+              "tool": "numberline",
+              "type": "0 +1/4x5",
+              "tip": "Both 5/4 and 1 1/4 are right."
+            },
+            {
+              "say": "20",
+              "tool": "text",
+              "type": "5 x 1/4 = 20 ?",
+              "tip": "Divided. Ask: groups of a fourth, or how many fourths fit?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 / 1/5",
+          "a": "10",
+          "notes": "Look for: 5 fifths in each whole, 2 wholes. Ask: \"How many fifths fit?\" Model: numberline 0 +1/5x10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5 fifths in each whole: 10.",
+              "tool": "numberline",
+              "type": "0 +1/5x10"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

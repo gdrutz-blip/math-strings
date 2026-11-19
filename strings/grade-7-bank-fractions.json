@@ -165,6 +165,328 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g7-bank-frac-02-multiplying-fractions",
+      "title": "Multiplying Fractions",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Fractions",
+      "tool": "area",
+      "strategy": "Multiplying fractions finds a part of a part. On the area model, the denominators tell the size of each little piece and the numerators tell how many pieces overlap.",
+      "topic": "frac",
+      "keywords": "of, part of a part, area model, overlap, numerator, denominator",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Adding numerators and denominators: ask \"Is half of a third more or less than a third?\"",
+        "Making a common denominator first out of habit: ask \"Do we need the same size pieces to multiply?\"",
+        "Forgetting to simplify, or not seeing an easier way (5/6 × 3/4): ask \"Could you simplify first?\""
+      ],
+      "wrapUp": "Ask \"Why is the answer smaller than both fractions?\" Land: it's a part of a part. Multiply denominators to get the piece size, numerators to count the overlap.",
+      "problems": [
+        {
+          "q": "1/2 x 1/3",
+          "a": "1/6",
+          "notes": "Look for: half of a third. Ask: \"How many pieces make the whole?\" Word choice: \"one half of one third\". Model: area 1/2 x 1/3",
+          "responses": [
+            {
+              "say": "Half of a third is a sixth.",
+              "tool": "area",
+              "type": "1/2 x 1/3"
+            },
+            {
+              "say": "2/5",
+              "tool": "text",
+              "type": "1/2 x 1/3 = 2/5 ?",
+              "tip": "Added. Ask: is half of a third more than a third?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 x 3/4",
+          "a": "3/8",
+          "notes": "Look for: half of 3 fourths is 3 eighths. Ask: \"What size are the pieces now?\" Model: area 1/2 x 3/4",
+          "responses": [
+            {
+              "say": "Half of 3 fourths is 3 eighths.",
+              "tool": "area",
+              "type": "1/2 x 3/4"
+            },
+            {
+              "say": "3/4 ÷ 2 = 3/8.",
+              "tool": "text",
+              "type": "1/2 of 3/4 = 3/8"
+            }
+          ]
+        },
+        {
+          "q": "1/4 x 3/4",
+          "a": "3/16",
+          "notes": "Look for: a quarter of 3 quarters. Ask: \"How does the last one help?\" Model: area 1/4 x 3/4",
+          "responses": [
+            {
+              "say": "3 pieces out of 16.",
+              "tool": "area",
+              "type": "1/4 x 3/4",
+              "tip": "Half of 3/8 is 3/16."
+            },
+            {
+              "say": "4/8",
+              "tool": "text",
+              "type": "1/4 x 3/4 = 4/8 ?",
+              "tip": "Added. Ask: a quarter of something less than 1, is it a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/3 x 3/5",
+          "a": "2/5",
+          "notes": "Look for: 6/15 = 2/5. Ask: \"Can you simplify?\" Model: area 2/3 x 3/5",
+          "responses": [
+            {
+              "say": "6 out of 15 pieces: 6/15 = 2/5.",
+              "tool": "area",
+              "type": "2/3 x 3/5"
+            },
+            {
+              "say": "2/3 of 3 fifths is 2 fifths.",
+              "tool": "text",
+              "type": "2/3 of 3/5 = 2/5",
+              "tip": "A nice shortcut. Ask: why does it work?"
+            }
+          ]
+        },
+        {
+          "q": "3/4 x 2/5",
+          "a": "3/10",
+          "notes": "Look for: 6/20 = 3/10. Ask: \"What do the denominators tell you?\" Model: area 3/4 x 2/5",
+          "responses": [
+            {
+              "say": "6 of 20 pieces: 3/10.",
+              "tool": "area",
+              "type": "3/4 x 2/5"
+            },
+            {
+              "say": "15/8",
+              "tool": "text",
+              "type": "3/4 x 2/5 = 3/4 x 5/2 = 15/8 ?",
+              "tip": "Flipped as if dividing. Ask: is 3/4 of 2/5 more than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 x 3/4",
+          "a": "5/8",
+          "notes": "Look for: 15/24 = 5/8, or simplify 3 and 6 first. Ask: \"Could you simplify first?\" Model: area 5/6 x 3/4",
+          "responses": [
+            {
+              "say": "15 of 24 pieces: 15/24 = 5/8.",
+              "tool": "area",
+              "type": "5/6 x 3/4"
+            },
+            {
+              "say": "Swap the denominators: 5/4 × 3/6, and 3/6 is 1/2. So 5/8.",
+              "tool": "text",
+              "type": "5/6 x 3/4 = 5/4 x 3/6 ; = 5/4 x 1/2 = 5/8",
+              "tip": "Simplifying first. Ask: why can we swap the denominators?"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 x 1/3",
+          "a": "1/2",
+          "notes": "Look for: 1 × 1/3 + 1/2 × 1/3 = 1/3 + 1/6. Ask: \"Can you split the mixed number?\" Model: area 1 1/2 x 1/3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1/3 + 1/6 = 1/2.",
+              "tool": "area",
+              "type": "1 1/2 x 1/3"
+            },
+            {
+              "say": "A third of 1 1/2 is 1/2.",
+              "tool": "text",
+              "type": "1/3 of 3/2 = 1/2",
+              "tip": "Switching the order."
+            },
+            {
+              "say": "1 1/6",
+              "tool": "text",
+              "type": "1 1/2 x 1/3 = 1 1/6 ?",
+              "tip": "Multiplied only the fraction part. Ask: what is 1 × 1/3?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7-bank-frac-03-adding-unlike-fractions",
+      "title": "Adding Unlike Fractions",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Fractions",
+      "tool": "clock",
+      "strategy": "To add or subtract fractions with different denominators, rename them as the same-sized pieces. Minutes on a clock make twelfths, sixths, fourths and thirds easy.",
+      "topic": "frac",
+      "keywords": "common denominator, equivalent fractions, twelfths, minutes, clock, rename",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Adding numerators and denominators (1/2 + 1/3 = 2/5): ask \"Is 2/5 more or less than 1/2?\"",
+        "Renaming only one fraction: ask \"Are both fractions the same-sized pieces now?\"",
+        "Getting lost when the sum goes past 1: ask \"How many minutes past the hour?\""
+      ],
+      "wrapUp": "Ask \"Why does the clock work so well for these?\" Land: 60 minutes splits evenly into halves, thirds, fourths, sixths and twelfths, so every fraction becomes minutes. In fractions, that's finding a common denominator.",
+      "problems": [
+        {
+          "q": "1/2 + 1/3",
+          "a": "5/6",
+          "notes": "Look for: 30 + 20 = 50 minutes. Ask: \"How many minutes is a half? A third?\" Word choice: \"same-sized pieces\". Model: clock 1/2 + 1/3",
+          "responses": [
+            {
+              "say": "30 + 20 = 50 minutes, which is 5/6 of an hour.",
+              "tool": "clock",
+              "type": "1/2 + 1/3",
+              "tip": "Ask: how is 50 minutes 5/6?"
+            },
+            {
+              "say": "3/6 + 2/6 = 5/6.",
+              "tool": "text",
+              "type": "1/2 = 3/6 ; 1/3 = 2/6 ; 3/6 + 2/6 = 5/6",
+              "tip": "Common denominator."
+            },
+            {
+              "say": "2/5",
+              "tool": "text",
+              "type": "1/2 + 1/3 = 2/5 ?",
+              "tip": "Added tops and bottoms. Ask: is 2/5 more than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/4 + 1/3",
+          "a": "7/12",
+          "notes": "Look for: 15 + 20 = 35 minutes. Ask: \"What are 35 minutes as a fraction?\" Model: clock 1/4 + 1/3",
+          "responses": [
+            {
+              "say": "15 + 20 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "1/4 + 1/3"
+            },
+            {
+              "say": "3/12 + 4/12 = 7/12.",
+              "tool": "text",
+              "type": "1/4 = 3/12 ; 1/3 = 4/12 ; 7/12"
+            }
+          ]
+        },
+        {
+          "q": "2/3 + 1/4",
+          "a": "11/12",
+          "notes": "Look for: 40 + 15 = 55 minutes. Ask: \"How close to an hour?\" Model: clock 2/3 + 1/4",
+          "responses": [
+            {
+              "say": "40 + 15 = 55 minutes: 11/12.",
+              "tool": "clock",
+              "type": "2/3 + 1/4"
+            },
+            {
+              "say": "3/7",
+              "tool": "text",
+              "type": "2/3 + 1/4 = 3/7 ?",
+              "tip": "Ask: 2/3 plus a bit more, can it be less than a half?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/4 + 2/3",
+          "a": "1 5/12",
+          "notes": "Look for: 45 + 40 = 85 minutes, an hour and 25. Ask: \"What happens past the hour?\" Model: clock 3/4 + 2/3",
+          "responses": [
+            {
+              "say": "45 + 40 = 85 minutes: 1 hour and 25 minutes, 1 5/12.",
+              "tool": "clock",
+              "type": "3/4 + 2/3"
+            },
+            {
+              "say": "9/12 + 8/12 = 17/12 = 1 5/12.",
+              "tool": "text",
+              "type": "9/12 + 8/12 = 17/12 ; = 1 5/12"
+            }
+          ]
+        },
+        {
+          "q": "5/6 - 1/4",
+          "a": "7/12",
+          "notes": "Look for: 50 − 15 = 35 minutes. Ask: \"Does subtracting work the same way?\" Model: clock 5/6 - 1/4",
+          "responses": [
+            {
+              "say": "50 − 15 = 35 minutes: 7/12.",
+              "tool": "clock",
+              "type": "5/6 - 1/4"
+            },
+            {
+              "say": "4/2",
+              "tool": "text",
+              "type": "5/6 - 1/4 = 4/2 ?",
+              "tip": "Subtracted tops and bottoms. Ask: can the answer be 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 1/2 - 2/3",
+          "a": "5/6",
+          "notes": "Look for: 90 − 40 = 50 minutes. Ask: \"How many minutes is 1 1/2 hours?\" Model: clock 1 1/2 - 2/3",
+          "responses": [
+            {
+              "say": "90 − 40 = 50 minutes: 5/6.",
+              "tool": "clock",
+              "type": "1 1/2 - 2/3"
+            },
+            {
+              "say": "Back 1/2 to 1, then 1/6 more to 5/6.",
+              "tool": "numberline",
+              "type": "1 1/2 -1/2 -1/6",
+              "tip": "Through the whole number."
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 1/2",
+          "a": "1 1/10",
+          "notes": "Look for: tenths, not minutes: 6/10 + 5/10. Ask: \"Does the clock work for fifths? What could you use instead?\" Model: text 3/5 = 6/10 ; 1/2 = 5/10 ; 6/10 + 5/10 = 11/10 = 1 1/10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6/10 + 5/10 = 11/10, which is 1 1/10.",
+              "tool": "text",
+              "type": "3/5 = 6/10 ; 1/2 = 5/10 ; 6/10 + 5/10 = 11/10 = 1 1/10",
+              "tip": "Tenths are the common piece."
+            },
+            {
+              "say": "0.6 + 0.5 = 1.1.",
+              "tool": "text",
+              "type": "3/5 = 0.6 ; 1/2 = 0.5 ; 0.6 + 0.5 = 1.1",
+              "tip": "Decimals: also tenths."
+            },
+            {
+              "say": "4/7",
+              "tool": "text",
+              "type": "3/5 + 1/2 = 4/7 ?",
+              "tip": "Ask: 3/5 plus a half, can it be less than 1?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
