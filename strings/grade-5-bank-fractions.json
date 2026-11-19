@@ -929,7 +929,7 @@
         {
           "q": "4 / 1/5",
           "a": "20",
-          "notes": "Look for: 5 fifths per whole, 4 wholes. Model: numberline 0 +1/5x20",
+          "notes": "Look for: 5 fifths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/5x20",
           "responses": [
             {
               "say": "4 × 5 = 20.",
@@ -960,7 +960,7 @@
         {
           "q": "9 / 1/3",
           "a": "27",
-          "notes": "Look for: 3 per whole, 9 wholes. Model: numberline 0 +1/3x27",
+          "notes": "Look for: 3 per whole, 9 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/3x27",
           "optional": true,
           "responses": [
             {

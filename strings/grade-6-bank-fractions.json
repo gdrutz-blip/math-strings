@@ -939,7 +939,7 @@
         {
           "q": "3/4 x 28",
           "a": "21",
-          "notes": "Look for: a quarter is 7, three quarters is 21. Model: bar 3/4 of 28",
+          "notes": "Look for: a quarter is 7, three quarters is 21. Ask: \"How does one part help?\" Model: bar 3/4 of 28",
           "responses": [
             {
               "say": "7 × 3 = 21.",
@@ -951,7 +951,7 @@
         {
           "q": "3/8 x 32",
           "a": "12",
-          "notes": "Look for: an eighth is 4, three eighths is 12. Model: bar 3/8 of 32",
+          "notes": "Look for: an eighth is 4, three eighths is 12. Ask: \"How does one part help?\" Model: bar 3/8 of 32",
           "responses": [
             {
               "say": "4 × 3 = 12.",
@@ -970,7 +970,7 @@
         {
           "q": "7/10 x 50",
           "a": "35",
-          "notes": "Look for: a tenth is 5, seven tenths is 35. Model: bar 7/10 of 50",
+          "notes": "Look for: a tenth is 5, seven tenths is 35. Ask: \"How does one part help?\" Model: bar 7/10 of 50",
           "responses": [
             {
               "say": "5 × 7 = 35.",
@@ -982,7 +982,7 @@
         {
           "q": "4/9 x 27",
           "a": "12",
-          "notes": "Look for: a ninth is 3, four ninths is 12. Model: bar 4/9 of 27",
+          "notes": "Look for: a ninth is 3, four ninths is 12. Ask: \"How does one part help?\" Model: bar 4/9 of 27",
           "responses": [
             {
               "say": "3 × 4 = 12.",
@@ -994,7 +994,7 @@
         {
           "q": "5/12 x 36",
           "a": "15",
-          "notes": "Look for: a twelfth is 3, five twelfths is 15. Model: bar 5/12 of 36",
+          "notes": "Look for: a twelfth is 3, five twelfths is 15. Ask: \"How does one part help?\" Model: bar 5/12 of 36",
           "optional": true,
           "responses": [
             {
@@ -1084,7 +1084,7 @@
         {
           "q": "10 / 2/5",
           "a": "25",
-          "notes": "Look for: 50 fifths in groups of 2. Model: numberline 0 +2/5x25",
+          "notes": "Look for: 50 fifths in groups of 2. Ask: \"How does one part help?\" Model: numberline 0 +2/5x25",
           "responses": [
             {
               "say": "50 ÷ 2 = 25.",
@@ -1096,7 +1096,7 @@
         {
           "q": "4 / 1/6",
           "a": "24",
-          "notes": "Look for: 6 sixths per whole, 4 wholes. Model: numberline 0 +1/6x24",
+          "notes": "Look for: 6 sixths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/6x24",
           "responses": [
             {
               "say": "4 × 6 = 24.",
@@ -1125,7 +1125,7 @@
         {
           "q": "12 / 3/8",
           "a": "32",
-          "notes": "Look for: 96 eighths in groups of 3. Model: text 12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32",
+          "notes": "Look for: 96 eighths in groups of 3. Ask: \"How does one part help?\" Model: text 12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32",
           "optional": true,
           "responses": [
             {

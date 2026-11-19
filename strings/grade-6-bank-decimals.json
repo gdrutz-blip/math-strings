@@ -1092,7 +1092,7 @@
         {
           "q": "240 / 0.6",
           "a": "400",
-          "notes": "Look for: 2400 ÷ 6. Model: text 240 ÷ 0.6 = 2400 ÷ 6 ; = 400",
+          "notes": "Look for: 2400 ÷ 6. Ask: \"Which earlier problem helps?\" Model: text 240 ÷ 0.6 = 2400 ÷ 6 ; = 400",
           "responses": [
             {
               "say": "2400 ÷ 6 = 400.",
@@ -1156,7 +1156,7 @@
         {
           "q": "128 / 0.4",
           "a": "320",
-          "notes": "Look for: 1280 ÷ 4. Model: text 128 ÷ 0.4 = 1280 ÷ 4 ; = 320",
+          "notes": "Look for: 1280 ÷ 4. Ask: \"Which earlier problem helps?\" Model: text 128 ÷ 0.4 = 1280 ÷ 4 ; = 320",
           "optional": true,
           "responses": [
             {
@@ -1258,7 +1258,7 @@
         {
           "q": "3.6 / 9",
           "a": "0.4",
-          "notes": "Look for: 36 tenths ÷ 9 = 4 tenths. Model: text 3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4",
+          "notes": "Look for: 36 tenths ÷ 9 = 4 tenths. Ask: \"Which earlier problem helps?\" Model: text 3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4",
           "responses": [
             {
               "say": "4 tenths: 0.4.",
@@ -1289,7 +1289,7 @@
         {
           "q": "7.035 / 7",
           "a": "1.005",
-          "notes": "Look for: 7 ÷ 7 = 1, 0.035 ÷ 7 = 0.005. Model: area 7.035 / 7 = 7 + 0.035",
+          "notes": "Look for: 7 ÷ 7 = 1, 0.035 ÷ 7 = 0.005. Ask: \"Which earlier problem helps?\" Model: area 7.035 / 7 = 7 + 0.035",
           "optional": true,
           "responses": [
             {
