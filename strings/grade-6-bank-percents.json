@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-pct-01-one-and-five-percent",
+      "title": "One Percent and Five Percent",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Percents",
+      "tool": "ratio",
+      "strategy": "1% is one hundredth of the number. Build other percents from it: 5% is 5 × 1% (or half of 10%), 6% is 5% + 1%, 99% is 100% − 1%.",
+      "topic": "pct",
+      "keywords": "percent, one hundredth, 1%, 5%, 10%, build up, take away",
+      "curriculum": [
+        "B2.3"
+      ],
+      "watchFor": [
+        "Finding 1% by dividing by 10: ask \"Is 1% one tenth or one hundredth?\"",
+        "Thinking 99% must be hard: ask \"How far is 99% from 100%?\"",
+        "Losing the decimal with 1% of 450: ask \"About how much is one hundredth of 450?\""
+      ],
+      "wrapUp": "Ask \"How did 1% help with every other percent?\" Land: 1% is the number ÷ 100. Then build: 5% is five of them or half of 10%, and 99% is the whole take away 1%.",
+      "problems": [
+        {
+          "q": "1% of 300",
+          "a": "3",
+          "notes": "Look for: 300 ÷ 100. Ask: \"What is one hundredth of 300?\" Word choice: \"percent means out of 100\". Model: ratio 100:300, 1:3",
+          "responses": [
+            {
+              "say": "One hundredth of 300 is 3.",
+              "tool": "ratio",
+              "type": "100:300, 1:3"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "1% of 300 = 300 ÷ 10 = 30 ?",
+              "tip": "That's 10%. Ask: is 1% one tenth or one hundredth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5% of 300",
+          "a": "15",
+          "notes": "Look for: 5 × 3, or half of 10% (30). Ask: \"How does 1% help?\" Model: ratio 100:300, 1:3, 5:15",
+          "responses": [
+            {
+              "say": "5 lots of 3 is 15.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 5:15"
+            },
+            {
+              "say": "10% is 30, half of that is 15.",
+              "tool": "ratio",
+              "type": "100:300, 10:30, 5:15",
+              "tip": "Half of 10%. Also great."
+            }
+          ]
+        },
+        {
+          "q": "6% of 300",
+          "a": "18",
+          "notes": "Look for: 5% + 1% = 15 + 3. Ask: \"Which two percents add to 6%?\" Model: ratio 100:300, 1:3, 5:15, 6:18",
+          "responses": [
+            {
+              "say": "5% + 1%: 15 + 3 = 18.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 5:15, 6:18",
+              "tip": "Adding percents."
+            },
+            {
+              "say": "6 × 3 = 18.",
+              "tool": "text",
+              "type": "6 x 1% = 6 x 3 = 18"
+            }
+          ]
+        },
+        {
+          "q": "99% of 300",
+          "a": "297",
+          "notes": "Look for: 100% − 1% = 300 − 3. Ask: \"How far is 99% from 100%?\" Model: ratio 100:300, 1:3, 99:297",
+          "responses": [
+            {
+              "say": "All of it take away 1%: 300 − 3 = 297.",
+              "tool": "ratio",
+              "type": "100:300, 1:3, 99:297",
+              "tip": "Take away from the whole."
+            },
+            {
+              "say": "2.97",
+              "tool": "text",
+              "type": "99% of 300 = 2.97 ?",
+              "tip": "Ask: is 99% almost all of 300, or a tiny bit?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1% of 450",
+          "a": "4.5",
+          "notes": "Look for: 450 ÷ 100. Ask: \"Where does the decimal go?\" Model: ratio 100:450, 1:4.5",
+          "responses": [
+            {
+              "say": "One hundredth of 450 is 4.5.",
+              "tool": "ratio",
+              "type": "100:450, 1:4.5"
+            },
+            {
+              "say": "45",
+              "tool": "text",
+              "type": "1% of 450 = 45 ?",
+              "tip": "That's 10%. Ask: what's one hundredth of 450?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5% of 450",
+          "a": "22.5",
+          "notes": "Look for: half of 10% (45), or 5 × 4.5. Ask: \"Which way is easier here?\" Model: ratio 100:450, 10:45, 5:22.5",
+          "responses": [
+            {
+              "say": "10% is 45, half is 22.5.",
+              "tool": "ratio",
+              "type": "100:450, 10:45, 5:22.5"
+            },
+            {
+              "say": "5 × 4.5 = 22.5.",
+              "tool": "text",
+              "type": "5 x 4.5 = 22.5"
+            }
+          ]
+        },
+        {
+          "q": "4% of 450",
+          "a": "18",
+          "notes": "Look for: 4 × 4.5, or 5% − 1%. Ask: \"Could you take away instead?\" Model: ratio 100:450, 1:4.5, 4:18",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4 × 4.5 = 18.",
+              "tool": "ratio",
+              "type": "100:450, 1:4.5, 4:18"
+            },
+            {
+              "say": "5% − 1%: 22.5 − 4.5 = 18.",
+              "tool": "ratio",
+              "type": "100:450, 5:22.5, 1:4.5, 4:18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

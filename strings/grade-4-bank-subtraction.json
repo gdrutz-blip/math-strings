@@ -173,6 +173,155 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-sub-02-same-difference",
+      "title": "Same Difference",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "slide",
+      "strategy": "Add the same amount to both numbers and the difference stays the same. Slide the problem to one that subtracts a friendly number: 302 − 198 = 304 − 200.",
+      "topic": "add",
+      "keywords": "difference, same difference, slide, add to both, friendly number, distance",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adding to one number and taking from the other (302 − 198 to 300 − 200): ask \"Did the distance between them stay the same?\"",
+        "Sliding the wrong number to a friendly one: ask \"Which number would be easier to subtract?\"",
+        "Regrouping across zeros in 1003 − 997: ask \"Are these numbers close? Could you slide or count up?\""
+      ],
+      "wrapUp": "Ask \"Why do we add the same amount to both?\" Land: the difference is the distance between the numbers, and sliding both the same amount keeps the distance. Slide so you subtract a friendly number.",
+      "problems": [
+        {
+          "q": "52 - 19",
+          "a": "33",
+          "notes": "Look for: 53 − 20. Ask: \"What could you add to both?\" Word choice: \"the difference stays the same\". Model: slide 52 - 19 = 53 - 20",
+          "responses": [
+            {
+              "say": "Add 1 to both: 53 − 20 = 33.",
+              "tool": "slide",
+              "type": "52 - 19 = 53 - 20",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "19 up to 20 is 1, up to 52 is 32: 33.",
+              "tool": "numberline",
+              "type": "19 >20 >52",
+              "tip": "Adding up. Also great."
+            },
+            {
+              "say": "31",
+              "tool": "text",
+              "type": "52 - 19 = 51 - 20 = 31 ?",
+              "tip": "Took 1 from 52 but added 1 to 19. Ask: are they still the same distance apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "302 - 198",
+          "a": "104",
+          "notes": "Look for: 304 − 200. Ask: \"What does 198 need to be friendly?\" Model: slide 302 - 198 = 304 - 200",
+          "responses": [
+            {
+              "say": "Add 2 to both: 304 − 200 = 104.",
+              "tool": "slide",
+              "type": "302 - 198 = 304 - 200"
+            },
+            {
+              "say": "100",
+              "tool": "text",
+              "type": "302 - 198 = 300 - 200 = 100 ?",
+              "tip": "Moved the numbers in opposite directions. Ask: did the distance change?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "500 - 297",
+          "a": "203",
+          "notes": "Look for: 503 − 300. Ask: \"Which number should be friendly?\" Model: slide 500 - 297 = 503 - 300",
+          "responses": [
+            {
+              "say": "Add 3 to both: 503 − 300 = 203.",
+              "tool": "slide",
+              "type": "500 - 297 = 503 - 300"
+            },
+            {
+              "say": "297 up to 300 is 3, then 200 more: 203.",
+              "tool": "numberline",
+              "type": "297 >300 >500"
+            },
+            {
+              "say": "197",
+              "tool": "text",
+              "type": "500 - 300 - 3 = 197 ?",
+              "tip": "Took away 300, then took 3 more. Ask: is 300 more or less than 297? Should you give 3 back?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1003 - 997",
+          "a": "6",
+          "notes": "Look for: 1006 − 1000, or count up 3 and 3. Ask: \"How far apart are they?\" Model: slide 1003 - 997 = 1006 - 1000",
+          "responses": [
+            {
+              "say": "Add 3 to both: 1006 − 1000 = 6.",
+              "tool": "slide",
+              "type": "1003 - 997 = 1006 - 1000"
+            },
+            {
+              "say": "997 to 1000 is 3, then 3 more: 6.",
+              "tool": "numberline",
+              "type": "997 >1000 >1003",
+              "tip": "Counting up. Best when numbers are close."
+            },
+            {
+              "say": "16",
+              "tool": "text",
+              "type": "1003 - 997 = 16 ?",
+              "tip": "Regrouping slip. Ask: count up from 997. Where do you land?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4000 - 1998",
+          "a": "2002",
+          "notes": "Look for: 4002 − 2000. Ask: \"How does the slide help with all those zeros?\" Model: slide 4000 - 1998 = 4002 - 2000",
+          "responses": [
+            {
+              "say": "Add 2 to both: 4002 − 2000 = 2002.",
+              "tool": "slide",
+              "type": "4000 - 1998 = 4002 - 2000",
+              "tip": "No regrouping needed."
+            },
+            {
+              "say": "2000",
+              "tool": "text",
+              "type": "4000 - 1998 = 4000 - 2000 = 2000 ?",
+              "tip": "Rounded and forgot to adjust. Ask: 1998 is less than 2000, so is the answer more or less than 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7002 - 3995",
+          "a": "3007",
+          "notes": "Look for: 7007 − 4000. Ask: \"How much do you add to both?\" Model: slide 7002 - 3995 = 7007 - 4000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Add 5 to both: 7007 − 4000 = 3007.",
+              "tool": "slide",
+              "type": "7002 - 3995 = 7007 - 4000"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

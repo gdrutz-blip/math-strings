@@ -142,6 +142,139 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-rate-01-distance-and-time",
+      "title": "Distance and Time",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Ratios",
+      "tool": "doubleline",
+      "strategy": "A steady speed is a rate: 3 km every 12 minutes. Use a double number line to find the time for 1 km, then any distance (or the distance for any time).",
+      "topic": "rat",
+      "keywords": "rate, per, for every, double number line, minutes, kilometres, equivalent",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Adding the same amount to both lines (3 km in 12 min, so 6 km in 15 min): ask \"Is the cyclist going the same speed?\"",
+        "Mixing up which line is which: ask \"Is 4 the minutes or the kilometres?\"",
+        "Not using marks they already have: ask \"Which marks add up to 5 km?\""
+      ],
+      "wrapUp": "Ask \"How did 1 km help?\" Land: 1 km takes 4 minutes, so the minutes are always 4 times the kilometres. Both lines grow together.",
+      "problems": [
+        {
+          "q": "3 : 12 = 1 : ?",
+          "a": "4",
+          "notes": "Context: \"A cyclist rides 3 km every 12 minutes.\" Look for: divide both by 3. Ask: \"How long for 1 km?\" Word choice: \"minutes per kilometre\". Model: doubleline km:min, 0:0, 3:12, 1:4",
+          "responses": [
+            {
+              "say": "12 ÷ 3 = 4 minutes for 1 km.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:4, 3:12",
+              "tip": "The unit rate."
+            },
+            {
+              "say": "10",
+              "tool": "text",
+              "type": "3 : 12 = 1 : 10 ?",
+              "tip": "Took 2 from both. Ask: is the speed the same?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 6 : ?",
+          "a": "24",
+          "notes": "Look for: double both. Ask: \"Twice as far takes how long?\" Model: doubleline km:min, 0:0, 3:12, 6:24",
+          "responses": [
+            {
+              "say": "Double: 6 km in 24 minutes.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 3:12, 6:24"
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "3 : 12 = 6 : 15 ?",
+              "tip": "Added 3 to both. Ask: does twice the distance take only 3 more minutes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 5 : ?",
+          "a": "20",
+          "notes": "Look for: 5 × 4, or 3 km + 2 km. Ask: \"Which marks help?\" Model: doubleline km:min, 0:0, 1:4, 3:12, 5:20",
+          "responses": [
+            {
+              "say": "5 km at 4 minutes each: 20.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1:4, 3:12, 5:20"
+            },
+            {
+              "say": "3 km is 12 min, 2 km is 8 min: 20.",
+              "tool": "text",
+              "type": "12 + 8 = 20",
+              "tip": "Adding parts."
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 10 : ?",
+          "a": "40",
+          "notes": "Look for: 10 × 4, or double 5 km. Ask: \"How does the last one help?\" Model: doubleline km:min, 0:0, 5:20, 10:40",
+          "responses": [
+            {
+              "say": "Double 5 km: 40 minutes.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 5:20, 10:40"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = ? : 60",
+          "a": "15",
+          "notes": "Look for: 60 ÷ 4, or 12 minutes × 5. Ask: \"How far in an hour?\" Model: doubleline km:min, 0:0, 3:12, 15:60",
+          "responses": [
+            {
+              "say": "60 minutes is 5 lots of 12, so 5 lots of 3 km: 15.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 3:12, 15:60"
+            },
+            {
+              "say": "60 ÷ 4 = 15 km.",
+              "tool": "text",
+              "type": "60 ÷ 4 = 15",
+              "tip": "The unit rate backward."
+            },
+            {
+              "say": "240",
+              "tool": "text",
+              "type": "60 x 4 = 240 ?",
+              "tip": "Multiplied minutes by 4. Ask: is 4 the minutes for 1 km, or the km for 1 minute?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 12 = 7.5 : ?",
+          "a": "30",
+          "notes": "Look for: 6 km + 1.5 km, or 7.5 × 4. Ask: \"Can a rate work with decimals?\" Model: doubleline km:min, 0:0, 1.5:6, 6:24, 7.5:30",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 km is 24 min, 1.5 km is 6 min: 30.",
+              "tool": "doubleline",
+              "type": "km:min, 0:0, 1.5:6, 6:24, 7.5:30"
+            },
+            {
+              "say": "7.5 × 4 = 30.",
+              "tool": "text",
+              "type": "7.5 x 4 = 30"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

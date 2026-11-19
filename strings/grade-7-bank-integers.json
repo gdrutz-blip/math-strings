@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-int-01-subtracting-as-distance",
+      "title": "Subtracting Integers as Distance",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Integers",
+      "tool": "vline",
+      "strategy": "Subtraction finds the difference: how far, and which way, from the second number to the first. On a vertical number line, 5 − (−3) is the jump from −3 up to 5.",
+      "topic": "int",
+      "keywords": "difference, distance, from, to, up, down, vertical number line, thermometer",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Subtracting the digits and keeping a sign by habit (5 − −3 = 2): ask \"How far is it from −3 to 5?\"",
+        "Getting the direction backward (−8 − −2 = 6): ask \"Do you go up or down from −2 to get to −8?\"",
+        "Treating − − as always positive in −4 − 5: ask \"Is there a double negative here?\""
+      ],
+      "wrapUp": "Ask \"How does thinking 'from the second number to the first' help?\" Land: a − b is the jump from b to a. Up is positive, down is negative. Through zero, add the two parts.",
+      "problems": [
+        {
+          "q": "5 - 2",
+          "a": "3",
+          "notes": "Look for: from 2 up to 5 is 3. Ask: \"Hold on to this: how far from 2 to 5?\" Word choice: \"from 2 to 5\". Model: vline 2 >5",
+          "responses": [
+            {
+              "say": "From 2 up to 5 is 3.",
+              "tool": "vline",
+              "type": "2 >5",
+              "tip": "The difference as a jump."
+            }
+          ]
+        },
+        {
+          "q": "5 - -3",
+          "a": "8",
+          "notes": "Look for: from −3 up to 0 is 3, then up to 5 is 5. Ask: \"How far from −3 to 5?\" Model: vline -3 >0 >5",
+          "responses": [
+            {
+              "say": "−3 up to 0 is 3, then 5 more: up 8.",
+              "tool": "vline",
+              "type": "-3 >0 >5",
+              "tip": "The target strategy: through zero."
+            },
+            {
+              "say": "Add the opposite: 5 + 3 = 8.",
+              "tool": "tiles",
+              "type": "5 - -3",
+              "tip": "Ask: why does adding the opposite give the same answer?"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "5 - -3 = 5 - 3 = 2 ?",
+              "tip": "Ask: how far is it from −3 to 5 on the thermometer?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 - -6",
+          "a": "8",
+          "notes": "Look for: −6 up to 0 is 6, then 2 more. Ask: \"What's the same as the last one?\" Model: vline -6 >0 >2",
+          "responses": [
+            {
+              "say": "Up 6 to 0, up 2 more: 8.",
+              "tool": "vline",
+              "type": "-6 >0 >2"
+            },
+            {
+              "say": "-4",
+              "tool": "text",
+              "type": "2 - -6 = -4 ?",
+              "tip": "Ask: going from −6 to 2, are you going up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2 - -6",
+          "a": "4",
+          "notes": "Look for: from −6 up to −2 is 4. Ask: \"Is −2 above or below −6?\" Model: vline -6 >-2",
+          "responses": [
+            {
+              "say": "From −6 up to −2 is 4.",
+              "tool": "vline",
+              "type": "-6 >-2"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-2 - -6 = -8 ?",
+              "tip": "Added the numbers. Ask: how far apart are −2 and −6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-8 - -2",
+          "a": "-6",
+          "notes": "Look for: from −2 down to −8 is 6 down: −6. Ask: \"Which way do you go?\" Model: vline -2 -6",
+          "responses": [
+            {
+              "say": "From −2 down to −8 is 6 down: −6.",
+              "tool": "vline",
+              "type": "-2 -6",
+              "tip": "Down means negative."
+            },
+            {
+              "say": "6",
+              "tool": "text",
+              "type": "-8 - -2 = 6 ?",
+              "tip": "Right distance, wrong direction. Ask: from −2 to −8, up or down?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-4 - 5",
+          "a": "-9",
+          "notes": "Look for: from 5 down to −4: 5 down to 0, 4 more. Ask: \"Is there a double negative here?\" Model: vline 5 -5 -4",
+          "responses": [
+            {
+              "say": "From 5 down to 0 is 5, then 4 more down: −9.",
+              "tool": "vline",
+              "type": "5 -5 -4"
+            },
+            {
+              "say": "Start at −4 and go down 5: −9.",
+              "tool": "vline",
+              "type": "-4 -5",
+              "tip": "Taking away 5. Also fine."
+            },
+            {
+              "say": "-1",
+              "tool": "text",
+              "type": "-4 - 5 = -1 ?",
+              "tip": "Ask: if it's −4°C and drops 5 degrees, is it warmer or colder?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 - -7",
+          "a": "14",
+          "notes": "Look for: −7 up to 0 is 7, and 7 more. Ask: \"How far apart are a number and its opposite?\" Model: vline -7 >0 >7",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 and 7: 14.",
+              "tool": "vline",
+              "type": "-7 >0 >7",
+              "tip": "Double the distance to zero."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

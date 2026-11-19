@@ -334,6 +334,146 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-frac-03-fifths-and-tenths",
+      "title": "Fifths and Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Halves, fifths and tenths all fit together because tenths are the common piece: 1/2 = 5/10 and 1/5 = 2/10.",
+      "topic": "frac",
+      "keywords": "common denominator, equivalent fractions, tenths, fifths, halves, rename",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Adding tops and bottoms (1/2 + 3/10 = 4/12): ask \"Is 4/12 more than 1/2?\"",
+        "Renaming 2/5 as 2/10: ask \"How many tenths are in one fifth?\"",
+        "Forgetting to simplify 8/10: ask \"Can you name 8/10 with fifths?\""
+      ],
+      "wrapUp": "Ask \"Why are tenths so useful here?\" Land: a half is 5 tenths and a fifth is 2 tenths, so tenths are a common piece. Rename, then add or subtract the tenths.",
+      "problems": [
+        {
+          "q": "1/2 + 3/10",
+          "a": "4/5",
+          "notes": "Look for: 5/10 + 3/10 = 8/10 = 4/5. Ask: \"How many tenths is a half?\" Word choice: \"same-sized pieces\". Model: numberline 0 +1/2 +3/10",
+          "responses": [
+            {
+              "say": "5 tenths and 3 tenths is 8 tenths: 4/5.",
+              "tool": "numberline",
+              "type": "0 +1/2 +3/10",
+              "tip": "Ask: why does 8/10 equal 4/5?"
+            },
+            {
+              "say": "0.5 + 0.3 = 0.8.",
+              "tool": "text",
+              "type": "1/2 = 0.5 ; 3/10 = 0.3 ; 0.5 + 0.3 = 0.8",
+              "tip": "Decimals are tenths too."
+            },
+            {
+              "say": "4/12",
+              "tool": "text",
+              "type": "1/2 + 3/10 = 4/12 ?",
+              "tip": "Added tops and bottoms. Ask: is 4/12 more than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/5 + 3/10",
+          "a": "7/10",
+          "notes": "Look for: 4/10 + 3/10. Ask: \"How many tenths in 2/5?\" Model: numberline 0 +2/5 +3/10",
+          "responses": [
+            {
+              "say": "2/5 is 4/10, plus 3/10 is 7/10.",
+              "tool": "numberline",
+              "type": "0 +2/5 +3/10"
+            },
+            {
+              "say": "5/10",
+              "tool": "text",
+              "type": "2/5 + 3/10 = 2/10 + 3/10 = 5/10 ?",
+              "tip": "Renamed 2/5 as 2/10. Ask: how many tenths in one fifth?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3/5 + 1/2",
+          "a": "1 1/10",
+          "notes": "Look for: 6/10 + 5/10 = 11/10. Ask: \"Is it more than 1?\" Model: numberline 3/5 +2/5 +1/10",
+          "responses": [
+            {
+              "say": "3/5 + 2/5 makes 1, plus 1/10 more: 1 1/10.",
+              "tool": "numberline",
+              "type": "3/5 +2/5 +1/10",
+              "tip": "Make a whole."
+            },
+            {
+              "say": "6/10 + 5/10 = 11/10.",
+              "tool": "text",
+              "type": "6/10 + 5/10 = 11/10 ; = 1 1/10"
+            }
+          ]
+        },
+        {
+          "q": "1 - 3/10",
+          "a": "7/10",
+          "notes": "Look for: 10/10 − 3/10. Ask: \"How many tenths in 1?\" Model: numberline 1 -3/10",
+          "responses": [
+            {
+              "say": "10 tenths minus 3 tenths is 7 tenths.",
+              "tool": "numberline",
+              "type": "1 -3/10"
+            }
+          ]
+        },
+        {
+          "q": "4/5 - 1/2",
+          "a": "3/10",
+          "notes": "Look for: 8/10 − 5/10. Ask: \"How does the first problem help?\" Model: numberline 1/2 >4/5",
+          "responses": [
+            {
+              "say": "8/10 − 5/10 = 3/10.",
+              "tool": "text",
+              "type": "4/5 = 8/10 ; 1/2 = 5/10 ; 8/10 - 5/10 = 3/10"
+            },
+            {
+              "say": "From 1/2 up to 4/5 is 3/10, just like the first problem.",
+              "tool": "numberline",
+              "type": "1/2 >4/5",
+              "tip": "Used 1/2 + 3/10 = 4/5."
+            },
+            {
+              "say": "3/3",
+              "tool": "text",
+              "type": "4/5 - 1/2 = 3/3 ?",
+              "tip": "Subtracted tops and bottoms. Ask: is the answer really 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/5 - 7/10",
+          "a": "1 1/2",
+          "notes": "Look for: back 2/10 to 2, then 5/10 more to 1 1/2. Ask: \"Can you go through the whole number?\" Model: numberline 2 1/5 -1/5 -1/2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Back 1/5 to 2, then 1/2 more: 1 1/2.",
+              "tool": "numberline",
+              "type": "2 1/5 -1/5 -1/2",
+              "tip": "7/10 = 2/10 + 5/10."
+            },
+            {
+              "say": "22/10 − 7/10 = 15/10 = 1 1/2.",
+              "tool": "text",
+              "type": "2 1/5 = 22/10 ; 22/10 - 7/10 = 15/10 ; = 1 1/2"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

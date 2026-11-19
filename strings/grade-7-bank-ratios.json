@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g7-bank-rat-01-scaling-a-recipe",
+      "title": "Scaling a Recipe",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Proportional Reasoning",
+      "tool": "ratio",
+      "strategy": "In a proportional situation, every row of the table has the same ratio. Find a helpful row (like 1 cup of flour), then scale up or down.",
+      "topic": "rat",
+      "keywords": "proportional, ratio, scale, unit rate, recipe, for every, constant",
+      "curriculum": [
+        "B2.10"
+      ],
+      "watchFor": [
+        "Adding instead of multiplying (3 cups for 24, so 5 cups for 26): ask \"Is it still 8 cookies per cup?\"",
+        "Stuck going backward (cups for 60 cookies): ask \"How many cookies per cup? How many cups for 60?\"",
+        "Thinking a non-proportional change is proportional: ask \"If you double the flour, does the oven time double?\""
+      ],
+      "wrapUp": "Ask \"What stayed the same in every row?\" Land: in a proportional situation the ratio is constant: 8 cookies per cup of flour. Find a unit rate or a friendly row and scale it.",
+      "problems": [
+        {
+          "q": "3 : 24 = 1 : ?",
+          "a": "8",
+          "notes": "Context: \"A recipe uses 3 cups of flour for 24 cookies.\" Look for: ÷ 3 both. Ask: \"How many cookies per cup?\" Word choice: \"proportional\", \"per cup\". Model: ratio flour:cookies, 3:24, 1:8",
+          "responses": [
+            {
+              "say": "24 ÷ 3 = 8 cookies per cup.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1:8",
+              "tip": "The unit rate."
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = 5 : ?",
+          "a": "40",
+          "notes": "Look for: 5 × 8. Ask: \"How does the unit rate help?\" Model: ratio flour:cookies, 3:24, 1:8, 5:40",
+          "responses": [
+            {
+              "say": "5 cups at 8 each: 40.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1:8, 5:40"
+            },
+            {
+              "say": "26",
+              "tool": "text",
+              "type": "3 : 24 = 5 : 26 ?",
+              "tip": "Added 2 to both. Ask: is it still 8 cookies per cup?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = ? : 60",
+          "a": "7.5",
+          "notes": "Look for: 60 ÷ 8. Ask: \"How many cups for 60 cookies?\" Model: ratio flour:cookies, 1:8, 7:56, 7.5:60",
+          "responses": [
+            {
+              "say": "60 ÷ 8 = 7.5 cups.",
+              "tool": "text",
+              "type": "60 ÷ 8 = 7.5",
+              "tip": "The unit rate backward."
+            },
+            {
+              "say": "7 cups make 56, half a cup makes 4 more: 7.5.",
+              "tool": "ratio",
+              "type": "flour:cookies, 1:8, 7:56, 7.5:60"
+            },
+            {
+              "say": "480",
+              "tool": "text",
+              "type": "60 x 8 = 480 ?",
+              "tip": "Multiplied. Ask: does 60 cookies need 480 cups of flour?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = 4.5 : ?",
+          "a": "36",
+          "notes": "Look for: 3 cups + 1.5 cups = 24 + 12. Ask: \"Could you add half the recipe?\" Model: ratio flour:cookies, 3:24, 1.5:12, 4.5:36",
+          "responses": [
+            {
+              "say": "The recipe plus half the recipe: 24 + 12 = 36.",
+              "tool": "ratio",
+              "type": "flour:cookies, 3:24, 1.5:12, 4.5:36"
+            },
+            {
+              "say": "4.5 × 8 = 36.",
+              "tool": "text",
+              "type": "4.5 x 8 = 36"
+            }
+          ]
+        },
+        {
+          "q": "3 : 24 = ? : 100",
+          "a": "12.5",
+          "notes": "Look for: 100 ÷ 8. Ask: \"Will it be a whole number of cups?\" Model: ratio flour:cookies, 1:8, 12:96, 12.5:100",
+          "responses": [
+            {
+              "say": "12 cups make 96, half a cup makes 4 more: 12.5.",
+              "tool": "ratio",
+              "type": "flour:cookies, 1:8, 12:96, 12.5:100"
+            },
+            {
+              "say": "100 ÷ 8 = 12.5.",
+              "tool": "text",
+              "type": "100 ÷ 8 = 12.5"
+            }
+          ]
+        },
+        {
+          "q": "2 : 5 = 7 : ?",
+          "a": "17.5",
+          "notes": "Context: \"2 cups of rice for 5 people.\" Look for: 6:15 plus 1:2.5. Ask: \"How many people does 1 cup feed?\" Model: ratio rice:people, 2:5, 1:2.5, 6:15, 7:17.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 cups feed 15, 1 cup feeds 2.5: 17.5 people.",
+              "tool": "ratio",
+              "type": "rice:people, 2:5, 1:2.5, 6:15, 7:17.5"
+            },
+            {
+              "say": "7 × 2.5 = 17.5.",
+              "tool": "text",
+              "type": "7 x 2.5 = 17.5",
+              "tip": "Ask: does 17.5 people make sense? What would you do?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

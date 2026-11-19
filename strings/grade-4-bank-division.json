@@ -299,6 +299,156 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-div-03-sharing-leftovers",
+      "title": "Sharing the Leftovers",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "numberline",
+      "strategy": "When a number doesn't share out evenly, the leftover can be shared too, as a fraction: 13 ÷ 4 is 3 each, and the 1 left over gives everyone 1/4 more.",
+      "topic": "mult",
+      "keywords": "share, left over, remainder, fraction, each gets, equal shares",
+      "curriculum": [
+        "B2.6"
+      ],
+      "watchFor": [
+        "Writing the remainder as a fraction of the wrong number (13 ÷ 4 = 3 1/13): ask \"The 1 left over is shared by how many?\"",
+        "Stopping at 'R1' every time: ask \"If these were pizzas, could we cut up the last one?\"",
+        "Not simplifying 2/4 to 1/2: ask \"Is 2 out of 4 the same as a half?\""
+      ],
+      "wrapUp": "Ask \"What do we do with the leftovers?\" Land: share each leftover among the groups. The remainder goes on top, the number of groups on the bottom: 1 left over shared by 4 is 1/4 each.",
+      "problems": [
+        {
+          "q": "12 / 4",
+          "a": "3",
+          "notes": "Look for: 3 each, none left. Ask: \"Hold on to this.\" Model: numberline 0 +4x3",
+          "responses": [
+            {
+              "say": "4 × 3 = 12: 3 each.",
+              "tool": "numberline",
+              "type": "0 +4x3"
+            }
+          ]
+        },
+        {
+          "q": "13 / 4",
+          "a": "3 1/4",
+          "notes": "Context: \"13 pizzas shared by 4 friends.\" Look for: 3 each, 1 left, cut into 4: 1/4 each. Ask: \"What do we do with the last pizza?\" Word choice: \"remainder\", \"left over\". Model: numberline 0 +4x3 +1",
+          "responses": [
+            {
+              "say": "3 each, and the last pizza cut in 4: 3 1/4.",
+              "tool": "numberline",
+              "type": "0 +4x3 +1",
+              "tip": "The target idea."
+            },
+            {
+              "say": "12 shares evenly, 1 is left over.",
+              "tool": "bar",
+              "type": "13 = 12 + 1"
+            },
+            {
+              "say": "3 1/13",
+              "tool": "text",
+              "type": "13 ÷ 4 = 3 1/13 ?",
+              "tip": "Ask: the 1 left over is shared by how many friends?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 / 2",
+          "a": "4 1/2",
+          "notes": "Look for: 4 each, 1 left, half each. Ask: \"What is 1 shared by 2?\" Model: numberline 0 +2x4 +1",
+          "responses": [
+            {
+              "say": "4 each, and half of the last one: 4 1/2.",
+              "tool": "numberline",
+              "type": "0 +2x4 +1"
+            },
+            {
+              "say": "4 R1",
+              "tool": "text",
+              "type": "9 ÷ 2 = 4 R1",
+              "tip": "True. Ask: if it's 9 cookies, could we share the last one?"
+            }
+          ]
+        },
+        {
+          "q": "25 / 4",
+          "a": "6 1/4",
+          "notes": "Look for: 24 shares into 6s, 1 left. Ask: \"Which number near 25 shares evenly by 4?\" Model: text 25 = 24 + 1 ; 24 ÷ 4 = 6 ; 1 ÷ 4 = 1/4 ; 6 1/4",
+          "responses": [
+            {
+              "say": "24 ÷ 4 is 6, then 1 ÷ 4: 6 1/4.",
+              "tool": "text",
+              "type": "25 = 24 + 1 ; 24 ÷ 4 = 6 ; 1 ÷ 4 = 1/4 ; 6 1/4"
+            },
+            {
+              "say": "Like $25 shared by 4: $6.25 each.",
+              "tool": "text",
+              "type": "25 ÷ 4 = 6.25 = 6 1/4",
+              "tip": "A money connection."
+            }
+          ]
+        },
+        {
+          "q": "30 / 4",
+          "a": "7 1/2",
+          "notes": "Look for: 28 shares into 7s, 2 left: 2/4 = 1/2. Ask: \"Is 2/4 the same as a half?\" Model: text 30 = 28 + 2 ; 28 ÷ 4 = 7 ; 2 ÷ 4 = 2/4 = 1/2 ; 7 1/2",
+          "responses": [
+            {
+              "say": "7 each and 2 left: 2/4, which is a half.",
+              "tool": "text",
+              "type": "30 = 28 + 2 ; 28 ÷ 4 = 7 ; 2 ÷ 4 = 2/4 = 1/2 ; 7 1/2"
+            },
+            {
+              "say": "7 2/4",
+              "tool": "text",
+              "type": "30 ÷ 4 = 7 2/4",
+              "tip": "Right! Ask: is there another name for 2/4?"
+            },
+            {
+              "say": "7 2/30",
+              "tool": "text",
+              "type": "30 ÷ 4 = 7 2/30 ?",
+              "tip": "Ask: the 2 left over are shared by how many?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "50 / 3",
+          "a": "16 2/3",
+          "notes": "Look for: 48 ÷ 3 = 16, 2 left: 2/3. Ask: \"What's 2 shared by 3?\" Model: text 50 = 48 + 2 ; 48 ÷ 3 = 16 ; 2 ÷ 3 = 2/3 ; 16 2/3",
+          "responses": [
+            {
+              "say": "16 each and 2/3 more.",
+              "tool": "text",
+              "type": "50 = 48 + 2 ; 48 ÷ 3 = 16 ; 2 ÷ 3 = 2/3 ; 16 2/3"
+            },
+            {
+              "say": "30 ÷ 3 = 10 and 18 ÷ 3 = 6, with 2 left.",
+              "tool": "area",
+              "type": "48 / 3 = 30 + 18",
+              "tip": "Area model for the part that shares evenly."
+            }
+          ]
+        },
+        {
+          "q": "100 / 8",
+          "a": "12 1/2",
+          "notes": "Look for: 96 ÷ 8 = 12, 4 left: 4/8 = 1/2. Ask: \"Can you name 4/8 another way?\" Model: numberline 0 +8x12 +4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12 each, and 4/8 is a half: 12 1/2.",
+              "tool": "numberline",
+              "type": "0 +8x12 +4"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

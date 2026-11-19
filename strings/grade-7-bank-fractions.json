@@ -487,6 +487,166 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g7-bank-frac-04-mixed-numbers",
+      "title": "Mixed Numbers with Different Denominators",
+      "label": "Bank",
+      "group": "Grade 7 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Add or subtract mixed numbers by jumping through whole numbers on the number line, renaming fractions as the same-sized pieces when you need to.",
+      "topic": "frac",
+      "keywords": "mixed number, whole number, common denominator, jump through a whole, rename",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Subtracting the parts separately in 3 1/4 − 1 1/2 (2 −1/4): ask \"Can you take 1/2 from 1/4? What could you jump to first?\"",
+        "Adding the fractions without a common denominator: ask \"Are halves and thirds the same size?\"",
+        "Losing the whole numbers: ask \"Did you take away the 1 as well as the fraction?\""
+      ],
+      "wrapUp": "Ask \"Why did jumping to a whole number help?\" Land: break the jump into the whole part and pieces that land on whole numbers. Rename fractions only when the pieces don't match.",
+      "problems": [
+        {
+          "q": "3 1/4 - 1/2",
+          "a": "2 3/4",
+          "notes": "Look for: back 1/4 to 3, then 1/4 more. Ask: \"How is 1/2 made of quarters?\" Word choice: \"jump to the whole number\". Model: numberline 3 1/4 -1/4 -1/4",
+          "responses": [
+            {
+              "say": "Back 1/4 to 3, then 1/4 more: 2 3/4.",
+              "tool": "numberline",
+              "type": "3 1/4 -1/4 -1/4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "3 1/4 − 1/2 = 3 1/4 − 2/4: 2 5/4 − 2/4 = 2 3/4.",
+              "tool": "text",
+              "type": "3 1/4 = 2 5/4 ; 2 5/4 - 2/4 = 2 3/4",
+              "tip": "Renaming a whole."
+            },
+            {
+              "say": "3 1/4",
+              "tool": "text",
+              "type": "3 1/4 - 1/2 = 3 1/4 ?",
+              "tip": "Ask: did anything get taken away?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 1/4 - 1 1/2",
+          "a": "1 3/4",
+          "notes": "Look for: back 1, then the same as the last one. Ask: \"How does the last one help?\" Model: numberline 3 1/4 -1 -1/4 -1/4",
+          "responses": [
+            {
+              "say": "Back 1 to 2 1/4, back 1/4 to 2, back 1/4 more: 1 3/4.",
+              "tool": "numberline",
+              "type": "3 1/4 -1 -1/4 -1/4"
+            },
+            {
+              "say": "2 3/4 − 1 = 1 3/4.",
+              "tool": "text",
+              "type": "3 1/4 - 1/2 = 2 3/4 ; 2 3/4 - 1 = 1 3/4",
+              "tip": "Used the last problem."
+            },
+            {
+              "say": "2 1/4",
+              "tool": "text",
+              "type": "3 1/4 - 1 1/2 = 2 1/4 ?",
+              "tip": "Subtracted 1/4 from 1/2 instead. Ask: should the answer be less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 1/2 - 1 5/6",
+          "a": "2/3",
+          "notes": "Look for: back 1, back 1/2 to 1, then 1/3 more. Ask: \"What is 5/6 made of?\" Model: numberline 2 1/2 -1 -1/2 -1/3",
+          "responses": [
+            {
+              "say": "Back 1, then 1/2 to 1, then 1/3: 2/3.",
+              "tool": "numberline",
+              "type": "2 1/2 -1 -1/2 -1/3",
+              "tip": "5/6 = 1/2 + 1/3."
+            },
+            {
+              "say": "15/6 − 11/6 = 4/6 = 2/3.",
+              "tool": "text",
+              "type": "2 1/2 = 15/6 ; 1 5/6 = 11/6 ; 15/6 - 11/6 = 4/6 = 2/3"
+            },
+            {
+              "say": "1 1/3",
+              "tool": "text",
+              "type": "2 1/2 - 1 5/6 = 1 + (5/6 - 1/2) = 1 1/3 ?",
+              "tip": "Subtracted the fractions backward. Ask: is 1 5/6 more than 1 1/2? So less than 1 is left.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1 2/3 + 2 1/2",
+          "a": "4 1/6",
+          "notes": "Look for: 1 2/3 + 2 = 3 2/3, + 1/3 = 4, + 1/6. Ask: \"What does 3 2/3 need to make 4?\" Model: numberline 1 2/3 +2 +1/3 +1/6",
+          "responses": [
+            {
+              "say": "Up 2 to 3 2/3, up 1/3 to 4, then 1/6: 4 1/6.",
+              "tool": "numberline",
+              "type": "1 2/3 +2 +1/3 +1/6"
+            },
+            {
+              "say": "3 + 2/3 + 1/2 = 3 + 7/6 = 4 1/6.",
+              "tool": "clock",
+              "type": "2/3 + 1/2",
+              "tip": "Clock for the fraction parts: 40 + 30 = 70 minutes."
+            },
+            {
+              "say": "3 3/5",
+              "tool": "text",
+              "type": "1 2/3 + 2 1/2 = 3 3/5 ?",
+              "tip": "Added tops and bottoms. Ask: is 2/3 + 1/2 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 1/3 - 2 3/4",
+          "a": "1 7/12",
+          "notes": "Look for: back 2, back 1/3 to 2, then 5/12 more. Ask: \"What's 3/4 − 1/3 in twelfths?\" Model: numberline 4 1/3 -2 -1/3 -5/12",
+          "responses": [
+            {
+              "say": "Back 2 to 2 1/3, back 1/3 to 2, back 5/12 more: 1 7/12.",
+              "tool": "numberline",
+              "type": "4 1/3 -2 -1/3 -5/12"
+            },
+            {
+              "say": "52/12 − 33/12 = 19/12 = 1 7/12.",
+              "tool": "text",
+              "type": "4 1/3 = 52/12 ; 2 3/4 = 33/12 ; 52/12 - 33/12 = 19/12 = 1 7/12"
+            }
+          ]
+        },
+        {
+          "q": "5 - 2 3/8",
+          "a": "2 5/8",
+          "notes": "Look for: back 2 to 3, then 3/8 to 2 5/8. Ask: \"Could you count up from 2 3/8?\" Model: numberline 2 3/8 >3 >5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2 3/8 up to 3 is 5/8, then 2 more: 2 5/8.",
+              "tool": "numberline",
+              "type": "2 3/8 >3 >5",
+              "tip": "Counting up."
+            },
+            {
+              "say": "3 3/8",
+              "tool": "text",
+              "type": "5 - 2 3/8 = 3 3/8 ?",
+              "tip": "Ask: 5 − 2 is 3. Then take away 3/8 more: more or less than 3?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

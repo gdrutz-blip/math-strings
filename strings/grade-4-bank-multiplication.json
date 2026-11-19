@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g4-bank-mult-03-three-digit-times-one-digit",
+      "title": "Three-Digit Times One-Digit",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Multiplication",
+      "tool": "area",
+      "strategy": "Split the three-digit number by place value (or into friendly parts), multiply each part, and add. The area model keeps track of every part.",
+      "topic": "mult",
+      "keywords": "split, place value, partial products, area model, friendly parts, hundreds",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Multiplying only the hundreds (123 × 3 = 300 + 23): ask \"Did every part get multiplied by 3?\"",
+        "Losing a partial product when adding: ask \"How many parts are in your area model? Did you add them all?\"",
+        "Not seeing 199 as 200 − 1: ask \"Is 199 close to a friendly number?\""
+      ],
+      "wrapUp": "Ask \"How did splitting the number help?\" Land: multiply each part (hundreds, tens, ones) and add. Sometimes a friendlier split, like 200 − 1 or 125 = 100 + 25, is faster.",
+      "problems": [
+        {
+          "q": "100 x 3",
+          "a": "300",
+          "notes": "Look for: 3 hundreds. Ask: \"Hold on to this.\" Model: area 100 x 3",
+          "responses": [
+            {
+              "say": "3 groups of 100 is 300.",
+              "tool": "area",
+              "type": "100 x 3"
+            }
+          ]
+        },
+        {
+          "q": "123 x 3",
+          "a": "369",
+          "notes": "Look for: 300 + 60 + 9. Ask: \"How does the last one help?\" Word choice: \"split 123 into 100, 20 and 3\". Model: area 100+20+3 x 3",
+          "responses": [
+            {
+              "say": "300 + 60 + 9 = 369.",
+              "tool": "area",
+              "type": "100+20+3 x 3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "123 + 123 + 123 = 369.",
+              "tool": "text",
+              "type": "123 + 123 + 123 = 369",
+              "tip": "Repeated addition. Works for small multipliers."
+            },
+            {
+              "say": "323",
+              "tool": "text",
+              "type": "123 x 3 = 300 + 23 = 323 ?",
+              "tip": "Multiplied only the 100. Ask: did 20 and 3 get multiplied too?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 x 6",
+          "a": "900",
+          "notes": "Look for: 600 + 300. Ask: \"What are the parts?\" Model: area 100+50 x 6",
+          "responses": [
+            {
+              "say": "600 + 300 = 900.",
+              "tool": "area",
+              "type": "100+50 x 6"
+            },
+            {
+              "say": "Halve and double: 300 × 3 = 900.",
+              "tool": "halve",
+              "type": "150 x 6 = 300 x 3"
+            }
+          ]
+        },
+        {
+          "q": "125 x 4",
+          "a": "500",
+          "notes": "Look for: 400 + 100, because 25 × 4 = 100. Ask: \"Is there a friendly part?\" Model: area 100+25 x 4",
+          "responses": [
+            {
+              "say": "400 + 100 = 500.",
+              "tool": "area",
+              "type": "100+25 x 4",
+              "tip": "25 × 4 = 100 is a friendly fact."
+            },
+            {
+              "say": "Double 125 is 250, double again is 500.",
+              "tool": "ratio",
+              "type": "1:125, 2:250, 4:500"
+            }
+          ]
+        },
+        {
+          "q": "248 x 4",
+          "a": "992",
+          "notes": "Look for: 800 + 160 + 32, or 250 × 4 − 2 × 4. Ask: \"Which split is easier?\" Model: area 200+40+8 x 4",
+          "responses": [
+            {
+              "say": "800 + 160 + 32 = 992.",
+              "tool": "area",
+              "type": "200+40+8 x 4"
+            },
+            {
+              "say": "250 × 4 is 1000, take away 2 × 4: 992.",
+              "tool": "area",
+              "type": "250-2 x 4",
+              "tip": "A friendly number, then take back."
+            },
+            {
+              "say": "832",
+              "tool": "text",
+              "type": "248 x 4 = 800 + 32 = 832 ?",
+              "tip": "Lost the tens part. Ask: what is 40 × 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "199 x 5",
+          "a": "995",
+          "notes": "Look for: 200 × 5 − 5. Ask: \"What is 199 close to?\" Model: area 200-1 x 5",
+          "responses": [
+            {
+              "say": "200 fives is 1000, take away one 5: 995.",
+              "tool": "area",
+              "type": "200-1 x 5"
+            },
+            {
+              "say": "999",
+              "tool": "text",
+              "type": "199 x 5 = 1000 - 1 = 999 ?",
+              "tip": "Took away 1, not one group of 5. Ask: one less group of what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "312 x 3",
+          "a": "936",
+          "notes": "Look for: 900 + 30 + 6. Ask: \"Could you do this one in your head?\" Model: area 300+10+2 x 3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "900 + 30 + 6 = 936.",
+              "tool": "area",
+              "type": "300+10+2 x 3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
