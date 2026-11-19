@@ -135,6 +135,282 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-add-02-adding-four-digit-numbers",
+      "title": "Adding Four-Digit Numbers",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Addition",
+      "tool": "split",
+      "strategy": "Add big numbers by place value (thousands, hundreds, tens, ones), or by making one number friendly first.",
+      "topic": "add",
+      "keywords": "thousands, hundreds, place value, split, give and take, friendly number",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Lining up digits from the left when the numbers have different lengths: ask \"Which digit is the thousands?\"",
+        "Forgetting to regroup ten hundreds as a thousand: ask \"What do 6 hundreds and 4 hundreds make?\"",
+        "Not noticing 3998 is close to 4000: ask \"Is either number close to a friendly number?\""
+      ],
+      "wrapUp": "Ask \"When did you split by place value, and when did you make a number friendly?\" Land: split when the numbers are ordinary; make one friendly when it's close to a thousand or hundred.",
+      "problems": [
+        {
+          "q": "2000 + 1000",
+          "a": "3000",
+          "notes": "Look for: 2 thousands and 1 thousand. Ask: \"Hold on to this.\" Model: split 2000 + 1000",
+          "responses": [
+            {
+              "say": "3 thousands.",
+              "tool": "split",
+              "type": "2000 + 1000"
+            }
+          ]
+        },
+        {
+          "q": "2400 + 1300",
+          "a": "3700",
+          "notes": "Look for: 3000 + 700. Ask: \"What are the parts?\" Model: split 2400 + 1300",
+          "responses": [
+            {
+              "say": "3000 and 700: 3700.",
+              "tool": "split",
+              "type": "2400 + 1300"
+            }
+          ]
+        },
+        {
+          "q": "2450 + 1375",
+          "a": "3825",
+          "notes": "Look for: 3000 + 700 + 120 + 5. Ask: \"What happens in the tens?\" Model: split 2450 + 1375",
+          "responses": [
+            {
+              "say": "3000 + 700 + 120 + 5 = 3825.",
+              "tool": "split",
+              "type": "2450 + 1375",
+              "tip": "Ask: what do 5 tens and 7 tens make?"
+            },
+            {
+              "say": "2450 + 1000 + 300 + 75.",
+              "tool": "numberline",
+              "type": "2450 +1000 +300 +75",
+              "tip": "Adding on in parts."
+            },
+            {
+              "say": "3725",
+              "tool": "text",
+              "type": "2450 + 1375 = 3725 ?",
+              "tip": "Lost the hundred from the tens. Ask: what is 50 + 70?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3998 + 1250",
+          "a": "5248",
+          "notes": "Look for: 3998 needs 2 to make 4000. Ask: \"Is either number close to a friendly number?\" Model: givetake 3998 + 1250 = 4000 + 1248",
+          "responses": [
+            {
+              "say": "Give 2: 4000 + 1248 = 5248.",
+              "tool": "givetake",
+              "type": "3998 + 1250 = 4000 + 1248"
+            },
+            {
+              "say": "5250",
+              "tool": "text",
+              "type": "3998 + 1250 = 4000 + 1250 = 5250 ?",
+              "tip": "Gave 2 but didn't take it. Ask: where did the 2 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4625 + 2375",
+          "a": "7000",
+          "notes": "Look for: 625 + 375 = 1000. Ask: \"What do you notice about 625 and 375?\" Model: split 4625 + 2375",
+          "responses": [
+            {
+              "say": "4000 + 2000 + 1000 = 7000.",
+              "tool": "split",
+              "type": "4625 + 2375",
+              "tip": "Partners of 1000."
+            },
+            {
+              "say": "6000",
+              "tool": "text",
+              "type": "4625 + 2375 = 6000 ?",
+              "tip": "Ask: what do 625 and 375 make?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1875 + 2350",
+          "a": "4225",
+          "notes": "Look for: 1875 + 125 = 2000, then 2225 more. Ask: \"What does 1875 need to make 2000?\" Model: numberline 1875 +125 +2225",
+          "responses": [
+            {
+              "say": "125 to 2000, then 2225: 4225.",
+              "tool": "numberline",
+              "type": "1875 +125 +2225"
+            },
+            {
+              "say": "3000 + 1100 + 120 + 5 = 4225.",
+              "tool": "split",
+              "type": "1875 + 2350"
+            }
+          ]
+        },
+        {
+          "q": "6999 + 2499",
+          "a": "9498",
+          "notes": "Look for: 7000 + 2500 − 2. Ask: \"Could you make both friendly?\" Model: text 6999 + 2499 = 7000 + 2500 - 2 = 9498",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7000 + 2500 = 9500, take back 2: 9498.",
+              "tool": "text",
+              "type": "6999 + 2499 = 7000 + 2500 - 2 = 9498",
+              "tip": "Both numbers were 1 short."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-add-03-choosing-a-strategy",
+      "title": "Adding and Subtracting: Choose a Strategy",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Addition",
+      "tool": "numberline",
+      "strategy": "Look at the numbers first, then choose: split by place value, make a friendly number, count up, or take away. Each subtraction here undoes the addition before it.",
+      "topic": "add",
+      "keywords": "choose, inverse, undo, add up, take away, give and take, friendly number",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Using one strategy for everything: ask \"What do you notice about these numbers?\"",
+        "Not seeing the related addition: ask \"Did the problem before help?\"",
+        "Not checking: ask \"How could you check with adding?\""
+      ],
+      "wrapUp": "Ask \"How did each addition help with the subtraction after it?\" Land: addition and subtraction undo each other. If 48 + 37 = 85, then 85 − 37 = 48. Check every subtraction by adding.",
+      "problems": [
+        {
+          "q": "48 + 37",
+          "a": "85",
+          "notes": "Look for: 48 + 2 = 50, + 35. Or 70 + 15. Ask: \"Which way did you go?\" Model: numberline 48 +2 +35",
+          "responses": [
+            {
+              "say": "2 to 50, then 35: 85.",
+              "tool": "numberline",
+              "type": "48 +2 +35"
+            },
+            {
+              "say": "40 + 30 = 70, 8 + 7 = 15: 85.",
+              "tool": "split",
+              "type": "48 + 37"
+            }
+          ]
+        },
+        {
+          "q": "85 - 37",
+          "a": "48",
+          "notes": "Look for: it undoes the last one. Ask: \"Do you even need to work it out?\" Word choice: \"undo\". Model: numberline 37 >40 >85",
+          "responses": [
+            {
+              "say": "48 + 37 = 85, so 85 − 37 = 48.",
+              "tool": "text",
+              "type": "48 + 37 = 85 ; 85 - 37 = 48",
+              "tip": "Addition and subtraction undo each other."
+            },
+            {
+              "say": "3 to 40, 45 to 85: 48.",
+              "tool": "numberline",
+              "type": "37 >40 >85"
+            }
+          ]
+        },
+        {
+          "q": "299 + 456",
+          "a": "755",
+          "notes": "Look for: 300 + 455. Ask: \"What's 299 close to?\" Model: givetake 299 + 456 = 300 + 455",
+          "responses": [
+            {
+              "say": "Give 1: 300 + 455 = 755.",
+              "tool": "givetake",
+              "type": "299 + 456 = 300 + 455"
+            }
+          ]
+        },
+        {
+          "q": "755 - 299",
+          "a": "456",
+          "notes": "Look for: the last one undone, or 755 − 300 + 1. Ask: \"How does the last one help?\" Model: numberline 755 -300 +1",
+          "responses": [
+            {
+              "say": "755 − 300 + 1 = 456.",
+              "tool": "numberline",
+              "type": "755 -300 +1",
+              "tip": "Take too much, add back."
+            },
+            {
+              "say": "454",
+              "tool": "text",
+              "type": "755 - 299 = 755 - 300 - 1 = 454 ?",
+              "tip": "Ask: did 300 take away too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "603 - 7",
+          "a": "596",
+          "notes": "Look for: back 3 to 600, back 4. Ask: \"Take away or add up?\" Model: numberline 603 -3 -4",
+          "responses": [
+            {
+              "say": "Back 3, back 4: 596.",
+              "tool": "numberline",
+              "type": "603 -3 -4"
+            }
+          ]
+        },
+        {
+          "q": "603 - 589",
+          "a": "14",
+          "notes": "Look for: 589 up 11 to 600, up 3. Ask: \"Why count up this time?\" Model: numberline 589 >600 >603",
+          "responses": [
+            {
+              "say": "11 + 3 = 14.",
+              "tool": "numberline",
+              "type": "589 >600 >603",
+              "tip": "Close numbers: count up."
+            },
+            {
+              "say": "186",
+              "tool": "text",
+              "type": "603 - 589 = 186 ?",
+              "tip": "Algorithm slip. Ask: are 603 and 589 close?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1250 + 1750",
+          "a": "3000",
+          "notes": "Look for: 250 + 750 = 1000. Ask: \"What do 250 and 750 make?\" Model: split 1250 + 1750",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1000 + 1000 + 1000 = 3000.",
+              "tool": "split",
+              "type": "1250 + 1750"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

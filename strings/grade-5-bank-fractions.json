@@ -475,6 +475,382 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-frac-04-count-up-with-fractions",
+      "title": "Count Up to Subtract Fractions",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Subtract mixed numbers by counting up from the smaller one: to the next whole number, then on. 3 1/4 − 1 3/4 is 1/4 to 2, then 1 1/4 to 3 1/4.",
+      "topic": "frac",
+      "keywords": "mixed numbers, count up, next whole number, like denominators, distance",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Subtracting the fractions backwards (3 1/4 − 1 3/4 = 2 2/4): ask \"Can you take 3/4 from 1/4?\"",
+        "Losing the whole numbers: ask \"How far is it from 2 to 3 1/4?\"",
+        "Not renaming 2/4 as 1/2: ask \"Is there another name for 2/4?\""
+      ],
+      "wrapUp": "Ask \"Why does counting up get around the tricky fractions?\" Land: jump to the next whole number first, then count the wholes and the pieces. Same as whole numbers.",
+      "problems": [
+        {
+          "q": "2 - 1 3/4",
+          "a": "1/4",
+          "notes": "Look for: 1 3/4 up 1/4 to 2. Ask: \"How far is 1 3/4 from 2?\" Model: numberline 1 3/4 >2",
+          "responses": [
+            {
+              "say": "1/4 to 2.",
+              "tool": "numberline",
+              "type": "1 3/4 >2"
+            }
+          ]
+        },
+        {
+          "q": "3 1/4 - 1 3/4",
+          "a": "1 1/2",
+          "notes": "Look for: 1/4 to 2, then 1 1/4 to 3 1/4. Ask: \"How does the last one help?\" Word choice: \"count up to the next whole\". Model: numberline 1 3/4 >2 >3 1/4",
+          "responses": [
+            {
+              "say": "1/4 + 1 1/4 = 1 2/4, which is 1 1/2.",
+              "tool": "numberline",
+              "type": "1 3/4 >2 >3 1/4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2 2/4",
+              "tool": "text",
+              "type": "3 1/4 - 1 3/4 = 2 2/4 ?",
+              "tip": "Took 1/4 from 3/4 the wrong way round. Ask: should the answer be less than 2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 1/5 - 2 4/5",
+          "a": "1 2/5",
+          "notes": "Look for: 1/5 to 3, then 1 1/5. Ask: \"What's the next whole number?\" Model: numberline 2 4/5 >3 >4 1/5",
+          "responses": [
+            {
+              "say": "1/5 + 1 1/5 = 1 2/5.",
+              "tool": "numberline",
+              "type": "2 4/5 >3 >4 1/5"
+            }
+          ]
+        },
+        {
+          "q": "6 1/3 - 3 2/3",
+          "a": "2 2/3",
+          "notes": "Look for: 1/3 to 4, then 2 1/3. Ask: \"Is it the same pattern?\" Model: numberline 3 2/3 >4 >6 1/3",
+          "responses": [
+            {
+              "say": "1/3 + 2 1/3 = 2 2/3.",
+              "tool": "numberline",
+              "type": "3 2/3 >4 >6 1/3"
+            },
+            {
+              "say": "3 1/3",
+              "tool": "text",
+              "type": "6 1/3 - 3 2/3 = 3 1/3 ?",
+              "tip": "Ask: if you take 3 2/3, is there more or less than 3 left?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 - 1 5/6",
+          "a": "3 1/6",
+          "notes": "Look for: 1/6 to 2, then 3 more. Ask: \"Is it easier with no fraction in the first number?\" Model: numberline 1 5/6 >2 >5",
+          "responses": [
+            {
+              "say": "1/6 + 3 = 3 1/6.",
+              "tool": "numberline",
+              "type": "1 5/6 >2 >5"
+            }
+          ]
+        },
+        {
+          "q": "3 3/10 - 1 7/10",
+          "a": "1 3/5",
+          "notes": "Look for: 3/10 to 2, 1 3/10 to 3 3/10: 1 6/10. Ask: \"Can you rename 6/10?\" Model: numberline 1 7/10 >2 >3 3/10",
+          "responses": [
+            {
+              "say": "3/10 + 1 3/10 = 1 6/10, which is 1 3/5.",
+              "tool": "numberline",
+              "type": "1 7/10 >2 >3 3/10",
+              "tip": "Like 3.3 − 1.7 = 1.6."
+            }
+          ]
+        },
+        {
+          "q": "7 1/4 - 4 3/4",
+          "a": "2 1/2",
+          "notes": "Look for: 1/4 to 5, then 2 1/4. Ask: \"What do you notice about the answers?\" Model: numberline 4 3/4 >5 >7 1/4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1/4 + 2 1/4 = 2 2/4 = 2 1/2.",
+              "tool": "numberline",
+              "type": "4 3/4 >5 >7 1/4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-frac-05-adding-mixed-numbers",
+      "title": "Adding Mixed Numbers",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Add mixed numbers with the same denominator by making a whole: give the first number enough to reach the next whole number, then add the rest.",
+      "topic": "frac",
+      "keywords": "mixed numbers, make a whole, like denominators, rename, improper fraction",
+      "curriculum": [
+        "B2.5"
+      ],
+      "watchFor": [
+        "Writing 4 7/5 and stopping: ask \"How many fifths make a whole? Can you rename it?\"",
+        "Adding the denominators: ask \"Did the size of the pieces change?\"",
+        "Forgetting the whole numbers: ask \"Where did the 1 in 1 4/5 go?\""
+      ],
+      "wrapUp": "Ask \"How did making a whole help?\" Land: give the first number enough pieces to reach the next whole number, then add the rest. Same move as 2.6 + 0.7.",
+      "problems": [
+        {
+          "q": "1 3/4 + 1/4",
+          "a": "2",
+          "notes": "Look for: 1/4 makes the whole. Ask: \"Hold on to this.\" Model: numberline 1 3/4 +1/4",
+          "responses": [
+            {
+              "say": "1 3/4 + 1/4 = 2.",
+              "tool": "numberline",
+              "type": "1 3/4 +1/4"
+            }
+          ]
+        },
+        {
+          "q": "1 3/4 + 1 1/4",
+          "a": "3",
+          "notes": "Look for: the last one, plus 1. Ask: \"How does the last one help?\" Model: numberline 1 3/4 +1/4 +1",
+          "responses": [
+            {
+              "say": "2, then 1 more: 3.",
+              "tool": "numberline",
+              "type": "1 3/4 +1/4 +1"
+            }
+          ]
+        },
+        {
+          "q": "2 3/5 + 1 4/5",
+          "a": "4 2/5",
+          "notes": "Look for: 2/5 makes 3, then 1 2/5 more. Ask: \"What does 2 3/5 need to make 3?\" Word choice: \"make the next whole\". Model: numberline 2 3/5 +2/5 +1 +2/5",
+          "responses": [
+            {
+              "say": "2/5 to 3, 1 to 4, 2/5 more: 4 2/5.",
+              "tool": "numberline",
+              "type": "2 3/5 +2/5 +1 +2/5",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2 + 1 = 3 and 3/5 + 4/5 = 7/5 = 1 2/5: 4 2/5.",
+              "tool": "text",
+              "type": "2 + 1 = 3 ; 3/5 + 4/5 = 7/5 = 1 2/5 ; 3 + 1 2/5 = 4 2/5",
+              "tip": "Wholes and parts."
+            },
+            {
+              "say": "3 7/10",
+              "tool": "text",
+              "type": "2 3/5 + 1 4/5 = 3 7/10 ?",
+              "tip": "Added the denominators. Ask: did the pieces get smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 2/3 + 2 2/3",
+          "a": "6 1/3",
+          "notes": "Look for: 1/3 makes 4, then 2 1/3 more. Ask: \"What's the same?\" Model: numberline 3 2/3 +1/3 +2 +1/3",
+          "responses": [
+            {
+              "say": "1/3 to 4, 2 to 6, 1/3 more: 6 1/3.",
+              "tool": "numberline",
+              "type": "3 2/3 +1/3 +2 +1/3"
+            },
+            {
+              "say": "5 4/3",
+              "tool": "text",
+              "type": "3 2/3 + 2 2/3 = 5 4/3",
+              "tip": "True. Ask: how many thirds make a whole? Rename it."
+            }
+          ]
+        },
+        {
+          "q": "1 5/7 + 2 4/7",
+          "a": "4 2/7",
+          "notes": "Look for: 2 to 3 5/7, 2/7 to 4, 2/7 more. Ask: \"Which order did you add?\" Model: numberline 1 5/7 +2 +2/7 +2/7",
+          "responses": [
+            {
+              "say": "Up 2, then 2/7 to 4, then 2/7: 4 2/7.",
+              "tool": "numberline",
+              "type": "1 5/7 +2 +2/7 +2/7"
+            }
+          ]
+        },
+        {
+          "q": "4 7/10 + 3 6/10",
+          "a": "8 3/10",
+          "notes": "Look for: 3/10 makes 5, then 3 3/10. Ask: \"How is this like 4.7 + 3.6?\" Model: numberline 4 7/10 +3/10 +3 +3/10",
+          "responses": [
+            {
+              "say": "3/10 to 5, 3 to 8, 3/10: 8 3/10.",
+              "tool": "numberline",
+              "type": "4 7/10 +3/10 +3 +3/10"
+            },
+            {
+              "say": "4.7 + 3.6 = 8.3.",
+              "tool": "text",
+              "type": "4 7/10 = 4.7 ; 3 6/10 = 3.6 ; 4.7 + 3.6 = 8.3",
+              "tip": "Decimals connection."
+            }
+          ]
+        },
+        {
+          "q": "2 3/8 + 1 7/8",
+          "a": "4 1/4",
+          "notes": "Look for: 1/8 makes 3 (from 7/8), then 1 2/8. Ask: \"Can you rename 2/8?\" Model: numberline 2 3/8 +1 +5/8 +2/8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 3/8 + 5/8 = 4, plus 2/8: 4 2/8 = 4 1/4.",
+              "tool": "numberline",
+              "type": "2 3/8 +1 +5/8 +2/8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-frac-06-fractions-and-decimals-same-moves",
+      "title": "Fractions and Decimals: Same Moves",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "The same strategies work for fractions and decimals: 6 − 2.75 and 6 − 2 3/4 are the same problem. Count up, make a whole, or take too much and add back.",
+      "topic": "frac",
+      "keywords": "fraction, decimal, same value, count up, make a whole, quarters, fifths, tenths",
+      "curriculum": [
+        "B2.4",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Thinking fractions need a completely different method: ask \"Is 2 3/4 the same as 2.75?\"",
+        "Mixing up 0.4 and 1/4: ask \"Is 0.4 four tenths or one quarter?\"",
+        "Getting the decimal answer but not the fraction one: ask \"What is 0.25 as a fraction?\""
+      ],
+      "wrapUp": "Ask \"Why did every pair have the same answer?\" Land: 2 3/4 and 2.75 are the same number, so the same moves work. Choose whichever form makes the jumps easier to see.",
+      "problems": [
+        {
+          "q": "6 - 2.75",
+          "a": "3.25",
+          "notes": "Look for: 0.25 to 3, then 3. Ask: \"Hold on to this.\" Model: numberline 2.75 >3 >6",
+          "responses": [
+            {
+              "say": "0.25 + 3 = 3.25.",
+              "tool": "numberline",
+              "type": "2.75 >3 >6"
+            }
+          ]
+        },
+        {
+          "q": "6 - 2 3/4",
+          "a": "3 1/4",
+          "notes": "Look for: the same problem. Ask: \"What do you notice?\" Word choice: \"2 3/4 is the same as 2.75\". Model: numberline 2 3/4 >3 >6",
+          "responses": [
+            {
+              "say": "1/4 + 3 = 3 1/4. The same as 3.25.",
+              "tool": "numberline",
+              "type": "2 3/4 >3 >6",
+              "tip": "The target idea."
+            },
+            {
+              "say": "3 3/4",
+              "tool": "text",
+              "type": "6 - 2 3/4 = 3 3/4 ?",
+              "tip": "Ask: is 2 3/4 + 3 3/4 equal to 6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5 + 0.75",
+          "a": "1.25",
+          "notes": "Look for: 0.25 makes 1, then 0.25 more. Ask: \"Is it more than 1?\" Model: numberline 0.75 +0.25 +0.25",
+          "responses": [
+            {
+              "say": "0.75 + 0.25 = 1, plus 0.25: 1.25.",
+              "tool": "numberline",
+              "type": "0.75 +0.25 +0.25"
+            },
+            {
+              "say": "1.2",
+              "tool": "text",
+              "type": "0.5 + 0.75 = 1.2 ?",
+              "tip": "Ask: is 0.5 the same as 0.50? Add the hundredths again.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2/4 + 3/4",
+          "a": "1 1/4",
+          "notes": "Look for: the same as the last one. Ask: \"Which decimal is 2/4? 3/4?\" Model: numberline 3/4 +1/4 +1/4",
+          "responses": [
+            {
+              "say": "3/4 + 1/4 = 1, plus 1/4: 1 1/4. Same as 1.25.",
+              "tool": "numberline",
+              "type": "3/4 +1/4 +1/4"
+            }
+          ]
+        },
+        {
+          "q": "10 - 4.6",
+          "a": "5.4",
+          "notes": "Look for: 0.4 to 5, then 5. Ask: \"Which way?\" Model: numberline 4.6 >5 >10",
+          "responses": [
+            {
+              "say": "0.4 + 5 = 5.4.",
+              "tool": "numberline",
+              "type": "4.6 >5 >10"
+            }
+          ]
+        },
+        {
+          "q": "10 - 4 3/5",
+          "a": "5 2/5",
+          "notes": "Look for: 2/5 to 5, then 5. Ask: \"Is 4 3/5 the same as 4.6?\" Model: numberline 4 3/5 >5 >10",
+          "responses": [
+            {
+              "say": "2/5 + 5 = 5 2/5. And 2/5 = 0.4, so it matches.",
+              "tool": "numberline",
+              "type": "4 3/5 >5 >10"
+            }
+          ]
+        },
+        {
+          "q": "3 1/4 + 1 3/4",
+          "a": "5",
+          "notes": "Look for: 1/4 and 3/4 make a whole. Ask: \"What's the decimal version?\" Model: numberline 3 1/4 +3/4 +1",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 1/4 + 3/4 = 4, plus 1: 5. Same as 3.25 + 1.75.",
+              "tool": "numberline",
+              "type": "3 1/4 +3/4 +1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

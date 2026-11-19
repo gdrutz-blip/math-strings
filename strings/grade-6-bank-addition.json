@@ -1,0 +1,540 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-add-01-give-and-take",
+      "title": "Give and Take with Decimals",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Addition",
+      "tool": "givetake",
+      "strategy": "When one number is close to a friendly number, give it what it needs from the other number. The total stays the same, with whole numbers or decimals.",
+      "topic": "add",
+      "keywords": "give and take, friendly number, total stays the same, decimals, thousandths",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Making the friendly number but not taking from the other: ask \"Where did the extra come from?\"",
+        "Giving the wrong amount with decimals (4.98 + 3.37 = 5 + 3.35 + ...): ask \"How much does 4.98 need to make 5?\"",
+        "Lining up 6.995 + 2.15 wrong: ask \"About how much should it be?\""
+      ],
+      "wrapUp": "Ask \"How much did each friendly number need?\" Land: find what the number needs (4.98 needs 0.02), move it from the other number, then add. The total doesn't change.",
+      "problems": [
+        {
+          "q": "398 + 245",
+          "a": "643",
+          "notes": "Look for: give 2: 400 + 243. Ask: \"What does 398 need?\" Model: givetake 398 + 245 = 400 + 243",
+          "responses": [
+            {
+              "say": "400 + 243 = 643.",
+              "tool": "givetake",
+              "type": "398 + 245 = 400 + 243"
+            }
+          ]
+        },
+        {
+          "q": "2997 + 1468",
+          "a": "4465",
+          "notes": "Look for: give 3: 3000 + 1465. Ask: \"Same idea, bigger numbers?\" Model: givetake 2997 + 1468 = 3000 + 1465",
+          "responses": [
+            {
+              "say": "3000 + 1465 = 4465.",
+              "tool": "givetake",
+              "type": "2997 + 1468 = 3000 + 1465"
+            },
+            {
+              "say": "4468",
+              "tool": "text",
+              "type": "2997 + 1468 = 3000 + 1468 = 4468 ?",
+              "tip": "Gave 3 but didn't take it. Ask: where did the 3 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.98 + 3.37",
+          "a": "8.35",
+          "notes": "Look for: give 0.02: 5 + 3.35. Ask: \"What does 4.98 need?\" Word choice: \"give and take\". Model: givetake 4.98 + 3.37 = 5 + 3.35",
+          "responses": [
+            {
+              "say": "5 + 3.35 = 8.35.",
+              "tool": "givetake",
+              "type": "4.98 + 3.37 = 5 + 3.35",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "8.37",
+              "tool": "text",
+              "type": "4.98 + 3.37 = 5 + 3.37 = 8.37 ?",
+              "tip": "Ask: did 3.37 give anything away?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.995 + 2.15",
+          "a": "9.145",
+          "notes": "Look for: give 0.005: 7 + 2.145. Ask: \"How far is 6.995 from 7?\" Model: givetake 6.995 + 2.15 = 7 + 2.145",
+          "responses": [
+            {
+              "say": "7 + 2.145 = 9.145.",
+              "tool": "givetake",
+              "type": "6.995 + 2.15 = 7 + 2.145"
+            },
+            {
+              "say": "9.1",
+              "tool": "text",
+              "type": "6.995 + 2.15 = 7 + 2.1 = 9.1 ?",
+              "tip": "Gave 0.05, not 0.005. Ask: how far is 6.995 from 7?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.997 + 0.45",
+          "a": "1.447",
+          "notes": "Look for: 1 + 0.447. Ask: \"Is the answer more or less than 1.45?\" Model: givetake 0.997 + 0.45 = 1 + 0.447",
+          "responses": [
+            {
+              "say": "1 + 0.447 = 1.447.",
+              "tool": "givetake",
+              "type": "0.997 + 0.45 = 1 + 0.447"
+            }
+          ]
+        },
+        {
+          "q": "19.99 + 7.85",
+          "a": "27.84",
+          "notes": "Look for: 20 + 7.84. Ask: \"How is this like money?\" Model: givetake 19.99 + 7.85 = 20 + 7.84",
+          "responses": [
+            {
+              "say": "$20 + $7.84 = $27.84.",
+              "tool": "givetake",
+              "type": "19.99 + 7.85 = 20 + 7.84"
+            }
+          ]
+        },
+        {
+          "q": "0.75 + 0.25 + 2.99",
+          "a": "3.99",
+          "notes": "Look for: 0.75 + 0.25 = 1 first. Ask: \"Which two go together?\" Model: text 0.75 + 0.25 = 1 ; 1 + 2.99 = 3.99",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1 + 2.99 = 3.99.",
+              "tool": "text",
+              "type": "0.75 + 0.25 = 1 ; 1 + 2.99 = 3.99",
+              "tip": "Look for partners first."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-add-02-estimate-then-calculate",
+      "title": "Estimate, Then Calculate",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Addition",
+      "tool": "estimate",
+      "strategy": "Estimate with friendly numbers first, so you know about how big the answer should be. Then calculate, and check it's close to the estimate.",
+      "topic": "add",
+      "keywords": "estimate, about, friendly numbers, benchmark, check, reasonable",
+      "curriculum": [
+        "B2.4",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Skipping the estimate: ask \"About how much should it be?\"",
+        "An answer far from the estimate (3.98 + 5.1 = 4.49): ask \"Your estimate was 9. Is 4.49 close?\"",
+        "Estimating fractions badly (4/5 + 7/10 is about 11/15): ask \"Is each fraction close to 0, 1/2 or 1?\""
+      ],
+      "wrapUp": "Ask \"How did the estimate help?\" Land: round to friendly numbers (whole numbers, halves) to get about how big the answer is. If the calculation is far off, check it.",
+      "problems": [
+        {
+          "q": "3.98 + 5.1",
+          "a": "9.08",
+          "notes": "Look for: about 4 + 5 = 9, then 4 + 5.1 − 0.02. Ask: \"About how much?\" Model: estimate 3.98 + 5.1",
+          "responses": [
+            {
+              "say": "About 9. Exactly: 4 + 5.1 − 0.02 = 9.08.",
+              "tool": "estimate",
+              "type": "3.98 + 5.1"
+            },
+            {
+              "say": "4.49",
+              "tool": "text",
+              "type": "3.98 + 5.1 = 4.49 ?",
+              "tip": "Lined up digits from the right. Ask: your estimate was 9. Is 4.49 close?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.04 - 7.96",
+          "a": "4.08",
+          "notes": "Look for: about 12 − 8 = 4. Then slide: 12.08 − 8. Ask: \"What's your estimate?\" Model: estimate 12.04 - 7.96",
+          "responses": [
+            {
+              "say": "About 4. Exactly: 12.08 − 8 = 4.08.",
+              "tool": "estimate",
+              "type": "12.04 - 7.96"
+            },
+            {
+              "say": "Slide up 0.04: 12.08 − 8 = 4.08.",
+              "tool": "slide",
+              "type": "12.04 - 7.96 = 12.08 - 8"
+            }
+          ]
+        },
+        {
+          "q": "4/5 + 7/10",
+          "a": "1 1/2",
+          "notes": "Look for: both close to 1, so a bit less than 2. Exactly 8/10 + 7/10 = 15/10. Ask: \"Close to 0, 1/2 or 1?\" Model: numberline 4/5 +1/5 +1/2",
+          "responses": [
+            {
+              "say": "About 1 1/2. 1/5 makes 1, then 1/2: 1 1/2.",
+              "tool": "numberline",
+              "type": "4/5 +1/5 +1/2"
+            },
+            {
+              "say": "11/15",
+              "tool": "text",
+              "type": "4/5 + 7/10 = 11/15 ?",
+              "tip": "Ask: both fractions are near 1. Can the total be less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2 7/8 + 1 1/4",
+          "a": "4 1/8",
+          "notes": "Look for: about 3 + 1 = 4. 1/8 makes 3, then 1 1/8. Ask: \"Will it be more or less than 4?\" Model: numberline 2 7/8 +1/8 +1 +1/8",
+          "responses": [
+            {
+              "say": "About 4. Exactly: 1/8 to 3, 1 to 4, 1/8: 4 1/8.",
+              "tool": "numberline",
+              "type": "2 7/8 +1/8 +1 +1/8"
+            }
+          ]
+        },
+        {
+          "q": "9.875 - 4.9",
+          "a": "4.975",
+          "notes": "Look for: about 10 − 5 = 5. Then 9.875 − 5 + 0.1. Ask: \"Bigger or smaller than 5?\" Model: numberline 9.875 -5 +0.1",
+          "responses": [
+            {
+              "say": "About 5. Exactly: 9.875 − 5 + 0.1 = 4.975.",
+              "tool": "numberline",
+              "type": "9.875 -5 +0.1"
+            },
+            {
+              "say": "5.875",
+              "tool": "text",
+              "type": "9.875 - 4.9 = 9.875 - 4 = 5.875 ?",
+              "tip": "Ask: did you take away all of 4.9?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 1/3 - 1 5/6",
+          "a": "1 1/2",
+          "notes": "Look for: about 3 − 2 = 1, a bit more. 1/6 to 2, then 1 1/3: 1 3/6. Ask: \"Is your answer close to the estimate?\" Model: numberline 1 5/6 >2 >3 1/3",
+          "responses": [
+            {
+              "say": "About 1 and a bit. 1/6 + 1 1/3 = 1 1/2.",
+              "tool": "numberline",
+              "type": "1 5/6 >2 >3 1/3"
+            }
+          ]
+        },
+        {
+          "q": "0.49 + 0.51 + 0.999",
+          "a": "1.999",
+          "notes": "Look for: 0.49 + 0.51 = 1, plus almost 1. Ask: \"What's the estimate?\" Model: text 0.49 + 0.51 = 1 ; 1 + 0.999 = 1.999",
+          "optional": true,
+          "responses": [
+            {
+              "say": "About 2. Exactly: 1 + 0.999 = 1.999.",
+              "tool": "text",
+              "type": "0.49 + 0.51 = 1 ; 1 + 0.999 = 1.999"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-add-03-choose-whole-and-decimal",
+      "title": "Whole Numbers and Decimals: Choose a Strategy",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Addition",
+      "tool": "numberline",
+      "strategy": "Look at the numbers before you start. Close together? Count up. Small amount to take? Take it away. Near a friendly number? Use it and adjust. Partners? Put them together.",
+      "topic": "add",
+      "keywords": "choose, count up, take away, friendly number, partners, near double",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Using the algorithm for 7002 − 6995: ask \"Are these close together?\"",
+        "Counting up from 15 to 7002: ask \"Is 15 a small amount to take away?\"",
+        "Missing partners like 25.5 + 24.5: ask \"What do 0.5 and 0.5 make?\""
+      ],
+      "wrapUp": "Ask \"What did you look for before choosing?\" Land: how close the numbers are, whether one is near a friendly number, and whether there are partners. The numbers tell you the strategy.",
+      "problems": [
+        {
+          "q": "7002 - 6995",
+          "a": "7",
+          "notes": "Look for: count up 5 to 7000, then 2. Ask: \"Close together?\" Model: numberline 6995 >7000 >7002",
+          "responses": [
+            {
+              "say": "5 + 2 = 7.",
+              "tool": "numberline",
+              "type": "6995 >7000 >7002"
+            }
+          ]
+        },
+        {
+          "q": "7002 - 15",
+          "a": "6987",
+          "notes": "Look for: back 2 to 7000, back 13. Ask: \"Why not count up this time?\" Model: numberline 7002 -2 -13",
+          "responses": [
+            {
+              "say": "Back 2 to 7000, back 13: 6987.",
+              "tool": "numberline",
+              "type": "7002 -2 -13",
+              "tip": "Small amount: take it away."
+            },
+            {
+              "say": "6997",
+              "tool": "text",
+              "type": "7002 - 15 = 6997 ?",
+              "tip": "Ask: if you take 2 you're at 7000. How much more to take?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.99 + 4.99",
+          "a": "9.98",
+          "notes": "Look for: 5 + 5 − 0.02. Ask: \"What's 4.99 close to?\" Model: text 4.99 + 4.99 = 5 + 5 - 0.02 = 9.98",
+          "responses": [
+            {
+              "say": "10 take back 2 cents: 9.98.",
+              "tool": "text",
+              "type": "4.99 + 4.99 = 5 + 5 - 0.02 = 9.98"
+            },
+            {
+              "say": "9.99",
+              "tool": "text",
+              "type": "4.99 + 4.99 = 10 - 0.01 = 9.99 ?",
+              "tip": "Took back only once. Ask: how short is each number?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3.6 - 0.75",
+          "a": "2.85",
+          "notes": "Look for: back 0.6 to 3, back 0.15. Or 3.6 − 1 + 0.25. Ask: \"Which way?\" Model: numberline 3.6 -1 +0.25",
+          "responses": [
+            {
+              "say": "3.6 − 1 + 0.25 = 2.85.",
+              "tool": "numberline",
+              "type": "3.6 -1 +0.25",
+              "tip": "Take too much, add back."
+            },
+            {
+              "say": "Back 0.6 to 3, back 0.15: 2.85.",
+              "tool": "numberline",
+              "type": "3.6 -0.6 -0.15"
+            }
+          ]
+        },
+        {
+          "q": "25.5 + 24.5",
+          "a": "50",
+          "notes": "Look for: 0.5 + 0.5 = 1, so 49 + 1. Ask: \"Partners?\" Model: split 25.5 + 24.5",
+          "responses": [
+            {
+              "say": "40 + 9 + 1 = 50.",
+              "tool": "split",
+              "type": "25.5 + 24.5"
+            },
+            {
+              "say": "Give 0.5: 26 + 24 = 50.",
+              "tool": "givetake",
+              "type": "25.5 + 24.5 = 26 + 24"
+            }
+          ]
+        },
+        {
+          "q": "1000 - 637",
+          "a": "363",
+          "notes": "Look for: count up 3, 60, 300; or 999 − 636. Ask: \"How would you avoid the zeros?\" Model: slide 1000 - 637 = 999 - 636",
+          "responses": [
+            {
+              "say": "999 − 636 = 363.",
+              "tool": "slide",
+              "type": "1000 - 637 = 999 - 636"
+            },
+            {
+              "say": "3 to 640, 60 to 700, 300 to 1000: 363.",
+              "tool": "numberline",
+              "type": "637 >640 >700 >1000"
+            }
+          ]
+        },
+        {
+          "q": "6.004 - 5.997",
+          "a": "0.007",
+          "notes": "Look for: 0.003 to 6, then 0.004. Ask: \"How far apart are they?\" Model: numberline 5.997 >6 >6.004",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.003 + 0.004 = 0.007.",
+              "tool": "numberline",
+              "type": "5.997 >6 >6.004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-add-04-undo-it",
+      "title": "Add It, Then Undo It",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Addition",
+      "tool": "numberline",
+      "strategy": "Each subtraction here undoes the addition before it, with whole numbers, decimals and fractions. If a + b = c, then c − b = a.",
+      "topic": "add",
+      "keywords": "inverse, undo, add, subtract, check, related facts",
+      "curriculum": [
+        "B2.1",
+        "B2.4",
+        "B2.5"
+      ],
+      "watchFor": [
+        "Recalculating every subtraction from scratch: ask \"Did the problem before help?\"",
+        "Undoing with the wrong number: ask \"Which number are we taking away? What was it added to?\"",
+        "Not checking: ask \"How could you check that subtraction by adding?\""
+      ],
+      "wrapUp": "Ask \"Why didn't we have to work out the subtractions?\" Land: addition and subtraction undo each other. If 1998 + 2005 = 4003, then 4003 − 1998 = 2005. Use this to check any subtraction.",
+      "problems": [
+        {
+          "q": "1998 + 2005",
+          "a": "4003",
+          "notes": "Look for: give 2: 2000 + 2003. Ask: \"What's 1998 close to?\" Model: givetake 1998 + 2005 = 2000 + 2003",
+          "responses": [
+            {
+              "say": "2000 + 2003 = 4003.",
+              "tool": "givetake",
+              "type": "1998 + 2005 = 2000 + 2003"
+            }
+          ]
+        },
+        {
+          "q": "4003 - 1998",
+          "a": "2005",
+          "notes": "Look for: it undoes the last one. Ask: \"Do you need to calculate?\" Word choice: \"undo\". Model: numberline 1998 >2000 >4003",
+          "responses": [
+            {
+              "say": "1998 + 2005 = 4003, so 4003 − 1998 = 2005.",
+              "tool": "text",
+              "type": "1998 + 2005 = 4003 ; 4003 - 1998 = 2005",
+              "tip": "Addition undoes subtraction."
+            },
+            {
+              "say": "2 to 2000, 2003 more: 2005.",
+              "tool": "numberline",
+              "type": "1998 >2000 >4003"
+            }
+          ]
+        },
+        {
+          "q": "2.75 + 1.5",
+          "a": "4.25",
+          "notes": "Look for: 2.75 + 0.25 = 3, then 1.25. Ask: \"Partners?\" Model: numberline 2.75 +0.25 +1.25",
+          "responses": [
+            {
+              "say": "3, then 1.25: 4.25.",
+              "tool": "numberline",
+              "type": "2.75 +0.25 +1.25"
+            }
+          ]
+        },
+        {
+          "q": "4.25 - 2.75",
+          "a": "1.5",
+          "notes": "Look for: undo. Ask: \"Which addition helps?\" Model: numberline 2.75 >3 >4.25",
+          "responses": [
+            {
+              "say": "2.75 + 1.5 = 4.25, so 1.5.",
+              "tool": "text",
+              "type": "2.75 + 1.5 = 4.25 ; 4.25 - 2.75 = 1.5"
+            },
+            {
+              "say": "2.5",
+              "tool": "text",
+              "type": "4.25 - 2.75 = 2.5 ?",
+              "tip": "Ask: is 2.75 + 2.5 = 4.25?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1/2 + 2/5",
+          "a": "9/10",
+          "notes": "Look for: 5/10 + 4/10. Ask: \"What common piece?\" Model: numberline 0 +1/2 +2/5",
+          "responses": [
+            {
+              "say": "5/10 + 4/10 = 9/10.",
+              "tool": "numberline",
+              "type": "0 +1/2 +2/5"
+            },
+            {
+              "say": "3/7",
+              "tool": "text",
+              "type": "1/2 + 2/5 = 3/7 ?",
+              "tip": "Added tops and bottoms. Ask: is 3/7 more than 1/2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9/10 - 1/2",
+          "a": "2/5",
+          "notes": "Look for: undo the last one. Ask: \"Do you need a common denominator now?\" Model: numberline 1/2 >9/10",
+          "responses": [
+            {
+              "say": "1/2 + 2/5 = 9/10, so 9/10 − 1/2 = 2/5.",
+              "tool": "text",
+              "type": "1/2 + 2/5 = 9/10 ; 9/10 - 1/2 = 2/5"
+            },
+            {
+              "say": "From 1/2 to 9/10 is 4/10 = 2/5.",
+              "tool": "numberline",
+              "type": "1/2 >9/10"
+            }
+          ]
+        },
+        {
+          "q": "6.4 - 2 2/5",
+          "a": "4",
+          "notes": "Look for: 2/5 = 0.4, so 6.4 − 2.4. Ask: \"What's 2/5 as a decimal?\" Model: numberline 2.4 >6.4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6.4 − 2.4 = 4.",
+              "tool": "numberline",
+              "type": "2.4 >6.4",
+              "tip": "Fractions and decimals together."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

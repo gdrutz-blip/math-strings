@@ -177,6 +177,413 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-dec-02-adding-decimals-by-place-value",
+      "title": "Adding Decimals by Place Value",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Decimals",
+      "tool": "split",
+      "strategy": "Add decimals by place value: ones with ones, tenths with tenths, hundredths with hundredths. Ten hundredths make a tenth, and ten tenths make a one.",
+      "topic": "dec",
+      "keywords": "place value, ones, tenths, hundredths, regroup, split",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Forgetting to regroup ten hundredths as a tenth (3.46 + 2.78 = 6.14): ask \"What do 6 hundredths and 8 hundredths make?\"",
+        "Lining up digits from the right when the places don't match (12.6 + 3.75 = 5.01): ask \"About how much should it be?\"",
+        "Reading 1.05 as \"one point five\": ask \"How many tenths? How many hundredths?\""
+      ],
+      "wrapUp": "Ask \"What happened when a place got to ten or more?\" Land: add each place, then regroup: ten hundredths make a tenth, ten tenths make a one. Estimate first to check where the decimal point goes.",
+      "problems": [
+        {
+          "q": "3 + 2",
+          "a": "5",
+          "notes": "Look for: the ones. Ask: \"Hold on to this.\" Model: split 3 + 2",
+          "responses": [
+            {
+              "say": "5.",
+              "tool": "split",
+              "type": "3 + 2"
+            }
+          ]
+        },
+        {
+          "q": "3.4 + 2.5",
+          "a": "5.9",
+          "notes": "Look for: 5 ones and 9 tenths. Ask: \"What's the same as the last one?\" Model: split 3.4 + 2.5",
+          "responses": [
+            {
+              "say": "5 and 0.9: 5.9.",
+              "tool": "split",
+              "type": "3.4 + 2.5"
+            }
+          ]
+        },
+        {
+          "q": "3.46 + 2.78",
+          "a": "6.24",
+          "notes": "Look for: 5 + 1.1 + 0.14. Ask: \"What do 6 hundredths and 8 hundredths make?\" Word choice: \"ten hundredths make a tenth\". Model: split 3.46 + 2.78",
+          "responses": [
+            {
+              "say": "5 + 1.1 + 0.14 = 6.24.",
+              "tool": "split",
+              "type": "3.46 + 2.78",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "3.46 + 3 − 0.22 = 6.24.",
+              "tool": "numberline",
+              "type": "3.46 +3 -0.22",
+              "tip": "Over and back."
+            },
+            {
+              "say": "6.14",
+              "tool": "text",
+              "type": "3.46 + 2.78 = 6.14 ?",
+              "tip": "Lost the tenth from the hundredths. Ask: what is 0.06 + 0.08?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4.07 + 1.85",
+          "a": "5.92",
+          "notes": "Look for: 5 + 0.8 + 0.12. Ask: \"Is 4.07 the same as 4.7?\" Model: split 4.07 + 1.85",
+          "responses": [
+            {
+              "say": "5 + 0.8 + 0.12 = 5.92.",
+              "tool": "split",
+              "type": "4.07 + 1.85"
+            },
+            {
+              "say": "6.55",
+              "tool": "text",
+              "type": "4.07 + 1.85 = 6.55 ?",
+              "tip": "Read 4.07 as 4.7. Ask: how many tenths does 4.07 have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.6 + 3.75",
+          "a": "16.35",
+          "notes": "Look for: 15 + 1.3 + 0.05. Ask: \"About how much should it be?\" Model: split 12.6 + 3.75",
+          "responses": [
+            {
+              "say": "15 + 1.3 + 0.05 = 16.35.",
+              "tool": "split",
+              "type": "12.6 + 3.75"
+            },
+            {
+              "say": "5.01",
+              "tool": "text",
+              "type": "12.6 + 3.75 = 5.01 ?",
+              "tip": "Lined the digits up from the right. Ask: about how much is 12 + 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.48 + 0.57",
+          "a": "1.05",
+          "notes": "Look for: 0.9 + 0.15. Ask: \"Is it more or less than 1?\" Model: split 0.48 + 0.57",
+          "responses": [
+            {
+              "say": "0.9 + 0.15 = 1.05.",
+              "tool": "split",
+              "type": "0.48 + 0.57"
+            },
+            {
+              "say": "0.48 + 0.52 = 1, plus 0.05.",
+              "tool": "numberline",
+              "type": "0.48 +0.52 +0.05",
+              "tip": "Make a whole."
+            }
+          ]
+        },
+        {
+          "q": "2.36 + 1.4 + 0.64",
+          "a": "4.4",
+          "notes": "Look for: 2.36 + 0.64 = 3 first. Ask: \"Which two make a whole?\" Model: split 2.36 + 1.4 + 0.64",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2.36 and 0.64 make 3, plus 1.4: 4.4.",
+              "tool": "text",
+              "type": "2.36 + 0.64 = 3 ; 3 + 1.4 = 4.4",
+              "tip": "Look for partners first."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-dec-03-when-the-places-dont-match",
+      "title": "When the Decimal Places Don't Match",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Decimals",
+      "tool": "numberline",
+      "strategy": "When one number has hundredths and the other doesn't, count up through friendly numbers, or slide both so you subtract something friendly. Writing 6.3 as 6.30 shows the hundredths.",
+      "topic": "dec",
+      "keywords": "tenths, hundredths, count up, same difference, 6.3 = 6.30",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Subtracting 45 from 63 as if they're the same pieces (6.3 − 2.45 = 4.18): ask \"Is 0.3 the same as 0.30? Which is bigger, 0.3 or 0.45?\"",
+        "Losing a jump when counting up: ask \"Which jumps make the answer?\"",
+        "Treating 4 − 1.75 as 3.75: ask \"How far is 1.75 from 2? From 2 to 4?\""
+      ],
+      "wrapUp": "Ask \"How did you deal with the missing hundredths?\" Land: count up through friendly numbers (2.45 → 2.5 → 3 → 6.3), or slide both. Writing 6.3 as 6.30 helps the algorithm.",
+      "problems": [
+        {
+          "q": "6 - 2.5",
+          "a": "3.5",
+          "notes": "Look for: 2.5 up 0.5 to 3, up 3 to 6. Ask: \"Hold on to this.\" Model: numberline 2.5 >3 >6",
+          "responses": [
+            {
+              "say": "0.5 + 3 = 3.5.",
+              "tool": "numberline",
+              "type": "2.5 >3 >6"
+            }
+          ]
+        },
+        {
+          "q": "6.3 - 2.5",
+          "a": "3.8",
+          "notes": "Look for: the same, plus 0.3. Ask: \"How does the last one help?\" Model: numberline 2.5 >3 >6.3",
+          "responses": [
+            {
+              "say": "0.5 + 3.3 = 3.8.",
+              "tool": "numberline",
+              "type": "2.5 >3 >6.3"
+            }
+          ]
+        },
+        {
+          "q": "6.3 - 2.45",
+          "a": "3.85",
+          "notes": "Look for: 0.05 to 2.5, 0.5 to 3, 3.3 to 6.3. Ask: \"What's different from the last one?\" Word choice: \"6.3 is the same as 6.30\". Model: numberline 2.45 >2.5 >3 >6.3",
+          "responses": [
+            {
+              "say": "0.05 + 0.5 + 3.3 = 3.85.",
+              "tool": "numberline",
+              "type": "2.45 >2.5 >3 >6.3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Add 0.05 to both: 6.35 − 2.5 = 3.85.",
+              "tool": "slide",
+              "type": "6.3 - 2.45 = 6.35 - 2.5",
+              "tip": "Same difference."
+            },
+            {
+              "say": "4.18",
+              "tool": "text",
+              "type": "6.3 - 2.45 = 4.18 ?",
+              "tip": "Took 45 from 63 as if they were the same pieces. Ask: is 0.3 the same as 0.30?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8.1 - 3.25",
+          "a": "4.85",
+          "notes": "Look for: 0.75 to 4, then 4.1 more. Ask: \"What does 3.25 need to make 4?\" Model: numberline 3.25 >4 >8.1",
+          "responses": [
+            {
+              "say": "0.75 + 4.1 = 4.85.",
+              "tool": "numberline",
+              "type": "3.25 >4 >8.1"
+            }
+          ]
+        },
+        {
+          "q": "4 - 1.75",
+          "a": "2.25",
+          "notes": "Look for: 0.25 to 2, then 2 more. Ask: \"How is this like money?\" Model: numberline 1.75 >2 >4",
+          "responses": [
+            {
+              "say": "0.25 + 2 = 2.25.",
+              "tool": "numberline",
+              "type": "1.75 >2 >4",
+              "tip": "Like $4 take away $1.75."
+            },
+            {
+              "say": "3.75",
+              "tool": "text",
+              "type": "4 - 1.75 = 3.75 ?",
+              "tip": "Ask: is 1.75 + 3.75 = 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9.2 - 4.67",
+          "a": "4.53",
+          "notes": "Look for: 0.33 to 5, then 4.2. Ask: \"Which way did you choose?\" Model: numberline 4.67 >5 >9.2",
+          "responses": [
+            {
+              "say": "0.33 + 4.2 = 4.53.",
+              "tool": "numberline",
+              "type": "4.67 >5 >9.2"
+            },
+            {
+              "say": "9.20 − 4.67 = 4.53.",
+              "tool": "column",
+              "type": "9.20 - 4.67",
+              "tip": "The algorithm, with the zero written in."
+            }
+          ]
+        },
+        {
+          "q": "12.5 - 6.08",
+          "a": "6.42",
+          "notes": "Look for: 0.92 to 7, 5.5 more. Or 12.5 − 6 − 0.08. Ask: \"Could you take away instead?\" Model: numberline 12.5 -6 -0.08",
+          "optional": true,
+          "responses": [
+            {
+              "say": "12.5 − 6 = 6.5, then back 0.08: 6.42.",
+              "tool": "numberline",
+              "type": "12.5 -6 -0.08"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-dec-04-making-change",
+      "title": "Making Change",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Decimals",
+      "tool": "numberline",
+      "strategy": "To find change, count up from the price to the money paid, like a cashier: to the next dime, the next dollar, then the rest.",
+      "topic": "dec",
+      "keywords": "change, count up, money, dollars, cents, next dollar",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Bigger minus smaller in each place ($20 − $13.65 = $7.45): ask \"Is $13.65 + $7.45 = $20?\"",
+        "Forgetting the cents jump: ask \"How far is $13.65 from $14?\"",
+        "Writing 5.5 as 5.05: ask \"Is it five dollars fifty or five dollars five?\""
+      ],
+      "wrapUp": "Ask \"How is making change like adding up to subtract?\" Land: count up from the price, through friendly amounts (next dime, next dollar), to the money paid. Add the jumps.",
+      "problems": [
+        {
+          "q": "20 - 15",
+          "a": "5",
+          "notes": "Context: \"Something costs $15. You pay with a $20 bill.\" Look for: $5 change. Ask: \"Hold on to this.\" Model: numberline 15 >20",
+          "responses": [
+            {
+              "say": "$5.",
+              "tool": "numberline",
+              "type": "15 >20"
+            }
+          ]
+        },
+        {
+          "q": "20 - 14.50",
+          "a": "5.5",
+          "notes": "Look for: 50 cents to $15, then $5. Ask: \"How does the last one help?\" Model: numberline 14.5 >15 >20",
+          "responses": [
+            {
+              "say": "$0.50 + $5 = $5.50.",
+              "tool": "numberline",
+              "type": "14.5 >15 >20"
+            }
+          ]
+        },
+        {
+          "q": "20 - 13.65",
+          "a": "6.35",
+          "notes": "Look for: 5 cents to $13.70, 30 cents to $14, $6 to $20. Ask: \"How would a cashier count it?\" Word choice: \"count up to the next dollar\". Model: numberline 13.65 >13.7 >14 >20",
+          "responses": [
+            {
+              "say": "$0.05 + $0.30 + $6 = $6.35.",
+              "tool": "numberline",
+              "type": "13.65 >13.7 >14 >20",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "35 cents to $14, then $6: $6.35.",
+              "tool": "numberline",
+              "type": "13.65 >14 >20"
+            },
+            {
+              "say": "7.45",
+              "tool": "text",
+              "type": "20 - 13.65 = 7.45 ?",
+              "tip": "Ask: is $13.65 + $7.45 = $20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - 6.85",
+          "a": "3.15",
+          "notes": "Look for: 15 cents to $7, then $3. Ask: \"What's the next dollar?\" Model: numberline 6.85 >7 >10",
+          "responses": [
+            {
+              "say": "$0.15 + $3 = $3.15.",
+              "tool": "numberline",
+              "type": "6.85 >7 >10"
+            }
+          ]
+        },
+        {
+          "q": "50 - 27.40",
+          "a": "22.6",
+          "notes": "Look for: 60 cents to $28, then $22. Ask: \"Which jumps?\" Model: numberline 27.4 >28 >30 >50",
+          "responses": [
+            {
+              "say": "$0.60 + $2 + $20 = $22.60.",
+              "tool": "numberline",
+              "type": "27.4 >28 >30 >50"
+            },
+            {
+              "say": "23.6",
+              "tool": "text",
+              "type": "50 - 27.40 = 23.60 ?",
+              "tip": "Ask: count up again. 27.40 to 28 is how much?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 - 1.99",
+          "a": "3.01",
+          "notes": "Look for: 1 cent to $2, then $3. Ask: \"What's $1.99 close to?\" Model: numberline 1.99 >2 >5",
+          "responses": [
+            {
+              "say": "$0.01 + $3 = $3.01.",
+              "tool": "numberline",
+              "type": "1.99 >2 >5"
+            },
+            {
+              "say": "$5 − $2 = $3, plus the cent back: $3.01.",
+              "tool": "numberline",
+              "type": "5 -2 +0.01",
+              "tip": "Take too much, add back."
+            }
+          ]
+        },
+        {
+          "q": "100 - 63.75",
+          "a": "36.25",
+          "notes": "Look for: 25 cents to $64, $6 to $70, $30 to $100. Ask: \"How many jumps?\" Model: numberline 63.75 >64 >70 >100",
+          "optional": true,
+          "responses": [
+            {
+              "say": "$0.25 + $6 + $30 = $36.25.",
+              "tool": "numberline",
+              "type": "63.75 >64 >70 >100"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

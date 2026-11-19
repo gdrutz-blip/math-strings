@@ -319,7 +319,7 @@
             <button class="btn" data-act="classes">🎲 Classes</button>
             <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
-            <a class="btn" href="#/pd" title="Our number strings PD: the sessions, your grade's units and practice cards">🎓 PD</a>
+            <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and your grade's six weeks of strings">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
@@ -692,40 +692,58 @@ Rules:
     window.scrollTo(0, 0);
   }
 
-  // School PD hub: the sessions, this grade's focus units with practice cards, and how to collect evidence
+  // School PD hub: the timeline, the sessions, and each grade's six weeks of addition and subtraction strings
   const PD = {
-    title: 'Number strings PD · Grades 4–8',
+    title: 'Number strings PD · Grades 4–6',
     // exit: the session's 2-minute exit ticket (a Google Form); add the link when it's ready
     sessions: [
-      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Do a string as students, practise running one with a partner, and pick a unit to start with.',
+      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Get to know the app, try a string, and plan your first week.',
         exit: 'https://docs.google.com/forms/d/e/1FAIpQLSdXow8jntjSn6yRDTUD6A0KwChNpLafDdQLNnyhr6y7Fr60Lg/viewform',
         plan: [['5 min', 'We run a short string together, and you\'re the students.'],
-          ['10 min', 'With a partner, open your grade\'s practice card. One of you runs the string and the other answers, then switch. If you get stuck, press Try to see what students might say.'],
-          ['10 min', 'Pick your unit and a day to run your first string.'],
+          ['10 min', 'A tour of the app: finding your grade\'s six weeks, presenting a string, adding models, and pressing Try to see what students might say.'],
+          ['10 min', 'With a partner, open your grade\'s Week 1 practice card. One of you runs a string and the other answers, then switch.'],
+          ['5 min', 'Pick your days for Week 1, then the exit ticket.']] },
+      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Compare your class\'s two common tasks, then plan your next strings in the app.', exit: '',
+        plan: [['15 min', 'In small groups, put your December and January tasks side by side. What changed in how students model? More strategies? More number lines?'],
+          ['10 min', 'Back in the app: plan what comes next for your class.'],
           ['5 min', 'Questions and the exit ticket.']] },
-      { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Bring a string you ran with your class. We talk about what students said and pick one thing to try next.', exit: '',
-        plan: [['10 min', 'In small groups, share a string you ran. What did your students say? What surprised you? Which model helped?'],
-          ['10 min', 'Pick one thing to try next: a model you haven\'t used, more wait time, or asking "Can the last problem help?" Practise it with a partner.'],
-          ['5 min', 'Questions, and anything that\'s been tricky.'],
-          ['5 min', 'Plans for the next few weeks, and the exit ticket.']] },
-      { date: 'April 1, 2027', name: 'Session 3 · Growth', what: 'Run your first string again and compare it with December. What\'s changed?', exit: '',
-        plan: [['10 min', 'In My runs, open your March run and press Compare with December. Are more students explaining? Are you seeing more strategies?'],
-          ['10 min', 'Share one thing that worked.'],
-          ['10 min', 'Where to go from here, and the exit ticket.']] },
+      { date: 'April 1, 2027', name: 'Session 3', what: 'Details to come.', exit: '', plan: [] },
     ],
-    grades: ['4', '5', '6', '7', '8'],
+    grades: ['4', '5', '6'],
+    // six weeks, three strings a week; run two or three of them
+    paths: {
+      '4': [['g4-w01-d1-make-the-next-ten', 'g4-w01-d2-split-by-place-value', 'g4-w01-d3-over-the-hundred'],
+        ['g4-w01-d4-add-a-friendly-number', 'g4-bank-add-01-give-and-take', 'g4-w01-d5-where-does-the-new-ten-go'],
+        ['g4-bank-sub-03-back-to-a-ten', 'g4-bank-sub-04-up-to-a-hundred', 'g4-bank-sub-01-adding-up-to-subtract'],
+        ['g4-bank-sub-05-take-too-much', 'g4-bank-sub-02-same-difference', 'g4-bank-sub-06-take-away-or-add-up'],
+        ['g4-bank-sub-07-near-a-thousand', 'g4-bank-add-02-adding-four-digit-numbers', 'g4-bank-sub-08-zeros-in-the-way'],
+        ['g4-bank-dec-01-tenths-make-a-whole', 'g4-bank-dec-02-subtracting-tenths', 'g4-bank-add-03-choosing-a-strategy']],
+      '5': [['g5-w01-d1-make-the-next-whole', 'g5-w01-d2-add-a-friendly-number', 'g5-bank-sub-01-add-up-to-subtract'],
+        ['g5-w01-d3-subtraction-as-distance', 'g5-w01-d4-constant-difference', 'g5-bank-sub-02-take-too-much'],
+        ['g5-bank-dec-02-adding-decimals-by-place-value', 'g5-bank-dec-03-when-the-places-dont-match', 'g5-w01-d5-estimate-then-choose'],
+        ['g5-bank-frac-01-like-fractions', 'g5-bank-frac-03-taking-from-a-whole', 'g5-bank-frac-04-count-up-with-fractions'],
+        ['g5-bank-sub-03-big-numbers-same-difference', 'g5-bank-add-01-big-numbers-give-and-take', 'g5-bank-dec-04-making-change'],
+        ['g5-bank-frac-05-adding-mixed-numbers', 'g5-bank-add-02-choose-a-strategy', 'g5-bank-frac-06-fractions-and-decimals-same-moves']],
+      '6': [['g6-bank-sub-01-count-up-through-thousands', 'g6-bank-sub-02-take-too-much', 'g6-bank-add-01-give-and-take'],
+        ['g6-bank-dec-05-same-difference-with-decimals', 'g6-bank-dec-06-count-up-with-decimals', 'g6-bank-dec-04-thousandths-make-a-whole'],
+        ['g6-w02-d1-fractions-on-the-clock', 'g6-w02-d2-sixths-and-twelfths', 'g6-w02-d3-subtracting-on-the-clock'],
+        ['g6-bank-frac-03-fifths-and-tenths', 'g6-w02-d4-mixed-numbers', 'g6-w02-d5-benchmark-fractions'],
+        ['g6-bank-frac-04-count-up-with-fractions', 'g6-bank-frac-05-fractions-or-decimals', 'g6-bank-add-02-estimate-then-calculate'],
+        ['g6-bank-add-03-choose-whole-and-decimal', 'g6-bank-frac-06-choose-a-fraction-strategy', 'g6-bank-add-04-undo-it']],
+    },
+    weekWhen: ['Before the break', 'Before the break', 'January', 'January', 'January', 'January, then the task again'],
   };
   function pdPage(grade) {
     document.title = 'PD · Math Strings';
     app.onclick = app.oninput = app.onchange = app.onkeydown = null;
     if (grade && !PD.grades.includes(grade)) grade = null;
     if (grade) store.set('pdGrade', grade);
-    const mine = grade ? library.filter(s => gradeOf(s) === grade) : [];
-    const units = [];
-    const bankCount = mine.filter(s => /·\s*Bank\s*·/i.test(s.group || '')).length;
-    mine.filter(s => !/·\s*Bank\s*·/i.test(s.group || '')).forEach(s => { let U = units.find(u => u.name === s.group); if (!U) units.push(U = { name: s.group, items: [] }); U.items.push(s); });
-    units.sort((a, b) => +((a.name.match(/Week\s*(\d+)/i) || [])[1] || 50) - +((b.name.match(/Week\s*(\d+)/i) || [])[1] || 50));
-    const unitName = g => g.replace(/^Grade\s*\w+\s*·\s*/i, '');
+    const weeks = grade ? (PD.paths[grade] || []).map(w => w.map(findString).filter(Boolean)) : [];
+    const inPath = new Set(weeks.flat().map(s => s.id));
+    const extra = grade ? library.filter(s => gradeOf(s) === grade && !inPath.has(s.id)).length : 0;
+    const row = s => `<div class="pd-day"><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
+      <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a></span></div>`;
+    const codes = unitCodes(weeks.flat());
     app.innerHTML = `
     <div class="guide pd">
       <div class="ed-head no-print">
@@ -735,49 +753,48 @@ Rules:
       </div>
       <div class="pd-eyebrow">School Improvement Plan · Mathematics</div>
       <h1>${esc(PD.title)}</h1>
-      <p class="lead">Three 30-minute sessions this year on number strings: a short routine where students solve a set of related problems in their heads and explain how they did it. There's very little prep and nothing to hand in.</p>
+      <p class="lead">This year we're using number strings for addition and subtraction: a short routine where students solve a set of related problems in their heads and explain how they did it. Your class does a common task before and after, so we can see how their modelling changes. There's very little prep and nothing to hand in.</p>
 
-      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : '<span class="pd-exit-soon">Exit ticket: at the session</span>'}</div>`).join('')}</div>
-
-      <section class="panel"><h2>1 · Pick your grade and unit</h2>
-        <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
-        ${!grade ? '<p class="hint">Pick your grade to see its units.</p>'
-          : !units.length ? `<p class="hint">Strings for Grade ${esc(grade)} are on their way. Check back soon.</p>`
-          : `<p>Pick <b>one unit</b> to start with and run a string from it about twice a week, for 10–15 minutes. When you finish, repeat the ones your class liked or move on to the next unit.${bankCount ? ` The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has <b>${bankCount} more strings</b> for Grade ${esc(grade)} if you want extras.` : ''}</p>
-             ${units.map(u => { const codes = unitCodes(u.items); return `<div class="pd-unit"><h3>${esc(unitName(u.name))}</h3>
-               ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
-               <div class="pd-days">${u.items.map(s => `<div class="pd-day"><span class="card-label">${esc(s.label || '')}</span><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
-                 <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a><a class="btn small ghost" href="#/edit/${encodeURIComponent(s.id)}">Notes</a></span></div>`).join('')}</div></div>`; }).join('')}`}
-      </section>
-
-      <section class="panel pd-ask"><h2>2 · Between sessions</h2>
-        <p>This is all we're asking:</p>
-        <ol class="steps">
-          <li><b>Run a string from your unit</b> about twice a week. Once a week is fine too.</li>
-          <li><b>Press Finish when you're done.</b> It saves the run in <b>My runs</b> with the date, the answers and the models.</li>
-          <li><b>Bring one run and one question</b> to the next session, on your laptop or printed.</li>
+      <section class="panel pd-ask"><h2>How it works</h2>
+        <ol class="steps pd-timeline">
+          <li><b>Before December 4:</b> your class does the common task. It comes by email.</li>
+          <li><b>December 4, Session 1:</b> we look at the app together and plan your first week.</li>
+          <li><b>Six weeks of strings,</b> two before the winter break and four in January. Aim for 2–3 strings a week, 10–15 minutes each.</li>
+          <li><b>Last week of January:</b> your class does the same common task again.</li>
+          <li><b>February 1, Session 2:</b> we compare the two tasks and plan what's next.</li>
+          <li><b>April 1, Session 3:</b> details to come.</li>
         </ol>
       </section>
 
-      <section class="panel"><h2>3 · The sessions <span>(30 minutes each)</span></h2>
+      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : x.plan.length ? '<span class="pd-exit-soon">Exit ticket: at the session</span>' : ''}</div>`).join('')}</div>
+
+      <section class="panel"><h2>Your six weeks of strings</h2>
+        <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
+        ${!grade ? '<p class="hint">Pick your grade to see its six weeks.</p>'
+          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first.${extra ? ` The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has ${extra} more Grade ${esc(grade)} strings if you want extras.` : ''}</p>
+             ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
+             ${weeks.map((w, i) => `<div class="pd-unit"><h3>Week ${i + 1} <span class="pd-when">${esc(PD.weekWhen[i] || '')}</span></h3><div class="pd-days">${w.map(row).join('')}</div></div>`).join('')}`}
+      </section>
+
+      <section class="panel"><h2>The sessions <span>(30 minutes each)</span></h2>
         ${PD.sessions.map((x, i) => `<details class="pd-plan"${i === 0 ? ' open' : ''}><summary><b>${esc(x.name)}</b> · ${esc(x.date)}</summary>
-          <table class="gtable">${x.plan.map(([t, d]) => `<tr><td class="pd-min">${esc(t)}</td><td>${esc(d)}</td></tr>`).join('')}</table>
+          ${x.plan.length ? `<table class="gtable">${x.plan.map(([t, d]) => `<tr><td class="pd-min">${esc(t)}</td><td>${esc(d)}</td></tr>`).join('')}</table>` : `<p class="hint">${esc(x.what)}</p>`}
           ${x.exit ? `<p><a class="btn small" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 ${esc(x.name.split(' · ')[0])} exit ticket ↗</a></p>` : ''}</details>`).join('')}
       </section>
 
-      <section class="panel"><h2>4 · In your classroom</h2>
+      <section class="panel"><h2>In your classroom</h2>
         <ul class="steps">
           <li><b>Before class:</b> read the teacher card or practice card and run through the string once on your own. Press <b>↺</b> to clear it before class.</li>
           <li><b>During:</b> give think time before taking answers. Write down every answer, right or wrong (<kbd>A</kbd>), and show at least two ways to solve each problem. Two questions that work well: "Can the last problem help?" and "What's the same?"</li>
-          <li><b>At the end:</b> press <kbd>O</kbd> to see the whole string, ask what they noticed, then press <b>Finish</b>.</li>
+          <li><b>At the end:</b> press <kbd>O</kbd> to see the whole string and ask what they noticed. Pressing <b>Finish</b> saves the run in My runs, which is handy if you want to look back, but it's optional.</li>
         </ul>
       </section>
 
       <section class="panel"><h2>Bring to each session</h2>
         <ul class="steps">
           <li><b>Dec 4:</b> a laptop or Chromebook.</li>
-          <li><b>Feb 1:</b> one run where your students surprised you (in My runs, or printed) and one question.</li>
-          <li><b>Apr 1:</b> before the session, run the <b>first string you used in December</b> again and press Finish. Bring both runs and we'll compare them.</li>
+          <li><b>Feb 1:</b> both sets of your class's common tasks (December and January), and a laptop.</li>
+          <li><b>Apr 1:</b> details to come.</li>
         </ul>
       </section>
       <p class="hint">Based on the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>

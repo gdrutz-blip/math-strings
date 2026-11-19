@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-add-01-big-numbers-give-and-take",
+      "title": "Big Numbers, Give and Take",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Addition",
+      "tool": "givetake",
+      "strategy": "When one number is close to a friendly number, give it what it needs from the other number. 29 998 + 14 567 is 30 000 + 14 565.",
+      "topic": "add",
+      "keywords": "give and take, friendly number, ten thousands, total stays the same",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Making the friendly number but not taking from the other (29 998 + 14 567 = 44 567): ask \"Where did the 2 come from?\"",
+        "Lining up big numbers wrong: ask \"Which digit is the ten thousands?\"",
+        "Missing partners like 45 500 + 24 500: ask \"What do 500 and 500 make?\""
+      ],
+      "wrapUp": "Ask \"Why does the total stay the same?\" Land: moving an amount from one number to the other doesn't change the total. Look for a number close to a friendly one, or for partners.",
+      "problems": [
+        {
+          "q": "30000 + 15000",
+          "a": "45000",
+          "notes": "Look for: 30 thousand and 15 thousand. Ask: \"Hold on to this.\" Model: split 30000 + 15000",
+          "responses": [
+            {
+              "say": "45 000.",
+              "tool": "split",
+              "type": "30000 + 15000"
+            }
+          ]
+        },
+        {
+          "q": "29998 + 15000",
+          "a": "44998",
+          "notes": "Look for: 2 less than the last one. Ask: \"How does the last one help?\" Model: text 30000 + 15000 = 45000 ; 45000 - 2 = 44998",
+          "responses": [
+            {
+              "say": "45 000 − 2 = 44 998.",
+              "tool": "text",
+              "type": "30000 + 15000 = 45000 ; 45000 - 2 = 44998"
+            }
+          ]
+        },
+        {
+          "q": "29998 + 14567",
+          "a": "44565",
+          "notes": "Look for: give 2: 30 000 + 14 565. Ask: \"What does 29 998 need?\" Word choice: \"give and take\". Model: givetake 29998 + 14567 = 30000 + 14565",
+          "responses": [
+            {
+              "say": "Give 2: 30 000 + 14 565 = 44 565.",
+              "tool": "givetake",
+              "type": "29998 + 14567 = 30000 + 14565",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "44567",
+              "tool": "text",
+              "type": "29998 + 14567 = 30000 + 14567 = 44567 ?",
+              "tip": "Gave 2 but didn't take it. Ask: where did the 2 come from?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "49995 + 23460",
+          "a": "73455",
+          "notes": "Look for: give 5: 50 000 + 23 455. Ask: \"Which number should get the gift?\" Model: givetake 49995 + 23460 = 50000 + 23455",
+          "responses": [
+            {
+              "say": "50 000 + 23 455 = 73 455.",
+              "tool": "givetake",
+              "type": "49995 + 23460 = 50000 + 23455"
+            }
+          ]
+        },
+        {
+          "q": "19999 + 19999",
+          "a": "39998",
+          "notes": "Look for: 20 000 + 20 000 − 2. Ask: \"Could you make both friendly?\" Model: text 19999 + 19999 = 20000 + 20000 - 2 = 39998",
+          "responses": [
+            {
+              "say": "40 000 take back 2: 39 998.",
+              "tool": "text",
+              "type": "19999 + 19999 = 20000 + 20000 - 2 = 39998",
+              "tip": "Both were 1 short."
+            },
+            {
+              "say": "39999",
+              "tool": "text",
+              "type": "19999 + 19999 = 40000 - 1 = 39999 ?",
+              "tip": "Took back only 1. Ask: how short was each number?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "45500 + 24500",
+          "a": "70000",
+          "notes": "Look for: 500 + 500 = 1000. Ask: \"What do you notice?\" Model: split 45500 + 24500",
+          "responses": [
+            {
+              "say": "60 000 + 9000 + 1000 = 70 000.",
+              "tool": "split",
+              "type": "45500 + 24500",
+              "tip": "Partners."
+            }
+          ]
+        },
+        {
+          "q": "38750 + 21250",
+          "a": "60000",
+          "notes": "Look for: 750 + 250 = 1000, 38 000 + 21 000 = 59 000. Ask: \"Partners again?\" Model: split 38750 + 21250",
+          "optional": true,
+          "responses": [
+            {
+              "say": "59 000 + 1000 = 60 000.",
+              "tool": "split",
+              "type": "38750 + 21250"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-add-02-choose-a-strategy",
+      "title": "Whole Numbers and Decimals: Choose a Strategy",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Addition",
+      "tool": "numberline",
+      "strategy": "Look at the numbers before you start: is one close to a friendly number? Are they close together? Is it a near double? Then choose the strategy that fits.",
+      "topic": "add",
+      "keywords": "choose, friendly number, near double, count up, take too much, give and take",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Using the algorithm for everything: ask \"What do you notice about these numbers?\"",
+        "Choosing a strategy that makes it harder: ask \"Was there a quicker way?\"",
+        "Not estimating with decimals: ask \"About how big should it be?\""
+      ],
+      "wrapUp": "Ask \"How did you decide what to do for each problem?\" Land: near a friendly number, use it and adjust; close together, count up; near doubles, double and adjust. Look first, then choose.",
+      "problems": [
+        {
+          "q": "400 - 198",
+          "a": "202",
+          "notes": "Look for: take 200, add 2 back; or count up 2 then 200. Ask: \"What did you notice first?\" Model: numberline 400 -200 +2",
+          "responses": [
+            {
+              "say": "400 − 200 + 2 = 202.",
+              "tool": "numberline",
+              "type": "400 -200 +2"
+            },
+            {
+              "say": "2 to 200, 200 to 400: 202.",
+              "tool": "numberline",
+              "type": "198 >200 >400"
+            }
+          ]
+        },
+        {
+          "q": "3.5 + 1.98",
+          "a": "5.48",
+          "notes": "Look for: 3.5 + 2 − 0.02. Ask: \"What's 1.98 close to?\" Model: numberline 3.5 +2 -0.02",
+          "responses": [
+            {
+              "say": "3.5 + 2 = 5.5, back 0.02: 5.48.",
+              "tool": "numberline",
+              "type": "3.5 +2 -0.02"
+            },
+            {
+              "say": "5.52",
+              "tool": "text",
+              "type": "3.5 + 1.98 = 3.5 + 2 + 0.02 = 5.52 ?",
+              "tip": "Adjusted the wrong way. Ask: did adding 2 add too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1001 - 987",
+          "a": "14",
+          "notes": "Look for: count up 13 to 1000, then 1. Ask: \"Close together?\" Model: numberline 987 >1000 >1001",
+          "responses": [
+            {
+              "say": "13 + 1 = 14.",
+              "tool": "numberline",
+              "type": "987 >1000 >1001"
+            }
+          ]
+        },
+        {
+          "q": "7.05 - 6.98",
+          "a": "0.07",
+          "notes": "Look for: 0.02 to 7, then 0.05. Ask: \"Are these close together?\" Model: numberline 6.98 >7 >7.05",
+          "responses": [
+            {
+              "say": "0.02 + 0.05 = 0.07.",
+              "tool": "numberline",
+              "type": "6.98 >7 >7.05"
+            },
+            {
+              "say": "1.07",
+              "tool": "text",
+              "type": "7.05 - 6.98 = 1.07 ?",
+              "tip": "Ask: about how far apart are 7.05 and 6.98?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "46 + 47",
+          "a": "93",
+          "notes": "Look for: double 46 plus 1, or double 47 minus 1. Ask: \"What's special about these?\" Model: text 46 + 46 = 92 ; 92 + 1 = 93",
+          "responses": [
+            {
+              "say": "Double 46 is 92, plus 1: 93.",
+              "tool": "text",
+              "type": "46 + 46 = 92 ; 92 + 1 = 93",
+              "tip": "Near doubles."
+            },
+            {
+              "say": "Give 4 to 46: 50 + 43 = 93.",
+              "tool": "givetake",
+              "type": "46 + 47 = 50 + 43",
+              "tip": "Give and take also works."
+            }
+          ]
+        },
+        {
+          "q": "8.6 - 0.9",
+          "a": "7.7",
+          "notes": "Look for: take 1, give 0.1 back. Ask: \"Which strategy?\" Model: numberline 8.6 -1 +0.1",
+          "responses": [
+            {
+              "say": "8.6 − 1 + 0.1 = 7.7.",
+              "tool": "numberline",
+              "type": "8.6 -1 +0.1"
+            },
+            {
+              "say": "Back 0.6 to 8, back 0.3: 7.7.",
+              "tool": "numberline",
+              "type": "8.6 -0.6 -0.3",
+              "tip": "Back to a whole."
+            }
+          ]
+        },
+        {
+          "q": "2.75 + 3.75",
+          "a": "6.5",
+          "notes": "Look for: double 2.75 plus 1, or 2.75 + 0.25 + 3.5. Ask: \"Near double again?\" Model: numberline 2.75 +0.25 +3.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.25 makes 3, then 3.5: 6.5.",
+              "tool": "numberline",
+              "type": "2.75 +0.25 +3.5"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
