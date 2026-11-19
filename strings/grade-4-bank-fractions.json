@@ -153,6 +153,128 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-frac-02-counting-unit-fractions",
+      "title": "Counting Unit Fractions",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Count unit fractions like counting anything else: 4 × 1/3 is four thirds. When the count passes a whole, it's more than 1.",
+      "topic": "frac",
+      "keywords": "unit fraction, repeated addition, thirds, fourths, tenths, halves, more than a whole",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying the denominator (4 × 1/3 = 4/12): ask \"Four thirds, or four twelfths? Count the jumps.\"",
+        "Thinking a fraction can't be more than 1: ask \"Where is 4/3 on the number line?\"",
+        "Not seeing 10/10 as 1: ask \"How many tenths make a whole?\""
+      ],
+      "wrapUp": "Ask \"How do you know when the count passes 1?\" Land: when the number of pieces is more than the number in a whole (more than 3 thirds), the total is more than 1.",
+      "problems": [
+        {
+          "q": "1/3 + 1/3 + 1/3 + 1/3",
+          "a": "4/3",
+          "notes": "Look for: four thirds, past the whole. Ask: \"How many thirds make a whole?\" Word choice: say \"four thirds\". Model: numberline 0 +1/3x4",
+          "responses": [
+            {
+              "say": "1, 2, 3, 4 thirds: 4/3.",
+              "tool": "numberline",
+              "type": "0 +1/3x4"
+            },
+            {
+              "say": "4/12",
+              "tool": "text",
+              "type": "1/3 + 1/3 + 1/3 + 1/3 = 4/12 ?",
+              "tip": "Added the denominators. Ask: did the pieces get smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 1/3",
+          "a": "4/3",
+          "notes": "Look for: the same as the last one. Ask: \"Why is it the same?\" Model: numberline 0 +1/3x4",
+          "responses": [
+            {
+              "say": "4 groups of a third: 4/3.",
+              "tool": "numberline",
+              "type": "0 +1/3x4"
+            }
+          ]
+        },
+        {
+          "q": "7 x 1/4",
+          "a": "7/4",
+          "notes": "Look for: 4 fourths make 1, 3 more fourths. Ask: \"Where is 1?\" Model: numberline 0 +1/4x7",
+          "responses": [
+            {
+              "say": "7 fourths: 1 and 3 fourths.",
+              "tool": "numberline",
+              "type": "0 +1/4x7",
+              "tip": "Both 7/4 and 1 3/4 are right."
+            }
+          ]
+        },
+        {
+          "q": "10 x 1/10",
+          "a": "1",
+          "notes": "Look for: 10 tenths is 1. Ask: \"How many tenths in a whole?\" Model: numberline 0 +1/10x10",
+          "responses": [
+            {
+              "say": "10 tenths make 1 whole.",
+              "tool": "numberline",
+              "type": "0 +1/10x10"
+            },
+            {
+              "say": "10/100",
+              "tool": "text",
+              "type": "10 x 1/10 = 10/100 ?",
+              "tip": "Ask: count the tenths. How many make a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 1/10",
+          "a": "12/10",
+          "notes": "Look for: 1 whole and 2 tenths, like 1.2. Ask: \"How is this like decimals?\" Model: numberline 0 +1/10x12",
+          "responses": [
+            {
+              "say": "12 tenths: 1 and 2 tenths, which is 1.2.",
+              "tool": "numberline",
+              "type": "0 +1/10x12",
+              "tip": "Decimals connection."
+            }
+          ]
+        },
+        {
+          "q": "9 x 1/2",
+          "a": "9/2",
+          "notes": "Look for: 9 halves: 4 wholes and a half. Ask: \"How many halves in each whole?\" Model: numberline 0 +1/2x9",
+          "responses": [
+            {
+              "say": "9 halves: 4 1/2.",
+              "tool": "numberline",
+              "type": "0 +1/2x9"
+            }
+          ]
+        },
+        {
+          "q": "15 x 1/5",
+          "a": "3",
+          "notes": "Look for: 5 fifths in each whole: 3 wholes. Ask: \"How many wholes?\" Model: numberline 0 +1/5x15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15 fifths make 3 wholes.",
+              "tool": "numberline",
+              "type": "0 +1/5x15"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

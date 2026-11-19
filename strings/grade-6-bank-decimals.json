@@ -907,6 +907,406 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-dec-07-three-digit-times-tenths",
+      "title": "Three-Digit Numbers Times Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Multiply a three-digit number by tenths: find one tenth, then build up; or split the three-digit number into friendly parts; or double and halve.",
+      "topic": "dec",
+      "keywords": "tenths, times 0.4, split, one tenth, double and halve, estimate",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Placing the decimal wrong (325 × 0.4 = 1300): ask \"Is 0.4 less than half? So is the answer less than half of 325?\"",
+        "Forgetting the whole part of 1.2: ask \"What's 175 × 1? Then the 0.2?\"",
+        "Missing that 125 × 0.8 doubles nicely: ask \"Can you double one factor and halve the other?\""
+      ],
+      "wrapUp": "Ask \"How did you check where the decimal goes?\" Land: estimate first (× 0.4 is a bit less than half), then build from one tenth or split. The estimate catches decimal mistakes.",
+      "problems": [
+        {
+          "q": "300 x 0.4",
+          "a": "120",
+          "notes": "Look for: a tenth of 300 is 30, four tenths is 120. Ask: \"Hold on to this.\" Model: ratio 1:300, 0.1:30, 0.4:120",
+          "responses": [
+            {
+              "say": "30 × 4 = 120.",
+              "tool": "ratio",
+              "type": "1:300, 0.1:30, 0.4:120"
+            }
+          ]
+        },
+        {
+          "q": "325 x 0.4",
+          "a": "130",
+          "notes": "Look for: 300 × 0.4 + 25 × 0.4 = 120 + 10. Ask: \"How does the last one help?\" Model: area 300+25 x 0.4",
+          "responses": [
+            {
+              "say": "120 + 10 = 130.",
+              "tool": "area",
+              "type": "300+25 x 0.4"
+            },
+            {
+              "say": "1300",
+              "tool": "text",
+              "type": "325 x 0.4 = 1300 ?",
+              "tip": "Ask: × 0.4 is less than half. Is 1300 less than half of 325?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 x 0.6",
+          "a": "150",
+          "notes": "Look for: a tenth is 25, six tenths is 150. Ask: \"Is it more or less than half of 250?\" Model: ratio 1:250, 0.1:25, 0.6:150",
+          "responses": [
+            {
+              "say": "25 × 6 = 150.",
+              "tool": "ratio",
+              "type": "1:250, 0.1:25, 0.6:150"
+            }
+          ]
+        },
+        {
+          "q": "125 x 0.8",
+          "a": "100",
+          "notes": "Look for: double and halve: 250 × 0.4 = 500 × 0.2 = 1000 × 0.1. Ask: \"What do you know about 125?\" Model: halve 125 x 0.8 = 250 x 0.4 = 500 x 0.2 = 1000 x 0.1",
+          "responses": [
+            {
+              "say": "1000 × 0.1 = 100.",
+              "tool": "halve",
+              "type": "125 x 0.8 = 250 x 0.4 = 500 x 0.2 = 1000 x 0.1"
+            },
+            {
+              "say": "A tenth is 12.5, eight tenths is 100.",
+              "tool": "ratio",
+              "type": "1:125, 0.1:12.5, 0.8:100"
+            }
+          ]
+        },
+        {
+          "q": "640 x 0.5",
+          "a": "320",
+          "notes": "Look for: half of 640. Ask: \"What fraction is 0.5?\" Model: bar 1/2 of 640",
+          "responses": [
+            {
+              "say": "Half of 640: 320.",
+              "tool": "bar",
+              "type": "1/2 of 640"
+            }
+          ]
+        },
+        {
+          "q": "175 x 1.2",
+          "a": "210",
+          "notes": "Look for: 175 + 35. Ask: \"What's the whole part?\" Model: area 1+0.2 x 175",
+          "responses": [
+            {
+              "say": "175 + 35 = 210.",
+              "tool": "area",
+              "type": "1+0.2 x 175"
+            },
+            {
+              "say": "35",
+              "tool": "text",
+              "type": "175 x 1.2 = 35 ?",
+              "tip": "Found only the 0.2 part. Ask: is 1.2 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "999 x 0.3",
+          "a": "299.7",
+          "notes": "Look for: 1000 × 0.3 − 0.3. Ask: \"Over and back?\" Model: area 1000-1 x 0.3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "300 − 0.3 = 299.7.",
+              "tool": "area",
+              "type": "1000-1 x 0.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-08-three-digit-divided-by-tenths",
+      "title": "Three-Digit Numbers Divided by Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "ratio",
+      "strategy": "Dividing by tenths asks how many fit. Multiply both numbers by 10 to get an equivalent problem with whole numbers: 120 ÷ 0.4 = 1200 ÷ 4.",
+      "topic": "dec",
+      "keywords": "how many fit, tenths, equivalent, times 10 both, divide",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Expecting the answer to be smaller (120 ÷ 0.4 = 30): ask \"How many 0.4s fit in 120? More or fewer than 120?\"",
+        "Multiplying only one number by 10: ask \"Did you multiply both?\"",
+        "Losing a zero: ask \"About how many 0.5s fit in 105?\""
+      ],
+      "wrapUp": "Ask \"Why does multiplying both by 10 work?\" Land: the quotient stays the same when both numbers are scaled, like a ratio. 120 ÷ 0.4 is the same as 1200 ÷ 4.",
+      "problems": [
+        {
+          "q": "120 / 0.4",
+          "a": "300",
+          "notes": "Look for: 1200 ÷ 4. Ask: \"How many 0.4s fit in 120?\" Word choice: \"how many fit\". Model: text 120 ÷ 0.4 = 1200 ÷ 4 ; = 300",
+          "responses": [
+            {
+              "say": "1200 ÷ 4 = 300.",
+              "tool": "text",
+              "type": "120 ÷ 0.4 = 1200 ÷ 4 ; = 300",
+              "tip": "Scale both by 10."
+            },
+            {
+              "say": "0.4 fits 10 times in 4, so 300 times in 120.",
+              "tool": "ratio",
+              "type": "count:amount, 10:4, 300:120"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "120 ÷ 0.4 = 30 ?",
+              "tip": "Ask: 0.4 is less than 1. Do more or fewer fit than 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 / 0.3",
+          "a": "500",
+          "notes": "Look for: 1500 ÷ 3. Ask: \"Same move?\" Model: text 150 ÷ 0.3 = 1500 ÷ 3 ; = 500",
+          "responses": [
+            {
+              "say": "1500 ÷ 3 = 500.",
+              "tool": "text",
+              "type": "150 ÷ 0.3 = 1500 ÷ 3 ; = 500"
+            }
+          ]
+        },
+        {
+          "q": "240 / 0.6",
+          "a": "400",
+          "notes": "Look for: 2400 ÷ 6. Ask: \"Which earlier problem helps?\" Model: text 240 ÷ 0.6 = 2400 ÷ 6 ; = 400",
+          "responses": [
+            {
+              "say": "2400 ÷ 6 = 400.",
+              "tool": "text",
+              "type": "240 ÷ 0.6 = 2400 ÷ 6 ; = 400"
+            }
+          ]
+        },
+        {
+          "q": "350 / 0.7",
+          "a": "500",
+          "notes": "Look for: 3500 ÷ 7. Ask: \"What do you notice?\" Model: text 350 ÷ 0.7 = 3500 ÷ 7 ; = 500",
+          "responses": [
+            {
+              "say": "3500 ÷ 7 = 500.",
+              "tool": "text",
+              "type": "350 ÷ 0.7 = 3500 ÷ 7 ; = 500"
+            },
+            {
+              "say": "50",
+              "tool": "text",
+              "type": "350 ÷ 0.7 = 50 ?",
+              "tip": "Multiplied only 0.7 by 10. Ask: did you multiply both?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "450 / 0.9",
+          "a": "500",
+          "notes": "Look for: 4500 ÷ 9. Ask: \"Why 500 again?\" Model: text 450 ÷ 0.9 = 4500 ÷ 9 ; = 500",
+          "responses": [
+            {
+              "say": "4500 ÷ 9 = 500.",
+              "tool": "text",
+              "type": "450 ÷ 0.9 = 4500 ÷ 9 ; = 500",
+              "tip": "The same answer three times. Ask: why?"
+            }
+          ]
+        },
+        {
+          "q": "105 / 0.5",
+          "a": "210",
+          "notes": "Look for: 2 halves per whole: 105 × 2. Ask: \"What fraction is 0.5?\" Model: ratio count:amount, 2:1, 210:105",
+          "responses": [
+            {
+              "say": "Double 105: 210.",
+              "tool": "ratio",
+              "type": "count:amount, 2:1, 210:105",
+              "tip": "Dividing by a half doubles."
+            },
+            {
+              "say": "52.5",
+              "tool": "text",
+              "type": "105 ÷ 0.5 = 52.5 ?",
+              "tip": "Found half. Ask: how many halves fit in 105?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "128 / 0.4",
+          "a": "320",
+          "notes": "Look for: 1280 ÷ 4. Ask: \"Which earlier problem helps?\" Model: text 128 ÷ 0.4 = 1280 ÷ 4 ; = 320",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1280 ÷ 4 = 320.",
+              "tool": "text",
+              "type": "128 ÷ 0.4 = 1280 ÷ 4 ; = 320"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-09-sharing-decimals",
+      "title": "Sharing Decimals to Thousandths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Share a decimal by a whole number by thinking in the smallest place (1.2 is 12 tenths), or by splitting it into parts that share evenly.",
+      "topic": "dec",
+      "keywords": "share, divide, tenths, hundredths, thousandths, split, place value",
+      "curriculum": [
+        "B2.11"
+      ],
+      "watchFor": [
+        "Putting the decimal in the wrong place (0.12 ÷ 4 = 0.3): ask \"How many hundredths is 0.12? Shared by 4?\"",
+        "Losing a zero in 7.035 ÷ 7: ask \"What is 0.035 ÷ 7?\"",
+        "Not estimating: ask \"About how much is each share?\""
+      ],
+      "wrapUp": "Ask \"How did you keep track of the places?\" Land: think in the smallest place (12 hundredths ÷ 4 = 3 hundredths), or split into parts that share evenly. Estimate to check.",
+      "problems": [
+        {
+          "q": "1.2 / 4",
+          "a": "0.3",
+          "notes": "Look for: 12 tenths ÷ 4 = 3 tenths. Ask: \"How many tenths is 1.2?\" Word choice: \"12 tenths\". Model: text 1.2 = 12 tenths ; 12 ÷ 4 = 3 ; 3 tenths = 0.3",
+          "responses": [
+            {
+              "say": "3 tenths: 0.3.",
+              "tool": "text",
+              "type": "1.2 = 12 tenths ; 12 ÷ 4 = 3 ; 3 tenths = 0.3"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "1.2 ÷ 4 = 3 ?",
+              "tip": "Ask: can sharing 1.2 give each person 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.12 / 4",
+          "a": "0.03",
+          "notes": "Look for: 12 hundredths ÷ 4. Ask: \"What changed?\" Model: text 0.12 = 12 hundredths ; 12 ÷ 4 = 3 ; 0.03",
+          "responses": [
+            {
+              "say": "3 hundredths: 0.03.",
+              "tool": "text",
+              "type": "0.12 = 12 hundredths ; 12 ÷ 4 = 3 ; 0.03"
+            },
+            {
+              "say": "0.3",
+              "tool": "text",
+              "type": "0.12 ÷ 4 = 0.3 ?",
+              "tip": "Ask: is 0.3 more than 0.12? Can sharing make it bigger?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.012 / 4",
+          "a": "0.003",
+          "notes": "Look for: 12 thousandths ÷ 4. Ask: \"See the pattern?\" Model: text 0.012 = 12 thousandths ; 12 ÷ 4 = 3 ; 0.003",
+          "responses": [
+            {
+              "say": "3 thousandths: 0.003.",
+              "tool": "text",
+              "type": "0.012 = 12 thousandths ; 12 ÷ 4 = 3 ; 0.003"
+            }
+          ]
+        },
+        {
+          "q": "2.45 / 5",
+          "a": "0.49",
+          "notes": "Look for: 245 hundredths ÷ 5 = 49 hundredths. Or 2.5 ÷ 5 − 0.05 ÷ 5. Ask: \"Which way?\" Model: area 2.45 / 5 = 2 + 0.45",
+          "responses": [
+            {
+              "say": "0.4 + 0.09 = 0.49.",
+              "tool": "area",
+              "type": "2.45 / 5 = 2 + 0.45"
+            },
+            {
+              "say": "2.5 ÷ 5 = 0.5, minus 0.01: 0.49.",
+              "tool": "text",
+              "type": "2.5 ÷ 5 = 0.5 ; 0.05 ÷ 5 = 0.01 ; 0.5 - 0.01 = 0.49",
+              "tip": "Over and back."
+            }
+          ]
+        },
+        {
+          "q": "3.6 / 9",
+          "a": "0.4",
+          "notes": "Look for: 36 tenths ÷ 9 = 4 tenths. Ask: \"Which earlier problem helps?\" Model: text 3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4",
+          "responses": [
+            {
+              "say": "4 tenths: 0.4.",
+              "tool": "text",
+              "type": "3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4"
+            }
+          ]
+        },
+        {
+          "q": "4.248 / 8",
+          "a": "0.531",
+          "notes": "Look for: 4 ÷ 8 = 0.5, 0.24 ÷ 8 = 0.03, 0.008 ÷ 8 = 0.001. Ask: \"Which parts share evenly by 8?\" Model: area 4.248 / 8 = 4 + 0.24 + 0.008",
+          "responses": [
+            {
+              "say": "0.5 + 0.03 + 0.001 = 0.531.",
+              "tool": "area",
+              "type": "4.248 / 8 = 4 + 0.24 + 0.008"
+            },
+            {
+              "say": "0.5301",
+              "tool": "text",
+              "type": "4.248 ÷ 8 = 0.5301 ?",
+              "tip": "Ask: 0.24 ÷ 8 is 0.03. What's 0.008 ÷ 8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.035 / 7",
+          "a": "1.005",
+          "notes": "Look for: 7 ÷ 7 = 1, 0.035 ÷ 7 = 0.005. Ask: \"Which earlier problem helps?\" Model: area 7.035 / 7 = 7 + 0.035",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1 + 0.005 = 1.005.",
+              "tool": "area",
+              "type": "7.035 / 7 = 7 + 0.035"
+            },
+            {
+              "say": "1.05",
+              "tool": "text",
+              "type": "7.035 ÷ 7 = 1.05 ?",
+              "tip": "Ask: is 0.035 ÷ 7 five hundredths or five thousandths?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

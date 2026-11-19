@@ -450,7 +450,8 @@
       if (Math.abs(chunks.reduce((a, b) => a + b, 0) - D.v) > 1e-9) return { error: `The parts should add up to ${fmt(D.v)}` };
     }
     const hidden = new Set((model && model.hidden) || []);
-    const parts = chunks.map(c => { const q = round(c / d.v); return { c, q, rem: !Number.isInteger(q) && Number.isInteger(c) && Number.isInteger(d.v) && c < d.v }; });
+    // a remainder only when every number is whole (2.45 / 5 = 2 + 0.45 shares the 2 as 0.4)
+    const parts = chunks.map(c => { const q = round(c / d.v); return { c, q, rem: !Number.isInteger(q) && Number.isInteger(c) && Number.isInteger(d.v) && Number.isInteger(D.v) && c < d.v }; });
     const sumW = parts.reduce((a, p) => a + Math.max(p.rem ? 0.6 : 0, p.q), 0) || 1;
     const k = Math.min(680 / sumW, 260);
     const Hh = Math.max(90, Math.min(200, d.v * k));

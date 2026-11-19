@@ -879,6 +879,263 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-frac-07-unit-fraction-first",
+      "title": "Fractions of Whole Numbers: One Part First",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "bar",
+      "strategy": "To find a fraction of a whole number, find one part first (divide by the denominator), then take as many parts as the numerator.",
+      "topic": "frac",
+      "keywords": "fraction of, one part, unit fraction, numerator, denominator, bar model",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Dividing by the numerator (3/4 × 28 = 28 ÷ 3): ask \"How many equal parts is the bar split into?\"",
+        "Multiplying both parts (3/8 × 32 = 96/256): ask \"Is 3/8 of 32 more or less than 32?\"",
+        "Stopping at one part: ask \"How many parts do we want?\""
+      ],
+      "wrapUp": "Ask \"Why find one part first?\" Land: the denominator tells how many equal parts; one part is the whole ÷ the denominator. Then the numerator tells how many parts to take.",
+      "problems": [
+        {
+          "q": "2/3 x 18",
+          "a": "12",
+          "notes": "Look for: a third of 18 is 6, two thirds is 12. Ask: \"What's one part?\" Word choice: \"two thirds of 18\". Model: bar 2/3 of 18",
+          "responses": [
+            {
+              "say": "6 × 2 = 12.",
+              "tool": "bar",
+              "type": "2/3 of 18"
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "2/3 x 18 = 18 ÷ 2 = 9 ?",
+              "tip": "Divided by the numerator. Ask: how many equal parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 x 18",
+          "a": "15",
+          "notes": "Look for: a sixth is 3, five sixths is 15. Or 18 − 3. Ask: \"Take away one part?\" Model: bar 5/6 of 18",
+          "responses": [
+            {
+              "say": "3 × 5 = 15.",
+              "tool": "bar",
+              "type": "5/6 of 18"
+            },
+            {
+              "say": "18 − 3 = 15.",
+              "tool": "text",
+              "type": "1/6 of 18 = 3 ; 18 - 3 = 15",
+              "tip": "Whole minus one part."
+            }
+          ]
+        },
+        {
+          "q": "3/4 x 28",
+          "a": "21",
+          "notes": "Look for: a quarter is 7, three quarters is 21. Ask: \"How does one part help?\" Model: bar 3/4 of 28",
+          "responses": [
+            {
+              "say": "7 × 3 = 21.",
+              "tool": "bar",
+              "type": "3/4 of 28"
+            }
+          ]
+        },
+        {
+          "q": "3/8 x 32",
+          "a": "12",
+          "notes": "Look for: an eighth is 4, three eighths is 12. Ask: \"How does one part help?\" Model: bar 3/8 of 32",
+          "responses": [
+            {
+              "say": "4 × 3 = 12.",
+              "tool": "bar",
+              "type": "3/8 of 32"
+            },
+            {
+              "say": "96",
+              "tool": "text",
+              "type": "3/8 x 32 = 3 x 32 = 96 ?",
+              "tip": "Forgot the eighths. Ask: is 3/8 of 32 more or less than 32?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/10 x 50",
+          "a": "35",
+          "notes": "Look for: a tenth is 5, seven tenths is 35. Ask: \"How does one part help?\" Model: bar 7/10 of 50",
+          "responses": [
+            {
+              "say": "5 × 7 = 35.",
+              "tool": "bar",
+              "type": "7/10 of 50"
+            }
+          ]
+        },
+        {
+          "q": "4/9 x 27",
+          "a": "12",
+          "notes": "Look for: a ninth is 3, four ninths is 12. Ask: \"How does one part help?\" Model: bar 4/9 of 27",
+          "responses": [
+            {
+              "say": "3 × 4 = 12.",
+              "tool": "bar",
+              "type": "4/9 of 27"
+            }
+          ]
+        },
+        {
+          "q": "5/12 x 36",
+          "a": "15",
+          "notes": "Look for: a twelfth is 3, five twelfths is 15. Ask: \"How does one part help?\" Model: bar 5/12 of 36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 5 = 15.",
+              "tool": "bar",
+              "type": "5/12 of 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-frac-08-how-many-groups",
+      "title": "How Many Groups? Whole Numbers Divided by Fractions",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing by a fraction asks how many of those fractions fit. Count the unit fractions first (6 ÷ 1/3 = 18), then group them by the numerator (6 ÷ 2/3 = 18 ÷ 2 = 9).",
+      "topic": "frac",
+      "keywords": "how many fit, groups, unit fraction, numerator, denominator, number line",
+      "curriculum": [
+        "B2.10"
+      ],
+      "watchFor": [
+        "Stopping at the unit fractions (6 ÷ 2/3 = 18): ask \"How many thirds are in one 2/3?\"",
+        "Multiplying instead (9 × 3/4): ask \"Are we finding 3/4 of 9, or how many 3/4s fit?\"",
+        "Expecting a smaller answer: ask \"How many 1/6s fit in 4? More or fewer than 4?\""
+      ],
+      "wrapUp": "Ask \"How did the unit fraction help?\" Land: count the unit fractions (whole × denominator), then put them in groups the size of the numerator.",
+      "problems": [
+        {
+          "q": "6 / 1/3",
+          "a": "18",
+          "notes": "Look for: 3 thirds per whole, 6 wholes. Ask: \"Hold on to this.\" Word choice: \"how many thirds fit in 6\". Model: numberline 0 +1/3x18",
+          "responses": [
+            {
+              "say": "6 × 3 = 18.",
+              "tool": "numberline",
+              "type": "0 +1/3x18"
+            }
+          ]
+        },
+        {
+          "q": "6 / 2/3",
+          "a": "9",
+          "notes": "Look for: 18 thirds in groups of 2. Ask: \"How does the last one help?\" Model: numberline 0 +2/3x9",
+          "responses": [
+            {
+              "say": "18 ÷ 2 = 9.",
+              "tool": "text",
+              "type": "6 ÷ 1/3 = 18 ; 18 ÷ 2 = 9",
+              "tip": "Group the thirds."
+            },
+            {
+              "say": "Nine jumps of 2/3 land on 6.",
+              "tool": "numberline",
+              "type": "0 +2/3x9"
+            },
+            {
+              "say": "18",
+              "tool": "text",
+              "type": "6 ÷ 2/3 = 18 ?",
+              "tip": "Counted thirds, not two-thirds. Ask: how many thirds in one 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 / 3/4",
+          "a": "12",
+          "notes": "Look for: 36 fourths in groups of 3. Ask: \"How many fourths in 9?\" Model: numberline 0 +3/4x12",
+          "responses": [
+            {
+              "say": "36 ÷ 3 = 12.",
+              "tool": "text",
+              "type": "9 ÷ 1/4 = 36 ; 36 ÷ 3 = 12"
+            },
+            {
+              "say": "6 3/4",
+              "tool": "text",
+              "type": "9 ÷ 3/4 = 9 x 3/4 = 6 3/4 ?",
+              "tip": "Multiplied. Ask: 3/4 of 9, or how many 3/4s fit in 9?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 / 2/5",
+          "a": "25",
+          "notes": "Look for: 50 fifths in groups of 2. Ask: \"How does one part help?\" Model: numberline 0 +2/5x25",
+          "responses": [
+            {
+              "say": "50 ÷ 2 = 25.",
+              "tool": "text",
+              "type": "10 ÷ 1/5 = 50 ; 50 ÷ 2 = 25"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/6",
+          "a": "24",
+          "notes": "Look for: 6 sixths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/6x24",
+          "responses": [
+            {
+              "say": "4 × 6 = 24.",
+              "tool": "numberline",
+              "type": "0 +1/6x24"
+            }
+          ]
+        },
+        {
+          "q": "5 / 5/6",
+          "a": "6",
+          "notes": "Look for: 30 sixths in groups of 5. Ask: \"What do you notice?\" Model: numberline 0 +5/6x6",
+          "responses": [
+            {
+              "say": "30 ÷ 5 = 6.",
+              "tool": "text",
+              "type": "5 ÷ 1/6 = 30 ; 30 ÷ 5 = 6"
+            },
+            {
+              "say": "Six jumps of 5/6 land on 5.",
+              "tool": "numberline",
+              "type": "0 +5/6x6"
+            }
+          ]
+        },
+        {
+          "q": "12 / 3/8",
+          "a": "32",
+          "notes": "Look for: 96 eighths in groups of 3. Ask: \"How does one part help?\" Model: text 12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32",
+          "optional": true,
+          "responses": [
+            {
+              "say": "96 ÷ 3 = 32.",
+              "tool": "text",
+              "type": "12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

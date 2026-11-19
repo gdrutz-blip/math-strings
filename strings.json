@@ -862,6 +862,140 @@
       ]
     },
     {
+      "id": "g4-bank-div-04-what-times-what",
+      "title": "What Times What? Division Facts",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Division",
+      "tool": "array",
+      "strategy": "Every division has a multiplication hiding in it: 36 ÷ 4 asks \"4 times what is 36?\" Use facts you know, and split bigger numbers into tens.",
+      "topic": "mult",
+      "keywords": "division, missing factor, groups of, array, related facts, tens",
+      "curriculum": [
+        "B2.2",
+        "B2.6"
+      ],
+      "watchFor": [
+        "Counting by ones to divide: ask \"4 times what is 36?\"",
+        "Mixing up 36 ÷ 4 and 36 ÷ 9: ask \"Are there 4 groups or groups of 4?\"",
+        "Not using tens for 140 ÷ 7: ask \"How many tens is 140? What's 14 tens ÷ 7?\""
+      ],
+      "wrapUp": "Ask \"How did multiplication help you divide?\" Land: 36 ÷ 4 = 9 because 4 × 9 = 36. For bigger numbers, split into tens: 147 ÷ 7 is 140 ÷ 7 and 7 ÷ 7.",
+      "problems": [
+        {
+          "q": "36 / 4",
+          "a": "9",
+          "notes": "Look for: 4 × 9 = 36. Ask: \"4 times what is 36?\" Word choice: \"36 shared into 4 equal groups\". Model: array 4 x 9",
+          "responses": [
+            {
+              "say": "4 rows of 9 make 36.",
+              "tool": "array",
+              "type": "4 x 9"
+            },
+            {
+              "say": "Half of 36 is 18, half again is 9.",
+              "tool": "text",
+              "type": "36 ÷ 2 = 18 ; 18 ÷ 2 = 9",
+              "tip": "Halving twice."
+            }
+          ]
+        },
+        {
+          "q": "36 / 9",
+          "a": "4",
+          "notes": "Look for: the same array, turned. Ask: \"How does the last one help?\" Model: array 9 x 4",
+          "responses": [
+            {
+              "say": "9 × 4 = 36, so 4.",
+              "tool": "array",
+              "type": "9 x 4",
+              "tip": "The same fact family."
+            }
+          ]
+        },
+        {
+          "q": "72 / 8",
+          "a": "9",
+          "notes": "Look for: 8 × 9 = 72. Ask: \"What fact do you know?\" Model: array 8 x 9",
+          "responses": [
+            {
+              "say": "8 × 9 = 72.",
+              "tool": "array",
+              "type": "8 x 9"
+            },
+            {
+              "say": "8 × 10 is 80, take away an 8: 72. So 9.",
+              "tool": "area",
+              "type": "8 x 10-1",
+              "tip": "A fact you know, minus a group."
+            },
+            {
+              "say": "8",
+              "tool": "text",
+              "type": "72 ÷ 8 = 8 ?",
+              "tip": "Ask: what is 8 × 8? Is it 72?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "63 / 7",
+          "a": "9",
+          "notes": "Look for: 7 × 9 = 63. Ask: \"Is there a pattern?\" Model: array 7 x 9",
+          "responses": [
+            {
+              "say": "7 × 9 = 63.",
+              "tool": "array",
+              "type": "7 x 9"
+            }
+          ]
+        },
+        {
+          "q": "140 / 7",
+          "a": "20",
+          "notes": "Look for: 14 tens ÷ 7 = 2 tens. Ask: \"How many tens is 140?\" Model: text 140 = 14 tens ; 14 tens ÷ 7 = 2 tens ; = 20",
+          "responses": [
+            {
+              "say": "14 tens shared by 7 is 2 tens: 20.",
+              "tool": "text",
+              "type": "140 = 14 tens ; 14 tens ÷ 7 = 2 tens ; = 20"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "140 ÷ 7 = 2 ?",
+              "tip": "Ask: is 7 × 2 equal to 140?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "147 / 7",
+          "a": "21",
+          "notes": "Look for: 140 ÷ 7 = 20 and 7 ÷ 7 = 1. Ask: \"How does the last one help?\" Model: area 147 / 7 = 140 + 7",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "147 / 7 = 140 + 7"
+            }
+          ]
+        },
+        {
+          "q": "280 / 4",
+          "a": "70",
+          "notes": "Look for: 28 tens ÷ 4 = 7 tens. Ask: \"Same idea?\" Model: text 280 = 28 tens ; 28 tens ÷ 4 = 7 tens ; = 70",
+          "optional": true,
+          "responses": [
+            {
+              "say": "7 tens: 70.",
+              "tool": "text",
+              "type": "280 = 28 tens ; 28 tens ÷ 4 = 7 tens ; = 70"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g4-bank-frac-01-unit-fractions-add-up",
       "title": "Unit Fractions Add Up",
       "label": "Bank",
@@ -1009,6 +1143,128 @@
               "say": "4 fourths is 1, so 8 fourths is 2.",
               "tool": "text",
               "type": "4 x 1/4 = 1 ; 8 x 1/4 = 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-frac-02-counting-unit-fractions",
+      "title": "Counting Unit Fractions",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Count unit fractions like counting anything else: 4 × 1/3 is four thirds. When the count passes a whole, it's more than 1.",
+      "topic": "frac",
+      "keywords": "unit fraction, repeated addition, thirds, fourths, tenths, halves, more than a whole",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Multiplying the denominator (4 × 1/3 = 4/12): ask \"Four thirds, or four twelfths? Count the jumps.\"",
+        "Thinking a fraction can't be more than 1: ask \"Where is 4/3 on the number line?\"",
+        "Not seeing 10/10 as 1: ask \"How many tenths make a whole?\""
+      ],
+      "wrapUp": "Ask \"How do you know when the count passes 1?\" Land: when the number of pieces is more than the number in a whole (more than 3 thirds), the total is more than 1.",
+      "problems": [
+        {
+          "q": "1/3 + 1/3 + 1/3 + 1/3",
+          "a": "4/3",
+          "notes": "Look for: four thirds, past the whole. Ask: \"How many thirds make a whole?\" Word choice: say \"four thirds\". Model: numberline 0 +1/3x4",
+          "responses": [
+            {
+              "say": "1, 2, 3, 4 thirds: 4/3.",
+              "tool": "numberline",
+              "type": "0 +1/3x4"
+            },
+            {
+              "say": "4/12",
+              "tool": "text",
+              "type": "1/3 + 1/3 + 1/3 + 1/3 = 4/12 ?",
+              "tip": "Added the denominators. Ask: did the pieces get smaller?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 x 1/3",
+          "a": "4/3",
+          "notes": "Look for: the same as the last one. Ask: \"Why is it the same?\" Model: numberline 0 +1/3x4",
+          "responses": [
+            {
+              "say": "4 groups of a third: 4/3.",
+              "tool": "numberline",
+              "type": "0 +1/3x4"
+            }
+          ]
+        },
+        {
+          "q": "7 x 1/4",
+          "a": "7/4",
+          "notes": "Look for: 4 fourths make 1, 3 more fourths. Ask: \"Where is 1?\" Model: numberline 0 +1/4x7",
+          "responses": [
+            {
+              "say": "7 fourths: 1 and 3 fourths.",
+              "tool": "numberline",
+              "type": "0 +1/4x7",
+              "tip": "Both 7/4 and 1 3/4 are right."
+            }
+          ]
+        },
+        {
+          "q": "10 x 1/10",
+          "a": "1",
+          "notes": "Look for: 10 tenths is 1. Ask: \"How many tenths in a whole?\" Model: numberline 0 +1/10x10",
+          "responses": [
+            {
+              "say": "10 tenths make 1 whole.",
+              "tool": "numberline",
+              "type": "0 +1/10x10"
+            },
+            {
+              "say": "10/100",
+              "tool": "text",
+              "type": "10 x 1/10 = 10/100 ?",
+              "tip": "Ask: count the tenths. How many make a whole?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12 x 1/10",
+          "a": "12/10",
+          "notes": "Look for: 1 whole and 2 tenths, like 1.2. Ask: \"How is this like decimals?\" Model: numberline 0 +1/10x12",
+          "responses": [
+            {
+              "say": "12 tenths: 1 and 2 tenths, which is 1.2.",
+              "tool": "numberline",
+              "type": "0 +1/10x12",
+              "tip": "Decimals connection."
+            }
+          ]
+        },
+        {
+          "q": "9 x 1/2",
+          "a": "9/2",
+          "notes": "Look for: 9 halves: 4 wholes and a half. Ask: \"How many halves in each whole?\" Model: numberline 0 +1/2x9",
+          "responses": [
+            {
+              "say": "9 halves: 4 1/2.",
+              "tool": "numberline",
+              "type": "0 +1/2x9"
+            }
+          ]
+        },
+        {
+          "q": "15 x 1/5",
+          "a": "3",
+          "notes": "Look for: 5 fifths in each whole: 3 wholes. Ask: \"How many wholes?\" Model: numberline 0 +1/5x15",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15 fifths make 3 wholes.",
+              "tool": "numberline",
+              "type": "0 +1/5x15"
             }
           ]
         }
@@ -1639,6 +1895,127 @@
               "say": "Double 2 packs, then double again: 12, 24, 48.",
               "tool": "ratio",
               "type": "packs:boxes, 2:12, 4:24, 8:48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-rate-02-legs-and-wheels",
+      "title": "Legs and Wheels",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Rates",
+      "tool": "ratio",
+      "strategy": "A rate is the same in every row: every dog has 4 legs. Build up from rows you know, and work backward to find how many dogs.",
+      "topic": "rat",
+      "keywords": "rate, for every, each, per, ratio table, times as many",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Adding 4 instead of multiplying (3 dogs have 7 legs): ask \"How many legs does each dog have?\"",
+        "Stuck going backward (36 legs): ask \"How many 4s in 36?\"",
+        "Starting from 1 every time: ask \"Which row in the table helps?\""
+      ],
+      "wrapUp": "Ask \"How did the table help you go backward?\" Land: the rate stays the same, so the table works both ways. To find dogs from legs, ask how many 4s are in the number of legs.",
+      "problems": [
+        {
+          "q": "3 x 4",
+          "a": "12",
+          "notes": "Context: \"Every dog has 4 legs. How many legs on 3 dogs?\" Look for: 3 groups of 4. Ask: \"Hold on to this.\" Word choice: \"4 legs per dog\". Model: ratio dogs:legs, 1:4, 3:12",
+          "responses": [
+            {
+              "say": "4, 8, 12.",
+              "tool": "ratio",
+              "type": "dogs:legs, 1:4, 3:12"
+            },
+            {
+              "say": "7",
+              "tool": "text",
+              "type": "3 dogs = 3 + 4 = 7 legs ?",
+              "tip": "Ask: how many legs does each dog have?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6 x 4",
+          "a": "24",
+          "notes": "Context: \"6 dogs?\" Look for: double 3 dogs. Ask: \"How does the last row help?\" Model: ratio dogs:legs, 3:12, 6:24",
+          "responses": [
+            {
+              "say": "Double 12: 24.",
+              "tool": "ratio",
+              "type": "dogs:legs, 3:12, 6:24"
+            }
+          ]
+        },
+        {
+          "q": "10 x 4",
+          "a": "40",
+          "notes": "Context: \"10 dogs?\" Look for: 40. Ask: \"What's a friendly row?\" Model: ratio dogs:legs, 1:4, 10:40",
+          "responses": [
+            {
+              "say": "10 fours: 40.",
+              "tool": "ratio",
+              "type": "dogs:legs, 1:4, 10:40"
+            }
+          ]
+        },
+        {
+          "q": "12 x 4",
+          "a": "48",
+          "notes": "Context: \"12 dogs?\" Look for: 10 dogs + 2 dogs. Ask: \"Which rows add to 12?\" Model: ratio dogs:legs, 10:40, 2:8, 12:48",
+          "responses": [
+            {
+              "say": "40 + 8 = 48.",
+              "tool": "ratio",
+              "type": "dogs:legs, 10:40, 2:8, 12:48"
+            }
+          ]
+        },
+        {
+          "q": "36 / 4",
+          "a": "9",
+          "notes": "Context: \"There are 36 legs. How many dogs?\" Look for: how many 4s in 36. Ask: \"Which row is close?\" Model: ratio dogs:legs, 10:40, 1:4, 9:36",
+          "responses": [
+            {
+              "say": "10 dogs is 40 legs, one less dog: 9.",
+              "tool": "ratio",
+              "type": "dogs:legs, 10:40, 1:4, 9:36",
+              "tip": "Working backward."
+            },
+            {
+              "say": "32",
+              "tool": "text",
+              "type": "36 - 4 = 32 ?",
+              "tip": "Ask: we know the legs. What are we looking for?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 x 3",
+          "a": "21",
+          "notes": "Context: \"Every tricycle has 3 wheels. How many wheels on 7 tricycles?\" Look for: a new rate. Ask: \"What changed?\" Model: ratio trikes:wheels, 1:3, 7:21",
+          "responses": [
+            {
+              "say": "7 threes: 21.",
+              "tool": "ratio",
+              "type": "trikes:wheels, 1:3, 7:21"
+            }
+          ]
+        },
+        {
+          "q": "60 / 3",
+          "a": "20",
+          "notes": "Context: \"60 wheels. How many tricycles?\" Look for: 10 trikes is 30, so 20 is 60. Ask: \"Which row helps?\" Model: ratio trikes:wheels, 10:30, 20:60",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Double 10 trikes: 20.",
+              "tool": "ratio",
+              "type": "trikes:wheels, 10:30, 20:60"
             }
           ]
         }
@@ -5995,6 +6372,133 @@
       ]
     },
     {
+      "id": "g5-bank-div-03-friendly-chunks",
+      "title": "Dividing in Friendly Chunks",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Division",
+      "tool": "area",
+      "strategy": "Divide by a two-digit number by taking out friendly chunks: 20 groups, 10 groups, 1 group. The area model shows the chunks side by side.",
+      "topic": "mult",
+      "keywords": "divide, area model, chunks, 10 groups, 20 groups, quotient",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Taking out only 10 groups when 20 fit: ask \"Could you take a bigger chunk?\"",
+        "Losing track of the chunks: ask \"How many groups altogether?\"",
+        "Splitting 276 into 200 + 76: ask \"Does 200 share evenly by 12?\""
+      ],
+      "wrapUp": "Ask \"How did you choose your chunks?\" Land: use friendly multiples of the divisor: 10, 20 or 25 groups, then what's left. Add the chunks for the answer.",
+      "problems": [
+        {
+          "q": "240 / 12",
+          "a": "20",
+          "notes": "Look for: 20 × 12 = 240. Ask: \"Hold on to this.\" Model: text 12 x 20 = 240",
+          "responses": [
+            {
+              "say": "20 twelves is 240.",
+              "tool": "text",
+              "type": "12 x 20 = 240"
+            }
+          ]
+        },
+        {
+          "q": "252 / 12",
+          "a": "21",
+          "notes": "Look for: 240 + 12: 20 + 1. Ask: \"How does the last one help?\" Word choice: \"chunks\". Model: area 252 / 12 = 240 + 12",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "252 / 12 = 240 + 12",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2 R12",
+              "tool": "text",
+              "type": "252 ÷ 12 = 2 R12 ?",
+              "tip": "Ask: is 12 × 2 close to 252?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "276 / 12",
+          "a": "23",
+          "notes": "Look for: 240 + 36: 20 + 3. Ask: \"What's left after 20 groups?\" Model: area 276 / 12 = 240 + 36",
+          "responses": [
+            {
+              "say": "20 + 3 = 23.",
+              "tool": "area",
+              "type": "276 / 12 = 240 + 36"
+            }
+          ]
+        },
+        {
+          "q": "325 / 25",
+          "a": "13",
+          "notes": "Look for: 250 + 75: 10 + 3. Or think quarters: $3.25 is 13 quarters. Ask: \"How is this like money?\" Model: area 325 / 25 = 250 + 75",
+          "responses": [
+            {
+              "say": "10 + 3 = 13.",
+              "tool": "area",
+              "type": "325 / 25 = 250 + 75"
+            },
+            {
+              "say": "$3.25 is 13 quarters.",
+              "tool": "text",
+              "type": "4 quarters per dollar ; 3 x 4 + 1 = 13",
+              "tip": "Money connection."
+            }
+          ]
+        },
+        {
+          "q": "378 / 18",
+          "a": "21",
+          "notes": "Look for: 360 + 18: 20 + 1. Ask: \"What's 20 groups of 18?\" Model: area 378 / 18 = 360 + 18",
+          "responses": [
+            {
+              "say": "20 + 1 = 21.",
+              "tool": "area",
+              "type": "378 / 18 = 360 + 18"
+            },
+            {
+              "say": "12",
+              "tool": "text",
+              "type": "378 ÷ 18 = 12 ?",
+              "tip": "Ask: is 18 × 12 close to 378? What's 18 × 20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "416 / 32",
+          "a": "13",
+          "notes": "Look for: 320 + 96: 10 + 3. Ask: \"How many 32s in 96?\" Model: area 416 / 32 = 320 + 96",
+          "responses": [
+            {
+              "say": "10 + 3 = 13.",
+              "tool": "area",
+              "type": "416 / 32 = 320 + 96"
+            }
+          ]
+        },
+        {
+          "q": "625 / 25",
+          "a": "25",
+          "notes": "Look for: 500 + 125: 20 + 5. Ask: \"Quarters again?\" Model: area 625 / 25 = 500 + 125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20 + 5 = 25.",
+              "tool": "area",
+              "type": "625 / 25 = 500 + 125"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g5-bank-frac-01-like-fractions",
       "title": "Adding and Subtracting Like Fractions",
       "label": "Bank",
@@ -6846,6 +7350,126 @@
       ]
     },
     {
+      "id": "g5-bank-frac-07-how-many-pieces",
+      "title": "How Many Pieces?",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing a whole number by a unit fraction asks how many pieces you can cut: 5 ÷ 1/4 is 5 wholes cut into fourths, 4 in each whole.",
+      "topic": "frac",
+      "keywords": "how many fit, unit fraction, pieces, cut, divide, fourths, thirds, fifths",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Thinking division makes smaller (5 ÷ 1/4 = 1 1/4): ask \"If you cut 5 pizzas into fourths, how many pieces?\"",
+        "Multiplying by the fraction instead: ask \"Are we finding a fourth of 5, or how many fourths fit?\"",
+        "Not using the pieces in one whole: ask \"How many fourths in one whole?\""
+      ],
+      "wrapUp": "Ask \"How did 1 ÷ 1/4 help with all the others?\" Land: count the pieces in one whole (4 fourths), then multiply by the number of wholes.",
+      "problems": [
+        {
+          "q": "1 / 1/4",
+          "a": "4",
+          "notes": "Context: \"Cut 1 sandwich into fourths.\" Look for: 4 pieces. Ask: \"How many fourths in one whole?\" Word choice: \"how many fourths fit\". Model: numberline 0 +1/4x4",
+          "responses": [
+            {
+              "say": "4 fourths in a whole.",
+              "tool": "numberline",
+              "type": "0 +1/4x4"
+            }
+          ]
+        },
+        {
+          "q": "2 / 1/4",
+          "a": "8",
+          "notes": "Look for: 4 per whole, 2 wholes. Ask: \"How does the last one help?\" Model: numberline 0 +1/4x8",
+          "responses": [
+            {
+              "say": "4 + 4 = 8 pieces.",
+              "tool": "numberline",
+              "type": "0 +1/4x8"
+            }
+          ]
+        },
+        {
+          "q": "5 / 1/4",
+          "a": "20",
+          "notes": "Look for: 4 × 5. Ask: \"Do you need to count them all?\" Model: numberline 0 +1/4x20",
+          "responses": [
+            {
+              "say": "5 wholes, 4 pieces each: 20.",
+              "tool": "numberline",
+              "type": "0 +1/4x20"
+            },
+            {
+              "say": "1 1/4",
+              "tool": "text",
+              "type": "5 ÷ 1/4 = 5 x 1/4 = 1 1/4 ?",
+              "tip": "Found a fourth of 5. Ask: how many fourths fit in 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3 / 1/3",
+          "a": "9",
+          "notes": "Look for: 3 thirds per whole, 3 wholes. Ask: \"Same idea with thirds?\" Model: numberline 0 +1/3x9",
+          "responses": [
+            {
+              "say": "3 × 3 = 9.",
+              "tool": "numberline",
+              "type": "0 +1/3x9"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/5",
+          "a": "20",
+          "notes": "Look for: 5 fifths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/5x20",
+          "responses": [
+            {
+              "say": "4 × 5 = 20.",
+              "tool": "numberline",
+              "type": "0 +1/5x20"
+            },
+            {
+              "say": "4/5",
+              "tool": "text",
+              "type": "4 ÷ 1/5 = 4/5 ?",
+              "tip": "Ask: how many fifths fit in 4 wholes?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7 / 1/2",
+          "a": "14",
+          "notes": "Look for: 2 halves per whole, 7 wholes. Ask: \"What's the pattern?\" Model: numberline 0 +1/2x14",
+          "responses": [
+            {
+              "say": "7 × 2 = 14.",
+              "tool": "numberline",
+              "type": "0 +1/2x14"
+            }
+          ]
+        },
+        {
+          "q": "9 / 1/3",
+          "a": "27",
+          "notes": "Look for: 3 per whole, 9 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/3x27",
+          "optional": true,
+          "responses": [
+            {
+              "say": "9 × 3 = 27.",
+              "tool": "numberline",
+              "type": "0 +1/3x27"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g5-bank-mult-01-elevens-and-twelves",
       "title": "Elevens and Twelves",
       "label": "Bank",
@@ -7268,6 +7892,132 @@
               "say": "7.5 × 4 = 30.",
               "tool": "text",
               "type": "7.5 x 4 = 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-rat-02-building-up-a-ratio-table",
+      "title": "Building Up a Ratio Table",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Ratios",
+      "tool": "ratio",
+      "strategy": "Build a ratio table with moves that keep the ratio: double, halve, times 5, times 10, or add two rows. Then use it to find any missing number.",
+      "topic": "rat",
+      "keywords": "ratio, ratio table, equivalent, double, halve, add rows, for every",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Adding the same to both (4:5 to 8:9): ask \"Is it still 4 blue for every 5 yellow?\"",
+        "Stuck on 22 : ?: ask \"Which rows add to 22?\"",
+        "Going backward from 35: ask \"Which yellow number is close to 35?\""
+      ],
+      "wrapUp": "Ask \"Which moves did you use?\" Land: double, halve, times 10, and add rows all keep the ratio. Adding the same number to both parts changes it.",
+      "problems": [
+        {
+          "q": "4 : 5 = 8 : ?",
+          "a": "10",
+          "notes": "Context: \"Green paint: 4 cups blue for every 5 cups yellow.\" Look for: double. Ask: \"What did you do to the 4?\" Word choice: \"for every\". Model: ratio blue:yellow, 4:5, 8:10",
+          "responses": [
+            {
+              "say": "Double: 8 and 10.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 8:10"
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "4 : 5 = 8 : 9 ?",
+              "tip": "Added 4 to both. Ask: is it still 4 for every 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 12 : ?",
+          "a": "15",
+          "notes": "Look for: ×3, or 8:10 + 4:5. Ask: \"Could you add rows?\" Model: ratio blue:yellow, 4:5, 8:10, 12:15",
+          "responses": [
+            {
+              "say": "8:10 and 4:5 make 12:15.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 8:10, 12:15"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 20 : ?",
+          "a": "25",
+          "notes": "Look for: ×5. Ask: \"What times 4 is 20?\" Model: ratio blue:yellow, 4:5, 20:25",
+          "responses": [
+            {
+              "say": "Times 5: 25.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 20:25"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 2 : ?",
+          "a": "2.5",
+          "notes": "Look for: halve. Ask: \"Can you go down?\" Model: ratio blue:yellow, 4:5, 2:2.5",
+          "responses": [
+            {
+              "say": "Half of 5 is 2.5.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 2:2.5"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "4 : 5 = 2 : 3 ?",
+              "tip": "Took 2 from both. Ask: did you halve both?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 22 : ?",
+          "a": "27.5",
+          "notes": "Look for: 20:25 + 2:2.5. Ask: \"Which rows add to 22?\" Model: ratio blue:yellow, 20:25, 2:2.5, 22:27.5",
+          "responses": [
+            {
+              "say": "25 + 2.5 = 27.5.",
+              "tool": "ratio",
+              "type": "blue:yellow, 20:25, 2:2.5, 22:27.5"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = ? : 35",
+          "a": "28",
+          "notes": "Look for: 35 is 7 × 5, so 7 × 4. Ask: \"Going backward?\" Model: ratio blue:yellow, 4:5, 28:35",
+          "responses": [
+            {
+              "say": "7 × 4 = 28.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 28:35"
+            },
+            {
+              "say": "20:25 and 8:10 make 28:35.",
+              "tool": "ratio",
+              "type": "blue:yellow, 20:25, 8:10, 28:35",
+              "tip": "Adding rows."
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 100 : ?",
+          "a": "125",
+          "notes": "Look for: ×25. Ask: \"Which friendly rows get to 100?\" Model: ratio blue:yellow, 4:5, 20:25, 100:125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20:25 times 5: 100:125.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 20:25, 100:125"
             }
           ]
         }
@@ -11002,6 +11752,406 @@
       ]
     },
     {
+      "id": "g6-bank-dec-07-three-digit-times-tenths",
+      "title": "Three-Digit Numbers Times Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Multiply a three-digit number by tenths: find one tenth, then build up; or split the three-digit number into friendly parts; or double and halve.",
+      "topic": "dec",
+      "keywords": "tenths, times 0.4, split, one tenth, double and halve, estimate",
+      "curriculum": [
+        "B2.7"
+      ],
+      "watchFor": [
+        "Placing the decimal wrong (325 × 0.4 = 1300): ask \"Is 0.4 less than half? So is the answer less than half of 325?\"",
+        "Forgetting the whole part of 1.2: ask \"What's 175 × 1? Then the 0.2?\"",
+        "Missing that 125 × 0.8 doubles nicely: ask \"Can you double one factor and halve the other?\""
+      ],
+      "wrapUp": "Ask \"How did you check where the decimal goes?\" Land: estimate first (× 0.4 is a bit less than half), then build from one tenth or split. The estimate catches decimal mistakes.",
+      "problems": [
+        {
+          "q": "300 x 0.4",
+          "a": "120",
+          "notes": "Look for: a tenth of 300 is 30, four tenths is 120. Ask: \"Hold on to this.\" Model: ratio 1:300, 0.1:30, 0.4:120",
+          "responses": [
+            {
+              "say": "30 × 4 = 120.",
+              "tool": "ratio",
+              "type": "1:300, 0.1:30, 0.4:120"
+            }
+          ]
+        },
+        {
+          "q": "325 x 0.4",
+          "a": "130",
+          "notes": "Look for: 300 × 0.4 + 25 × 0.4 = 120 + 10. Ask: \"How does the last one help?\" Model: area 300+25 x 0.4",
+          "responses": [
+            {
+              "say": "120 + 10 = 130.",
+              "tool": "area",
+              "type": "300+25 x 0.4"
+            },
+            {
+              "say": "1300",
+              "tool": "text",
+              "type": "325 x 0.4 = 1300 ?",
+              "tip": "Ask: × 0.4 is less than half. Is 1300 less than half of 325?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 x 0.6",
+          "a": "150",
+          "notes": "Look for: a tenth is 25, six tenths is 150. Ask: \"Is it more or less than half of 250?\" Model: ratio 1:250, 0.1:25, 0.6:150",
+          "responses": [
+            {
+              "say": "25 × 6 = 150.",
+              "tool": "ratio",
+              "type": "1:250, 0.1:25, 0.6:150"
+            }
+          ]
+        },
+        {
+          "q": "125 x 0.8",
+          "a": "100",
+          "notes": "Look for: double and halve: 250 × 0.4 = 500 × 0.2 = 1000 × 0.1. Ask: \"What do you know about 125?\" Model: halve 125 x 0.8 = 250 x 0.4 = 500 x 0.2 = 1000 x 0.1",
+          "responses": [
+            {
+              "say": "1000 × 0.1 = 100.",
+              "tool": "halve",
+              "type": "125 x 0.8 = 250 x 0.4 = 500 x 0.2 = 1000 x 0.1"
+            },
+            {
+              "say": "A tenth is 12.5, eight tenths is 100.",
+              "tool": "ratio",
+              "type": "1:125, 0.1:12.5, 0.8:100"
+            }
+          ]
+        },
+        {
+          "q": "640 x 0.5",
+          "a": "320",
+          "notes": "Look for: half of 640. Ask: \"What fraction is 0.5?\" Model: bar 1/2 of 640",
+          "responses": [
+            {
+              "say": "Half of 640: 320.",
+              "tool": "bar",
+              "type": "1/2 of 640"
+            }
+          ]
+        },
+        {
+          "q": "175 x 1.2",
+          "a": "210",
+          "notes": "Look for: 175 + 35. Ask: \"What's the whole part?\" Model: area 1+0.2 x 175",
+          "responses": [
+            {
+              "say": "175 + 35 = 210.",
+              "tool": "area",
+              "type": "1+0.2 x 175"
+            },
+            {
+              "say": "35",
+              "tool": "text",
+              "type": "175 x 1.2 = 35 ?",
+              "tip": "Found only the 0.2 part. Ask: is 1.2 more or less than 1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "999 x 0.3",
+          "a": "299.7",
+          "notes": "Look for: 1000 × 0.3 − 0.3. Ask: \"Over and back?\" Model: area 1000-1 x 0.3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "300 − 0.3 = 299.7.",
+              "tool": "area",
+              "type": "1000-1 x 0.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-08-three-digit-divided-by-tenths",
+      "title": "Three-Digit Numbers Divided by Tenths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "ratio",
+      "strategy": "Dividing by tenths asks how many fit. Multiply both numbers by 10 to get an equivalent problem with whole numbers: 120 ÷ 0.4 = 1200 ÷ 4.",
+      "topic": "dec",
+      "keywords": "how many fit, tenths, equivalent, times 10 both, divide",
+      "curriculum": [
+        "B2.8"
+      ],
+      "watchFor": [
+        "Expecting the answer to be smaller (120 ÷ 0.4 = 30): ask \"How many 0.4s fit in 120? More or fewer than 120?\"",
+        "Multiplying only one number by 10: ask \"Did you multiply both?\"",
+        "Losing a zero: ask \"About how many 0.5s fit in 105?\""
+      ],
+      "wrapUp": "Ask \"Why does multiplying both by 10 work?\" Land: the quotient stays the same when both numbers are scaled, like a ratio. 120 ÷ 0.4 is the same as 1200 ÷ 4.",
+      "problems": [
+        {
+          "q": "120 / 0.4",
+          "a": "300",
+          "notes": "Look for: 1200 ÷ 4. Ask: \"How many 0.4s fit in 120?\" Word choice: \"how many fit\". Model: text 120 ÷ 0.4 = 1200 ÷ 4 ; = 300",
+          "responses": [
+            {
+              "say": "1200 ÷ 4 = 300.",
+              "tool": "text",
+              "type": "120 ÷ 0.4 = 1200 ÷ 4 ; = 300",
+              "tip": "Scale both by 10."
+            },
+            {
+              "say": "0.4 fits 10 times in 4, so 300 times in 120.",
+              "tool": "ratio",
+              "type": "count:amount, 10:4, 300:120"
+            },
+            {
+              "say": "30",
+              "tool": "text",
+              "type": "120 ÷ 0.4 = 30 ?",
+              "tip": "Ask: 0.4 is less than 1. Do more or fewer fit than 120?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 / 0.3",
+          "a": "500",
+          "notes": "Look for: 1500 ÷ 3. Ask: \"Same move?\" Model: text 150 ÷ 0.3 = 1500 ÷ 3 ; = 500",
+          "responses": [
+            {
+              "say": "1500 ÷ 3 = 500.",
+              "tool": "text",
+              "type": "150 ÷ 0.3 = 1500 ÷ 3 ; = 500"
+            }
+          ]
+        },
+        {
+          "q": "240 / 0.6",
+          "a": "400",
+          "notes": "Look for: 2400 ÷ 6. Ask: \"Which earlier problem helps?\" Model: text 240 ÷ 0.6 = 2400 ÷ 6 ; = 400",
+          "responses": [
+            {
+              "say": "2400 ÷ 6 = 400.",
+              "tool": "text",
+              "type": "240 ÷ 0.6 = 2400 ÷ 6 ; = 400"
+            }
+          ]
+        },
+        {
+          "q": "350 / 0.7",
+          "a": "500",
+          "notes": "Look for: 3500 ÷ 7. Ask: \"What do you notice?\" Model: text 350 ÷ 0.7 = 3500 ÷ 7 ; = 500",
+          "responses": [
+            {
+              "say": "3500 ÷ 7 = 500.",
+              "tool": "text",
+              "type": "350 ÷ 0.7 = 3500 ÷ 7 ; = 500"
+            },
+            {
+              "say": "50",
+              "tool": "text",
+              "type": "350 ÷ 0.7 = 50 ?",
+              "tip": "Multiplied only 0.7 by 10. Ask: did you multiply both?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "450 / 0.9",
+          "a": "500",
+          "notes": "Look for: 4500 ÷ 9. Ask: \"Why 500 again?\" Model: text 450 ÷ 0.9 = 4500 ÷ 9 ; = 500",
+          "responses": [
+            {
+              "say": "4500 ÷ 9 = 500.",
+              "tool": "text",
+              "type": "450 ÷ 0.9 = 4500 ÷ 9 ; = 500",
+              "tip": "The same answer three times. Ask: why?"
+            }
+          ]
+        },
+        {
+          "q": "105 / 0.5",
+          "a": "210",
+          "notes": "Look for: 2 halves per whole: 105 × 2. Ask: \"What fraction is 0.5?\" Model: ratio count:amount, 2:1, 210:105",
+          "responses": [
+            {
+              "say": "Double 105: 210.",
+              "tool": "ratio",
+              "type": "count:amount, 2:1, 210:105",
+              "tip": "Dividing by a half doubles."
+            },
+            {
+              "say": "52.5",
+              "tool": "text",
+              "type": "105 ÷ 0.5 = 52.5 ?",
+              "tip": "Found half. Ask: how many halves fit in 105?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "128 / 0.4",
+          "a": "320",
+          "notes": "Look for: 1280 ÷ 4. Ask: \"Which earlier problem helps?\" Model: text 128 ÷ 0.4 = 1280 ÷ 4 ; = 320",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1280 ÷ 4 = 320.",
+              "tool": "text",
+              "type": "128 ÷ 0.4 = 1280 ÷ 4 ; = 320"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-09-sharing-decimals",
+      "title": "Sharing Decimals to Thousandths",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "area",
+      "strategy": "Share a decimal by a whole number by thinking in the smallest place (1.2 is 12 tenths), or by splitting it into parts that share evenly.",
+      "topic": "dec",
+      "keywords": "share, divide, tenths, hundredths, thousandths, split, place value",
+      "curriculum": [
+        "B2.11"
+      ],
+      "watchFor": [
+        "Putting the decimal in the wrong place (0.12 ÷ 4 = 0.3): ask \"How many hundredths is 0.12? Shared by 4?\"",
+        "Losing a zero in 7.035 ÷ 7: ask \"What is 0.035 ÷ 7?\"",
+        "Not estimating: ask \"About how much is each share?\""
+      ],
+      "wrapUp": "Ask \"How did you keep track of the places?\" Land: think in the smallest place (12 hundredths ÷ 4 = 3 hundredths), or split into parts that share evenly. Estimate to check.",
+      "problems": [
+        {
+          "q": "1.2 / 4",
+          "a": "0.3",
+          "notes": "Look for: 12 tenths ÷ 4 = 3 tenths. Ask: \"How many tenths is 1.2?\" Word choice: \"12 tenths\". Model: text 1.2 = 12 tenths ; 12 ÷ 4 = 3 ; 3 tenths = 0.3",
+          "responses": [
+            {
+              "say": "3 tenths: 0.3.",
+              "tool": "text",
+              "type": "1.2 = 12 tenths ; 12 ÷ 4 = 3 ; 3 tenths = 0.3"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "1.2 ÷ 4 = 3 ?",
+              "tip": "Ask: can sharing 1.2 give each person 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.12 / 4",
+          "a": "0.03",
+          "notes": "Look for: 12 hundredths ÷ 4. Ask: \"What changed?\" Model: text 0.12 = 12 hundredths ; 12 ÷ 4 = 3 ; 0.03",
+          "responses": [
+            {
+              "say": "3 hundredths: 0.03.",
+              "tool": "text",
+              "type": "0.12 = 12 hundredths ; 12 ÷ 4 = 3 ; 0.03"
+            },
+            {
+              "say": "0.3",
+              "tool": "text",
+              "type": "0.12 ÷ 4 = 0.3 ?",
+              "tip": "Ask: is 0.3 more than 0.12? Can sharing make it bigger?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.012 / 4",
+          "a": "0.003",
+          "notes": "Look for: 12 thousandths ÷ 4. Ask: \"See the pattern?\" Model: text 0.012 = 12 thousandths ; 12 ÷ 4 = 3 ; 0.003",
+          "responses": [
+            {
+              "say": "3 thousandths: 0.003.",
+              "tool": "text",
+              "type": "0.012 = 12 thousandths ; 12 ÷ 4 = 3 ; 0.003"
+            }
+          ]
+        },
+        {
+          "q": "2.45 / 5",
+          "a": "0.49",
+          "notes": "Look for: 245 hundredths ÷ 5 = 49 hundredths. Or 2.5 ÷ 5 − 0.05 ÷ 5. Ask: \"Which way?\" Model: area 2.45 / 5 = 2 + 0.45",
+          "responses": [
+            {
+              "say": "0.4 + 0.09 = 0.49.",
+              "tool": "area",
+              "type": "2.45 / 5 = 2 + 0.45"
+            },
+            {
+              "say": "2.5 ÷ 5 = 0.5, minus 0.01: 0.49.",
+              "tool": "text",
+              "type": "2.5 ÷ 5 = 0.5 ; 0.05 ÷ 5 = 0.01 ; 0.5 - 0.01 = 0.49",
+              "tip": "Over and back."
+            }
+          ]
+        },
+        {
+          "q": "3.6 / 9",
+          "a": "0.4",
+          "notes": "Look for: 36 tenths ÷ 9 = 4 tenths. Ask: \"Which earlier problem helps?\" Model: text 3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4",
+          "responses": [
+            {
+              "say": "4 tenths: 0.4.",
+              "tool": "text",
+              "type": "3.6 = 36 tenths ; 36 ÷ 9 = 4 ; 0.4"
+            }
+          ]
+        },
+        {
+          "q": "4.248 / 8",
+          "a": "0.531",
+          "notes": "Look for: 4 ÷ 8 = 0.5, 0.24 ÷ 8 = 0.03, 0.008 ÷ 8 = 0.001. Ask: \"Which parts share evenly by 8?\" Model: area 4.248 / 8 = 4 + 0.24 + 0.008",
+          "responses": [
+            {
+              "say": "0.5 + 0.03 + 0.001 = 0.531.",
+              "tool": "area",
+              "type": "4.248 / 8 = 4 + 0.24 + 0.008"
+            },
+            {
+              "say": "0.5301",
+              "tool": "text",
+              "type": "4.248 ÷ 8 = 0.5301 ?",
+              "tip": "Ask: 0.24 ÷ 8 is 0.03. What's 0.008 ÷ 8?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.035 / 7",
+          "a": "1.005",
+          "notes": "Look for: 7 ÷ 7 = 1, 0.035 ÷ 7 = 0.005. Ask: \"Which earlier problem helps?\" Model: area 7.035 / 7 = 7 + 0.035",
+          "optional": true,
+          "responses": [
+            {
+              "say": "1 + 0.005 = 1.005.",
+              "tool": "area",
+              "type": "7.035 / 7 = 7 + 0.035"
+            },
+            {
+              "say": "1.05",
+              "tool": "text",
+              "type": "7.035 ÷ 7 = 1.05 ?",
+              "tip": "Ask: is 0.035 ÷ 7 five hundredths or five thousandths?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g6-bank-frac-01-whole-numbers-times-fractions",
       "title": "Whole Numbers Times Fractions",
       "label": "Bank",
@@ -11875,6 +13025,263 @@
               "say": "7/12 + 1 = 1 7/12.",
               "tool": "numberline",
               "type": "2 5/12 >3 >4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-frac-07-unit-fraction-first",
+      "title": "Fractions of Whole Numbers: One Part First",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "bar",
+      "strategy": "To find a fraction of a whole number, find one part first (divide by the denominator), then take as many parts as the numerator.",
+      "topic": "frac",
+      "keywords": "fraction of, one part, unit fraction, numerator, denominator, bar model",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Dividing by the numerator (3/4 × 28 = 28 ÷ 3): ask \"How many equal parts is the bar split into?\"",
+        "Multiplying both parts (3/8 × 32 = 96/256): ask \"Is 3/8 of 32 more or less than 32?\"",
+        "Stopping at one part: ask \"How many parts do we want?\""
+      ],
+      "wrapUp": "Ask \"Why find one part first?\" Land: the denominator tells how many equal parts; one part is the whole ÷ the denominator. Then the numerator tells how many parts to take.",
+      "problems": [
+        {
+          "q": "2/3 x 18",
+          "a": "12",
+          "notes": "Look for: a third of 18 is 6, two thirds is 12. Ask: \"What's one part?\" Word choice: \"two thirds of 18\". Model: bar 2/3 of 18",
+          "responses": [
+            {
+              "say": "6 × 2 = 12.",
+              "tool": "bar",
+              "type": "2/3 of 18"
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "2/3 x 18 = 18 ÷ 2 = 9 ?",
+              "tip": "Divided by the numerator. Ask: how many equal parts?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5/6 x 18",
+          "a": "15",
+          "notes": "Look for: a sixth is 3, five sixths is 15. Or 18 − 3. Ask: \"Take away one part?\" Model: bar 5/6 of 18",
+          "responses": [
+            {
+              "say": "3 × 5 = 15.",
+              "tool": "bar",
+              "type": "5/6 of 18"
+            },
+            {
+              "say": "18 − 3 = 15.",
+              "tool": "text",
+              "type": "1/6 of 18 = 3 ; 18 - 3 = 15",
+              "tip": "Whole minus one part."
+            }
+          ]
+        },
+        {
+          "q": "3/4 x 28",
+          "a": "21",
+          "notes": "Look for: a quarter is 7, three quarters is 21. Ask: \"How does one part help?\" Model: bar 3/4 of 28",
+          "responses": [
+            {
+              "say": "7 × 3 = 21.",
+              "tool": "bar",
+              "type": "3/4 of 28"
+            }
+          ]
+        },
+        {
+          "q": "3/8 x 32",
+          "a": "12",
+          "notes": "Look for: an eighth is 4, three eighths is 12. Ask: \"How does one part help?\" Model: bar 3/8 of 32",
+          "responses": [
+            {
+              "say": "4 × 3 = 12.",
+              "tool": "bar",
+              "type": "3/8 of 32"
+            },
+            {
+              "say": "96",
+              "tool": "text",
+              "type": "3/8 x 32 = 3 x 32 = 96 ?",
+              "tip": "Forgot the eighths. Ask: is 3/8 of 32 more or less than 32?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7/10 x 50",
+          "a": "35",
+          "notes": "Look for: a tenth is 5, seven tenths is 35. Ask: \"How does one part help?\" Model: bar 7/10 of 50",
+          "responses": [
+            {
+              "say": "5 × 7 = 35.",
+              "tool": "bar",
+              "type": "7/10 of 50"
+            }
+          ]
+        },
+        {
+          "q": "4/9 x 27",
+          "a": "12",
+          "notes": "Look for: a ninth is 3, four ninths is 12. Ask: \"How does one part help?\" Model: bar 4/9 of 27",
+          "responses": [
+            {
+              "say": "3 × 4 = 12.",
+              "tool": "bar",
+              "type": "4/9 of 27"
+            }
+          ]
+        },
+        {
+          "q": "5/12 x 36",
+          "a": "15",
+          "notes": "Look for: a twelfth is 3, five twelfths is 15. Ask: \"How does one part help?\" Model: bar 5/12 of 36",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 × 5 = 15.",
+              "tool": "bar",
+              "type": "5/12 of 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-frac-08-how-many-groups",
+      "title": "How Many Groups? Whole Numbers Divided by Fractions",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Fractions",
+      "tool": "numberline",
+      "strategy": "Dividing by a fraction asks how many of those fractions fit. Count the unit fractions first (6 ÷ 1/3 = 18), then group them by the numerator (6 ÷ 2/3 = 18 ÷ 2 = 9).",
+      "topic": "frac",
+      "keywords": "how many fit, groups, unit fraction, numerator, denominator, number line",
+      "curriculum": [
+        "B2.10"
+      ],
+      "watchFor": [
+        "Stopping at the unit fractions (6 ÷ 2/3 = 18): ask \"How many thirds are in one 2/3?\"",
+        "Multiplying instead (9 × 3/4): ask \"Are we finding 3/4 of 9, or how many 3/4s fit?\"",
+        "Expecting a smaller answer: ask \"How many 1/6s fit in 4? More or fewer than 4?\""
+      ],
+      "wrapUp": "Ask \"How did the unit fraction help?\" Land: count the unit fractions (whole × denominator), then put them in groups the size of the numerator.",
+      "problems": [
+        {
+          "q": "6 / 1/3",
+          "a": "18",
+          "notes": "Look for: 3 thirds per whole, 6 wholes. Ask: \"Hold on to this.\" Word choice: \"how many thirds fit in 6\". Model: numberline 0 +1/3x18",
+          "responses": [
+            {
+              "say": "6 × 3 = 18.",
+              "tool": "numberline",
+              "type": "0 +1/3x18"
+            }
+          ]
+        },
+        {
+          "q": "6 / 2/3",
+          "a": "9",
+          "notes": "Look for: 18 thirds in groups of 2. Ask: \"How does the last one help?\" Model: numberline 0 +2/3x9",
+          "responses": [
+            {
+              "say": "18 ÷ 2 = 9.",
+              "tool": "text",
+              "type": "6 ÷ 1/3 = 18 ; 18 ÷ 2 = 9",
+              "tip": "Group the thirds."
+            },
+            {
+              "say": "Nine jumps of 2/3 land on 6.",
+              "tool": "numberline",
+              "type": "0 +2/3x9"
+            },
+            {
+              "say": "18",
+              "tool": "text",
+              "type": "6 ÷ 2/3 = 18 ?",
+              "tip": "Counted thirds, not two-thirds. Ask: how many thirds in one 2/3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9 / 3/4",
+          "a": "12",
+          "notes": "Look for: 36 fourths in groups of 3. Ask: \"How many fourths in 9?\" Model: numberline 0 +3/4x12",
+          "responses": [
+            {
+              "say": "36 ÷ 3 = 12.",
+              "tool": "text",
+              "type": "9 ÷ 1/4 = 36 ; 36 ÷ 3 = 12"
+            },
+            {
+              "say": "6 3/4",
+              "tool": "text",
+              "type": "9 ÷ 3/4 = 9 x 3/4 = 6 3/4 ?",
+              "tip": "Multiplied. Ask: 3/4 of 9, or how many 3/4s fit in 9?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 / 2/5",
+          "a": "25",
+          "notes": "Look for: 50 fifths in groups of 2. Ask: \"How does one part help?\" Model: numberline 0 +2/5x25",
+          "responses": [
+            {
+              "say": "50 ÷ 2 = 25.",
+              "tool": "text",
+              "type": "10 ÷ 1/5 = 50 ; 50 ÷ 2 = 25"
+            }
+          ]
+        },
+        {
+          "q": "4 / 1/6",
+          "a": "24",
+          "notes": "Look for: 6 sixths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/6x24",
+          "responses": [
+            {
+              "say": "4 × 6 = 24.",
+              "tool": "numberline",
+              "type": "0 +1/6x24"
+            }
+          ]
+        },
+        {
+          "q": "5 / 5/6",
+          "a": "6",
+          "notes": "Look for: 30 sixths in groups of 5. Ask: \"What do you notice?\" Model: numberline 0 +5/6x6",
+          "responses": [
+            {
+              "say": "30 ÷ 5 = 6.",
+              "tool": "text",
+              "type": "5 ÷ 1/6 = 30 ; 30 ÷ 5 = 6"
+            },
+            {
+              "say": "Six jumps of 5/6 land on 5.",
+              "tool": "numberline",
+              "type": "0 +5/6x6"
+            }
+          ]
+        },
+        {
+          "q": "12 / 3/8",
+          "a": "32",
+          "notes": "Look for: 96 eighths in groups of 3. Ask: \"How does one part help?\" Model: text 12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32",
+          "optional": true,
+          "responses": [
+            {
+              "say": "96 ÷ 3 = 32.",
+              "tool": "text",
+              "type": "12 ÷ 1/8 = 96 ; 96 ÷ 3 = 32"
             }
           ]
         }

@@ -275,6 +275,132 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g5-bank-rat-02-building-up-a-ratio-table",
+      "title": "Building Up a Ratio Table",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Ratios",
+      "tool": "ratio",
+      "strategy": "Build a ratio table with moves that keep the ratio: double, halve, times 5, times 10, or add two rows. Then use it to find any missing number.",
+      "topic": "rat",
+      "keywords": "ratio, ratio table, equivalent, double, halve, add rows, for every",
+      "curriculum": [
+        "B2.9"
+      ],
+      "watchFor": [
+        "Adding the same to both (4:5 to 8:9): ask \"Is it still 4 blue for every 5 yellow?\"",
+        "Stuck on 22 : ?: ask \"Which rows add to 22?\"",
+        "Going backward from 35: ask \"Which yellow number is close to 35?\""
+      ],
+      "wrapUp": "Ask \"Which moves did you use?\" Land: double, halve, times 10, and add rows all keep the ratio. Adding the same number to both parts changes it.",
+      "problems": [
+        {
+          "q": "4 : 5 = 8 : ?",
+          "a": "10",
+          "notes": "Context: \"Green paint: 4 cups blue for every 5 cups yellow.\" Look for: double. Ask: \"What did you do to the 4?\" Word choice: \"for every\". Model: ratio blue:yellow, 4:5, 8:10",
+          "responses": [
+            {
+              "say": "Double: 8 and 10.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 8:10"
+            },
+            {
+              "say": "9",
+              "tool": "text",
+              "type": "4 : 5 = 8 : 9 ?",
+              "tip": "Added 4 to both. Ask: is it still 4 for every 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 12 : ?",
+          "a": "15",
+          "notes": "Look for: ×3, or 8:10 + 4:5. Ask: \"Could you add rows?\" Model: ratio blue:yellow, 4:5, 8:10, 12:15",
+          "responses": [
+            {
+              "say": "8:10 and 4:5 make 12:15.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 8:10, 12:15"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 20 : ?",
+          "a": "25",
+          "notes": "Look for: ×5. Ask: \"What times 4 is 20?\" Model: ratio blue:yellow, 4:5, 20:25",
+          "responses": [
+            {
+              "say": "Times 5: 25.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 20:25"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 2 : ?",
+          "a": "2.5",
+          "notes": "Look for: halve. Ask: \"Can you go down?\" Model: ratio blue:yellow, 4:5, 2:2.5",
+          "responses": [
+            {
+              "say": "Half of 5 is 2.5.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 2:2.5"
+            },
+            {
+              "say": "3",
+              "tool": "text",
+              "type": "4 : 5 = 2 : 3 ?",
+              "tip": "Took 2 from both. Ask: did you halve both?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 22 : ?",
+          "a": "27.5",
+          "notes": "Look for: 20:25 + 2:2.5. Ask: \"Which rows add to 22?\" Model: ratio blue:yellow, 20:25, 2:2.5, 22:27.5",
+          "responses": [
+            {
+              "say": "25 + 2.5 = 27.5.",
+              "tool": "ratio",
+              "type": "blue:yellow, 20:25, 2:2.5, 22:27.5"
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = ? : 35",
+          "a": "28",
+          "notes": "Look for: 35 is 7 × 5, so 7 × 4. Ask: \"Going backward?\" Model: ratio blue:yellow, 4:5, 28:35",
+          "responses": [
+            {
+              "say": "7 × 4 = 28.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 28:35"
+            },
+            {
+              "say": "20:25 and 8:10 make 28:35.",
+              "tool": "ratio",
+              "type": "blue:yellow, 20:25, 8:10, 28:35",
+              "tip": "Adding rows."
+            }
+          ]
+        },
+        {
+          "q": "4 : 5 = 100 : ?",
+          "a": "125",
+          "notes": "Look for: ×25. Ask: \"Which friendly rows get to 100?\" Model: ratio blue:yellow, 4:5, 20:25, 100:125",
+          "optional": true,
+          "responses": [
+            {
+              "say": "20:25 times 5: 100:125.",
+              "tool": "ratio",
+              "type": "blue:yellow, 4:5, 20:25, 100:125"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
