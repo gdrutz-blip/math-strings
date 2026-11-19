@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g5-bank-sub-01-add-up-to-subtract",
+      "title": "Add Up to Subtract",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When two numbers are close together, find the difference by counting up from the smaller one through friendly numbers.",
+      "topic": "add",
+      "keywords": "difference, distance, count up, next ten, friendly number",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Bigger minus smaller in each place (92 − 68 = 36): ask \"Is 68 + 36 equal to 92?\"",
+        "Counting up but forgetting a jump: ask \"Which jumps make the answer?\"",
+        "Taking away 486 from 503: ask \"Are these close together? How far apart?\""
+      ],
+      "wrapUp": "Ask \"When is counting up quicker than taking away?\" Land: when the numbers are close, the difference is the distance. Jump to the next ten or hundred, then on, and add the jumps.",
+      "problems": [
+        {
+          "q": "90 - 75",
+          "a": "15",
+          "notes": "Look for: 75 up 5 to 80, up 10 to 90. Ask: \"Hold on to this: how far from 75 to 90?\" Model: numberline 75 >80 >90",
+          "responses": [
+            {
+              "say": "5 to 80, 10 to 90: 15.",
+              "tool": "numberline",
+              "type": "75 >80 >90"
+            }
+          ]
+        },
+        {
+          "q": "92 - 75",
+          "a": "17",
+          "notes": "Look for: the same jumps, then 2 more. Ask: \"How does the last one help?\" Model: numberline 75 >80 >92",
+          "responses": [
+            {
+              "say": "5 to 80, 12 to 92: 17.",
+              "tool": "numberline",
+              "type": "75 >80 >92"
+            }
+          ]
+        },
+        {
+          "q": "92 - 68",
+          "a": "24",
+          "notes": "Look for: 68 up 2 to 70, up 22 to 92. Ask: \"What's the next ten after 68?\" Word choice: \"the distance between\". Model: numberline 68 >70 >92",
+          "responses": [
+            {
+              "say": "2 to 70, 22 to 92: 24.",
+              "tool": "numberline",
+              "type": "68 >70 >92",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "92 − 70 + 2 = 24.",
+              "tool": "numberline",
+              "type": "92 -70 +2",
+              "tip": "Take too much, add back."
+            },
+            {
+              "say": "36",
+              "tool": "text",
+              "type": "92 - 68 = 36 ?",
+              "tip": "Bigger minus smaller in each place. Ask: is 68 + 36 = 92?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "150 - 87",
+          "a": "63",
+          "notes": "Look for: 3 to 90, 10 to 100, 50 to 150. Ask: \"Which friendly numbers did you land on?\" Model: numberline 87 >90 >100 >150",
+          "responses": [
+            {
+              "say": "3 + 10 + 50 = 63.",
+              "tool": "numberline",
+              "type": "87 >90 >100 >150"
+            },
+            {
+              "say": "73",
+              "tool": "text",
+              "type": "150 - 87 = 73 ?",
+              "tip": "Ask: add the jumps again. Is 87 + 73 = 150?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "503 - 486",
+          "a": "17",
+          "notes": "Look for: 4 to 490, 10 to 500, 3 more. Ask: \"Are these close together?\" Model: numberline 486 >490 >500 >503",
+          "responses": [
+            {
+              "say": "4 + 10 + 3 = 17.",
+              "tool": "numberline",
+              "type": "486 >490 >500 >503"
+            },
+            {
+              "say": "183",
+              "tool": "text",
+              "type": "503 - 486 = 183 ?",
+              "tip": "Regrouping slip. Ask: are 503 and 486 close together?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2010 - 1985",
+          "a": "25",
+          "notes": "Context: \"How many years from 1985 to 2010?\" Look for: 15 to 2000, 10 more. Ask: \"What's the first friendly number?\" Model: numberline 1985 >1990 >2000 >2010",
+          "responses": [
+            {
+              "say": "5 + 10 + 10 = 25.",
+              "tool": "numberline",
+              "type": "1985 >1990 >2000 >2010"
+            },
+            {
+              "say": "15 to 2000, then 10: 25.",
+              "tool": "numberline",
+              "type": "1985 >2000 >2010"
+            }
+          ]
+        },
+        {
+          "q": "10002 - 9975",
+          "a": "27",
+          "notes": "Look for: 25 to 10 000, then 2 more. Ask: \"Does it work with big numbers too?\" Model: numberline 9975 >10000 >10002",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25 + 2 = 27.",
+              "tool": "numberline",
+              "type": "9975 >10000 >10002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-sub-02-take-too-much",
+      "title": "Take Too Much, Then Add Back",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When the number you take away is just under a friendly number, take the friendly number, then add back the extra. It works the same way with decimals: 6.4 − 1.9 is 6.4 − 2 + 0.1.",
+      "topic": "add",
+      "keywords": "take away a friendly number, add back, compensate, too much, decimals",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Taking the extra away as well (84 − 19 = 84 − 20 − 1): ask \"Did you take away too much or too little?\"",
+        "Adding back the wrong amount with decimals (7.25 − 2.99 = 7.25 − 3 + 0.1): ask \"How far is 2.99 from 3?\"",
+        "Using the algorithm with lots of regrouping: ask \"Is 2.99 close to a whole number?\""
+      ],
+      "wrapUp": "Ask \"Why do we add back?\" Land: we took away more than we needed to, so the extra goes back. Same move for whole numbers and decimals: 6.4 − 1.9 = 6.4 − 2 + 0.1.",
+      "problems": [
+        {
+          "q": "84 - 20",
+          "a": "64",
+          "notes": "Look for: 2 tens away. Ask: \"Hold on to this.\" Model: numberline 84 -20",
+          "responses": [
+            {
+              "say": "Back 20: 64.",
+              "tool": "numberline",
+              "type": "84 -20"
+            }
+          ]
+        },
+        {
+          "q": "84 - 19",
+          "a": "65",
+          "notes": "Look for: take 20, give 1 back. Ask: \"How does the last one help?\" Word choice: \"took too much\". Model: numberline 84 -20 +1",
+          "responses": [
+            {
+              "say": "84 − 20 + 1 = 65.",
+              "tool": "numberline",
+              "type": "84 -20 +1",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "63",
+              "tool": "text",
+              "type": "84 - 19 = 84 - 20 - 1 = 63 ?",
+              "tip": "Took the extra away too. Ask: too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "84 - 39",
+          "a": "45",
+          "notes": "Look for: take 40, give 1 back. Ask: \"What's the same?\" Model: numberline 84 -40 +1",
+          "responses": [
+            {
+              "say": "84 − 40 + 1 = 45.",
+              "tool": "numberline",
+              "type": "84 -40 +1"
+            }
+          ]
+        },
+        {
+          "q": "6.4 - 2",
+          "a": "4.4",
+          "notes": "Look for: just the ones change. Ask: \"Hold on to this one too.\" Model: numberline 6.4 -2",
+          "responses": [
+            {
+              "say": "Back 2: 4.4.",
+              "tool": "numberline",
+              "type": "6.4 -2"
+            }
+          ]
+        },
+        {
+          "q": "6.4 - 1.9",
+          "a": "4.5",
+          "notes": "Look for: take 2, give 0.1 back. Ask: \"Is it the same move with decimals?\" Model: numberline 6.4 -2 +0.1",
+          "responses": [
+            {
+              "say": "6.4 − 2 + 0.1 = 4.5.",
+              "tool": "numberline",
+              "type": "6.4 -2 +0.1"
+            },
+            {
+              "say": "4.3",
+              "tool": "text",
+              "type": "6.4 - 1.9 = 6.4 - 2 - 0.1 = 4.3 ?",
+              "tip": "Ask: did taking 2 take too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.25 - 2.99",
+          "a": "4.26",
+          "notes": "Look for: take 3, give 0.01 back. Ask: \"How far is 2.99 from 3?\" Model: numberline 7.25 -3 +0.01",
+          "responses": [
+            {
+              "say": "7.25 − 3 + 0.01 = 4.26.",
+              "tool": "numberline",
+              "type": "7.25 -3 +0.01"
+            },
+            {
+              "say": "4.35",
+              "tool": "text",
+              "type": "7.25 - 2.99 = 7.25 - 3 + 0.1 = 4.35 ?",
+              "tip": "Added back a tenth. Ask: is 2.99 a tenth or a hundredth away from 3?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "15.3 - 4.8",
+          "a": "10.5",
+          "notes": "Look for: take 5, give 0.2 back. Ask: \"What's 4.8 close to?\" Model: numberline 15.3 -5 +0.2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "15.3 − 5 + 0.2 = 10.5.",
+              "tool": "numberline",
+              "type": "15.3 -5 +0.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5-bank-sub-03-big-numbers-same-difference",
+      "title": "Big Numbers, Same Difference",
+      "label": "Bank",
+      "group": "Grade 5 · Bank · Subtraction",
+      "tool": "slide",
+      "strategy": "Add the same amount to both numbers so you subtract a friendly one. It works the same way with numbers up to 100 000: 73 002 − 47 996 is 73 006 − 48 000.",
+      "topic": "add",
+      "keywords": "same difference, slide, friendly number, thousands, ten thousands",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Moving the numbers in opposite directions (5002 − 2998 to 5000 − 3000): ask \"Did the distance between them stay the same?\"",
+        "Regrouping across lots of zeros: ask \"Is 9998 close to a friendly number?\"",
+        "Losing place value in big numbers: ask \"Which digit is the ten thousands?\""
+      ],
+      "wrapUp": "Ask \"Why does adding the same to both keep the answer?\" Land: the difference is the distance between them, and sliding both the same way keeps the distance. Slide until you subtract a friendly number.",
+      "problems": [
+        {
+          "q": "5000 - 3000",
+          "a": "2000",
+          "notes": "Look for: 5 thousands take 3 thousands. Ask: \"Hold on to this.\" Model: numberline 3000 >5000",
+          "responses": [
+            {
+              "say": "2000.",
+              "tool": "numberline",
+              "type": "3000 >5000"
+            }
+          ]
+        },
+        {
+          "q": "5002 - 2998",
+          "a": "2004",
+          "notes": "Look for: add 2 to both: 5004 − 3000. Ask: \"What does 2998 need?\" Word choice: \"same difference\". Model: slide 5002 - 2998 = 5004 - 3000",
+          "responses": [
+            {
+              "say": "5004 − 3000 = 2004.",
+              "tool": "slide",
+              "type": "5002 - 2998 = 5004 - 3000",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "2 to 3000, 2000 to 5000, 2 more: 2004.",
+              "tool": "numberline",
+              "type": "2998 >3000 >5000 >5002",
+              "tip": "Counting up."
+            },
+            {
+              "say": "2000",
+              "tool": "text",
+              "type": "5002 - 2998 = 5000 - 3000 = 2000 ?",
+              "tip": "Moved them in opposite directions. Ask: did the distance change?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10000 - 6997",
+          "a": "3003",
+          "notes": "Look for: add 3 to both: 10 003 − 7000. Ask: \"Why is this easier than the algorithm?\" Model: slide 10000 - 6997 = 10003 - 7000",
+          "responses": [
+            {
+              "say": "10 003 − 7000 = 3003.",
+              "tool": "slide",
+              "type": "10000 - 6997 = 10003 - 7000"
+            },
+            {
+              "say": "4003",
+              "tool": "text",
+              "type": "10000 - 6997 = 4003 ?",
+              "tip": "Ask: is 6997 + 4003 = 10 000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "24005 - 9998",
+          "a": "14007",
+          "notes": "Look for: add 2 to both: 24 007 − 10 000. Ask: \"What's 9998 close to?\" Model: slide 24005 - 9998 = 24007 - 10000",
+          "responses": [
+            {
+              "say": "24 007 − 10 000 = 14 007.",
+              "tool": "slide",
+              "type": "24005 - 9998 = 24007 - 10000"
+            }
+          ]
+        },
+        {
+          "q": "50000 - 29995",
+          "a": "20005",
+          "notes": "Look for: add 5 to both. Ask: \"How much do you add?\" Model: slide 50000 - 29995 = 50005 - 30000",
+          "responses": [
+            {
+              "say": "50 005 − 30 000 = 20 005.",
+              "tool": "slide",
+              "type": "50000 - 29995 = 50005 - 30000"
+            }
+          ]
+        },
+        {
+          "q": "73002 - 47996",
+          "a": "25006",
+          "notes": "Look for: add 4 to both: 73 006 − 48 000. Ask: \"Does it still work?\" Model: slide 73002 - 47996 = 73006 - 48000",
+          "responses": [
+            {
+              "say": "73 006 − 48 000 = 25 006.",
+              "tool": "slide",
+              "type": "73002 - 47996 = 73006 - 48000"
+            },
+            {
+              "say": "4 to 48 000, 25 002 more: 25 006.",
+              "tool": "numberline",
+              "type": "47996 >48000 >73002"
+            }
+          ]
+        },
+        {
+          "q": "100000 - 64999",
+          "a": "35001",
+          "notes": "Look for: add 1 to both: 100 001 − 65 000. Ask: \"Which number should be friendly?\" Model: slide 100000 - 64999 = 100001 - 65000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "100 001 − 65 000 = 35 001.",
+              "tool": "slide",
+              "type": "100000 - 64999 = 100001 - 65000"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

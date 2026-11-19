@@ -322,6 +322,831 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g4-bank-sub-03-back-to-a-ten",
+      "title": "Back to a Ten",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "Take away in friendly jumps: the tens first, then back to a ten, then the rest. 53 − 27 is 53 − 20 − 3 − 4.",
+      "topic": "add",
+      "keywords": "take away, jump back, tens first, back to a ten, number line",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Subtracting the smaller digit from the bigger one (53 − 27 = 34): ask \"Can you take 7 from 3? What could you do instead?\"",
+        "Jumping back one at a time: ask \"Could you take the tens away in one jump?\"",
+        "Losing track of how much has been taken away: ask \"How much have you taken so far? How much is left to take?\""
+      ],
+      "wrapUp": "Ask \"Why did we stop at 30 on the way down?\" Land: take the tens in one jump, then jump back to a ten, then take the rest. Splitting the number you take away makes each jump friendly.",
+      "problems": [
+        {
+          "q": "50 - 20",
+          "a": "30",
+          "notes": "Look for: 5 tens take away 2 tens. Ask: \"Hold on to this.\" Model: numberline 50 -20",
+          "responses": [
+            {
+              "say": "5 tens take away 2 tens is 3 tens.",
+              "tool": "numberline",
+              "type": "50 -20"
+            }
+          ]
+        },
+        {
+          "q": "53 - 20",
+          "a": "33",
+          "notes": "Look for: the 3 ones just come along. Ask: \"What changed from the last one?\" Model: numberline 53 -20",
+          "responses": [
+            {
+              "say": "Back 20 from 53 is 33.",
+              "tool": "numberline",
+              "type": "53 -20"
+            }
+          ]
+        },
+        {
+          "q": "53 - 23",
+          "a": "30",
+          "notes": "Look for: back 20, then back 3 to land on 30. Ask: \"Why is it a friendly answer?\" Model: numberline 53 -20 -3",
+          "responses": [
+            {
+              "say": "Back 20 to 33, back 3 to 30.",
+              "tool": "numberline",
+              "type": "53 -20 -3",
+              "tip": "Landing on a ten."
+            }
+          ]
+        },
+        {
+          "q": "53 - 27",
+          "a": "26",
+          "notes": "Look for: back 20, back 3 to 30, back 4 more. Ask: \"How does the last one help?\" Word choice: \"jump back to a ten\". Model: numberline 53 -20 -3 -4",
+          "responses": [
+            {
+              "say": "Back 20 to 33, back 3 to 30, back 4 to 26.",
+              "tool": "numberline",
+              "type": "53 -20 -3 -4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "27 up to 30 is 3, then up to 53 is 23: 26.",
+              "tool": "numberline",
+              "type": "27 >30 >53",
+              "tip": "Adding up. Also great."
+            },
+            {
+              "say": "34",
+              "tool": "text",
+              "type": "53 - 27 = 34 ?",
+              "tip": "Took 3 from 7 in the ones. Ask: can you take 7 from 3? Check: is 27 + 34 = 53?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "82 - 35",
+          "a": "47",
+          "notes": "Look for: back 30 to 52, back 2 to 50, back 3 to 47. Ask: \"Where's the friendly ten this time?\" Model: numberline 82 -30 -2 -3",
+          "responses": [
+            {
+              "say": "Back 30, back 2, back 3: 47.",
+              "tool": "numberline",
+              "type": "82 -30 -2 -3"
+            },
+            {
+              "say": "53",
+              "tool": "text",
+              "type": "82 - 35 = 53 ?",
+              "tip": "Bigger digit minus smaller in the ones. Ask: is 35 + 53 = 82?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "64 - 38",
+          "a": "26",
+          "notes": "Look for: back 30 to 34, back 4 to 30, back 4 more. Ask: \"How did you split the 8?\" Model: numberline 64 -30 -4 -4",
+          "responses": [
+            {
+              "say": "Back 30 to 34, back 4 to 30, back 4 to 26.",
+              "tool": "numberline",
+              "type": "64 -30 -4 -4"
+            },
+            {
+              "say": "Take 40 and give 2 back: 64 − 40 + 2 = 26.",
+              "tool": "numberline",
+              "type": "64 -40 +2",
+              "tip": "Take too much, then add back."
+            }
+          ]
+        },
+        {
+          "q": "125 - 47",
+          "a": "78",
+          "notes": "Look for: back 40 to 85, back 5 to 80, back 2 to 78. Ask: \"Does it still work past 100?\" Model: numberline 125 -40 -5 -2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Back 40, back 5 to 80, back 2: 78.",
+              "tool": "numberline",
+              "type": "125 -40 -5 -2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-04-up-to-a-hundred",
+      "title": "Up to a Hundred",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "To subtract from 100, 200 or 1000, count up from the smaller number to the next ten, then to the hundred.",
+      "topic": "add",
+      "keywords": "count up, partners of 100, next ten, distance, difference",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Making 10 in each column (100 − 73 = 37): ask \"Does 73 + 37 make 100?\"",
+        "Forgetting the jump to the next ten: ask \"How far is 73 from 80? From 80 to 100?\"",
+        "Treating 200 − 148 like 100 − 48 and stopping: ask \"How far is 148 from 200?\""
+      ],
+      "wrapUp": "Ask \"Why is counting up easier than taking away here?\" Land: from 73, jump to the next ten (80), then to 100, and add the jumps. Check by adding back.",
+      "problems": [
+        {
+          "q": "100 - 70",
+          "a": "30",
+          "notes": "Look for: 70 + 30 = 100. Ask: \"Hold on to this.\" Model: numberline 70 >100",
+          "responses": [
+            {
+              "say": "70 up to 100 is 30.",
+              "tool": "numberline",
+              "type": "70 >100"
+            }
+          ]
+        },
+        {
+          "q": "100 - 73",
+          "a": "27",
+          "notes": "Look for: 73 up 7 to 80, up 20 to 100. Ask: \"What's the next ten after 73?\" Word choice: \"count up\". Model: numberline 73 >80 >100",
+          "responses": [
+            {
+              "say": "7 to 80, 20 more to 100: 27.",
+              "tool": "numberline",
+              "type": "73 >80 >100",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "37",
+              "tool": "text",
+              "type": "100 - 73 = 37 ?",
+              "tip": "Made 10 in each column. Ask: is 73 + 37 = 100?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "100 - 48",
+          "a": "52",
+          "notes": "Look for: 2 to 50, 50 more to 100. Ask: \"Which jump was easiest?\" Model: numberline 48 >50 >100",
+          "responses": [
+            {
+              "say": "2 to 50, then 50: 52.",
+              "tool": "numberline",
+              "type": "48 >50 >100"
+            },
+            {
+              "say": "62",
+              "tool": "text",
+              "type": "100 - 48 = 62 ?",
+              "tip": "Ask: count up from 48. Where does 62 land?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "200 - 148",
+          "a": "52",
+          "notes": "Look for: the same jumps as the last one. Ask: \"What do you notice?\" Model: numberline 148 >150 >200",
+          "responses": [
+            {
+              "say": "2 to 150, 50 to 200: 52, just like 100 − 48.",
+              "tool": "numberline",
+              "type": "148 >150 >200",
+              "tip": "Ask: why is it the same answer?"
+            }
+          ]
+        },
+        {
+          "q": "300 - 226",
+          "a": "74",
+          "notes": "Look for: 4 to 230, 70 to 300. Ask: \"What's the next ten?\" Model: numberline 226 >230 >300",
+          "responses": [
+            {
+              "say": "4 to 230, then 70: 74.",
+              "tool": "numberline",
+              "type": "226 >230 >300"
+            },
+            {
+              "say": "126",
+              "tool": "text",
+              "type": "300 - 226 = 126 ?",
+              "tip": "Ask: about how far is 226 from 300? Is 126 sensible?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1000 - 650",
+          "a": "350",
+          "notes": "Look for: 50 to 700, 300 to 1000. Ask: \"Is it the same idea with a thousand?\" Model: numberline 650 >700 >1000",
+          "responses": [
+            {
+              "say": "50 to 700, 300 to 1000: 350.",
+              "tool": "numberline",
+              "type": "650 >700 >1000"
+            },
+            {
+              "say": "450",
+              "tool": "text",
+              "type": "1000 - 650 = 450 ?",
+              "tip": "Ask: is 650 + 450 = 1000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1000 - 625",
+          "a": "375",
+          "notes": "Look for: 75 to 700, 300 to 1000. Ask: \"What does 625 need to make 700?\" Model: numberline 625 >700 >1000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "75 and 300: 375.",
+              "tool": "numberline",
+              "type": "625 >700 >1000"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-05-take-too-much",
+      "title": "Take Too Much, Then Add Back",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When the number you take away is close to a ten or a hundred, take away the friendly number, then add back the extra: 75 − 29 is 75 − 30 + 1.",
+      "topic": "add",
+      "keywords": "take away a friendly number, add back, too much, compensate",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Taking away the extra too (60 − 9 = 60 − 10 − 1 = 49): ask \"Did you take away too much or too little? Which way do you fix it?\"",
+        "Adding back the wrong amount: ask \"How much more is 30 than 29?\"",
+        "Doing it digit by digit: ask \"Is 29 close to a friendly number?\""
+      ],
+      "wrapUp": "Ask \"Why do we add back after taking too much?\" Land: we took away more than we needed, so we give the extra back. 75 − 29 = 75 − 30 + 1.",
+      "problems": [
+        {
+          "q": "60 - 10",
+          "a": "50",
+          "notes": "Look for: a quick ten. Ask: \"Hold on to this.\" Model: numberline 60 -10",
+          "responses": [
+            {
+              "say": "Back 10: 50.",
+              "tool": "numberline",
+              "type": "60 -10"
+            }
+          ]
+        },
+        {
+          "q": "60 - 9",
+          "a": "51",
+          "notes": "Look for: take 10, give 1 back. Ask: \"How does the last one help?\" Word choice: \"took away too much\". Model: numberline 60 -10 +1",
+          "responses": [
+            {
+              "say": "60 − 10 is 50, but I only needed to take 9, so add 1 back: 51.",
+              "tool": "numberline",
+              "type": "60 -10 +1",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "49",
+              "tool": "text",
+              "type": "60 - 9 = 60 - 10 - 1 = 49 ?",
+              "tip": "Took the extra away too. Ask: did you take too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "75 - 19",
+          "a": "56",
+          "notes": "Look for: take 20, give 1 back. Ask: \"What's 19 close to?\" Model: numberline 75 -20 +1",
+          "responses": [
+            {
+              "say": "75 − 20 + 1 = 56.",
+              "tool": "numberline",
+              "type": "75 -20 +1"
+            }
+          ]
+        },
+        {
+          "q": "75 - 29",
+          "a": "46",
+          "notes": "Look for: take 30, give 1 back. Ask: \"What's the same as the last one?\" Model: numberline 75 -30 +1",
+          "responses": [
+            {
+              "say": "75 − 30 + 1 = 46.",
+              "tool": "numberline",
+              "type": "75 -30 +1"
+            },
+            {
+              "say": "Back 20 to 55, back 5 to 50, back 4 to 46.",
+              "tool": "numberline",
+              "type": "75 -20 -5 -4",
+              "tip": "Back to a ten. Also great."
+            }
+          ]
+        },
+        {
+          "q": "132 - 48",
+          "a": "84",
+          "notes": "Look for: take 50, give 2 back. Ask: \"How much too much?\" Model: numberline 132 -50 +2",
+          "responses": [
+            {
+              "say": "132 − 50 is 82, add 2 back: 84.",
+              "tool": "numberline",
+              "type": "132 -50 +2"
+            },
+            {
+              "say": "80",
+              "tool": "text",
+              "type": "132 - 48 = 132 - 50 - 2 = 80 ?",
+              "tip": "Ask: did 50 take away too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "250 - 98",
+          "a": "152",
+          "notes": "Look for: take 100, give 2 back. Ask: \"Does it work with hundreds?\" Model: numberline 250 -100 +2",
+          "responses": [
+            {
+              "say": "250 − 100 + 2 = 152.",
+              "tool": "numberline",
+              "type": "250 -100 +2"
+            }
+          ]
+        },
+        {
+          "q": "503 - 199",
+          "a": "304",
+          "notes": "Look for: take 200, give 1 back. Ask: \"Which way is quicker than the algorithm?\" Model: numberline 503 -200 +1",
+          "optional": true,
+          "responses": [
+            {
+              "say": "503 − 200 + 1 = 304.",
+              "tool": "numberline",
+              "type": "503 -200 +1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-06-take-away-or-add-up",
+      "title": "Take Away or Add Up?",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "Look at the numbers first. When you take away a small amount, take it away. When the two numbers are close together, count up the distance.",
+      "topic": "add",
+      "keywords": "take away, add up, distance, close together, choose a strategy",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Counting back 86 from 91: ask \"Are 91 and 86 close together? Is there a quicker way?\"",
+        "Counting up from 7 to 205: ask \"Is 7 a small amount to take away?\"",
+        "Using the same strategy for every problem: ask \"What do you notice about these two numbers?\""
+      ],
+      "wrapUp": "Ask \"How did you decide which way to go?\" Land: small number to take away? Take it away. Numbers close together? Count up the distance. Both give the same answer, so pick the quicker one.",
+      "problems": [
+        {
+          "q": "91 - 4",
+          "a": "87",
+          "notes": "Look for: take 4 away, back 1 to 90, back 3. Ask: \"Is 4 a lot to take away?\" Model: numberline 91 -1 -3",
+          "responses": [
+            {
+              "say": "Back 1 to 90, back 3 to 87.",
+              "tool": "numberline",
+              "type": "91 -1 -3",
+              "tip": "Take away: small amount."
+            }
+          ]
+        },
+        {
+          "q": "91 - 86",
+          "a": "5",
+          "notes": "Look for: 86 up 4 to 90, up 1 to 91. Ask: \"Why not take away 86?\" Model: numberline 86 >90 >91",
+          "responses": [
+            {
+              "say": "86 to 90 is 4, then 1 more: 5.",
+              "tool": "numberline",
+              "type": "86 >90 >91",
+              "tip": "Add up: the numbers are close."
+            },
+            {
+              "say": "15",
+              "tool": "text",
+              "type": "91 - 86 = 15 ?",
+              "tip": "Ask: count up from 86. How many jumps to 91?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "205 - 7",
+          "a": "198",
+          "notes": "Look for: back 5 to 200, back 2. Ask: \"Take away or add up?\" Model: numberline 205 -5 -2",
+          "responses": [
+            {
+              "say": "Back 5 to 200, back 2: 198.",
+              "tool": "numberline",
+              "type": "205 -5 -2"
+            },
+            {
+              "say": "202",
+              "tool": "text",
+              "type": "205 - 7 = 202 ?",
+              "tip": "Ask: if you take 5 you're at 200. How much more to take?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "205 - 196",
+          "a": "9",
+          "notes": "Look for: 196 up 4 to 200, up 5 to 205. Ask: \"What do you notice about these numbers?\" Model: numberline 196 >200 >205",
+          "responses": [
+            {
+              "say": "4 to 200, 5 more: 9.",
+              "tool": "numberline",
+              "type": "196 >200 >205"
+            },
+            {
+              "say": "111",
+              "tool": "text",
+              "type": "205 - 196 = 111 ?",
+              "tip": "Algorithm slip. Ask: are 205 and 196 close together?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "340 - 25",
+          "a": "315",
+          "notes": "Look for: back 20, back 5. Ask: \"Which way?\" Model: numberline 340 -20 -5",
+          "responses": [
+            {
+              "say": "Back 20 to 320, back 5 to 315.",
+              "tool": "numberline",
+              "type": "340 -20 -5"
+            }
+          ]
+        },
+        {
+          "q": "340 - 315",
+          "a": "25",
+          "notes": "Look for: 315 up 5 to 320, up 20 to 340. Ask: \"How does the last one help?\" Model: numberline 315 >320 >340",
+          "responses": [
+            {
+              "say": "5 to 320, 20 to 340: 25.",
+              "tool": "numberline",
+              "type": "315 >320 >340",
+              "tip": "The answer to the last one is the number here. Ask: why?"
+            }
+          ]
+        },
+        {
+          "q": "1001 - 994",
+          "a": "7",
+          "notes": "Look for: 994 up 6 to 1000, up 1. Ask: \"Would you ever take away 994?\" Model: numberline 994 >1000 >1001",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 to 1000, 1 more: 7.",
+              "tool": "numberline",
+              "type": "994 >1000 >1001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-07-near-a-thousand",
+      "title": "Subtracting Near a Thousand",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When both numbers are near a hundred or a thousand, count up through the friendly numbers, or slide both numbers so you subtract a friendly one.",
+      "topic": "add",
+      "keywords": "count up, hundreds, thousands, same difference, friendly number, distance",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Regrouping across the zeros in 1002 − 898 and getting lost: ask \"How far is 898 from 900?\"",
+        "Counting up and forgetting a jump: ask \"Which jumps make the answer? Add them all.\"",
+        "Sliding one number but not the other: ask \"Did you add the same to both?\""
+      ],
+      "wrapUp": "Ask \"Why are these easier than they look?\" Land: the numbers are close to hundreds and thousands, so count up through them, or slide both so you subtract a friendly number.",
+      "problems": [
+        {
+          "q": "1000 - 900",
+          "a": "100",
+          "notes": "Look for: 9 hundreds to 10 hundreds. Ask: \"Hold on to this.\" Model: numberline 900 >1000",
+          "responses": [
+            {
+              "say": "900 up to 1000 is 100.",
+              "tool": "numberline",
+              "type": "900 >1000"
+            }
+          ]
+        },
+        {
+          "q": "1002 - 900",
+          "a": "102",
+          "notes": "Look for: 100 more, plus 2. Ask: \"How does the last one help?\" Model: numberline 900 >1000 >1002",
+          "responses": [
+            {
+              "say": "100 to 1000, 2 more: 102.",
+              "tool": "numberline",
+              "type": "900 >1000 >1002"
+            }
+          ]
+        },
+        {
+          "q": "1002 - 898",
+          "a": "104",
+          "notes": "Look for: 898 up 2 to 900, then 102 more. Or slide: 1004 − 900. Ask: \"What does 898 need?\" Word choice: \"count up through the hundred\". Model: numberline 898 >900 >1000 >1002",
+          "responses": [
+            {
+              "say": "2 to 900, 100 to 1000, 2 more: 104.",
+              "tool": "numberline",
+              "type": "898 >900 >1000 >1002",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Add 2 to both: 1004 − 900 = 104.",
+              "tool": "slide",
+              "type": "1002 - 898 = 1004 - 900",
+              "tip": "Same difference."
+            },
+            {
+              "say": "196",
+              "tool": "text",
+              "type": "1002 - 898 = 196 ?",
+              "tip": "Regrouping slip with the zeros. Ask: are 1002 and 898 close together?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2004 - 1896",
+          "a": "108",
+          "notes": "Look for: 4 to 1900, 100 to 2000, 4 more. Ask: \"Is it the same idea?\" Model: numberline 1896 >1900 >2000 >2004",
+          "responses": [
+            {
+              "say": "4 + 100 + 4 = 108.",
+              "tool": "numberline",
+              "type": "1896 >1900 >2000 >2004"
+            },
+            {
+              "say": "Add 4 to both: 2008 − 1900 = 108.",
+              "tool": "slide",
+              "type": "2004 - 1896 = 2008 - 1900"
+            }
+          ]
+        },
+        {
+          "q": "1005 - 886",
+          "a": "119",
+          "notes": "Look for: 14 to 900, 100 to 1000, 5 more. Ask: \"What's the first friendly number?\" Model: numberline 886 >900 >1000 >1005",
+          "responses": [
+            {
+              "say": "14 + 100 + 5 = 119.",
+              "tool": "numberline",
+              "type": "886 >900 >1000 >1005"
+            },
+            {
+              "say": "129",
+              "tool": "text",
+              "type": "1005 - 886 = 129 ?",
+              "tip": "Ask: add the jumps again. 14 + 100 + 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3001 - 2895",
+          "a": "106",
+          "notes": "Look for: 5 to 2900, 100 to 3000, 1 more. Ask: \"Which strategy would you choose?\" Model: numberline 2895 >2900 >3000 >3001",
+          "responses": [
+            {
+              "say": "5 + 100 + 1 = 106.",
+              "tool": "numberline",
+              "type": "2895 >2900 >3000 >3001"
+            },
+            {
+              "say": "Add 5 to both: 3006 − 2900 = 106.",
+              "tool": "slide",
+              "type": "3001 - 2895 = 3006 - 2900"
+            }
+          ]
+        },
+        {
+          "q": "5003 - 4897",
+          "a": "106",
+          "notes": "Look for: 3 to 4900, 100 to 5000, 3 more. Ask: \"What do you notice about the last two?\" Model: numberline 4897 >4900 >5000 >5003",
+          "optional": true,
+          "responses": [
+            {
+              "say": "3 + 100 + 3 = 106.",
+              "tool": "numberline",
+              "type": "4897 >4900 >5000 >5003"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4-bank-sub-08-zeros-in-the-way",
+      "title": "Zeros in the Way",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "Subtracting from 400 or 1000 is tricky with the algorithm because of all the zeros. Count up instead, or slide both numbers down by 1 so there's nothing to regroup.",
+      "topic": "add",
+      "keywords": "zeros, count up, same difference, slide down 1, regroup",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Bottom minus top in each column (400 − 163 = 363): ask \"Is 163 + 363 equal to 400?\"",
+        "Regrouping across zeros and losing track: ask \"Could you count up from 163 instead?\"",
+        "Sliding only one number: ask \"Did you take 1 from both?\""
+      ],
+      "wrapUp": "Ask \"How did you get around the zeros?\" Land: count up through friendly numbers (163 → 200 → 400), or take 1 from both numbers (399 − 162) so nothing needs regrouping.",
+      "problems": [
+        {
+          "q": "400 - 100",
+          "a": "300",
+          "notes": "Look for: 4 hundreds take 1 hundred. Ask: \"Hold on to this.\" Model: numberline 400 -100",
+          "responses": [
+            {
+              "say": "Back 100: 300.",
+              "tool": "numberline",
+              "type": "400 -100"
+            }
+          ]
+        },
+        {
+          "q": "400 - 163",
+          "a": "237",
+          "notes": "Look for: 163 up 37 to 200, up 200 to 400. Or 399 − 162. Ask: \"How could you avoid the zeros?\" Word choice: \"count up\". Model: numberline 163 >170 >200 >400",
+          "responses": [
+            {
+              "say": "7 to 170, 30 to 200, 200 to 400: 237.",
+              "tool": "numberline",
+              "type": "163 >170 >200 >400",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Take 1 from both: 399 − 162 = 237. No regrouping.",
+              "tool": "slide",
+              "type": "400 - 163 = 399 - 162",
+              "tip": "Same difference down 1."
+            },
+            {
+              "say": "363",
+              "tool": "text",
+              "type": "400 - 163 = 363 ?",
+              "tip": "Bottom minus top in each column. Ask: is 163 + 363 = 400?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "400 - 199",
+          "a": "201",
+          "notes": "Look for: 199 up 1 to 200, up 200 to 400. Ask: \"What's 199 close to?\" Model: numberline 199 >200 >400",
+          "responses": [
+            {
+              "say": "1 + 200 = 201.",
+              "tool": "numberline",
+              "type": "199 >200 >400"
+            },
+            {
+              "say": "400 − 200 + 1 = 201.",
+              "tool": "numberline",
+              "type": "400 -200 +1",
+              "tip": "Take too much, add back."
+            }
+          ]
+        },
+        {
+          "q": "600 - 245",
+          "a": "355",
+          "notes": "Look for: 245 up 5, up 50, up 300. Or 599 − 244. Ask: \"Which way do you like?\" Model: numberline 245 >250 >300 >600",
+          "responses": [
+            {
+              "say": "5 + 50 + 300 = 355.",
+              "tool": "numberline",
+              "type": "245 >250 >300 >600"
+            },
+            {
+              "say": "599 − 244 = 355.",
+              "tool": "slide",
+              "type": "600 - 245 = 599 - 244"
+            },
+            {
+              "say": "445",
+              "tool": "text",
+              "type": "600 - 245 = 445 ?",
+              "tip": "Ask: is 245 + 445 = 600?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1000 - 457",
+          "a": "543",
+          "notes": "Look for: 999 − 456, or count up 3, 40, 500. Ask: \"Does sliding down 1 work for 1000 too?\" Model: slide 1000 - 457 = 999 - 456",
+          "responses": [
+            {
+              "say": "999 − 456 = 543. Every digit just subtracts.",
+              "tool": "slide",
+              "type": "1000 - 457 = 999 - 456"
+            },
+            {
+              "say": "3 to 460, 40 to 500, 500 to 1000: 543.",
+              "tool": "numberline",
+              "type": "457 >460 >500 >1000"
+            }
+          ]
+        },
+        {
+          "q": "2000 - 1350",
+          "a": "650",
+          "notes": "Look for: 1350 up 50 to 1400, up 600 to 2000. Ask: \"What's the first friendly jump?\" Model: numberline 1350 >1400 >2000",
+          "responses": [
+            {
+              "say": "50 + 600 = 650.",
+              "tool": "numberline",
+              "type": "1350 >1400 >2000"
+            },
+            {
+              "say": "1650",
+              "tool": "text",
+              "type": "2000 - 1350 = 1650 ?",
+              "tip": "Ask: is 1350 + 1650 = 2000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5000 - 2875",
+          "a": "2125",
+          "notes": "Look for: 2875 up 125 to 3000, up 2000. Ask: \"What does 875 need to make 1000?\" Model: numberline 2875 >2900 >3000 >5000",
+          "optional": true,
+          "responses": [
+            {
+              "say": "25 + 100 + 2000 = 2125.",
+              "tool": "numberline",
+              "type": "2875 >2900 >3000 >5000"
+            },
+            {
+              "say": "4999 − 2874 = 2125.",
+              "tool": "slide",
+              "type": "5000 - 2875 = 4999 - 2874"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

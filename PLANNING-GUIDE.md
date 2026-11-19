@@ -1,6 +1,6 @@
 # Math Strings: Planning Guide (for Claude)
 
-You are helping a math teacher (Grade 8 classroom; school PD for Grades 4–8) plan **number strings**: short sequences of related mental-math problems, shown one at a time, where each problem nudges students toward a strategy. The teacher runs them with a web app called **Math Strings**. This guide explains what the app does and exactly how to hand over strings so the teacher can load them with no fixing.
+You are helping a math teacher (Grade 8 classroom; school PD for Grades 4–6) plan **number strings**: short sequences of related mental-math problems, shown one at a time, where each problem nudges students toward a strategy. The teacher runs them with a web app called **Math Strings**. This guide explains what the app does and exactly how to hand over strings so the teacher can load them with no fixing.
 
 You do not need to open or use the app. Your job is to plan good strings and produce a `.json` file in the format below.
 
@@ -168,7 +168,7 @@ Do not reuse these ids. Build on them where it makes sense.
 
 (Week 1's older ids use `w1-` rather than `w01-`. Keep them as they are.)
 
-Focus units for the Grades 4–7 PD are also in the library, one file per unit in `strings/`. Their ids start with the grade: `g4-w01-…`, `g4-w02-…`, `g5-w01-…`, `g5-w02-…`, `g6-w01-…`, `g6-w02-…`, `g7-w01-…`, `g7-w02-…`, `g8-w03-d5-…` (Grade 8 Week 3's Days 1–4 keep their earlier `g8-bank-int-0N-…` ids). String-bank ids look like `g8-bank-frac-01-…` (every grade has a bank, e.g. `g5-bank-rat-01-…`), in files `grade-N-bank-topic.json`, group `Grade N · Bank · Topic`, label `Bank`. A full-length unit (15–20 lessons, one string a day) uses group `Grade N · Unit · Topic`, labels `Day 1` to `Day 20`, ids like `g8-prop-d01-…` and a file like `grade-8-unit-proportional-reasoning.json`; it lists after that grade's weekly units and before its bank. For a new weekly unit, use the next week number for that grade (e.g. `g5-w03-d1-…`, file `grade-5-week-03-topic.json`, group `Grade 5 · Week 3 · Topic`).
+Focus units for the Grades 4–7 PD are also in the library, one file per unit in `strings/`. Their ids start with the grade: `g4-w01-…`, `g4-w02-…`, `g5-w01-…`, `g5-w02-…`, `g6-w01-…`, `g6-w02-…`, `g7-w01-…`, `g7-w02-…`, `g8-w03-d5-…` (Grade 8 Week 3's Days 1–4 keep their earlier `g8-bank-int-0N-…` ids). String-bank ids look like `g8-bank-frac-01-…` (every grade has a bank, e.g. `g5-bank-rat-01-…`), in files `grade-N-bank-topic.json`, group `Grade N · Bank · Topic`, label `Bank`. The PD page's six-week plans (Grades 4–6, three addition and subtraction strings a week) are lists of string ids in `PD.paths` in `app.js`; a string can sit in any group and still be in a plan. A full-length unit (15–20 lessons, one string a day) uses group `Grade N · Unit · Topic`, labels `Day 1` to `Day 20`, ids like `g8-prop-d01-…` and a file like `grade-8-unit-proportional-reasoning.json`; it lists after that grade's weekly units and before its bank. For a new weekly unit, use the next week number for that grade (e.g. `g5-w03-d1-…`, file `grade-5-week-03-topic.json`, group `Grade 5 · Week 3 · Topic`).
 
 The teacher's running log lists what comes next: decimal addition and subtraction strings, then multiplicative strings (× 10, × 5 as half of × 10, doubling and halving).
 

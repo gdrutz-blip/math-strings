@@ -641,6 +641,272 @@
           ]
         }
       ]
+    },
+    {
+      "id": "g6-bank-dec-05-same-difference-with-decimals",
+      "title": "Same Difference with Decimals",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "slide",
+      "strategy": "Add the same amount to both numbers so you subtract a whole number. 8.02 − 3.97 is the same as 8.05 − 4.",
+      "topic": "dec",
+      "keywords": "same difference, slide, whole number, tenths, hundredths, thousandths",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adding to one number and subtracting from the other: ask \"Is the distance between them still the same?\"",
+        "Sliding by the wrong amount (8.02 − 3.97 to 8.05 − 4.07): ask \"What does 3.97 need to make 4?\"",
+        "Regrouping across the decimal point: ask \"Could you slide so there's nothing to regroup?\""
+      ],
+      "wrapUp": "Ask \"How did you choose how far to slide?\" Land: slide both numbers by what the second one needs to become a whole number. The difference stays the same, and the subtraction gets easy.",
+      "problems": [
+        {
+          "q": "8 - 4",
+          "a": "4",
+          "notes": "Look for: a quick fact. Ask: \"Hold on to this.\" Model: numberline 4 >8",
+          "responses": [
+            {
+              "say": "4.",
+              "tool": "numberline",
+              "type": "4 >8"
+            }
+          ]
+        },
+        {
+          "q": "8.02 - 3.97",
+          "a": "4.05",
+          "notes": "Look for: add 0.03 to both: 8.05 − 4. Ask: \"What does 3.97 need?\" Word choice: \"same difference\". Model: slide 8.02 - 3.97 = 8.05 - 4",
+          "responses": [
+            {
+              "say": "8.05 − 4 = 4.05.",
+              "tool": "slide",
+              "type": "8.02 - 3.97 = 8.05 - 4",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "0.03 to 4, 4.02 more: 4.05.",
+              "tool": "numberline",
+              "type": "3.97 >4 >8.02",
+              "tip": "Counting up."
+            },
+            {
+              "say": "4.15",
+              "tool": "text",
+              "type": "8.02 - 3.97 = 4.15 ?",
+              "tip": "Regrouping slip. Ask: slide both up 0.03. What's 8.05 − 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.1 - 2.95",
+          "a": "3.15",
+          "notes": "Look for: add 0.05 to both: 6.15 − 3. Ask: \"How far does 2.95 need to go?\" Model: slide 6.1 - 2.95 = 6.15 - 3",
+          "responses": [
+            {
+              "say": "6.15 − 3 = 3.15.",
+              "tool": "slide",
+              "type": "6.1 - 2.95 = 6.15 - 3"
+            },
+            {
+              "say": "3.25",
+              "tool": "text",
+              "type": "6.1 - 2.95 = 3.25 ?",
+              "tip": "Ask: is 2.95 + 3.25 = 6.1?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "9.4 - 5.8",
+          "a": "3.6",
+          "notes": "Look for: add 0.2 to both: 9.6 − 6. Ask: \"Is it the same move with tenths?\" Model: slide 9.4 - 5.8 = 9.6 - 6",
+          "responses": [
+            {
+              "say": "9.6 − 6 = 3.6.",
+              "tool": "slide",
+              "type": "9.4 - 5.8 = 9.6 - 6"
+            }
+          ]
+        },
+        {
+          "q": "7.003 - 2.998",
+          "a": "4.005",
+          "notes": "Look for: add 0.002 to both: 7.005 − 3. Ask: \"How far is 2.998 from 3?\" Model: slide 7.003 - 2.998 = 7.005 - 3",
+          "responses": [
+            {
+              "say": "7.005 − 3 = 4.005.",
+              "tool": "slide",
+              "type": "7.003 - 2.998 = 7.005 - 3"
+            },
+            {
+              "say": "0.002 to 3, then 4.003: 4.005.",
+              "tool": "numberline",
+              "type": "2.998 >3 >7.003"
+            }
+          ]
+        },
+        {
+          "q": "12.25 - 6.9",
+          "a": "5.35",
+          "notes": "Look for: add 0.1 to both: 12.35 − 7. Ask: \"Which number do you make friendly?\" Model: slide 12.25 - 6.9 = 12.35 - 7",
+          "responses": [
+            {
+              "say": "12.35 − 7 = 5.35.",
+              "tool": "slide",
+              "type": "12.25 - 6.9 = 12.35 - 7"
+            }
+          ]
+        },
+        {
+          "q": "5.21 - 1.996",
+          "a": "3.214",
+          "notes": "Look for: add 0.004 to both: 5.214 − 2. Ask: \"Does it work with thousandths?\" Model: slide 5.21 - 1.996 = 5.214 - 2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5.214 − 2 = 3.214.",
+              "tool": "slide",
+              "type": "5.21 - 1.996 = 5.214 - 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-dec-06-count-up-with-decimals",
+      "title": "Count Up with Decimals",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Decimals",
+      "tool": "numberline",
+      "strategy": "When the decimal places don't match, count up from the smaller number through friendly numbers: the next tenth, the next whole, then the rest.",
+      "topic": "dec",
+      "keywords": "count up, distance, tenths, hundredths, thousandths, next whole number",
+      "curriculum": [
+        "B2.4"
+      ],
+      "watchFor": [
+        "Subtracting digits that don't match up (5.3 − 1.46 = 4.17): ask \"Is 0.3 the same as 0.30? Which is bigger, 0.3 or 0.46?\"",
+        "Losing a small jump: ask \"How far is 1.46 from 1.5?\"",
+        "Treating 10 − 6.375 as 4.375: ask \"How far is 6.375 from 7? From 7 to 10?\""
+      ],
+      "wrapUp": "Ask \"What did you do about the hundredths and thousandths?\" Land: count up to a friendly number first (1.46 → 1.5 → 2), then on. The small jumps take care of the extra places.",
+      "problems": [
+        {
+          "q": "4 - 1.6",
+          "a": "2.4",
+          "notes": "Look for: 0.4 to 2, then 2. Ask: \"Hold on to this.\" Model: numberline 1.6 >2 >4",
+          "responses": [
+            {
+              "say": "0.4 + 2 = 2.4.",
+              "tool": "numberline",
+              "type": "1.6 >2 >4"
+            }
+          ]
+        },
+        {
+          "q": "5.3 - 1.6",
+          "a": "3.7",
+          "notes": "Look for: 0.4 to 2, then 3.3. Ask: \"How does the last one help?\" Model: numberline 1.6 >2 >5.3",
+          "responses": [
+            {
+              "say": "0.4 + 3.3 = 3.7.",
+              "tool": "numberline",
+              "type": "1.6 >2 >5.3"
+            }
+          ]
+        },
+        {
+          "q": "5.3 - 1.46",
+          "a": "3.84",
+          "notes": "Look for: 0.04 to 1.5, 0.5 to 2, 3.3 to 5.3. Ask: \"What changed?\" Word choice: \"count up to the next tenth\". Model: numberline 1.46 >1.5 >2 >5.3",
+          "responses": [
+            {
+              "say": "0.04 + 0.5 + 3.3 = 3.84.",
+              "tool": "numberline",
+              "type": "1.46 >1.5 >2 >5.3",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Add 0.04 to both: 5.34 − 1.5 = 3.84.",
+              "tool": "slide",
+              "type": "5.3 - 1.46 = 5.34 - 1.5",
+              "tip": "Same difference."
+            },
+            {
+              "say": "4.17",
+              "tool": "text",
+              "type": "5.3 - 1.46 = 4.17 ?",
+              "tip": "Subtracted pieces that weren't the same size. Ask: is 0.3 the same as 0.30?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "7.1 - 3.75",
+          "a": "3.35",
+          "notes": "Look for: 0.25 to 4, 3.1 to 7.1. Ask: \"What does 3.75 need to make 4?\" Model: numberline 3.75 >4 >7.1",
+          "responses": [
+            {
+              "say": "0.25 + 3.1 = 3.35.",
+              "tool": "numberline",
+              "type": "3.75 >4 >7.1"
+            }
+          ]
+        },
+        {
+          "q": "6.05 - 2.8",
+          "a": "3.25",
+          "notes": "Look for: 0.2 to 3, then 3.05. Ask: \"Which number has more places?\" Model: numberline 2.8 >3 >6.05",
+          "responses": [
+            {
+              "say": "0.2 + 3.05 = 3.25.",
+              "tool": "numberline",
+              "type": "2.8 >3 >6.05"
+            },
+            {
+              "say": "3.97",
+              "tool": "text",
+              "type": "6.05 - 2.8 = 3.97 ?",
+              "tip": "Ask: is 0.05 more or less than 0.8? Count up instead.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10 - 6.375",
+          "a": "3.625",
+          "notes": "Look for: 0.025 to 6.4, 0.6 to 7, 3 to 10. Ask: \"How is this like making change?\" Model: numberline 6.375 >6.4 >7 >10",
+          "responses": [
+            {
+              "say": "0.025 + 0.6 + 3 = 3.625.",
+              "tool": "numberline",
+              "type": "6.375 >6.4 >7 >10"
+            },
+            {
+              "say": "4.375",
+              "tool": "text",
+              "type": "10 - 6.375 = 4.375 ?",
+              "tip": "Ask: is 6.375 + 4.375 = 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "8.4 - 5.625",
+          "a": "2.775",
+          "notes": "Look for: 0.375 to 6, 2.4 to 8.4. Ask: \"What does 0.625 need to make 1?\" Model: numberline 5.625 >6 >8.4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "0.375 + 2.4 = 2.775.",
+              "tool": "numberline",
+              "type": "5.625 >6 >8.4"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

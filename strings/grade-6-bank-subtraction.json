@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g6-bank-sub-01-count-up-through-thousands",
+      "title": "Count Up Through Hundreds and Thousands",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When the numbers are close to hundreds or thousands, count up from the smaller number: to the next hundred, the next thousand, then the rest.",
+      "topic": "add",
+      "keywords": "count up, distance, hundreds, thousands, friendly numbers",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Regrouping across zeros and losing track: ask \"How far is 2896 from 2900?\"",
+        "Forgetting a jump when adding them up: ask \"Which jumps make the answer?\"",
+        "Taking a big leap that's hard to add: ask \"Could you land on a thousand first?\""
+      ],
+      "wrapUp": "Ask \"Which friendly numbers did you land on?\" Land: hundreds and thousands make the jumps easy. Count up, then add the jumps: it's the distance between the numbers.",
+      "problems": [
+        {
+          "q": "4000 - 2900",
+          "a": "1100",
+          "notes": "Look for: 100 to 3000, 1000 to 4000. Ask: \"Hold on to this.\" Model: numberline 2900 >3000 >4000",
+          "responses": [
+            {
+              "say": "100 + 1000 = 1100.",
+              "tool": "numberline",
+              "type": "2900 >3000 >4000"
+            }
+          ]
+        },
+        {
+          "q": "4003 - 2896",
+          "a": "1107",
+          "notes": "Look for: 4 to 2900, then 1100, then 3. Ask: \"How does the last one help?\" Word choice: \"the distance from 2896 to 4003\". Model: numberline 2896 >2900 >4000 >4003",
+          "responses": [
+            {
+              "say": "4 + 1100 + 3 = 1107.",
+              "tool": "numberline",
+              "type": "2896 >2900 >4000 >4003",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "Add 4 to both: 4007 − 2900 = 1107.",
+              "tool": "slide",
+              "type": "4003 - 2896 = 4007 - 2900",
+              "tip": "Same difference."
+            },
+            {
+              "say": "1207",
+              "tool": "text",
+              "type": "4003 - 2896 = 1207 ?",
+              "tip": "Regrouping slip. Ask: count up again. Is 2896 + 1207 = 4003?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6012 - 3985",
+          "a": "2027",
+          "notes": "Look for: 15 to 4000, 2000 to 6000, 12 more. Ask: \"What's the first friendly number?\" Model: numberline 3985 >4000 >6000 >6012",
+          "responses": [
+            {
+              "say": "15 + 2000 + 12 = 2027.",
+              "tool": "numberline",
+              "type": "3985 >4000 >6000 >6012"
+            }
+          ]
+        },
+        {
+          "q": "10005 - 7890",
+          "a": "2115",
+          "notes": "Look for: 10 to 7900, 100 to 8000, 2000 to 10 000, 5 more. Ask: \"How many jumps did you need?\" Model: numberline 7890 >7900 >8000 >10000 >10005",
+          "responses": [
+            {
+              "say": "10 + 100 + 2000 + 5 = 2115.",
+              "tool": "numberline",
+              "type": "7890 >7900 >8000 >10000 >10005"
+            },
+            {
+              "say": "110 to 8000, 2005 more: 2115.",
+              "tool": "numberline",
+              "type": "7890 >8000 >10005",
+              "tip": "Fewer, bigger jumps."
+            }
+          ]
+        },
+        {
+          "q": "25004 - 18996",
+          "a": "6008",
+          "notes": "Look for: 4 to 19 000, 6000 to 25 000, 4 more. Ask: \"Would you count up or slide?\" Model: numberline 18996 >19000 >25000 >25004",
+          "responses": [
+            {
+              "say": "4 + 6000 + 4 = 6008.",
+              "tool": "numberline",
+              "type": "18996 >19000 >25000 >25004"
+            },
+            {
+              "say": "Add 4 to both: 25 008 − 19 000 = 6008.",
+              "tool": "slide",
+              "type": "25004 - 18996 = 25008 - 19000"
+            }
+          ]
+        },
+        {
+          "q": "100000 - 99875",
+          "a": "125",
+          "notes": "Look for: 25 to 99 900, 100 to 100 000. Ask: \"Are these close together?\" Model: numberline 99875 >99900 >100000",
+          "responses": [
+            {
+              "say": "25 + 100 = 125.",
+              "tool": "numberline",
+              "type": "99875 >99900 >100000"
+            },
+            {
+              "say": "875",
+              "tool": "text",
+              "type": "100000 - 99875 = 875 ?",
+              "tip": "Ask: about how far apart are 99 875 and 100 000?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "300002 - 199995",
+          "a": "100007",
+          "notes": "Look for: 5 to 200 000, 100 000 to 300 000, 2 more. Ask: \"Does the size of the numbers matter?\" Model: numberline 199995 >200000 >300000 >300002",
+          "optional": true,
+          "responses": [
+            {
+              "say": "5 + 100 000 + 2 = 100 007.",
+              "tool": "numberline",
+              "type": "199995 >200000 >300000 >300002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6-bank-sub-02-take-too-much",
+      "title": "Take Too Much, Then Add Back",
+      "label": "Bank",
+      "group": "Grade 6 · Bank · Subtraction",
+      "tool": "numberline",
+      "strategy": "When the number you take away is just under a friendly number, take the friendly number, then add back the extra. With decimals, check which place the extra is in.",
+      "topic": "add",
+      "keywords": "take away a friendly number, add back, compensate, tenths, hundredths, thousandths",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Adjusting the wrong way (520 − 199 = 520 − 200 − 1): ask \"Did you take away too much or too little?\"",
+        "Adding back the wrong place (12.5 − 4.997 = 12.5 − 5 + 0.03): ask \"How far is 4.997 from 5?\"",
+        "Not seeing that 0.995 is close to 1: ask \"What whole number is 0.995 close to?\""
+      ],
+      "wrapUp": "Ask \"How did you know how much to add back?\" Land: find how far the number is from the friendly one (199 is 1 from 200, 4.997 is 0.003 from 5), take the friendly number, then add that back.",
+      "problems": [
+        {
+          "q": "520 - 199",
+          "a": "321",
+          "notes": "Look for: take 200, add 1 back. Ask: \"What's 199 close to?\" Word choice: \"took too much\". Model: numberline 520 -200 +1",
+          "responses": [
+            {
+              "say": "520 − 200 + 1 = 321.",
+              "tool": "numberline",
+              "type": "520 -200 +1"
+            },
+            {
+              "say": "319",
+              "tool": "text",
+              "type": "520 - 199 = 520 - 200 - 1 = 319 ?",
+              "tip": "Ask: did taking 200 take too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1250 - 498",
+          "a": "752",
+          "notes": "Look for: take 500, add 2 back. Ask: \"How much too much?\" Model: numberline 1250 -500 +2",
+          "responses": [
+            {
+              "say": "1250 − 500 + 2 = 752.",
+              "tool": "numberline",
+              "type": "1250 -500 +2"
+            }
+          ]
+        },
+        {
+          "q": "8.4 - 2.9",
+          "a": "5.5",
+          "notes": "Look for: take 3, add 0.1 back. Ask: \"Same move with decimals?\" Model: numberline 8.4 -3 +0.1",
+          "responses": [
+            {
+              "say": "8.4 − 3 + 0.1 = 5.5.",
+              "tool": "numberline",
+              "type": "8.4 -3 +0.1"
+            }
+          ]
+        },
+        {
+          "q": "9.15 - 3.98",
+          "a": "5.17",
+          "notes": "Look for: take 4, add 0.02 back. Ask: \"How far is 3.98 from 4?\" Model: numberline 9.15 -4 +0.02",
+          "responses": [
+            {
+              "say": "9.15 − 4 + 0.02 = 5.17.",
+              "tool": "numberline",
+              "type": "9.15 -4 +0.02"
+            },
+            {
+              "say": "5.35",
+              "tool": "text",
+              "type": "9.15 - 3.98 = 9.15 - 4 + 0.2 = 5.35 ?",
+              "tip": "Added back 2 tenths. Ask: is 3.98 two tenths or two hundredths from 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "12.5 - 4.997",
+          "a": "7.503",
+          "notes": "Look for: take 5, add 0.003 back. Ask: \"Which place is the extra in?\" Model: numberline 12.5 -5 +0.003",
+          "responses": [
+            {
+              "say": "12.5 − 5 + 0.003 = 7.503.",
+              "tool": "numberline",
+              "type": "12.5 -5 +0.003",
+              "tip": "Thousandths."
+            },
+            {
+              "say": "7.53",
+              "tool": "text",
+              "type": "12.5 - 4.997 = 7.5 + 0.03 = 7.53 ?",
+              "tip": "Ask: how far is 4.997 from 5: 3 hundredths or 3 thousandths?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 - 0.995",
+          "a": "4.005",
+          "notes": "Look for: take 1, add 0.005 back. Ask: \"What's 0.995 close to?\" Model: numberline 5 -1 +0.005",
+          "responses": [
+            {
+              "say": "5 − 1 + 0.005 = 4.005.",
+              "tool": "numberline",
+              "type": "5 -1 +0.005"
+            }
+          ]
+        },
+        {
+          "q": "47.3 - 19.8",
+          "a": "27.5",
+          "notes": "Look for: take 20, add 0.2 back. Ask: \"Would you use the algorithm here?\" Model: numberline 47.3 -20 +0.2",
+          "optional": true,
+          "responses": [
+            {
+              "say": "47.3 − 20 + 0.2 = 27.5.",
+              "tool": "numberline",
+              "type": "47.3 -20 +0.2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
