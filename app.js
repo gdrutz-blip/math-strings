@@ -113,7 +113,7 @@
       const c = s[i];
       if (/\s/.test(c)) {
         m = rest.match(/^\s+([xX×*\/÷:])\s+/);
-        if (m) { out += op(m[1]); i += m[0].length; continue; }
+        if (m && !(/[xX]/.test(m[1]) && !/[\d.)\]]/.test(s.slice(0, i).trim().slice(-1)))) { out += op(m[1]); i += m[0].length; continue; }
         out += ' '; i++; continue;
       }
       if ('+=×*÷<>≤≥'.includes(c)) { out += op(c); i++; continue; }
@@ -168,8 +168,9 @@
     { id: 'rat', name: 'Ratios & Rates', icon: '∶', re: /ratio|rate/i },
     { id: 'int', name: 'Integers', icon: '±', re: /integer/i },
     { id: 'pow', name: 'Powers & Roots', icon: 'x²', re: /power|square|root|scientific|exponent/i },
+    { id: 'alg', name: 'Algebra', icon: 'n', re: /algebra|equation|expression|pattern|inequalit/i },
   ];
-  const TOPIC_CHECK = ['pow', 'int', 'frac', 'dec', 'pct', 'rat', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
+  const TOPIC_CHECK = ['alg', 'pow', 'int', 'frac', 'dec', 'pct', 'rat', 'mult', 'add'].map(id => TOPICS.find(t => t.id === id)); // most specific first
   function topicOf(s) {
     if (s.topic) { const k = String(s.topic).toLowerCase(); const t = TOPICS.find(t => t.id === k || t.name.toLowerCase() === k) || TOPIC_CHECK.find(t => t.re.test(k)); if (t) return t.id; }
     const unit = (s.group || '').replace(/^\s*Grade\s*\w+\s*·\s*/i, '').replace(/^Week\s*\d+\s*·\s*/i, '');
@@ -235,7 +236,15 @@
       'B2.5': 'add and subtract fractions, using appropriate strategies, in various contexts',
       'B2.6': 'multiply and divide fractions by fractions, as well as by whole numbers and mixed numbers, in various contexts',
       'B2.7': 'multiply and divide integers, using appropriate strategies, in various contexts',
-      'B2.8': 'compare proportional situations and determine unknown values in proportional situations, and apply proportional reasoning to solve problems in various contexts' },
+      'B2.8': 'compare proportional situations and determine unknown values in proportional situations, and apply proportional reasoning to solve problems in various contexts',
+      'C1.1': 'identify and compare a variety of repeating, growing, and shrinking patterns, including patterns found in real-life contexts, and compare linear growing and shrinking patterns on the basis of their constant rates and initial values',
+      'C1.2': 'create and translate repeating, growing, and shrinking patterns involving rational numbers using various representations, including algebraic expressions and equations for linear growing and shrinking patterns',
+      'C1.3': 'determine pattern rules and use them to extend patterns, make and justify predictions, and identify missing elements in growing and shrinking patterns involving rational numbers, and use algebraic representations of the pattern rules to solve for unknown values in linear growing and shrinking patterns',
+      'C1.4': 'create and describe patterns to illustrate relationships among rational numbers',
+      'C2.1': 'add and subtract monomials with a degree of 1, and add binomials with a degree of 1 that involve integers, using tools',
+      'C2.2': 'evaluate algebraic expressions that involve rational numbers',
+      'C2.3': 'solve equations that involve multiple terms, integers, and decimal numbers in various contexts, and verify solutions',
+      'C2.4': 'solve inequalities that involve integers, and verify and graph the solutions' },
   };
   const currOf = s => (Array.isArray(s.curriculum) ? s.curriculum : String(s.curriculum || '').split(/[,;\s]+/)).map(c => c.trim().toUpperCase()).filter(c => /^[A-E]\d+\.\d+$/.test(c));
   const codeSort = (a, b) => a.localeCompare(b, undefined, { numeric: true });
@@ -301,7 +310,7 @@
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
     // within a grade, the weekly units come before the string bank
     const isBank = name => /·\s*Bank\s*·/i.test(name);
-    const weekOf = name => +((name.match(/Week\s*(\d+)/i) || [])[1] || 50); // a unit with no week number (a 15-20 day unit) comes after the weeks
+    const weekOf = name => { const w = name.match(/Week\s*(\d+)/i), u = name.match(/Unit\s*(\d+)/i); return w ? +w[1] : u ? 20 + +u[1] : 50; }; // weeks, then numbered units (15-20 days), then the rest
     groups.sort((a, b) => { const ga = parseInt(gradeOf(a.items[0])) || 99, gb = parseInt(gradeOf(b.items[0])) || 99; return ga - gb || (isBank(a.name) - isBank(b.name)) || weekOf(a.name) - weekOf(b.name); });
     const unitProgress = name => { const all = library.filter(s => (s.group || 'Other strings') === name); const n = all.filter(s => isDone(s.id)).length; return { n, of: all.length }; };
     app.innerHTML = `
@@ -319,7 +328,7 @@
             <button class="btn" data-act="classes">🎲 Classes</button>
             <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
             <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
-            <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and your grade's six weeks of strings">🎓 PD</a>
+            <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and a suggested six weeks of strings">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
             <button class="btn ghost" data-act="help" title="Help">?</button>
           </div>
@@ -740,7 +749,6 @@ Rules:
     if (grade) store.set('pdGrade', grade);
     const weeks = grade ? (PD.paths[grade] || []).map(w => w.map(findString).filter(Boolean)) : [];
     const inPath = new Set(weeks.flat().map(s => s.id));
-    const extra = grade ? library.filter(s => gradeOf(s) === grade && !inPath.has(s.id)).length : 0;
     const row = s => `<div class="pd-day"><span class="pd-dt">${esc(s.title)}${isDone(s.id) ? ' <span class="pd-done" title="You have done this string">✓</span>' : ''}</span>
       <span class="pd-acts"><a class="btn small primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present</a>${s.problems.some(p => p.responses) ? `<a class="btn small" href="#/practice/${encodeURIComponent(s.id)}">📝 Practice card</a>` : ''}<a class="btn small" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a></span></div>`;
     const codes = unitCodes(weeks.flat());
@@ -757,7 +765,7 @@ Rules:
 
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
-          <li><b>Before December 4:</b> your class does the common task. It comes by email.</li>
+          <li><b>Before December 4:</b> your class does the common task.</li>
           <li><b>December 4, Session 1:</b> we look at the app together and plan your first week.</li>
           <li><b>Six weeks of strings,</b> two before the winter break and four in January. Aim for 2–3 strings a week, 10–15 minutes each.</li>
           <li><b>Last week of January:</b> your class does the same common task again.</li>
@@ -768,10 +776,10 @@ Rules:
 
       <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : x.plan.length ? '<span class="pd-exit-soon">Exit ticket: at the session</span>' : ''}</div>`).join('')}</div>
 
-      <section class="panel"><h2>Your six weeks of strings</h2>
+      <section class="panel"><h2>Suggested six weeks of strings</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
-        ${!grade ? '<p class="hint">Pick your grade to see its six weeks.</p>'
-          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first.${extra ? ` The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has ${extra} more Grade ${esc(grade)} strings if you want extras.` : ''}</p>
+        ${!grade ? '<p class="hint">Pick your grade to see its suggested six weeks.</p>'
+          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first. The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has more strings if you want extras.</p>
              ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
              ${weeks.map((w, i) => `<div class="pd-unit"><h3>Week ${i + 1} <span class="pd-when">${esc(PD.weekWhen[i] || '')}</span></h3><div class="pd-days">${w.map(row).join('')}</div></div>`).join('')}`}
       </section>

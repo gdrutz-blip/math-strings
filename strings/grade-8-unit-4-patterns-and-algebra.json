@@ -1,0 +1,1283 @@
+{
+  "version": 1,
+  "strings": [
+    {
+      "id": "g8-alg-d01-find-the-rule",
+      "title": "Find the Rule",
+      "label": "Day 1",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "numberline",
+      "strategy": "In a linear pattern the terms change by the same amount each time (the rate). Work back one step to find term 0 (the starting value). The rule is rate × n + starting value.",
+      "topic": "alg",
+      "keywords": "pattern rule, term, term number, constant rate, starting value, initial value, n",
+      "curriculum": [
+        "C1.1",
+        "C1.3"
+      ],
+      "watchFor": [
+        "Writing the rule as \"+5\" (the jump) only: ask \"What would term 10 be? Can '+5' tell you without listing?\"",
+        "Using the first term as the starting value (6, 11, 16 → 5n + 6): ask \"Check term 1: is 5 × 1 + 6 equal to 6?\"",
+        "Missing a shrinking pattern's negative rate: ask \"Is the pattern going up or down?\""
+      ],
+      "wrapUp": "Ask \"Where did each part of the rule come from?\" Land: the number in front of n is the jump (the rate); the number added is term 0 (one step back from term 1). Check the rule with term 1.",
+      "problems": [
+        {
+          "q": "5, 10, 15, 20",
+          "a": "5n",
+          "notes": "Look for: up 5 each time, and term 0 would be 0. Ask: \"What's term 10?\" Word choice: \"term number n\". Model: numberline 0 +5 +5 +5 +5",
+          "responses": [
+            {
+              "say": "Up 5 each time, starting from 0: 5n.",
+              "tool": "numberline",
+              "type": "0 +5 +5 +5 +5",
+              "tip": "Rate 5, starting value 0."
+            },
+            {
+              "say": "n + 5",
+              "tool": "text",
+              "type": "rule: n + 5 ?",
+              "tip": "Ask: try term 2. Is 2 + 5 equal to 10?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6, 11, 16, 21",
+          "a": "5n + 1",
+          "notes": "Look for: up 5, and one step back from 6 is 1. Ask: \"What's term 0?\" Model: numberline 1 +5 +5 +5 +5",
+          "responses": [
+            {
+              "say": "Jump 5, start at 1: 5n + 1.",
+              "tool": "numberline",
+              "type": "1 +5 +5 +5 +5",
+              "tip": "Term 0 is 1."
+            },
+            {
+              "say": "5n + 6",
+              "tool": "text",
+              "type": "rule: 5n + 6 ?",
+              "tip": "Used term 1 as the start. Ask: check term 1: is 5 × 1 + 6 = 6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3, 7, 11, 15",
+          "a": "4n - 1",
+          "notes": "Look for: up 4, term 0 is −1. Ask: \"What's one step back from 3?\" Model: numberline -1 +4 +4 +4 +4",
+          "responses": [
+            {
+              "say": "Jump 4, start at −1: 4n − 1.",
+              "tool": "numberline",
+              "type": "-1 +4 +4 +4 +4"
+            }
+          ]
+        },
+        {
+          "q": "2, 5, 8, 11",
+          "a": "3n - 1",
+          "notes": "Look for: up 3, term 0 is −1. Ask: \"Same as the last one?\" Model: numberline -1 +3 +3 +3 +3",
+          "responses": [
+            {
+              "say": "3n − 1.",
+              "tool": "numberline",
+              "type": "-1 +3 +3 +3 +3"
+            },
+            {
+              "say": "3n + 2",
+              "tool": "text",
+              "type": "rule: 3n + 2 ?",
+              "tip": "Ask: check term 1: 3 × 1 + 2 = 5. Is term 1 equal to 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "10, 8, 6, 4",
+          "a": "12 - 2n",
+          "notes": "Look for: down 2 each time, term 0 is 12. Ask: \"Going up or down?\" Model: numberline 12 -2 -2 -2 -2",
+          "responses": [
+            {
+              "say": "Start at 12, down 2 each time: 12 − 2n.",
+              "tool": "numberline",
+              "type": "12 -2 -2 -2 -2",
+              "tip": "A shrinking pattern: negative rate."
+            },
+            {
+              "say": "2n + 8",
+              "tool": "text",
+              "type": "rule: 2n + 8 ?",
+              "tip": "Ask: does 2n + 8 go up or down as n grows?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "20, 17, 14, 11",
+          "a": "23 - 3n",
+          "notes": "Look for: down 3, term 0 is 23. Ask: \"What's one step before 20?\" Model: numberline 23 -3 -3 -3 -3",
+          "responses": [
+            {
+              "say": "23 − 3n.",
+              "tool": "numberline",
+              "type": "23 -3 -3 -3 -3"
+            }
+          ]
+        },
+        {
+          "q": "1, 5, 9, 13",
+          "a": "4n - 3",
+          "notes": "Look for: up 4, term 0 is −3. Ask: \"What's term 50?\" Model: numberline -3 +4 +4 +4 +4",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4n − 3. Term 50 is 197.",
+              "tool": "numberline",
+              "type": "-3 +4 +4 +4 +4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-alg-d02-any-term",
+      "title": "Use the Rule: Any Term",
+      "label": "Day 2",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "A rule lets you jump straight to any term: put the term number in for n. Term 0 is the starting value, and each step adds the rate.",
+      "topic": "alg",
+      "keywords": "pattern rule, term number, substitute, starting value, rate",
+      "curriculum": [
+        "C1.1",
+        "C1.2",
+        "C2.2"
+      ],
+      "watchFor": [
+        "Multiplying digits together (4n + 3 with n = 10 as 4 + 10 + 3): ask \"What does 4n mean?\"",
+        "Adding before multiplying: ask \"Which comes first?\"",
+        "Not seeing term 0 as the starting value: ask \"What's left when n = 0?\""
+      ],
+      "wrapUp": "Ask \"What does each part of 4n + 3 tell you?\" Land: 4n is 4 for every step, + 3 is where the pattern starts. Put any term number in for n.",
+      "problems": [
+        {
+          "q": "4n + 3, n = 1",
+          "a": "7",
+          "notes": "Look for: 4 × 1 + 3. Ask: \"Hold on to this.\" Word choice: \"substitute\". Model: text 4 x 1 + 3 = 7",
+          "responses": [
+            {
+              "say": "4 + 3 = 7.",
+              "tool": "text",
+              "type": "4 x 1 + 3 = 7"
+            }
+          ]
+        },
+        {
+          "q": "4n + 3, n = 10",
+          "a": "43",
+          "notes": "Look for: 40 + 3. Ask: \"Do you need to list 10 terms?\" Model: text 4 x 10 + 3 = 43",
+          "responses": [
+            {
+              "say": "40 + 3 = 43.",
+              "tool": "text",
+              "type": "4 x 10 + 3 = 43"
+            },
+            {
+              "say": "17",
+              "tool": "text",
+              "type": "4 + 10 + 3 = 17 ?",
+              "tip": "Added instead of multiplying. Ask: what does 4n mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4n + 3, n = 0",
+          "a": "3",
+          "notes": "Look for: the starting value. Ask: \"Where does the pattern start?\" Model: text 4 x 0 + 3 = 3",
+          "responses": [
+            {
+              "say": "Just the 3: the starting value.",
+              "tool": "text",
+              "type": "4 x 0 + 3 = 3"
+            }
+          ]
+        },
+        {
+          "q": "4n + 3, n = 25",
+          "a": "103",
+          "notes": "Look for: 100 + 3. Ask: \"What do you put in for n?\" Model: text 4 x 25 + 3 = 103",
+          "responses": [
+            {
+              "say": "103.",
+              "tool": "text",
+              "type": "4 x 25 + 3 = 103"
+            }
+          ]
+        },
+        {
+          "q": "50 - 3n, n = 10",
+          "a": "20",
+          "notes": "Look for: 50 − 30. Ask: \"Shrinking pattern?\" Model: text 50 - 3 x 10 = 20",
+          "responses": [
+            {
+              "say": "50 − 30 = 20.",
+              "tool": "text",
+              "type": "50 - 3 x 10 = 20"
+            },
+            {
+              "say": "470",
+              "tool": "text",
+              "type": "(50 - 3) x 10 = 470 ?",
+              "tip": "Subtracted first. Ask: which comes first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "2.5n + 1, n = 4",
+          "a": "11",
+          "notes": "Look for: 10 + 1. Ask: \"What do you put in for n?\" Model: text 2.5 x 4 + 1 = 11",
+          "responses": [
+            {
+              "say": "11.",
+              "tool": "text",
+              "type": "2.5 x 4 + 1 = 11"
+            }
+          ]
+        },
+        {
+          "q": "50 - 3n, n = 20",
+          "a": "-10",
+          "notes": "Look for: 50 − 60. Ask: \"Can a term be negative?\" Model: text 50 - 3 x 20 = -10",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−10. The pattern has gone below zero.",
+              "tool": "text",
+              "type": "50 - 3 x 20 = -10"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 1: Find the Rule"
+    },
+    {
+      "id": "g8-alg-d03-rational-patterns",
+      "title": "Patterns with Decimals and Negatives",
+      "label": "Day 3",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "numberline",
+      "strategy": "The same moves work when the rate or starting value is a decimal or a negative: find the jump, step back to term 0, and write rate × n + starting value.",
+      "topic": "alg",
+      "keywords": "pattern rule, rate, starting value, decimals, negatives, linear",
+      "curriculum": [
+        "C1.2",
+        "C1.3",
+        "C1.4"
+      ],
+      "watchFor": [
+        "Losing the sign of the starting value (−3, −1, 1 → 2n + 5): ask \"What's one step back from −3?\"",
+        "Using the difference between non-neighbouring terms: ask \"How much from one term to the next?\"",
+        "Rounding decimal rates: ask \"Check your rule on term 3.\""
+      ],
+      "wrapUp": "Ask \"Did anything change with decimals and negatives?\" Land: nothing about the method changes: rate from the jump, starting value from one step back. Check with a term.",
+      "problems": [
+        {
+          "q": "1.5, 3, 4.5, 6",
+          "a": "1.5n",
+          "notes": "Look for: up 1.5, term 0 is 0. Ask: \"What's the jump? What's term 0?\" Model: numberline 0 +1.5 +1.5 +1.5 +1.5",
+          "responses": [
+            {
+              "say": "1.5n.",
+              "tool": "numberline",
+              "type": "0 +1.5 +1.5 +1.5 +1.5"
+            }
+          ]
+        },
+        {
+          "q": "2.5, 4, 5.5, 7",
+          "a": "1.5n + 1",
+          "notes": "Look for: up 1.5, one step back from 2.5 is 1. Ask: \"How does the last one help?\" Model: numberline 1 +1.5 +1.5 +1.5 +1.5",
+          "responses": [
+            {
+              "say": "1.5n + 1.",
+              "tool": "numberline",
+              "type": "1 +1.5 +1.5 +1.5 +1.5"
+            },
+            {
+              "say": "1.5n + 2.5",
+              "tool": "text",
+              "type": "rule: 1.5n + 2.5 ?",
+              "tip": "Used term 1 as the start. Ask: check term 1.",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-3, -1, 1, 3",
+          "a": "2n - 5",
+          "notes": "Look for: up 2, one step back from −3 is −5. Ask: \"What's term 0?\" Model: vline -5 +2 +2 +2 +2",
+          "responses": [
+            {
+              "say": "2n − 5.",
+              "tool": "vline",
+              "type": "-5 +2 +2 +2 +2"
+            },
+            {
+              "say": "2n + 5",
+              "tool": "text",
+              "type": "rule: 2n + 5 ?",
+              "tip": "Lost the sign. Ask: one step back from −3 is what?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5, 3, 1, -1",
+          "a": "7 - 2n",
+          "notes": "Look for: down 2, term 0 is 7. Ask: \"Up or down?\" Model: vline 7 -2 -2 -2 -2",
+          "responses": [
+            {
+              "say": "7 − 2n.",
+              "tool": "vline",
+              "type": "7 -2 -2 -2 -2"
+            }
+          ]
+        },
+        {
+          "q": "0.75, 1.25, 1.75, 2.25",
+          "a": "0.5n + 0.25",
+          "notes": "Look for: up 0.5, term 0 is 0.25. Ask: \"What's the jump? What's term 0?\" Model: numberline 0.25 +0.5 +0.5 +0.5 +0.5",
+          "responses": [
+            {
+              "say": "0.5n + 0.25.",
+              "tool": "numberline",
+              "type": "0.25 +0.5 +0.5 +0.5 +0.5"
+            }
+          ]
+        },
+        {
+          "q": "-10, -7.5, -5, -2.5",
+          "a": "2.5n - 12.5",
+          "notes": "Look for: up 2.5, term 0 is −12.5. Ask: \"When does it reach 0?\" Model: vline -12.5 +2.5 +2.5 +2.5 +2.5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "2.5n − 12.5. Term 5 is 0.",
+              "tool": "vline",
+              "type": "-12.5 +2.5 +2.5 +2.5 +2.5"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 1: Find the Rule"
+    },
+    {
+      "id": "g8-alg-d04-evaluating-expressions",
+      "title": "Evaluating Expressions",
+      "label": "Day 4",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "Put the value in for the variable, then follow the order of operations. Brackets for negatives help: 3(−2) + 5.",
+      "topic": "alg",
+      "keywords": "evaluate, substitute, variable, order of operations, negative, decimal",
+      "curriculum": [
+        "C2.2"
+      ],
+      "watchFor": [
+        "Reading 3n with n = 4 as 34: ask \"What does 3n mean?\"",
+        "Squaring a negative wrong (n^2 with n = −3 as −9): ask \"What is (−3) × (−3)?\"",
+        "Losing a negative when subtracting: ask \"What is 5 − 2(−1.5)?\""
+      ],
+      "wrapUp": "Ask \"What helped you avoid mistakes with negatives?\" Land: put the value in with brackets, then follow the order of operations. 3n means 3 × n.",
+      "problems": [
+        {
+          "q": "3n + 5, n = 4",
+          "a": "17",
+          "notes": "Look for: 12 + 5. Ask: \"What does 3n mean?\" Word choice: \"substitute 4 for n\". Model: text 3(4) + 5 = 12 + 5 = 17",
+          "responses": [
+            {
+              "say": "12 + 5 = 17.",
+              "tool": "text",
+              "type": "3(4) + 5 = 12 + 5 = 17"
+            },
+            {
+              "say": "39",
+              "tool": "text",
+              "type": "3n = 34 ; 34 + 5 = 39 ?",
+              "tip": "Read 3n as 34. Ask: what does 3n mean?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3n + 5, n = -2",
+          "a": "-1",
+          "notes": "Look for: −6 + 5. Ask: \"What do you put in, and what comes first?\" Model: text 3(-2) + 5 = -6 + 5 = -1",
+          "responses": [
+            {
+              "say": "−6 + 5 = −1.",
+              "tool": "text",
+              "type": "3(-2) + 5 = -6 + 5 = -1"
+            },
+            {
+              "say": "11",
+              "tool": "text",
+              "type": "3(-2) + 5 = 6 + 5 = 11 ?",
+              "tip": "Lost the negative. Ask: what is 3 × −2?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3n + 5, n = 0.5",
+          "a": "6.5",
+          "notes": "Look for: 1.5 + 5. Ask: \"What do you put in, and what comes first?\" Model: text 3(0.5) + 5 = 1.5 + 5 = 6.5",
+          "responses": [
+            {
+              "say": "6.5.",
+              "tool": "text",
+              "type": "3(0.5) + 5 = 1.5 + 5 = 6.5"
+            }
+          ]
+        },
+        {
+          "q": "2(n + 3), n = 4",
+          "a": "14",
+          "notes": "Look for: brackets first: 2 × 7. Ask: \"What do you put in, and what comes first?\" Model: text 2(4 + 3) = 2(7) = 14",
+          "responses": [
+            {
+              "say": "2 × 7 = 14.",
+              "tool": "text",
+              "type": "2(4 + 3) = 2(7) = 14"
+            },
+            {
+              "say": "11",
+              "tool": "text",
+              "type": "2(4) + 3 = 11 ?",
+              "tip": "Ask: what do the brackets tell you to do first?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "n^2 + 1, n = -3",
+          "a": "10",
+          "notes": "Look for: (−3)^2 = 9. Ask: \"Is (−3)^2 positive or negative?\" Model: text (-3)^2 + 1 = 9 + 1 = 10",
+          "responses": [
+            {
+              "say": "9 + 1 = 10.",
+              "tool": "text",
+              "type": "(-3)^2 + 1 = 9 + 1 = 10"
+            },
+            {
+              "say": "-8",
+              "tool": "text",
+              "type": "-3^2 + 1 = -9 + 1 = -8 ?",
+              "tip": "Ask: what is (−3) × (−3)?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5 - 2n, n = -1.5",
+          "a": "8",
+          "notes": "Look for: 5 − (−3) = 8. Ask: \"What do you put in, and what comes first?\" Model: text 5 - 2(-1.5) = 5 - -3 = 8",
+          "responses": [
+            {
+              "say": "5 − (−3) = 8.",
+              "tool": "text",
+              "type": "5 - 2(-1.5) = 5 - -3 = 8"
+            },
+            {
+              "say": "2",
+              "tool": "text",
+              "type": "5 - 2(-1.5) = 5 - 3 = 2 ?",
+              "tip": "Lost the negative. Ask: what's 2 × −1.5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4n - n^2, n = 1.5",
+          "a": "3.75",
+          "notes": "Look for: 6 − 2.25. Ask: \"What do you put in, and what comes first?\" Model: text 4(1.5) - (1.5)^2 = 6 - 2.25 = 3.75",
+          "optional": true,
+          "responses": [
+            {
+              "say": "6 − 2.25 = 3.75.",
+              "tool": "text",
+              "type": "4(1.5) - (1.5)^2 = 6 - 2.25 = 3.75"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 2: Use the Rule: Any Term"
+    },
+    {
+      "id": "g8-alg-d05-like-terms",
+      "title": "Adding Like Terms",
+      "label": "Day 5",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "Like terms have the same variable part: you can add the x-terms together and the numbers together, but not x-terms with numbers.",
+      "topic": "alg",
+      "keywords": "like terms, monomial, binomial, coefficient, constant, combine, simplify",
+      "curriculum": [
+        "C2.1"
+      ],
+      "watchFor": [
+        "Combining x-terms with numbers (3x + 4 = 7x): ask \"Is 3 x's plus 4 ones the same as 7 x's?\"",
+        "Losing a negative (−2x + 6x = −8x): ask \"−2 + 6 is what?\"",
+        "Treating x as 0 (7x − 3x − x = 4x): ask \"How many x's are taken away?\""
+      ],
+      "wrapUp": "Ask \"Which terms could go together, and which couldn't?\" Land: x-terms combine with x-terms, numbers with numbers. Check by putting in a value for x.",
+      "problems": [
+        {
+          "q": "3x + 2x",
+          "a": "5x",
+          "notes": "Look for: 3 x's and 2 x's. Ask: \"What are we counting?\" Word choice: \"like terms\". Model: text 3x + 2x = 5x",
+          "responses": [
+            {
+              "say": "5 x's: 5x.",
+              "tool": "text",
+              "type": "3x + 2x = 5x"
+            },
+            {
+              "say": "5x^2",
+              "tool": "text",
+              "type": "3x + 2x = 5x^2 ?",
+              "tip": "Ask: adding x's, or multiplying them?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3x + 4 + 2x - 1",
+          "a": "5x + 3",
+          "notes": "Look for: 5x and 3. Ask: \"Which terms go together?\" Model: text 3x + 2x = 5x ; 4 - 1 = 3 ; 5x + 3",
+          "responses": [
+            {
+              "say": "5x + 3.",
+              "tool": "text",
+              "type": "3x + 2x = 5x ; 4 - 1 = 3 ; 5x + 3"
+            },
+            {
+              "say": "8x",
+              "tool": "text",
+              "type": "3x + 4 + 2x - 1 = 8x ?",
+              "tip": "Combined x's with numbers. Ask: is 4 the same as 4x?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(2x + 3) + (x + 5)",
+          "a": "3x + 8",
+          "notes": "Look for: 2x + x and 3 + 5. Ask: \"How many x's?\" Model: text 2x + x = 3x ; 3 + 5 = 8 ; 3x + 8",
+          "responses": [
+            {
+              "say": "3x + 8.",
+              "tool": "text",
+              "type": "2x + x = 3x ; 3 + 5 = 8 ; 3x + 8"
+            },
+            {
+              "say": "2x + 8",
+              "tool": "text",
+              "type": "(2x + 3) + (x + 5) = 2x + 8 ?",
+              "tip": "Missed the lone x. Ask: how many x's is x?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(4x - 2) + (-x + 6)",
+          "a": "3x + 4",
+          "notes": "Look for: 4x − x and −2 + 6. Ask: \"Which terms go together?\" Model: text 4x - x = 3x ; -2 + 6 = 4 ; 3x + 4",
+          "responses": [
+            {
+              "say": "3x + 4.",
+              "tool": "text",
+              "type": "4x - x = 3x ; -2 + 6 = 4 ; 3x + 4"
+            }
+          ]
+        },
+        {
+          "q": "7x - 3x - x",
+          "a": "3x",
+          "notes": "Look for: 7 − 3 − 1. Ask: \"How many x's are taken away?\" Model: text 7x - 3x - x = 3x",
+          "responses": [
+            {
+              "say": "3x.",
+              "tool": "text",
+              "type": "7x - 3x - x = 3x"
+            },
+            {
+              "say": "4x",
+              "tool": "text",
+              "type": "7x - 3x - x = 4x ?",
+              "tip": "Forgot the last x. Ask: how many x's is x?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "-2x + 5 + 6x - 8",
+          "a": "4x - 3",
+          "notes": "Look for: 4x and −3. Ask: \"Which terms go together?\" Model: text -2x + 6x = 4x ; 5 - 8 = -3 ; 4x - 3",
+          "responses": [
+            {
+              "say": "4x − 3.",
+              "tool": "text",
+              "type": "-2x + 6x = 4x ; 5 - 8 = -3 ; 4x - 3"
+            },
+            {
+              "say": "-8x - 3",
+              "tool": "text",
+              "type": "-2x + 6x = -8x ?",
+              "tip": "Ask: what is −2 + 6?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "(3x - 4) + (-5x - 1)",
+          "a": "-2x - 5",
+          "notes": "Look for: −2x and −5. Ask: \"Which terms go together?\" Model: text 3x - 5x = -2x ; -4 - 1 = -5 ; -2x - 5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "−2x − 5.",
+              "tool": "text",
+              "type": "3x - 5x = -2x ; -4 - 1 = -5 ; -2x - 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8-alg-d06-undo-it",
+      "title": "Undo It: Two-Step Equations",
+      "label": "Day 6",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "bar",
+      "strategy": "Solve by undoing what was done to x, in reverse order: 3x + 5 = 26 means take away the 5, then share by 3. Check by putting the answer back in.",
+      "topic": "alg",
+      "keywords": "equation, solve, undo, inverse, reverse order, check, variable",
+      "curriculum": [
+        "C2.3"
+      ],
+      "watchFor": [
+        "Undoing in the wrong order (26 ÷ 3 first): ask \"What happened to x last? Undo that first.\"",
+        "Adding instead of subtracting the 5: ask \"What undoes + 5?\"",
+        "Not checking: ask \"Put your answer back in. Does it work?\""
+      ],
+      "wrapUp": "Ask \"Why did we undo the + 5 first?\" Land: x was multiplied by 3, then 5 was added. Undo in reverse: take away 5, then divide by 3. Then check.",
+      "problems": [
+        {
+          "q": "3x = 15",
+          "a": "x = 5",
+          "notes": "Look for: 3 groups make 15. Ask: \"What times 3 is 15?\" Word choice: \"undo\". Model: bar 15 = 5 + 5 + 5",
+          "responses": [
+            {
+              "say": "15 ÷ 3 = 5.",
+              "tool": "bar",
+              "type": "15 = 5 + 5 + 5"
+            }
+          ]
+        },
+        {
+          "q": "3x + 5 = 20",
+          "a": "x = 5",
+          "notes": "Look for: take away 5 to get 3x = 15. Ask: \"How does the last one help?\" Model: bar 20 = ? + 5",
+          "responses": [
+            {
+              "say": "3x is 15, so x = 5.",
+              "tool": "bar",
+              "type": "20 = ? + 5",
+              "tip": "Undo + 5 first."
+            },
+            {
+              "say": "x = 15",
+              "tool": "text",
+              "type": "3x + 5 = 20 ; x = 20 - 5 = 15 ?",
+              "tip": "Took away the 5 but forgot the 3 groups. Ask: is 3 × 15 + 5 equal to 20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3x + 5 = 26",
+          "a": "x = 7",
+          "notes": "Look for: 3x = 21. Ask: \"What do you undo first?\" Model: bar 21 = 7 + 7 + 7",
+          "responses": [
+            {
+              "say": "26 − 5 = 21, 21 ÷ 3 = 7.",
+              "tool": "bar",
+              "type": "21 = 7 + 7 + 7"
+            },
+            {
+              "say": "x = 10 1/3",
+              "tool": "text",
+              "type": "3x = 26 + 5 = 31 ; x = 10 1/3 ?",
+              "tip": "Added the 5. Ask: what undoes + 5?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3x - 4 = 26",
+          "a": "x = 10",
+          "notes": "Look for: add 4: 3x = 30. Ask: \"What undoes − 4?\" Model: text 3x = 26 + 4 = 30 ; x = 10",
+          "responses": [
+            {
+              "say": "3x = 30, x = 10.",
+              "tool": "text",
+              "type": "3x = 26 + 4 = 30 ; x = 10"
+            }
+          ]
+        },
+        {
+          "q": "6x + 10 = 52",
+          "a": "x = 7",
+          "notes": "Look for: 6x = 42. Ask: \"What do you undo first?\" Model: text 6x = 52 - 10 = 42 ; x = 7",
+          "responses": [
+            {
+              "say": "6x = 42, x = 7.",
+              "tool": "text",
+              "type": "6x = 52 - 10 = 42 ; x = 7"
+            }
+          ]
+        },
+        {
+          "q": "-2x + 9 = 1",
+          "a": "x = 4",
+          "notes": "Look for: −2x = −8. Ask: \"What's −8 ÷ −2?\" Model: text -2x = 1 - 9 = -8 ; x = -8 ÷ -2 = 4",
+          "responses": [
+            {
+              "say": "−2x = −8, x = 4.",
+              "tool": "text",
+              "type": "-2x = 1 - 9 = -8 ; x = -8 ÷ -2 = 4"
+            },
+            {
+              "say": "x = -4",
+              "tool": "text",
+              "type": "-2x = -8 ; x = -4 ?",
+              "tip": "Ask: −8 ÷ −2: same signs or different?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4x + 7 = -5",
+          "a": "x = -3",
+          "notes": "Look for: 4x = −12. Ask: \"What do you undo first?\" Model: text 4x = -5 - 7 = -12 ; x = -3",
+          "optional": true,
+          "responses": [
+            {
+              "say": "4x = −12, x = −3.",
+              "tool": "text",
+              "type": "4x = -5 - 7 = -12 ; x = -3"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 2: Use the Rule: Any Term"
+    },
+    {
+      "id": "g8-alg-d07-which-term",
+      "title": "Which Term Is It?",
+      "label": "Day 7",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "To find which term has a given value, set the rule equal to that value and solve. It's the same as going backward on the pattern.",
+      "topic": "alg",
+      "keywords": "pattern rule, term number, solve, equation, unknown, backward",
+      "curriculum": [
+        "C1.3",
+        "C2.3"
+      ],
+      "watchFor": [
+        "Putting the value in for n (5 × 51 + 1): ask \"Is 51 the term number or the term?\"",
+        "Undoing in the wrong order: ask \"What happened to n last?\"",
+        "Getting a fraction and not checking: ask \"Can a term number be 10.5?\""
+      ],
+      "wrapUp": "Ask \"How is finding the term number like solving an equation?\" Land: the rule equals the value, so undo the rule: take away the starting value, then divide by the rate.",
+      "problems": [
+        {
+          "q": "5n + 1 = 51",
+          "a": "n = 10",
+          "notes": "Context: \"Pattern 5n + 1. Which term is 51?\" Look for: 5n = 50. Word choice: \"term number\". Ask: \"What do you undo first?\" Model: text 5n = 51 - 1 = 50 ; n = 10",
+          "responses": [
+            {
+              "say": "5n = 50, term 10.",
+              "tool": "text",
+              "type": "5n = 51 - 1 = 50 ; n = 10"
+            },
+            {
+              "say": "n = 256",
+              "tool": "text",
+              "type": "5 x 51 + 1 = 256 ?",
+              "tip": "Put 51 in for n. Ask: is 51 the term number or the term value?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "5n + 1 = 101",
+          "a": "n = 20",
+          "notes": "Look for: 5n = 100. Ask: \"Twice as far?\" Model: text 5n = 100 ; n = 20",
+          "responses": [
+            {
+              "say": "Term 20.",
+              "tool": "text",
+              "type": "5n = 100 ; n = 20"
+            }
+          ]
+        },
+        {
+          "q": "4n - 1 = 39",
+          "a": "n = 10",
+          "notes": "Look for: 4n = 40. Ask: \"What do you undo first?\" Model: text 4n = 39 + 1 = 40 ; n = 10",
+          "responses": [
+            {
+              "say": "Term 10.",
+              "tool": "text",
+              "type": "4n = 39 + 1 = 40 ; n = 10"
+            }
+          ]
+        },
+        {
+          "q": "4n - 1 = 79",
+          "a": "n = 20",
+          "notes": "Look for: 4n = 80. Ask: \"What do you undo first?\" Model: text 4n = 80 ; n = 20",
+          "responses": [
+            {
+              "say": "Term 20.",
+              "tool": "text",
+              "type": "4n = 80 ; n = 20"
+            }
+          ]
+        },
+        {
+          "q": "12 - 2n = 0",
+          "a": "n = 6",
+          "notes": "Context: \"Pattern 12 − 2n. When does it reach 0?\" Look for: 2n = 12. Ask: \"What do you undo first?\" Model: text 12 - 2n = 0 ; 2n = 12 ; n = 6",
+          "responses": [
+            {
+              "say": "Term 6.",
+              "tool": "text",
+              "type": "12 - 2n = 0 ; 2n = 12 ; n = 6"
+            }
+          ]
+        },
+        {
+          "q": "12 - 2n = -20",
+          "a": "n = 16",
+          "notes": "Look for: 2n = 32. Ask: \"How far below 0?\" Model: text 12 - 2n = -20 ; 2n = 32 ; n = 16",
+          "responses": [
+            {
+              "say": "Term 16.",
+              "tool": "text",
+              "type": "12 - 2n = -20 ; 2n = 32 ; n = 16"
+            },
+            {
+              "say": "n = 4",
+              "tool": "text",
+              "type": "2n = 20 - 12 = 8 ; n = 4 ?",
+              "tip": "Ask: check it: 12 − 2(4) = 4. Is that −20?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.5n + 1 = 31",
+          "a": "n = 20",
+          "notes": "Look for: 1.5n = 30. Ask: \"What do you undo first?\" Model: text 1.5n = 30 ; n = 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "Term 20.",
+              "tool": "text",
+              "type": "1.5n = 30 ; n = 20"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 6: Undo It"
+    },
+    {
+      "id": "g8-alg-d08-both-sides",
+      "title": "Variables on Both Sides",
+      "label": "Day 8",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "When x is on both sides, take the same number of x's from both sides (like a balance), then solve the two-step equation that's left.",
+      "topic": "alg",
+      "keywords": "equation, both sides, balance, same to both sides, multiple terms, check",
+      "curriculum": [
+        "C2.3"
+      ],
+      "watchFor": [
+        "Taking x's from only one side: ask \"Is the balance still level?\"",
+        "Moving terms and changing signs by habit: ask \"What did you do to both sides?\"",
+        "Not checking: ask \"Put your answer into both sides. Are they equal?\""
+      ],
+      "wrapUp": "Ask \"Why do we do the same to both sides?\" Land: an equation is a balance. Take the same x's (or numbers) from both sides until x is on one side, then undo.",
+      "problems": [
+        {
+          "q": "2x + 3 = x + 8",
+          "a": "x = 5",
+          "notes": "Look for: take x from both sides: x + 3 = 8. Word choice: \"same to both sides\". Ask: \"What can you take from both sides?\" Model: text 2x + 3 = x + 8 ; x + 3 = 8 ; x = 5",
+          "responses": [
+            {
+              "say": "x + 3 = 8, x = 5.",
+              "tool": "text",
+              "type": "2x + 3 = x + 8 ; x + 3 = 8 ; x = 5"
+            },
+            {
+              "say": "Check: 2(5) + 3 = 13 and 5 + 8 = 13.",
+              "tool": "text",
+              "type": "2(5) + 3 = 13 ; 5 + 8 = 13",
+              "tip": "Verify both sides."
+            }
+          ]
+        },
+        {
+          "q": "3x + 4 = x + 12",
+          "a": "x = 4",
+          "notes": "Look for: 2x + 4 = 12. Ask: \"What can you take from both sides?\" Model: text 3x + 4 = x + 12 ; 2x + 4 = 12 ; 2x = 8 ; x = 4",
+          "responses": [
+            {
+              "say": "2x = 8, x = 4.",
+              "tool": "text",
+              "type": "3x + 4 = x + 12 ; 2x + 4 = 12 ; 2x = 8 ; x = 4"
+            }
+          ]
+        },
+        {
+          "q": "5x - 2 = 2x + 10",
+          "a": "x = 4",
+          "notes": "Look for: 3x − 2 = 10. Ask: \"What can you take from both sides?\" Model: text 5x - 2 = 2x + 10 ; 3x - 2 = 10 ; 3x = 12 ; x = 4",
+          "responses": [
+            {
+              "say": "3x = 12, x = 4.",
+              "tool": "text",
+              "type": "5x - 2 = 2x + 10 ; 3x - 2 = 10 ; 3x = 12 ; x = 4"
+            },
+            {
+              "say": "x = 12/7",
+              "tool": "text",
+              "type": "5x + 2x - 2 = 10 ; 7x = 12 ?",
+              "tip": "Added the x's instead of taking 2x from both sides. Ask: what did you do to both sides?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4x + 1 = 6x - 9",
+          "a": "x = 5",
+          "notes": "Look for: take 4x: 1 = 2x − 9. Ask: \"Which side has more x's?\" Model: text 4x + 1 = 6x - 9 ; 1 = 2x - 9 ; 10 = 2x ; x = 5",
+          "responses": [
+            {
+              "say": "2x = 10, x = 5.",
+              "tool": "text",
+              "type": "4x + 1 = 6x - 9 ; 1 = 2x - 9 ; 10 = 2x ; x = 5",
+              "tip": "Take the smaller number of x's."
+            }
+          ]
+        },
+        {
+          "q": "2x + 7 = -x + 1",
+          "a": "x = -2",
+          "notes": "Look for: add x to both: 3x + 7 = 1. Ask: \"What can you take from both sides?\" Model: text 2x + 7 = -x + 1 ; 3x + 7 = 1 ; 3x = -6 ; x = -2",
+          "responses": [
+            {
+              "say": "3x = −6, x = −2.",
+              "tool": "text",
+              "type": "2x + 7 = -x + 1 ; 3x + 7 = 1 ; 3x = -6 ; x = -2"
+            }
+          ]
+        },
+        {
+          "q": "0.5x + 4 = 2x - 2",
+          "a": "x = 4",
+          "notes": "Look for: take 0.5x: 4 = 1.5x − 2. Ask: \"What can you take from both sides?\" Model: text 0.5x + 4 = 2x - 2 ; 4 = 1.5x - 2 ; 6 = 1.5x ; x = 4",
+          "responses": [
+            {
+              "say": "1.5x = 6, x = 4.",
+              "tool": "text",
+              "type": "0.5x + 4 = 2x - 2 ; 4 = 1.5x - 2 ; 6 = 1.5x ; x = 4"
+            }
+          ]
+        },
+        {
+          "q": "1.2x + 3 = 0.2x + 8",
+          "a": "x = 5",
+          "notes": "Look for: x + 3 = 8. Ask: \"What can you take from both sides?\" Model: text 1.2x + 3 = 0.2x + 8 ; x + 3 = 8 ; x = 5",
+          "optional": true,
+          "responses": [
+            {
+              "say": "x = 5.",
+              "tool": "text",
+              "type": "1.2x + 3 = 0.2x + 8 ; x + 3 = 8 ; x = 5"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 6: Undo It"
+    },
+    {
+      "id": "g8-alg-d09-decimals-in-equations",
+      "title": "Decimals and Fractions in Equations",
+      "label": "Day 9",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "Decimal and fraction coefficients use the same undoing. Dividing by 0.5 is doubling; dividing by 4 undoes x/4.",
+      "topic": "alg",
+      "keywords": "equation, decimal coefficient, undo, divide by 0.5, x/4, check",
+      "curriculum": [
+        "C2.3"
+      ],
+      "watchFor": [
+        "Halving instead of doubling for 0.5x = 4: ask \"Half of what is 4?\"",
+        "Undoing x/4 by dividing: ask \"What undoes dividing by 4?\"",
+        "Decimal slips: ask \"Check: put it back in. Does it work?\""
+      ],
+      "wrapUp": "Ask \"What undoes × 0.5? What undoes ÷ 4?\" Land: dividing by 0.5 is doubling; multiplying by 4 undoes ÷ 4. The order of undoing is the same as always.",
+      "problems": [
+        {
+          "q": "0.5x = 4",
+          "a": "x = 8",
+          "notes": "Look for: half of what is 4? Ask: \"What undoes × 0.5?\" Model: text 0.5x = 4 ; x = 4 ÷ 0.5 = 8",
+          "responses": [
+            {
+              "say": "x = 8: half of 8 is 4.",
+              "tool": "text",
+              "type": "0.5x = 4 ; x = 4 ÷ 0.5 = 8"
+            },
+            {
+              "say": "x = 2",
+              "tool": "text",
+              "type": "0.5x = 4 ; x = 2 ?",
+              "tip": "Halved. Ask: is half of 2 equal to 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "0.5x + 3 = 7",
+          "a": "x = 8",
+          "notes": "Look for: 0.5x = 4. Ask: \"How does the last one help?\" Model: text 0.5x = 7 - 3 = 4 ; x = 8",
+          "responses": [
+            {
+              "say": "0.5x = 4, x = 8.",
+              "tool": "text",
+              "type": "0.5x = 7 - 3 = 4 ; x = 8"
+            }
+          ]
+        },
+        {
+          "q": "x/4 + 3 = 5",
+          "a": "x = 8",
+          "notes": "Look for: x/4 = 2, x = 8. Ask: \"What undoes ÷ 4?\" Model: text x/4 = 5 - 3 = 2 ; x = 2 x 4 = 8",
+          "responses": [
+            {
+              "say": "x/4 = 2, so x = 8.",
+              "tool": "text",
+              "type": "x/4 = 5 - 3 = 2 ; x = 2 x 4 = 8"
+            },
+            {
+              "say": "x = 0.5",
+              "tool": "text",
+              "type": "x/4 = 2 ; x = 2 ÷ 4 = 0.5 ?",
+              "tip": "Divided again. Ask: what undoes dividing by 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "1.2x - 0.4 = 2",
+          "a": "x = 2",
+          "notes": "Look for: 1.2x = 2.4. Ask: \"What undoes it?\" Model: text 1.2x = 2 + 0.4 = 2.4 ; x = 2",
+          "responses": [
+            {
+              "say": "1.2x = 2.4, x = 2.",
+              "tool": "text",
+              "type": "1.2x = 2 + 0.4 = 2.4 ; x = 2"
+            }
+          ]
+        },
+        {
+          "q": "0.25x + 1.5 = 4",
+          "a": "x = 10",
+          "notes": "Look for: 0.25x = 2.5, a quarter of x. Ask: \"What undoes it?\" Model: text 0.25x = 2.5 ; x = 2.5 x 4 = 10",
+          "responses": [
+            {
+              "say": "A quarter of x is 2.5, so x = 10.",
+              "tool": "text",
+              "type": "0.25x = 2.5 ; x = 2.5 x 4 = 10"
+            }
+          ]
+        },
+        {
+          "q": "2.5x - 1.5 = 8.5",
+          "a": "x = 4",
+          "notes": "Look for: 2.5x = 10. Ask: \"What undoes it?\" Model: text 2.5x = 8.5 + 1.5 = 10 ; x = 4",
+          "responses": [
+            {
+              "say": "2.5x = 10, x = 4.",
+              "tool": "text",
+              "type": "2.5x = 8.5 + 1.5 = 10 ; x = 4"
+            }
+          ]
+        },
+        {
+          "q": "x/5 - 1 = 3",
+          "a": "x = 20",
+          "notes": "Look for: x/5 = 4. Ask: \"What undoes it?\" Model: text x/5 = 4 ; x = 20",
+          "optional": true,
+          "responses": [
+            {
+              "say": "x = 20.",
+              "tool": "text",
+              "type": "x/5 = 4 ; x = 20"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 8: Variables on Both Sides"
+    },
+    {
+      "id": "g8-alg-d10-inequalities",
+      "title": "Solving Inequalities",
+      "label": "Day 10",
+      "group": "Grade 8 · Unit 4 · Patterns and Algebra",
+      "tool": "text",
+      "strategy": "Solve an inequality like an equation, then the answer is a range of values. Check with a value inside the range and one outside.",
+      "topic": "alg",
+      "keywords": "inequality, greater than, less than, at most, at least, range, check",
+      "curriculum": [
+        "C2.4"
+      ],
+      "watchFor": [
+        "Writing x = 6 instead of x > 6: ask \"Is 6 the only value that works? What about 7?\"",
+        "Mixing up < and >: ask \"Try x = 10. Is it true?\"",
+        "Dividing by a negative and keeping the sign (−2x > 8 → x > −4): ask \"Try x = 0. Is −2(0) > 8?\""
+      ],
+      "wrapUp": "Ask \"How do you know your range is right?\" Land: solve like an equation, then test one value inside the range and one outside. If you divide by a negative, the inequality flips.",
+      "problems": [
+        {
+          "q": "x + 4 > 10",
+          "a": "x > 6",
+          "notes": "Look for: take 4 from both sides. Ask: \"Is 6 the only answer?\" Word choice: \"greater than\". Model: text x + 4 > 10 ; x > 6 ; check x = 7: 11 > 10",
+          "responses": [
+            {
+              "say": "x > 6. Check: 7 + 4 = 11 > 10.",
+              "tool": "text",
+              "type": "x + 4 > 10 ; x > 6 ; check x = 7: 11 > 10"
+            },
+            {
+              "say": "x = 6",
+              "tool": "text",
+              "type": "x + 4 > 10 ; x = 6 ?",
+              "tip": "Ask: is 6 + 4 > 10? Is 7 + 4?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "3x > 18",
+          "a": "x > 6",
+          "notes": "Look for: divide by 3. Ask: \"Which values work? Try one.\" Model: text 3x > 18 ; x > 6",
+          "responses": [
+            {
+              "say": "x > 6.",
+              "tool": "text",
+              "type": "3x > 18 ; x > 6"
+            }
+          ]
+        },
+        {
+          "q": "3x + 5 > 20",
+          "a": "x > 5",
+          "notes": "Look for: 3x > 15. Ask: \"Same steps as an equation?\" Model: text 3x + 5 > 20 ; 3x > 15 ; x > 5",
+          "responses": [
+            {
+              "say": "x > 5.",
+              "tool": "text",
+              "type": "3x + 5 > 20 ; 3x > 15 ; x > 5",
+              "tip": "Like Day 6, with >."
+            }
+          ]
+        },
+        {
+          "q": "2x - 3 ≤ 11",
+          "a": "x ≤ 7",
+          "notes": "Look for: 2x ≤ 14. Ask: \"Is 7 included?\" Model: text 2x - 3 ≤ 11 ; 2x ≤ 14 ; x ≤ 7",
+          "responses": [
+            {
+              "say": "x ≤ 7. 7 works: 2(7) − 3 = 11.",
+              "tool": "text",
+              "type": "2x - 3 ≤ 11 ; 2x ≤ 14 ; x ≤ 7"
+            },
+            {
+              "say": "x < 7",
+              "tool": "text",
+              "type": "x < 7 ?",
+              "tip": "Ask: does x = 7 make 2x − 3 ≤ 11 true?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "4x + 1 ≥ -7",
+          "a": "x ≥ -2",
+          "notes": "Look for: 4x ≥ −8. Ask: \"Which values work? Try one.\" Model: text 4x + 1 ≥ -7 ; 4x ≥ -8 ; x ≥ -2",
+          "responses": [
+            {
+              "say": "x ≥ −2.",
+              "tool": "text",
+              "type": "4x + 1 ≥ -7 ; 4x ≥ -8 ; x ≥ -2"
+            }
+          ]
+        },
+        {
+          "q": "5 + 2x < 2",
+          "a": "x < -1.5",
+          "notes": "Look for: 2x < −3. Ask: \"Which values work? Try one.\" Model: text 5 + 2x < 2 ; 2x < -3 ; x < -1.5",
+          "responses": [
+            {
+              "say": "x < −1.5. Check x = −2: 5 − 4 = 1 < 2.",
+              "tool": "text",
+              "type": "5 + 2x < 2 ; 2x < -3 ; x < -1.5"
+            }
+          ]
+        },
+        {
+          "q": "-2x > 8",
+          "a": "x < -4",
+          "notes": "Look for: dividing by −2 flips it. Ask: \"Try x = 0. Is it true?\" Model: text -2x > 8 ; x < -4 ; check x = -5: 10 > 8",
+          "optional": true,
+          "responses": [
+            {
+              "say": "x < −4. Check x = −5: 10 > 8.",
+              "tool": "text",
+              "type": "-2x > 8 ; x < -4 ; check x = -5: 10 > 8",
+              "tip": "Dividing by a negative flips the sign."
+            },
+            {
+              "say": "x > -4",
+              "tool": "text",
+              "type": "-2x > 8 ; x > -4 ?",
+              "tip": "Ask: try x = 0. Is −2(0) > 8?",
+              "kind": "error"
+            }
+          ]
+        }
+      ],
+      "connection": "Day 6: Undo It"
+    }
+  ]
+}
