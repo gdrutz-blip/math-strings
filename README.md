@@ -4,7 +4,7 @@ An easy number-strings board for Grades 4–8 math. Show one problem at a time, 
 record student answers (even wrong ones), and model their thinking with an open number line,
 ratio table, area model, array, double number line, clock, bar model, integer tiles, or the student's own words.
 Earlier problems stay visible, shrunk down in the column on the left. Teachers pick their grade and a topic,
-and the app keeps track of which strings they've done (✓), their favourites (★) and strings to try (📌).
+and the app keeps track of which strings they've done (✓).
 
 Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and JavaScript; GitHub Pages publishes it on every push (`.github/workflows/pages.yml`), after `build.js` combines the `strings/` files.
 
@@ -21,11 +21,9 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 
 ## Adding strings
 
-1. **Quick way:** in the app click **Import** and drop in a `.json` file (from Claude or from **Export** on
+1. **Quick way:** in the app open **☰ More → Import** and drop in a `.json` file (from Claude or from **Export** on
    another computer), or paste a plain list.
-2. **Share with a colleague:** open a string's **Edit** page (or its practice card) and click **🔗 Share**. The link
-   carries the whole string; whoever opens it can add it to their library. Nothing is uploaded.
-3. **Permanent way:** on GitHub, open the `strings` folder → **Add file** → **Upload files**, and drop in the
+2. **Permanent way:** on GitHub, open the `strings` folder → **Add file** → **Upload files**, and drop in the
    week's `.json` file. The site republishes in a minute or two and every computer picks it up.
    Uploading a file with the same name replaces it.
 
@@ -65,7 +63,7 @@ bottom of the library brings it back.
 ## Keyboard (while presenting)
 
 `→` / Space / `N` / Page Down next · `←` / Page Up back · `T` timer · `R` random name · `A` add answer ·
-`Y` try a likely response · `H` "the last one helped" (link problems) · `P` pen · `E` eraser · `Ctrl+Z` undo a stroke · `L` problem list · `O` whole-string overview ·
+`Y` try a likely response · `P` pen · `E` eraser · `Ctrl+Z` undo a stroke · `L` problem list · `O` whole-string overview ·
 `Enter` finish a model · `Esc` stop typing/drawing · `?` help
 
 Number keys add a model (shown on each tool button): `1` Number line · `2` Double number line · `3` Area model · `4` Array ·
