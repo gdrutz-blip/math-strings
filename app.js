@@ -720,12 +720,12 @@ Rules:
     title: 'Number strings PD · Grades 4–6',
     // exit: the session's 2-minute exit ticket (a Google Form); add the link when it's ready
     sessions: [
-      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'Get to know the app, try a string, and plan your first week.',
+      { date: 'December 4, 2026', name: 'Session 1 · Launch', what: 'See what our students showed us, why additive reasoning matters, and get to know the app.',
         exit: 'https://docs.google.com/forms/d/e/1FAIpQLSdXow8jntjSn6yRDTUD6A0KwChNpLafDdQLNnyhr6y7Fr60Lg/viewform',
-        plan: [['5 min', 'We run a short string together, and you\'re the students.'],
-          ['10 min', 'A tour of the app: finding your grade\'s six weeks, presenting a string, adding models, and pressing Try to see what students might say.'],
-          ['10 min', 'With a partner, open your grade\'s Week 1 practice card. One of you runs a string and the other answers, then switch.'],
-          ['5 min', 'Pick your days for Week 1, then the exit ticket.']] },
+        plan: [['5 min', 'What our students showed us: Sheryl shares the results of the common task.'],
+          ['5 min', 'Why additive reasoning: the two meanings of subtraction, the Big 4, and what each model shows.'],
+          ['5 min', 'A string on the whiteboard with you as the students, then the same string in the app.'],
+          ['15 min', 'Explore the app: open your grade\'s Week 1, present a string to a partner, and press Try to see what students might say. Then the exit ticket.']] },
       { date: 'February 1, 2027', name: 'Session 2 · Reflect', what: 'Compare your class\'s two common tasks, then plan your next strings in the app.', exit: '',
         plan: [['15 min', 'In small groups, put your December and January tasks side by side. What changed in how students model? More strategies? More number lines?'],
           ['10 min', 'Back in the app: plan what comes next for your class.'],
@@ -780,7 +780,7 @@ Rules:
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
           <li><b>Before December 4:</b> your class does the common task.</li>
-          <li><b>December 4, Session 1:</b> we look at the app together and plan your first week.</li>
+          <li><b>December 4, Session 1:</b> we look at the results, talk about why additive reasoning matters, and get to know the app.</li>
           <li><b>Six weeks of strings,</b> two before the winter break and four in January. Aim for 2–3 strings a week, 10–15 minutes each.</li>
           <li><b>Last week of January:</b> your class does the same common task again.</li>
           <li><b>February 1, Session 2:</b> we compare the two tasks and plan what's next.</li>
