@@ -144,8 +144,7 @@
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
     if (view === 'card' && id) return teacherCard(decodeURIComponent(id));
     if (view === 'runs') return runsPage(id ? decodeURIComponent(id) : null);
-    if (view === 'share' && id) return sharePage(id);
-    if (view === 'run' && id) return runPage(decodeURIComponent(id), id2 ? decodeURIComponent(id2) : null);
+    if (view === 'run' && id) return runPage(decodeURIComponent(id));
     if (view === 'grade') { gradeFilter = id ? decodeURIComponent(id) : 'all'; store.set('grade', gradeFilter); }
     if (view === 'edit' && id) return editor(decodeURIComponent(id));
     libraryView();
@@ -252,7 +251,7 @@
   const currBadges = (grade, codes) => codes.length ? `<span class="curr">${codes.map(c => `<span class="cbadge" title="${esc(grade ? `Grade ${grade} ${c}: ${expectText(grade, c) || 'Ontario Mathematics, Number strand'}` : c)}">${esc(c)}</span>`).join('')}</span>` : '';
   const unitCodes = list => [...new Set(list.flatMap(currOf))].sort(codeSort);
 
-  // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...], fav: true, todo: true } }
+  // Your own progress, kept in this browser: { id: { done: ['2026-11-17', ...] } }
   const track = store.get('track', {});
   Object.entries(RENAMED).forEach(([a, b]) => { if (track[a]) { if (!track[b]) track[b] = track[a]; delete track[a]; store.set('track', track); } });
   const T_ = id => track[id] || {};
@@ -266,14 +265,14 @@
   function markDone(id) {
     const d = (T_(id).done || []).slice();
     if (d[d.length - 1] !== today()) d.push(today());
-    setTrack(id, { done: d, todo: false });
+    setTrack(id, { done: d });
   }
   function mergeTrack(other) {
     Object.entries(other || {}).forEach(([id, t]) => {
       if (!t || typeof t !== 'object') return;
       const mine = T_(id);
       const done = [...new Set([...(mine.done || []), ...(Array.isArray(t.done) ? t.done : [])])].sort();
-      setTrack(id, { done, fav: mine.fav || !!t.fav, todo: (mine.todo || !!t.todo) && !done.length });
+      setTrack(id, { done });
     });
   }
   // Saved runs: a dated copy of a string as it was run in class (answers and models), kept in this browser.
@@ -287,7 +286,7 @@
     runs.sort((a, b) => (b.at || 0) - (a.at || 0)); setRuns(runs); return n;
   }
   let topicFilter = store.get('topic', 'all');
-  let listFilter = 'all';
+  let listFilter = 'all', filtersOpen = false;
   function libraryView() {
     document.title = 'Math Strings';
     const q = searchText.toLowerCase();
@@ -299,12 +298,13 @@
     if (topicFilter !== 'all' && !topicsHere.some(t => t.id === topicFilter)) topicFilter = 'all';
     const inTopic = inGrade.filter(s => topicFilter === 'all' || topicOf(s) === topicFilter);
     const LISTS = [
-      { id: 'fav', name: '★ Favourites', test: s => T_(s.id).fav, empty: 'No favourites here yet. Tap ☆ on any string to add it.' },
-      { id: 'todo', name: '📌 To try', test: s => T_(s.id).todo, empty: 'Nothing on your To try list here yet. Tap 📌 on a string you want to try later.' },
+      { id: 'new', name: 'Not done yet', test: s => !isDone(s.id), empty: 'You have done every string here. 🎉' },
       { id: 'done', name: '✓ Done', test: s => isDone(s.id), empty: 'No strings done here yet. A string is marked done when you press Finish at the end (or tap ✓ on its card).' },
-      { id: 'new', name: '○ Not tried yet', test: s => !isDone(s.id), empty: 'You have tried every string here. 🎉' },
     ];
+    const tf = topicsHere.find(t => t.id === topicFilter);
     const lf = LISTS.find(l => l.id === listFilter);
+    const filtering = (topicFilter !== 'all' && tf) || lf;
+
     const list = inTopic.filter(s => (!lf || lf.test(s)) && (!q || [s.title, s.label, s.group, s.strategy, ...currOf(s), ...s.problems.map(p => p.q)].join(' ').toLowerCase().includes(q)));
     const groups = [];
     list.forEach(s => { const g = s.group || 'Other strings'; let G = groups.find(x => x.name === g); if (!G) groups.push(G = { name: g, items: [] }); G.items.push(s); });
@@ -321,42 +321,57 @@
             <div><h1>Math Strings</h1><small>${library.length} string${library.length === 1 ? '' : 's'} in your library</small></div>
           </div>
           <div class="lib-tools">
-            <button class="btn primary" data-act="new">＋ New string</button>
-            <button class="btn" data-act="quick" title="Make up problems as you go">⚡ Quick board</button>
-            <button class="btn" data-act="import">⤓ Import</button>
-            <button class="btn" data-act="export">⤒ Export</button>
-            <button class="btn" data-act="classes">🎲 Classes</button>
-            <a class="btn" href="#/runs" title="Strings you've run in class, saved when you press Finish">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''}</a>
-            <button class="btn ghost" data-act="settings" title="Settings">⚙︎</button>
             <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and a suggested six weeks of strings">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
-            <button class="btn ghost" data-act="help" title="Help">?</button>
+            <details class="menu-wrap"><summary class="btn" title="More: new strings, quick board, saved runs, settings">☰ More</summary>
+              <div class="menu">
+                <button data-act="new">＋ New string</button>
+                <button data-act="quick">⚡ Quick board <small>make up problems as you go</small></button>
+                <a href="#/runs">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''} <small>strings you've finished in class</small></a>
+                <button data-act="classes">🎲 Class lists <small>names for the random picker</small></button>
+                <button data-act="settings">⚙︎ Settings</button>
+                <button data-act="help">⌨ Keyboard shortcuts</button>
+                <hr>
+                <button data-act="export">⤒ Export <small>back up, or move to another computer</small></button>
+                <button data-act="import">⤓ Import</button>
+              </div>
+            </details>
           </div>
         </div>
         ${store.get('welcomed', false) ? '' : `<div class="welcome"><div><b>Welcome!</b> New to Math Strings? Take 2 minutes with the quick guide before your first string.</div><div class="welcome-btns"><a class="btn primary" href="#/start" data-act="seen">Show me how</a><button class="btn ghost" data-act="dismiss">Hide</button></div></div>`}
         ${askGrade ? `<div class="askgrade"><div><b>Which grade do you teach?</b> We'll show your grade's strings first. You can switch grades any time.</div>
           <div class="grade-chips">${grades.map(g => `<button class="gchip big" data-act="grade" data-g="${esc(g)}">Grade ${esc(g)}</button>`).join('')}<button class="gchip" data-act="grade" data-g="all">Show all grades</button></div></div>` : ''}
         <div class="filters">
-          ${grades.length > 1 ? `<div class="frow"><span class="flabel">Grade</span><div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}<a class="gchip pdchip" href="#/pd${gradeFilter !== 'all' ? '/' + encodeURIComponent(gradeFilter) : ''}">🎓 PD</a></div></div>` : ''}
-          ${topicsHere.length > 1 ? `<div class="frow"><span class="flabel">Topic</span><div class="grade-chips" role="group" aria-label="Show topic">${[{ id: 'all', name: 'All topics' }, ...topicsHere].map(t => `<button class="gchip tchip${t.id === topicFilter ? ' on' : ''}" data-act="topic" data-t="${t.id}">${t.icon ? `<span class="ticon">${esc(t.icon)}</span>` : ''}${esc(t.name)}</button>`).join('')}</div></div>` : ''}
-          <div class="frow"><span class="flabel">Show</span><div class="grade-chips" role="group" aria-label="Show list">${[{ id: 'all', name: 'Everything' }, ...LISTS].map(l => { const n = l.test ? inTopic.filter(l.test).length : inTopic.length; return `<button class="gchip lchip${l.id === listFilter ? ' on' : ''}" data-act="list" data-l="${l.id}">${esc(l.name)} <span class="cnt">${n}</span></button>`; }).join('')}</div>
-            <input id="search" placeholder="Search, e.g. “percent” or “38 +”" value="${esc(searchText)}"></div>
+          ${grades.length > 1 ? `<div class="frow"><span class="flabel">Grade</span><div class="grade-chips" role="group" aria-label="Show grade">${['all', ...grades].map(g => `<button class="gchip${g === gradeFilter ? ' on' : ''}" data-act="grade" data-g="${esc(g)}">${g === 'all' ? 'All grades' : 'Grade ' + esc(g)}</button>`).join('')}</div></div>` : ''}
+          <div class="frow">
+            <input id="search" placeholder="Search, e.g. “percent” or “38 +”" value="${esc(searchText)}">
+            <button class="btn${filtersOpen || filtering ? ' on' : ''}" data-act="filters" aria-expanded="${filtersOpen}">⚙ Filter${filtering ? ': ' + esc([tf && topicFilter !== 'all' ? tf.name : '', lf ? lf.name : ''].filter(Boolean).join(' · ')) : ''}</button>
+            ${filtering ? '<button class="btn ghost small" data-act="clearf">✕ Clear</button>' : ''}
+          </div>
+          ${filtersOpen ? `<div class="fpanel">
+            ${topicsHere.length > 1 ? `<div class="frow"><span class="flabel">Topic</span><div class="grade-chips" role="group" aria-label="Show topic">${[{ id: 'all', name: 'All topics' }, ...topicsHere].map(t => `<button class="gchip tchip${t.id === topicFilter ? ' on' : ''}" data-act="topic" data-t="${t.id}">${t.icon ? `<span class="ticon">${esc(t.icon)}</span>` : ''}${esc(t.name)}</button>`).join('')}</div></div>` : ''}
+            <div class="frow"><span class="flabel">Show</span><div class="grade-chips" role="group" aria-label="Show list">${[{ id: 'all', name: 'Everything' }, ...LISTS].map(l => { const n = l.test ? inTopic.filter(l.test).length : inTopic.length; return `<button class="gchip lchip${l.id === listFilter ? ' on' : ''}" data-act="list" data-l="${l.id}">${esc(l.name)} <span class="cnt">${n}</span></button>`; }).join('')}</div></div>
+          </div>` : ''}
         </div>
         <div id="groups">
           ${groups.length ? groups.map(G => { const pr = unitProgress(G.name); return `
             <div class="group-title"><span>${esc(G.name)}</span>${currBadges(gradeOf(G.items[0]), unitCodes(library.filter(x => (x.group || 'Other strings') === G.name)))}${pr.of > 1 ? `<span class="unit-prog${pr.n === pr.of ? ' all' : ''}" title="Strings you've done in this unit"><span class="bar"><span style="width:${Math.round(100 * pr.n / pr.of)}%"></span></span>${pr.n} of ${pr.of} done</span>` : ''}</div>
             <div class="cards">${G.items.map(cardHTML).join('')}</div>`; }).join('')
-            : `<div class="empty">${!library.length ? 'Your library is empty. Click <b>New string</b> or <b>Import</b> to add some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
+            : `<div class="empty">${!library.length ? 'Your library is empty. Use <b>☰ More</b> to add a new string or import some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
         <a class="guide-card" href="#/start"><span class="gc-ico">📘</span><span><b>New to number strings or this site?</b><br>Read the 5-minute getting started guide: what to do before class, the routine in class, and how to type models.</span><span class="gc-go">Open guide →</span></a>
         ${bundled.some(b => deleted.has(b.id)) ? `<div class="lib-foot"><button class="btn small ghost" data-act="unhide">↺ Show hidden strings (${bundled.filter(b => deleted.has(b.id)).length})</button></div>` : ''}
-        <div class="lib-foot">Your edits, ★ favourites, 📌 To try list and ✓ progress are saved in this browser. Use <b>Export</b> to take them to another computer.</div>
+        <div class="lib-foot">Your ✓ progress and any edits are saved in this browser. To move them to another computer, use <b>☰ More → Export</b>.</div>
       </div>`;
     const search = $('#search');
     search.oninput = () => { searchText = search.value; const pos = search.selectionStart; libraryView(); const s2 = $('#search'); s2.focus(); s2.setSelectionRange(pos, pos); };
     app.onclick = e => {
+      $$('details.menu-wrap[open]', app).forEach(d => { if (!d.contains(e.target)) d.open = false; });
       const b = e.target.closest('[data-act]'); if (!b) return;
       const id = b.dataset.id, act = b.dataset.act;
+      if (b.closest('details.menu-wrap')) b.closest('details.menu-wrap').open = false;
+      if (act === 'filters') { filtersOpen = !filtersOpen; libraryView(); }
+      if (act === 'clearf') { topicFilter = 'all'; store.set('topic', 'all'); listFilter = 'all'; libraryView(); }
       if (act === 'new') { const s = normalizeString({ title: 'New string', problems: [{ q: '', a: '' }] }); s._edited = true; library.unshift(s); saveLibrary(); go('edit/' + encodeURIComponent(s.id)); }
       if (act === 'quick') go('quick');
       if (act === 'import') importModal();
@@ -369,8 +384,6 @@
       if (act === 'grade') { gradeFilter = b.dataset.g; store.set('grade', gradeFilter); history.replaceState(null, '', gradeFilter === 'all' ? '#/' : '#/grade/' + encodeURIComponent(gradeFilter)); libraryView(); }
       if (act === 'topic') { topicFilter = b.dataset.t; store.set('topic', topicFilter); libraryView(); }
       if (act === 'list') { listFilter = b.dataset.l; libraryView(); }
-      if (act === 'fav') { const on = !T_(id).fav; setTrack(id, { fav: on }); libraryView(); toast(on ? '★ Added to Favourites' : 'Removed from Favourites'); }
-      if (act === 'todo') { const on = !T_(id).todo; setTrack(id, { todo: on }); libraryView(); toast(on ? '📌 Added to your To try list' : 'Removed from To try'); }
       if (act === 'done') {
         if (isDone(id)) { if (confirm('Clear the ✓ done record for this string?')) { setTrack(id, { done: [] }); libraryView(); } }
         else { markDone(id); libraryView(); toast('✓ Marked as done'); }
@@ -395,19 +408,24 @@
     const t = T_(s.id), done = t.done || [];
     return `<div class="card${done.length ? ' is-done' : ''}">
       <div class="card-top">${s.label ? `<span class="card-label">${esc(s.label)}</span>` : ''}<h3>${esc(s.title)}</h3>
-        <span class="marks"><button class="mark${t.todo ? ' on todo' : ''}" data-act="todo" data-id="${esc(s.id)}" title="${t.todo ? 'On your To try list (click to remove)' : 'Add to your To try list'}" aria-pressed="${!!t.todo}">📌</button><button class="mark${t.fav ? ' on fav' : ''}" data-act="fav" data-id="${esc(s.id)}" title="${t.fav ? 'Favourite (click to remove)' : 'Add to Favourites'}" aria-pressed="${!!t.fav}">${t.fav ? '★' : '☆'}</button><button class="mark donemark${done.length ? ' on' : ''}" data-act="done" data-id="${esc(s.id)}" title="${done.length ? 'Done (click to clear)' : 'Mark as done'}" aria-pressed="${!!done.length}">✓</button></span></div>
+        <span class="marks"><button class="mark donemark${done.length ? ' on' : ''}" data-act="done" data-id="${esc(s.id)}" title="${done.length ? 'Done (click to clear)' : 'Mark as done'}" aria-pressed="${!!done.length}">✓</button></span></div>
       ${newer ? `<div class="site-newer"><span>🔄 <b>Updated on the website</b> since you edited your copy.</span><span class="sn-btns"><button class="btn small primary" data-act="revert" data-id="${esc(s.id)}">Use website version</button><button class="btn small ghost" data-act="keepmine" data-id="${esc(s.id)}">Keep mine</button></span></div>` : ''}
       ${done.length ? `<div class="done-line">✓ Done ${esc(shortDate(done[done.length - 1]))}${done.length > 1 ? ` · ${done.length} times` : ''}${(n => n ? ` · <a href="#/runs/${encodeURIComponent(s.id)}">${n} saved run${n === 1 ? '' : 's'}</a>` : '')(runsOf(s.id).length)}</div>` : ''}
       ${s.strategy ? `<p class="strategy">${esc(s.strategy)}</p>` : ''}
       <div class="chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}" title="${p.optional ? 'Optional' : ''}">${esc(p.q.replace(/-/g, '−'))}</span>`).join('')}</div>
       <div class="card-actions">
         <button class="btn primary" data-act="present" data-id="${esc(s.id)}">▶ Present</button>
-        <button class="btn" data-act="edit" data-id="${esc(s.id)}">Edit</button>
-        ${s.problems.some(p => p.responses) ? `<button class="btn ghost" data-act="practice" data-id="${esc(s.id)}" title="Printable card of likely student responses and what to type">📝 Practice</button>` : ''}
+        <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to read before class">🗒 Teacher card</a>
         <span class="spacer"></span>
-        ${edited && !newer ? `<button class="icon-btn" data-act="revert" data-id="${esc(s.id)}" title="You've edited this string. Click to go back to the website version.">↺</button>` : ''}
-        <button class="icon-btn" data-act="dup" data-id="${esc(s.id)}" title="Duplicate">⧉</button>
-        <button class="icon-btn" data-act="del" data-id="${esc(s.id)}" title="${site ? 'Hide from my library (you can bring it back)' : 'Delete'}">🗑</button>
+        <details class="menu-wrap card-more"><summary class="icon-btn" title="More for this string">⋯</summary>
+          <div class="menu">
+            ${s.problems.some(p => p.responses) ? `<button data-act="practice" data-id="${esc(s.id)}">📝 Practice card <small>likely student answers, and a board to practise on</small></button>` : ''}
+            <button data-act="edit" data-id="${esc(s.id)}">✏️ Edit</button>
+            <button data-act="dup" data-id="${esc(s.id)}">⧉ Make a copy</button>
+            ${edited && !newer ? `<button data-act="revert" data-id="${esc(s.id)}">↺ Go back to the website version</button>` : ''}
+            <button data-act="del" data-id="${esc(s.id)}">🗑 ${site ? 'Hide from my library' : 'Delete'}</button>
+          </div>
+        </details>
       </div>
     </div>`;
   }
@@ -428,7 +446,6 @@
           <h2>Edit string</h2>
           <span class="saved" id="saved">✓ Saved</span>
           <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a>
-          <button class="btn" data-act="share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
           <button class="btn primary" data-act="present">▶ Present</button>
         </div>
         <div class="panel">
@@ -509,7 +526,6 @@
       const row = b.closest('.prob-row'), i = row ? +row.dataset.i : -1, P = s.problems;
       switch (b.dataset.act) {
         case 'back': go(''); return;
-        case 'share': saveLibrary(); shareString(s); return;
         case 'present': saveLibrary(); go('present/' + encodeURIComponent(s.id)); return;
         case 'add': P.push({ q: '', a: '', optional: false, notes: '' }); save(); render(); $$('.prob-row input.q').pop().focus(); return;
         case 'rm': P.splice(i, 1); save(); render(); return;
@@ -662,7 +678,6 @@ Rules:
         <span style="flex:1"></span>
         <button class="btn" onclick="window.print()">🖨 Print</button>
         <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to keep beside you">🗒 Teacher card</a>
-        <button class="btn" id="pt-share" title="Copy a link that adds this string to a colleague's library">🔗 Share</button>
         <button class="btn${split ? ' on' : ''}" id="pt-board" title="Practise beside a board: nothing you do there is saved">🧪 ${split ? 'Hide practice board' : 'Practise here'}</button>
         <a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present this string</a>
       </div>
@@ -678,7 +693,6 @@ Rules:
         </section>`).join('')}
       ${s.wrapUp ? `<section class="panel"><h2>Wrap-up</h2><p>${esc(s.wrapUp)}</p></section>` : ''}
     </div>${split ? `<div class="pt-boardpane no-print"><div class="pt-boardhead">🧪 <b>Practice board</b> · nothing here is saved or marked done. Use <b>▶ Draw it</b> on the card, or type your own.</div><iframe id="pt-frame" title="Practice board" src="${esc(location.pathname + '#/present/' + encodeURIComponent(s.id) + '/practice')}"></iframe></div>` : ''}</div>`;
-    { const sb = $('#pt-share'); if (sb) sb.onclick = () => shareString(s); }
     { const pb = $('#pt-board'); if (pb) pb.onclick = () => {
       if (innerWidth < 1000) { window.open(location.pathname + '#/present/' + encodeURIComponent(s.id) + '/practice', '_blank'); return; } // small screens: the board opens in its own tab
       store.set('practiceSplit', !split); practicePage(id);
@@ -810,77 +824,12 @@ Rules:
     window.scrollTo(0, 0);
   }
 
-  /* ================= share a string by link ================= */
-  // The string is packed into the link itself (after #), so nothing is uploaded anywhere.
-  const b64url = bytes => { let bin = ''; bytes.forEach(b => (bin += String.fromCharCode(b))); return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
-  const unb64url = str => Uint8Array.from(atob(str.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
-  const streamBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
-  async function packString(s) {
-    const bytes = new TextEncoder().encode(JSON.stringify(clean(s)));
-    if (window.CompressionStream) { try { return 'z' + b64url(await streamBytes(bytes, new CompressionStream('deflate-raw'))); } catch (e) { /* fall through */ } }
-    return 'j' + b64url(bytes);
-  }
-  async function unpackString(code) {
-    let bytes = unb64url(code.slice(1));
-    if (code[0] === 'z') bytes = await streamBytes(bytes, new DecompressionStream('deflate-raw'));
-    else if (code[0] !== 'j') throw new Error('unknown');
-    return JSON.parse(new TextDecoder().decode(bytes));
-  }
-  async function shareString(s) {
-    const url = location.origin + location.pathname + '#/share/' + await packString(s);
-    let copied = false;
-    try { await navigator.clipboard.writeText(url); copied = true; } catch (e) { /* show it instead */ }
-    modal('Share this string', `
-      <p style="margin-top:0">${copied ? '<b>✓ Link copied.</b> Paste it in an email or chat.' : 'Copy this link and paste it in an email or chat.'} Anyone who opens it can add <b>${esc(s.title)}</b> to their own library. Nothing is uploaded: the whole string is inside the link.</p>
-      <textarea id="share-url" rows="4" readonly style="width:100%;font-size:13px">${esc(url)}</textarea>`,
-      [{ label: 'Copy link', primary: true, run: () => { const t = $('#share-url'); t.select(); try { navigator.clipboard.writeText(t.value); } catch (e) { document.execCommand('copy'); } toast('Link copied'); } }]);
-    const t = $('#share-url'); if (t) { t.focus(); t.select(); }
-  }
-  async function sharePage(code) {
-    document.title = 'Shared string · Math Strings';
-    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
-    let s;
-    try { if (code.length > 300000) throw new Error('too long'); s = normalizeString(await unpackString(code)); if (!s.problems.length) throw new Error('empty'); }
-    catch (e) {
-      app.innerHTML = `<div class="guide"><div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div><h1>This link didn't work</h1><p class="lead">It may have been cut off when it was copied. Ask for the link again, or ask for an exported file and use <b>Import</b>.</p></div>`;
-      return;
-    }
-    const mine = findString(s.id), identical = mine && same(mine, s);
-    const g = gradeOf(s);
-    app.innerHTML = `
-    <div class="guide share-page">
-      <div class="ed-head"><a class="btn ghost" href="#/">← Library</a></div>
-      <div class="pd-eyebrow">Shared with you</div>
-      <h1>${s.label ? esc(s.label) + ' · ' : ''}${esc(s.title)}</h1>
-      <p class="run-sub">${esc(s.group || '')} ${currBadges(g, currOf(s))}</p>
-      ${s.strategy ? `<p class="lead">${esc(s.strategy)}</p>` : ''}
-      <div class="chips share-chips">${s.problems.map(p => `<span class="chip${p.optional ? ' opt' : ''}">${exprHTML(p.q)}</span>`).join('')}</div>
-      <p class="hint">${s.problems.length} problems${s.problems.some(p => p.responses) ? ' · with a practice card' : ''}${s.watchFor && s.watchFor.length ? ' · with teacher notes' : ''}.</p>
-      <div class="share-acts">
-        ${identical ? `<p><b>✓ You already have this string.</b></p><a class="btn primary" href="#/present/${encodeURIComponent(s.id)}">▶ Present it</a>`
-          : mine ? `<p>You already have a string called <b>${esc(mine.title)}</b> with the same id.</p><button class="btn primary" data-sh="replace">Replace mine with this one</button><button class="btn" data-sh="copy">Add as a separate copy</button>`
-          : `<button class="btn primary big" data-sh="add">＋ Add to my library</button>`}
-      </div>
-    </div>`;
-    app.onclick = e => {
-      const b = e.target.closest('[data-sh]'); if (!b) return;
-      const site = siteCopy(s.id);
-      if (b.dataset.sh === 'copy') { s.id = slug(s.title) + '-' + uid(); s.title += ' (shared)'; }
-      s._edited = !(site && same(site, s)); if (s._edited && site) s._siteSig = sig(site);
-      deleted.delete(s.id);
-      const i = library.findIndex(x => x.id === s.id);
-      if (i >= 0) library[i] = s; else library.unshift(s);
-      saveLibrary(); go(''); toast(`Added “${s.title}” to your library`);
-    };
-  }
-
   /* ================= saved runs ================= */
   const longDate = r => new Date(r.at || Date.now()).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
   const runName = r => `${r.label ? r.label + ' · ' : ''}${r.title}`;
   function runCardsHTML(r) {
     return r.problems.map(p => `<div class="ov-card run-card"><span class="rnum">${p.n}</span>
       <div class="ov-head"><span class="expr">${exprHTML(p.q) || '…'}</span><span class="eq-mark">${eqSym(p.q)}</span><span class="answers">${p.answers.map(a => `<span class="ans ${esc(a.mark || '')}">${exprHTML(a.t)}</span>`).join('') || '<span class="hint">no answers recorded</span>'}</span></div>
-      ${(p.links || []).map(n => `<span class="ov-link">↶ used #${n}</span>`).join('')}
       ${p.snap ? snapHTML(p.snap) : p.models.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, p.models.length)},minmax(0,1fr))">${p.models.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
     </div>`).join('');
   }
@@ -893,7 +842,7 @@ Rules:
     <div class="guide runs-page">
       <div class="ed-head no-print"><a class="btn ghost" href="#/">← Library</a><span style="flex:1"></span>${stringId ? '<a class="btn ghost" href="#/runs">All runs</a>' : ''}</div>
       <h1>🗂 My runs</h1>
-      <p class="lead">Every time you press <b>Finish</b> at the end of a string, a dated copy is saved here with every student answer and model. Open one to print it, save it as a PDF, or compare it with another run of the same string (December vs. March).</p>
+      <p class="lead">Every time you press <b>Finish</b> at the end of a string, a dated copy is saved here with every student answer and model. Open one to look back at it, or print it.</p>
       ${stringId && sFor ? `<p><b>Showing runs of ${esc(runName(sFor))}.</b></p>` : ''}
       ${runs.length ? `<div class="run-list">${runs.map(r => { const n = all.filter(x => x.id === r.id).length; return `
         <div class="run-row">
@@ -902,50 +851,36 @@ Rules:
           <span class="run-acts">${n > 1 ? `<a class="btn small ghost" href="#/runs/${encodeURIComponent(r.id)}" title="Every run of this string">${n} runs</a>` : ''}<a class="btn small" href="#/run/${encodeURIComponent(r.rid)}">Open</a></span>
         </div>`; }).join('')}</div>`
         : `<div class="empty">No saved runs ${stringId ? 'of this string ' : ''}yet. Present a string and press <b>Finish</b> at the end, or click <b>💾 Save run</b> at the wrap-up.</div>`}
-      <p class="hint">Runs are saved in this browser on this computer. <b>Export</b> (on the library page) includes them, so you can keep a copy or move them to another computer.</p>
+      <p class="hint">Runs are saved in this browser on this computer. <b>Export</b> (under ☰ More on the library page) includes them, so you can keep a copy or move them to another computer.</p>
     </div>`;
     window.scrollTo(0, 0);
   }
-  function runPage(rid, rid2) {
-    const all = getRuns(), r = all.find(x => x.rid === rid);
+  function runPage(rid) {
+    const r = getRuns().find(x => x.rid === rid);
     if (!r) return go('runs');
-    const other = rid2 && all.find(x => x.rid === rid2);
-    const sameString = all.filter(x => x.id === r.id && x.rid !== r.rid);
     document.title = runName(r) + ' · ' + longDate(r);
-    // in a comparison, the earlier run goes on the left
-    const [A, B] = other ? [r, other].sort((a, b) => (a.at || 0) - (b.at || 0)) : [r, null];
-    const n = Math.max(...[A, B].filter(Boolean).map(x => Math.max(0, ...x.problems.map(p => p.n))));
-    const byN = (x, k) => x.problems.find(p => p.n === k);
     app.onclick = app.oninput = app.onchange = app.onkeydown = null;
     app.innerHTML = `
-    <div class="guide run-page${B ? ' comparing' : ''}">
+    <div class="guide run-page">
       <div class="ed-head no-print">
         <a class="btn ghost" href="#/runs">← My runs</a><span style="flex:1"></span>
         <button class="btn" data-r="print">🖨 Print / save PDF</button>
         ${findString(r.id) ? `<a class="btn" href="#/present/${encodeURIComponent(r.id)}">▶ Present again</a>` : ''}
-        ${B ? '' : '<button class="icon-btn" data-r="del" title="Delete this run">🗑</button>'}
+        <button class="icon-btn" data-r="del" title="Delete this run">🗑</button>
       </div>
       <h1>${esc(runName(r))}</h1>
       <p class="run-sub">${esc(r.group || '')}</p>
-      ${B ? '' : `<div class="run-fields no-print">
+      <div class="run-fields no-print">
         <label class="field">Date<input value="${esc(longDate(r))}" disabled></label>
         <label class="field">Class<input id="rf-cls" value="${esc(r.cls || '')}" placeholder="e.g. 6B"></label>
         <label class="field grow">What did you notice?<input id="rf-note" value="${esc(r.note || '')}" placeholder="A quick note for yourself"></label>
       </div>
-      <p class="print-only"><b>${esc(longDate(r))}</b>${r.cls ? ` · ${esc(r.cls)}` : ''}${r.note ? `<br>${esc(r.note)}` : ''}</p>`}
-      ${sameString.length ? `<div class="compare-bar no-print"><label>Compare with another run of this string:
-        <select id="rf-compare"><option value="">Choose a run…</option>${sameString.map(x => `<option value="${esc(x.rid)}"${other && other.rid === x.rid ? ' selected' : ''}>${esc(longDate(x))}${x.cls ? ' · ' + esc(x.cls) : ''}</option>`).join('')}</select></label>
-        ${B ? `<a class="btn small ghost" href="#/run/${encodeURIComponent(r.rid)}">Stop comparing</a>` : ''}</div>` : ''}
-      ${B ? `<div class="cmp-grid">
-          ${[A, B].map(x => `<div class="cmp-head"><b>${esc(longDate(x))}</b>${x.cls ? ` · ${esc(x.cls)}` : ''}${x.note ? `<div class="cmp-note">“${esc(x.note)}”</div>` : ''}</div>`).join('')}
-          ${Array.from({ length: n }, (_, i) => i + 1).filter(k => byN(A, k) || byN(B, k)).map(k => [A, B].map(x => byN(x, k) ? runCardsHTML({ problems: [byN(x, k)] }) : '<div class="ov-card run-card cmp-missing">not reached</div>').join('')).join('')}
-        </div>`
-        : `<div class="overview run-over">${runCardsHTML(r)}</div>`}
-      ${!B && r.of && r.problems.length < r.of ? `<p class="hint">${r.problems.length} of ${r.of} problems were reached in this run.</p>` : ''}
+      <p class="print-only"><b>${esc(longDate(r))}</b>${r.cls ? ` · ${esc(r.cls)}` : ''}${r.note ? `<br>${esc(r.note)}` : ''}</p>
+      <div class="overview run-over">${runCardsHTML(r)}</div>
+      ${r.of && r.problems.length < r.of ? `<p class="hint">${r.problems.length} of ${r.of} problems were reached in this run.</p>` : ''}
     </div>`;
     const upd = (k, v) => { const runs = getRuns(), x = runs.find(y => y.rid === rid); if (x) { x[k] = v; setRuns(runs); } };
-    if ($('#rf-cls')) { $('#rf-cls').oninput = e => upd('cls', e.target.value); $('#rf-note').oninput = e => upd('note', e.target.value); }
-    if ($('#rf-compare')) $('#rf-compare').onchange = e => go(e.target.value ? `run/${encodeURIComponent(rid)}/${encodeURIComponent(e.target.value)}` : `run/${encodeURIComponent(rid)}`);
+    $('#rf-cls').oninput = e => upd('cls', e.target.value); $('#rf-note').oninput = e => upd('note', e.target.value);
     app.onclick = e => {
       const b = e.target.closest('[data-r]'); if (!b) return;
       if (b.dataset.r === 'print') window.print();
@@ -1019,8 +954,8 @@ Rules:
           <li><kbd>L</kbd> hides the problem list on the left for more room. <kbd>O</kbd> shows the whole string.</li>
           <li><b>🧪 Practise here</b> on a string's practice card opens a practice board beside the card. Tap <b>▶ Draw it</b> to see each likely response modelled, or type your own. Nothing there is saved or marked done.</li>
           <li><b>💡 Try</b> (or <kbd>Y</kbd>) lists likely student responses for the problem. Tap one to draw it: great for rehearsing at home, or as a backup in class.</li>
-          <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can print it or compare it with a later run. Tap <b>☆</b> to add a favourite or <b>📌</b> to save one to try later, then use the <b>Show</b> buttons (★ Favourites, 📌 To try, ✓ Done, ○ Not tried yet) to find them.</li>
-          <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>Export</b> takes your strings and progress to another computer.</li>
+          <li><b>Keep track:</b> a string is marked <b>✓ done</b> when you press Finish. Pressing Finish also saves the run (every answer and model) in <b>🗂 My runs</b>, where you can look back at it or print it. You can also tap <b>✓</b> on a card yourself, and <b>Filter → Not done yet</b> hides the ones you've done.</li>
+          <li>Everything is saved <b>in this browser on this computer</b>. There are no accounts and nothing is uploaded. <b>☰ More → Export</b> takes your progress to another computer.</li>
         </ul>
       </section>
 
@@ -1028,7 +963,7 @@ Rules:
         <div class="keys">
           <kbd>→</kbd><span>next problem (or Space)</span><kbd>←</kbd><span>back</span><kbd>A</kbd><span>add a student answer</span>
           <kbd>Enter</kbd><span>finish the model you're typing</span>
-          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span><kbd>H</kbd><span>"the last one helped": link problems</span>
+          <kbd>T</kbd><span>timer</span><kbd>R</kbd><span>random name</span><kbd>O</kbd><span>whole string</span><kbd>L</kbd><span>problem list</span><kbd>Y</kbd><span>try a likely response</span>
           <kbd>P</kbd><span>pen</span><kbd>E</kbd><span>eraser</span><span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>undo a pen stroke</span><kbd>Esc</kbd><span>stop / close</span><kbd>?</kbd><span>all keys</span>
         </div>
         <p style="margin:10px 0 6px"><b>Number keys add a model</b> (the number also shows on each tool button):</p>
@@ -1055,7 +990,6 @@ Rules:
         <kbd>R</kbd><span>Random name picker</span>
         <kbd>A</kbd><span>Add a student answer</span>
         <kbd>Y</kbd><span>💡 Try: likely student responses for this problem</span>
-        <kbd>H</kbd><span>↶ Helped by: link this problem to the one before (press again for an earlier one, again to remove)</span>
         <span class="kc"><kbd>P</kbd> / <kbd>E</kbd></span><span>Pen / eraser</span>
         <span class="kc"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span><span>Undo the last pen stroke</span>
         <kbd>L</kbd><span>Show / hide the list of problems on the left</span>
@@ -1066,7 +1000,7 @@ Rules:
       </div>
       <div><b>Add a model</b> with a number key (also shown on each tool button). Tools without a number are under the tool bar or <b>More tools</b>.</div>
       <div class="keys">${toolKeysHTML()}</div>
-      <div><b>Adding strings with Claude.</b> Copy the instructions below into your planning chat. Claude will make a <code>.json</code> file you can bring in with <b>Import</b>.</div>
+      <div><b>Adding strings with Claude.</b> Copy the instructions below into your planning chat. Claude will make a <code>.json</code> file you can bring in with <b>☰ More → Import</b>.</div>
       <button class="btn" id="copy-fmt">📋 Copy instructions for Claude</button>`, [], { wide: true });
     $('#copy-fmt').onclick = () => { navigator.clipboard.writeText(CLAUDE_FORMAT).then(() => toast('Copied. Paste it into your planning chat.'), () => toast('Copy failed')); };
   }
@@ -1311,8 +1245,7 @@ Rules:
       const d = S.data[idx] || { answers: [], models: [] };
       return { n: idx + 1, q: S.problems[idx].q, answers: d.answers.map(a => ({ t: a.t, mark: a.mark || '' })),
         models: d.models.filter(m => String(m.input || '').trim()).map(m => ({ type: m.type, input: m.input, labels: m.labels || {}, hidden: m.hidden || [] })),
-        ...(d.snap && (d.strokes || []).some(st => st.n) ? { snap: d.snap } : {}),
-        ...((d.links || []).length ? { links: d.links.map(i => i + 1) } : {}) };
+        ...(d.snap && (d.strokes || []).some(st => st.n) ? { snap: d.snap } : {}) };
     });
     if (!problems.some(p => p.answers.length || p.models.length)) { if (!quiet) toast('Nothing to save yet. Add an answer or a model first.'); return null; }
     const runs = getRuns();
@@ -1459,40 +1392,7 @@ Rules:
       ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
-    const pos = P.sess.shown.indexOf(idx);
-    const links = (d.links || []).filter(i => P.sess.shown.indexOf(i) > -1 && P.sess.shown.indexOf(i) < pos);
-    return `${exprPart}<span class="eq-mark">${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>
-      ${links.map(i => `<span class="link-chip" title="A student used problem ${P.sess.shown.indexOf(i) + 1}">↶ ${linkLabel(i)}</span>`).join('')}
-      ${pos > 0 ? `<button class="add-link${links.length ? ' has' : ''}" data-a="links" title="A student used an earlier problem (H)">↶ ${links.length ? '' : 'helped by'}</button>` : ''}`;
-  }
-  // "The last one helped me": link this problem to the earlier problem(s) a student used
-  const ansShown = d => { const c = d.answers.find(a => a.mark === 'circled'); return c ? c.t : ((d.answers.find(a => a.mark !== 'crossed') || {}).t); };
-  function linkLabel(i) { const a = ansShown(pdata(i)); return `<span class="expr">${exprHTML(P.sess.problems[i].q)}</span>${a ? ` <span class="eq-mark">${eqSym(P.sess.problems[i].q)}</span> <span class="lk-a">${exprHTML(a)}</span>` : ''}`; }
-  function cycleLink() {
-    if (!P || P.overview) return;
-    const S = P.sess, idx = S.shown[S.active], d = pdata(idx);
-    const before = S.shown.slice(0, S.active).reverse(); // nearest first
-    if (!before.length) { toast('This is the first problem, so there is nothing before it to link to'); return; }
-    const last = (d.links || [])[(d.links || []).length - 1], k = before.indexOf(last);
-    d.links = last == null || k < 0 ? [before[0]] : k + 1 < before.length ? [before[k + 1]] : [];
-    finishActive(true); saveSession(); renderStage(); renderRail();
-    toast(d.links.length ? `↶ Linked to problem ${S.shown.indexOf(d.links[0]) + 1}` : 'Link removed');
-  }
-  function renderLinkPop() {
-    const old = $('#link-pop'); if (old) old.remove();
-    if (!P || P.overview || P.linkFor == null || P.linkFor !== P.sess.shown[P.sess.active]) return;
-    const S = P.sess, idx = P.linkFor, d = pdata(idx), before = S.shown.slice(0, S.active);
-    const pop = h(`<div class="link-pop" id="link-pop"><div class="try-head"><b>↶ Which problem helped?</b><button class="icon-btn" data-l="close" title="Close">✕</button></div>
-      <div class="lp-list">${before.map(i => `<button class="lp-item${(d.links || []).includes(i) ? ' on' : ''}" data-l="${i}"><span class="lp-n">${S.shown.indexOf(i) + 1}</span>${linkLabel(i)}</button>`).join('')}</div>
-      <div class="try-foot">Tap to link or unlink (more than one is fine). Press <kbd>H</kbd> to link the problem just before.</div></div>`);
-    pop.onclick = e => {
-      const b = e.target.closest('[data-l]'); if (!b) return;
-      if (b.dataset.l === 'close') { P.linkFor = null; renderLinkPop(); return; }
-      const i = +b.dataset.l, L = d.links || (d.links = []);
-      if (L.includes(i)) L.splice(L.indexOf(i), 1); else { L.push(i); L.sort((a, b2) => S.shown.indexOf(a) - S.shown.indexOf(b2)); }
-      saveSession(); renderStage(); renderRail();
-    };
-    $('.pres').appendChild(pop);
+    return `${exprPart}<span class="eq-mark">${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
   }
   function barHTML(d) {
     const am = P.activeM != null ? d.models[P.activeM] : null;
@@ -1546,12 +1446,6 @@ Rules:
         ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
       </div>`;
     }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
-    const items = $$('.rail-item', rail), arcs = [];
-    S.shown.forEach((idx, pos) => (pdata(idx).links || []).forEach(i => { const from = S.shown.indexOf(i); if (from > -1 && from < pos) arcs.push([from, pos]); }));
-    if (arcs.length) {
-      const y = k => items[k].offsetTop + items[k].offsetHeight / 2, H = rail.scrollHeight;
-      rail.insertAdjacentHTML('beforeend', `<svg class="rail-links" width="14" height="${H}" viewBox="0 0 14 ${H}"><defs><marker id="rl-ah" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#7a4fd0"/></marker></defs>${arcs.map(([a, b]) => `<path d="M13 ${y(a)} C 1 ${y(a)}, 1 ${y(b)}, 11 ${y(b)}" fill="none" stroke="#7a4fd0" stroke-width="2.2" marker-end="url(#rl-ah)"/>`).join('')}</svg>`);
-    }
   }
   const refreshRailCard = () => renderRail();
 
@@ -1577,7 +1471,7 @@ Rules:
     layoutArea();
     setupInk();
     if ((d.strokes && d.strokes.length) || d.snap) snapInk();
-    renderTry(); renderLinkPop();
+    renderTry();
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
   }
@@ -1616,7 +1510,6 @@ Rules:
         const d = pdata(idx), ms = d.models.filter(m => String(m.input || '').trim());
         return `<div class="ov-card" data-pos="${pos}"><span class="rnum">${idx + 1}</span>
           <div class="ov-head"><span class="expr">${exprHTML(S.problems[idx].q) || '…'}</span><span class="eq-mark">${eqSym(S.problems[idx].q)}</span><span class="answers">${d.answers.map(a => `<span class="ans ${a.mark || ''}">${exprHTML(a.t)}</span>`).join('')}</span></div>
-          ${(d.links || []).filter(i => S.shown.indexOf(i) > -1 && S.shown.indexOf(i) < pos).map(i => `<span class="ov-link">↶ used #${S.shown.indexOf(i) + 1}</span>`).join('')}
           ${d.snap && (d.strokes || []).some(st => st.n) ? snapHTML(d.snap) : ms.length ? `<div class="ov-models" style="grid-template-columns:repeat(${Math.min(2, ms.length)},minmax(0,1fr))">${ms.map(m => `<div class="ov-tile">${modelSVG(m).html}</div>`).join('')}</div>` : ''}
         </div>`;
       }).join('')}</div>
@@ -1748,7 +1641,6 @@ Rules:
         case 'addans': return openAnswerInput();
         case 'choosetools': return toolsModal(() => renderStage());
         case 'moretools': P.moreTools = !P.moreTools; return renderStage();
-        case 'links': { const idx = P.sess.shown[P.sess.active]; P.linkFor = P.linkFor === idx ? null : idx; finishActive(true); return renderStage(); }
         case 'saverun': { const r = saveRun(false); if (r) { toast('💾 Saved in My runs'); renderStage(); } return; }
         case 'donem': return finishActive();
         case 'useq': { const m = cur().models[P.activeM], pq = (P.sess.problems[P.sess.shown[P.sess.active]] || {}).q || ''; if (m && pq) { m.input = pq + ' = ' + (m.input || ''); m.labels = {}; P.focusTyper = true; saveSession(); renderStage(); } return; }
@@ -1940,8 +1832,7 @@ Rules:
     else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
     else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
-    else if (k === 'h' || k === 'H') cycleLink();
-    else if (k === 'Escape') { if (P.linkFor != null && $('#link-pop')) { P.linkFor = null; renderLinkPop(); } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if (k === 'Escape') { if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }
