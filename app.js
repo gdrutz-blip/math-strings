@@ -780,13 +780,17 @@ Rules:
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
           <li><b>Before December 4:</b> your class does the common task.</li>
-          <li><b>December 4, Session 1:</b> we look at the results, talk about why additive reasoning matters, and get to know the app.${PD.sessions[0].exit ? ` <a href="${esc(PD.sessions[0].exit)}" target="_blank" rel="noopener">Exit ticket ↗</a>` : ''}</li>
+          <li><b>December 4, Session 1:</b> we look at the results, talk about why additive reasoning matters, and get to know the app.</li>
           <li><b>Six weeks of strings.</b> Aim for 2–3 strings a week, 10–15 minutes each.</li>
           <li><b>Last week of January:</b> your class does the same common task again.</li>
           <li><b>February 1, Session 2:</b> we compare the two tasks and plan what's next.</li>
           <li><b>April 1, Session 3:</b> details to come.</li>
         </ol>
       </section>
+
+      ${findString('g4-bank-sub-09-shift-both-numbers') ? `<section class="panel"><h2>The string from Session 1</h2>
+        <div class="pd-days">${row(findString('g4-bank-sub-09-shift-both-numbers'))}</div>
+      </section>` : ''}
 
       <section class="panel"><h2>Suggested six weeks of strings</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
