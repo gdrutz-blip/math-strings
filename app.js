@@ -416,10 +416,10 @@
       <div class="card-actions">
         <button class="btn primary" data-act="present" data-id="${esc(s.id)}">▶ Present</button>
         <a class="btn" href="#/card/${encodeURIComponent(s.id)}" title="One printable page to read before class">🗒 Teacher card</a>
+        ${s.problems.some(p => p.responses) ? `<button class="btn" data-act="practice" data-id="${esc(s.id)}" title="Likely student answers, and a board to practise on">📝 Practice</button>` : ''}
         <span class="spacer"></span>
         <details class="menu-wrap card-more"><summary class="icon-btn" title="More for this string">⋯</summary>
           <div class="menu">
-            ${s.problems.some(p => p.responses) ? `<button data-act="practice" data-id="${esc(s.id)}">📝 Practice card <small>likely student answers, and a board to practise on</small></button>` : ''}
             <button data-act="edit" data-id="${esc(s.id)}">✏️ Edit</button>
             <button data-act="dup" data-id="${esc(s.id)}">⧉ Make a copy</button>
             ${edited && !newer ? `<button data-act="revert" data-id="${esc(s.id)}">↺ Go back to the website version</button>` : ''}

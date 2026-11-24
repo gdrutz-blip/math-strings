@@ -597,3 +597,13 @@ details.menu-wrap .menu hr { border: 0; border-top: 1px solid var(--line); margi
 .filters .frow #search { flex: 1; min-width: 200px; }
 .fpanel { border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; background: #fff; display: grid; gap: 6px; }
 .btn.on { border-color: var(--accent); color: var(--accent); }
+/* four card buttons fit in one row: Present, Teacher card, Practice, ⋯ */
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.card-actions > .btn { padding: 7px 10px; font-size: 14px; white-space: nowrap; }
+.card-actions > .card-more { margin-left: auto; }
+.card-actions > .spacer { display: none; }
+.card-actions > .btn { padding: 6px 8px; font-size: 13.5px; }
+.card-actions { gap: 5px; }
+.card-actions .card-more > summary { padding: 4px 6px; min-width: 0; }
+.card-actions > .btn { padding: 6px 7px; }
+.card-actions .card-more > summary { padding: 4px 2px; width: 24px; text-align: center; }
