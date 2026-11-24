@@ -28,6 +28,8 @@ jobs:
           node-version: 20
       - name: Combine strings/ into strings.json
         run: node build.js
+      - name: Stamp this version on the app files, so a normal reload picks up the new version
+        run: sed -i -E 's#(href="styles\.css|src="models\.js|src="app\.js)"#\1?v='"${GITHUB_SHA::8}"'"#' index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
