@@ -3169,6 +3169,173 @@
       ]
     },
     {
+      "id": "g4-bank-sub-09-shift-both-numbers",
+      "title": "Shift Both Numbers",
+      "label": "Bank",
+      "group": "Grade 4 · Bank · Subtraction",
+      "tool": "slide",
+      "strategy": "Slide both numbers the same amount so you subtract a friendly number. The distance between them doesn't change: 52 − 29 = 53 − 30.",
+      "topic": "add",
+      "keywords": "constant difference, same difference, slide, shift both, friendly number, distance",
+      "curriculum": [
+        "B2.1",
+        "B2.4"
+      ],
+      "watchFor": [
+        "Moving the numbers in opposite directions (52 − 29 to 51 − 30): ask \"Are they still the same distance apart?\"",
+        "Sliding to a friendly first number instead of a friendly second number: ask \"Which number would be easier to subtract?\"",
+        "Losing track of the decimal places in 6.2 − 1.97: ask \"What does 1.97 need to make 2?\""
+      ],
+      "wrapUp": "Ask \"Why does the answer stay the same when we slide both numbers?\" Land: subtraction can mean the distance between two numbers, and sliding both the same amount keeps the distance.",
+      "problems": [
+        {
+          "q": "50 - 30",
+          "a": "20",
+          "notes": "Anchor. Look for: the gap of 20 on a number line. Ask: \"How far apart are they?\" Model: numberline 30 >50",
+          "responses": [
+            {
+              "say": "50 take away 30 is 20.",
+              "tool": "text",
+              "type": "50 - 30 = 20",
+              "tip": "Take-away. Fine, but ask how far apart they are."
+            },
+            {
+              "say": "30 to 50 is a jump of 20.",
+              "tool": "numberline",
+              "type": "30 >50",
+              "tip": "Subtraction as distance: the idea the string builds on."
+            }
+          ]
+        },
+        {
+          "q": "52 - 32",
+          "a": "20",
+          "notes": "Look for: \"same as the last one, both went up 2.\" Ask: \"What changed? What didn't?\" Model: slide 50 - 30 = 52 - 32",
+          "responses": [
+            {
+              "say": "Both numbers went up 2, so it's still 20.",
+              "tool": "slide",
+              "type": "50 - 30 = 52 - 32",
+              "tip": "The target idea: the gap slides, its size stays."
+            },
+            {
+              "say": "32 to 50 is 18, plus 2 more is 20.",
+              "tool": "numberline",
+              "type": "32 >50 >52"
+            },
+            {
+              "say": "22",
+              "tool": "text",
+              "type": "52 - 32 = 22 ?",
+              "tip": "Added 2 to the answer. Ask: did the distance between them change?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "52 - 29",
+          "a": "23",
+          "notes": "Look for: 53 − 30. Ask: \"Can you slide this one to something friendlier?\" Model: slide 52 - 29 = 53 - 30",
+          "responses": [
+            {
+              "say": "Add 1 to both: 53 − 30 = 23.",
+              "tool": "slide",
+              "type": "52 - 29 = 53 - 30",
+              "tip": "The target strategy."
+            },
+            {
+              "say": "29 to 30 is 1, to 52 is 22: 23.",
+              "tool": "numberline",
+              "type": "29 >30 >52",
+              "tip": "Adding up. Also great."
+            },
+            {
+              "say": "21",
+              "tool": "text",
+              "type": "52 - 29 = 51 - 30 = 21 ?",
+              "tip": "Moved the numbers in opposite directions. Ask: are they still the same distance apart?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "81 - 38",
+          "a": "43",
+          "notes": "Look for: 83 − 40. Ask: \"What does 38 need to be friendly?\" Model: slide 81 - 38 = 83 - 40",
+          "responses": [
+            {
+              "say": "Add 2 to both: 83 − 40 = 43.",
+              "tool": "slide",
+              "type": "81 - 38 = 83 - 40"
+            },
+            {
+              "say": "81 − 40 = 41, then give back 2: 43.",
+              "tool": "numberline",
+              "type": "81 -40 +2",
+              "tip": "Take too much, then add back. Compare it with sliding."
+            },
+            {
+              "say": "39",
+              "tool": "text",
+              "type": "81 - 40 - 2 = 39 ?",
+              "tip": "Took 40, then took 2 more. Ask: did you take too much or too little?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "702 - 398",
+          "a": "304",
+          "notes": "Look for: 704 − 400. Ask: \"Which number should be friendly?\" Model: slide 702 - 398 = 704 - 400",
+          "responses": [
+            {
+              "say": "Add 2 to both: 704 − 400 = 304.",
+              "tool": "slide",
+              "type": "702 - 398 = 704 - 400"
+            },
+            {
+              "say": "398 to 400 is 2, to 700 is 300, to 702 is 2 more: 304.",
+              "tool": "numberline",
+              "type": "398 >400 >700 >702"
+            },
+            {
+              "say": "404",
+              "tool": "text",
+              "type": "702 - 398 = 404 ?",
+              "tip": "Regrouping slip across the zero. Ask: could you slide instead?",
+              "kind": "error"
+            }
+          ]
+        },
+        {
+          "q": "6.2 - 1.97",
+          "a": "4.23",
+          "optional": true,
+          "notes": "Grades 5–6 extension. Look for: 6.23 − 2. Ask: \"What does 1.97 need to make 2?\" Model: slide 6.2 - 1.97 = 6.23 - 2",
+          "responses": [
+            {
+              "say": "Add 0.03 to both: 6.23 − 2 = 4.23.",
+              "tool": "slide",
+              "type": "6.2 - 1.97 = 6.23 - 2",
+              "tip": "Same move, now with decimals."
+            },
+            {
+              "say": "1.97 to 2 is 0.03, to 6.2 is 4.2: 4.23.",
+              "tool": "numberline",
+              "type": "1.97 >2 >6.2"
+            },
+            {
+              "say": "4.33",
+              "tool": "text",
+              "type": "6.2 - 1.97 = 4.33 ?",
+              "tip": "Lined up the digits, not the place values. Ask: how far is 1.97 from 2?",
+              "kind": "error"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "g4-bank-dec-01-tenths-make-a-whole",
       "title": "Tenths Make a Whole",
       "label": "Bank",
@@ -8449,7 +8616,7 @@
         {
           "q": "0.7 + 0.3",
           "a": "1",
-          "notes": "Look for: 7 tenths and 3 tenths make 10 tenths. Ask: \"How many tenths make one whole?\" Model: numberline 0.7 +0.3 REV1 REV2 REV1 REV2 REV1 REV2",
+          "notes": "Look for: 7 tenths and 3 tenths make 10 tenths. Ask: \"How many tenths make one whole?\" Model: numberline 0.7 +0.3",
           "responses": [
             {
               "say": "7 tenths and 3 tenths is 10 tenths, that's 1.",
