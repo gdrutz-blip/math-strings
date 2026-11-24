@@ -773,9 +773,8 @@ Rules:
         <span style="flex:1"></span>
         <a class="btn" href="#/start">📘 Getting started</a>
       </div>
-      <div class="pd-eyebrow">School Improvement Plan · Mathematics</div>
       <h1>${esc(PD.title)}</h1>
-      <p class="lead">This year we're using number strings for addition and subtraction: a short routine where students solve a set of related problems in their heads and explain how they did it. Your class does a common task before and after, so we can see how their modelling changes.</p>
+      <p class="lead">This year we're using number strings to build additive reasoning: a short routine where students solve a set of related addition and subtraction problems in their heads and explain how they did it. Your class does a common task before and after, so we can see how their modelling changes.</p>
 
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
