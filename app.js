@@ -775,50 +775,27 @@ Rules:
       </div>
       <div class="pd-eyebrow">School Improvement Plan · Mathematics</div>
       <h1>${esc(PD.title)}</h1>
-      <p class="lead">This year we're using number strings for addition and subtraction: a short routine where students solve a set of related problems in their heads and explain how they did it. Your class does a common task before and after, so we can see how their modelling changes. There's very little prep and nothing to hand in.</p>
+      <p class="lead">This year we're using number strings for addition and subtraction: a short routine where students solve a set of related problems in their heads and explain how they did it. Your class does a common task before and after, so we can see how their modelling changes.</p>
 
       <section class="panel pd-ask"><h2>How it works</h2>
         <ol class="steps pd-timeline">
           <li><b>Before December 4:</b> your class does the common task.</li>
-          <li><b>December 4, Session 1:</b> we look at the results, talk about why additive reasoning matters, and get to know the app.</li>
-          <li><b>Six weeks of strings,</b> two before the winter break and four in January. Aim for 2–3 strings a week, 10–15 minutes each.</li>
+          <li><b>December 4, Session 1:</b> we look at the results, talk about why additive reasoning matters, and get to know the app.${PD.sessions[0].exit ? ` <a href="${esc(PD.sessions[0].exit)}" target="_blank" rel="noopener">Exit ticket ↗</a>` : ''}</li>
+          <li><b>Six weeks of strings.</b> Aim for 2–3 strings a week, 10–15 minutes each.</li>
           <li><b>Last week of January:</b> your class does the same common task again.</li>
           <li><b>February 1, Session 2:</b> we compare the two tasks and plan what's next.</li>
           <li><b>April 1, Session 3:</b> details to come.</li>
         </ol>
       </section>
 
-      <div class="pd-sessions">${PD.sessions.map(x => `<div><span class="pd-date">${esc(x.date)}</span><b>${esc(x.name)}</b><span>${esc(x.what)}</span>${x.exit ? `<a class="btn small pd-exit" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 Exit ticket ↗</a>` : x.plan.length ? '<span class="pd-exit-soon">Exit ticket: at the session</span>' : ''}</div>`).join('')}</div>
-
       <section class="panel"><h2>Suggested six weeks of strings</h2>
         <div class="grade-chips">${PD.grades.map(g => `<a class="gchip${g === grade ? ' on' : ''}" href="#/pd/${g}">Grade ${g}</a>`).join('')}</div>
         ${!grade ? '<p class="hint">Pick your grade to see its suggested six weeks.</p>'
-          : `<p>Each week has three strings, all addition and subtraction. Run two or three of them; if you only get to two, skip the third or save it for later. Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first. The <a href="#/grade/${encodeURIComponent(grade)}">library</a> has more strings if you want extras.</p>
+          : `<p>Press <b>Present</b> to run one with your class, or open the <b>Teacher card</b> to read it first.</p>
              ${codes.length ? `<details class="pd-curr"><summary>Ontario curriculum ${currBadges(grade, codes)}</summary><ul>${codes.map(c => `<li><b>${esc(c)}</b> ${esc(expectText(grade, c) || '')}</li>`).join('')}</ul></details>` : ''}
              ${weeks.map((w, i) => `<div class="pd-unit"><h3>Week ${i + 1} <span class="pd-when">${esc(PD.weekWhen[i] || '')}</span></h3><div class="pd-days">${w.map(row).join('')}</div></div>`).join('')}`}
       </section>
 
-      <section class="panel"><h2>The sessions <span>(30 minutes each)</span></h2>
-        ${PD.sessions.map((x, i) => `<details class="pd-plan"${i === 0 ? ' open' : ''}><summary><b>${esc(x.name)}</b> · ${esc(x.date)}</summary>
-          ${x.plan.length ? `<table class="gtable">${x.plan.map(([t, d]) => `<tr><td class="pd-min">${esc(t)}</td><td>${esc(d)}</td></tr>`).join('')}</table>` : `<p class="hint">${esc(x.what)}</p>`}
-          ${x.exit ? `<p><a class="btn small" href="${esc(x.exit)}" target="_blank" rel="noopener">📝 ${esc(x.name.split(' · ')[0])} exit ticket ↗</a></p>` : ''}</details>`).join('')}
-      </section>
-
-      <section class="panel"><h2>In your classroom</h2>
-        <ul class="steps">
-          <li><b>Before class:</b> read the teacher card or practice card and run through the string once on your own. Press <b>↺</b> to clear it before class.</li>
-          <li><b>During:</b> give think time before taking answers. Write down every answer, right or wrong (<kbd>A</kbd>), and show at least two ways to solve each problem. Two questions that work well: "Can the last problem help?" and "What's the same?"</li>
-          <li><b>At the end:</b> press <kbd>O</kbd> to see the whole string and ask what they noticed. Pressing <b>Finish</b> saves the run in My runs, which is handy if you want to look back, but it's optional.</li>
-        </ul>
-      </section>
-
-      <section class="panel"><h2>Bring to each session</h2>
-        <ul class="steps">
-          <li><b>Dec 4:</b> a laptop or Chromebook.</li>
-          <li><b>Feb 1:</b> both sets of your class's common tasks (December and January), and a laptop.</li>
-          <li><b>Apr 1:</b> details to come.</li>
-        </ul>
-      </section>
       <p class="hint">Based on the Ontario monograph <i>Making Space for Students to Think Mathematically</i>.</p>
     </div>`;
     window.scrollTo(0, 0);
