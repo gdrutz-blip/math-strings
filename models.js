@@ -247,9 +247,19 @@
 
   /* ---------- Ratio table ----------  1:7, 10:70, 5:35   (first pair can be names: bags:apples) */
   // "1:7, 10:70" · "1:7 10:70" · "1 to 7, 10 to 70" · "1|7" · "bags:apples, ..."
+  // Pairs like 3:4, 6:8. A step like x2 (or ×2, ÷3, /3) makes the next pair from the one before: 3:4 x2 is 3:4, 6:8.
   function pairsOf(s) {
     s = s.replace(/\s+to\s+/gi, ':').replace(/\s*=\s*/g, ':');
-    return [...s.matchAll(/([^\s,;:|]+)\s*[:|]\s*([^\s,;:|]+)/g)].map(m => [m[1], m[2]]);
+    const out = [];
+    for (const m of s.matchAll(/([^\s,;:|]+)\s*[:|]\s*([^\s,;:|]+)|(?:^|[\s,;])([x*\/])\s*(\d+(?:\.\d+)?|\d+\/\d+)(?=$|[\s,;])/gi)) {
+      if (m[1] != null) { out.push([m[1], m[2]]); continue; }
+      const prev = out[out.length - 1], f = parseVal(m[4]);
+      const A = prev && parseVal(prev[0]), B = prev && parseVal(prev[1]);
+      if (!f || !f.v || !A || !B) continue;
+      const k = m[3] === '/' ? 1 / f.v : f.v;
+      out.push([fmt(round(A.v * k)), fmt(round(B.v * k))]);
+    }
+    return out;
   }
   function ratio(input, labels) {
     const s = norm(input).trim();
@@ -1229,10 +1239,10 @@
 
   const TOOLS = [
     { id: 'numberline', name: 'Number line', key: '1', icon: '⟷', render: numberline, help: '38 +10 -1  ·  38 to 48 to 47  ·  start 38, jump 10, back 1  ·  0 +20x3  ·  89 gap 100' },
-    { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '2', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5, 150:2.5' },
+    { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '2', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5  ·  x2 or ÷2 makes the next mark from the one before' },
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  divide: 84 / 7 = 70 + 14  ·  fractions: 2/3 x 3/4  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
-    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  1 to 7, 10 to 70  ·  names first: bags:apples, 1:7' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  3:4 x2 makes the next column 6:8 (also ÷2)  ·  names first: bags:apples, 1:7' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '6', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
     { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '7', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '8', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
