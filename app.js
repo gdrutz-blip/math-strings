@@ -334,6 +334,13 @@
                 <hr>
                 <button data-act="export">⤒ Export <small>back up, or move to another computer</small></button>
                 <button data-act="import">⤓ Import</button>
+                <hr>
+                <div class="menu-head">More from Mr. Drutz</div>
+                <!-- Keep in step with https://gdrutz-blip.github.io/random/tools.json -->
+                <a class="menu-tool" href="https://gdrutz-blip.github.io/random/" target="_blank" rel="noopener">Class Randomizer</a>
+                <a class="menu-tool" href="https://gdrutz-blip.github.io/teambuilder/" target="_blank" rel="noopener">Gym Team Maker</a>
+                <a class="menu-tool" href="https://gdrutz-blip.github.io/drama-generator/" target="_blank" rel="noopener">Improv Scene Starter</a>
+                <a class="menu-tool" href="https://gdrutz-blip.github.io/seatingplanner/" target="_blank" rel="noopener">Seating Planner</a>
               </div>
             </details>
           </div>
