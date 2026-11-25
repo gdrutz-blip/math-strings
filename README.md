@@ -19,6 +19,13 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 | `PLANNING-GUIDE.md` | Instructions for a Claude planning chat: the file format and model inputs |
 | `netlify.toml` | Old Netlify setup (no longer used) |
 
+## Quick board
+
+**☰ More → ⚡ Quick board** is a blank board for any math problem, not just strings. Type or paste the question
+(a word problem is fine; Shift+Enter starts a new line), or paste a picture of it with Ctrl+V (Cmd+V on a Mac)
+or **📷 Add a picture**. Then model it with any tool, the pen, or students' answers. **New problem ▶** starts the
+next one, and ↺ clears the board. Pictures are kept in this browser, so clear the board now and then.
+
 ## Adding strings
 
 1. **Quick way:** in the app open **☰ More → Import** and drop in a `.json` file (from Claude or from **Export** on

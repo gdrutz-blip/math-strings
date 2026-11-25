@@ -190,8 +190,8 @@ details.more[open] summary { margin-bottom: 12px; }
 .frac > span:last-child { padding: .06em .12em 0; }
 .whole { margin-right: .06em; }
 .expr sup { font-size: .55em; align-self: flex-start; margin-top: -.1em; }
-input.quick-input { font-size: 52px; font-weight: 700; border: 0; border-bottom: 3px dashed var(--line-strong); border-radius: 0; width: 480px; max-width: 60%; padding: 0 4px; background: transparent; }
-input.quick-input:focus { outline: none; border-bottom-color: var(--accent); }
+.quick-input { font-size: 52px; font-weight: 700; border: 0; border-bottom: 3px dashed var(--line-strong); border-radius: 0; width: 480px; max-width: 60%; padding: 0 4px; background: transparent; }
+.quick-input:focus { outline: none; border-bottom-color: var(--accent); }
 .answers { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .ans {
   font-size: 54px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; position: relative; display: inline-flex; align-items: center;
@@ -206,7 +206,7 @@ input.quick-input:focus { outline: none; border-bottom-color: var(--accent); }
 .eq-mark { font-size: 64px; color: var(--soft); }
 .head.compact .expr, .head.compact .eq-mark { font-size: 46px; }
 .head.compact .ans { font-size: 40px; }
-.head.compact input.quick-input { font-size: 40px; }
+.head.compact .quick-input { font-size: 40px; }
 
 /* the drawing area */
 .area { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -607,3 +607,18 @@ details.menu-wrap .menu hr { border: 0; border-top: 1px solid var(--line); margi
 .card-actions .card-more > summary { padding: 4px 6px; min-width: 0; }
 .card-actions > .btn { padding: 6px 7px; }
 .card-actions .card-more > summary { padding: 4px 2px; width: 24px; text-align: center; }
+
+/* ---- Quick board: type or paste any problem, or a picture of it ---- */
+.qbox { display: grid; gap: 6px; justify-items: start; max-width: 60%; }
+.qbox.wide { flex: 1 1 100%; max-width: 100%; }
+textarea.quick-input { font-family: inherit; color: inherit; line-height: 1.15; resize: none; overflow: hidden; width: 480px; max-width: 100%; }
+textarea.quick-input.long { width: 100%; font-size: 26px; font-weight: 600; line-height: 1.4; }
+.head.compact textarea.quick-input.long { font-size: 22px; }
+.qimg { position: relative; display: inline-block; }
+.qimg img { display: block; max-width: 100%; max-height: 34vh; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.head.compact .qimg img { max-height: 20vh; }
+.qimg .icon-btn { position: absolute; top: 4px; right: 4px; background: #fff; }
+.qpic { font-size: 13px; font-weight: 700; color: var(--soft); cursor: pointer; padding: 2px 6px; border-radius: 6px; }
+.qpic:hover { color: var(--accent); background: var(--accent-soft); }
+.ri-text { font-size: 14px; font-weight: 600; white-space: normal; line-height: 1.3; }
+.qpic .qtip { font-weight: 500; color: var(--faint); }
