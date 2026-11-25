@@ -326,7 +326,7 @@
             <details class="menu-wrap"><summary class="btn" title="More: new strings, quick board, saved runs, settings">☰ More</summary>
               <div class="menu">
                 <button data-act="new">＋ New string</button>
-                <button data-act="quick">⚡ Quick board <small>make up problems as you go</small></button>
+                <button data-act="quick">⚡ Quick board <small>type or paste any problem, then model it</small></button>
                 <a href="#/runs">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''} <small>strings you've finished in class</small></a>
                 <button data-act="classes">🎲 Class lists <small>names for the random picker</small></button>
                 <button data-act="settings">⚙︎ Settings</button>
@@ -1366,13 +1366,50 @@ Rules:
   }
   const cur = () => pdata(P.sess.shown[P.sess.active]);
 
+  // Quick board: a long or multi-line question (or one with a picture) gets the full width and smaller text
+  const quickWide = prob => !!prob.img || String(prob.q || '').length > 28 || String(prob.q || '').includes('\n');
+  function sizeQuickBox() {
+    const el = $('#quick-q'); if (!el) return;
+    const prob = P.sess.problems[P.sess.shown[P.sess.active]], wide = quickWide(prob);
+    el.classList.toggle('long', wide); el.closest('.qbox').classList.toggle('wide', wide);
+    const eq = $('#head .eq-mark'); if (eq) eq.hidden = wide;
+    el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px';
+  }
+  // Pictures are shrunk before saving so they fit in the browser's storage
+  function shrinkImage(file) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => {
+        const k = Math.min(1, 1200 / img.width, 900 / img.height), c = document.createElement('canvas');
+        c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(img.src);
+        const png = c.toDataURL('image/png');
+        res(png.length < 450000 ? png : c.toDataURL('image/jpeg', 0.85));
+      };
+      img.onerror = rej; img.src = URL.createObjectURL(file);
+    });
+  }
+  function addQuickImage(file) {
+    if (!P || !P.quick || !file || !/^image\//.test(file.type)) return;
+    shrinkImage(file).then(url => { P.sess.problems[P.sess.shown[P.sess.active]].img = url; saveSession(); renderStage(); renderRail(); toast('Picture added'); })
+      .catch(() => toast('That picture could not be opened'));
+  }
+  document.addEventListener('paste', e => {
+    if (!P || !P.quick || P.overview || !/^#\/quick/.test(location.hash)) return;
+    const f = [...(e.clipboardData ? e.clipboardData.files : [])].find(x => /^image\//.test(x.type));
+    if (f) { e.preventDefault(); addQuickImage(f); }
+  });
   function headHTML(idx, d) {
     const prob = P.sess.problems[idx];
+    const wide = P.quick && quickWide(prob);
     const exprPart = P.quick
-      ? `<input class="quick-input" id="quick-q" value="${esc(prob.q)}" placeholder="Type a problem…">`
+      ? `<div class="qbox${wide ? ' wide' : ''}"><textarea class="quick-input${wide ? ' long' : ''}" id="quick-q" rows="1" placeholder="${prob.img ? 'Add a note (optional)' : 'Type or paste a problem…'}">${esc(prob.q)}</textarea>
+          ${prob.img ? `<div class="qimg"><img src="${prob.img}" alt="The problem"><button class="icon-btn" data-a="qimg-x" title="Remove the picture">✕</button></div>` : ''}
+          <label class="qpic" title="Add a picture of the problem (or paste one with Ctrl+V)">📷 ${prob.img ? 'Change picture' : 'Add a picture <span class="qtip">(or paste one with Ctrl+V)</span>'}<input type="file" accept="image/*" id="quick-file" hidden></label></div>`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
-    return `${exprPart}<span class="eq-mark">${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
+    return `${exprPart}<span class="eq-mark"${wide ? ' hidden' : ''}>${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
   }
   function barHTML(d) {
     const am = P.activeM != null ? d.models[P.activeM] : null;
@@ -1422,7 +1459,7 @@ Rules:
       const circled = d.answers.find(a => a.mark === 'circled');
       const show = circled ? [circled] : d.answers.filter(a => a.mark !== 'crossed');
       return `<div class="rail-item${pos === S.active && !P.overview ? ' active' : ''}" data-pos="${pos}">
-        <span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">${eqSym(S.problems[idx].q)}</span><span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
+        ${P.quick && quickWide(S.problems[idx]) ? `<span class="ri-q ri-text">${S.problems[idx].img && !S.problems[idx].q ? '📷 picture' : esc(String(S.problems[idx].q).replace(/\s+/g, ' ').slice(0, 34)) + (String(S.problems[idx].q).length > 34 ? '…' : '')}</span>` : `<span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">${eqSym(S.problems[idx].q)}</span>`}<span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
         ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
       </div>`;
     }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');
@@ -1452,6 +1489,7 @@ Rules:
     setupInk();
     if ((d.strokes && d.strokes.length) || d.snap) snapInk();
     renderTry();
+    if (P.quick) { sizeQuickBox(); const qf = $('#quick-file'); if (qf) qf.onchange = e => addQuickImage(e.target.files[0]); }
     const ty = $('#typer');
     if (ty && P.focusTyper) { P.focusTyper = false; ty.focus(); ty.setSelectionRange(ty.value.length, ty.value.length); }
   }
@@ -1621,6 +1659,7 @@ Rules:
         case 'addans': return openAnswerInput();
         case 'choosetools': return toolsModal(() => renderStage());
         case 'moretools': P.moreTools = !P.moreTools; return renderStage();
+        case 'qimg-x': { delete P.sess.problems[P.sess.shown[P.sess.active]].img; saveSession(); renderStage(); renderRail(); return; }
         case 'saverun': { const r = saveRun(false); if (r) { toast('💾 Saved in My runs'); renderStage(); } return; }
         case 'donem': return finishActive();
         case 'useq': { const m = cur().models[P.activeM], pq = (P.sess.problems[P.sess.shown[P.sess.active]] || {}).q || ''; if (m && pq) { m.input = pq + ' = ' + (m.input || ''); m.labels = {}; P.focusTyper = true; saveSession(); renderStage(); } return; }
@@ -1657,14 +1696,14 @@ Rules:
       m.input = t.value; m.labels = {}; m.hidden = [];
       redrawModel(P.activeM);
     }
-    if (t.id === 'quick-q') { S.problems[S.shown[S.active]].q = t.value; saveSession(); renderRail(); }
+    if (t.id === 'quick-q') { S.problems[S.shown[S.active]].q = t.value; saveSession(); renderRail(); sizeQuickBox(); }
     if (t.id === 'run-cls') { S.cls = t.value; saveSession(); }
     if (t.id === 'run-note') { S.note = t.value; saveSession(); }
   }
   function stageKey(e) {
     if (e.target.id === 'typer' && (e.key === 'Enter' || e.key === 'Escape')) { e.preventDefault(); e.stopPropagation(); finishActive(); return; }
     if (e.key === 'Escape') { e.target.blur(); e.stopPropagation(); }
-    if (e.key === 'Enter' && e.target.id === 'quick-q') e.target.blur();
+    if (e.key === 'Enter' && !e.shiftKey && e.target.id === 'quick-q') { e.preventDefault(); e.target.blur(); }
   }
   function openAnswerInput() {
     if (P.overview || $('.ans-input')) { const ex = $('.ans-input'); if (ex) ex.focus(); return; }
