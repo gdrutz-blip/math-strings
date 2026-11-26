@@ -1789,7 +1789,8 @@ Rules:
     if (type === 'givetake' && /^\S+\s*\+\s*\S+$/.test(qx)) input = qx + ' = ';
     if (type === 'halve' && /^\d+\s*x\s*\d+$/i.test(qx)) input = qx + ' = ';
     if (type === 'column' && /\d\s*[+\-x×*−]\s*\d/.test(q)) input = qx;
-    if ((type === 'split' || type === 'estimate') && /^[\d.]+\s*[+\-]\s*[\d.]+/.test(qx)) input = qx;
+    // Split starts blank, like the number line: filling in the problem drew the whole answer before a student spoke
+    if (type === 'estimate' && /^[\d.]+\s*[+\-]\s*[\d.]+/.test(qx)) input = qx;
     // tiles only when negatives are involved; 47 positive tiles for 38 + 9 is no help
     if (type === 'tiles' && /^-?\d+\s*[+\-x]\s*\(?-?\d+\)?$/.test(qx) && /(^-\d)|([+\-x(]\s*-\d)/.test(qx)) input = qx;
     if (type === 'bar' && /^\s*\d+\s*\/\s*\d+\s+of\s+[\d.]+\s*$/i.test(q)) input = q.trim();
