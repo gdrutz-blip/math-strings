@@ -343,6 +343,7 @@
                 <a class="menu-tool" href="https://gdrutz-blip.github.io/random/" target="_blank" rel="noopener">Randomizer</a>
                 <a class="menu-tool" href="https://gdrutz-blip.github.io/seatingplanner/" target="_blank" rel="noopener">Seating Planner</a>
                 <a class="menu-tool" href="https://gdrutz-blip.github.io/drama-generator/" target="_blank" rel="noopener">Drama Scene Builder</a>
+                <a class="menu-tool" href="https://gdrutz-blip.github.io/G8MES/" target="_blank" rel="noopener">G8MES</a>
               </div>
             </details>
           </div>
