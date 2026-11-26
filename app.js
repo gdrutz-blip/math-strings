@@ -137,8 +137,10 @@
     const hash = location.hash.replace(/^#\/?/, '');
     const [view, id, id2] = hash.split('/');
     document.onkeydown = null;
+    document.documentElement.style.overscrollBehaviorX = '';
     if (view === 'present' && id) return presenter(decodeURIComponent(id), id2 === 'practice');
     if (view === 'quick') return presenter('__quick');
+    if (view === 'board') return id ? (id2 === 'edit' ? boardsPage(decodeURIComponent(id)) : presenter('__board:' + decodeURIComponent(id))) : boardsPage();
     if (view === 'start') return startPage();
     if (view === 'pd') return pdPage(id ? decodeURIComponent(id) : store.get('pdGrade', null));
     if (view === 'practice' && id) return practicePage(decodeURIComponent(id));
@@ -327,6 +329,7 @@
               <div class="menu">
                 <button data-act="new">＋ New string</button>
                 <button data-act="quick">⚡ Quick board <small>type or paste any problem, then model it</small></button>
+                <a href="#/board">📋 Boards <small>saved lists of problems on a clean screen</small></a>
                 <a href="#/runs">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''} <small>strings you've finished in class</small></a>
                 <button data-act="classes">🎲 Class lists <small>names for the random picker</small></button>
                 <button data-act="settings">⚙︎ Settings</button>
@@ -993,7 +996,7 @@ Rules:
   }
 
   function exportAll() {
-    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean), track, runs: getRuns() }, null, 2));
+    download(`math-strings-${today()}.json`, JSON.stringify({ version: 1, exported: today(), strings: library.map(clean), track, runs: getRuns(), boards: getBoards() }, null, 2));
     toast(`Exported ${library.length} strings`);
   }
 
@@ -1050,11 +1053,11 @@ Rules:
         const i = library.findIndex(x => x.id === s.id);
         if (i >= 0) { library[i] = s; updated++; } else { library.push(s); added++; }
       });
-      let tracked = 0;
-      try { const raw = JSON.parse(text.trim().replace(/^```(json)?|```$/g, '')); if (raw && raw.track && typeof raw.track === 'object') { mergeTrack(raw.track); tracked = Object.keys(raw.track).length; } if (raw && raw.runs) tracked += mergeRuns(raw.runs); } catch (e) { /* plain text */ }
+      let tracked = 0, boardsN = 0;
+      try { const raw = JSON.parse(text.trim().replace(/^```(json)?|```$/g, '')); if (raw && raw.track && typeof raw.track === 'object') { mergeTrack(raw.track); tracked = Object.keys(raw.track).length; } if (raw && raw.runs) tracked += mergeRuns(raw.runs); if (raw && Array.isArray(raw.boards)) boardsN = mergeBoards(raw.boards); } catch (e) { /* plain text */ }
       saveLibrary(); libraryView();
       m.close();
-      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}${tracked ? ', plus your progress and saved runs' : ''}`);
+      toast(`Imported: ${added} new${updated ? `, ${updated} updated` : ''}${tracked ? ', plus your progress and saved runs' : ''}${boardsN ? `, ${boardsN} board${boardsN === 1 ? '' : 's'}` : ''}`);
       return true;
     }
     const readFile = f => f.text().then(doImport);
@@ -1222,7 +1225,7 @@ Rules:
     return newSession(id, s);
   }
   let sessT;
-  const saveSession = () => { clearTimeout(sessT); sessT = setTimeout(() => { if (P) { P.sess.at = Date.now(); store.set(sessKey(P.sandbox), P.sess); } }, 250); };
+  const saveSession = () => { clearTimeout(sessT); sessT = setTimeout(() => { if (P) { P.sess.at = Date.now(); if (P.board) saveBoard(); else store.set(sessKey(P.sandbox), P.sess); } }, 250); };
   const pdata = idx => (P.sess.data[idx] = P.sess.data[idx] || { answers: [], models: [], strokes: [] });
   // Keep a dated copy of this run (answers and models; pen drawings aren't kept). Saving again updates the same run.
   function saveRun(quiet) {
@@ -1243,23 +1246,122 @@ Rules:
     return r;
   }
 
+  /* ================= boards: saved lists of problems shown on a clean screen ================= */
+  const getBoards = () => { const b = store.get('boards', []); return Array.isArray(b) ? b : []; };
+  const setBoards = b => store.set('boards', b);
+  const newBoardId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  // Problems from pasted text: one per line, or separated by blank lines when a problem runs over several lines.
+  function parseProblems(text, stripNumbers) {
+    const t = String(text || '').replace(/\r\n?/g, '\n').trim();
+    if (!t) return [];
+    const parts = /\n[ \t]*\n/.test(t) ? t.split(/\n[ \t]*\n/) : t.split('\n');
+    return parts.map(p => p.split('\n').map(l => l.trim()).filter(Boolean).join('\n'))
+      .map(p => (stripNumbers ? p.replace(/^(?:Q(?:uestion)?\s*\d{1,3}\s*[.):]?|\d{1,3}[.)])\s+/i, '') : p).trim()).filter(Boolean);
+  }
+  const problemsText = probs => { const qs = probs.map(p => p.q).filter(Boolean); return qs.join(qs.some(q => q.includes('\n')) ? '\n\n' : '\n'); };
+  function mergeBoards(list) {
+    const all = getBoards(); let n = 0;
+    (Array.isArray(list) ? list : []).forEach(b => {
+      if (!b || typeof b.id !== 'string' || typeof b.name !== 'string' || !Array.isArray(b.problems)) return;
+      const c = { id: b.id, name: b.name.slice(0, 80), created: +b.created || Date.now(), updated: +b.updated || Date.now(), problems: b.problems.map(p => ({ q: String((p && p.q) || '') })), data: b.data && typeof b.data === 'object' ? b.data : {}, active: +b.active || 0 };
+      const i = all.findIndex(x => x.id === c.id); if (i >= 0) all[i] = c; else all.push(c); n++;
+    });
+    setBoards(all); return n;
+  }
+  function boardSession(b) {
+    const n = b.problems.length;
+    return { id: '__board:' + b.id, at: Date.now(), problems: b.problems.map(p => ({ q: p.q || '' })), cursor: n, shown: b.problems.map((_, i) => i), active: n ? Math.min(Math.max(+b.active || 0, 0), n - 1) : -1, data: b.data && typeof b.data === 'object' ? b.data : {} };
+  }
+  function saveBoard() {
+    if (!P || !P.board) return;
+    const all = getBoards(), b = all.find(x => x.id === P.board.id); if (!b) return;
+    const data = {}; Object.keys(P.sess.data).forEach(k => { const d = Object.assign({}, P.sess.data[k]); delete d.snap; data[k] = d; });
+    b.problems = P.sess.problems.map(p => ({ q: p.q || '' })); b.data = data; b.active = P.sess.active; b.updated = Date.now();
+    setBoards(all);
+  }
+  function boardsPage(editId) {
+    if (P && P.board) { clearTimeout(sessT); saveBoard(); }
+    P = null; window.onresize = null; document.onkeydown = null;
+    document.title = 'Boards · Math Strings';
+    app.onclick = app.oninput = app.onchange = app.onkeydown = null;
+    const boards = getBoards().slice().sort((a, b) => (b.updated || b.created || 0) - (a.updated || a.created || 0));
+    const dateOf = b => new Date(b.updated || b.created || Date.now()).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    const rows = boards.map(b => b.id === editId ? `
+        <div class="panel board-edit">
+          <label class="field">Board name<input id="be-name" value="${esc(b.name)}" maxlength="60"></label>
+          <label class="field">Problems<textarea id="be-text" rows="10">${esc(problemsText(b.problems))}</textarea></label>
+          <p class="hint" id="be-count"></p>
+          <div class="ed-head"><button class="btn primary" data-b="save" data-id="${esc(b.id)}">Save changes</button><a class="btn ghost" href="#/board">Cancel</a></div>
+        </div>` : `
+        <div class="run-row">
+          <a class="run-main" href="#/board/${encodeURIComponent(b.id)}"><span class="run-title">${esc(b.name)}</span><span class="run-meta">${b.problems.length} problem${b.problems.length === 1 ? '' : 's'} · ${dateOf(b)}</span></a>
+          <span class="run-acts"><a class="btn small primary" href="#/board/${encodeURIComponent(b.id)}">▶ Open</a><a class="btn small" href="#/board/${encodeURIComponent(b.id)}/edit">Edit</a><button class="icon-btn" data-b="del" data-id="${esc(b.id)}" title="Delete this board">🗑</button></span>
+        </div>`).join('');
+    app.innerHTML = `
+    <div class="guide boards-page">
+      <div class="ed-head no-print"><a class="btn ghost" href="#/">← Library</a></div>
+      <h1>📋 Boards</h1>
+      <p class="lead">A clean screen with just the problem and your tools. Paste in a list of problems ahead of time, like a unit test, then move through them in class.</p>
+      ${boards.length ? `<div class="run-list">${rows}</div>` : ''}
+      <div class="panel board-new">
+        <h2>New board</h2>
+        <label class="field">Name<input id="nb-name" placeholder="e.g. Unit 2 test" maxlength="60"></label>
+        <label class="field">Problems<textarea id="nb-text" rows="8" placeholder="Paste your problems here, one per line.&#10;For longer problems, leave a blank line between them."></textarea></label>
+        <label class="board-check"><input type="checkbox" id="nb-strip" checked> Remove question numbers at the start (1.  2)  Q3:)</label>
+        <p class="hint" id="nb-count"></p>
+        <div class="ed-head"><button class="btn primary" data-b="create">Create and open</button><button class="btn" data-b="blank">Start with an empty board</button></div>
+      </div>
+      <p class="hint">Boards are saved in this browser on this computer. <b>Export</b> (under ☰ More on the library page) includes them. In a board, ← → or Space move between problems, and so does a two-finger swipe on the trackpad. The <b>⋯</b> in the top corner has the other options.</p>
+    </div>`;
+    window.scrollTo(0, 0);
+    const count = (ta, out, strip) => { const el = $(out); if (!el) return; const n = parseProblems($(ta).value, strip).length; el.textContent = n ? `${n} problem${n === 1 ? '' : 's'} found` : ''; };
+    if (editId) count('#be-text', '#be-count', false);
+    app.oninput = e => { if (e.target.id === 'nb-text') count('#nb-text', '#nb-count', $('#nb-strip').checked); if (e.target.id === 'be-text') count('#be-text', '#be-count', false); };
+    app.onchange = e => { if (e.target.id === 'nb-strip') count('#nb-text', '#nb-count', $('#nb-strip').checked); };
+    app.onclick = e => {
+      const b = e.target.closest('[data-b]'); if (!b) return;
+      const all = getBoards();
+      if (b.dataset.b === 'create' || b.dataset.b === 'blank') {
+        const blank = b.dataset.b === 'blank';
+        const qs = blank ? [''] : parseProblems($('#nb-text').value, $('#nb-strip').checked);
+        if (!qs.length) { toast('Paste at least one problem first, or start with an empty board.'); return; }
+        const nb = { id: newBoardId(), name: ($('#nb-name').value || '').trim() || ('Board ' + today()), created: Date.now(), updated: Date.now(), problems: qs.map(q => ({ q })), data: {}, active: 0 };
+        all.push(nb); setBoards(all); go('board/' + encodeURIComponent(nb.id));
+      } else if (b.dataset.b === 'del') {
+        const t = all.find(x => x.id === b.dataset.id);
+        if (t && confirm(`Delete the board “${t.name}”? This can't be undone.`)) { setBoards(all.filter(x => x.id !== t.id)); boardsPage(); toast('Board deleted'); }
+      } else if (b.dataset.b === 'save') {
+        const t = all.find(x => x.id === b.dataset.id); if (!t) return;
+        const qs = parseProblems($('#be-text').value, false);
+        if (!qs.length) { toast('A board needs at least one problem.'); return; }
+        const data = {}; qs.forEach((q, i) => { if (t.problems[i] && t.problems[i].q === q && t.data && t.data[i]) data[i] = t.data[i]; }); // keep the work on problems that did not change
+        t.name = ($('#be-name').value || '').trim() || t.name; t.problems = qs.map(q => ({ q })); t.data = data; t.active = Math.min(+t.active || 0, qs.length - 1); t.updated = Date.now();
+        setBoards(all); go('board'); toast('Saved');
+      }
+    };
+  }
+
   function presenter(id, sandbox) {
-    const quick = id === '__quick';
+    const isBoard = String(id).startsWith('__board:');
+    const board = isBoard ? getBoards().find(b => b.id === String(id).slice(8)) : null;
+    if (isBoard && !board) return go('board');
+    const quick = id === '__quick' || !!board;
     sandbox = !!sandbox && !quick;
-    const s = quick ? { id, title: 'Quick board', label: '', tool: 'numberline', problems: [] } : findString(id);
+    const s = quick ? { id, title: board ? board.name : 'Quick board', label: '', tool: 'numberline', problems: [] } : findString(id);
     if (!s) return go('');
     document.title = (s.label ? s.label + ' · ' : '') + s.title;
-    P = { s, quick, sandbox, sess: loadSession(id, s, sandbox), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
+    P = { s, quick, board, clean: !!board && !store.get('boardFull', false), railOpen: false, sandbox, sess: board ? boardSession(board) : loadSession(id, s, sandbox), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
     if (quick && !P.sess.problems.length) { P.sess.problems.push({ q: '' }); }
     const firstRun = !P.sess.shown.length;
     if (firstRun) revealNext(true);
     app.onclick = app.oninput = app.onchange = app.onkeydown = null;
     app.innerHTML = `
-      <div class="pres">
+      <div class="pres${P.board ? ' board' : ''}${P.clean ? ' clean' : ''}">
         <div class="topbar">
           ${sandbox ? '<span class="sandbox-tag" title="Practice board: nothing here is saved or marked done">🧪 Practice</span>' : '<button class="icon-btn" data-a="home" title="Back to library">⌂</button>'}
           <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
           <div class="title">${s.label ? esc(s.label) + ' · ' : ''}<b>${esc(s.title)}</b></div>
+          ${P.board ? '<button class="btn ghost" data-a="clean" title="Hide this bar and the list: just the problem and your tools">🧼 Clean view</button>' : ''}
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
           <button class="btn ghost" data-a="pick" title="Random name (R)">🎲 Pick</button>
@@ -1283,11 +1385,18 @@ Rules:
           <aside class="rail" id="rail"></aside>
           <main class="stage" id="stage"></main>
         </div>
+        ${P.board ? cleanUIHTML() : ''}
       </div>`;
     timer.draw();
     renderAll();
     window.onresize = () => { if (P) renderAll(); };
     $('.topbar').onclick = topbarClick;
+    if (P.board) {
+      const pres = $('.pres');
+      pres.addEventListener('click', cleanClick);
+      pres.addEventListener('wheel', swipeWheel, { passive: false });
+      document.documentElement.style.overscrollBehaviorX = 'none'; // so a two-finger swipe never triggers the browser's Back
+    }
     $('#stage').addEventListener('click', stageClick);
     $('#stage').addEventListener('input', stageInput);
     $('#stage').addEventListener('keydown', stageKey);
@@ -1296,10 +1405,77 @@ Rules:
     if (firstRun && !quick) timer.autoStart(); else timer.reset();
   }
 
+  // The clean screen: edge arrows, a position counter and one small menu. Everything else is hidden.
+  function cleanUIHTML() {
+    return `<div class="clean-ui">
+      <button class="edge-btn edge-prev" data-c="prev" aria-label="Previous problem" title="Previous (←)">‹</button>
+      <button class="edge-btn edge-next" data-c="next" aria-label="Next problem" title="Next (→)">›</button>
+      <div class="clean-corner">
+        <span class="clean-pos" id="clean-pos"></span>
+        <button class="corner-btn" data-c="menu" aria-expanded="false" aria-label="Board menu" title="Menu">⋯</button>
+        <div class="clean-menu" id="clean-menu" hidden>
+          <a href="#/board">📋 All my boards</a>
+          <a href="#/board/${encodeURIComponent(P.board.id)}/edit">✎ Edit this board's problems</a>
+          <button data-c="add">＋ Add a problem</button>
+          <button data-c="rail">☰ Problem list</button>
+          <button data-c="pen">✏️ Pen</button>
+          <hr>
+          <button data-c="clear">↺ Clear answers and models</button>
+          <button data-c="full">Show all the controls</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function renderClean() {
+    const S = P.sess, n = S.shown.length;
+    const pv = $('.edge-prev'), nx = $('.edge-next'), pos = $('#clean-pos');
+    if (pv) pv.hidden = S.active <= 0 || P.overview;
+    if (nx) nx.hidden = S.active >= n - 1 || P.overview;
+    if (pos) pos.textContent = n ? `${S.active + 1} / ${n}` : '';
+  }
+  function setClean(on) {
+    P.clean = on; store.set('boardFull', !on);
+    $('.pres').classList.toggle('clean', on);
+    const m = $('#clean-menu'); if (m) { m.hidden = true; $('[data-c=menu]').setAttribute('aria-expanded', 'false'); }
+    renderAll();
+  }
+  function addProblem() {
+    finishActive(true);
+    const S = P.sess; S.problems.push({ q: '' }); S.cursor = S.problems.length; S.shown.push(S.problems.length - 1); S.active = S.shown.length - 1; P.overview = false;
+    saveSession(); renderAll(); const q = $('#quick-q'); if (q) q.focus();
+  }
+  function cleanClick(e) {
+    const menu = $('#clean-menu'), mb = $('[data-c=menu]');
+    const b = e.target.closest('[data-c]');
+    if (!b) { if (menu && !menu.hidden && !e.target.closest('.clean-corner')) { menu.hidden = true; mb.setAttribute('aria-expanded', 'false'); } return; }
+    const c = b.dataset.c;
+    if (c === 'menu') { menu.hidden = !menu.hidden; mb.setAttribute('aria-expanded', String(!menu.hidden)); return; }
+    menu.hidden = true; mb.setAttribute('aria-expanded', 'false');
+    if (c === 'prev') goPrev();
+    else if (c === 'next') goNext();
+    else if (c === 'pen') setPen('draw');
+    else if (c === 'rail') { P.railOpen = !P.railOpen; renderRail(); }
+    else if (c === 'add') addProblem();
+    else if (c === 'full') setClean(false);
+    else if (c === 'clear') { if (confirm('Clear all answers, models and drawings on this board? The problems stay.')) { P.sess.data = {}; P.activeM = null; P.spot = null; saveSession(); renderAll(); } }
+  }
+  // A two-finger swipe left or right on the trackpad moves between problems (a swipe's momentum counts once)
+  let wheelAcc = 0, wheelLock = false, wheelT = 0;
+  function swipeWheel(e) {
+    if (!P || !P.board || P.overview || P.spot != null || $('.picker-back') || $('.modal-back')) return;
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // up and down scrolling is left alone
+    e.preventDefault();
+    clearTimeout(wheelT); wheelT = setTimeout(() => { wheelLock = false; wheelAcc = 0; }, 180);
+    if (wheelLock) return;
+    wheelAcc += e.deltaX;
+    if (Math.abs(wheelAcc) > 90) { wheelLock = true; const d = wheelAcc; wheelAcc = 0; if (d > 0) goNext(); else goPrev(); }
+  }
+
   function revealNext(silent) {
     const S = P.sess;
     if (S.active < S.shown.length - 1) { S.active++; }
     else if (S.cursor < S.problems.length) { S.shown.push(S.cursor++); S.active = S.shown.length - 1; if (!silent) timer.autoStart(); }
+    else if (P.board) { /* the last problem: stay here */ }
     else if (P.quick) { S.problems.push({ q: '' }); S.shown.push(S.cursor++); S.active = S.shown.length - 1; if (!silent) timer.reset(); }
     else { P.overview = true; }
     saveSession();
@@ -1447,6 +1623,7 @@ Rules:
     nb.textContent = P.quick && atEnd ? 'New problem ▶' : atEnd ? (P.overview ? 'Finish ✓' : 'Wrap-up ▶') : 'Next ▶';
     nb.title = atEnd && P.overview && !P.quick ? 'Back to the library (this run is kept; ↺ starts it fresh)' : 'Next (→)';
     nb.disabled = false;
+    if (P.board && atEnd) { nb.textContent = 'Last problem'; nb.disabled = true; }
     $('[data-a=prev]').disabled = S.active <= 0 && !P.overview;
     const nextOpt = S.active >= S.shown.length - 1 && S.cursor < S.problems.length && S.problems[S.cursor].optional;
     const sb = $('#skip-btn'); sb.classList.toggle('hidden', !nextOpt); sb.textContent = `Skip #${S.cursor + 1} (optional)`;
@@ -1456,11 +1633,12 @@ Rules:
     $('#pen-tools').classList.toggle('hidden', !P.pen);
     $('#erase-btn').classList.toggle('on', P.pen === 'erase');
     $$('.swatch').forEach(b => b.classList.toggle('sel', P.pen === 'draw' && b.dataset.color === P.penColor));
+    if (P.board) renderClean();
   }
   // The left column: a slim, readable list of the string so far
   function renderRail() {
     const rail = $('#rail'), S = P.sess;
-    $('.pres-body').classList.toggle('no-rail', settings.rail === false);
+    $('.pres-body').classList.toggle('no-rail', settings.rail === false || (P.clean && !P.railOpen));
     rail.innerHTML = S.shown.map((idx, pos) => {
       const d = pdata(idx);
       const circled = d.answers.find(a => a.mark === 'circled');
@@ -1825,7 +2003,8 @@ Rules:
     if (e.target.closest('#timer')) { timer.start(); return; }
     const a = e.target.closest('[data-a]'); if (!a) return;
     switch (a.dataset.a) {
-      case 'home': P = null; window.onresize = null; go(''); break;
+      case 'home': { const to = P.board ? 'board' : ''; if (P.board) { clearTimeout(sessT); saveBoard(); } P = null; window.onresize = null; go(to); break; }
+      case 'clean': setClean(true); break;
       case 'next': goNext(); break;
       case 'prev': goPrev(); break;
       case 'skipnext': skipNext(); break;
@@ -1838,7 +2017,7 @@ Rules:
       case 'rail': settings.rail = settings.rail === false; saveSettings(); renderAll(); break;
       case 'print': printView(); break;
       case 'overview': finishActive(true); P.overview = !P.overview; renderAll(); break;
-      case 'restart': if (confirm('Start this string over? Answers and models from this run will be cleared.')) { P.sess = newSession(P.s.id, P.s); P.activeM = null; P.spot = null; if (P.quick) P.sess.problems.push({ q: '' }); revealNext(true); timer.reset(); saveSession(); renderAll(); } break;
+      case 'restart': if (P.board) { if (confirm('Clear all answers, models and drawings on this board? The problems stay.')) { P.sess.data = {}; P.activeM = null; P.spot = null; saveSession(); renderAll(); } break; } if (confirm('Start this string over? Answers and models from this run will be cleared.')) { P.sess = newSession(P.s.id, P.s); P.activeM = null; P.spot = null; if (P.quick) P.sess.problems.push({ q: '' }); revealNext(true); timer.reset(); saveSession(); renderAll(); } break;
     }
   }
   function presKeys(e) {
@@ -1855,10 +2034,10 @@ Rules:
     else if (k === 'p' || k === 'P') setPen('draw');
     else if (k === 'e' || k === 'E') setPen('erase');
     else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
-    else if (k === 'l' || k === 'L') { settings.rail = settings.rail === false; saveSettings(); renderAll(); }
+    else if (k === 'l' || k === 'L') { if (P.clean) { P.railOpen = !P.railOpen; renderRail(); } else { settings.rail = settings.rail === false; saveSettings(); renderAll(); } }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
     else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
-    else if (k === 'Escape') { if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if (k === 'Escape') { if (P.board && $('#clean-menu') && !$('#clean-menu').hidden) { $('#clean-menu').hidden = true; } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }

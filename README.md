@@ -26,6 +26,16 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 or **📷 Add a picture**. Then model it with any tool, the pen, or students' answers. **New problem ▶** starts the
 next one, and ↺ clears the board. Pictures are kept in this browser, so clear the board now and then.
 
+## Boards
+**☰ More → 📋 Boards** keeps saved lists of problems (a unit test, a warm-up) that you show on a **clean screen**: the problem at the top, your tools along the bottom, nothing else.
+
+- **Make one ahead of time:** name it, paste the problems (one per line, or separate longer ones with a blank line) and press *Create and open*. Question numbers like `1.` or `Q3:` are removed for you.
+- **Move between problems** with ← → or Space, the arrows at the screen edges, or a two-finger swipe on the trackpad.
+- **The ⋯ in the top corner** has: all my boards, edit this board's problems, add a problem, the problem list, the pen, clear answers and models, and *Show all the controls* (the normal top bar and list; *🧼 Clean view* goes back).
+- Boards, and any models you make on them, are saved in the browser. **Export** includes them, so they move to another computer with the rest.
+
+The Quick board is unchanged: a single blank board that is cleared after a few hours.
+
 ## Adding strings
 
 1. **Quick way:** in the app open **☰ More → Import** and drop in a `.json` file (from Claude or from **Export** on
