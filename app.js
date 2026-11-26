@@ -1623,7 +1623,7 @@ Rules:
     const exprPart = P.quick
       ? `<div class="qbox${wide ? ' wide' : ''}"><textarea class="quick-input${wide ? ' long' : ''}" id="quick-q" rows="1" placeholder="${prob.img ? 'Add a note (optional)' : 'Type or paste a problem…'}">${esc(prob.q)}</textarea>
           ${prob.img ? `<div class="qimg"><img src="${prob.img}" alt="The problem"><button class="icon-btn" data-a="qimg-x" title="Remove the picture">✕</button></div>` : ''}
-          <label class="qpic" title="Add a picture of the problem (or paste one with Ctrl+V)">📷 ${prob.img ? 'Change picture' : 'Add a picture <span class="qtip">(or paste one with Ctrl+V)</span>'}<input type="file" accept="image/*" id="quick-file" hidden></label></div>`
+          <label class="qpic" title="${prob.img ? 'Change the picture' : 'Add a picture of the problem'} (or paste one with Ctrl+V)" aria-label="${prob.img ? 'Change the picture' : 'Add a picture'}">📷<input type="file" accept="image/*" id="quick-file" hidden></label></div>`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
     if (P.quick) return exprPart; // Quick board and Boards: just the problem, no = or answers
@@ -1702,7 +1702,7 @@ Rules:
       <div class="area" id="area">
         <div class="grid${fin.length ? '' : ' hidden'}" id="grid">${fin.map(([m, i]) => tileHTML(m, i, 'grid')).join('')}</div>
         ${P.activeM != null ? tileHTML(d.models[P.activeM], P.activeM, 'active') : ''}
-        ${!d.models.length ? `<div class="area-hint">Pick a tool below to model a student's thinking</div>` : ''}
+        ${!d.models.length && !P.quick ? `<div class="area-hint">Pick a tool below to model a student's thinking</div>` : ''}
         ${P.spot != null ? `<div class="spot" data-spot="1">${tileHTML(d.models[P.spot], P.spot, 'spotlit')}<span class="spot-close">Click anywhere to close · Esc</span></div>` : ''}
         <svg class="ink" id="ink" viewBox="0 0 1000 1000" preserveAspectRatio="none">${strokes}</svg>
       </div>
