@@ -325,10 +325,10 @@
           <div class="lib-tools">
             <a class="btn" href="#/pd" title="Our number strings PD: the timeline, the sessions and a suggested six weeks of strings">🎓 PD</a>
             <a class="btn" href="#/start" title="A quick guide for first-time users">📘 Getting started</a>
-            <details class="menu-wrap"><summary class="btn" title="More: new strings, quick board, saved runs, settings">☰ More</summary>
+            <a class="btn" href="#/quick" title="A blank board: type or paste any problem, then model it">⚡ Quick board</a>
+            <details class="menu-wrap"><summary class="btn" title="More: new strings, boards, saved runs, settings">☰ More</summary>
               <div class="menu">
                 <button data-act="new">＋ New string</button>
-                <button data-act="quick">⚡ Quick board <small>type or paste any problem, then model it</small></button>
                 <a href="#/board">📋 Boards <small>saved lists of problems on a clean screen</small></a>
                 <a href="#/runs">🗂 My runs${getRuns().length ? ` <span class="cnt">${getRuns().length}</span>` : ''} <small>strings you've finished in class</small></a>
                 <button data-act="classes">🎲 Class lists <small>names for the random picker</small></button>
