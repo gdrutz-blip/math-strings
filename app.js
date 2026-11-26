@@ -1626,6 +1626,7 @@ Rules:
           <label class="qpic" title="Add a picture of the problem (or paste one with Ctrl+V)">📷 ${prob.img ? 'Change picture' : 'Add a picture <span class="qtip">(or paste one with Ctrl+V)</span>'}<input type="file" accept="image/*" id="quick-file" hidden></label></div>`
       : `<span class="expr">${exprHTML(prob.q) || '<span style="color:var(--faint)">…</span>'}</span>`;
     const answers = d.answers.map((a, i) => `<span class="ans ${a.mark || ''}" data-ans="${i}" title="Click: circle → cross out → plain">${exprHTML(a.t)}</span>`).join('');
+    if (P.quick) return exprPart; // Quick board and Boards: just the problem, no = or answers
     return `${exprPart}<span class="eq-mark"${wide ? ' hidden' : ''}>${P.quick ? '=' : eqSym(prob.q)}</span><span class="answers">${answers}</span><span id="ans-slot"></span><button class="add-ans" data-a="addans" title="Add a student answer (A)">＋ answer</button>`;
   }
   function barHTML(d) {
@@ -2072,7 +2073,7 @@ Rules:
     else if (k === 'e' || k === 'E') setPen('erase');
     else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
     else if (k === 'l' || k === 'L') { if (P.clean) { P.railOpen = !P.railOpen; renderRail(); } else { settings.rail = settings.rail === false; saveSettings(); renderAll(); } }
-    else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
+    else if ((k === 'a' || k === 'A') && !P.quick) { e.preventDefault(); openAnswerInput(); }
     else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
     else if (k === 'Escape') { if (P.quick && $('#clean-menu') && !$('#clean-menu').hidden) { $('#clean-menu').hidden = true; } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
