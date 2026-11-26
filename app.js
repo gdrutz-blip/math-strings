@@ -1258,26 +1258,35 @@ Rules:
     return parts.map(p => p.split('\n').map(l => l.trim()).filter(Boolean).join('\n'))
       .map(p => (stripNumbers ? p.replace(/^(?:Q(?:uestion)?\s*\d{1,3}\s*[.):]?|\d{1,3}[.)])\s+/i, '') : p).trim()).filter(Boolean);
   }
-  const problemsText = probs => { const qs = probs.map(p => p.q).filter(Boolean); return qs.join(qs.some(q => q.includes('\n')) ? '\n\n' : '\n'); };
+  // A problem that is only a picture shows as this line when editing, so it keeps its place
+  const PIC_LINE = '[picture]';
+  const keepImg = (np, p) => { if (p && typeof p.img === 'string' && p.img.startsWith('data:image/')) np.img = p.img; return np; };
+  const problemsText = probs => { const qs = probs.map(p => p.q || (p.img ? PIC_LINE : '')).filter(Boolean); return qs.join(qs.some(q => q.includes('\n')) ? '\n\n' : '\n'); };
+  // Boards live in the browser's storage (about 5 MB in all), and pictures fill it fastest
+  let spaceWarned = false;
+  function boardSpaceCheck() {
+    let n = 0; try { n = (localStorage.getItem('ms.boards') || '').length; } catch (e) { return; }
+    if (n > 3500000 && !spaceWarned) { spaceWarned = true; toast('Your boards are nearly filling this browser\'s storage. Delete old boards or pictures you no longer need.'); }
+  }
   function mergeBoards(list) {
     const all = getBoards(); let n = 0;
     (Array.isArray(list) ? list : []).forEach(b => {
       if (!b || typeof b.id !== 'string' || typeof b.name !== 'string' || !Array.isArray(b.problems)) return;
-      const c = { id: b.id, name: b.name.slice(0, 80), created: +b.created || Date.now(), updated: +b.updated || Date.now(), problems: b.problems.map(p => ({ q: String((p && p.q) || '') })), data: b.data && typeof b.data === 'object' ? b.data : {}, active: +b.active || 0 };
+      const c = { id: b.id, name: b.name.slice(0, 80), created: +b.created || Date.now(), updated: +b.updated || Date.now(), problems: b.problems.map(p => keepImg({ q: String((p && p.q) || '') }, p)), data: b.data && typeof b.data === 'object' ? b.data : {}, active: +b.active || 0 };
       const i = all.findIndex(x => x.id === c.id); if (i >= 0) all[i] = c; else all.push(c); n++;
     });
     setBoards(all); return n;
   }
   function boardSession(b) {
     const n = b.problems.length;
-    return { id: '__board:' + b.id, at: Date.now(), problems: b.problems.map(p => ({ q: p.q || '' })), cursor: n, shown: b.problems.map((_, i) => i), active: n ? Math.min(Math.max(+b.active || 0, 0), n - 1) : -1, data: b.data && typeof b.data === 'object' ? b.data : {} };
+    return { id: '__board:' + b.id, at: Date.now(), problems: b.problems.map(p => keepImg({ q: p.q || '' }, p)), cursor: n, shown: b.problems.map((_, i) => i), active: n ? Math.min(Math.max(+b.active || 0, 0), n - 1) : -1, data: b.data && typeof b.data === 'object' ? b.data : {} };
   }
   function saveBoard() {
     if (!P || !P.board) return;
     const all = getBoards(), b = all.find(x => x.id === P.board.id); if (!b) return;
     const data = {}; Object.keys(P.sess.data).forEach(k => { const d = Object.assign({}, P.sess.data[k]); delete d.snap; data[k] = d; });
-    b.problems = P.sess.problems.map(p => ({ q: p.q || '' })); b.data = data; b.active = P.sess.active; b.updated = Date.now();
-    setBoards(all);
+    b.problems = P.sess.problems.map(p => keepImg({ q: p.q || '' }, p)); b.data = data; b.active = P.sess.active; b.updated = Date.now();
+    setBoards(all); boardSpaceCheck();
   }
   function boardsPage(editId) {
     if (P && P.board) { clearTimeout(sessT); saveBoard(); }
@@ -1291,6 +1300,7 @@ Rules:
           <label class="field">Board name<input id="be-name" value="${esc(b.name)}" maxlength="60"></label>
           <label class="field">Problems<textarea id="be-text" rows="10">${esc(problemsText(b.problems))}</textarea></label>
           <p class="hint" id="be-count"></p>
+          ${b.problems.some(p => p.img) ? `<p class="hint">Pictures stay with their problem when you move it. A problem that is only a picture shows as <b>${PIC_LINE}</b>. Add new pictures on the board itself with 📷.</p>` : ''}
           <div class="ed-head"><button class="btn primary" data-b="save" data-id="${esc(b.id)}">Save changes</button><a class="btn ghost" href="#/board">Cancel</a></div>
         </div>` : `
         <div class="run-row">
@@ -1311,7 +1321,7 @@ Rules:
         <p class="hint" id="nb-count"></p>
         <div class="ed-head"><button class="btn primary" data-b="create">Create and open</button><button class="btn" data-b="blank">Start with an empty board</button></div>
       </div>
-      <p class="hint">Boards are saved in this browser on this computer. <b>Export</b> (under ☰ More on the library page) includes them. In a board, ← → or Space move between problems, and so does a two-finger swipe on the trackpad. The <b>⋯</b> in the top corner has the other options.</p>
+      <p class="hint">To add a picture (a diagram, or a screenshot of the question), open the board and use 📷 or paste it with Ctrl+V. Boards are saved in this browser on this computer. <b>Export</b> (under ☰ More on the library page) includes them. In a board, ← → or Space move between problems, and so does a two-finger swipe on the trackpad. The <b>⋯</b> in the top corner has the other options.</p>
     </div>`;
     window.scrollTo(0, 0);
     const count = (ta, out, strip) => { const el = $(out); if (!el) return; const n = parseProblems($(ta).value, strip).length; el.textContent = n ? `${n} problem${n === 1 ? '' : 's'} found` : ''; };
@@ -1334,8 +1344,15 @@ Rules:
         const t = all.find(x => x.id === b.dataset.id); if (!t) return;
         const qs = parseProblems($('#be-text').value, false);
         if (!qs.length) { toast('A board needs at least one problem.'); return; }
-        const data = {}; qs.forEach((q, i) => { if (t.problems[i] && t.problems[i].q === q && t.data && t.data[i]) data[i] = t.data[i]; }); // keep the work on problems that did not change
-        t.name = ($('#be-name').value || '').trim() || t.name; t.problems = qs.map(q => ({ q })); t.data = data; t.active = Math.min(+t.active || 0, qs.length - 1); t.updated = Date.now();
+        // keep the work and picture on each problem that is still there, even if it moved
+        const old = {}; t.problems.forEach((p, i) => { const k = p.q || (p.img ? PIC_LINE : ''); (old[k] = old[k] || []).push(i); });
+        const data = {}, probs = qs.map((q, i) => {
+          const j = (old[q] || []).shift();
+          if (j == null) return { q };
+          if (t.data && t.data[j]) data[i] = t.data[j];
+          return keepImg({ q: q === PIC_LINE && !t.problems[j].q ? '' : q }, t.problems[j]);
+        });
+        t.name = ($('#be-name').value || '').trim() || t.name; t.problems = probs; t.data = data; t.active = Math.min(+t.active || 0, qs.length - 1); t.updated = Date.now();
         setBoards(all); go('board'); toast('Saved');
       }
     };
@@ -1372,6 +1389,7 @@ Rules:
             <button class="icon-btn" data-a="erase" id="erase-btn" title="Eraser (E)">⌫</button>
             <button class="icon-btn" data-a="undo" title="Undo (Ctrl+Z)">↶</button>
             <button class="icon-btn" data-a="clear" title="Clear drawing on this problem">🗑</button>
+            <button class="btn small" data-a="pen-done" title="Put the pen away (P or Esc)">✓ Done</button>
           </span>
           <button class="btn ghost" data-a="overview" id="ov-btn" title="See the whole string (O)">▦ All</button>
           <button class="btn ghost" data-a="print" title="Print or save as PDF what is on screen: this problem, a spotlighted model, or the whole string (in ▦ All)">🖨</button>
@@ -1431,7 +1449,7 @@ Rules:
     const pv = $('.edge-prev'), nx = $('.edge-next'), pos = $('#clean-pos');
     if (pv) pv.hidden = S.active <= 0 || P.overview;
     if (nx) nx.hidden = S.active >= n - 1 || P.overview;
-    if (pos) pos.textContent = n ? `${S.active + 1} / ${n}` : '';
+    if (pos) pos.textContent = n ? `${S.active + 1} / ${n}${n > 1 && S.active === n - 1 ? ' · last one' : ''}` : '';
   }
   function setClean(on) {
     P.clean = on; store.set('boardFull', !on);
@@ -1579,7 +1597,7 @@ Rules:
       .catch(() => toast('That picture could not be opened'));
   }
   document.addEventListener('paste', e => {
-    if (!P || !P.quick || P.overview || !/^#\/quick/.test(location.hash)) return;
+    if (!P || !P.quick || P.overview || !/^#\/(quick|board\/)/.test(location.hash)) return;
     const f = [...(e.clipboardData ? e.clipboardData.files : [])].find(x => /^image\//.test(x.type));
     if (f) { e.preventDefault(); addQuickImage(f); }
   });
@@ -1631,6 +1649,8 @@ Rules:
     $('#rail-btn').classList.toggle('on', settings.rail !== false);
     $('#pen-btn').classList.toggle('on', !!P.pen);
     $('#pen-tools').classList.toggle('hidden', !P.pen);
+    $('.pres').classList.toggle('pen-on', !!P.pen);
+    if (P.quick) sizeQuickBox(); // the question's box gets narrower or wider with the pen
     $('#erase-btn').classList.toggle('on', P.pen === 'erase');
     $$('.swatch').forEach(b => b.classList.toggle('sel', P.pen === 'draw' && b.dataset.color === P.penColor));
     if (P.board) renderClean();
@@ -2010,6 +2030,7 @@ Rules:
       case 'skipnext': skipNext(); break;
       case 'pick': pickerOverlay(false); break;
       case 'pen': setPen('draw'); break;
+      case 'pen-done': if (P.pen) setPen(P.pen); break;
       case 'try': P.tryOpen = !P.tryOpen; renderTry(); break;
       case 'erase': setPen('erase'); break;
       case 'undo': undoStroke(); break;
