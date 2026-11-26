@@ -21,7 +21,7 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 
 ## Quick board
 
-**☰ More → ⚡ Quick board** is a blank board for any math problem, not just strings. Type or paste the question
+**⚡ Quick board** (top of the library, beside Getting started) is a blank board for any math problem, not just strings. Type or paste the question
 (a word problem is fine; Shift+Enter starts a new line), or paste a picture of it with Ctrl+V (Cmd+V on a Mac)
 or the small **📷** beside the question. Then model it with any tool, the pen, or students' answers.
 
