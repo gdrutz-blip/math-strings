@@ -32,6 +32,8 @@ next one, and ↺ clears the board. Pictures are kept in this browser, so clear 
 - **Make one ahead of time:** name it, paste the problems (one per line, or separate longer ones with a blank line) and press *Create and open*. Question numbers like `1.` or `Q3:` are removed for you.
 - **Move between problems** with ← → or Space, the arrows at the screen edges, or a two-finger swipe on the trackpad.
 - **The ⋯ in the top corner** has: all my boards, edit this board's problems, add a problem, the problem list, the pen, clear answers and models, and *Show all the controls* (the normal top bar and list; *🧼 Clean view* goes back).
+- **Pictures:** on the board, use **📷 Add a picture** or paste one with Ctrl+V (a diagram, or a screenshot of the question). When you edit a board's problems, a problem that is only a picture shows as `[picture]`, and work and pictures follow each problem even if you move it.
+- **The pen** sits at the top right in the clean view, away from the problem. **✓ Done** puts it away.
 - Boards, and any models you make on them, are saved in the browser. **Export** includes them, so they move to another computer with the rest.
 
 The Quick board is unchanged: a single blank board that is cleared after a few hours.

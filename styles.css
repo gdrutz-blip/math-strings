@@ -637,11 +637,10 @@ details.menu-wrap .menu > a.menu-tool { font-size: 13.5px; font-weight: 500; col
 
 /* the clean view: only the problem (top) and the tools (bottom) */
 .pres.clean { grid-template-rows: 1fr; }
-.pres.clean .topbar { position: fixed; top: 10px; left: 12px; z-index: 40; min-height: 0; padding: 0; border: 0; background: none; }
+.pres.clean .topbar { position: fixed; top: 8px; right: 120px; left: auto; z-index: 40; min-height: 0; padding: 0; border: 0; background: none; }
 .pres.clean .topbar > *:not(.pen-tools) { display: none !important; }
 .pres.clean .pen-tools { background: #fff; border: 1px solid var(--line-strong); border-radius: 12px; padding: 5px 9px; box-shadow: 0 4px 14px rgba(20, 30, 50, .14); }
 .pres.clean .head { padding-right: 130px; }
-.pres.board .qpic { display: none !important; }
 .pres:not(.clean) .clean-ui { display: none; }
 .clean-ui [hidden] { display: none !important; }
 .edge-btn { position: fixed; top: 50%; transform: translateY(-50%); width: 38px; height: 92px; border: 0; border-radius: 12px; background: rgba(31, 95, 209, .08); color: var(--accent); font-size: 40px; line-height: 1; opacity: .42; cursor: pointer; z-index: 35; padding: 0; }
@@ -657,3 +656,5 @@ details.menu-wrap .menu > a.menu-tool { font-size: 13.5px; font-weight: 500; col
 .clean-menu > button:hover, .clean-menu > a:hover { background: var(--accent-soft); }
 .clean-menu hr { border: 0; border-top: 1px solid var(--line); margin: 4px 2px; }
 @media print { .clean-ui { display: none !important; } }
+.pres.clean.pen-on .head { padding-right: 470px; } /* the pen tools sit top right, beside the counter, clear of the problem */
+.pen-tools [data-a=pen-done] { margin-left: 4px; }
