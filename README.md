@@ -23,20 +23,24 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 
 **☰ More → ⚡ Quick board** is a blank board for any math problem, not just strings. Type or paste the question
 (a word problem is fine; Shift+Enter starts a new line), or paste a picture of it with Ctrl+V (Cmd+V on a Mac)
-or **📷 Add a picture**. Then model it with any tool, the pen, or students' answers. **New problem ▶** starts the
-next one, and ↺ clears the board. Pictures are kept in this browser, so clear the board now and then.
+or **📷 Add a picture**. Then model it with any tool, the pen, or students' answers.
+
+It opens on a clean screen, like a board: no top bar, just the problem and the tools. The **›** arrow on the right
+(or →) starts a new problem. The **⋯** in the top corner has: back to the library, new problem, **save these problems
+as a board**, the problem list, the pen, clear the board, and *Show all the controls* (the full top bar; *🧼 Clean
+view* goes back). Pictures are kept in this browser, so clear the board now and then.
 
 ## Boards
 **☰ More → 📋 Boards** keeps saved lists of problems (a unit test, a warm-up) that you show on a **clean screen**: the problem at the top, your tools along the bottom, nothing else.
 
-- **Make one ahead of time:** name it, paste the problems (one per line, or separate longer ones with a blank line) and press *Create and open*. Question numbers like `1.` or `Q3:` are removed for you.
+- **Make one ahead of time:** the New board form is at the top of the Boards page. Name it, paste the problems (one per line, or separate longer ones with a blank line) and press *Create and open*. Question numbers like `1.` or `Q3:` are removed for you.
 - **Move between problems** with ← → or Space, the arrows at the screen edges, or a two-finger swipe on the trackpad.
 - **The ⋯ in the top corner** has: all my boards, edit this board's problems, add a problem, the problem list, the pen, clear answers and models, and *Show all the controls* (the normal top bar and list; *🧼 Clean view* goes back).
 - **Pictures:** on the board, use **📷 Add a picture** or paste one with Ctrl+V (a diagram, or a screenshot of the question). When you edit a board's problems, a problem that is only a picture shows as `[picture]`, and work and pictures follow each problem even if you move it.
 - **The pen** sits at the top right in the clean view, away from the problem. **✓ Done** puts it away.
 - Boards, and any models you make on them, are saved in the browser. **Export** includes them, so they move to another computer with the rest.
 
-The Quick board is unchanged: a single blank board that is cleared after a few hours.
+The Quick board is the same clean screen for one-off problems. Its ⋯ menu can save what's on it as a board.
 
 ## Adding strings
 

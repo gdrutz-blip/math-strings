@@ -658,3 +658,5 @@ details.menu-wrap .menu > a.menu-tool { font-size: 13.5px; font-weight: 500; col
 @media print { .clean-ui { display: none !important; } }
 .pres.clean.pen-on .head { padding-right: 470px; } /* the pen tools sit top right, beside the counter, clear of the problem */
 .pen-tools [data-a=pen-done] { margin-left: 4px; }
+.boards-page .boards-mine { margin: 26px 0 10px; }
+.boards-page .board-new[hidden] { display: none; }

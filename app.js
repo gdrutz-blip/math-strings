@@ -1312,8 +1312,7 @@ Rules:
       <div class="ed-head no-print"><a class="btn ghost" href="#/">← Library</a></div>
       <h1>📋 Boards</h1>
       <p class="lead">A clean screen with just the problem and your tools. Paste in a list of problems ahead of time, like a unit test, then move through them in class.</p>
-      ${boards.length ? `<div class="run-list">${rows}</div>` : ''}
-      <div class="panel board-new">
+      <div class="panel board-new"${editId ? ' hidden' : ''}>
         <h2>New board</h2>
         <label class="field">Name<input id="nb-name" placeholder="e.g. Unit 2 test" maxlength="60"></label>
         <label class="field">Problems<textarea id="nb-text" rows="8" placeholder="Paste your problems here, one per line.&#10;For longer problems, leave a blank line between them."></textarea></label>
@@ -1321,6 +1320,7 @@ Rules:
         <p class="hint" id="nb-count"></p>
         <div class="ed-head"><button class="btn primary" data-b="create">Create and open</button><button class="btn" data-b="blank">Start with an empty board</button></div>
       </div>
+      ${boards.length ? `<h2 class="boards-mine">My boards</h2><div class="run-list">${rows}</div>` : ''}
       <p class="hint">To add a picture (a diagram, or a screenshot of the question), open the board and use 📷 or paste it with Ctrl+V. Boards are saved in this browser on this computer. <b>Export</b> (under ☰ More on the library page) includes them. In a board, ← → or Space move between problems, and so does a two-finger swipe on the trackpad. The <b>⋯</b> in the top corner has the other options.</p>
     </div>`;
     window.scrollTo(0, 0);
@@ -1367,7 +1367,7 @@ Rules:
     const s = quick ? { id, title: board ? board.name : 'Quick board', label: '', tool: 'numberline', problems: [] } : findString(id);
     if (!s) return go('');
     document.title = (s.label ? s.label + ' · ' : '') + s.title;
-    P = { s, quick, board, clean: !!board && !store.get('boardFull', false), railOpen: false, sandbox, sess: board ? boardSession(board) : loadSession(id, s, sandbox), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
+    P = { s, quick, board, clean: quick && !sandbox && !store.get(board ? 'boardFull' : 'quickFull', false), railOpen: false, sandbox, sess: board ? boardSession(board) : loadSession(id, s, sandbox), pen: null, penColor: '#1d2433', overview: false, activeM: null, spot: null };
     if (quick && !P.sess.problems.length) { P.sess.problems.push({ q: '' }); }
     const firstRun = !P.sess.shown.length;
     if (firstRun) revealNext(true);
@@ -1378,7 +1378,7 @@ Rules:
           ${sandbox ? '<span class="sandbox-tag" title="Practice board: nothing here is saved or marked done">🧪 Practice</span>' : '<button class="icon-btn" data-a="home" title="Back to library">⌂</button>'}
           <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
           <div class="title">${s.label ? esc(s.label) + ' · ' : ''}<b>${esc(s.title)}</b></div>
-          ${P.board ? '<button class="btn ghost" data-a="clean" title="Hide this bar and the list: just the problem and your tools">🧼 Clean view</button>' : ''}
+          ${P.quick ? '<button class="btn ghost" data-a="clean" title="Hide this bar and the list: just the problem and your tools">🧼 Clean view</button>' : ''}
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
           <button class="btn ghost" data-a="pick" title="Random name (R)">🎲 Pick</button>
@@ -1403,13 +1403,13 @@ Rules:
           <aside class="rail" id="rail"></aside>
           <main class="stage" id="stage"></main>
         </div>
-        ${P.board ? cleanUIHTML() : ''}
+        ${P.quick ? cleanUIHTML() : ''}
       </div>`;
     timer.draw();
     renderAll();
     window.onresize = () => { if (P) renderAll(); };
     $('.topbar').onclick = topbarClick;
-    if (P.board) {
+    if (P.quick) {
       const pres = $('.pres');
       pres.addEventListener('click', cleanClick);
       pres.addEventListener('wheel', swipeWheel, { passive: false });
@@ -1432,13 +1432,15 @@ Rules:
         <span class="clean-pos" id="clean-pos"></span>
         <button class="corner-btn" data-c="menu" aria-expanded="false" aria-label="Board menu" title="Menu">⋯</button>
         <div class="clean-menu" id="clean-menu" hidden>
-          <a href="#/board">📋 All my boards</a>
+          ${P.board ? `<a href="#/board">📋 All my boards</a>
           <a href="#/board/${encodeURIComponent(P.board.id)}/edit">✎ Edit this board's problems</a>
-          <button data-c="add">＋ Add a problem</button>
+          <button data-c="add">＋ Add a problem</button>` : `<a href="#/">⌂ Back to the library</a>
+          <button data-c="add">＋ New problem</button>
+          <button data-c="saveboard">📋 Save these problems as a board</button>`}
           <button data-c="rail">☰ Problem list</button>
           <button data-c="pen">✏️ Pen</button>
           <hr>
-          <button data-c="clear">↺ Clear answers and models</button>
+          <button data-c="clear">${P.board ? '↺ Clear answers and models' : '↺ Clear the board (start fresh)'}</button>
           <button data-c="full">Show all the controls</button>
         </div>
       </div>
@@ -1448,14 +1450,24 @@ Rules:
     const S = P.sess, n = S.shown.length;
     const pv = $('.edge-prev'), nx = $('.edge-next'), pos = $('#clean-pos');
     if (pv) pv.hidden = S.active <= 0 || P.overview;
-    if (nx) nx.hidden = S.active >= n - 1 || P.overview;
-    if (pos) pos.textContent = n ? `${S.active + 1} / ${n}${n > 1 && S.active === n - 1 ? ' · last one' : ''}` : '';
+    if (nx) { const end = S.active >= n - 1; nx.hidden = (end && !!P.board) || P.overview; nx.title = end ? 'New problem (→)' : 'Next (→)'; }
+    if (pos) pos.textContent = n > 1 ? `${S.active + 1} / ${n}${P.board && S.active === n - 1 ? ' · last one' : ''}` : '';
   }
   function setClean(on) {
-    P.clean = on; store.set('boardFull', !on);
+    P.clean = on; store.set(P.board ? 'boardFull' : 'quickFull', !on);
     $('.pres').classList.toggle('clean', on);
     const m = $('#clean-menu'); if (m) { m.hidden = true; $('[data-c=menu]').setAttribute('aria-expanded', 'false'); }
     renderAll();
+  }
+  function quickToBoard() {
+    finishActive(true);
+    const S = P.sess, keep = S.shown.filter(i => S.problems[i].q || S.problems[i].img);
+    if (!keep.length) { toast('Type or paste a problem first.'); return; }
+    const name = prompt('Name for this board:', 'Board ' + today()); if (name == null) return;
+    const data = {}; keep.forEach((i, j) => { if (S.data[i]) { const d = Object.assign({}, S.data[i]); delete d.snap; data[j] = d; } });
+    const nb = { id: newBoardId(), name: name.trim().slice(0, 60) || ('Board ' + today()), created: Date.now(), updated: Date.now(), problems: keep.map(i => keepImg({ q: S.problems[i].q || '' }, S.problems[i])), data, active: 0 };
+    const all = getBoards(); all.push(nb); setBoards(all); boardSpaceCheck();
+    toast('Saved as a board. Find it under ☰ More → Boards.');
   }
   function addProblem() {
     finishActive(true);
@@ -1475,12 +1487,16 @@ Rules:
     else if (c === 'rail') { P.railOpen = !P.railOpen; renderRail(); }
     else if (c === 'add') addProblem();
     else if (c === 'full') setClean(false);
-    else if (c === 'clear') { if (confirm('Clear all answers, models and drawings on this board? The problems stay.')) { P.sess.data = {}; P.activeM = null; P.spot = null; saveSession(); renderAll(); } }
+    else if (c === 'clear') {
+      if (P.board) { if (confirm('Clear all answers, models and drawings on this board? The problems stay.')) { P.sess.data = {}; P.activeM = null; P.spot = null; saveSession(); renderAll(); } }
+      else if (confirm('Clear the Quick board? Its problems, models and drawings will be removed.')) { P.sess = newSession(P.s.id, P.s); P.activeM = null; P.spot = null; P.sess.problems.push({ q: '' }); revealNext(true); saveSession(); renderAll(); }
+    }
+    else if (c === 'saveboard') quickToBoard();
   }
   // A two-finger swipe left or right on the trackpad moves between problems (a swipe's momentum counts once)
   let wheelAcc = 0, wheelLock = false, wheelT = 0;
   function swipeWheel(e) {
-    if (!P || !P.board || P.overview || P.spot != null || $('.picker-back') || $('.modal-back')) return;
+    if (!P || !P.quick || P.overview || P.spot != null || $('.picker-back') || $('.modal-back')) return;
     if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // up and down scrolling is left alone
     e.preventDefault();
     clearTimeout(wheelT); wheelT = setTimeout(() => { wheelLock = false; wheelAcc = 0; }, 180);
@@ -1653,7 +1669,7 @@ Rules:
     if (P.quick) sizeQuickBox(); // the question's box gets narrower or wider with the pen
     $('#erase-btn').classList.toggle('on', P.pen === 'erase');
     $$('.swatch').forEach(b => b.classList.toggle('sel', P.pen === 'draw' && b.dataset.color === P.penColor));
-    if (P.board) renderClean();
+    if (P.quick) renderClean();
   }
   // The left column: a slim, readable list of the string so far
   function renderRail() {
@@ -2058,7 +2074,7 @@ Rules:
     else if (k === 'l' || k === 'L') { if (P.clean) { P.railOpen = !P.railOpen; renderRail(); } else { settings.rail = settings.rail === false; saveSettings(); renderAll(); } }
     else if (k === 'a' || k === 'A') { e.preventDefault(); openAnswerInput(); }
     else if ((k === 'y' || k === 'Y') && $('#try-btn')) { P.tryOpen = !P.tryOpen; renderTry(); }
-    else if (k === 'Escape') { if (P.board && $('#clean-menu') && !$('#clean-menu').hidden) { $('#clean-menu').hidden = true; } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
+    else if (k === 'Escape') { if (P.quick && $('#clean-menu') && !$('#clean-menu').hidden) { $('#clean-menu').hidden = true; } else if (P.tryOpen) { P.tryOpen = false; renderTry(); } else if (P.spot != null) { P.spot = null; renderStage(); } else if (P.pen) setPen(P.pen); else if (P.activeM != null) finishActive(); else if (P.overview) { P.overview = false; renderAll(); } }
     else if (k === '?') helpModal();
     else { const t = visibleTools().find(x => x.key === k); if (t) { e.preventDefault(); addModel(t.id); } }
   }
