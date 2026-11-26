@@ -672,3 +672,4 @@ details.menu-wrap .menu > a.menu-tool { font-size: 13.5px; font-weight: 500; col
 .pres.quick .qbox > .qpic { right: 0; }
 /* with the problem list open, the back arrow moves past it */
 .pres.clean .pres-body:not(.no-rail) ~ .clean-ui .edge-prev { left: calc(max(170px, 17vw) + 6px); }
+.mute-btn.muted { opacity: .55; }
