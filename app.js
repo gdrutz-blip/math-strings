@@ -977,6 +977,7 @@ Rules:
         <kbd>→</kbd><span>Next problem (also Space, N or Page Down, so a presentation clicker works)</span>
         <kbd>←</kbd><span>Back (also Page Up)</span>
         <kbd>T</kbd><span>Start / pause the timer</span>
+        <kbd>M</kbd><span>Mute / unmute the chime</span>
         <kbd>R</kbd><span>Random name picker</span>
         <kbd>A</kbd><span>Add a student answer</span>
         <kbd>Y</kbd><span>💡 Try: likely student responses for this problem</span>
@@ -1112,6 +1113,14 @@ Rules:
   };
   function stopTimerUI() { /* timer keeps its state across views */ }
   let audioCtx;
+  // The bell beside the timer: on = a soft chime when time is up
+  function renderMute() {
+    const b = $('#mute-btn'); if (!b) return;
+    b.textContent = settings.chime ? '🔔' : '🔕';
+    b.title = settings.chime ? 'Chime is on: click to mute (M)' : 'Chime is muted: click to turn it on (M)';
+    b.setAttribute('aria-label', settings.chime ? 'Mute the chime' : 'Turn the chime on');
+    b.classList.toggle('muted', !settings.chime);
+  }
   function chime(n) {
     if (!settings.chime) return;
     try {
@@ -1379,6 +1388,7 @@ Rules:
           <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
           <div class="title">${s.label ? esc(s.label) + ' · ' : ''}<b>${esc(s.title)}</b></div>
           ${P.quick ? '<button class="btn ghost" data-a="clean" title="Hide this bar and the list: just the problem and your tools">🧼 Clean view</button>' : ''}
+          <button class="icon-btn mute-btn" data-a="mute" id="mute-btn"></button>
           <div class="timer idle" id="timer" title="Click to start or pause (T)"><div class="fill"></div><span class="phase"></span><span class="time"></span><button class="tbtn" data-t="play" title="Start / pause">▶</button><button class="tbtn" data-t="skip" title="Skip ahead">⏭</button><button class="tbtn" data-t="reset" title="Reset">↺</button></div>
           <span class="sep"></span>
           <button class="btn ghost" data-a="pick" title="Random name (R)">🎲 Pick</button>
@@ -1409,6 +1419,7 @@ Rules:
     renderAll();
     window.onresize = () => { if (P) renderAll(); };
     $('.topbar').onclick = topbarClick;
+    renderMute();
     if (P.quick) {
       const pres = $('.pres');
       pres.addEventListener('click', cleanClick);
@@ -2047,6 +2058,7 @@ Rules:
       case 'skipnext': skipNext(); break;
       case 'pick': pickerOverlay(false); break;
       case 'pen': setPen('draw'); break;
+      case 'mute': settings.chime = !settings.chime; saveSettings(); renderMute(); toast(settings.chime ? 'Chime on' : 'Chime muted'); break;
       case 'pen-done': if (P.pen) setPen(P.pen); break;
       case 'try': P.tryOpen = !P.tryOpen; renderTry(); break;
       case 'erase': setPen('erase'); break;
@@ -2070,6 +2082,7 @@ Rules:
     else if (k === 't' || k === 'T') timer.start();
     else if (k === 'r' || k === 'R') pickerOverlay(false);
     else if (k === 'p' || k === 'P') setPen('draw');
+    else if (k === 'm' || k === 'M') { settings.chime = !settings.chime; saveSettings(); renderMute(); toast(settings.chime ? 'Chime on' : 'Chime muted'); }
     else if (k === 'e' || k === 'E') setPen('erase');
     else if (k === 'o' || k === 'O') { finishActive(true); P.overview = !P.overview; renderAll(); }
     else if (k === 'l' || k === 'L') { if (P.clean) { P.railOpen = !P.railOpen; renderRail(); } else { settings.rail = settings.rail === false; saveSettings(); renderAll(); } }
