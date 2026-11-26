@@ -1373,7 +1373,7 @@ Rules:
     if (firstRun) revealNext(true);
     app.onclick = app.oninput = app.onchange = app.onkeydown = null;
     app.innerHTML = `
-      <div class="pres${P.board ? ' board' : ''}${P.clean ? ' clean' : ''}">
+      <div class="pres${P.quick ? ' quick' : ''}${P.board ? ' board' : ''}${P.clean ? ' clean' : ''}">
         <div class="topbar">
           ${sandbox ? '<span class="sandbox-tag" title="Practice board: nothing here is saved or marked done">🧪 Practice</span>' : '<button class="icon-btn" data-a="home" title="Back to library">⌂</button>'}
           <button class="icon-btn" data-a="rail" id="rail-btn" title="Show / hide the list of problems (L)">☰</button>
@@ -1675,13 +1675,13 @@ Rules:
   // The left column: a slim, readable list of the string so far
   function renderRail() {
     const rail = $('#rail'), S = P.sess;
-    $('.pres-body').classList.toggle('no-rail', settings.rail === false || (P.clean && !P.railOpen));
+    $('.pres-body').classList.toggle('no-rail', P.clean ? !P.railOpen : settings.rail === false); // in the clean view, only the ⋯ menu (or L) opens the list
     rail.innerHTML = S.shown.map((idx, pos) => {
       const d = pdata(idx);
       const circled = d.answers.find(a => a.mark === 'circled');
       const show = circled ? [circled] : d.answers.filter(a => a.mark !== 'crossed');
       return `<div class="rail-item${pos === S.active && !P.overview ? ' active' : ''}" data-pos="${pos}">
-        ${P.quick && quickWide(S.problems[idx]) ? `<span class="ri-q ri-text">${S.problems[idx].img && !S.problems[idx].q ? '📷 picture' : esc(String(S.problems[idx].q).replace(/\s+/g, ' ').slice(0, 34)) + (String(S.problems[idx].q).length > 34 ? '…' : '')}</span>` : `<span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span><span class="ri-eq">${eqSym(S.problems[idx].q)}</span>`}<span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
+        ${P.quick && quickWide(S.problems[idx]) ? `<span class="ri-q ri-text">${S.problems[idx].img && !S.problems[idx].q ? '📷 picture' : esc(String(S.problems[idx].q).replace(/\s+/g, ' ').slice(0, 34)) + (String(S.problems[idx].q).length > 34 ? '…' : '')}</span>` : `<span class="ri-q">${exprHTML(S.problems[idx].q) || '…'}</span>${P.quick ? '' : `<span class="ri-eq">${eqSym(S.problems[idx].q)}</span>`}`}<span class="ri-a">${show.map(a => `<span class="${a.mark || ''}">${exprHTML(a.t)}</span>`).join('<span class="ri-sep">,</span>')}</span>
         ${d.models.length ? `<span class="ri-m" title="${d.models.length} model${d.models.length === 1 ? '' : 's'}">${'•'.repeat(Math.min(d.models.length, 6))}</span>` : ''}
       </div>`;
     }).join('') + (S.cursor < S.problems.length ? `<div class="rail-more">${S.problems.length - S.cursor} more to come</div>` : '');

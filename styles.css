@@ -666,3 +666,9 @@ details.menu-wrap .menu > a.menu-tool { font-size: 13.5px; font-weight: 500; col
 .qbox > .qpic:hover, .qbox > .qpic:focus-within { opacity: 1; }
 .qbox.wide > .qpic { right: 0; }
 .qbox.wide > textarea.quick-input { padding-right: 34px; }
+/* Quick board and Boards: the question runs across the whole screen */
+.pres.quick .qbox { flex: 1 1 100%; max-width: 100%; }
+.pres.quick textarea.quick-input { width: 100%; padding-right: 34px; }
+.pres.quick .qbox > .qpic { right: 0; }
+/* with the problem list open, the back arrow moves past it */
+.pres.clean .pres-body:not(.no-rail) ~ .clean-ui .edge-prev { left: calc(max(170px, 17vw) + 6px); }
