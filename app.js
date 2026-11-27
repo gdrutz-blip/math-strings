@@ -369,7 +369,6 @@
             <div class="cards">${G.items.map(cardHTML).join('')}</div>`; }).join('')
             : `<div class="empty">${!library.length ? 'Your library is empty. Use <b>☰ More</b> to add a new string or import some.' : q ? 'No strings match your search.' : lf ? esc(lf.empty) : 'No strings here yet.'}</div>`}
         </div>
-        <a class="guide-card" href="#/start"><span class="gc-ico">📘</span><span><b>New to number strings or this site?</b><br>Read the 5-minute getting started guide: what to do before class, the routine in class, and how to type models.</span><span class="gc-go">Open guide →</span></a>
         ${bundled.some(b => deleted.has(b.id)) ? `<div class="lib-foot"><button class="btn small ghost" data-act="unhide">↺ Show hidden strings (${bundled.filter(b => deleted.has(b.id)).length})</button></div>` : ''}
         <div class="lib-foot">Your ✓ progress and any edits are saved in this browser. To move them to another computer, use <b>☰ More → Export</b>.</div>
       </div>`;

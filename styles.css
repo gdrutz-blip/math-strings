@@ -322,11 +322,6 @@ ol.steps { margin: 6px 0 0; padding-left: 22px; display: grid; gap: 4px; }
 .guide code, .keys code { font-size: 15px; background: #f1f3f7; padding: 2px 7px; border-radius: 6px; white-space: nowrap; }
 a.btn { text-decoration: none; color: inherit; }
 a.btn.primary { color: #fff; }
-.guide-card { display: flex; align-items: center; gap: 14px; margin-top: 30px; padding: 16px 18px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; color: var(--ink); }
-.guide-card:hover { border-color: var(--accent); }
-.gc-ico { font-size: 30px; }
-.gc-go { margin-left: auto; color: var(--accent); font-weight: 700; white-space: nowrap; }
-@media (max-width: 600px) { .guide-card { flex-wrap: wrap; } .gc-go { margin-left: 0; } }
 @media print {
   .no-print { display: none !important; }
   body { background: #fff; }
