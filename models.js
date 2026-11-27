@@ -257,17 +257,27 @@
         // "3:4 x18/4 ?:18" is one column, ?:18, with ×18/4 on the arrow. "3:24 /3 7:?" stays two columns.
         const last = out[out.length - 1];
         const fits = (made, typed) => { const t = parseVal(typed); return !t || Math.abs(t.v - parseVal(made).v) < 1e-9; };
-        if (last && last.step && fits(last[0], m[1]) && fits(last[1], m[2]) && (parseVal(m[1]) || parseVal(m[2]))) {
+        if (last && last.step && !last.labelOnly && fits(last[0], m[1]) && fits(last[1], m[2]) && (parseVal(m[1]) || parseVal(m[2]))) {
           last[0] = m[1]; last[1] = m[2]; continue;
         }
         out.push([m[1], m[2]]); continue;
       }
       const prev = out[out.length - 1], f = parseVal(m[4]);
+      if (!f || !f.v) continue;
+      const k = m[3] === '/' ? 1 / f.v : f.v, typedStep = (m[3] === '/' ? '÷' : '×') + m[4];
+      // A step after the pairs you know labels the arrow into the last one: "3:4 ?:18 x18/4" (state what you know,
+      // then show the scale factor), and still after the ? is filled in: "3:4 13.5:18 x18/4".
+      const before = out[out.length - 2];
+      if (prev && !prev.step && before && (parseVal(before[0]) || parseVal(before[1]))) {
+        const [L0, L1, B0, B1] = [prev[0], prev[1], before[0], before[1]].map(parseVal);
+        const unknown = (!L0 || !L1) && (L0 || L1);
+        const scaled = L0 && L1 && B0 && B1 && Math.abs(B0.v * k - L0.v) < 1e-9 && Math.abs(B1.v * k - L1.v) < 1e-9;
+        if (unknown || scaled) { prev.step = typedStep; prev.labelOnly = true; continue; }
+      }
       const A = prev && parseVal(prev[0]), B = prev && parseVal(prev[1]);
-      if (!f || !f.v || !A || !B) continue;
-      const k = m[3] === '/' ? 1 / f.v : f.v;
+      if (!A || !B) continue;
       const pr = [fmt(round(A.v * k)), fmt(round(B.v * k))];
-      pr.step = (m[3] === '/' ? '÷' : '×') + m[4]; // the arrow shows the step as typed: ×18/4, not ×4.5
+      pr.step = typedStep; // the arrow shows the step as typed: ×18/4, not ×4.5
       out.push(pr);
     }
     return out;
