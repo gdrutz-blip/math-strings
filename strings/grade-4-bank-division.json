@@ -322,24 +322,24 @@
         {
           "q": "12 / 4",
           "a": "3",
-          "notes": "Look for: 3 each, none left. Ask: \"Hold on to this.\" Model: numberline 0 +4x3",
+          "notes": "Look for: 3 each, none left. Ask: \"Hold on to this.\" Model: numberline +4 +4 +4",
           "responses": [
             {
               "say": "4 × 3 = 12: 3 each.",
               "tool": "numberline",
-              "type": "0 +4x3"
+              "type": "+4 +4 +4"
             }
           ]
         },
         {
           "q": "13 / 4",
           "a": "3 1/4",
-          "notes": "Context: \"13 pizzas shared by 4 friends.\" Look for: 3 each, 1 left, cut into 4: 1/4 each. Ask: \"What do we do with the last pizza?\" Word choice: \"remainder\", \"left over\". Model: numberline 0 +4x3 +1",
+          "notes": "Context: \"13 pizzas shared by 4 friends.\" Look for: 3 each, 1 left, cut into 4: 1/4 each. Ask: \"What do we do with the last pizza?\" Word choice: \"remainder\", \"left over\". Model: numberline +4 +4 +4 +1",
           "responses": [
             {
               "say": "3 each, and the last pizza cut in 4: 3 1/4.",
               "tool": "numberline",
-              "type": "0 +4x3 +1",
+              "type": "+4 +4 +4 +1",
               "tip": "The target idea."
             },
             {
@@ -359,12 +359,12 @@
         {
           "q": "9 / 2",
           "a": "4 1/2",
-          "notes": "Look for: 4 each, 1 left, half each. Ask: \"What is 1 shared by 2?\" Model: numberline 0 +2x4 +1",
+          "notes": "Look for: 4 each, 1 left, half each. Ask: \"What is 1 shared by 2?\" Model: numberline +2 +2 +2 +2 +1",
           "responses": [
             {
               "say": "4 each, and half of the last one: 4 1/2.",
               "tool": "numberline",
-              "type": "0 +2x4 +1"
+              "type": "+2 +2 +2 +2 +1"
             },
             {
               "say": "4 R1",
@@ -438,13 +438,14 @@
         {
           "q": "100 / 8",
           "a": "12 1/2",
-          "notes": "Look for: 96 ÷ 8 = 12, 4 left: 4/8 = 1/2. Ask: \"Can you name 4/8 another way?\" Model: numberline 0 +8x12 +4",
+          "notes": "Look for: 96 ÷ 8 = 12, 4 left: 4/8 = 1/2. Ask: \"Can you name 4/8 another way?\" Model: numberline +8x12 +4",
           "optional": true,
           "responses": [
             {
               "say": "12 each, and 4/8 is a half: 12 1/2.",
               "tool": "numberline",
-              "type": "0 +8x12 +4"
+              "type": "+8x12 +4",
+              "tip": "x12 means 12 jumps of 8."
             }
           ]
         }

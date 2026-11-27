@@ -34,7 +34,7 @@
             {
               "say": "Up 3 and back 3 lands at 0.",
               "tool": "numberline",
-              "type": "0 +3 -3"
+              "type": "+3 -3"
             },
             {
               "say": "6",

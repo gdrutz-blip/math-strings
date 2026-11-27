@@ -35,7 +35,7 @@
             {
               "say": "I counted by 10s six times.",
               "tool": "numberline",
-              "type": "0 +10x6"
+              "type": "+10 +10 +10 +10 +10 +10"
             },
             {
               "say": "16",
@@ -83,7 +83,8 @@
             {
               "say": "10 groups of 60: 60, 120, 180 ... 600.",
               "tool": "numberline",
-              "type": "0 +60x10"
+              "type": "+60x10",
+              "tip": "x10 means 10 jumps of 60."
             }
           ]
         },
@@ -169,7 +170,7 @@
             {
               "say": "40 + 40 + 40 = 120.",
               "tool": "numberline",
-              "type": "0 +40x3"
+              "type": "+40 +40 +40"
             },
             {
               "say": "43",
@@ -215,7 +216,7 @@
             {
               "say": "20 + 20 + 20 + 20 = 80.",
               "tool": "numberline",
-              "type": "0 +20x4"
+              "type": "+20 +20 +20 +20"
             }
           ]
         },
@@ -561,7 +562,7 @@
             {
               "say": "12 + 12 = 24.",
               "tool": "numberline",
-              "type": "0 +12x2"
+              "type": "+12 +12"
             }
           ]
         },
@@ -841,13 +842,13 @@
         {
           "q": "3 x 250",
           "a": "750",
-          "notes": "Look for: 250 + 250 + 250, or 3 × 25 tens. Ask: \"What do you know about 250?\" Model: numberline 0 +250x3",
+          "notes": "Look for: 250 + 250 + 250, or 3 × 25 tens. Ask: \"What do you know about 250?\" Model: numberline +250 +250 +250",
           "optional": true,
           "responses": [
             {
               "say": "250, 500, 750.",
               "tool": "numberline",
-              "type": "0 +250x3"
+              "type": "+250 +250 +250"
             },
             {
               "say": "3 × 200 is 600, 3 × 50 is 150: 750.",

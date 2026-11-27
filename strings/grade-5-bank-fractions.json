@@ -23,12 +23,12 @@
         {
           "q": "2/5 + 1/5",
           "a": "3/5",
-          "notes": "Look for: 2 fifths and 1 fifth make 3 fifths. Ask: \"What are we counting?\" Word choice: say \"two fifths plus one fifth\". Model: numberline 0 +2/5 +1/5",
+          "notes": "Look for: 2 fifths and 1 fifth make 3 fifths. Ask: \"What are we counting?\" Word choice: say \"two fifths plus one fifth\". Model: numberline +2/5 +1/5",
           "responses": [
             {
               "say": "2 fifths and 1 more fifth is 3 fifths.",
               "tool": "numberline",
-              "type": "0 +2/5 +1/5",
+              "type": "+2/5 +1/5",
               "tip": "The target idea: counting fifths."
             },
             {
@@ -202,12 +202,12 @@
         {
           "q": "4 x 1/2",
           "a": "2",
-          "notes": "Look for: four halves make 2. Ask: \"What is four halves?\" Word choice: \"4 groups of one half\". Model: numberline 0 +1/2x4",
+          "notes": "Look for: four halves make 2. Ask: \"What is four halves?\" Word choice: \"4 groups of one half\". Model: numberline +1/2 +1/2 +1/2 +1/2",
           "responses": [
             {
               "say": "4 halves make 2 wholes.",
               "tool": "numberline",
-              "type": "0 +1/2x4"
+              "type": "+1/2 +1/2 +1/2 +1/2"
             },
             {
               "say": "4/8",
@@ -221,13 +221,13 @@
         {
           "q": "4 / 1/2",
           "a": "8",
-          "notes": "Look for: 2 halves in each whole, 4 wholes: 8. Ask: \"How many halves fit in 4?\" Word choice: \"how many halves fit in 4\". Model: numberline 0 +1/2x8",
+          "notes": "Look for: 2 halves in each whole, 4 wholes: 8. Ask: \"How many halves fit in 4?\" Word choice: \"how many halves fit in 4\". Model: numberline +1/2x8",
           "responses": [
             {
               "say": "2 halves in each whole, 4 wholes: 8 halves.",
               "tool": "numberline",
-              "type": "0 +1/2x8",
-              "tip": "The target meaning: how many fit."
+              "type": "+1/2x8",
+              "tip": "The target meaning: how many fit. x8 means 8 jumps of 1/2."
             },
             {
               "say": "2",
@@ -241,24 +241,24 @@
         {
           "q": "6 x 1/3",
           "a": "2",
-          "notes": "Look for: six thirds is 2. Ask: \"How many thirds make a whole?\" Model: numberline 0 +1/3x6",
+          "notes": "Look for: six thirds is 2. Ask: \"How many thirds make a whole?\" Model: numberline +1/3 +1/3 +1/3 +1/3 +1/3 +1/3",
           "responses": [
             {
               "say": "6 thirds is 2 wholes.",
               "tool": "numberline",
-              "type": "0 +1/3x6"
+              "type": "+1/3 +1/3 +1/3 +1/3 +1/3 +1/3"
             }
           ]
         },
         {
           "q": "2 / 1/3",
           "a": "6",
-          "notes": "Look for: 3 thirds in each whole, so 6. Ask: \"How does the last one help?\" Model: numberline 0 +1/3x6",
+          "notes": "Look for: 3 thirds in each whole, so 6. Ask: \"How does the last one help?\" Model: numberline +1/3 +1/3 +1/3 +1/3 +1/3 +1/3",
           "responses": [
             {
               "say": "3 thirds fit in each whole, 2 wholes: 6.",
               "tool": "numberline",
-              "type": "0 +1/3x6",
+              "type": "+1/3 +1/3 +1/3 +1/3 +1/3 +1/3",
               "tip": "Same picture as 6 × 1/3. Ask: why?"
             },
             {
@@ -273,12 +273,13 @@
         {
           "q": "3 / 1/4",
           "a": "12",
-          "notes": "Look for: 4 fourths per whole, 3 wholes. Ask: \"How many fourths fit in 3?\" Model: numberline 0 +1/4x12",
+          "notes": "Look for: 4 fourths per whole, 3 wholes. Ask: \"How many fourths fit in 3?\" Model: numberline +1/4x12",
           "responses": [
             {
               "say": "4 fourths in each whole, 3 wholes: 12.",
               "tool": "numberline",
-              "type": "0 +1/4x12"
+              "type": "+1/4x12",
+              "tip": "x12 means 12 jumps of 1/4."
             },
             {
               "say": "3 × 4 = 12.",
@@ -298,12 +299,12 @@
         {
           "q": "5 x 1/4",
           "a": "5/4",
-          "notes": "Look for: 5 fourths, 1 whole and 1 fourth. Ask: \"Is it more or less than 1?\" Model: numberline 0 +1/4x5",
+          "notes": "Look for: 5 fourths, 1 whole and 1 fourth. Ask: \"Is it more or less than 1?\" Model: numberline +1/4 +1/4 +1/4 +1/4 +1/4",
           "responses": [
             {
               "say": "5 fourths: 1 whole and a fourth.",
               "tool": "numberline",
-              "type": "0 +1/4x5",
+              "type": "+1/4 +1/4 +1/4 +1/4 +1/4",
               "tip": "Both 5/4 and 1 1/4 are right."
             },
             {
@@ -318,13 +319,14 @@
         {
           "q": "2 / 1/5",
           "a": "10",
-          "notes": "Look for: 5 fifths in each whole, 2 wholes. Ask: \"How many fifths fit?\" Model: numberline 0 +1/5x10",
+          "notes": "Look for: 5 fifths in each whole, 2 wholes. Ask: \"How many fifths fit?\" Model: numberline +1/5x10",
           "optional": true,
           "responses": [
             {
               "say": "5 fifths in each whole: 10.",
               "tool": "numberline",
-              "type": "0 +1/5x10"
+              "type": "+1/5x10",
+              "tip": "x10 means 10 jumps of 1/5."
             }
           ]
         }
@@ -874,36 +876,38 @@
         {
           "q": "1 / 1/4",
           "a": "4",
-          "notes": "Context: \"Cut 1 sandwich into fourths.\" Look for: 4 pieces. Ask: \"How many fourths in one whole?\" Word choice: \"how many fourths fit\". Model: numberline 0 +1/4x4",
+          "notes": "Context: \"Cut 1 sandwich into fourths.\" Look for: 4 pieces. Ask: \"How many fourths in one whole?\" Word choice: \"how many fourths fit\". Model: numberline +1/4 +1/4 +1/4 +1/4",
           "responses": [
             {
               "say": "4 fourths in a whole.",
               "tool": "numberline",
-              "type": "0 +1/4x4"
+              "type": "+1/4 +1/4 +1/4 +1/4"
             }
           ]
         },
         {
           "q": "2 / 1/4",
           "a": "8",
-          "notes": "Look for: 4 per whole, 2 wholes. Ask: \"How does the last one help?\" Model: numberline 0 +1/4x8",
+          "notes": "Look for: 4 per whole, 2 wholes. Ask: \"How does the last one help?\" Model: numberline +1/4x8",
           "responses": [
             {
               "say": "4 + 4 = 8 pieces.",
               "tool": "numberline",
-              "type": "0 +1/4x8"
+              "type": "+1/4x8",
+              "tip": "x8 means 8 jumps of 1/4."
             }
           ]
         },
         {
           "q": "5 / 1/4",
           "a": "20",
-          "notes": "Look for: 4 × 5. Ask: \"Do you need to count them all?\" Model: numberline 0 +1/4x20",
+          "notes": "Look for: 4 × 5. Ask: \"Do you need to count them all?\" Model: numberline +1/4x20",
           "responses": [
             {
               "say": "5 wholes, 4 pieces each: 20.",
               "tool": "numberline",
-              "type": "0 +1/4x20"
+              "type": "+1/4x20",
+              "tip": "x20 means 20 jumps of 1/4."
             },
             {
               "say": "1 1/4",
@@ -917,24 +921,26 @@
         {
           "q": "3 / 1/3",
           "a": "9",
-          "notes": "Look for: 3 thirds per whole, 3 wholes. Ask: \"Same idea with thirds?\" Model: numberline 0 +1/3x9",
+          "notes": "Look for: 3 thirds per whole, 3 wholes. Ask: \"Same idea with thirds?\" Model: numberline +1/3x9",
           "responses": [
             {
               "say": "3 × 3 = 9.",
               "tool": "numberline",
-              "type": "0 +1/3x9"
+              "type": "+1/3x9",
+              "tip": "x9 means 9 jumps of 1/3."
             }
           ]
         },
         {
           "q": "4 / 1/5",
           "a": "20",
-          "notes": "Look for: 5 fifths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/5x20",
+          "notes": "Look for: 5 fifths per whole, 4 wholes. Ask: \"How does one part help?\" Model: numberline +1/5x20",
           "responses": [
             {
               "say": "4 × 5 = 20.",
               "tool": "numberline",
-              "type": "0 +1/5x20"
+              "type": "+1/5x20",
+              "tip": "x20 means 20 jumps of 1/5."
             },
             {
               "say": "4/5",
@@ -948,25 +954,27 @@
         {
           "q": "7 / 1/2",
           "a": "14",
-          "notes": "Look for: 2 halves per whole, 7 wholes. Ask: \"What's the pattern?\" Model: numberline 0 +1/2x14",
+          "notes": "Look for: 2 halves per whole, 7 wholes. Ask: \"What's the pattern?\" Model: numberline +1/2x14",
           "responses": [
             {
               "say": "7 × 2 = 14.",
               "tool": "numberline",
-              "type": "0 +1/2x14"
+              "type": "+1/2x14",
+              "tip": "x14 means 14 jumps of 1/2."
             }
           ]
         },
         {
           "q": "9 / 1/3",
           "a": "27",
-          "notes": "Look for: 3 per whole, 9 wholes. Ask: \"How does one part help?\" Model: numberline 0 +1/3x27",
+          "notes": "Look for: 3 per whole, 9 wholes. Ask: \"How does one part help?\" Model: numberline +1/3x27",
           "optional": true,
           "responses": [
             {
               "say": "9 × 3 = 27.",
               "tool": "numberline",
-              "type": "0 +1/3x27"
+              "type": "+1/3x27",
+              "tip": "x27 means 27 jumps of 1/3."
             }
           ]
         }

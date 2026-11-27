@@ -34,7 +34,7 @@
             {
               "say": "1/2 is 2/4, plus 1/4 is 3/4.",
               "tool": "numberline",
-              "type": "0 +1/2 +1/4"
+              "type": "+1/2 +1/4"
             },
             {
               "say": "2/6",
@@ -766,24 +766,24 @@
         {
           "q": "1/2 + 1/2",
           "a": "1",
-          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline 0 +1/2 +1/2",
+          "notes": "Look for: a known fact. Ask: \"Hold on to this.\" Model: numberline +1/2 +1/2",
           "responses": [
             {
               "say": "Two halves make a whole.",
               "tool": "numberline",
-              "type": "0 +1/2 +1/2"
+              "type": "+1/2 +1/2"
             }
           ]
         },
         {
           "q": "1/2 + 3/8",
           "a": "7/8",
-          "notes": "First ask: \"More or less than 1?\" (less: 3/8 is less than 1/2). Look for: 4/8 + 3/8 = 7/8. Model: numberline 0 +1/2 +3/8",
+          "notes": "First ask: \"More or less than 1?\" (less: 3/8 is less than 1/2). Look for: 4/8 + 3/8 = 7/8. Model: numberline +1/2 +3/8",
           "responses": [
             {
               "say": "Less than 1, because 3/8 is less than 1/2. 4/8 + 3/8 = 7/8.",
               "tool": "numberline",
-              "type": "0 +1/2 +3/8"
+              "type": "+1/2 +3/8"
             },
             {
               "say": "It's 1/8 less than 1/2 + 1/2.",
@@ -909,13 +909,13 @@
         {
           "q": "11/12 + 7/8",
           "a": "1 19/24",
-          "notes": "First ask: \"About how much?\" (almost 2). Look for: 1 + 1 = 2, then back 1/12 and 1/8. Model: numberline 0 +1 +1 -1/12 -1/8",
+          "notes": "First ask: \"About how much?\" (almost 2). Look for: 1 + 1 = 2, then back 1/12 and 1/8. Model: numberline +1 +1 -1/12 -1/8",
           "optional": true,
           "responses": [
             {
               "say": "Almost 2: 2 − 1/12 − 1/8 = 1 19/24.",
               "tool": "numberline",
-              "type": "0 +1 +1 -1/12 -1/8",
+              "type": "+1 +1 -1/12 -1/8",
               "tip": "Estimate, then adjust."
             },
             {

@@ -487,12 +487,12 @@
         {
           "q": "1/2 + 2/5",
           "a": "9/10",
-          "notes": "Look for: 5/10 + 4/10. Ask: \"What common piece?\" Model: numberline 0 +1/2 +2/5",
+          "notes": "Look for: 5/10 + 4/10. Ask: \"What common piece?\" Model: numberline +1/2 +2/5",
           "responses": [
             {
               "say": "5/10 + 4/10 = 9/10.",
               "tool": "numberline",
-              "type": "0 +1/2 +2/5"
+              "type": "+1/2 +2/5"
             },
             {
               "say": "3/7",

@@ -69,7 +69,7 @@
             {
               "say": "I counted on 5: 29, 30, 31, 32, 33.",
               "tool": "numberline",
-              "type": "28 +1x5",
+              "type": "28 +1 +1 +1 +1 +1",
               "tip": "Then ask: is there a jump that gets you to a ten?"
             },
             {
@@ -393,7 +393,7 @@
               "say": "I counted on 8.",
               "tool": "numberline",
               "type": "95 +1x8",
-              "tip": "Then ask: is there a jump that gets you to 100?"
+              "tip": "Then ask: is there a jump that gets you to 100? x8 means 8 jumps of 1."
             },
             {
               "say": "913",
@@ -466,7 +466,7 @@
             {
               "say": "Three jumps of 10: 285, 295, 305.",
               "tool": "numberline",
-              "type": "275 +10x3"
+              "type": "275 +10 +10 +10"
             },
             {
               "say": "278",
