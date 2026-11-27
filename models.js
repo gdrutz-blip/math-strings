@@ -42,6 +42,8 @@
 
   // "3/4" -> {v:.75,label:'3/4'}; "2.5" -> {v:2.5,label:'2.5'}
   function parseVal(t) {
+    const mx = String(t).trim().replace(/^\$/, '').match(/^(-?)(\d+)\s+(\d+)\/(\d+)$/);
+    if (mx && +mx[4]) { const v = (+mx[2] + +mx[3] / +mx[4]) * (mx[1] ? -1 : 1); return { v, label: mx[1] + mx[2] + ' ' + mx[3] + '/' + mx[4], frac: true }; }
     t = String(t).replace(/\s+/g, '').replace(/^\$|%$/g, '');
     let m = t.match(/^(-?)(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
     if (m) { const v = (+m[2] / +m[3]) * (m[1] ? -1 : 1); return isFinite(v) ? { v, label: (m[1] ? '-' : '') + m[2] + '/' + m[3], frac: true } : null; }
@@ -246,37 +248,67 @@
   }
 
   /* ---------- Ratio table ----------  1:7, 10:70, 5:35   (first pair can be names: bags:apples) */
-  // "1:7, 10:70" · "1:7 10:70" · "1 to 7, 10 to 70" · "1|7" · "bags:apples, ..."
-  // Pairs like 3:4, 6:8. A step like x2 (or ×2, ÷3, /3) makes the next pair from the one before: 3:4 x2 is 3:4, 6:8.
+  // "1:7, 10:70" · "1:7 10:70" · "1 to 7, 10 to 70" · "1|7" · "bags:apples, ..." · "juice:water:total, 2:5:7"
+  // Pairs like 3:4, 6:8 (or three numbers, 2:5:7). A step like x2 (or ×2, ÷3, /3, x18/4) makes the next one from the
+  // one before: 3:4 x2 is 3:4, 6:8. Names can have spaces (total cups), numbers can be mixed (13 1/2), and a division
+  // that comes out whole shows its result (3/3:24/3 is 1:8).
   function pairsOf(s) {
     s = s.replace(/\s+to\s+/gi, ':').replace(/\s*=\s*/g, ':');
     const out = [];
-    for (const m of s.matchAll(/([^\s,;:|]+)\s*[:|]\s*([^\s,;:|]+)|(?:^|[\s,;])([x*\/])\s*(\d+(?:\.\d+)?|\d+\/\d+)(?=$|[\s,;])/gi)) {
-      if (m[1] != null) {
+    let i = 0;
+    // names first: "total cups:minutes", "juice:water:total" (a name doesn't start with a number)
+    const NAME = '([^\\d\\s,;:|?.\\-][^,;:|]*?)';
+    const head = s.match(new RegExp('^\\s*' + NAME + '\\s*[:|]\\s*' + NAME + '(?:\\s*[:|]\\s*' + NAME + ')?\\s*(?=[,;]|\\s+[-\\d?.$]|\\s+[x*/]\\s*\\d|$)'));
+    if (head && !/^[x?]$/i.test(head[1].trim())) {
+      const h = [head[1], head[2], head[3]].filter(t => t != null).map(t => t.trim());
+      h.isHead = true; out.push(h); i = head[0].length;
+    }
+    // a whole number divided evenly shows its result; a mixed number keeps its single space
+    const tidy = t => { t = t.trim().replace(/\s+/g, ' '); const m = t.match(/^(-?\d+)\/(\d+)$/); return m && +m[2] > 1 && +m[1] % +m[2] === 0 ? String(+m[1] / +m[2]) : t; };
+    const TERM1 = '(-?\\d+\\s+\\d+\\/\\d+|[^\\s,;:|]+)';
+    const TERM = '(-?\\d+\\s+\\d+\\/\\d+(?!\\s*[:|])|[^\\s,;:|]+)'; // "3:24 1/2:12" is two pairs, not 3 : 24 1/2
+    const TUP = new RegExp('[\\s,;]*' + TERM1 + '\\s*[:|]\\s*' + TERM + '(?:\\s*[:|]\\s*' + TERM + ')?', 'y');
+    const STEP = /[\s,;]*([x*\/])\s*(\d+(?:\.\d+)?|\d+\/\d+)(?=$|[\s,;])/iy;
+    const same = (a, b) => Math.abs(a - b) < 1e-9;
+    // money: a row typed with $ or two decimals keeps two decimals in the rows it makes ($1.20, not 1.2)
+    const money = [];
+    const noteMoney = tup => tup.forEach((t, r) => { if (/^\$|\.\d\d$/.test(t)) money[r] = money[r] || (t[0] === '$' ? '$' : ' '); });
+    const show = (v, r) => { v = round(v); if (!money[r]) return fmt(v); const t = Math.abs(v).toFixed(2); return (v < 0 ? '-' : '') + (money[r] === '$' ? '$' : '') + t; };
+    while (i < s.length) {
+      TUP.lastIndex = i; STEP.lastIndex = i;
+      let m = TUP.exec(s);
+      if (m) {
+        i = TUP.lastIndex;
+        const tup = [m[1], m[2], m[3]].filter(t => t != null).map(tidy);
+        noteMoney(tup);
         // A typed pair right after a step that agrees with it (each side the same, or ? / x) takes that step's place:
         // "3:4 x18/4 ?:18" is one column, ?:18, with ×18/4 on the arrow. "3:24 /3 7:?" stays two columns.
         const last = out[out.length - 1];
-        const fits = (made, typed) => { const t = parseVal(typed); return !t || Math.abs(t.v - parseVal(made).v) < 1e-9; };
-        if (last && last.step && !last.labelOnly && fits(last[0], m[1]) && fits(last[1], m[2]) && (parseVal(m[1]) || parseVal(m[2]))) {
-          last[0] = m[1]; last[1] = m[2]; continue;
+        const fits = (made, typed) => { const t = parseVal(typed); return !t || same(t.v, parseVal(made).v); };
+        if (last && last.step && !last.labelOnly && last.length === tup.length && tup.every((t, r) => fits(last[r], t)) && tup.some(t => parseVal(t))) {
+          tup.forEach((t, r) => (last[r] = t)); continue;
         }
-        out.push([m[1], m[2]]); continue;
+        out.push(tup); continue;
       }
-      const prev = out[out.length - 1], f = parseVal(m[4]);
+      m = STEP.exec(s);
+      if (!m) { const n = s.slice(i).search(/[\s,;]/); i = n < 0 ? s.length : i + Math.max(n, 1); continue; } // skip a word we can't read
+      i = STEP.lastIndex;
+      const prev = out[out.length - 1], f = parseVal(m[2]);
       if (!f || !f.v) continue;
-      const k = m[3] === '/' ? 1 / f.v : f.v, typedStep = (m[3] === '/' ? '÷' : '×') + m[4];
+      const k = m[1] === '/' ? 1 / f.v : f.v, typedStep = (m[1] === '/' ? '÷' : '×') + m[2];
       // A step after the pairs you know labels the arrow into the last one: "3:4 ?:18 x18/4" (state what you know,
       // then show the scale factor), and still after the ? is filled in: "3:4 13.5:18 x18/4".
       const before = out[out.length - 2];
-      if (prev && !prev.step && before && (parseVal(before[0]) || parseVal(before[1]))) {
-        const [L0, L1, B0, B1] = [prev[0], prev[1], before[0], before[1]].map(parseVal);
-        const unknown = (!L0 || !L1) && (L0 || L1);
-        const scaled = L0 && L1 && B0 && B1 && Math.abs(B0.v * k - L0.v) < 1e-9 && Math.abs(B1.v * k - L1.v) < 1e-9;
+      if (prev && !prev.step && !prev.isHead && before && !before.isHead && before.length === prev.length) {
+        const L = prev.map(parseVal), B = before.map(parseVal);
+        const unknown = L.some(v => !v) && L.some(v => v);
+        const scaled = L.every(v => v) && B.every(v => v) && L.every((v, r) => same(B[r].v * k, v.v));
         if (unknown || scaled) { prev.step = typedStep; prev.labelOnly = true; continue; }
       }
-      const A = prev && parseVal(prev[0]), B = prev && parseVal(prev[1]);
-      if (!A || !B) continue;
-      const pr = [fmt(round(A.v * k)), fmt(round(B.v * k))];
+      if (!prev || prev.isHead) continue;
+      const V = prev.map(parseVal);
+      if (V.some(v => !v)) continue;
+      const pr = V.map((v, r) => show(v.v * k, r));
       pr.step = typedStep; // the arrow shows the step as typed: ×18/4, not ×4.5
       out.push(pr);
     }
@@ -287,23 +319,26 @@
     if (!s) return { empty: true };
     const pairs = pairsOf(s);
     let head = null;
-    if (pairs.length && pairs[0].length === 2 && !parseVal(pairs[0][0]) && pairs[0][0] !== '?' && !parseVal(pairs[0][1]) && pairs[0][1] !== '?') head = pairs.shift();
-    const cols = pairs.filter(p => p.length === 2);
-    if (!cols.length) return { error: 'Type pairs like 1:7, 10:70' };
-    const hw = head ? 130 : 0;
+    if (pairs.length && (pairs[0].isHead || pairs[0].every(t => !parseVal(t) && t !== '?'))) head = pairs.shift();
+    // two rows (3:4) or three (juice:water:total, 2:5:7)
+    const rows = head ? head.length : pairs.length ? pairs[0].length : 2;
+    const cols = pairs.filter(p => p.length === rows);
+    if (!cols.length) return { error: rows === 3 ? 'Type three numbers in each column, like 2:5:7, 4:10:14' : 'Type pairs like 1:7, 10:70' };
+    const hw = head ? Math.min(230, Math.max(130, 30 + 11.5 * Math.max(...head.map(h => h.length)))) : 0;
     const cw = Math.min(140, Math.max(44, (W - 40 - hw) / cols.length));
     const cfs = cw < 60 ? 18 : cw < 72 ? 22 : 26;
-    const tw = hw + cw * cols.length, x0 = (W - tw) / 2, y0 = 92, rh = 60;
+    const tw = hw + cw * cols.length, x0 = (W - tw) / 2, y0 = 92, rh = 60, th = rh * rows;
     let body = '';
-    const V = cols.map(c => [parseVal(c[0]), parseVal(c[1])].map(p => (p ? p.v : null)));
+    const V = cols.map(c => c.map(t => { const p = parseVal(t); return p ? p.v : null; }));
     const nice = f => Math.abs(f * 100 - Math.round(f * 100)) < 1e-9 && f > 0; // ×2.5, ×0.5 are fine; ×2.3333 is not
     // a column that is the sum (or difference) of two earlier columns, like 15% = 10% + 5%
     const combo = i => {
-      const [t, b] = V[i]; if (t == null || b == null) return null;
+      if (V[i].some(v => v == null)) return null;
+      const all = f => V[i].every((v, r) => Math.abs(f(r) - v) < 1e-9);
       for (let j = 0; j < i; j++) for (let k = 0; k < i; k++) {
-        if (j === k || V[j][0] == null || V[k][0] == null || V[j][1] == null || V[k][1] == null) continue;
-        if (j < k && Math.abs(V[j][0] + V[k][0] - t) < 1e-9 && Math.abs(V[j][1] + V[k][1] - b) < 1e-9) return { j, k, op: '+' };
-        if (Math.abs(V[j][0] - V[k][0] - t) < 1e-9 && Math.abs(V[j][1] - V[k][1] - b) < 1e-9 && t > 0) return { j, k, op: '−' };
+        if (j === k || V[j].some(v => v == null) || V[k].some(v => v == null)) continue;
+        if (j < k && all(r => V[j][r] + V[k][r])) return { j, k, op: '+' };
+        if (all(r => V[j][r] - V[k][r]) && V[i][0] > 0) return { j, k, op: '−' };
       }
       return null;
     };
@@ -320,7 +355,7 @@
     let below = '';
     for (let i = 2; i < cols.length; i++) {
       const c = combo(i); if (!c) continue;
-      const xc = x => x0 + hw + cw * (x + 0.5), yb = y0 + rh * 2 + 10;
+      const xc = x => x0 + hw + cw * (x + 0.5), yb = y0 + th + 10;
       const l = editable('s' + i, labels, `${minus(cols[c.j][0])} ${c.op} ${minus(cols[c.k][0])}`);
       [c.j, c.k].forEach(m => (below += `<path d="M${xc(m)} ${yb} Q ${(xc(m) + xc(i)) / 2} ${yb + 46} ${xc(i)} ${yb + 4}" fill="none" stroke="${C.gap}" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#ah-fwd)"/>`));
       below += text(xc(i), yb + 62, l.text, { fill: C.gap, size: cw < 60 ? 15 : 19, weight: 700, edit: 's' + i, custom: l.custom });
@@ -332,19 +367,19 @@
       body += `<path d="M${xa + 6} ${y0 - 6} Q ${mid} ${y0 - 58} ${xb - 6} ${y0 - 6}" fill="none" stroke="${C.fwd}" stroke-width="2.5" marker-end="url(#ah-fwd)"/>`;
       body += text(mid, y0 - 38, l.text, { fill: C.fwd, size: cw < 60 ? 15 : 20, weight: 700, edit: 'r' + i, custom: l.custom });
     }
-    body += `<rect x="${x0}" y="${y0}" width="${tw}" height="${rh * 2}" fill="#fff" stroke="${C.ink}" stroke-width="2.5" rx="4"/>`;
-    body += `<line x1="${x0}" y1="${y0 + rh}" x2="${x0 + tw}" y2="${y0 + rh}" stroke="${C.ink}" stroke-width="2"/>`;
+    body += `<rect x="${x0}" y="${y0}" width="${tw}" height="${th}" fill="#fff" stroke="${C.ink}" stroke-width="2.5" rx="4"/>`;
+    for (let r = 1; r < rows; r++) body += `<line x1="${x0}" y1="${y0 + rh * r}" x2="${x0 + tw}" y2="${y0 + rh * r}" stroke="${C.ink}" stroke-width="2"/>`;
     if (head) {
-      body += `<rect x="${x0}" y="${y0}" width="${hw}" height="${rh * 2}" fill="#eef2f8"/>`;
-      body += text(x0 + hw / 2, y0 + 38, head[0], { size: 20, weight: 700 }) + text(x0 + hw / 2, y0 + rh + 38, head[1], { size: 20, weight: 700 });
+      body += `<rect x="${x0}" y="${y0}" width="${hw}" height="${th}" fill="#eef2f8"/>`;
+      head.forEach((h, r) => (body += text(x0 + hw / 2, y0 + rh * r + 38, h, { size: h.length > 14 ? 17 : 20, weight: 700 })));
     }
     cols.forEach((c, i) => {
       const x = x0 + hw + cw * i;
-      if (i > 0 || head) body += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + rh * 2}" stroke="${C.ink}" stroke-width="2"/>`;
-      body += text(x + cw / 2, y0 + 38, minus(c[0]), { size: cfs, weight: 600 }) + text(x + cw / 2, y0 + rh + 38, minus(c[1]), { size: cfs, weight: 600 });
+      if (i > 0 || head) body += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + th}" stroke="${C.ink}" stroke-width="2"/>`;
+      c.forEach((t, r) => (body += text(x + cw / 2, y0 + rh * r + 38, minus(t), { size: t.length > 6 ? Math.min(cfs, 20) : cfs, weight: 600 })));
     });
     body += below;
-    return { svg: svg(y0 + rh * 2 + (below ? 86 : 16), body) };
+    return { svg: svg(y0 + th + (below ? 86 : 16), body) };
   }
 
   const C_ = C;
@@ -589,12 +624,13 @@
     if (!s) return { empty: true };
     const pairs = pairsOf(s);
     let head = null;
-    if (pairs.length && pairs[0].length === 2 && !parseVal(pairs[0][0]) && !parseVal(pairs[0][1]) && pairs[0][0] !== '?') head = pairs.shift();
+    if (pairs.length && (pairs[0].isHead || pairs[0].every(t => !parseVal(t) && t !== '?'))) head = pairs.shift();
+    const three = pairs.some(p => p.length === 3); // a double number line has two lines: it uses the first two numbers
     // an unknown on top (?:18) is placed using the rate from a pair where both are known
     const known = pairs.find(p => p.length === 2 && parseVal(p[0]) && parseVal(p[1]) && parseVal(p[1]).v);
     const rate = known ? parseVal(known[0]).v / parseVal(known[1]).v : null;
     const topOf = p => (parseVal(p[0]) ? parseVal(p[0]).v : rate != null && parseVal(p[1]) ? round(parseVal(p[1]).v * rate) : null);
-    const cols = pairs.filter(p => p.length === 2 && topOf(p) != null);
+    const cols = pairs.filter(p => p.length >= 2 && topOf(p) != null);
     if (!cols.length) return { error: 'Type pairs like 0:0, 1:3.50, 4:14 (top value must be a number)' };
     const tv = cols.map(topOf);
     const lo = Math.min(0, ...tv), hi = Math.max(...tv);
@@ -615,7 +651,8 @@
       body += text(x, y1 - 20, minus(c[0]), { size: 22, weight: 600, fill: C.fwd }) + text(x, y2 + 38, minus(c[1]), { size: 22, weight: 600, fill: C.back });
     });
     if (tooClose) body += text(xr + 20, y2 + 62, 'not to scale', { size: 15, fill: C.soft, anchor: 'end' });
-    return { svg: svg(y2 + (tooClose ? 72 : 56), body) };
+    if (three) body += text(xl - 20, y2 + 62, 'Two lines only: use the ratio table for three rows', { size: 15, fill: C.soft, anchor: 'start' });
+    return { svg: svg(y2 + (tooClose || three ? 72 : 56), body) };
   }
 
   /* ---------- Clock (fractions of an hour) ----------  1/4 + 1/3    3/4 - 1/6    5/12 */
@@ -698,7 +735,9 @@
       m = line.match(/^(.+?)\s*=\s*(.+)$/);
       if (m && /\+/.test(m[1]) && !/\+/.test(m[2])) m = [m[0], m[2], m[1]]; // "10 + 14 = 24"
       if (m) { const pv = parseVal(m[1]); total = pv ? pv.v : null; totalLabel = m[1].trim(); line = m[2]; }
-      const segs = line.split('+').map(t => t.trim()).filter(Boolean).map(t => { const pv = parseVal(t); return { label: t, v: pv ? pv.v : null }; });
+      // "5x2" is two boxes of 5: Juice: 5x2; Water: 5x5 (or 5x2 + 5x5 in one bar)
+      const parts = line.split('+').map(t => t.trim()).filter(Boolean).flatMap(t => { const r = t.match(/^(\$?[\d.\/]+)\s*x\s*(\d+)$/i); return r && +r[2] >= 1 && +r[2] <= 30 ? Array(+r[2]).fill(r[1]) : [t]; });
+      const segs = parts.map(t => { const pv = parseVal(t); return { label: t, v: pv ? pv.v : null }; });
       return { name, kind: 'segs', segs, total, totalLabel };
     });
     const sizeOf = b => b.kind === 'frac' ? (b.total || null) : (b.total != null ? b.total : b.segs.every(x => x.v != null) ? b.segs.reduce((a, x) => a + x.v, 0) : null);
@@ -1267,8 +1306,8 @@
     { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '2', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5  ·  x2 or ÷2 makes the next mark from the one before' },
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  divide: 84 / 7 = 70 + 14  ·  fractions: 2/3 x 3/4  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
-    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  3:4 x2 makes the next column 6:8 (also ÷2, or x18/4)  ·  names first: bags:apples, 1:7' },
-    { id: 'bar', name: 'Bar model', short: 'Bar', key: '6', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  3:4 x2 makes the next column 6:8 (also ÷2, or x18/4)  ·  names first: bags:apples, 1:7  ·  three rows: juice:water:total, 2:5:7' },
+    { id: 'bar', name: 'Bar model', short: 'Bar', key: '6', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5  ·  Juice: 5x2; Water: 5x5 (two boxes of 5, five boxes of 5)' },
     { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '7', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '8', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
     { id: 'slide', name: 'Slide (same difference)', short: 'Slide', key: '9', icon: '⇉', render: slide, help: '62 - 49 = 63 - 50  ·  62 - 49 up 1  ·  add more: = 73 - 60' },
