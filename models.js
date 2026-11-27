@@ -252,7 +252,16 @@
     s = s.replace(/\s+to\s+/gi, ':').replace(/\s*=\s*/g, ':');
     const out = [];
     for (const m of s.matchAll(/([^\s,;:|]+)\s*[:|]\s*([^\s,;:|]+)|(?:^|[\s,;])([x*\/])\s*(\d+(?:\.\d+)?|\d+\/\d+)(?=$|[\s,;])/gi)) {
-      if (m[1] != null) { out.push([m[1], m[2]]); continue; }
+      if (m[1] != null) {
+        // A typed pair right after a step that agrees with it (each side the same, or ? / x) takes that step's place:
+        // "3:4 x18/4 ?:18" is one column, ?:18, with ×18/4 on the arrow. "3:24 /3 7:?" stays two columns.
+        const last = out[out.length - 1];
+        const fits = (made, typed) => { const t = parseVal(typed); return !t || Math.abs(t.v - parseVal(made).v) < 1e-9; };
+        if (last && last.step && fits(last[0], m[1]) && fits(last[1], m[2]) && (parseVal(m[1]) || parseVal(m[2]))) {
+          last[0] = m[1]; last[1] = m[2]; continue;
+        }
+        out.push([m[1], m[2]]); continue;
+      }
       const prev = out[out.length - 1], f = parseVal(m[4]);
       const A = prev && parseVal(prev[0]), B = prev && parseVal(prev[1]);
       if (!f || !f.v || !A || !B) continue;
@@ -571,9 +580,13 @@
     const pairs = pairsOf(s);
     let head = null;
     if (pairs.length && pairs[0].length === 2 && !parseVal(pairs[0][0]) && !parseVal(pairs[0][1]) && pairs[0][0] !== '?') head = pairs.shift();
-    const cols = pairs.filter(p => p.length === 2 && parseVal(p[0]));
+    // an unknown on top (?:18) is placed using the rate from a pair where both are known
+    const known = pairs.find(p => p.length === 2 && parseVal(p[0]) && parseVal(p[1]) && parseVal(p[1]).v);
+    const rate = known ? parseVal(known[0]).v / parseVal(known[1]).v : null;
+    const topOf = p => (parseVal(p[0]) ? parseVal(p[0]).v : rate != null && parseVal(p[1]) ? round(parseVal(p[1]).v * rate) : null);
+    const cols = pairs.filter(p => p.length === 2 && topOf(p) != null);
     if (!cols.length) return { error: 'Type pairs like 0:0, 1:3.50, 4:14 (top value must be a number)' };
-    const tv = cols.map(c => parseVal(c[0]).v);
+    const tv = cols.map(topOf);
     const lo = Math.min(0, ...tv), hi = Math.max(...tv);
     const xl = head ? 150 : 50, xr = W - 40;
     let X = v => (hi === lo ? (xl + xr) / 2 : xl + ((v - lo) / (hi - lo)) * (xr - xl));
