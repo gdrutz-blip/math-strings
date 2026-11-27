@@ -193,12 +193,12 @@
         {
           "q": "3 x 1/4",
           "a": "3/4",
-          "notes": "Look for: three quarters. Ask: \"Three groups of a quarter?\" Model: numberline 0 +1/4x3",
+          "notes": "Look for: three quarters. Ask: \"Three groups of a quarter?\" Model: numberline +1/4 +1/4 +1/4",
           "responses": [
             {
               "say": "Three quarters: 3/4.",
               "tool": "numberline",
-              "type": "0 +1/4x3"
+              "type": "+1/4 +1/4 +1/4"
             },
             {
               "say": "3/12",
@@ -212,12 +212,12 @@
         {
           "q": "3 x 3/4",
           "a": "2 1/4",
-          "notes": "Look for: 9 quarters = 2 1/4. Ask: \"How many quarters? How many wholes?\" Model: numberline 0 +3/4x3",
+          "notes": "Look for: 9 quarters = 2 1/4. Ask: \"How many quarters? How many wholes?\" Model: numberline +3/4 +3/4 +3/4",
           "responses": [
             {
               "say": "Three jumps of 3/4: 2 1/4.",
               "tool": "numberline",
-              "type": "0 +3/4x3",
+              "type": "+3/4 +3/4 +3/4",
               "tip": "The target model."
             },
             {
@@ -237,12 +237,12 @@
         {
           "q": "6 x 2/3",
           "a": "4",
-          "notes": "Look for: 12 thirds = 4. Ask: \"Is there a quicker way?\" Model: numberline 0 +2/3x6",
+          "notes": "Look for: 12 thirds = 4. Ask: \"Is there a quicker way?\" Model: numberline +2/3 +2/3 +2/3 +2/3 +2/3 +2/3",
           "responses": [
             {
               "say": "12 thirds is 4.",
               "tool": "numberline",
-              "type": "0 +2/3x6"
+              "type": "+2/3 +2/3 +2/3 +2/3 +2/3 +2/3"
             },
             {
               "say": "2/3 of 6 is 4.",
@@ -360,12 +360,12 @@
         {
           "q": "2 / 1/2",
           "a": "4",
-          "notes": "Look for: how many halves in 2? Four. Ask: \"What does ÷ 1/2 mean?\" Word choice: \"how many halves fit in 2?\" Model: numberline 0 +1/2x4",
+          "notes": "Look for: how many halves in 2? Four. Ask: \"What does ÷ 1/2 mean?\" Word choice: \"how many halves fit in 2?\" Model: numberline +1/2 +1/2 +1/2 +1/2",
           "responses": [
             {
               "say": "Four halves fit in 2.",
               "tool": "numberline",
-              "type": "0 +1/2x4",
+              "type": "+1/2 +1/2 +1/2 +1/2",
               "tip": "The target model. Count the jumps."
             },
             {
@@ -380,12 +380,12 @@
         {
           "q": "3 / 1/2",
           "a": "6",
-          "notes": "Look for: 6 halves. Ask: \"How does the last problem help?\" Model: numberline 0 +1/2x6",
+          "notes": "Look for: 6 halves. Ask: \"How does the last problem help?\" Model: numberline +1/2 +1/2 +1/2 +1/2 +1/2 +1/2",
           "responses": [
             {
               "say": "Six halves fit in 3.",
               "tool": "numberline",
-              "type": "0 +1/2x6"
+              "type": "+1/2 +1/2 +1/2 +1/2 +1/2 +1/2"
             },
             {
               "say": "2 halves in every whole, so 3 × 2 = 6.",
@@ -404,12 +404,13 @@
         {
           "q": "3 / 1/4",
           "a": "12",
-          "notes": "Look for: 4 quarters in each whole: 12. Ask: \"Why is the answer bigger than 3?\" Model: numberline 0 +1/4x12",
+          "notes": "Look for: 4 quarters in each whole: 12. Ask: \"Why is the answer bigger than 3?\" Model: numberline +1/4x12",
           "responses": [
             {
               "say": "12 quarters fit in 3.",
               "tool": "numberline",
-              "type": "0 +1/4x12"
+              "type": "+1/4x12",
+              "tip": "x12 means 12 jumps of 1/4."
             },
             {
               "say": "4 quarters per whole, times 3 wholes.",
@@ -428,12 +429,12 @@
         {
           "q": "3/4 / 1/4",
           "a": "3",
-          "notes": "Look for: three quarters hold 3 quarters. Ask: \"How many quarters in 3/4?\" Model: numberline 0 +1/4x3",
+          "notes": "Look for: three quarters hold 3 quarters. Ask: \"How many quarters in 3/4?\" Model: numberline +1/4 +1/4 +1/4",
           "responses": [
             {
               "say": "Three quarters in 3/4: 3.",
               "tool": "numberline",
-              "type": "0 +1/4x3"
+              "type": "+1/4 +1/4 +1/4"
             },
             {
               "say": "3/16",
@@ -447,12 +448,12 @@
         {
           "q": "2 / 2/3",
           "a": "3",
-          "notes": "Look for: jumps of 2/3 to reach 2: three. Ask: \"How many two-thirds fit?\" Model: numberline 0 +2/3x3",
+          "notes": "Look for: jumps of 2/3 to reach 2: three. Ask: \"How many two-thirds fit?\" Model: numberline +2/3 +2/3 +2/3",
           "responses": [
             {
               "say": "Three jumps of 2/3 make 2.",
               "tool": "numberline",
-              "type": "0 +2/3x3"
+              "type": "+2/3 +2/3 +2/3"
             },
             {
               "say": "6 thirds in 2, and 2 thirds per group: 6 ÷ 2 = 3.",
@@ -472,13 +473,13 @@
         {
           "q": "1 1/2 / 3/4",
           "a": "2",
-          "notes": "Look for: two jumps of 3/4 make 1 1/2. Ask: \"How many 3/4s fit?\" Model: numberline 0 +3/4x2",
+          "notes": "Look for: two jumps of 3/4 make 1 1/2. Ask: \"How many 3/4s fit?\" Model: numberline +3/4 +3/4",
           "optional": true,
           "responses": [
             {
               "say": "Two jumps of 3/4: 1 1/2.",
               "tool": "numberline",
-              "type": "0 +3/4x2"
+              "type": "+3/4 +3/4"
             },
             {
               "say": "6 quarters ÷ 3 quarters = 2.",
@@ -490,13 +491,13 @@
         {
           "q": "5 / 5/6",
           "a": "6",
-          "notes": "Look for: 30 sixths ÷ 5 sixths = 6. Ask: \"How many 5/6s fit in 5?\" Model: numberline 0 +5/6x6",
+          "notes": "Look for: 30 sixths ÷ 5 sixths = 6. Ask: \"How many 5/6s fit in 5?\" Model: numberline +5/6 +5/6 +5/6 +5/6 +5/6 +5/6",
           "optional": true,
           "responses": [
             {
               "say": "Six jumps of 5/6 make 5.",
               "tool": "numberline",
-              "type": "0 +5/6x6"
+              "type": "+5/6 +5/6 +5/6 +5/6 +5/6 +5/6"
             },
             {
               "say": "30 sixths ÷ 5 sixths = 6.",

@@ -24,12 +24,12 @@
         {
           "q": "5, 10, 15, 20",
           "a": "5n",
-          "notes": "Look for: up 5 each time, and term 0 would be 0. Ask: \"What's term 10?\" Word choice: \"term number n\". Model: numberline 0 +5 +5 +5 +5",
+          "notes": "Look for: up 5 each time, and term 0 would be 0. Ask: \"What's term 10?\" Word choice: \"term number n\". Model: numberline +5 +5 +5 +5",
           "responses": [
             {
               "say": "Up 5 each time, starting from 0: 5n.",
               "tool": "numberline",
-              "type": "0 +5 +5 +5 +5",
+              "type": "+5 +5 +5 +5",
               "tip": "Rate 5, starting value 0."
             },
             {
@@ -291,7 +291,7 @@
             {
               "say": "1.5n.",
               "tool": "numberline",
-              "type": "0 +1.5 +1.5 +1.5 +1.5"
+              "type": "+1.5 +1.5 +1.5 +1.5"
             }
           ]
         },
