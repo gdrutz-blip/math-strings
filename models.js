@@ -257,7 +257,9 @@
       const A = prev && parseVal(prev[0]), B = prev && parseVal(prev[1]);
       if (!f || !f.v || !A || !B) continue;
       const k = m[3] === '/' ? 1 / f.v : f.v;
-      out.push([fmt(round(A.v * k)), fmt(round(B.v * k))]);
+      const pr = [fmt(round(A.v * k)), fmt(round(B.v * k))];
+      pr.step = (m[3] === '/' ? '÷' : '×') + m[4]; // the arrow shows the step as typed: ×18/4, not ×4.5
+      out.push(pr);
     }
     return out;
   }
@@ -306,7 +308,7 @@
     }
     for (let i = 1; i < cols.length; i++) {
       const xa = x0 + hw + cw * (i - 0.5), xb = x0 + hw + cw * (i + 0.5), mid = (xa + xb) / 2;
-      const l = editable('r' + i, labels, rel(cols[i - 1][0], cols[i][0], i));
+      const l = editable('r' + i, labels, cols[i].step || rel(cols[i - 1][0], cols[i][0], i));
       if (!l.text) continue;
       body += `<path d="M${xa + 6} ${y0 - 6} Q ${mid} ${y0 - 58} ${xb - 6} ${y0 - 6}" fill="none" stroke="${C.fwd}" stroke-width="2.5" marker-end="url(#ah-fwd)"/>`;
       body += text(mid, y0 - 38, l.text, { fill: C.fwd, size: cw < 60 ? 15 : 20, weight: 700, edit: 'r' + i, custom: l.custom });
@@ -1242,7 +1244,7 @@
     { id: 'doubleline', name: 'Double number line', short: 'Dbl. line', key: '2', icon: '☰', render: doubleline, help: 'miles:hours, 0:0, 60:1, 30:0.5  ·  x2 or ÷2 makes the next mark from the one before' },
     { id: 'area', name: 'Area model', short: 'Area', key: '3', icon: '▣', render: area, help: '30+8 x 7  ·  40x20 - 2x20  ·  divide: 84 / 7 = 70 + 14  ·  fractions: 2/3 x 3/4  ·  click a box to hide its product' },
     { id: 'array', name: 'Array', key: '4', icon: '⁘', render: array, help: '6 x 8  ·  6 x 5+3 (split)  ·  10-1 x 12 (take a row away)  ·  40x20 - 2x20' },
-    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  3:4 x2 makes the next column 6:8 (also ÷2)  ·  names first: bags:apples, 1:7' },
+    { id: 'ratio', name: 'Ratio table', short: 'Ratio', key: '5', icon: '▦', render: ratio, help: '1:7, 10:70, 5:35  ·  3:4 x2 makes the next column 6:8 (also ÷2, or x18/4)  ·  names first: bags:apples, 1:7' },
     { id: 'bar', name: 'Bar model', short: 'Bar', key: '6', icon: '▭', render: bar, help: '3/4 of 24  ·  24 = 10 + ?  ·  Ana: 12; Ben: 12 + 5' },
     { id: 'tiles', name: 'Integer tiles', short: 'Tiles', key: '7', icon: '±', render: tiles, help: '3 + -5  ·  3 + -5 + 2 + -4  ·  -2 - 4  ·  3 - -2  ·  3 x -2  ·  click the caption to reword it' },
     { id: 'column', name: 'Standard algorithm', short: 'Algorithm', key: '8', icon: '▤', render: column, help: '38 + 9  ·  100 - 76  ·  2.5 + 1.9  ·  38 x 7  ·  24 x 13  ·  click the answer to hide it' },
