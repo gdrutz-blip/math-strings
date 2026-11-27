@@ -1,6 +1,6 @@
 // Combines every .json file in the strings/ folder into strings.json, which the app loads.
-// Netlify runs this on every deploy, so uploading a file to strings/ on GitHub is all it takes.
-// A file with a mistake in it is skipped (and named in the Netlify log); the rest still publish.
+// The GitHub Pages workflow runs this on every publish, so uploading a file to strings/ on GitHub is all it takes.
+// A file with a mistake in it is skipped (and named in the workflow log); the rest still publish.
 const fs = require('fs');
 const path = require('path');
 

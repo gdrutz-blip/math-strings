@@ -17,7 +17,6 @@ Live at **https://gdrutz-blip.github.io/math-strings/**. Plain HTML, CSS and Jav
 | `strings/` | **Your string library**, one `.json` file per week. Every computer that opens the site gets these. |
 | `build.js` | The publish step runs this to combine the `strings/` files into `strings.json` (generated; don't edit) |
 | `PLANNING-GUIDE.md` | Instructions for a Claude planning chat: the file format and model inputs |
-| `netlify.toml` | Old Netlify setup (no longer used) |
 
 ## Quick board
 
@@ -107,7 +106,7 @@ The other tools (vertical number line, give & take, halving, clock, split, estim
 | Slide (same difference) | `62 - 49 = 63 - 50` or `62 - 49 > +1` | both numbers sliding together, same gap marked |
 | Give & take | `49 + 26 = 50 + 25` or `49 + 26 > +1` | bars showing the amount moving from one number to the other |
 | Doubling & halving | `16 x 25 = 8 x 50 = 4 x 100` | rectangle cut and rearranged at each step |
-| Ratio table | `bags:apples, 1:7, 10:70, 5:35` · `100:60, 10:6, 5:3, 15:9` · `3:4 x2` (makes 6:8; also `÷2`, or a fraction like `x18/4`, which the arrow shows as typed). Pose it with an unknown, `3:4 ?:18`, then add the scale factor at the end, `3:4 ?:18 x18/4`: the ? stays and the arrow into it shows ×18/4 (it still works once the ? is filled in) | table with ×/÷ arrows; a column made by adding (or subtracting) two others is marked, e.g. 10 + 5 |
+| Ratio table | `bags:apples, 1:7, 10:70, 5:35` · `100:60, 10:6, 5:3, 15:9` · `3:4 x2` (makes 6:8; also `÷2`, or a fraction like `x18/4`, which the arrow shows as typed). Pose it with an unknown, `3:4 ?:18`, then add the scale factor at the end, `3:4 ?:18 x18/4`: the ? stays and the arrow into it shows ×18/4 (it still works once the ? is filled in). Three rows: `juice:water:total, 2:5:7 x5`. Names can have spaces (`juice:total cups`), numbers can be mixed (`13 1/2:18`), money keeps two decimals (`6:7.20 /6` gives 1.20), and `3/3:24/3` shows 1 : 8 | table with ×/÷ arrows; a column made by adding (or subtracting) two others is marked, e.g. 10 + 5 |
 | Area model | `30+8 x 7` | split rectangle with partial products |
 | | `40-2 x 20` or `40x20 - 2x20` | 40 × 20 with a 2 × 20 strip taken away |
 | | `84 / 7 = 70 + 14` · `86 / 7 = 70 + 14 + 2` · `84 / 7` | division as a missing side: 84 split into 70 and 14, sides 10 and 2 (a remainder is hatched) |
@@ -121,7 +120,7 @@ The other tools (vertical number line, give & take, halving, clock, split, estim
 | Split by place value | `36 + 47` | tens with tens, ones with ones |
 | Estimate | `36 + 47` · `3.99 + 2.45` · `36 + 47 ≈ 35 + 45` | nearest friendly numbers (decimals to the nearest half), then the estimate |
 | Words & equations | `38 x 20 = 40 x 20 - 2 x 20 ; = 800 - 40` | student words or equations; `;` starts a new line |
-| Bar model | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` | tape diagrams |
+| Bar model | `3/4 of 24` · `24 = 10 + ?` · `Ana: 12; Ben: 12 + 5` · `Juice: 5x2; Water: 5x5` (5x2 is two boxes of 5) | tape diagrams |
 
 Click any label on a drawing to replace it with the student's words.
 
