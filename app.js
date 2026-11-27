@@ -794,6 +794,19 @@ Rules:
         </ol>
       </section>
 
+      <section class="panel"><h2>Running a string</h2>
+        <p>A math string is a short set of related problems, shown one at a time, that students solve in their heads. Each problem leans on the one before, so a strategy starts to show.</p>
+        <ol class="steps">
+          <li><b>Show one problem.</b> Just one, and nothing else on the board.</li>
+          <li><b>Mental math.</b> No pencils. Students work it out in their heads.</li>
+          <li><b>Think, talk, share.</b> Quiet think time, then a partner, then the class.</li>
+          <li><b>Answers, then thinking.</b> Collect every answer first, right or wrong, then ask how they got it and model their thinking.</li>
+          <li><b>Next problem.</b> Leave the earlier ones up so students can use them.</li>
+          <li><b>Wrap up.</b> Look back at the whole string and ask, <i>"What did you notice?"</i></li>
+        </ol>
+        <p class="hint">Which buttons to press for each step: <a href="#/start">📘 Getting started</a>.</p>
+      </section>
+
       ${findString('g4-bank-sub-09-shift-both-numbers') ? `<section class="panel"><h2>The string from Session 1</h2>
         <div class="pd-days">${row(findString('g4-bank-sub-09-shift-both-numbers'))}</div>
       </section>` : ''}
